@@ -4,5 +4,7 @@
 * [Getting Started](getting-started/README.md)
   * [What is Transposit?](getting-started/what-is-transposit.md)
   * [Getting Started with TQL](getting-started/getting-started-with-tql.md)
+* [Untitled](untitled.md)
+* [Bootstrapped Apps](bootstrapped-apps.md)
 * [Transposit Changelog](transposit-changelog.md)
 
