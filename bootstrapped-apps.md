@@ -1,2 +1,2 @@
-# Bootstrapped Apps
+# Bootstrapped App
 
