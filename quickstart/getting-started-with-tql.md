@@ -1,4 +1,4 @@
-# Getting Started with TQL
+# TQL 101
 
 ### The basics {#GettingStartedwithTQL-Thebasics}
 
