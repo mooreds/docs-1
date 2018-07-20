@@ -5,6 +5,8 @@
   * [Transposit 101](quickstart/transposit-101/README.md)
     * [Javascript vs TQL](quickstart/transposit-101/javascript-vs-tql.md)
     * [Connectors](quickstart/transposit-101/connectors.md)
+    * [Operations](quickstart/transposit-101/operations.md)
+  * [Easy Hosted Apps](quickstart/easy-hosted-apps.md)
   * [TQL Basics](quickstart/getting-started-with-tql.md)
 * [Tutorials](untitled.md)
 * [References](references/README.md)
