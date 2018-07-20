@@ -1,2 +1,2 @@
-# Transposit 101
+# Intro to Transposit
 

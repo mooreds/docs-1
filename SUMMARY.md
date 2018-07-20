@@ -2,7 +2,7 @@
 
 * [Getting Started](README.md)
 * [Getting Started](quickstart/README.md)
-  * [Transposit 101](quickstart/transposit-101/README.md)
+  * [Intro to Transposit](quickstart/transposit-101/README.md)
     * [Javascript vs TQL](quickstart/transposit-101/javascript-vs-tql.md)
     * [Connectors](quickstart/transposit-101/connectors.md)
     * [Operations](quickstart/transposit-101/operations.md)
@@ -22,4 +22,7 @@
   * [Keychains](authentication/keychains.md)
 * [Logging and Debugging](logging-and-debugging.md)
 * [Transposit Changelog](transposit-changelog.md)
+* [Deployment](deployment/README.md)
+  * [Scheduled tasks](deployment/scheduled-tasks.md)
+  * [Webhooks](deployment/webhooks.md)
 
