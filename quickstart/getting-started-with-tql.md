@@ -1,3 +1,7 @@
+---
+description: basics and maybe have companion playground
+---
+
 # TQL Basics
 
 ### The basics {#GettingStartedwithTQL-Thebasics}
