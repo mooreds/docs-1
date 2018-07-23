@@ -6,6 +6,7 @@
     * [Javascript vs TQL](quickstart/transposit-101/javascript-vs-tql.md)
     * [Connectors](quickstart/transposit-101/connectors.md)
     * [Operations](quickstart/transposit-101/operations.md)
+    * [Parameters](quickstart/transposit-101/parameters.md)
     * [Authentication](quickstart/transposit-101/authentication.md)
   * [Easy Hosted Apps](quickstart/easy-hosted-apps.md)
   * [TQL Basics](quickstart/getting-started-with-tql.md)
