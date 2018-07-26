@@ -178,7 +178,7 @@ In both cases, `<json-value>` can be one of the following:
 - `<path>` - a column selection
 - `<immediate-value>` - number, string or boolean
 
-`<key>` is a JSON key, for convenience JSON template doesn't require to use string quotes around the key.
+`<key>` is a \_\_\_, for convenience JSON template doesn't require to use string quotes around the key but it should be used if the `<key>` contains spaces or other illegal characters.
 
 TODO - spread, table alias
 
