@@ -2,10 +2,10 @@
 
 ## Terms and symbols
 
-TODO - table/service, column/field, <>, [], data source, results JSON object
-TODO: string quotes
+TODO - table/service, column/field, <>, data source, results JSON object
+TODO: string quotes, identifier (and escaping), immediate value
 
-## Select
+## Select statement
 
 TODO: general description - manipulation of list of json objects, etc...
 
@@ -19,14 +19,26 @@ EXPAND BY <columns>
 LIMIT <number>
 ```
 
-The `SELECT` clause is the only required clause.<br/>
+The `SELECT` clause is required.<br/>
 The clauses `WHERE`, `EXPAND BY` and `LIMIT` can be used only if `FROM` clause is used.
 
 The clauses must appear in the order that was specific above.
 
-### Select
+### Order of execution
 
-The `SELECT` clause support three types of selections:
+1.  `FROM`
+2.  `WHERE`
+3.  `EXPAND BY`
+4.  `LIMIT`
+5.  `SELECT`
+
+### Select clause
+
+The `SELECT` clause is used for manipulating the structure and values of each item in the 'data source'.
+
+The `SELECT` clause gets as input a JSON object or JSON array from the 'data source' and produce a JSON object or a JSON array.
+
+The `SELECT` clause supports three to ways to manipulate an item:
 
 - [Select star](#select-star)
 - [Columns selection](#columns-selection)
@@ -34,44 +46,76 @@ The `SELECT` clause support three types of selections:
 
 #### Select star
 
-If you want to keep the 'data source' as-is, you can use the `*` symbol:
+The `*` symbol will keep the items from 'data source' without changes:
 
 ```
 SELECT *
 FROM source.service
 ```
 
-Will not modify the results from `source.service`
-
 #### Columns selection
 
-Columns selection can be used to construct a results JSON object with specific keys that will appear in the top level of the object.
+Columns selection can be used to construct a JSON object with specific keys that will appear in the top level of the object.
+
+Columns selection cannot construct a nested JSON object or a JSON array, to construct such items use [JSON template](#json-template).
 
 The syntax for columns selection is:
 
 ```
-SELECT <path> [AS <alias_name>] [, <path> [AS <alias_name>] ...]
+SELECT <column-expression> AS <column-alias>, <column-expression> AS <column-alias>, ...
 ```
 
-`<path>` is composed of one or more `<component>`s that describe the location of the key inside the source JSON object. Each `component` is separated with a `.` (dot).
+`<column-expression>` describes how to construct a value in the output JSON object and can be one of the following:
 
-`<component>` is a string (TODO: add the valid characters). If the `<component>` is a keyword or contains spaces or other illegal characters, the `<component>` or the entire `<path>` can be escaped (see [Escaping](#escaping) section)
+- `<path>`
+- `<path>`.\*
+- `<table-alias>`.`<path>`
+- `<table-alias>`.`<path>`.\*
+- `<immediate-value>`
+- `<binary-expression>`
+
+`<path>` describes a nested location of a value inside a JSON object or a JSON array and can be one of the following:
+
+- `<key>`
+- `<path>`.`<key>`
 
 (TODO: need to update this when we support bracket syntax (TR-1540))
 
-`AS <alias_name>` is optional, in columns selection this alias is called 'column alias'.
+`<key>` is an identifier.
 
-TODO: describe - `nested.object.*`
+`<table-alias>` is an identifier.
 
-TODO: describe expression
+`<immediate-value>` is a number, string or boolean value.
 
-TODO: table alias
+`<binary-expression>` describe basic math operation (for numbers) or string concatenation (of strings) and can be one of the following:
+
+- `<column-expression>` + `<column-expression>`
+- `<column-expression>` - `<column-expression>`
+- `<column-expression>` \* `<column-expression>`
+- `<column-expression>` / `<column-expression>`
+
+`AS <column-alias>` is optional. `<column-alias>` is an identifier.
 
 ##### Object construction
 
-Columns selection construct a JSON object for each item in the 'data source' based on the specified `<path>`s and column aliases.
+Columns selection construct a JSON object for each item in the 'data source' based on the specified `<column-expression>`s and `<column-alias>`s.
 
-The `<path>`s and column aliases are used in the same order as they appear in the query.
+The `<column-expression>`s and `<column-alias>`s are used in the same order as they appear in the query.
+
+Each `<column-expression>` will be calculated and resolved. The output can be immediate value (number, string or boolean), JSON object or JSON array.<br/>
+
+For `<path>` the resolve process will do a lookup for each `<key>` in the current location in the JSON object. The final value that was found will be used as the resolved value.<br>
+If a `<key>` is being resolved but the current item is not a JSON object, the resolve will stop and the `<path>` will be considered as 'not found'.
+If a `<key>` is being resolved and the current item is a JSON object that doesn't contain the same key, the resolve will stop and the `<path>` will be considered as 'not found'.
+
+For `<path>`.\* - TODO
+
+For `<table-alias>`.`<path>` - TODO
+
+For `<table-alias>`.`<path>`.\* - TODO
+
+For `<binary-expression>` the resolve process will deconstruct the expression and will resolved each part and then will reconstruct the resolved parts to produce immediate value.
+
 For each one we will do a lookup in the current item from the 'data source', if the `<path>` was found we will add the matching value to the results JSON object. If 'column alias' was specified we will use that as the key of the value, otherwise we will use the last `<component>` of the `<path>` as the key.
 
 If the same key is used more than once the last value will be used and will override the previous value.
@@ -154,6 +198,8 @@ Will generate a JSON object with the key and value of the item in the specific p
 ]
 ```
 
+TODO - examples for `<path>`.\*, table alias, immediate value, binary expression
+
 #### JSON template
 
 JSON template is a more generic way to construct a JSON object or a JSON array as the results item.
@@ -186,21 +232,21 @@ TODO - spread, table alias
 
 TODO - select without FROM
 
-### From
+### From clause
 
 #### Select from table/service
 
 TODO - table/service, sub query, table alias, join (with/without input params, AND/OR)
 
-### Where
+### Where clause
 
 TODO - filters, input params, $body, AND/OR, IN, subquery, expressions
 
-### Expand by
+### Expand by clause
 
 TODO - column, nested path, alias, multiple columns
 
-### Limit
+### Limit clause
 
 TODO
 
@@ -208,15 +254,15 @@ TODO
 
 TODO (maybe this is not needed and we will talk about expressions in the relevant sections)
 
-## Insert
+## Insert statement
 
 TODO
 
-## Update
+## Update statement
 
 TODO
 
-## Delete
+## Delete statement
 
 TODO
 
