@@ -34,7 +34,7 @@ The clauses must appear in the order that was specific above.
 
 ### Select clause
 
-The `SELECT` clause is used for manipulating the structure and values of each item in the 'data source'.
+The `SELECT` clause can be used for manipulating the structure and values of each item in the 'data source'.
 
 The `SELECT` clause gets as input a JSON object or JSON array from the 'data source' and produce a JSON object or a JSON array.
 
@@ -57,7 +57,7 @@ FROM source.service
 
 Columns selection can be used to construct a JSON object with specific keys that will appear in the top level of the object.
 
-Columns selection cannot construct a nested JSON object or a JSON array, to construct such items use [JSON template](#json-template).
+Columns selection cannot construct a nested JSON object or a JSON array, to construct these items use [JSON template](#json-template).
 
 The syntax for columns selection is:
 
@@ -68,16 +68,19 @@ SELECT <column-expression> AS <column-alias>, <column-expression> AS <column-ali
 `<column-expression>` describes how to construct a value in the output JSON object and can be one of the following:
 
 - `<path>`
-- `<path>`.\*
-- `<table-alias>`.`<path>`
-- `<table-alias>`.`<path>`.\*
+- `<table-alias>.<path>`
 - `<immediate-value>`
 - `<binary-expression>`
 
-`<path>` describes a nested location of a value inside a JSON object or a JSON array and can be one of the following:
+`<path>` describes the location of a value inside a JSON object or a JSON array. `<path>` contains one or more keys/field names that describe the lookup chain of fields inside the input JSON object - each `<key>` gets the inner JSON object/array and the lookup continues from that JSON object/array. The last item in `<path>` can be `.*`.
+
+`<path>` can be one of the following:
 
 - `<key>`
-- `<path>`.`<key>`
+- `<key 1>.<key 2>.` ... `.<key N>`
+- `<key>.*`
+- `<key 1>.<key 2>.` ... `.<key N>`
+- `<key 1>.<key 2>.` ... `.<key N>.*`
 
 (TODO: need to update this when we support bracket syntax (TR-1540))
 
@@ -94,7 +97,7 @@ SELECT <column-expression> AS <column-alias>, <column-expression> AS <column-ali
 - `<column-expression>` \* `<column-expression>`
 - `<column-expression>` / `<column-expression>`
 
-`AS <column-alias>` is optional. `<column-alias>` is an identifier.
+`AS <column-alias>` is an identifier and it's optional.
 
 ##### Object construction
 
@@ -104,23 +107,27 @@ The `<column-expression>`s and `<column-alias>`s are used in the same order as t
 
 Each `<column-expression>` will be calculated and resolved. The output can be immediate value (number, string or boolean), JSON object or JSON array.<br/>
 
-For `<path>` the resolve process will do a lookup for each `<key>` in the current location in the JSON object. The final value that was found will be used as the resolved value.<br>
-If a `<key>` is being resolved but the current item is not a JSON object, the resolve will stop and the `<path>` will be considered as 'not found'.
-If a `<key>` is being resolved and the current item is a JSON object that doesn't contain the same key, the resolve will stop and the `<path>` will be considered as 'not found'.
+For `<path>` the resolve process will do a lookup for each `<key>` in the current location in the JSON object. The value that is found will be used as the resolved value. if `<path>` ends with `.*` - the value will be all the fields that were found under the last `<key>`<br>
+If a `<key>` is being resolved but the current item is not a JSON object, the resolve will stop and the value will be considered as 'not found'.<br>
+If a `<key>` is being resolved and the current item is a JSON object that doesn't contain the same key, the resolve will stop and the value will be considered as 'not found'.
 
-For `<path>`.\* - TODO
+For `<table-alias>.<path>` - the resolve process will resolve the specified `<path>` only under the results from the table that was marked with the specified alias.<br>
+If no table was marked with `<table-alias>` the resolve will stop and the value will be considered as 'not found'.
 
-For `<table-alias>`.`<path>` - TODO
+For `<binary-expression>` the resolve process will deconstruct the expression and will resolved each part and then will reconstruct the resolved parts to produce immediate value.<br>
+If the types of the operands is not the same the resolve process will produce an error and the entire query will fail.<br>
+If the types of the operands is string, only the `+` operator is allowed, if a different operator is use the resolve process will produce an error and the entire query will fail.
 
-For `<table-alias>`.`<path>`.\* - TODO
+If the resolve process found a valid value, this value will be added to the output JSON object with a key, the key is selected in the following way:
 
-For `<binary-expression>` the resolve process will deconstruct the expression and will resolved each part and then will reconstruct the resolved parts to produce immediate value.
+- If `<column-alias>` is specified it will be used as the key.
+- If `<column-expression>` is `<path>` that does not ends with `.*` - the last `<key>` will be used as the key.
+- If `<column-expression>` is `<path>` that ends with `.*` - the key and values under the last `<key>` will be used without change.
+- Otherwise the entire `<column-expression>` will be used as the key. It's recommended to use `<column-alias>` in this case.
 
-For each one we will do a lookup in the current item from the 'data source', if the `<path>` was found we will add the matching value to the results JSON object. If 'column alias' was specified we will use that as the key of the value, otherwise we will use the last `<component>` of the `<path>` as the key.
+If the same key is used more than once the last value will be used and will override any previous values that had the same key.
 
-If the same key is used more than once the last value will be used and will override the previous value.
-
-If the value of a `<path>` is `null` or does not exists we will not add it to the results JSON object.
+If the value is resolved to `null` or 'not found' this value will not be added it to the output JSON object.
 
 ##### Examples:
 
@@ -166,7 +173,7 @@ _Selecting nested value:_
 
 To access a value inside a nested object you can use a `.` (dot) as separator between the nested object keys.
 
-For example, if the 'data source' is in the format:
+If the 'data source' is in the format:
 
 ```
 [
@@ -198,7 +205,114 @@ Will generate a JSON object with the key and value of the item in the specific p
 ]
 ```
 
-TODO - examples for `<path>`.\*, table alias, immediate value, binary expression
+_Selecting all values under a nested object:_
+
+To access all values inside a nested object you can use a `.*` in the end of the path that contains the values.
+
+If the 'data source' is in the format:
+
+```
+[
+  {
+    "nested": {
+      "object": {
+        "value1": ...,
+        "value2": ...,
+        "value3": ...
+      }
+    }
+  }
+]
+```
+
+The query:
+
+```
+SELECT nested.object.*
+FROM source.service
+```
+
+Will generate a JSON object with the all the keys and values in the specific path:
+
+```
+[
+  {
+    "value1": ...,
+    "value2": ...,
+    "value3": ...
+  },
+  ...
+]
+```
+
+_Using table alias:_
+
+When a table is marked with alias (see [Table alias](#table-alias)) the same table alias can be used as a qualifier in the beginning of the path to define exactly where to do the lookup for the path (the results of which table to use). This is useful when the query contains more than one table (for example in [Join query](#join-query)).
+
+```
+SELECT T.col1
+FROM source.service AS T
+```
+
+Will generate a JSON object with a single key:
+
+```
+[
+  {
+    "col1": ...
+  },
+  ...
+]
+```
+
+_Immediate value:_
+
+Any value of the types number, string or boolean can be used as an immediate value.
+
+```
+select 7 as value1, 'seven' as value2, true as value3
+```
+
+Will generate:
+
+```
+[
+  {
+    "value1": 7,
+    "value2": "seven",
+    "value3": true
+  }
+]
+```
+
+_Binary expressions:_
+
+Binary expressions can be used for basic math operation (for numbers) or string concatenation (of strings).<br>
+Binary expressions can use any combination of path, immediate values and nested binary expressions.<br>
+Parentheses can be used to define the order of operations.
+
+```
+select (20 + 3) * 2 as value
+```
+
+Will generate:
+
+```
+[
+  {
+    "value": 46
+  }
+]
+```
+
+With column:
+
+```
+select (col1 + 10) * col2 as value
+FROM source.service
+```
+
+Will use the values of col1 and col2 to calculate the value of the expression.
 
 #### JSON template
 
@@ -273,3 +387,7 @@ TODO (@userId)
 ## Escaping
 
 TODO - list of keywords, valid/invalid characters, how to escape
+
+```
+
+```
