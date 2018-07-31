@@ -77,10 +77,9 @@ SELECT <column-expression> AS <column-alias>, <column-expression> AS <column-ali
 `<path>` can be one of the following:
 
 - `<key>`
-- `<key 1>.<key 2>.` ... `.<key N>`
+- `<key-1>.<key-2>.` ... `<key-N>`
 - `<key>.*`
-- `<key 1>.<key 2>.` ... `.<key N>`
-- `<key 1>.<key 2>.` ... `.<key N>.*`
+- `<key-1>.<key-2>.` ... `<key-N>.*`
 
 (TODO: need to update this when we support bracket syntax (TR-1540))
 
@@ -97,7 +96,7 @@ SELECT <column-expression> AS <column-alias>, <column-expression> AS <column-ali
 - `<column-expression>` \* `<column-expression>`
 - `<column-expression>` / `<column-expression>`
 
-`AS <column-alias>` is an identifier and it's optional.
+`AS <column-alias>` is optional. `<column-alias>` is an identifier.
 
 ##### Object construction
 
@@ -105,7 +104,7 @@ Columns selection construct a JSON object for each item in the 'data source' bas
 
 The `<column-expression>`s and `<column-alias>`s are used in the same order as they appear in the query.
 
-Each `<column-expression>` will be calculated and resolved. The output can be immediate value (number, string or boolean), JSON object or JSON array.<br/>
+Each `<column-expression>` will be calculated and resolved. The resolved value can be immediate value (number, string or boolean), JSON object or JSON array.<br/>
 
 For `<path>` the resolve process will do a lookup for each `<key>` in the current location in the JSON object. The value that is found will be used as the resolved value. if `<path>` ends with `.*` - the value will be all the fields that were found under the last `<key>`<br>
 If a `<key>` is being resolved but the current item is not a JSON object, the resolve will stop and the value will be considered as 'not found'.<br>
@@ -247,7 +246,7 @@ Will generate a JSON object with the all the keys and values in the specific pat
 
 _Using table alias:_
 
-When a table is marked with alias (see [Table alias](#table-alias)) the same table alias can be used as a qualifier in the beginning of the path to define exactly where to do the lookup for the path (the results of which table to use). This is useful when the query contains more than one table (for example in [Join query](#join-query)).
+When a table is marked with alias (see [table alias](#table-alias)) the same table alias can be used as a qualifier in the beginning of the path to define exactly where to do the lookup for the path (the results of which table to use). This is useful when the query contains more than one table (for example in [join query](#join-query)).
 
 ```
 SELECT T.col1
@@ -291,6 +290,8 @@ Binary expressions can be used for basic math operation (for numbers) or string 
 Binary expressions can use any combination of path, immediate values and nested binary expressions.<br>
 Parentheses can be used to define the order of operations.
 
+The query:
+
 ```
 select (20 + 3) * 2 as value
 ```
@@ -305,18 +306,18 @@ Will generate:
 ]
 ```
 
-With column:
+With columns:
 
 ```
-select (col1 + 10) * col2 as value
+select (col1 + 10) * nested.object.value1 as value
 FROM source.service
 ```
 
-Will use the values of col1 and col2 to calculate the value of the expression.
+Will use the values of `col1` and `nested.object.value1` to calculate the value of the expression.
 
 #### JSON template
 
-JSON template is a more generic way to construct a JSON object or a JSON array as the results item.
+JSON template is a more generic way to construct a JSON object or a JSON array as the output item.
 
 To construct a JSON object use the syntax:
 
@@ -330,17 +331,77 @@ To construct a JSON array use the syntax:
 SELECT [ <json-value>, ... ]
 ```
 
-In both cases, `<json-value>` can be one of the following:
+`<key>` is an identifier. For convenience JSON template doesn't require to use string quotes around the key but it should be used if the `<key>` contains spaces, illegal characters or keywords.
 
+`<json-value>` can be one of the following:
+
+- `<path>` - a column selection
+- `<table-alias>.<path>` - a column selection with table alias qualifier
+- `<immediate-value>` - number, string or boolean
+- `<binary-expression>` - a calculated expression
 - `<json-object>` - construct a nested object
 - `<json-array>` - construct a nested array
-- `<expression>` - a calculated expression
-- `<path>` - a column selection
-- `<immediate-value>` - number, string or boolean
 
-`<key>` is a \_\_\_, for convenience JSON template doesn't require to use string quotes around the key but it should be used if the `<key>` contains spaces or other illegal characters.
+`<path>`, `<table-alias>.<path>`, `<immediate-value>` and `<binary-expression>` are the same as in [columns selection](#columns-selection). The only difference is that `.*` in the end of `<path>` is not allowed in JSON template, use
+[spread operator](#spread-operator) instead.
 
-TODO - spread, table alias
+`<json-object>` constructs a JSON object, the syntax is:
+
+```
+{ <key-1>: <json-value-1>, <key-2>: <json-value-2>, ... <key-N>: <json-value-N> }
+```
+
+`<json-array>` constructs a JSON array, the syntax is:
+
+```
+[ <json-value-1>,  <json-value-2>, ... <json-value-N>]
+```
+
+##### Spread operator
+
+The spread operator expands a JSON object into JSON object or JSON array into a JSON array (similar to `<path>.*` in [columns selection](#columns-selection)).
+
+The spread JSON object use:
+
+```
+SELECT { ... obj }
+```
+
+The spread JSON array use:
+
+```
+SELECT [ ... arr ]
+```
+
+The spread operator can be mixed with any other JSON template features.
+
+##### Object construction
+
+JSON template construct a JSON object or array for each item in the 'data source' based on the specified template.<br>
+If the outer template is a `<json-object>` the item will be JSON object.<br>
+If the outer template is a `<json-array>` the item will be JSON array.<br>
+The values inside the outer template can be any type.
+
+The `<key>`s and `<json-value>`s are used in the same order as they appear in the template.
+
+Each `<json-value>` will be calculated and resolved. The resolved value can be immediate value (number, string or boolean), JSON object or JSON array.<br/>
+
+`<path>`, `<table-alias>.<path>`, `<immediate-value>` and `<binary-expression>` are resolved the same as in [columns selection](#columns-selection).
+
+`<json-object>` and `<json-array>` are resolved recursively.
+
+If the resolve process found a valid value, this value will be added to the output JSON object or array. If the output item is a JSON object the specified `<key>` will be used.
+
+If the same key is used more than once the last value will be used and will override any previous values that had the same key.
+
+If the value is resolved to `null` or 'not found':
+
+- If the output item is JSON object this value will not be added it to the output item.
+- if the output item is JSON array this value will be added it to the output item as `null`.
+
+##### Examples
+
+TODO - add examples for JSON template
 
 #### Immediate values
 
