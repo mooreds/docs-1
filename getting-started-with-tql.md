@@ -1,8 +1,4 @@
----
-description: basics and maybe have companion playground
----
-
-# TQL Basics
+# Using SQL in Transposit
 
 ### The basics {#GettingStartedwithTQL-Thebasics}
 

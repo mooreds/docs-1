@@ -1,4 +1,4 @@
-# Getting Started
+# Getting started
 
 ## What is Transposit?
 
