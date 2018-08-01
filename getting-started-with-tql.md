@@ -112,7 +112,7 @@ Which results in output like:
 | --- |
 
 
-Note that the name of the column is generated from the text of the selector when using this syntax. Also note that the selector "nested.moreVals" maps to the column name "moreVals" in the output. That is, it is moved to the top level of the results and is no longer nested. One consequence of this is that "select bar, foo.bar from ..." will conflict \(last one wins\). Here you are encouraged to alias the columns to avoid any conflicts.
+Note that the name of the column is generated from the text of the selector when using this syntax. Also note that the selector "nested.moreVals" maps to the column name "moreVals" in the output. That is, it is moved to the top level of the results and is no longer nested. One consequence of this is that "select bar, foo.bar from ..." will conflict (last one wins). Here you are encouraged to alias the columns to avoid any conflicts.
 
 An alternative to column selection is to use the JSON templating syntax to build your columns:
 
@@ -142,11 +142,11 @@ will result in `mytable.op` getting called once, where `id` is passed an array w
 
 This results in `mytable.op` getting called three times, with `id` getting passed one of the integers from the tuple. 
 
-functions.flatten \(deprecated\)
+functions.flatten (deprecated)
 
 Before expand by and JSON templating were introduced, the best way to achieve this functionality was to add the transposit/functions application.
 
-Notice that that returns a nested JSON that contains the list of channels. To flatten, call functions.flatten \(which uses the JSON path syntax\):
+Notice that that returns a nested JSON that contains the list of channels. To flatten, call functions.flatten (which uses the JSON path syntax):
 
 | `select * from functions.flatten where input=(select * from slack_channels.channelslist) and cols='[{"path": "$.channels.*", "alias": "*"}]'` |
 | --- |

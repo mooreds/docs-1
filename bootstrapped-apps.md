@@ -52,7 +52,7 @@ var transposit = new Transposit.Transposit(serviceMaintainer, serviceName, trans
 
 ### Login
 
-Once you have configured login for your application \(TODO link to how to configure?\), the javascript SDK makes it easy to add login to your application. You'll first want to add a link to kick off the login process:
+Once you have configured login for your application (TODO link to how to configure?), the javascript SDK makes it easy to add login to your application. You'll first want to add a link to kick off the login process:
 
 ```text
 <button type="button" onclick="loginWithGoogle()">Login</button>

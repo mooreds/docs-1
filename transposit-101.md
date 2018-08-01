@@ -6,9 +6,9 @@ Transposit creates a unified interface for interacting with various APIs. A data
 
 The data connector encapsulates:
 
-* Authentication \(OAuth, username/password, basic header auth, etc\)
+* Authentication (OAuth, username/password, basic header auth, etc)
 * API schema and delivery mechanism
-* Pagination \(supported by some operations\)
+* Pagination (supported by some operations)
 
 ### Operations
 
@@ -16,9 +16,9 @@ Transposit creates a unified interface for interacting with various APIs. A data
 
 The data connector encapsulates:
 
-* Authentication \(OAuth, username/password, basic header auth, etc\)
+* Authentication (OAuth, username/password, basic header auth, etc)
 * API schema and delivery mechanism
-* Pagination \(supported by some operations\)
+* Pagination (supported by some operations)
 
 ### Parameters
 
