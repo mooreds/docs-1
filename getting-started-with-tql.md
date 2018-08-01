@@ -1,20 +1,20 @@
 # Using SQL in Transposit
 
-### The basics {#GettingStartedwithTQL-Thebasics}
+### The basics {#GettingStartedwithSQL-Thebasics}
 
-Basic TQL select:
+Basic SQL select:
 
 ```sql
 select * from slack_channels.channelslist
 ```
 
-To simplify the following, let's assume you set the above to be a TQL operation called "getChannels". You can now filter columns and rows with something like the following:
+To simplify the following, let's assume you set the above to be a SQL operation called "getChannels". You can now filter columns and rows with something like:
 
 ```sql
 select id, channel from this.getChannels where name='build'
 ```
 
-You can parameterize your TQL like the following:
+You can parameterize your SQL:
 
 ```sql
 select id, channel from this.getChannels where name=@name
@@ -22,7 +22,7 @@ select id, channel from this.getChannels where name=@name
 
 ### Expand by
 
-Expand by syntax can be used to expand arrays. It is not standard SQL, but can be very useful when working with JSON data.
+Expand by syntax can be used to expand arrays. It is not standard SQL, but is very useful when working with JSON data.
 
 Let's say you're working with data of the form:
 
@@ -100,7 +100,7 @@ Which results in:
 
 ### Advanced column selection
 
-Basic math operations, string concatenation, and variables can all be used in column selection. Continuing with the sample data from above, 
+Basic math operations, string concatenation, and variables can all be used in column selection. Continuing with the sample data from above,
 
 | `select nested.moreVals, id * 4 / 2, 'hello ' + 'world' from this.sampleValues` |
 | --- |
@@ -140,7 +140,7 @@ will result in `mytable.op` getting called once, where `id` is passed an array w
 | --- |
 
 
-This results in `mytable.op` getting called three times, with `id` getting passed one of the integers from the tuple. 
+This results in `mytable.op` getting called three times, with `id` getting passed one of the integers from the tuple.
 
 functions.flatten (deprecated)
 
@@ -152,14 +152,14 @@ Notice that that returns a nested JSON that contains the list of channels. To fl
 | --- |
 
 
-  
+
 You can also pass an item from the top level into each item. For example, the following will pass the "ok" status from the parent to each item as "status":
 
 | `select * from functions.flatten where input=(select * from slack_channels.channelslist) and cols='[{"path": "$.channels.*", "alias": "*"}, {"path": "$.ok", "alias": "status"}]'` |
 | --- |
 
 
-### Joins {#GettingStartedwithTQL-Joins}
+### Joins {#GettingStartedwithSQL-Joins}
 
 The current join syntax looks something like the following:
 
@@ -168,6 +168,3 @@ The current join syntax looks something like the following:
 
 
 Note that plans are in the works to implement a more standard SQL join, at which point the current syntax will be removed.  
-  
-
-

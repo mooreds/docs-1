@@ -2,13 +2,13 @@
 
 Our javascript SDK makes it simple to deal with login, auths and run operations in your application.
 
-Installation: via npm:
+Install with npm:
 
 ```text
 npm install transposit
 ```
 
-or via yarn:
+or with yarn:
 
 ```text
 yarn add transposit
@@ -52,7 +52,7 @@ var transposit = new Transposit.Transposit(serviceMaintainer, serviceName, trans
 
 ### Login
 
-Once you have configured login for your application (TODO link to how to configure?), the javascript SDK makes it easy to add login to your application. You'll first want to add a link to kick off the login process:
+Once you have configured login for your application (TODO link to how to configure?), the JavaScript SDK makes it easy to add login to your application. You'll first want to add a link to start the login process:
 
 ```text
 <button type="button" onclick="loginWithGoogle()">Login</button>
@@ -72,7 +72,7 @@ Under the hood, this goes through a number of steps to ensure your session is se
 
 ### Authorizations
 
-If your application requires the user to add credentials for data connections, you'll want to send your users to the Transposit-hosted data connections page. You can get the url for this page from the SDK:
+If your application requires user credentials for data connections, send users to the Transposit-hosted data connections page. You can get the url for this page from the SDK:
 
 ```text
 transposit.getConnectionLocation();
@@ -90,7 +90,7 @@ transposit.runOperation("myOperation")
   })
 ```
 
-As you can see, `runOperation()` returns a promise which is fulfilled with the results of your operation. If your operation expects parameters, you can pass them in as the second argument:
+`runOperation()` returns a promise which is fulfilled with the results of your operation. If your operation expects parameters, you can pass them in as the second argument:
 
 ```text
 transposit.runOperation("myOperation", { param1: "hello", param2: "world" })
@@ -109,4 +109,3 @@ to log the user out of your application.
 ## API reference
 
 TODO
-
