@@ -157,7 +157,7 @@ Note that the name of the column is generated from the text of the selector when
 An alternative to column selection is to use the JSON templating syntax to build your columns:
 
 ```sql
-select {  nested: {    moreVals: nested.moreVals  },  foo: [id * 4` `/ 2, 'hello '` `+ 'world']} from this.sampleValues
+select { nested: { moreVals: nested.moreVals }, foo: [id * 4` `/ 2, 'hello '` `+ 'world']} from this.sampleValues
 ```
 
 
