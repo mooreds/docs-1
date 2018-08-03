@@ -1,11 +1,15 @@
 # Table of contents
 
 * [Getting Started](README.md)
-* [Getting started](quickstart.md)
-* [Transposit basics](transposit-101.md)
-* [Using SQL in Transposit](getting-started-with-tql.md)
-* [Tutorial: build a simple app](build-a-transposit-app.md)
-* [Tutorial: build a Slack bot](build-a-slack-bot.md)
+* [Introduction](quickstart/README.md)
+  * [Why SQL?](quickstart/why-sql.md)
+  * [Managed auth](quickstart/managed-auth.md)
+* [Getting Started](transposit-101/README.md)
+  * [Build a simple app](transposit-101/build-a-simple-app.md)
+  * [Build a Slack bot](transposit-101/build-a-slack-bot.md)
+  * [Using SQL in Transposit](transposit-101/getting-started-with-tql.md)
+  * [Transposit Basics](transposit-101/transposit-basics.md)
+  * [FAQ](transposit-101/faq.md)
 * [Javascript client](bootstrapped-apps.md)
 * [Authentication](authentication.md)
 * [Logging and debugging](logging-and-debugging.md)
@@ -18,5 +22,5 @@
   * [JavaScript API](references/javascript-api.md)
   * [JavaScript SDK](references/javascript-sdk.md)
   * [Hosted app templates](references/hosted-app-templates.md)
-* [Transposit changelog](transposit-changelog.md)
+  * [Transposit changelog](references/transposit-changelog.md)
 
