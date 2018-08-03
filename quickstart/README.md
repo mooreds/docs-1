@@ -4,21 +4,19 @@
 
 
 
-## What apps should I build?
+## How should I use these docs? 
 
 
 
 ## Getting help 
 
-Slack link
+Join our slack/Google Group
 
-Email link
+Email us: support@transposit.com
 
 ## Staying updated 
 
-blog link
+Read our [blog](https://blog.transposit.com/)
 
-twitter link
-
-
+Follow us on [Twitter](https://twitter.com/realtransposit?lang=en) 
 

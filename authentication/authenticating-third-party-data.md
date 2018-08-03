@@ -1,4 +1,4 @@
-# Authentication
+# Authenticating third party data
 
 ## Keys and Keychains
 
@@ -24,7 +24,7 @@ Keychains are sets of keys that you can enable in development, production, or ot
 
 In order to share keychains within an organization, create the keychain with the organization as the owner. Any keys put in that organization-owned keychain will be usable by others in the organization.
 
-## User Login
+## **Authorization protocol configuration**
 
-User login is deployed on a per endpoint basis. Currently available login mechanisms include Google login. Domains and usernames can be whitelisted for login. Configuration via google clientId and secret are under `Authentication &gt; Login`. You can manage your logged in users' information via `Authentication &gt; Registered Users`.
+
 
