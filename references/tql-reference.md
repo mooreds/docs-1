@@ -203,41 +203,21 @@ Will generate a JSON object with the key and value of the item in the specific p
 ]
 ```
 
-_Selecting all values under a nested object:_
+_Changing the key:_
 
-To access all values inside a nested object you can use a `.*` in the end of the path that contains the values.
-
-If the 'data source' is in the format:
+You can use column alias to change the key of a value:
 
 ```text
-[
-  {
-    "nested": {
-      "object": {
-        "value1": ...,
-        "value2": ...,
-        "value3": ...
-      }
-    }
-  }
-]
-```
-
-The query:
-
-```text
-SELECT nested.object.*
+SELECT col1 AS foo
 FROM source.service
 ```
 
-Will generate a JSON object with the all the keys and values in the specific path:
+Will generate a JSON object with the key `foo`, the value will be the value of `col1`:
 
 ```text
 [
   {
-    "value1": ...,
-    "value2": ...,
-    "value3": ...
+    "foo": ...
   },
   ...
 ]
@@ -313,6 +293,46 @@ FROM source.service
 ```
 
 Will use the values of `col1` and `nested.object.value1` to calculate the value of the expression.
+
+_Selecting all values under a nested object:_
+
+To access all values inside a nested object you can use a `.*` in the end of the path that contains the values.
+
+If the 'data source' is in the format:
+
+```text
+[
+  {
+    "nested": {
+      "object": {
+        "value1": ...,
+        "value2": ...,
+        "value3": ...
+      }
+    }
+  }
+]
+```
+
+The query:
+
+```text
+SELECT nested.object.*
+FROM source.service
+```
+
+Will generate a JSON object with the all the keys and values in the specific path:
+
+```text
+[
+  {
+    "value1": ...,
+    "value2": ...,
+    "value3": ...
+  },
+  ...
+]
+```
 
 #### JSON template
 
@@ -399,7 +419,228 @@ If the value is resolved to `null` or 'not found':
 
 **Examples**
 
-TODO - add examples for JSON template
+_Selecting a single value:_
+
+```text
+SELECT { col1: col1 }
+FROM source.service
+```
+
+Will generate a JSON object with a single key:
+
+```text
+[
+  {
+    "col1": ...
+  },
+  ...
+]
+```
+
+_Selecting multiple values:_
+
+```text
+SELECT { col1: col1, col2: col2, col3: col3 }
+FROM source.service
+```
+
+Will generate a JSON object with multiple keys:
+
+```text
+[
+  {
+    "col1": ...,
+    "col2": ...,
+    "col3": ...
+  },
+  ...
+]
+```
+
+_Selecting nested value:_
+
+To access a value inside a nested object you can use a `.` \(dot\) as separator between the nested object keys.
+
+If the 'data source' is in the format:
+
+```text
+[
+  {
+    "nested": {
+      "object": {
+        "value": ...
+      }
+    }
+  }
+]
+```
+
+The query:
+
+```text
+SELECT { value: nested.object.value }
+FROM source.service
+```
+
+Will generate a JSON object with the key and value of the item in the specific path:
+
+```text
+[
+  {
+    "value": ...
+  },
+  ...
+]
+```
+
+_Changing the key:_
+
+JSON template requires a key, so the same syntax can be used even if you want to use a different key:
+
+```text
+SELECT { foo: col1 }
+FROM source.service
+```
+
+Will generate a JSON object with the key `foo`, the value will be the value of `col1`:
+
+```text
+[
+  {
+    "foo": ...
+  },
+  ...
+]
+```
+
+If the key contains spaces, illegal characters or is a keyword, it must be escaped:
+
+```text
+SELECT { `key with spaces`: col1 }
+FROM source.service
+```
+
+Will generate
+
+```text
+[
+  {
+    "key with spaces": ...
+  },
+  ...
+]
+```
+
+_Using table alias:_
+
+When a table is marked with alias \(see [table alias](tql-reference.md#table-alias)\) the same table alias can be used as a qualifier in the beginning of the path to define exactly where to do the lookup for the path \(the results of which table to use\). This is useful when the query contains more than one table \(for example in [join query](tql-reference.md#join-query)\).
+
+```text
+SELECT { col1: T.col1 }
+FROM source.service AS T
+```
+
+Will generate a JSON object with a single key:
+
+```text
+[
+  {
+    "col1": ...
+  },
+  ...
+]
+```
+
+_Immediate value:_
+
+Any value of the types number, string or boolean can be used as an immediate value.
+
+```text
+select { value1: 7, value2: 'seven', value3: true }
+```
+
+Will generate:
+
+```text
+[
+  {
+    "value1": 7,
+    "value2": "seven",
+    "value3": true
+  }
+]
+```
+
+_Binary expressions:_
+
+Binary expressions can be used for basic math operation \(for numbers\) or string concatenation \(of strings\).  
+ Binary expressions can use any combination of path, immediate values and nested binary expressions.  
+ Parentheses can be used to define the order of operations.
+
+The query:
+
+```text
+select { value: (20 + 3) * 2 }
+```
+
+Will generate:
+
+```text
+[
+  {
+    "value": 46
+  }
+]
+```
+
+With columns:
+
+```text
+select { value: (col1 + 10) * nested.object.value1 }
+FROM source.service
+```
+
+Will use the values of `col1` and `nested.object.value1` to calculate the value of the expression.
+
+_Selecting all values under a nested object:_
+
+To access all the values inside a nested object you can use the spread operator `...`.
+
+If the 'data source' is in the format:
+
+```text
+[
+  {
+    "nested": {
+      "object": {
+        "value1": ...,
+        "value2": ...,
+        "value3": ...
+      }
+    }
+  }
+]
+```
+
+The query:
+
+```text
+SELECT { ... nested.object }
+FROM source.service
+```
+
+Will generate a JSON object with the all the keys and values in the specific path:
+
+```text
+[
+  {
+    "value1": ...,
+    "value2": ...,
+    "value3": ...
+  },
+  ...
+]
+```
 
 #### Immediate values
 
