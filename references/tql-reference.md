@@ -25,11 +25,11 @@ The clauses must appear in the order that was specific above.
 
 ### Order of execution
 
-1. `FROM`
-2. `WHERE`
-3. `EXPAND BY`
-4. `LIMIT`
-5. `SELECT`
+1.  `FROM`
+2.  `WHERE`
+3.  `EXPAND BY`
+4.  `LIMIT`
+5.  `SELECT`
 
 ### Select clause
 
@@ -39,9 +39,9 @@ The `SELECT` clause gets as input a JSON object or JSON array from the 'data sou
 
 The `SELECT` clause supports three to ways to manipulate an item:
 
-* [Select star](tql-reference.md#select-star)
-* [Columns selection](tql-reference.md#columns-selection)
-* [JSON template](tql-reference.md#json-template)
+- [Select star](tql-reference.md#select-star)
+- [Columns selection](tql-reference.md#columns-selection)
+- [JSON template](tql-reference.md#json-template)
 
 #### Select star
 
@@ -66,19 +66,19 @@ SELECT <column-expression> AS <column-alias>, <column-expression> AS <column-ali
 
 `<column-expression>` describes how to construct a value in the output JSON object and can be one of the following:
 
-* `<path>`
-* `<table-alias>.<path>`
-* `<immediate-value>`
-* `<binary-expression>`
+- `<path>`
+- `<table-alias>.<path>`
+- `<immediate-value>`
+- `<binary-expression>`
 
 `<path>` describes the location of a value inside a JSON object or a JSON array. `<path>` contains one or more keys/field names that describe the lookup chain of fields inside the input JSON object - each `<key>` gets the inner JSON object/array and the lookup continues from that JSON object/array. The last item in `<path>` can be `.*`.
 
 `<path>` can be one of the following:
 
-* `<key>`
-* `<key-1>.<key-2>.` ... `<key-N>`
-* `<key>.*`
-* `<key-1>.<key-2>.` ... `<key-N>.*`
+- `<key>`
+- `<key-1>.<key-2>.` ... `<key-N>`
+- `<key>.*`
+- `<key-1>.<key-2>.` ... `<key-N>.*`
 
 \(TODO: need to update this when we support bracket syntax \(TR-1540\)\)
 
@@ -90,10 +90,10 @@ SELECT <column-expression> AS <column-alias>, <column-expression> AS <column-ali
 
 `<binary-expression>` describe basic math operation \(for numbers\) or string concatenation \(of strings\) and can be one of the following:
 
-* `<column-expression>` + `<column-expression>`
-* `<column-expression>` - `<column-expression>`
-* `<column-expression>` \* `<column-expression>`
-* `<column-expression>` / `<column-expression>`
+- `<column-expression>` + `<column-expression>`
+- `<column-expression>` - `<column-expression>`
+- `<column-expression>` \* `<column-expression>`
+- `<column-expression>` / `<column-expression>`
 
 `AS <column-alias>` is optional. `<column-alias>` is an identifier.
 
@@ -103,8 +103,7 @@ Columns selection construct a JSON object for each item in the 'data source' bas
 
 The `<column-expression>`s and `<column-alias>`s are used in the same order as they appear in the query.
 
-Each `<column-expression>` will be calculated and resolved. The resolved value can be immediate value \(number, string or boolean\), JSON object or JSON array.  
-
+Each `<column-expression>` will be calculated and resolved. The resolved value can be immediate value \(number, string or boolean\), JSON object or JSON array.
 
 For `<path>` the resolve process will do a lookup for each `<key>` in the current location in the JSON object. The value that is found will be used as the resolved value. if `<path>` ends with `.*` - the value will be all the fields that were found under the last `<key>`  
  If a `<key>` is being resolved but the current item is not a JSON object, the resolve will stop and the value will be considered as 'not found'.  
@@ -119,10 +118,10 @@ For `<binary-expression>` the resolve process will deconstruct the expression an
 
 If the resolve process found a valid value, this value will be added to the output JSON object with a key, the key is selected in the following way:
 
-* If `<column-alias>` is specified it will be used as the key.
-* If `<column-expression>` is `<path>` that does not ends with `.*` - the last `<key>` will be used as the key.
-* If `<column-expression>` is `<path>` that ends with `.*` - the key and values under the last `<key>` will be used without change.
-* Otherwise the entire `<column-expression>` will be used as the key. It's recommended to use `<column-alias>` in this case.
+- If `<column-alias>` is specified it will be used as the key.
+- If `<column-expression>` is `<path>` that does not ends with `.*` - the last `<key>` will be used as the key.
+- If `<column-expression>` is `<path>` that ends with `.*` - the key and values under the last `<key>` will be used without change.
+- Otherwise the entire `<column-expression>` will be used as the key. It's recommended to use `<column-alias>` in this case.
 
 If the same key is used more than once the last value will be used and will override any previous values that had the same key.
 
@@ -335,12 +334,12 @@ SELECT [ <json-value>, ... ]
 
 `<json-value>` can be one of the following:
 
-* `<path>` - a column selection
-* `<table-alias>.<path>` - a column selection with table alias qualifier
-* `<immediate-value>` - number, string or boolean
-* `<binary-expression>` - a calculated expression
-* `<json-object>` - construct a nested object
-* `<json-array>` - construct a nested array
+- `<path>` - a column selection
+- `<table-alias>.<path>` - a column selection with table alias qualifier
+- `<immediate-value>` - number, string or boolean
+- `<binary-expression>` - a calculated expression
+- `<json-object>` - construct a nested object
+- `<json-array>` - construct a nested array
 
 `<path>`, `<table-alias>.<path>`, `<immediate-value>` and `<binary-expression>` are the same as in [columns selection](tql-reference.md#columns-selection). The only difference is that `.*` in the end of `<path>` is not allowed in JSON template, use [spread operator](tql-reference.md#spread-operator) instead.
 
@@ -383,8 +382,7 @@ JSON template construct a JSON object or array for each item in the 'data source
 
 The `<key>`s and `<json-value>`s are used in the same order as they appear in the template.
 
-Each `<json-value>` will be calculated and resolved. The resolved value can be immediate value \(number, string or boolean\), JSON object or JSON array.  
-
+Each `<json-value>` will be calculated and resolved. The resolved value can be immediate value \(number, string or boolean\), JSON object or JSON array.
 
 `<path>`, `<table-alias>.<path>`, `<immediate-value>` and `<binary-expression>` are resolved the same as in [columns selection](tql-reference.md#columns-selection).
 
@@ -396,8 +394,8 @@ If the same key is used more than once the last value will be used and will over
 
 If the value is resolved to `null` or 'not found':
 
-* If the output item is JSON object this value will not be added it to the output item.
-* if the output item is JSON array this value will be added it to the output item as `null`.
+- If the output item is JSON object this value will not be added it to the output item.
+- if the output item is JSON array this value will be added it to the output item as `null`.
 
 **Examples**
 
@@ -429,18 +427,6 @@ TODO
 
 TODO \(maybe this is not needed and we will talk about expressions in the relevant sections\)
 
-## Insert statement
-
-TODO
-
-## Update statement
-
-TODO
-
-## Delete statement
-
-TODO
-
 ## External parameters
 
 TODO \(@userId\)
@@ -452,4 +438,3 @@ TODO - list of keywords, valid/invalid characters, how to escape
 ```text
 
 ```
-
