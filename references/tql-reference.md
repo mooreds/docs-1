@@ -709,7 +709,66 @@ Will generate a JSON array with the all the values under `array`:
 
 #### Immediate values
 
-TODO - select without FROM
+TODO: maybe we don't need this section.
+
+Immediate values can be use with and without `FROM` clause.
+
+Immediate value is an expression with the type: number, string or boolean value, or a boolean expression that can be resolved to one of these types, i.e. the expression doesn't contain `<path>`.
+
+Immediate values can be used in columns selection or in JSON template.
+
+**Examples:**
+
+```text
+SELECT 1 AS number, 'one' AS string, true AS boolean, (1 + 2) * 3 AS expression
+```
+
+Will generate:
+
+```text
+[
+  {
+    "number": 1,
+    "string": "one",
+    "boolean": true,
+    "expression": 9
+  }
+]
+```
+
+```text
+SELECT { number: 1, string: 'one', boolean: true, expression: (1 + 2) * 3 }
+```
+
+Will generate:
+
+```text
+[
+  {
+    "number": 1,
+    "string": "one",
+    "boolean": true,
+    "expression": 9
+  }
+]
+```
+
+```text
+SELECT [ 1, 'one', true, (1 + 2) * 3 ]
+```
+
+Will generate:
+
+```text
+[
+  [
+    1,
+    "one",
+    true,
+    9
+  ]
+]
+```
 
 ### From clause
 
