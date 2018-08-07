@@ -10,7 +10,7 @@ TODO: general description - manipulation of list of json objects, etc...
 
 Select statement syntax:
 
-```text
+```sql
 SELECT <* or columns selection or JSON template>
 FROM <table or subquery or join>
 WHERE <one or more expressions>
@@ -47,7 +47,7 @@ The `SELECT` clause supports three to ways to manipulate an item:
 
 The `*` symbol will keep the items from 'data source' without changes:
 
-```text
+```sql
 SELECT *
 FROM source.service
 ```
@@ -60,7 +60,7 @@ Columns selection cannot construct a nested JSON object or a JSON array, to cons
 
 The syntax for columns selection is:
 
-```text
+```sql
 SELECT <column-expression> AS <column-alias>, <column-expression> AS <column-alias>, ...
 ```
 
@@ -131,14 +131,14 @@ If the value is resolved to `null` or 'not found' this value will not be added i
 
 _Selecting a single value:_
 
-```text
+```sql
 SELECT col1
 FROM source.service
 ```
 
 Will generate a JSON object with a single key:
 
-```text
+```json
 [
   {
     "col1": ...
@@ -149,14 +149,14 @@ Will generate a JSON object with a single key:
 
 _Selecting multiple values:_
 
-```text
+```sql
 SELECT col1, col2, col3
 FROM source.service
 ```
 
 Will generate a JSON object with multiple keys:
 
-```text
+```json
 [
   {
     "col1": ...,
@@ -173,7 +173,7 @@ To access a value inside a nested object you can use a `.` \(dot\) as separator 
 
 If the 'data source' is in the format:
 
-```text
+```json
 [
   {
     "nested": {
@@ -187,14 +187,14 @@ If the 'data source' is in the format:
 
 The query:
 
-```text
+```sql
 SELECT nested.object.value
 FROM source.service
 ```
 
 Will generate a JSON object with the key and value of the item in the specific path:
 
-```text
+```json
 [
   {
     "value": ...
@@ -207,14 +207,14 @@ _Changing the key:_
 
 You can use column alias to change the key of a value:
 
-```text
+```sql
 SELECT col1 AS foo
 FROM source.service
 ```
 
 Will generate a JSON object with the key `foo`, the value will be the value of `col1`:
 
-```text
+```json
 [
   {
     "foo": ...
@@ -227,14 +227,14 @@ _Using table alias:_
 
 When a table is marked with alias \(see [table alias](tql-reference.md#table-alias)\) the same table alias can be used as a qualifier in the beginning of the path to define exactly where to do the lookup for the path \(the results of which table to use\). This is useful when the query contains more than one table \(for example in [join query](tql-reference.md#join-query)\).
 
-```text
+```sql
 SELECT T.col1
 FROM source.service AS T
 ```
 
 Will generate a JSON object with a single key:
 
-```text
+```json
 [
   {
     "col1": ...
@@ -247,13 +247,13 @@ _Immediate value:_
 
 Any value of the types number, string or boolean can be used as an immediate value.
 
-```text
+```sql
 SELECT 7 as value1, 'seven' as value2, true as value3
 ```
 
 Will generate:
 
-```text
+```json
 [
   {
     "value1": 7,
@@ -271,13 +271,13 @@ Binary expressions can be used for basic math operation \(for numbers\) or strin
 
 The query:
 
-```text
+```sql
 SELECT (20 + 3) * 2 as value
 ```
 
 Will generate:
 
-```text
+```json
 [
   {
     "value": 46
@@ -287,7 +287,7 @@ Will generate:
 
 With columns:
 
-```text
+```sql
 SELECT (col1 + 10) * nested.object.value1 as value
 FROM source.service
 ```
@@ -300,7 +300,7 @@ To access all values inside a nested object you can use a `.*` in the end of the
 
 If the 'data source' is in the format:
 
-```text
+```json
 [
   {
     "nested": {
@@ -316,14 +316,14 @@ If the 'data source' is in the format:
 
 The query:
 
-```text
+```sql
 SELECT nested.object.*
 FROM source.service
 ```
 
 Will generate a JSON object with the all the keys and values in the specific path:
 
-```text
+```json
 [
   {
     "value1": ...,
@@ -340,13 +340,13 @@ JSON template is a more generic way to construct a JSON object or a JSON array a
 
 To construct a JSON object use the syntax:
 
-```text
+```sql
 SELECT { <key>: <json-value>, ... }
 ```
 
 To construct a JSON array use the syntax:
 
-```text
+```sql
 SELECT [ <json-value>, ... ]
 ```
 
@@ -365,13 +365,13 @@ SELECT [ <json-value>, ... ]
 
 `<json-object>` constructs a JSON object, the syntax is:
 
-```text
+```json
 { <key-1>: <json-value-1>, <key-2>: <json-value-2>, ... <key-N>: <json-value-N> }
 ```
 
 `<json-array>` constructs a JSON array, the syntax is:
 
-```text
+```json
 [ <json-value-1>,  <json-value-2>, ... <json-value-N>]
 ```
 
@@ -381,13 +381,13 @@ The spread operator expands a JSON object into JSON object or JSON array into a 
 
 The spread JSON object use:
 
-```text
+```sql
 SELECT { ... obj }
 ```
 
 The spread JSON array use:
 
-```text
+```sql
 SELECT [ ... arr ]
 ```
 
@@ -421,14 +421,14 @@ If the value is resolved to `null` or 'not found':
 
 _Selecting a single value:_
 
-```text
+```sql
 SELECT { col1: col1 }
 FROM source.service
 ```
 
 Will generate a JSON object with a single key:
 
-```text
+```json
 [
   {
     "col1": ...
@@ -439,14 +439,14 @@ Will generate a JSON object with a single key:
 
 _Selecting multiple values:_
 
-```text
+```sql
 SELECT { col1: col1, col2: col2, col3: col3 }
 FROM source.service
 ```
 
 Will generate a JSON object with multiple keys:
 
-```text
+```json
 [
   {
     "col1": ...,
@@ -463,7 +463,7 @@ To access a value inside a nested object you can use a `.` \(dot\) as separator 
 
 If the 'data source' is in the format:
 
-```text
+```json
 [
   {
     "nested": {
@@ -477,14 +477,14 @@ If the 'data source' is in the format:
 
 The query:
 
-```text
+```sql
 SELECT { value: nested.object.value }
 FROM source.service
 ```
 
 Will generate a JSON object with the key and value of the item in the specific path:
 
-```text
+```json
 [
   {
     "value": ...
@@ -497,14 +497,14 @@ _Changing the key:_
 
 JSON template requires a key, so the same syntax can be used even if you want to use a different key:
 
-```text
+```sql
 SELECT { foo: col1 }
 FROM source.service
 ```
 
 Will generate a JSON object with the key `foo`, the value will be the value of `col1`:
 
-```text
+```json
 [
   {
     "foo": ...
@@ -515,14 +515,14 @@ Will generate a JSON object with the key `foo`, the value will be the value of `
 
 If the key contains spaces, illegal characters or is a keyword, it must be escaped:
 
-```text
+```sql
 SELECT { `key with spaces`: col1 }
 FROM source.service
 ```
 
 Will generate
 
-```text
+```json
 [
   {
     "key with spaces": ...
@@ -535,14 +535,14 @@ _Using table alias:_
 
 When a table is marked with alias \(see [table alias](tql-reference.md#table-alias)\) the same table alias can be used as a qualifier in the beginning of the path to define exactly where to do the lookup for the path \(the results of which table to use\). This is useful when the query contains more than one table \(for example in [join query](tql-reference.md#join-query)\).
 
-```text
+```sql
 SELECT { col1: T.col1 }
 FROM source.service AS T
 ```
 
 Will generate a JSON object with a single key:
 
-```text
+```json
 [
   {
     "col1": ...
@@ -555,13 +555,13 @@ _Immediate value:_
 
 Any value of the types number, string or boolean can be used as an immediate value.
 
-```text
+```sql
 SELECT { value1: 7, value2: 'seven', value3: true }
 ```
 
 Will generate:
 
-```text
+```json
 [
   {
     "value1": 7,
@@ -579,13 +579,13 @@ Binary expressions can be used for basic math operation \(for numbers\) or strin
 
 The query:
 
-```text
+```sql
 SELECT { value: (20 + 3) * 2 }
 ```
 
 Will generate:
 
-```text
+```json
 [
   {
     "value": 46
@@ -595,7 +595,7 @@ Will generate:
 
 With columns:
 
-```text
+```sql
 SELECT { value: (col1 + 10) * nested.object.value1 }
 FROM source.service
 ```
@@ -606,14 +606,14 @@ _Constructing an array:_
 
 The previous examples showed how to construct an object as the output item. With JSON template you can also construct an array as the output item.
 
-```text
+```sql
 SELECT [ col1 ]
 FROM source.service
 ```
 
 Will generate a JSON array with a single item (the item is the value of `col1`):
 
-```text
+```json
 [
   [
     <VALUE OF col1>
@@ -624,7 +624,7 @@ Will generate a JSON array with a single item (the item is the value of `col1`):
 
 And you can use all the other expressions as in the previous examples - nested object, table alias, immediate values and binary expressions:
 
-```text
+```sql
 SELECT [ (col1 + 10) * nested.object.value1, T.col2, 7, 'seven', true ]
 FROM source.service AS T
 ```
@@ -633,7 +633,7 @@ _Constructing nested template:_
 
 You can use the JSON object and array templates recursively and construct any nested structure:
 
-```text
+```json
 SELECT {
   arr1: [ { col1: col1 }, { col2: col2 } ],
   obj: {
@@ -654,7 +654,7 @@ Note that the inner type and the outer type must be the same: an object can be s
 
 If the 'data source' is in the format:
 
-```text
+```json
 [
   {
     "object": {
@@ -669,14 +669,14 @@ If the 'data source' is in the format:
 
 The query:
 
-```text
+```sql
 SELECT { ... object }
 FROM source.service
 ```
 
 Will generate a JSON object with the all the keys and values under `object`:
 
-```text
+```json
 [
   {
     "value1": ...,
@@ -689,14 +689,14 @@ Will generate a JSON object with the all the keys and values under `object`:
 
 The query:
 
-```text
+```sql
 SELECT [ ... array ]
 FROM source.service
 ```
 
 Will generate a JSON array with the all the values under `array`:
 
-```text
+```json
 [
   [
     { "val1": ... },
@@ -719,13 +719,13 @@ Immediate values can be used in columns selection or in JSON template.
 
 **Examples:**
 
-```text
+```sql
 SELECT 1 AS number, 'one' AS string, true AS boolean, (1 + 2) * 3 AS expression
 ```
 
 Will generate:
 
-```text
+```json
 [
   {
     "number": 1,
@@ -736,13 +736,13 @@ Will generate:
 ]
 ```
 
-```text
+```sql
 SELECT { number: 1, string: 'one', boolean: true, expression: (1 + 2) * 3 }
 ```
 
 Will generate:
 
-```text
+```json
 [
   {
     "number": 1,
@@ -753,13 +753,13 @@ Will generate:
 ]
 ```
 
-```text
+```sql
 SELECT [ 1, 'one', true, (1 + 2) * 3 ]
 ```
 
 Will generate:
 
-```text
+```json
 [
   [
     1,
@@ -800,6 +800,4 @@ TODO \(@userId\)
 
 TODO - list of keywords, valid/invalid characters, how to escape
 
-```text
 
-```
