@@ -248,7 +248,7 @@ _Immediate value:_
 Any value of the types number, string or boolean can be used as an immediate value.
 
 ```text
-select 7 as value1, 'seven' as value2, true as value3
+SELECT 7 as value1, 'seven' as value2, true as value3
 ```
 
 Will generate:
@@ -272,7 +272,7 @@ Binary expressions can be used for basic math operation \(for numbers\) or strin
 The query:
 
 ```text
-select (20 + 3) * 2 as value
+SELECT (20 + 3) * 2 as value
 ```
 
 Will generate:
@@ -288,13 +288,13 @@ Will generate:
 With columns:
 
 ```text
-select (col1 + 10) * nested.object.value1 as value
+SELECT (col1 + 10) * nested.object.value1 as value
 FROM source.service
 ```
 
 Will use the values of `col1` and `nested.object.value1` to calculate the value of the expression.
 
-_Selecting all values under a nested object:_
+_Selecting all values under an object:_
 
 To access all values inside a nested object you can use a `.*` in the end of the path that contains the values.
 
@@ -556,7 +556,7 @@ _Immediate value:_
 Any value of the types number, string or boolean can be used as an immediate value.
 
 ```text
-select { value1: 7, value2: 'seven', value3: true }
+SELECT { value1: 7, value2: 'seven', value3: true }
 ```
 
 Will generate:
@@ -580,7 +580,7 @@ Binary expressions can be used for basic math operation \(for numbers\) or strin
 The query:
 
 ```text
-select { value: (20 + 3) * 2 }
+SELECT { value: (20 + 3) * 2 }
 ```
 
 Will generate:
@@ -596,28 +596,73 @@ Will generate:
 With columns:
 
 ```text
-select { value: (col1 + 10) * nested.object.value1 }
+SELECT { value: (col1 + 10) * nested.object.value1 }
 FROM source.service
 ```
 
 Will use the values of `col1` and `nested.object.value1` to calculate the value of the expression.
 
-_Selecting all values under a nested object:_
+_Constructing an array:_
 
-To access all the values inside a nested object you can use the spread operator `...`.
+The previous examples showed how to construct an object as the output item. With JSON template you can also construct an array as the output item.
+
+```text
+SELECT [ col1 ]
+FROM source.service
+```
+
+Will generate a JSON array with a single item (the item is the value of `col1`):
+
+```text
+[
+  [
+    <VALUE OF col1>
+  ],
+  ...
+]
+```
+
+And you can use all the other expressions as in the previous examples - nested object, table alias, immediate values and binary expressions:
+
+```text
+SELECT [ (col1 + 10) * nested.object.value1, T.col2, 7, 'seven', true ]
+FROM source.service AS T
+```
+
+_Constructing nested template:_
+
+You can use the JSON object and array templates recursively and construct any nested structure:
+
+```text
+SELECT {
+  arr1: [ { col1: col1 }, { col2: col2 } ],
+  obj: {
+    bar: [
+      col3.nested.value1,
+      col3.nested.value2,
+      col3.nested.value3
+      ]
+    }
+  }
+FROM source.service
+```
+
+_Selecting all values under an object or array:_
+
+To access all the values inside an object or array you can use the spread operator (`...`).
+Note that the inner type and the outer type must be the same: an object can be spread into a JSON object template and an array can be spread into JSON array template:
 
 If the 'data source' is in the format:
 
 ```text
 [
   {
-    "nested": {
-      "object": {
-        "value1": ...,
-        "value2": ...,
-        "value3": ...
-      }
-    }
+    "object": {
+      "value1": ...,
+      "value2": ...,
+      "value3": ...
+    },
+    "array": [ { "val1": ... }, { "val2": ... }, { "val3": ... } ]
   }
 ]
 ```
@@ -625,11 +670,11 @@ If the 'data source' is in the format:
 The query:
 
 ```text
-SELECT { ... nested.object }
+SELECT { ... object }
 FROM source.service
 ```
 
-Will generate a JSON object with the all the keys and values in the specific path:
+Will generate a JSON object with the all the keys and values under `object`:
 
 ```text
 [
@@ -642,9 +687,88 @@ Will generate a JSON object with the all the keys and values in the specific pat
 ]
 ```
 
+The query:
+
+```text
+SELECT [ ... array ]
+FROM source.service
+```
+
+Will generate a JSON array with the all the values under `array`:
+
+```text
+[
+  [
+    { "val1": ... },
+    { "val2": ... },
+    { "val3": ... }
+  ],
+  ...
+]
+```
+
 #### Immediate values
 
-TODO - select without FROM
+TODO: maybe we don't need this section.
+
+Immediate values can be use with and without `FROM` clause.
+
+Immediate value is an expression with the type: number, string or boolean value, or a boolean expression that can be resolved to one of these types, i.e. the expression doesn't contain `<path>`.
+
+Immediate values can be used in columns selection or in JSON template.
+
+**Examples:**
+
+```text
+SELECT 1 AS number, 'one' AS string, true AS boolean, (1 + 2) * 3 AS expression
+```
+
+Will generate:
+
+```text
+[
+  {
+    "number": 1,
+    "string": "one",
+    "boolean": true,
+    "expression": 9
+  }
+]
+```
+
+```text
+SELECT { number: 1, string: 'one', boolean: true, expression: (1 + 2) * 3 }
+```
+
+Will generate:
+
+```text
+[
+  {
+    "number": 1,
+    "string": "one",
+    "boolean": true,
+    "expression": 9
+  }
+]
+```
+
+```text
+SELECT [ 1, 'one', true, (1 + 2) * 3 ]
+```
+
+Will generate:
+
+```text
+[
+  [
+    1,
+    "one",
+    true,
+    9
+  ]
+]
+```
 
 ### From clause
 
