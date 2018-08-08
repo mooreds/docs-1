@@ -1,19 +1,20 @@
 # JavaScript API
 
 ### `api.run(operation, [params={}], [options={}])`
+
 Runs an operation.
 
-| Argument | Type | |
-|-|-|-|
+| Argument | Type |  |
+| :--- | :--- | :--- |
 | operation | String | the name of the operation to be run |
-| [params={}]    | Object  |  an object containing any operation-defined parameters |
-| [options={}]   | Object  |  additional options - `limit`: limits the number of results returned. Infinity if undefined. |
+| \[params={}\] | Object | an object containing any operation-defined parameters |
+| \[options={}\] | Object | additional options - `limit`: limits the number of results returned. Infinity if undefined. |
 
-**Returns**
-(Array): Returns the operation results or throws any operation failure.
+**Returns** \(Array\): Returns the operation results or throws any operation failure.
 
 **Example**
-```js
+
+```javascript
 api.run("this.helloworld");
 // => [{"Hello": "World"}]
 
@@ -25,18 +26,19 @@ api.run("connection.many_results", {}, {limit: 10});
 ```
 
 ### `api.query(query, [params={}])`
+
 Run a SQL query
 
-| Argument | Type | |
-|-|-|-|
+| Argument | Type |  |
+| :--- | :--- | :--- |
 | query | String | The SQL query to be run |
-| [params={}]    | Object |  an object containing any operation-defined parameters |
+| \[params={}\] | Object | an object containing any operation-defined parameters |
 
-**Returns**
-(Array): Returns the query results or throws any query failure.
+**Returns** \(Array\): Returns the query results or throws any query failure.
 
 **Example**
-```js
+
+```javascript
 api.query("select * from this.helloworld")
 // => [{"Hello": "World"}]
 
@@ -45,29 +47,31 @@ api.query("select * from source.users where id=@userId", {userId: params.userId}
 ```
 
 ### `api.user()`
+
 Get the logged-in user information
 
-**Returns**
-(Object): An object that includes the user's `fullName` and `email`
+**Returns** \(Object\): An object that includes the user's `fullName` and `email`
 
 **Example**
-```js
+
+```javascript
 api.user()
 // => {"fullName":"iggy","email":"iggy@transposit.com"}
 ```
 
 ### `api.log([objects])`
+
 Logs to the console.
 
-| Argument | Type | |
-|-|-|-|
-| [objects] | String or Object | One or more objects or strings to log. Objects are automatically serialized. |
+| Argument | Type |  |
+| :--- | :--- | :--- |
+| \[objects\] | String or Object | One or more objects or strings to log. Objects are automatically serialized. |
 
-**Returns**
-null
+**Returns** null
 
 **Example**
-```js
+
+```javascript
 api.log("logging the following greeting:", {"Hello", "World"})
 // => logging the following greeting: { Hello: World }
 ```
@@ -85,12 +89,12 @@ Transposit provides you access to a few different popular JavaScript libraries.
 
 Example usage:
 
-```js
+```javascript
 var qs = require('qs.js');
 var limited = qs.parse('a=b&c=d', { parameterLimit: 1 });
 ```
 
-```js
+```javascript
 var moment = require('moment-timezone-with-data.js');
 var jun = moment("2014-06-01T12:00:00Z");
 api.log(jun.clone().tz('America/New_York').format('ha z')); // 8am EDT
