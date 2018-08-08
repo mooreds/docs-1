@@ -35,7 +35,15 @@ We are developers, and we built Transposit with developers' needs in mind. That'
 
 ## How should I use these docs? 
 
+\*\*\*\*[**Getting started**](../) — Get acquainted with the product by following our main tutorial, learning about our product basics, and getting answers to.
 
+\*\*\*\*[**Authentication**](../authentication/) — How to setting up third-party data authentication, API permissions, and end-user login. 
+
+\*\*\*\*[**Building with Transposit**](../deployment/) —
+
+\*\*\*\*[**Logging and debugging**](../logging-and-debugging.md) —
+
+\*\*\*\*[**References**](../references/) —
 
 ## Getting help 
 

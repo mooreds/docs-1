@@ -1,6 +1,14 @@
-# Managed auth
+# Managed authorization
 
 One of Transposit’s most powerful features is the way we manage authentication for you \(**the developer**\) and your apps’ end users \(**the consumer**\). Here are our high-level explanations for what exactly we mean when we say “managed auth” and how that allows you the freedom to develop applications without the burden of hard-coding authentication logic into every app.
+
+## What can Transposit do?  {#what-can-transposit-do}
+
+Each of your Transposit services have settings for ways to :
+
+1. Control an app’s “front door” by requiring consumers to sign up, sign in, create a user record as a user of the app.
+2. Specify which dependencies use auth provisioned for use by the service, and which should require consumer-supplied authentication.
+3. Manage the user records, see what authorized connections exist, expire them, so forth.
 
 ## **What is managed auth?**
 

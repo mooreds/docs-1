@@ -1,4 +1,4 @@
-# Transposit Basics
+# Transposit basics
 
 ## What is a user? 
 

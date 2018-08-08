@@ -1,4 +1,4 @@
-# API Permissions
+# API permissions
 
 ##  User Login {#user-login}
 

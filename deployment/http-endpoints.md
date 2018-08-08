@@ -1,4 +1,4 @@
-# HTTP Endpoints
+# HTTP endpoints
 
 ## Public vs Private endpoints
 

@@ -1,4 +1,4 @@
-# Why SQL?
+# Query across all your data
 
 TODO Explaining why we chose SQL and a bit of philosophy behind the power of the relational engine.
 
