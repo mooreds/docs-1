@@ -4,19 +4,18 @@ One of Transposit’s most powerful features is the way we manage authentication
 
 ## What can Transposit do?  {#what-can-transposit-do}
 
-Each of your Transposit services have settings for ways to :
+As you build your applications and services, Transposit gives you options to:
 
-1. Control an app’s “front door” by requiring consumers to sign up, sign in, create a user record as a user of the app.
-2. Specify which dependencies use auth provisioned for use by the service, and which should require consumer-supplied authentication.
-3. Manage the user records, see what authorized connections exist, expire them, so forth.
+1. Control an app’s “front door” by requiring consumers to sign up, sign in, and create a user record as a user of the app.
+2. Specify and authenticate with the data sources \(third-party APIs, databases, etc\) you want to build your application on top of. 
+3. Collect and manage third party credentials you want the consumer to provide beyond a central login.  
+4. Manage the user records, see what authorized connections exist, expire them, so forth.
 
-## **What is managed auth?**
+## **What is managed auth in Transposit?**
 
-Managed auth means you don’t need to write your own identity management solution or worry about building the underlying data conduits for consumers of your app. You can plug in Transposit, and use third identity services \(for now, just Google auth\) to control access to your app, as well as give customers an easy way to authenticate, using their own credentials, with the services your app depends on. Transposit still allows you to customize the flows your user will authenticate through.  
+Managed auth means you don’t need to write your own identity management solution or worry about building the underlying data conduits for consumers of your app. You can plug in Transposit, and use third identity services \(for now, just Google auth\) to control access to your app, as well as give customers an easy way to authenticate, using their own credentials, with the services your app depends on. Transposit still allows you to customize the flows your user will authenticate through.
 
-
-When we refer to managed auth, we are actually talking about three separate experiences:  
-
+When we refer to managed auth, we are actually talking about three separate experiences:
 
 1. **Third-party integrations:** When you, the **developer** provision data integrations for use with a particular Transposit service.
 2.  **Managed identity:** When you, the **developer**, are building services, you specify which consumer’s credentials you’d like the consumer to supply. Additionally, you authenticate users of your app through Transposit.
@@ -24,27 +23,21 @@ When we refer to managed auth, we are actually talking about three separate expe
 
 Here's a model of how these are handled behind the scenes: 
 
-\[Insert diagram\]  
+\[Insert diagram\]
 
+## **Why is managed authentication useful?**
 
-## **Why is Transposit-managed authentication useful?**
+Generally, you may build apps using services \(a Backend-as-a-Service, for example\) that provide you with managed identity solutions and user management. You may also use data integration services that handle how you authenticate with third party APIs. By having both those managed by Transposit, however, you now have the freedom to make your consumer-provided authentication to third party APIs that power your app’s personalized experiences without managing that in your application code. 
 
-Generally, you may build apps using services \(a Backend-as-a-Service, for example\) that provide you with managed identity solutions and user management. You may also use data integration services that handle how you authenticate with third party APIs. By having both those managed by Transposit, however, you now have the freedom to make your consumer-provided authentication to third party APIs that power your app’s personalized experiences without managing that in your application code. Once Transposit knows……
+Once Transposit knows……
 
 /// this is the part where I'm trying to explain why having them in the same place provides a more elegant, powerful end-to-end auth solution that skips a lot of back and forth. 
 
 This also gives you more freedom to create and share full application experiences for your app consumers \(be they customers or co-workers\) that serves them easy authentication flows with minimal. Without Transposit, or a lot custom code for that application, that would previously require them to follow complex authentication instructions to replicate a workflow with their own credentials. We want you to build apps, not wiki walkthroughs.
 
-Finally, you can do all this while easily managing who has access to sensitive business data, with Transposit taking care of the security around that access. This can be useful for safely sharing workflows and applications powered by data living in sources important to your business, like Google Sheets and Airtable.  
-****
+Finally, you can do all this while easily managing who has access to sensitive business data, with Transposit taking care of the security around that access. This can be useful for safely sharing workflows and applications powered by data living in sources important to your business, like Google Sheets and Airtable.
 
-## **How does Transposit-managed authentication work in practice?** 
-
-Each of your Transposit services have settings for ways to :
-
-1. Control an app’s “front door” by requiring consumers to sign up, sign in, create a user record as a user of the app.
-2. Specify which dependencies use auth provisioned for use by the service, and which should require consumer-supplied authentication.
-3. Manage the user records, see what authorized connections exist, expire them, so forth.
+## **How does Transposit-managed authentication work in practice?**
 
 To use Transposit as an authentication provider in your app, you’d copy/paste provided code into your app’s logic. Your app should also have a “connection settings” section which links out to a Transposit-hosted page \(that you can customize\) that gives the user a way to connect and disconnect authed services.
 
