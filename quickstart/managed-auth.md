@@ -23,6 +23,8 @@ Here's a model of how these are handled behind the scenes:
 
 Generally, you may build apps using services \(a Backend-as-a-Service, for example\) that provide you with managed identity solutions and user management. You may also use data integration services that handle how you authenticate with third party APIs. By having both those managed by Transposit, however, you now have the freedom to make your consumer-provided authentication to third party APIs that power your app’s personalized experiences without managing that in your application code. Once Transposit knows……
 
+/// this is the part where I'm trying to explain why having them in the same place provides a more elegant, powerful end-to-end auth solution that skips a lot of back and forth. 
+
 This also gives you more freedom to create and share full application experiences for your app consumers \(be they customers or co-workers\) that serves them easy authentication flows with minimal. Without Transposit, or a lot custom code for that application, that would previously require them to follow complex authentication instructions to replicate a workflow with their own credentials. We want you to build apps, not wiki walkthroughs.
 
 Finally, you can do all this while easily managing who has access to sensitive business data, with Transposit taking care of the security around that access. This can be useful for safely sharing workflows and applications powered by data living in sources important to your business, like Google Sheets and Airtable.  
