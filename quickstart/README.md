@@ -30,7 +30,7 @@ We are developers, and we built Transposit with developers' needs in mind. That'
 
 * **Incrementally adoptable:** Transposit is a library, not an ecosystem. You can use Transposit to build a single endpoint, or as your entire backend. 
 * **Based on modern tooling and open standards:** We take advantage of the battle-tested tools and libraries you already know and love, like xyz. 
-* **No lock-in:** No need to interact with the Transposit UI if you don't want to. If you want to stop using Transposit, you can easily port out code as HTTP. something something git.  
+* **Backed by git:** 
 * **Free to try:** You can start using Transposit without speaking to a single person. No need to pay for anything until your applications or endpoints start to see a lot of traffic. 
 
 ## How should I use these docs? 
