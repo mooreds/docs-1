@@ -3,7 +3,7 @@
 * [Getting Started](README.md)
 * [Introduction](quickstart/README.md)
   * [Query across all your data](quickstart/why-sql.md)
-  * [Managed authorization](quickstart/managed-auth.md)
+  * [Managed authentication](quickstart/managed-auth.md)
 * [Getting started](transposit-101/README.md)
   * [Build a simple app](transposit-101/build-a-simple-app.md)
   * [Build a Slack bot](transposit-101/build-a-slack-bot.md)

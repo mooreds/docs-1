@@ -1,4 +1,4 @@
-# Managed authorization
+# Managed authentication
 
 One of Transposit’s most powerful features is the way we manage authentication for you \(**the developer**\) and your apps’ end users \(**the consumer**\). Here are our high-level explanations for what exactly we mean when we say “managed auth” and how that allows you the freedom to develop applications without the burden of hard-coding authentication logic into every app.
 
