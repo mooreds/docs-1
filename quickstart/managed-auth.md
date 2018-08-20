@@ -6,7 +6,7 @@ One of Transposit’s most powerful features is the way we manage authentication
 
 Transposit gives you tooling to centrally manage all aspects of authentication you'd run into while building a data-driven application with a "front door".
 
-Imagine the following scenario: You, a developer, are trying to build an application that allows users to log in \(via Google\) and connect their own data from other services you’d like your app to integrate with \(i.e. Twitter, Slack, Strava\). You also want to connect your application to data sources needed for all app users with your own permissions \(to APIs, databases, spreadsheets, etc\). 
+Imagine the following scenario: You, a developer, are trying to build an application that allows users to log in \(via Google\) and connect their own data from other services you’d like your app to integrate with \(i.e. GMail, Slack, Strava\). You also want to connect your application to data sources needed for all app users with your own permissions \(to APIs, databases, spreadsheets, etc\). 
 
 Here is what this process looks like when you're building with Transposit:
 
