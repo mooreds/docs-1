@@ -30,7 +30,7 @@ And here's a visualization of how Transposit allows you to manage your applicati
 
 ## **Why is managed authentication useful?**
 
-Generally, you may build apps using frameworks or platforms that provide you with generic identity management solutions. You may also use data integration services that handle how you authenticate with third party APIs. By having both those aspects of authentication managed by Transposit, you'll no longer have the headache of handling either of these with custom code in your application, and can take advantage of having them managed in one place.
+Generally, you may build apps using frameworks or platforms that provide you with generic identity management solutions. You may also use data integration services that handle how you authenticate with third party APIs. By having both those aspects of authentication managed by Transposit, you'll no longer have the headache of handling either of these with custom code in your application _and_ can take advantage of having them managed in one place.
 
 This should make it easier to create and share **full application experiences** for your end users with simple authentication flows. Now, instead of sharing an automation workflow with a coworker by creating a long wiki for how they can replicated it with their own credentials, you can just build an application instead. 
 
