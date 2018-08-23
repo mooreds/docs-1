@@ -22,11 +22,11 @@ Here is what this process looks like when you're building with Transposit:
 
 Here's a visualization of what Transposit's authentication solution looks like from the perspective of managing multiple, authenticated data connections, both developer and user-provided: 
 
-![](../.gitbook/assets/managed-auth-diagram-a.png)
+![](../.gitbook/assets/managed-auth-1.png)
 
 And here's a visualization of how Transposit allows you to manage your application's "front door" and user records:
 
-![](../.gitbook/assets/managed-auth-diagram-b.png)
+![](../.gitbook/assets/managed-auth-2.png)
 
 ## **Why is managed authentication useful?**
 
