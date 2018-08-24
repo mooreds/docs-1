@@ -2,7 +2,9 @@
 
 ## Terms and symbols
 
-TODO - table/service, column/field, &lt;&gt;, data source, results JSON object TODO: string quotes, identifier \(and escaping\), immediate value
+TODO - table/service, column/field, input parameters, data source/set, results JSON object
+
+TODO: string quotes, identifier \(and escaping\), immediate value
 
 ## Select statement
 
@@ -13,7 +15,7 @@ Select statement syntax:
 ```sql
 SELECT <* or columns selection or JSON template>
 FROM <table or subquery or join>
-WHERE <one or more expressions>
+WHERE <predicate>
 EXPAND BY <columns>
 LIMIT <number>
 ```
@@ -764,8 +766,6 @@ Will generate:
 
 ### From clause
 
-#### Select from table/service
-
 The `FROM` clause of a query creates the data set that the other parts of the query will use.
 
 The `FROM` clause is the first part that is running when the query is executed.
@@ -773,17 +773,56 @@ The `FROM` clause is the first part that is running when the query is executed.
 The `FROM` clause support three types of data sources:
 
 - [Table](tql-reference.md#table)
-- [Sub Query](tql-reference.md#sub-query)
+- [Sub query](tql-reference.md#sub-query)
 - [Join](tql-reference.md#join)
 
 #### Table
 
+To get data from a single service you can use the service directly in the `FROM` clause:
+
 ```sql
 SELECT *
-FROM source.service
+FROM source.service AS <table-alias>
 ```
 
-TODO - table/service, subquery, table alias, join - inner, left/right/full outer \(with/without input params, AND/OR\)
+`AS <column-alias>` is optional. `<table-alias>` is an identifier.
+
+#### Sub query
+
+In some case when you want to manipulate the data set in multiple steps, you can use a sub query in the `FROM` clause:
+
+```sql
+SELECT *
+FROM (SELECT * FROM source.service) AS <table-alias>
+```
+
+`AS <column-alias>` is optional. `<table-alias>` is an identifier.
+
+Both the outer and the inner queries can use any of the other clauses - `FROM`, `WHERE`, `EXPAND BY`, `LIMIT`, `SELECT`.
+
+#### Join
+
+Join can be used to merge the results of two or more tables that share some common data.
+
+```sql
+SELECT *
+FROM source.service_1 AS <table-alias-1>
+<join-type> JOIN source.service_2 AS <table-alias-2>
+ON <predicate>
+```
+
+`<join-type>` is optional and can be one of:
+
+- `INNER`
+- `LEFT OUTER`
+- `RIGHT OUTER`
+- `FULL OUTER`
+
+If `<join-type>` is not specified the default is `INNER`.
+
+In joins `AS <column-alias>` is required. `<table-alias>` is an identifier.
+
+TODO - <predicate>, add examples for join
 
 ### Where clause
 
