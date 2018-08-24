@@ -262,7 +262,7 @@ Will generate:
     value2: "seven",
     value3: true
   }
-];
+]
 ```
 
 _Binary expressions:_
@@ -284,7 +284,7 @@ Will generate:
   {
     value: 46
   }
-];
+]
 ```
 
 With columns:
@@ -570,7 +570,7 @@ Will generate:
     value2: "seven",
     value3: true
   }
-];
+]
 ```
 
 _Binary expressions:_
@@ -592,7 +592,7 @@ Will generate:
   {
     value: 46
   }
-];
+]
 ```
 
 With columns:
@@ -734,7 +734,7 @@ Will generate:
     boolean: true,
     expression: 9
   }
-];
+]
 ```
 
 ```sql
@@ -751,7 +751,7 @@ Will generate:
     boolean: true,
     expression: 9
   }
-];
+]
 ```
 
 ```sql
@@ -761,7 +761,7 @@ SELECT [ 1, 'one', true, (1 + 2) * 3 ]
 Will generate:
 
 ```javascript
-[[1, "one", true, 9]];
+[[1, "one", true, 9]]
 ```
 
 ### From clause
