@@ -258,9 +258,9 @@ Will generate:
 ```javascript
 [
   {
-    value1: 7,
-    value2: "seven",
-    value3: true
+    "value1": 7,
+    "value2": "seven",
+    "value3": true
   }
 ]
 ```
@@ -282,7 +282,7 @@ Will generate:
 ```javascript
 [
   {
-    value: 46
+    "value": 46
   }
 ]
 ```
@@ -558,7 +558,7 @@ _Immediate value:_
 Any value of the types number, string or boolean can be used as an immediate value.
 
 ```sql
-SELECT { value1: 7, value2: 'seven', value3: true }
+SELECT { "value1": 7, "value2": 'seven', "value3": true }
 ```
 
 Will generate:
@@ -566,9 +566,9 @@ Will generate:
 ```javascript
 [
   {
-    value1: 7,
-    value2: "seven",
-    value3: true
+    "value1": 7,
+    "value2": "seven",
+    "value3": true
   }
 ]
 ```
@@ -590,7 +590,7 @@ Will generate:
 ```javascript
 [
   {
-    value: 46
+    "value": 46
   }
 ]
 ```
@@ -729,10 +729,10 @@ Will generate:
 ```javascript
 [
   {
-    number: 1,
-    string: "one",
-    boolean: true,
-    expression: 9
+    "number": 1,
+    "string": "one",
+    "boolean": true,
+    "expression": 9
   }
 ]
 ```
@@ -746,10 +746,10 @@ Will generate:
 ```javascript
 [
   {
-    number: 1,
-    string: "one",
-    boolean: true,
-    expression: 9
+    "number": 1,
+    "string": "one",
+    "boolean": true,
+    "expression": 9
   }
 ]
 ```
