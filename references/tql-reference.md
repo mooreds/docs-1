@@ -558,7 +558,7 @@ _Immediate value:_
 Any value of the types number, string or boolean can be used as an immediate value.
 
 ```sql
-SELECT { "value1": 7, "value2": 'seven', "value3": true }
+SELECT { value1: 7, value2: 'seven', value3: true }
 ```
 
 Will generate:
