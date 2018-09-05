@@ -1,4 +1,4 @@
-# Authenticating third party data
+# Authenticating third party data / Merge this into Authentication doc
 
 ## Keys and Keychains
 
@@ -25,6 +25,3 @@ Keychains are sets of keys that you can enable in development, production, or ot
 In order to share keychains within an organization, create the keychain with the organization as the owner. Any keys put in that organization-owned keychain will be usable by others in the organization.
 
 ## **Authorization protocol configuration**
-
-
-
