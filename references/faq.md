@@ -1,8 +1,10 @@
 # FAQ
 
-## **When should I use SQL and when should I use JavaScript?**
+Itemized FAQ + answers.	For more technical stuff; a place to add "support" items we can link to users.
 
-## **What applications should use Transposit?**
+## When should I use SQL and when should I use JavaScript?
+
+## What applications should use Transposit?
 
 * Anything that connects with multiple data sources and APIs
 * Bots and utilities for interacting with/integrating multiple applications
@@ -15,11 +17,8 @@
   * With security concerns
 * Aggregating data from multiple sources into a custom interfaces that also allow you to modify data in the source applications.
 
-## **How is Transposit different from Zapier/IFTTT/Workato/etc.?**
+## How is Transposit different from Zapier/IFTTT/Workato/etc.?
 
 * Applications, not workflows
 * No wiki required
 * Error-proof, share, and customize your presentation
-
-
-

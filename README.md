@@ -1,16 +1,14 @@
-# Getting Started
+# Transposit Documentation
 
-The best way to get to know Transposit is to build your first application.
+* Landing page
+* Brief hello, value props and differentiators: power of SQL + Relational Engine, managed auth, suggestion to try build guides, read Terms & Parts, try FAQ
 
-TODO: Short explanation of first steps needed to start us Transposit.
+Transposit is an end-to-end solution for building real, production-ready applications on top of APIs.
 
-If you get lost along the way, take a look at our Transposit Basics, Using SQL in Transposit, or email us at support@transposit.com. 
+With Transposit's relational engine, you can use SQL and Javascript in an interactive interface to join, filter and transform your data, wherever it lives. Transposit will deal with complexities of authentication, retries, caching, and optimized execution for you. Your application can interact with Transposit through our JavaScript client or plain HTTP.
 
-Ready? Let's build a simple app that integrates with Slack, Google Sheets, and Twitter! 
+Ready to get get started? [link Follow a quick guide to build your first application].
+
+Along the way, take a look at Transposit Basics, Using SQL in Transposit, and always feel free to talk directly to our team by emailing support@transposit.com.
 
 {% page-ref page="transposit-101/build-a-simple-app.md" %}
-
-
-
-
-
