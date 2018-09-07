@@ -1,9 +1,11 @@
-# Building with Transposit
+# Building & Deploying
 
-* Using SQL
+Landing page.	Short intro and list of lower pages, mention API key.
+
+* Bulding SQL and Javascript Operations
 * Authentication
-* Deploying endpoints
-* Deploying webhooks
-* Deploying scheduled tasks
-* JavaScript client
-* Hosted app pages
+* Endpoints
+* Webhooks
+* Scheduled Tasks
+* JavaScript Client
+* Hosted Apps

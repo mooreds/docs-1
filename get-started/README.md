@@ -1,5 +1,7 @@
 # Get started with Transposit
 
-* Build app A
-* Build app B
-* Terms & parts / Basics
+Landing page. Brief instructions to try two guide, building an app, links to each.
+
+* Quickstart
+* Build a slack bot
+* Terms & Parts / Basics

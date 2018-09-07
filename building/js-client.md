@@ -1,5 +1,7 @@
 # Javascript client
 
+How-to.	How to implement in your external app, sample code.
+
 Our javascript SDK makes it simple to deal with login, auths and run operations in your application.
 
 Install with npm:
@@ -109,4 +111,3 @@ to log the user out of your application.
 ## API reference
 
 TODO
-
