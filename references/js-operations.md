@@ -1,3 +1,4 @@
 # JavaScript Operations
 
-Reference.	What you can do and additional info around building inside transposit with JS.
+Reference. What you can do and additional info around building inside transposit with JS.
+

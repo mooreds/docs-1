@@ -1,6 +1,6 @@
 # Building & Deploying
 
-Landing page.	Short intro and list of lower pages, mention API key.
+Landing page. Short intro and list of lower pages, mention API key.
 
 * Bulding SQL and Javascript Operations
 * Authentication
@@ -9,3 +9,4 @@ Landing page.	Short intro and list of lower pages, mention API key.
 * Scheduled Tasks
 * JavaScript Client
 * Hosted Apps
+

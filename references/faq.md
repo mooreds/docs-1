@@ -1,6 +1,6 @@
 # FAQ
 
-Itemized FAQ + answers.	For more technical stuff; a place to add "support" items we can link to users.
+Itemized FAQ + answers. For more technical stuff; a place to add "support" items we can link to users.
 
 ## When should I use SQL and when should I use JavaScript?
 
@@ -22,3 +22,4 @@ Itemized FAQ + answers.	For more technical stuff; a place to add "support" items
 * Applications, not workflows
 * No wiki required
 * Error-proof, share, and customize your presentation
+
