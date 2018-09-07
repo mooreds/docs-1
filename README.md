@@ -1,4 +1,4 @@
-# README
+# Introduction to Transposit
 
 * Landing page
 * Brief hello, value props and differentiators: power of SQL + Relational Engine, managed auth, suggestion to try build guides, read Terms & Parts, try FAQ

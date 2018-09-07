@@ -1,6 +1,6 @@
 # Table of contents
 
-* [README](README.md)
+* [Introduction to Transposit](README.md)
 * [Get started with Transposit](get-started/README.md)
   * [Transposit basics](get-started/terms.md)
   * [Build a Slack bot](get-started/build-a-slack-bot.md)
