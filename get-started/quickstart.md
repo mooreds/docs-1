@@ -91,13 +91,20 @@ Sometimes it is easiest to use a bit of JavaScript to manipulate data and encode
 Notice in the comment that there is a method called `api.run` that is available for you to call other operations. This can include data sources (e.g. google_sheets, similar to the SQL interface) as well as other operations in your application using the `this` syntax. You can also do things like access the current user using `api.user()`. See our [JavaScript Operations Reference](TODO) for more information.
 - Replace the return in your JavaScript operation with the following to filter out only rows that match
 ```
-return api.run('this.get_sheet_values_1').filter(function(item) {
+var results = api.run('this.get_sheet_values_1').filter(function(item) {
   return item.values[0] === api.user().email;
 }).map(function(item) {
   return {
     message: item.values[1]
   }
 });
+if (results.length === 0) {
+  return {
+    message: 'There are no spreadsheet rows available to ' + api.user().email
+  };
+} else {
+  return results;
+}
 ```
 - You can give this operation a friendlier name like `get_user_messages` by clicking on the `Properties` tab.
 - Commit all your code by clicking the `Commit code` button one more time
@@ -118,7 +125,7 @@ The credentials you add in the development console is only for development. You 
 #### Putting it all together
 - Go back to the `Code` tab
 - Go to your hosted app template by clicking on the `Page template` sub-menu
-- Replace the line `var operation = "helloworld";` with `var operation = "get_user_messages";`
+- Replace the line `var operation = "helloworld";` (line 42 in the hosted app page markup) with `var operation = "get_user_messages";`
 - Click the `Preview` button to preview the results. Note that anytime you make a change, you need to click this preview button to see the changes. Reloading the preview will not work.
 - Now that you see that it works, go back to Transposit and commit your code changes so that you'll see it in the public link that you can once again access in your documentation manual.
 
@@ -126,3 +133,4 @@ The credentials you add in the development console is only for development. You 
 By default your hosted app is only available to you. To make it available to more people, you need to either add users to the whitelist or make it public.
 - Click the `Authentication` tab
 - Either click `Allow sign in from any Google account` or else add your GSuite domain name or individual emails to the whitelist.
+- Click the save button to save any changes you've made
