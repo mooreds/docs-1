@@ -56,10 +56,31 @@ We want to fetch the values from the google spreadsheet. Then we can filter thos
 ```
 SELECT * FROM google_sheets.get_sheet_values
   WHERE range='Sheet1'
+  AND spreadsheetId='1zwe5BJV8QrCK-WEGw5dt_kOPIRGmI_0Qw757bym21ow'
+```
+- Click the run button and you should see your results
+- You'll notice that the results looks something like the following:
+```
+[
+  {
+    "range": "Sheet1!A1:Z999",
+    "majorDimension": "ROWS",
+    "values": [
+      [
+        "hello@transposit.com",
+        "This is some sample data that is available"
+      ],
+      ...
+    ]
+  }
+]
+```
+- We've introduced a few conveniences to SQL for working with JSON including [EXPAND BY](TODO). If we want to extract out the items in the values array, we can use the `EXPAND BY` syntax. However, since `values` is a [SQL keyword](TODO), we need to escape it with backticks. Try expanding the results using something similar to the following:
+```
+SELECT * FROM google_sheets.get_sheet_values
+  WHERE range='Sheet1'
   AND spreadsheetId='1zwe5BJV8QrCK-WEGw5dt_kOPIRGmI_0Qw757bym21ow' EXPAND BY `values`
 ```
-TODO: remove the EXPAND BY once https://transposit.atlassian.net/browse/TR-2150 is done
-- Click the run button and you should see your results
 
 > _Note that in addition to passing through parameters in your SQL statement, you can also filter out the result values in the WHERE clause. See our [SQL tutorial](TODO) and our [SQL reference](TODO) for more information_
 
