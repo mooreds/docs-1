@@ -5,9 +5,9 @@ In this demo, I’m going to build a data-driven application using Transposit.
 
 Sometimes you have a spreadsheets where one of the columns is an email address indicating the owner of the data in that row. And you want to give access to only the rows that belong to the owner. Google sheets does not offer this sort of functionality, but we can easily build this kind of customizable logic with Transposit.
 
-## Prerequisites
-- A google account
-- A google spreadsheet with content similar to  [form](https://docs.google.com/spreadsheets/d/1zwe5BJV8QrCK-WEGw5dt_kOPIRGmI_0Qw757bym21ow/edit#gid=0)... where each row has an email address for the owner who has access
+## What you'll need
+- A Google account
+- A Google Docs spreadsheet where each row has an email address for the person who has access to that row. To make it easy, [copy this sample spreadsheet](https://docs.google.com/spreadsheets/d/1zwe5BJV8QrCK-WEGw5dt_kOPIRGmI_0Qw757bym21ow/copy) for use in this guide.
 
 ## Things not covered in this quickstart but you might be interested in
 - Allowing user specified auths through our managed connect page
