@@ -8,12 +8,12 @@ Transposit provides the ability to write SQL queries (or JavaScript) to transfor
 
 To make this work, we’ve built Transposit to know how to securely communicate with APIs, optimize performance around network calls, and account for the unreliable nature of modern APIs.
 
-{% page-ref page="/building/operations.md" %}
+{% page-ref page="building/operations.md" %}
 
 ## Powerful managed authentication
 Transposit provides end-to-end tooling to centrally administer the authentication and user management required in a data-driven application. You can use Transposit to easily connect to data requiring developer authentication, build a  login flows allowing users to connect their own data, and maintain the mapping of user records to their data connections.
 
-{% page-ref page="/building/authentication.md" %}
+{% page-ref page="building/authentication.md" %}
 
 ## Modern developer tooling
 
@@ -27,8 +27,8 @@ Transposit also provides the features you'd expect of a first-class developer to
 
 ## How to use these docs
 
-​[Getting started](/get-started/README.md) — Get acquainted with Transposit by following easy guides, learning product basics, and getting answers to common questions.
+​[Getting started](get-started/README.md) — Get acquainted with Transposit by following easy guides, learning product basics, and getting answers to common questions.
 
-​[Building and deploying applications](/building/README.md) — Learn how to connect data sources, write operations to manipulate data, and deploy to real users.
+​[Building and deploying applications](building/README.md) — Learn how to connect data sources, write operations to manipulate data, and deploy to real users.
 
-[​References](/references/README.md) — Dive deep into our reference documentation for SQL and JavaScript, authentication and credentials, and answers for common technical scenarios.
+[​References](references/README.md) — Dive deep into our reference documentation for SQL and JavaScript, authentication and credentials, and answers for common technical scenarios.
