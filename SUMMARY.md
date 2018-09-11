@@ -3,6 +3,7 @@
 * [Introduction](README.md)
 * [Get started](get-started/README.md)
   * [Quickstart](get-started/quickstart.md)
+  * [SQL Quickstart](get-started/sql-quickstart.md)
   * [Build a Slack bot](get-started/build-a-slack-bot.md)
   * [Transposit basics](get-started/terms.md)
 * [Building & deploying](building/README.md)
