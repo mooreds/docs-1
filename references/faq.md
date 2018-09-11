@@ -24,4 +24,6 @@ Itemized FAQ + answers. For more technical stuff; a place to add "support" items
 * Error-proof, share, and customize your presentation
 
 ## Rate limits
+
 * To make sure you don't accidentally run through your API rate limits for your data connections, we limit the number of API fetches to 25 per operation per request.
+

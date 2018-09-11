@@ -1,4 +1,4 @@
-# Get started with Transposit
+# Get started
 
 Landing page. Brief instructions to try two guide, building an app, links to each.
 

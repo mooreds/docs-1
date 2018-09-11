@@ -67,8 +67,8 @@ We want to fetch the values from the google spreadsheet. Then we can filter thos
 
   ```text
   SELECT * FROM google_sheets.get_sheet_values
-  WHERE range='Sheet1'
-  AND spreadsheetId='<INSERT YOUR SPREADSHEET ID>'
+      WHERE range='Sheet1'
+      AND spreadsheetId='<INSERT YOUR SPREADSHEET ID>'
   ```
 
 * Click the run button and you should see your results
@@ -76,17 +76,17 @@ We want to fetch the values from the google spreadsheet. Then we can filter thos
 
   ```text
   [
-  {
-    "range": "Sheet1!A1:Z999",
-    "majorDimension": "ROWS",
-    "values": [
-      [
-        "hello@transposit.com",
-        "This is some sample data that is available"
-      ],
-      ...
-    ]
-  }
+    {
+      "range": "Sheet1!A1:Z999",
+      "majorDimension": "ROWS",
+      "values": [
+        [
+          "hello@transposit.com",
+          "This is some sample data that is available"
+        ],
+        ...
+      ]
+    }
   ]
   ```
 
@@ -94,8 +94,8 @@ We want to fetch the values from the google spreadsheet. Then we can filter thos
 
   ```text
   SELECT * FROM google_sheets.get_sheet_values
-  WHERE range='Sheet1'
-  AND spreadsheetId='<INSERT YOUR SPREADSHEET ID>' EXPAND BY `values`
+      WHERE range='Sheet1'
+      AND spreadsheetId='<INSERT YOUR SPREADSHEET ID>' EXPAND BY `values`
   ```
 
 > _Note that in addition to passing through parameters in your SQL statement, you can also filter out the result values in the WHERE clause. See our_ [_SQL tutorial_](https://github.com/transposit/docs/tree/2666fe8716a946b42095a80ee0b4e875e140a98c/get-started/TODO/README.md) _and our_ [_SQL reference_](https://github.com/transposit/docs/tree/2666fe8716a946b42095a80ee0b4e875e140a98c/get-started/TODO/README.md) _for more information_
@@ -111,19 +111,21 @@ Notice in the comment that there is a method called `api.run` that is available 
 * Replace the return in your JavaScript operation with the following to filter out only rows that match
 
   ```text
-  var results = api.run('this.get_sheet_values_1').filter(function(item) {
-  return item.values[0] === api.user().email;
-  }).map(function(item) {
-  return {
-    message: item.values[1]
-  }
-  });
-  if (results.length === 0) {
-  return {
-    message: 'There are no spreadsheet rows available to ' + api.user().email
-  };
-  } else {
-  return results;
+  function run(params) {
+    var results = api.run('this.get_sheet_values_1').filter(function(item) {
+      return item.values[0] === api.user().email;
+    }).map(function(item) {
+      return {
+        message: item.values[1]
+      }
+    });
+    if (results.length === 0) {
+      return {
+        message: 'There are no spreadsheet rows available to ' + api.user().email
+      };
+    } else {
+      return results;
+    }
   }
   ```
 
