@@ -836,6 +836,8 @@ TODO - column, nested path, alias, multiple columns
 
 TODO
 
+TODO: Document the pagination bubble that gets shown in the documentation viewer to indicate that we support pagination with the LIMIT
+
 ### Expressions
 
 TODO \(maybe this is not needed and we will talk about expressions in the relevant sections\)
@@ -848,3 +850,5 @@ TODO \(@userId\)
 
 TODO - list of keywords, valid/invalid characters, how to escape
 
+### Comments
+We support multi-line comments using ``/* */`` or single line comments using the `--` prefix
