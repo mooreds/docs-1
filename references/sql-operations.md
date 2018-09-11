@@ -51,7 +51,7 @@ The `*` symbol will keep the items from 'data source' without changes:
 
 ```sql
 SELECT *
-FROM source.service
+FROM connector.operation
 ```
 
 #### Columns selection
@@ -69,7 +69,7 @@ SELECT <column-expression> AS <column-alias>, <column-expression> AS <column-ali
 `<column-expression>` describes how to construct a value in the output JSON object and can be one of the following:
 
 * `<path>`
-* `<table-alias>.<path>`
+* `<connector-alias>.<path>`
 * `<immediate-value>`
 * `<binary-expression>`
 
@@ -86,7 +86,7 @@ SELECT <column-expression> AS <column-alias>, <column-expression> AS <column-ali
 
 `<key>` is an identifier.
 
-`<table-alias>` is an identifier.
+`<connector-alias>` is an identifier.
 
 `<immediate-value>` is a number, string or boolean value.
 
@@ -111,8 +111,8 @@ For `<path>` the resolve process will do a lookup for each `<key>` in the curren
 If a `<key>` is being resolved but the current item is not a JSON object, the resolve will stop and the value will be considered as 'not found'.  
 If a `<key>` is being resolved and the current item is a JSON object that doesn't contain the same key, the resolve will stop and the value will be considered as 'not found'.
 
-For `<table-alias>.<path>` - the resolve process will resolve the specified `<path>` only under the results from the table that was marked with the specified alias.  
-If no table was marked with `<table-alias>` the resolve will stop and the value will be considered as 'not found'.
+For `<connector-alias>.<path>` - the resolve process will resolve the specified `<path>` only under the results from the table that was marked with the specified alias.  
+If no table was marked with `<connector-alias>` the resolve will stop and the value will be considered as 'not found'.
 
 For `<binary-expression>` the resolve process will deconstruct the expression and will resolved each part and then will reconstruct the resolved parts to produce immediate value.  
 If the types of the operands is not the same the resolve process will produce an error and the entire query will fail.  
@@ -135,7 +135,7 @@ _Selecting a single value:_
 
 ```sql
 SELECT col1
-FROM source.service
+FROM connector.operation
 ```
 
 Will generate a JSON object with a single key:
@@ -153,7 +153,7 @@ _Selecting multiple values:_
 
 ```sql
 SELECT col1, col2, col3
-FROM source.service
+FROM connector.operation
 ```
 
 Will generate a JSON object with multiple keys:
@@ -191,7 +191,7 @@ The query:
 
 ```sql
 SELECT nested.object.value
-FROM source.service
+FROM connector.operation
 ```
 
 Will generate a JSON object with the key and value of the item in the specific path:
@@ -211,7 +211,7 @@ You can use column alias to change the key of a value:
 
 ```sql
 SELECT col1 AS foo
-FROM source.service
+FROM connector.operation
 ```
 
 Will generate a JSON object with the key `foo`, the value will be the value of `col1`:
@@ -227,11 +227,11 @@ Will generate a JSON object with the key `foo`, the value will be the value of `
 
 _Using table alias:_
 
-When a table is marked with alias \(see [table alias](https://github.com/transposit/docs/tree/052cc31e86f4f0cb3c4c208bac0f55fd4ad10d9b/references/tql-reference.md#table-alias)\) the same table alias can be used as a qualifier in the beginning of the path to define exactly where to do the lookup for the path \(the results of which table to use\). This is useful when the query contains more than one table \(for example in [join query](https://github.com/transposit/docs/tree/052cc31e86f4f0cb3c4c208bac0f55fd4ad10d9b/references/tql-reference.md#join-query)\).
+When a table is marked with alias \(see [table alias](https://github.com/transposit/docs/tree/052cc31e86f4f0cb3c4c208bac0f55fd4ad10d9b/references/tql-reference.md#connector-alias)\) the same table alias can be used as a qualifier in the beginning of the path to define exactly where to do the lookup for the path \(the results of which table to use\). This is useful when the query contains more than one table \(for example in [join query](https://github.com/transposit/docs/tree/052cc31e86f4f0cb3c4c208bac0f55fd4ad10d9b/references/tql-reference.md#join-query)\).
 
 ```sql
 SELECT T.col1
-FROM source.service AS T
+FROM connector.operation AS T
 ```
 
 Will generate a JSON object with a single key:
@@ -291,7 +291,7 @@ With columns:
 
 ```sql
 SELECT (col1 + 10) * nested.object.value1 as value
-FROM source.service
+FROM connector.operation
 ```
 
 Will use the values of `col1` and `nested.object.value1` to calculate the value of the expression.
@@ -320,7 +320,7 @@ The query:
 
 ```sql
 SELECT nested.object.*
-FROM source.service
+FROM connector.operation
 ```
 
 Will generate a JSON object with the all the keys and values in the specific path:
@@ -357,13 +357,13 @@ SELECT [ <json-value>, ... ]
 `<json-value>` can be one of the following:
 
 * `<path>` - a column selection
-* `<table-alias>.<path>` - a column selection with table alias qualifier
+* `<connector-alias>.<path>` - a column selection with table alias qualifier
 * `<immediate-value>` - number, string or boolean
 * `<binary-expression>` - a calculated expression
 * `<json-object>` - construct a nested object
 * `<json-array>` - construct a nested array
 
-`<path>`, `<table-alias>.<path>`, `<immediate-value>` and `<binary-expression>` are the same as in [columns selection](https://github.com/transposit/docs/tree/052cc31e86f4f0cb3c4c208bac0f55fd4ad10d9b/references/tql-reference.md#columns-selection). The only difference is that `.*` in the end of `<path>` is not allowed in JSON template, use [spread operator](https://github.com/transposit/docs/tree/052cc31e86f4f0cb3c4c208bac0f55fd4ad10d9b/references/tql-reference.md#spread-operator) instead.
+`<path>`, `<connector-alias>.<path>`, `<immediate-value>` and `<binary-expression>` are the same as in [columns selection](https://github.com/transposit/docs/tree/052cc31e86f4f0cb3c4c208bac0f55fd4ad10d9b/references/tql-reference.md#columns-selection). The only difference is that `.*` in the end of `<path>` is not allowed in JSON template, use [spread operator](https://github.com/transposit/docs/tree/052cc31e86f4f0cb3c4c208bac0f55fd4ad10d9b/references/tql-reference.md#spread-operator) instead.
 
 `<json-object>` constructs a JSON object, the syntax is:
 
@@ -406,7 +406,7 @@ The `<key>`s and `<json-value>`s are used in the same order as they appear in th
 
 Each `<json-value>` will be calculated and resolved. The resolved value can be immediate value \(number, string or boolean\), JSON object or JSON array.
 
-`<path>`, `<table-alias>.<path>`, `<immediate-value>` and `<binary-expression>` are resolved the same as in [columns selection](https://github.com/transposit/docs/tree/052cc31e86f4f0cb3c4c208bac0f55fd4ad10d9b/references/tql-reference.md#columns-selection).
+`<path>`, `<connector-alias>.<path>`, `<immediate-value>` and `<binary-expression>` are resolved the same as in [columns selection](https://github.com/transposit/docs/tree/052cc31e86f4f0cb3c4c208bac0f55fd4ad10d9b/references/tql-reference.md#columns-selection).
 
 `<json-object>` and `<json-array>` are resolved recursively.
 
@@ -425,7 +425,7 @@ _Selecting a single value:_
 
 ```sql
 SELECT { col1: col1 }
-FROM source.service
+FROM connector.operation
 ```
 
 Will generate a JSON object with a single key:
@@ -443,7 +443,7 @@ _Selecting multiple values:_
 
 ```sql
 SELECT { col1: col1, col2: col2, col3: col3 }
-FROM source.service
+FROM connector.operation
 ```
 
 Will generate a JSON object with multiple keys:
@@ -481,7 +481,7 @@ The query:
 
 ```sql
 SELECT { value: nested.object.value }
-FROM source.service
+FROM connector.operation
 ```
 
 Will generate a JSON object with the key and value of the item in the specific path:
@@ -501,7 +501,7 @@ JSON template requires a key, so the same syntax can be used even if you want to
 
 ```sql
 SELECT { foo: col1 }
-FROM source.service
+FROM connector.operation
 ```
 
 Will generate a JSON object with the key `foo`, the value will be the value of `col1`:
@@ -519,7 +519,7 @@ If the key contains spaces, illegal characters or is a keyword, it must be escap
 
 ```sql
 SELECT { `key with spaces`: col1 }
-FROM source.service
+FROM connector.operation
 ```
 
 Will generate
@@ -535,11 +535,11 @@ Will generate
 
 _Using table alias:_
 
-When a table is marked with alias \(see [table alias](https://github.com/transposit/docs/tree/052cc31e86f4f0cb3c4c208bac0f55fd4ad10d9b/references/tql-reference.md#table-alias)\) the same table alias can be used as a qualifier in the beginning of the path to define exactly where to do the lookup for the path \(the results of which table to use\). This is useful when the query contains more than one table \(for example in [join query](https://github.com/transposit/docs/tree/052cc31e86f4f0cb3c4c208bac0f55fd4ad10d9b/references/tql-reference.md#join-query)\).
+When a table is marked with alias \(see [table alias](https://github.com/transposit/docs/tree/052cc31e86f4f0cb3c4c208bac0f55fd4ad10d9b/references/tql-reference.md#connector-alias)\) the same table alias can be used as a qualifier in the beginning of the path to define exactly where to do the lookup for the path \(the results of which table to use\). This is useful when the query contains more than one table \(for example in [join query](https://github.com/transposit/docs/tree/052cc31e86f4f0cb3c4c208bac0f55fd4ad10d9b/references/tql-reference.md#join-query)\).
 
 ```sql
 SELECT { col1: T.col1 }
-FROM source.service AS T
+FROM connector.operation AS T
 ```
 
 Will generate a JSON object with a single key:
@@ -599,7 +599,7 @@ With columns:
 
 ```sql
 SELECT { value: (col1 + 10) * nested.object.value1 }
-FROM source.service
+FROM connector.operation
 ```
 
 Will use the values of `col1` and `nested.object.value1` to calculate the value of the expression.
@@ -610,7 +610,7 @@ The previous examples showed how to construct an object as the output item. With
 
 ```sql
 SELECT [ col1 ]
-FROM source.service
+FROM connector.operation
 ```
 
 Will generate a JSON array with a single item \(the item is the value of `col1`\):
@@ -628,7 +628,7 @@ And you can use all the other expressions as in the previous examples - nested o
 
 ```sql
 SELECT [ (col1 + 10) * nested.object.value1, T.col2, 7, 'seven', true ]
-FROM source.service AS T
+FROM connector.operation AS T
 ```
 
 _Constructing nested template:_
@@ -646,7 +646,7 @@ SELECT {
       ]
     }
   }
-FROM source.service
+FROM connector.operation
 ```
 
 _Selecting all values under an object or array:_
@@ -672,7 +672,7 @@ The query:
 
 ```sql
 SELECT { ... object }
-FROM source.service
+FROM connector.operation
 ```
 
 Will generate a JSON object with the all the keys and values under `object`:
@@ -692,7 +692,7 @@ The query:
 
 ```sql
 SELECT [ ... array ]
-FROM source.service
+FROM connector.operation
 ```
 
 Will generate a JSON array with the all the values under `array`:
@@ -782,10 +782,10 @@ To get data from a single service you can use the service directly in the `FROM`
 
 ```sql
 SELECT *
-FROM source.service AS <table-alias>
+FROM connector.operation AS <connector-alias>
 ```
 
-`AS <column-alias>` is optional. `<table-alias>` is an identifier.
+`AS <column-alias>` is optional. `<connector-alias>` is an identifier.
 
 #### Sub query
 
@@ -793,10 +793,10 @@ In some case when you want to manipulate the data set in multiple steps, you can
 
 ```sql
 SELECT *
-FROM (SELECT * FROM source.service) AS <table-alias>
+FROM (SELECT * FROM connector.operation) AS <operation-alias>
 ```
 
-`AS <column-alias>` is optional. `<table-alias>` is an identifier.
+`AS <column-alias>` is optional. `<operation-alias>` is an identifier.
 
 Both the outer and the inner queries can use any of the other clauses - `FROM`, `WHERE`, `EXPAND BY`, `LIMIT`, `SELECT`.
 
@@ -806,8 +806,8 @@ Join can be used to merge the results of two or more tables that share some comm
 
 ```sql
 SELECT *
-FROM source.service_1 AS <table-alias-1>
-<join-type> JOIN source.service_2 AS <table-alias-2>
+FROM connector.operation_1 AS <operation-alias-1>
+<join-type> JOIN connector.operation_2 AS <operation-alias-2>
 ON <predicate>
 ```
 
@@ -820,7 +820,7 @@ ON <predicate>
 
 If `<join-type>` is not specified the default is `INNER`.
 
-In joins `AS <column-alias>` is required. `<table-alias>` is an identifier.
+In joins `AS <column-alias>` is required. `<operation-alias>` is an identifier.
 
 TODO - , add examples for join
 
