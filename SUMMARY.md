@@ -1,0 +1,22 @@
+# Table of contents
+
+* [Introduction](README.md)
+* [Get started](get-started/README.md)
+  * [Quickstart](get-started/quickstart.md)
+  * [Build a Slack bot](get-started/build-a-slack-bot.md)
+  * [Transposit basics](get-started/terms.md)
+* [Building & deploying](building/README.md)
+  * [Building SQL and Javascript Operations](building/operations.md)
+  * [Authentication](building/authentication.md)
+  * [Endpoints](building/endpoints.md)
+  * [Webhooks](building/webhooks.md)
+  * [Scheduled tasks](building/scheduled-tasks.md)
+  * [Javascript client](building/js-client.md)
+  * [Hosted Apps](building/hosted-apps.md)
+* [References](references/README.md)
+  * [FAQ](references/faq.md)
+  * [Authentication](references/authentication.md)
+  * [SQL Operations](references/sql-operations.md)
+  * [JavaScript Operations](references/js-operations.md)
+  * [JavaScript Client](references/js-client.md)
+  
