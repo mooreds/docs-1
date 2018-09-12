@@ -73,24 +73,24 @@ Let's create an operation that takes a message id and returns the
 
   ```text
   SELECT * FROM google_mail.get_message
-    WHERE id=@messageId
-    AND userId='me'
+  WHERE id=@messageId
+  AND userId='me'
   ```
 
 * To test it, grab one of the IDs from the previous request above, set it as the messageId in the parameters panel, and run the operation. You should see a result similar to:
 
   ```text
   [
-    {
-      "id": "165caab0c1a7c2c2",
-      "threadId": "165c97321cbdb7cb",
-      "labelIds": [
-        "INBOX"
-      ],
-      "snippet": "Transposit makes APIs fun!",
-      "historyId": "17433647",
-      ...
-    }
+  {
+    "id": "165caab0c1a7c2c2",
+    "threadId": "165c97321cbdb7cb",
+    "labelIds": [
+      "INBOX"
+    ],
+    "snippet": "Transposit makes APIs fun!",
+    "historyId": "17433647",
+    ...
+  }
   ]
   ```
 
@@ -120,9 +120,9 @@ Transposit makes it easy to join data across APIs in a single data source as wel
 
 ```text
 SELECT *
-  FROM connector.operation_1 AS <operation-alias-1>
-  JOIN connector.operation_2 AS <operation-alias-2>
-  ON <predicate>
+    FROM connector.operation_1 AS <operation-alias-1>
+    JOIN connector.operation_2 AS <operation-alias-2>
+    ON <predicate>
 ```
 
 Let's use a join to combine the two operations we've created so we can get the snippet for your first 10 messages.
@@ -132,9 +132,9 @@ Let's use a join to combine the two operations we've created so we can get the s
 
 ```text
 SELECT *
-  FROM this.get_messages_1 AS LIST
-  JOIN this.get_message_1 AS DETAIL
-  ON LIST.id = DETAIL.messageId
-  LIMIT 10
+    FROM this.get_messages_1 AS LIST
+    JOIN this.get_message_1 AS DETAIL
+    ON LIST.id = DETAIL.messageId
+    LIMIT 10
 ```
 
