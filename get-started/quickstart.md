@@ -1,38 +1,45 @@
 # Quickstart
 
-## Problem
+In this guide, you'll build a data-driven application using Transposit.
 
-In this demo, I’m going to build a data-driven application using Transposit.
-
-Sometimes you have a spreadsheets where one of the columns is an email address indicating the owner of the data in that row. And you want to give access to only the rows that belong to the owner. Google sheets does not offer this sort of functionality, but we can easily build this kind of customizable logic with Transposit.
+Suppose you have a spreadsheet where the first column is an email address indicating the owner of the data in that row. You want to give access to only the rows that belong to the owner. Google sheets does not offer this sort of functionality, but we can easily build this kind of customizable logic with Transposit.
 
 ## What you'll need
 
-* A Google account
-* A Google Docs spreadsheet where each row has an email address for the person who has access to that row. To make it easy, [copy this sample spreadsheet](https://docs.google.com/spreadsheets/d/1zwe5BJV8QrCK-WEGw5dt_kOPIRGmI_0Qw757bym21ow/copy) for use in this guide.
+You'll need a Google account with access to Google Docs, and a Google Docs spreadsheet where each row has an email address for the person who has access to that row. Here's the format:
 
-## Things not covered in this quickstart but you might be interested in
+| Email address       | Data                                       |
+|---------------------|--------------------------------------------|
+| you@domain.com      | This is some sample data that is available |
+| you@domain.com      | Some more data that is available           |
+| iggy@transposit.com | Iggy's data you can't see                  |
+| iggy@transposit.com | Iggy's data in this row too                |
 
-* Allowing user specified auths through our managed connect page
-* Integrating multiple data sources together
+To make it easy, you can [copy this sample spreadsheet](https://docs.google.com/spreadsheets/d/1zwe5BJV8QrCK-WEGw5dt_kOPIRGmI_0Qw757bym21ow/copy) for use in this guide.
 
-## Building in Transposit
+{% hint style="warning" %}
+Be sure to add yourself (using your own email address) to one or more of the spreadsheet rows.
+{% endhint %}
 
-### Create a new application
+## 1. Create a new application
 
-Building a new application is simple. Create a new application, give it a name, and pick a template. For this demo, we will use the "Simple app" template.
+Create a new application, give it a name, and pick the "Simple app" template for use in this guide.
 
-#### Hosted applications
+## 2. Check out the hosted application
 
-With Transposit we automatically set up a hosted application for you to build and test but also share with friends to get instant feedback while you are developing your application. We've provided a gated front door so that only you and the people you've authorized have access to view your application.
+{% hint style="info" %}
+Transposit automatically enables basic hosting, for building and testing and also to share with friends to get feedback while you're mid the development process. There's a gated front door (sign in is required) so that only you and the people you've authorized have access to view your application.
+{% endhint %}
 
-* If you look at the `documentation` tab in the lower half of the code window, you can see in the quickstart manual that there is a link to the hosted app page. If you click it, it will populate your published and available application with the gated front-door that only you have access to.
-* If you login with the same google account as your Transposit development account, you can access the app.
-* Once logged in you will see some stub data displayed
-* If you go back to the Transposit code editor and select the `helloworld` operation, you will see the operation the hosted application calls.
-* Try adding italian to the list of languages:
+If you look at the **Documentation** tab in the lower half of the code window, you can see in the  manual that there's a link to the hosted app page. If you click it, it will populate your published and available application, accessible to you only, by signing in with your Google account.
 
-  ```text
+Once signed in, you'll see some stub data displayed.
+
+If you go back to the Transposit code editor and select the `helloworld` operation, you will see the operation the hosted application calls.
+
+Try adding Italian to the list of languages:
+
+  ```javascript
   return [
     {
       "message": "Hello World"
@@ -46,33 +53,32 @@ With Transposit we automatically set up a hosted application for you to build an
   ];
   ```
 
-* Hit the `Commit code` button in the upper right.
-* Go to the other tab where your hosted app is open and reload to see the new data.
+Click the **Commit code** button in the upper right to commit the changes. If you then go to the browser tab where your hosted app is open and refresh the page, you'll see the new data.
 
-#### Populating the data
+## 3. Add a data connector
 
-We want to fetch the values from the google spreadsheet. Then we can filter those values to only return the rows owned by a given email address in the form that the hosted application expects.
+Next we'll fetch the values from the spreadsheet, then filter those values to only return the rows owned by a given email address in the form that the hosted application expects.
 
-#### Adding data connectors
+* Click on the plus icon next to **Data connections** to add a data connector.
+* Search for **Google Sheets** and add it.
 
-* Click on the plus icon next to `Data connections` to add a new data connector.
-* Search for `Google sheets` and add the data connector.
-* Notice you'll be prompted to authorize. We allow you to use our oauth application credentials so that you can get instant access to your data. But you can [supply your own credentials](https://github.com/transposit/docs/tree/2666fe8716a946b42095a80ee0b4e875e140a98c/get-started/TODO/README.md) in the future to customize the authorization screen.
+Notice that you'll be prompted to authorize. Transposit allows you to use our oAuth application credentials so you can get instant access to your data. But you can also supply your own credentials later on to customize the authorization screen.
 
-#### Using SQL to query your data
+## 4. Use SQL to query your data
 
-* Add a new operation by clicking the plus icon next to `Operations`
-* Choose `SQL from template` and then choose the scaffold operation `get_sheet_values`.
-* You only need to specify a spreadsheetId and range. You can fill in the information for the private spreadsheet you created, but it should look something like:
+* Add a new operation by clicking the plus icon next to **Operations**.
+* Choose **SQL from template** and then choose to scaffold operation `get_sheet_values`.
 
-  ```text
+Here, you only need to specify `spreadsheetId` and `range`. You can fill in the information for the private spreadsheet you created or copied, and it should look something like this:
+
+  ```SQL
   SELECT * FROM google_sheets.get_sheet_values
   WHERE range='Sheet1'
   AND spreadsheetId='<INSERT YOUR SPREADSHEET ID>'
   ```
 
-* Click the run button and you should see your results
-* You'll notice that the results looks something like the following:
+* Now click the **Run** button and you should see your results.
+* You'll notice that the results are something like the following:
 
   ```text
   [
@@ -90,27 +96,27 @@ We want to fetch the values from the google spreadsheet. Then we can filter thos
   ]
   ```
 
-* We've introduced a few conveniences to SQL for working with JSON including [EXPAND BY](https://github.com/transposit/docs/tree/2666fe8716a946b42095a80ee0b4e875e140a98c/get-started/TODO/README.md). If we want to extract out the items in the values array, we can use the `EXPAND BY` syntax. However, since `values` is a [SQL keyword](https://github.com/transposit/docs/tree/2666fe8716a946b42095a80ee0b4e875e140a98c/get-started/TODO/README.md), we need to escape it with backticks. Try expanding the results using something similar to the following:
+Transposit introduces a few conveniences to SQL for working with JSON, including [EXPAND BY](references/sql-operations.md). If you want to extract the items in the values array, you can use the `EXPAND BY` syntax. However, since `values` is a SQL keyword, it must be escaped  with backticks.
 
-  ```text
+Try expanding the results using something similar to the following:
+
+  ```sql
   SELECT * FROM google_sheets.get_sheet_values
   WHERE range='Sheet1'
   AND spreadsheetId='<INSERT YOUR SPREADSHEET ID>' EXPAND BY `values`
   ```
 
-> _Note that in addition to passing through parameters in your SQL statement, you can also filter out the result values in the WHERE clause. See our_ [_SQL tutorial_](https://github.com/transposit/docs/tree/2666fe8716a946b42095a80ee0b4e875e140a98c/get-started/TODO/README.md) _and our_ [_SQL reference_](https://github.com/transposit/docs/tree/2666fe8716a946b42095a80ee0b4e875e140a98c/get-started/TODO/README.md) _for more information_
+{% hint style="info" %}Note that in addition to passing through parameters in your SQL statement, you can also filter out the result values in the `WHERE` clause. See the [SQL quickstart](get-started/sql-quickstart.md) and the [SQL reference](references/sql-operations.md) for more information.
+{% endhint %}
 
-#### Mixing in JavaScript
+## 5. Mixing in JavaScript
 
-Sometimes it is easiest to use a bit of JavaScript to manipulate data and encode some business logic. In this case since the result of the google sheets call is fairly unstructured, we are going to use JavaScript to give it a bit of structure.
+Sometimes it's easiest to use a bit of JavaScript to manipulate data and encode some business logic. In this case since the result of the Google Sheets call is fairly unstructured, let's  use JavaScript to give it a bit of structure.
 
 * Click the new operation button and select JavaScript
+* Replace the `return` in your JavaScript operation with the following, to filter out only rows that match:
 
-Notice in the comment that there is a method called `api.run` that is available for you to call other operations. This can include data sources \(e.g. google\_sheets, similar to the SQL interface\) as well as other operations in your application using the `this` syntax. You can also do things like access the current user using `api.user()`. See our [JavaScript Operations Reference](https://github.com/transposit/docs/tree/2666fe8716a946b42095a80ee0b4e875e140a98c/get-started/TODO/README.md) for more information.
-
-* Replace the return in your JavaScript operation with the following to filter out only rows that match
-
-  ```text
+  ```javascript
   var results = api.run('this.get_sheet_values_1').filter(function(item) {
   return item.values[0] === api.user().email;
   }).map(function(item) {
@@ -127,39 +133,53 @@ Notice in the comment that there is a method called `api.run` that is available 
   }
   ```
 
-* You can give this operation a friendlier name like `get_user_messages` by clicking on the `Properties` tab.
-* Commit all your code by clicking the `Commit code` button one more time
+* You can give this operation a friendlier name like `get_user_messages` by clicking on the **Properties** tab.
+* Commit all your code by clicking the **Commit code** button one more time.
 
-#### Deploying your operation
+{% hint style="info" %}
+In the commented code there's a method named `api.run` that is available for you to call other operations. This can include data sources (e.g. google_sheets, similar to the SQL interface) as well as other operations in your application using the `this` syntax. You can also do things like access the current user using `api.user()`. See the [JavaScript Operations Reference](references/js-operations.md) for more information.
+{% endhint %}
 
-By default the http endpoints for your operations \(other than the default helloworld operation we created for you\) are private. Since we want our hosted app to be able to hit our newly created operation, we need to deploy that operation.
+## 6. Deploying your operation
 
-* Click the `Deploy` menu item
-* Find your `get_user_messages` operation and select `Deployed`
-* Since we require user information \(i.e. the user's email\), check the `Require user sign-in` checkbox.
-* Click the `Save` button to save your configuration changes.
+By default, the HTTP endpoints for your operations (other than the default `helloworld` operation we created for you) are private. Since this hosted app should be able to hit our newly created operation, we need to deploy that new operation.
 
-#### Setting production credentials
+* Click the **Deploy**  in the navigation menu.
+* Find your `get_user_messages` operation and select **Deployed**
+* Since we require user information (i.e. the user's email), ensure the **Require user sign-in** checkbox is checked.
+* Click the **Save** button to save your configuration changes.
 
-The credentials you add in the development console is only for development. You can choose to either have your users provide credentials or provide them for all your users. In this case since only you have access to your spreadsheet, you will provide the credentials for your user. To learn more about the various managed auth, you can read our [overview of the auth features we provide](https://github.com/transposit/docs/tree/2666fe8716a946b42095a80ee0b4e875e140a98c/get-started/TODO/README.md).
+## 7. Setting production keys
 
-* Click the `Authentication` menu item
-* Select the `Production Keys` sub-menu
-* Click the `Add key` button, select `google_sheets`, and authorize
+The credentials you add in the development console are for use in development only. You can choose to have your users provide required credentials, or provide them for all your users. In this case since only you have access to your spreadsheet, you will provide the required credentials for your users.
 
-#### Putting it all together
+* Click **Authentication** in the navigation.
+* Select the **Production Keys** section.
+* Click the **Add key** button, select `google_sheets`, and authorize.
 
-* Go back to the `Code` tab
-* Go to your hosted app template by clicking on the `Page template` sub-menu
-* Replace the line `var operation = "helloworld";` \(line 42 in the hosted app page markup\) with `var operation = "get_user_messages";`
-* Click the `Preview` button to preview the results. Note that anytime you make a change, you need to click this preview button to see the changes. Reloading the preview will not work.
-* Now that you see that it works, go back to Transposit and commit your code changes so that you'll see it in the public link that you can once again access in your documentation manual.
+This uses the keys you've just personally provided in the context of running the application in production for other users.
 
-#### Making it available to everyone
+To learn more about authentication options, see [Authentication](building/authentication.md).
 
-By default your hosted app is only available to you. To make it available to more people, you need to either add users to the whitelist or make it public.
+## 8. Putting it all together
 
-* Click the `Authentication` tab
-* Either click `Allow sign in from any Google account` or else add your GSuite domain name or individual emails to the whitelist.
-* Click the save button to save any changes you've made
+* Return to your application's code
+* Go to your hosted app template by clicking on the **Page template** section
+* Replace `var operation = "helloworld";` with `var operation = "get_user_messages";` (line 42 in the hosted app page markup).
+* Click **Preview** to see the results. Note that any time you make a change to code or to the template, you need to click this preview button to see the changes. Reloading the preview will not work.
+* Now that you see that it working in the preview, return to Transposit and commit your code changes so that you'll see it in the public link that you can once again access from your application manual.
 
+## 9. Making it available to everyone
+
+By default your hosted app is available to only you . To make it available to more people,  either add users to the whitelist or make it public.
+
+* Click **Authentication** in the navigation.
+* You can choose **Allow sign in from any Google account**, or add your GSuite domain name, or add individual email addresses to the whitelist.
+* Click the **Save** button to save any changes you've made.
+
+Your app is now live!
+
+## Related topics
+
+* [Allowing user-supplied keys through the managed connect page](building/authentication.md)
+* [Integrating multiple data sources together](building/sql-quickstart.md)
