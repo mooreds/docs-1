@@ -1,13 +1,8 @@
 # Terms & Basics
 
-## Users
+## Applications
 
-In the Transposit platform, there are two types of users:
-
-The Transposit user; the developer an application
-The application user; the consumer of the application
-
-This distinction is important in that depending on the configuration of your application, credentials (keys) for accessing data connections may be supplied by you as the developer or by your end users. See also: [Authentication](/building/authentication.md).
+An application is the representation of a particular project; a container functionality you want to build. Applications contain operations, data connections, keys to access data connections, and configurations for authentication and deployment. 
 
 ## Data connectors
 
@@ -34,3 +29,12 @@ Transposit provides powerful tools to centrally manage these types of authentica
 ## Hosted apps
 
 To speed up the flow of application development and deploying, Transposit provides basic facilities for hosting a web page for use as access point to your application's front end. Use of this hosting is entirely optional.. See also: [Hosted Apps](/building/hosted-apps.md).
+
+## Users
+
+In the Transposit platform, there are two types of users:
+
+The Transposit user; the developer an application
+The application user; the consumer of the application
+
+This distinction is important in that depending on the configuration of your application, credentials (keys) for accessing data connections may be supplied by you as the developer or by your end users. See also: [Authentication](/building/authentication.md).
