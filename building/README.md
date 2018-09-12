@@ -1,4 +1,4 @@
-# Building & deploying
+# Building & Deploying
 
 Landing page. Short intro and list of lower pages, mention API key.
 

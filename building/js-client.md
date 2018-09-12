@@ -125,7 +125,7 @@ transposit.handleLogin()
 
 ### `transposit.isLoggedIn()`
 
-**Returns** \(boolean\): True if there exists login information \(does not check if the token is expired\).
+**Returns** \(boolean\): True if there exists login information (does not check if the token is expired).
 
 ### `transposit.logOut()`
 
@@ -204,6 +204,7 @@ transposit.getUserInfo()
 The full format of the return object for `transposit.runOperation`
 
 ```javascript
+
 export interface EndRequestLog {
   status: "SUCCESS" | "ERROR";
   requestId: string;
@@ -245,4 +246,3 @@ export interface ScriptExceptionLog {
   column?: number;
 }
 ```
-
