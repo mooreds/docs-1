@@ -1,4 +1,4 @@
-# SQL and Javascript operations
+# SQL and JavaScript operations
 
 Operations are callable units of work. Operations can be written in [JavaScript](/references/js-operations.md) or [SQL](/references/sql-operations.md), and they may be private (e.g. used only for development, or called by other operations within the application), [scheduled for periodic execution](/building/scheduled-tasks.md), or deployed as [endpoints](/building/endpoints.md).
 
@@ -13,7 +13,9 @@ SELECT * FROM database.get_users WHERE lastName='smith' LIMIT 50
 Data can be joined, as you'd expect in SQL:
 
 ```sql
-SELECT * FROM database.get_users AS A JOIN database.get_user as B ON A.id = B.id WHERE A.lastName='smith' LIMIT 50
+SELECT * FROM database.get_users
+AS A JOIN database.get_user as B ON A.id = B.id
+WHERE A.lastName='smith' LIMIT 50
 ```
 
 Creating SQL operations from a template (choose **SQL from template** in the menu) starts you off with scaffolded code based on the syntax and parameters of a given data connection operation.
@@ -53,7 +55,3 @@ api.log("hello world");
 ```
 
 {% page-ref page="references/js-operations.md" %}
-
-## Smart Operations
-
-@tina @thea — TODO

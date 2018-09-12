@@ -6,7 +6,7 @@
   * [SQL Quickstart](get-started/sql-quickstart.md)
   * [Terms & basics](get-started/terms.md)
 * [Building & deploying](building/README.md)
-  * [SQL and Javascript operations](building/operations.md)
+  * [SQL and JavaScript Operations](building/operations.md)
   * [Authentication](building/authentication.md)
   * [Endpoints](building/endpoints.md)
   * [Webhooks](building/webhooks.md)
