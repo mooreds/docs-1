@@ -39,19 +39,19 @@ If you go back to the Transposit code editor and select the `helloworld` operati
 
 Try adding Italian to the list of languages:
 
-  ```javascript
-  return [
-    {
-      "message": "Hello World"
-    },
-    {
-      "message": "Hola Mundo"
-    },
-    {
-      "message": "Ciao mondo"
-    }
-  ];
-  ```
+```javascript
+return [
+  {
+    "message": "Hello World"
+  },
+  {
+    "message": "Hola Mundo"
+  },
+  {
+    "message": "Ciao mondo"
+  }
+];
+```
 
 Click the **Commit code** button in the upper right to commit the changes. If you then go to the browser tab where your hosted app is open and refresh the page, you'll see the new data.
 
@@ -71,40 +71,41 @@ Notice that you'll be prompted to authorize. Transposit allows you to use our oA
 
 Here, you only need to specify `spreadsheetId` and `range`. You can fill in the information for the private spreadsheet you created or copied, and it should look something like this:
 
-  ```SQL
-  SELECT * FROM google_sheets.get_sheet_values
-  WHERE range='Sheet1'
-  AND spreadsheetId='<INSERT YOUR SPREADSHEET ID>'
-  ```
+```SQL
+SELECT * FROM google_sheets.get_sheet_values
+WHERE range='Sheet1'
+AND spreadsheetId='<INSERT YOUR SPREADSHEET ID>'
+```
 
 * Now click the **Run** button and you should see your results.
 * You'll notice that the results are something like the following:
 
-  ```text
-  [
-  {
-    "range": "Sheet1!A1:Z999",
-    "majorDimension": "ROWS",
-    "values": [
-      [
-        "hello@transposit.com",
-        "This is some sample data that is available"
-      ],
-      ...
-    ]
-  }
+
+```text
+[
+{
+  "range": "Sheet1!A1:Z999",
+  "majorDimension": "ROWS",
+  "values": [
+    [
+      "hello@transposit.com",
+      "This is some sample data that is available"
+    ],
+    ...
   ]
-  ```
+}
+]
+```
 
 Transposit introduces a few conveniences to SQL for working with JSON, including [EXPAND BY](references/sql-operations.md). If you want to extract the items in the values array, you can use the `EXPAND BY` syntax. However, since `values` is a SQL keyword, it must be escaped  with backticks.
 
 Try expanding the results using something similar to the following:
 
-  ```sql
-  SELECT * FROM google_sheets.get_sheet_values
-  WHERE range='Sheet1'
-  AND spreadsheetId='<INSERT YOUR SPREADSHEET ID>' EXPAND BY `values`
-  ```
+```sql
+SELECT * FROM google_sheets.get_sheet_values
+WHERE range='Sheet1'
+AND spreadsheetId='<INSERT YOUR SPREADSHEET ID>' EXPAND BY `values`
+```
 
 {% hint style="info" %}Note that in addition to passing through parameters in your SQL statement, you can also filter out the result values in the `WHERE` clause. See the [SQL quickstart](get-started/sql-quickstart.md) and the [SQL reference](references/sql-operations.md) for more information.
 {% endhint %}
@@ -116,22 +117,22 @@ Sometimes it's easiest to use a bit of JavaScript to manipulate data and encode 
 * Click the new operation button and select JavaScript
 * Replace the `return` in your JavaScript operation with the following, to filter out only rows that match:
 
-  ```javascript
-  var results = api.run('this.get_sheet_values_1').filter(function(item) {
-  return item.values[0] === api.user().email;
-  }).map(function(item) {
-  return {
-    message: item.values[1]
-  }
-  });
-  if (results.length === 0) {
-  return {
-    message: 'There are no spreadsheet rows available to ' + api.user().email
-  };
-  } else {
-  return results;
-  }
-  ```
+```javascript
+var results = api.run('this.get_sheet_values_1').filter(function(item) {
+return item.values[0] === api.user().email;
+}).map(function(item) {
+return {
+  message: item.values[1]
+}
+});
+if (results.length === 0) {
+return {
+  message: 'There are no spreadsheet rows available to ' + api.user().email
+};
+} else {
+return results;
+}
+```
 
 * You can give this operation a friendlier name like `get_user_messages` by clicking on the **Properties** tab.
 * Commit all your code by clicking the **Commit code** button one more time.
