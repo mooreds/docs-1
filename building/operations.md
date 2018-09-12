@@ -1,4 +1,4 @@
-# Building operations
+# SQL and Javascript operations
 
 Operations are callable units of work. Operations can be written in [JavaScript](/references/js-operations.md) or [SQL](/references/sql-operations.md), and they may be private (e.g. used only for development, or called by other operations within the application), [scheduled for periodic execution](/building/scheduled-tasks.md), or deployed as [endpoints](/building/endpoints.md).
 
