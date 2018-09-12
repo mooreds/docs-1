@@ -108,7 +108,7 @@ Sometimes it is easiest to use a bit of JavaScript to manipulate data and encode
 
 Notice in the comment that there is a method called `api.run` that is available for you to call other operations. This can include data sources \(e.g. google\_sheets, similar to the SQL interface\) as well as other operations in your application using the `this` syntax. You can also do things like access the current user using `api.user()`. See our [JavaScript Operations Reference](https://github.com/transposit/docs/tree/2666fe8716a946b42095a80ee0b4e875e140a98c/get-started/TODO/README.md) for more information.
 
-* Replace your JavaScript operation with the following to filter out only rows that match
+* Replace the return in your JavaScript operation with the following to filter out only rows that match
 
   ```text
   function run(params) {
