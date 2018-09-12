@@ -73,8 +73,8 @@ Here, you only need to specify `spreadsheetId` and `range`. You can fill in the 
 
 ```SQL
 SELECT * FROM google_sheets.get_sheet_values
-WHERE range='Sheet1'
-AND spreadsheetId='<INSERT YOUR SPREADSHEET ID>'
+  WHERE range='Sheet1'
+  AND spreadsheetId='<INSERT YOUR SPREADSHEET ID>'
 ```
 
 * Now click the **Run** button and you should see your results.
@@ -83,17 +83,17 @@ AND spreadsheetId='<INSERT YOUR SPREADSHEET ID>'
 
 ```text
 [
-{
-  "range": "Sheet1!A1:Z999",
-  "majorDimension": "ROWS",
-  "values": [
-    [
-      "hello@transposit.com",
-      "This is some sample data that is available"
-    ],
-    ...
-  ]
-}
+  {
+    "range": "Sheet1!A1:Z999",
+    "majorDimension": "ROWS",
+    "values": [
+      [
+        "hello@transposit.com",
+        "This is some sample data that is available"
+      ],
+      ...
+    ]
+  }
 ]
 ```
 
@@ -103,8 +103,8 @@ Try expanding the results using something similar to the following:
 
 ```sql
 SELECT * FROM google_sheets.get_sheet_values
-WHERE range='Sheet1'
-AND spreadsheetId='<INSERT YOUR SPREADSHEET ID>' EXPAND BY `values`
+  WHERE range='Sheet1'
+  AND spreadsheetId='<INSERT YOUR SPREADSHEET ID>' EXPAND BY `values`
 ```
 
 {% hint style="info" %}Note that in addition to passing through parameters in your SQL statement, you can also filter out the result values in the `WHERE` clause. See the [SQL quickstart](get-started/sql-quickstart.md) and the [SQL reference](references/sql-operations.md) for more information.
@@ -115,22 +115,24 @@ AND spreadsheetId='<INSERT YOUR SPREADSHEET ID>' EXPAND BY `values`
 Sometimes it's easiest to use a bit of JavaScript to manipulate data and encode some business logic. In this case since the result of the Google Sheets call is fairly unstructured, let's  use JavaScript to give it a bit of structure.
 
 * Click the new operation button and select JavaScript
-* Replace the `return` in your JavaScript operation with the following, to filter out only rows that match:
+* Replace your JavaScript operation with the following code to filter out rows that match:
 
 ```javascript
-var results = api.run('this.get_sheet_values_1').filter(function(item) {
-return item.values[0] === api.user().email;
-}).map(function(item) {
-return {
-  message: item.values[1]
-}
-});
-if (results.length === 0) {
-return {
-  message: 'There are no spreadsheet rows available to ' + api.user().email
-};
-} else {
-return results;
+function run(params) {
+  var results = api.run('this.get_sheet_values_1').filter(function(item) {
+    return item.values[0] === api.user().email;
+  }).map(function(item) {
+    return {
+      message: item.values[1]
+    }
+  });
+  if (results.length === 0) {
+    return {
+      message: 'There are no spreadsheet rows available to ' + api.user().email
+    };
+  } else {
+    return results;
+  }
 }
 ```
 

@@ -104,9 +104,9 @@ Transposit makes it easy to join data across APIs in a single data source as wel
 
 ```
 SELECT *
-    FROM connector.operation_1 AS <operation-alias-1>
-    JOIN connector.operation_2 AS <operation-alias-2>
-    ON <predicate>
+  FROM connector.operation_1 AS <operation-alias-1>
+  JOIN connector.operation_2 AS <operation-alias-2>
+  ON <predicate>
 ```
 
 Let's use a join to combine the two operations we've created so we can get the snippet for your first 10 messages.
@@ -115,8 +115,8 @@ Let's use a join to combine the two operations we've created so we can get the s
 
 ```
 SELECT *
-    FROM this.get_messages_1 AS LIST
-    JOIN this.get_message_1 AS DETAIL
-    ON LIST.id = DETAIL.messageId
-    LIMIT 10
+  FROM this.get_messages_1 AS LIST
+  JOIN this.get_message_1 AS DETAIL
+  ON LIST.id = DETAIL.messageId
+  LIMIT 10
 ```
