@@ -53,7 +53,3 @@ api.log("hello world");
 ```
 
 {% page-ref page="references/js-operations.md" %}
-
-## Smart Operations
-
-@tina @thea — TODO
