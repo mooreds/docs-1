@@ -17,8 +17,9 @@ You'll need a Google account with access to Google Docs, and a Google Docs sprea
 
 To make it easy, you can [copy this sample spreadsheet](https://docs.google.com/spreadsheets/d/1zwe5BJV8QrCK-WEGw5dt_kOPIRGmI_0Qw757bym21ow/copy) for use in this guide.
 
-{% hint style="warning" %}
-Be sure to add yourself (using your own email address) to one or more of the spreadsheet rows.
+{% hint style="info" %}
+* Be sure to add yourself (using your own email address) to one or more of the spreadsheet rows.
+* You can copy the `spreadsheetId` [from the document's URL](https://stackoverflow.com/questions/36061433/how-to-do-i-locate-a-google-spreadsheet-id).
 {% endhint %}
 
 ## 1. Create a new application
@@ -26,10 +27,6 @@ Be sure to add yourself (using your own email address) to one or more of the spr
 Create a new application, give it a name, and pick the "Simple app" template for use in this guide.
 
 ## 2. Check out the hosted application
-
-{% hint style="info" %}
-Transposit automatically enables basic hosting, for building and testing and also to share with friends to get feedback while you're mid the development process. There's a gated front door (sign in is required) so that only you and the people you've authorized have access to view your application.
-{% endhint %}
 
 If you look at the **Documentation** tab in the lower half of the code window, you can see in the  manual that there's a link to the hosted app page. If you click it, it will populate your published and available application, accessible to you only, by signing in with your Google account.
 
@@ -54,6 +51,10 @@ return [
 ```
 
 Click the **Commit code** button in the upper right to commit the changes. If you then go to the browser tab where your hosted app is open and refresh the page, you'll see the new data.
+
+{% hint style="info" %}
+Transposit automatically enables basic hosting, for building and testing and also to share with friends to get feedback while you're mid the development process. There's a gated front door (sign in is required) so that only you and the people you've authorized have access to view your application.
+{% endhint %}
 
 ## 3. Add a data connector
 
