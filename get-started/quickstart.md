@@ -15,12 +15,10 @@ You'll need a Google account with access to Google Docs, and a Google Docs sprea
 | iggy@transposit.com | Iggy's data you can't see                  |
 | iggy@transposit.com | Iggy's data in this row too                |
 
-To make it easy, you can [copy this sample spreadsheet](https://docs.google.com/spreadsheets/d/1zwe5BJV8QrCK-WEGw5dt_kOPIRGmI_0Qw757bym21ow/copy) for use in this guide.
+To make it easy, you can [copy this sample spreadsheet](https://docs.google.com/spreadsheets/d/1zwe5BJV8QrCK-WEGw5dt_kOPIRGmI_0Qw757bym21ow/copy) for use in this guide. **Note:** you can copy the `spreadsheetId` [from the document's URL](https://stackoverflow.com/questions/36061433/how-to-do-i-locate-a-google-spreadsheet-id).
 
 {% hint style="info" %}
 Be sure to add yourself (using your own email address) to one or more of the spreadsheet rows.
-
-You can copy the `spreadsheetId` [from the document's URL](https://stackoverflow.com/questions/36061433/how-to-do-i-locate-a-google-spreadsheet-id).
 {% endhint %}
 
 ## 1. Create a new application
