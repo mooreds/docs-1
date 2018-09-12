@@ -5,9 +5,9 @@ In this guide, you'll build a data-driven application using Transposit and Googl
 
 ## The scenario
 
-Oftentimes, we store sets of business data in single, large spreadsheets to have a source of truth we can maintain in one place. Sometimes, we want to share subsets of that data to individuals (coworkers, partners, customers, etc.) without giving them access to the entire set or forcing them to sort through data that isn't meaninful to them. 
+People often store sets of business data in single, large spreadsheets to have a source of truth they can maintain in one place. Sometimes, they want to share subsets of that data to individuals (coworkers, partners, customers, etc.) without giving them access to the entire set or forcing them to sort through data that isn't meaninful to them. 
 
-Instead of maintaining different data repositories for different audiences, or manually sharing data when it's requested, it would be nice to create an interface that allows people to sign in and view data that they should have specific access to.
+Instead of maintaining different spreadsheets for different audiences, or manually sharing data when it's requested, it would be nice to create an interface that allows people to sign in and view data that they should have specific access to.
 
 Now, suppose you have a spreadsheet where the first column is an email address indicating the owner of the data in that row. You want to give access to only the rows that belong to that owner. Google Sheets does not offer this functionality, but we can easily build this kind of customizable logic with Transposit.
 
@@ -42,8 +42,10 @@ Create a new application, give it a name, and pick the "Simple app" template for
 
 ## 2. View your app live
 
-{% hint style="info" %}
 Each new Transposit application has basic hosting enabled automatically. This allows you to test as you build and share with friends for feedback during the development process. There's a gated front door (sign in is required) so that only you and the people you've authorized can view your application. 
+
+{% hint style="info" %}
+If you want more control over your app's hosting, you can do so at any time with our JavaScript client or by using Transposit as a simple HTTP endpoint. See our [JavaScript Client](https://docs.transposit.com/building/js-client) and [Endpoints](https://docs.transposit.com/building/endpoints) documentation for your options.
 {% endhint %}
 
 If you look at the **Documentation** tab in the lower half of the code window, you can see in the  manual that there's a link to the hosted app page. If you click it, it will populate your published and available application, accessible to you only, by signing in with your Google account.
@@ -78,7 +80,7 @@ In this quickstart, we'll ask you to either "commit" or "run" code in your opera
 
 Next you'll need to fetch the values from the spreadsheet, then filter those values to only return the rows owned by a given email address in the form that the hosted application expects.
 
-To give your application access to data from sources outside Transposit, you need to add each of them as a *data connector*. Adding Google Sheets as a data connector will later allow you to query data stored in that spreadsheet: 
+To give your application access to data from other sources, you need to add each source as a *data connector*. Add a data connection to Google Sheets so you can query data stored in that spreadsheet:
 
 * Click on the plus icon next to **Data connections** to add a data connector.
 * Search for **Google Sheets** and add it.
