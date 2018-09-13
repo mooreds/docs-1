@@ -12,5 +12,3 @@ For a description of Transposit's key features and what they are called, you can
 
 {% page-ref page="terms.md" %}
 
-
-
