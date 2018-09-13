@@ -4,7 +4,7 @@ In this guide, you'll build a data-driven application using Transposit and Googl
 
 ## The scenario
 
-People often store sets of business data in single, large spreadsheets to have a source of truth they can maintain in one place. Sometimes, they want to share subsets of that data to individuals \(coworkers, partners, customers, etc.\) without giving them access to the entire set or forcing them to sort through data that isn't meaninful to them.
+People often store sets of business data in single, large spreadsheets to have a source of truth they can maintain in one place. Sometimes, they want to share subsets of that data to individuals (coworkers, partners, customers, etc.) without giving them access to the entire set or forcing them to sort through data that isn't meaninful to them.
 
 Instead of maintaining different spreadsheets for different audiences, or manually sharing data when it's requested, it would be nice to create an interface that allows people to sign in and view data that they should have specific access to.
 
@@ -82,7 +82,7 @@ To give your application access to data from other sources, you need to add each
 * Click on the plus icon next to **Data connections** to add a data connector.
 * Search for **Google Sheets** and add it.
 
-Notice that you'll be prompted to authorize. Transposit allows you to use our oAuth application credentials so you can get instant access to your data. But you can also supply your own credentials later on to customize the authorization screen.
+Notice that you'll be prompted to authorize. Transposit allows you to use our OAuth application credentials so you can get instant access to your data. But you can also supply your own credentials later on to customize the authorization screen.
 
 ## 4. Use SQL to query your data
 
@@ -93,7 +93,11 @@ Now that you've connected your Sheets data to your application, you need to add 
 
 This template shows all of the possible parameters available to the API in this operation. Some parameters in Transposit templates are required, and some are optional.
 
-For this application, you only need to specify `spreadsheetId` and `range`. You can fill in the information for the private spreadsheet you created or copied, and it should look something like this:
+For this application, you only need to specify `spreadsheetId` and `range`. The `spreadsheetId` can be copied from the document's URL:
+
+![](../.gitbook/assets/spreadsheet-id.png)
+
+You can fill in the information for the private spreadsheet you created or copied, and it should look something like this:
 
 ```sql
 SELECT * FROM google_sheets.get_sheet_values
