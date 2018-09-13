@@ -1,6 +1,6 @@
 # References
 
-Here you can find our technical references for advanced Transposit usage. 
+Here you can find references for technical topics. 
 
 {% page-ref page="faq.md" %}
 
@@ -11,6 +11,3 @@ Here you can find our technical references for advanced Transposit usage.
 {% page-ref page="js-operations.md" %}
 
 {% page-ref page="js-sdk.md" %}
-
-
-
