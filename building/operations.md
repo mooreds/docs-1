@@ -20,6 +20,8 @@ WHERE A.lastName='smith' LIMIT 50
 
 Creating SQL operations from a template \(choose **SQL from template** in the menu\) starts you off with scaffolded code based on the syntax and parameters of a given data connection operation.
 
+[Learn more in the SQL operations reference](references/sql-operations.md).
+
 ## JavaScript Operations
 
 JavaScript operations are useful for manipulating data or encoding business logic, and can themselves run queries.
@@ -53,3 +55,4 @@ To print to the console, use the `log` method; `log` accepts any number of argum
 api.log("hello world");
 ```
 
+[Learn more in the JavaScript operations reference](references/js-operations.md).
