@@ -1,4 +1,4 @@
-# SQL reference
+# SQL operations
 
 ## Terms and symbols
 
@@ -851,4 +851,6 @@ TODO \(@userId\)
 TODO - list of keywords, valid/invalid characters, how to escape
 
 ### Comments
-We support multi-line comments using ``/* */`` or single line comments using the `--` prefix
+
+We support multi-line comments using `/* */` or single line comments using the `--` prefix
+

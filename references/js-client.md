@@ -1,4 +1,4 @@
-# JavaScript API
+# JavaScript client
 
 ### `api.run(operation, [params={}], [options={}])`
 

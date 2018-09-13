@@ -2,7 +2,7 @@
 
 In Transposit, you can schedule an operation to run once or periodically.
 
-1. Navigate to **Deploy > Scheduled Tasks** and create a new task.
+1. Navigate to **Deploy &gt; Scheduled Tasks** and create a new task.
 2. Specify a memorable task name.
 3. Select an operation for the task to run.
 4. Specify a cron schedule.
@@ -19,10 +19,10 @@ All Transposit cron schedules are interpreted in the UTC timezone.
 
 Some sample schedules:
 
-| Syntax          | Schedule                                    |
-|-----------------|---------------------------------------------|
-| `0 0 3 * * ?`   | Run every day at 3:00AM UTC                 |
-| `0 0 0 ? * FRI` | Run every Friday at 12:00AM UTC             |
+| Syntax | Schedule |
+| :--- | :--- |
+| `0 0 3 * * ?` | Run every day at 3:00AM UTC |
+| `0 0 0 ? * FRI` | Run every Friday at 12:00AM UTC |
 | `0 30 16 1 * ?` | Run on the first of the month at 4:30PM UTC |
 
 Once your task has been saved, upcoming runs will execute at their scheduled time.
@@ -37,7 +37,7 @@ You should provide keys for all data connections before a task executes. Each ta
 
 Click **Run now & show log** to test your task.
 
-A scheduled task can be run manually (outside the context of its schedule). You can use this to test the task with the keys and parameters you've provided.
+A scheduled task can be run manually \(outside the context of its schedule\). You can use this to test the task with the keys and parameters you've provided.
 
 ## Editing, disabling, or deleting tasks
 

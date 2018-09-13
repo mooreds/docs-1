@@ -1,6 +1,6 @@
 # SQL and JavaScript operations
 
-Operations are callable units of work. Operations can be written in [JavaScript](/references/js-operations.md) or [SQL](/references/sql-operations.md), and they may be private (e.g. used only for development, or called by other operations within the application), [scheduled for periodic execution](/building/scheduled-tasks.md), or deployed as [endpoints](/building/endpoints.md).
+Operations are callable units of work. Operations can be written in [JavaScript](../references/js-operations.md) or [SQL](../references/sql-operations.md), and they may be private \(e.g. used only for development, or called by other operations within the application\), [scheduled for periodic execution](scheduled-tasks.md), or deployed as [endpoints](endpoints.md).
 
 ## SQL Operations
 
@@ -18,9 +18,7 @@ AS A JOIN database.get_user as B ON A.id = B.id
 WHERE A.lastName='smith' LIMIT 50
 ```
 
-Creating SQL operations from a template (choose **SQL from template** in the menu) starts you off with scaffolded code based on the syntax and parameters of a given data connection operation.
-
-{% page-ref page="references/sql-operations.md" %}
+Creating SQL operations from a template \(choose **SQL from template** in the menu\) starts you off with scaffolded code based on the syntax and parameters of a given data connection operation.
 
 ## JavaScript Operations
 
@@ -36,22 +34,22 @@ function run(params) {
 };
 }
 ```
+
 To run another operation from inside a JavaScript operation, use the `run` method. The first argument is the operation reference; the second argument is a map of operation parameters to run with:
 
-```JavaScript
+```javascript
 api.run("connector.operation", {});
 ```
 
 To run a SQL statement inside a JavaScript operation, use the `query` method:
 
-```JavaScript
+```javascript
 api.query("select * from connector.operation");
 ```
 
 To print to the console, use the `log` method; `log` accepts any number of arguments:
 
-```JavaScript
+```javascript
 api.log("hello world");
 ```
 
-{% page-ref page="references/js-operations.md" %}
