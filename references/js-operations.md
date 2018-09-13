@@ -1,12 +1,4 @@
-# JavaScript operations
-
-Reference. What you can do and additional info around building inside transposit with JS.
-
-
-
-
-
-## JavaScript API
+# JavaScript Operations
 
 #### `api.run(operation, [params={}], [options={}])`
 
@@ -84,7 +76,7 @@ api.log("logging the following greeting:", {"Hello", "World"})
 // => logging the following greeting: { Hello: World }
 ```
 
-### Available JavaScript Libraries
+## Available JavaScript Libraries
 
 Transposit provides you access to a few different popular JavaScript libraries.
 
