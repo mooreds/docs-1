@@ -20,7 +20,7 @@ WHERE A.lastName='smith' LIMIT 50
 
 Creating SQL operations from a template \(choose **SQL from template** in the menu\) starts you off with scaffolded code based on the syntax and parameters of a given data connection operation.
 
-[Learn more in the SQL operations reference](references/sql-operations.md).
+[Learn more in the SQL operations reference](https://github.com/transposit/docs/tree/e541126a9555da61b6d674d064f58f1d07a9ed71/building/references/sql-operations.md).
 
 ## JavaScript Operations
 
@@ -55,4 +55,5 @@ To print to the console, use the `log` method; `log` accepts any number of argum
 api.log("hello world");
 ```
 
-[Learn more in the JavaScript operations reference](references/js-operations.md).
+[Learn more in the JavaScript operations reference](https://github.com/transposit/docs/tree/e541126a9555da61b6d674d064f58f1d07a9ed71/building/references/js-operations.md).
+

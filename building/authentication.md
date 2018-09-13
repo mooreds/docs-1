@@ -1,8 +1,10 @@
 # Authentication
 
-Round-up of auth info. Managed auth long form, link to reference and what's included there.
+One of Transposit’s most powerful features is the way we manage authentication for you \(the app developer\) and your apps’ end users. Here are our high-level explanations for what exactly we mean when we say “managed auth” and how that allows you the freedom to develop applications without the burden of hard-coding authentication logic into every app.
 
-One of Transposit’s most powerful features is the way we manage authentication for you \(**the developer**\) and your apps’ end users \(**the consumer**\). Here are our high-level explanations for what exactly we mean when we say “managed auth” and how that allows you the freedom to develop applications without the burden of hard-coding authentication logic into every app.
+If you'd like to jump straight to all our authentication options, including Keychains, API Keys, Hosted App Authentication, and User Login and Management, check out our Authentication reference. 
+
+{% page-ref page="../references/authentication.md" %}
 
 ## **What is managed auth in Transposit?**
 
