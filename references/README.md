@@ -1,10 +1,16 @@
 # References
 
-Landing page. Short intro \(2 sentences\) and list of lower pages.
+Here you can find our technical references for advanced Transposit usage. 
 
-* FAQ
-* Authentication
-* SQL Operations
-* JavaScript Operations
-* JavaScript Client
+{% page-ref page="faq.md" %}
+
+{% page-ref page="authentication.md" %}
+
+{% page-ref page="sql-operations.md" %}
+
+{% page-ref page="js-operations.md" %}
+
+{% page-ref page="js-client.md" %}
+
+
 

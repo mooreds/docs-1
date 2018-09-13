@@ -1,6 +1,6 @@
 # Authentication
 
-Here you can find details around Transposit's options for authentication, including keys and keychains, API keys, and hosted app user login and management. If you'd like a high-level explanation of how we've designed Managed Authentication in Transposit, read this:
+Here you can find details around Transposit's options for authentication, including keys and keychains, API keys, hosted app authentication, and endpoint deploy settings. If you'd like a high-level explanation of how we've designed Managed Authentication in Transposit, read this:
 
 {% page-ref page="../building/authentication.md" %}
 
@@ -40,7 +40,7 @@ User login is deployed on a per endpoint basis. Currently available login mechan
 
 ### **Authorization protocol configuration**
 
-### Endpoint deploy settings
+## Endpoint deploy settings
 
 
 
