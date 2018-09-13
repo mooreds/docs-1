@@ -4,7 +4,7 @@ In this guide, you'll build a data-driven application using Transposit and Googl
 
 ## The scenario
 
-People often store sets of business data in single, large spreadsheets to have a source of truth they can maintain in one place. Sometimes, they want to share subsets of that data to individuals (coworkers, partners, customers, etc.) without giving them access to the entire set or forcing them to sort through data that isn't meaninful to them.
+People often store sets of business data in single, large spreadsheets to have a source of truth they can maintain in one place. Sometimes, they want to share subsets of that data to individuals \(coworkers, partners, customers, etc.\) without giving them access to the entire set or forcing them to sort through data that isn't meaninful to them.
 
 Instead of maintaining different spreadsheets for different audiences, or manually sharing data when it's requested, it would be nice to create an interface that allows people to sign in and view data that they should have specific access to.
 
@@ -95,7 +95,7 @@ This template shows all of the possible parameters available to the API in this 
 
 For this application, you only need to specify `spreadsheetId` and `range`. The `spreadsheetId` can be copied from the document's URL:
 
-![](../.gitbook/assets/spreadsheet-id.png)
+![An example of a spreadsheet ID, highlighted in purple.](../.gitbook/assets/spreadsheet-id%20%281%29.png)
 
 You can fill in the information for the private spreadsheet you created or copied, and it should look something like this:
 
