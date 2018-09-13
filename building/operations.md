@@ -20,6 +20,8 @@ WHERE A.lastName='smith' LIMIT 50
 
 Creating SQL operations from a template \(choose **SQL from template** in the menu\) starts you off with scaffolded code based on the syntax and parameters of a given data connection operation.
 
+{% page-ref page="../references/sql-operations.md" %}
+
 ## JavaScript Operations
 
 JavaScript operations are useful for manipulating data or encoding business logic, and can themselves run queries.
