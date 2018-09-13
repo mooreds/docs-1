@@ -1,4 +1,4 @@
-# JavaScript Operations
+# JavaScript operations
 
 #### `api.run(operation, [params={}], [options={}])`
 
