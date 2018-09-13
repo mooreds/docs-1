@@ -1,4 +1,4 @@
-# SQL operations
+# SQL Operations Reference
 
 ## Terms and symbols
 

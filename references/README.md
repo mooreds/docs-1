@@ -10,7 +10,7 @@ Here you can find our technical references for advanced Transposit usage.
 
 {% page-ref page="js-operations.md" %}
 
-{% page-ref page="js-client.md" %}
+{% page-ref page="js-sdk.md" %}
 
 
 

@@ -1,4 +1,4 @@
-# JavaScript operations
+# JavaScript Operations Reference
 
 #### `api.run(operation, [params={}], [options={}])`
 
