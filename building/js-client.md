@@ -1,8 +1,6 @@
 # Javascript client
 
-How-to. How to implement in your external app, sample code.
-
-Our javascript SDK makes it simple to deal with login, auths and run operations in your application.
+Transposit's JavaScript SDK makes it simple to deal with sign-in and authentication, and to run operations in your application.
 
 Install with npm:
 
@@ -16,9 +14,9 @@ or with yarn:
 yarn add transposit
 ```
 
-or as a script tag:
+or add via a script tag:
 
-```text
+```html
 <script src="https://unpkg.com/transposit@0.2.1/dist/bundle.prod.js" /></script>
 ```
 
@@ -46,7 +44,7 @@ const transposit = require("transposit");
 const transposit = new Transposit(serviceMaintainer, serviceName, transpositUrl);
 ```
 
-Or, if you have made the library globally available via a script tag:
+Or, if you've made the library globally available via a script tag:
 
 ```text
 var transposit = new Transposit.Transposit(serviceMaintainer, serviceName, transpositUrl);
@@ -54,7 +52,7 @@ var transposit = new Transposit.Transposit(serviceMaintainer, serviceName, trans
 
 ### Login
 
-Once you have configured login for your application \(TODO link to how to configure?\), the JavaScript SDK makes it easy to add login to your application. You'll first want to add a link to start the login process:
+Once you've configured login for your application, add a link to start the login process:
 
 ```text
 <button type="button" onclick="loginWithGoogle()">Login</button>
@@ -64,7 +62,7 @@ function loginWithGoogle() {
     }
 ```
 
-This kicks off the login flow with Transposit and Google. Note the `redirectUri` query parameter in the url above. This tells Transposit where to send the user after a successful login. This is where the SDK comes into the picture. On the page that the user has been redirected to, simply call
+This kicks off the login flow with Transposit and Google. Note the `redirectUri` query parameter in the URL above. This tells Transposit where to send the user after a successful login. This is where the SDK comes into the picture. On the page that the user has been redirected to, simply call:
 
 ```text
 transposit.handleLogin();
@@ -74,7 +72,7 @@ Under the hood, this goes through a number of steps to ensure your session is se
 
 ### Authorizations
 
-If your application requires user credentials for data connections, send users to the Transposit-hosted data connections page. You can get the url for this page from the SDK:
+If your application requires user credentials for data connections, send users to the Transposit-hosted data connections page. You can get the URL for this page from the SDK:
 
 ```text
 transposit.getConnectionLocation();
