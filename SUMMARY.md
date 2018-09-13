@@ -18,5 +18,5 @@
   * [Authentication](references/authentication.md)
   * [SQL operations](references/sql-operations.md)
   * [JavaScript operations](references/js-operations.md)
-  * [JavaScript client](references/js-client.md)
+  * [JavaScript SDK](references/js-sdk.md)
 
