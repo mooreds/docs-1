@@ -1,15 +1,5 @@
 # Javascript client
 
-Our JavaScript SDK makes it simple to deal with login, auths and run operations in your application.
-
-## Reference
-
-For more comprehensive information about using our JavaScript client, see the JavaScript SDK reference:
-
-{% page-ref page="../references/js-sdk.md" %}
-
-
-
 Transposit's JavaScript SDK makes it simple to deal with sign-in and authentication, and to run operations in your application.
 
 Install with npm:
@@ -115,4 +105,12 @@ transposit.logout();
 ```
 
 to log the user out of your application.
+
+## Reference
+
+For more comprehensive information about using our JavaScript client, see the JavaScript SDK reference:
+
+{% page-ref page="../references/js-sdk.md" %}
+
+
 
