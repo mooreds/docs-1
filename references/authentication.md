@@ -1,6 +1,8 @@
 # Authentication
 
-Reference. Keychains, API keys, hosted app auth, enabling/disabling sign in, registered users, endpoint deploy settings.
+Here you can find details around Transposit's options for authentication, including keys and keychains, API keys, and hosted app user login and management. If you'd like a high-level explanation of how we've designed Managed Authentication in Transposit, read this:
+
+{% page-ref page="../building/authentication.md" %}
 
 ## Keys
 

@@ -7,7 +7,7 @@
   * [Terms & basics](get-started/terms.md)
 * [Building & deploying](building/README.md)
   * [SQL & JavaScript operations](building/operations.md)
-  * [Authentication](building/authentication.md)
+  * [Managed authentication](building/authentication.md)
   * [Endpoints](building/endpoints.md)
   * [Webhooks](building/webhooks.md)
   * [Scheduled tasks](building/scheduled-tasks.md)
