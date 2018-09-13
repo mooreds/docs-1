@@ -10,9 +10,9 @@ This walkthrough provides an introduction to the power of SQL and Transposit's r
 
 ## Understanding operations
 
-You can use the documentation tab in the bottom half of the code console. If you browse to **google\_mail &gt; get\_messages**, you'll notice a few things. First, the required `userId` parameter has a special value `me`, indicating the current authenticated user. Second, next to the operation name, there is a _pagination_ flag. This flag indicates that you can ask Transposit to automatically paginate for you. More on this in a bit.
+You can use the documentation tab in the bottom half of the code console. If you browse to **google\_mail &gt; get\_messages**, you'll notice a few things. First, the required `userId` parameter has a special value `me`, indicating the current authenticated user. Second, next to the operation name, there is a _pagination_ flag. This flag indicates that Transposit will automatically paginate the API for you. More on this in a bit.
 
-## SQL select statements
+## SELECT statements
 
 Let's query Gmail for your 10 most recent messages.
 
@@ -100,7 +100,7 @@ SELECT id, snippet FROM google_mail.get_message
   AND userId='me'
 ```
 
-One of the additions we've made to SQL is what we call JSON templating. You can use it to rename variables, do some string concatenation, etc. Please see [the SQL reference](https://github.com/transposit/docs/tree/e380a542f0badcd46b5a5d069c691c10ebc2ff46/get-started/references/sql-operations.md) for more information, but to give you a flavor of what you can do, try modifying your SQL to the following:
+One of the additions we've made to SQL is what we call JSON templating. You can use it to rename variables, do string concatenation, etc. Please see [the SQL reference](https://github.com/transposit/docs/tree/e380a542f0badcd46b5a5d069c691c10ebc2ff46/get-started/references/sql-operations.md) for more information, but to give you a flavor of what you can do, try modifying your SQL to the following:
 
 ```sql
 SELECT {id: id, message: 'gmail created snippet: ' + snippet} FROM google_mail.get_message
