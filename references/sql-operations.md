@@ -1,4 +1,8 @@
-# SQL Operations Reference
+---
+description: Reference and examples for the SQL syntax supported in the Transposit editor.
+---
+
+# SQL operations
 
 ## Terms and symbols
 

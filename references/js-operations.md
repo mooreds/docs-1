@@ -1,6 +1,12 @@
-# JavaScript Operations Reference
+---
+description: >-
+  Reference for JavaScript syntax supported in the Transposit editor, return
+  formats, and example code.
+---
 
-#### `api.run(operation, [params={}], [options={}])`
+# JavaScript operations
+
+### `api.run(operation, [params={}], [options={}])`
 
 Runs an operation.
 
@@ -25,7 +31,7 @@ api.run("connection.many_results", {}, {limit: 10});
 // => returns result array of size 10
 ```
 
-#### `api.query(query, [params={}])`
+### `api.query(query, [params={}])`
 
 Run a SQL query
 
@@ -46,7 +52,7 @@ api.query("select * from source.users where id=@userId", {userId: params.userId}
 // => [{id:1234, ...}]
 ```
 
-#### `api.user()`
+### `api.user()`
 
 Get the logged-in user information
 
@@ -59,7 +65,7 @@ api.user()
 // => {"fullName":"iggy","email":"iggy@transposit.com"}
 ```
 
-#### `api.log([objects])`
+### `api.log([objects])`
 
 Logs to the console.
 

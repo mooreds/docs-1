@@ -1,7 +1,5 @@
 # Webhooks
 
-How-to. Start with why deploy webook, example uses, walk through steps of doing so.
-
 ## Operation Deployment
 
 A Transposit operation can be deployed to consumers through an API endpoint, or it can be deployed as a webhook. The operation can only be in one deployment state at any given time, and there are two distinct URLs for each deployment state.
