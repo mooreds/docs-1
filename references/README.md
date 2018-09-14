@@ -1,10 +1,14 @@
 # References
 
-Landing page. Short intro \(2 sentences\) and list of lower pages.
+Here you can find references for technical topics.
 
-* FAQ
-* Authentication
-* SQL Operations
-* JavaScript Operations
-* JavaScript Client
+{% page-ref page="faq.md" %}
+
+{% page-ref page="authentication.md" %}
+
+{% page-ref page="sql-operations.md" %}
+
+{% page-ref page="js-operations.md" %}
+
+{% page-ref page="js-sdk.md" %}
 

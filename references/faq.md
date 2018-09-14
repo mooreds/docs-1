@@ -1,6 +1,6 @@
 # FAQ
 
-Itemized FAQ + answers. For more technical stuff; a place to add "support" items we can link to users.
+Below we've covered common questions and technical scenarios you might encounter while building with Transposit. If there is a question you have that isn't covered here or elsewhere in our documentation, reach out for help by emailing us at [support@transposit.com](mailto:support@transposit.com), or ask on [Transposit Slack](http://transposit.slack.com).
 
 ## When should I use SQL and when should I use JavaScript?
 
@@ -24,4 +24,6 @@ Itemized FAQ + answers. For more technical stuff; a place to add "support" items
 * Error-proof, share, and customize your presentation
 
 ## Rate limits
+
 * To make sure you don't accidentally run through your API rate limits for your data connections, we limit the number of API fetches to 25 per operation per request.
+
