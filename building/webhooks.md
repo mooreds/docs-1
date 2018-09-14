@@ -6,11 +6,11 @@ Once a Transposit operation is deployed as a webhook, it can be executed at the 
 
 Deployed non-webhook Transposit operation URL:
 
-* `https://api.transposit.com/app/v1/{maintainer}/{serviceName}/api/execute/{operationId}`
+`https://api.transposit.com/app/v1/{maintainer}/{serviceName}/api/execute/{operationId}`
 
 Deployed webhook Transposit operation URL:
 
-* `https://api.transposit.com/app/v1/{maintainer}/{serviceName}/api/execute-http/{operationId}`
+`https://api.transposit.com/app/v1/{maintainer}/{serviceName}/api/execute-http/{operationId}`
 
 ## HTTP Event Information
 
