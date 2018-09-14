@@ -1,6 +1,20 @@
 # SQL & JavaScript operations
 
-Operations are callable units of work. Operations can be written in [JavaScript](../references/js-operations.md) or [SQL](../references/sql-operations.md), and they may be private \(e.g. used only for development, or called by other operations within the application\), [scheduled for periodic execution](scheduled-tasks.md), or deployed as [endpoints](endpoints.md).
+Operations are callable units of work. Operations can be written in [JavaScript](../references/js-operations.md) or [SQL](../references/sql-operations.md), and they may be private \(e.g. used only for development, or called by other operations within the application\), [scheduled for periodic execution](scheduled-tasks.md), or deployed as [endpoints](endpoints.md). Here's a quick look at why Transposit supports SQL, when to use JavaScript instead, and basic usage examples for each. 
+
+## Why use SQL?
+
+We believe SQL is the most efficient way of exploring and transforming your application data.
+
+SQL is designed to easily join, filter, and organize your data in the way you need it. It abstracts away the details of data representation and allows you, the developer, to express your intent, while the relational engine translates that intent, optimizes it, and executes it. In this way, SQL offers a simpler way of stating this intent than you would ever get writing your own custom code.
+
+SQL is also a standard language familiar to many developers. Its simplicity and power means it’s the best database technology a majority of the time.
+
+Finally, you don’t need to be a SQL expert to use and take full advantage of Transposit -- knowing how to write a select, join, and where clause is all you need in most cases. If you ever need to do something more advanced, just take a look in our [SQL reference](../references/sql-operations.md) or [get support from our team](mailto:support@transposit.com).
+
+## Why use JavaScript?
+
+Our execution engine also supports JavaScript, so you can use both SQL and JavaScript for what they’re best at. When you’re looking to make complicated data manipulations that would be awkward and hard to debug with SQL, you can fall back to the JavaScript you’re likely more familiar with. This will be helpful when you need to write additional business logic or quickly transform \(e.g. string manipulation\) the data resulting from one of your SQL queries.
 
 ## SQL Operations
 
