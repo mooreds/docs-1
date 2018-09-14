@@ -42,7 +42,7 @@ Create a new application, give it a name, and pick the "Simple app" template for
 Each new Transposit application has basic hosting enabled automatically. This allows you to test as you build and share with friends for feedback during the development process. There's a gated front door \(sign in is required\) so that only you and the people you've authorized can view your application.
 
 {% hint style="info" %}
-If you want more control over your app's hosting, you can do so at any time with our JavaScript client or by using Transposit as a simple HTTP endpoint. See the [JavaScript Client](../building/js-client) and [Endpoints](../building/endpoints) documentation for your options.
+If you want more control over your app's hosting, you can do so at any time with our JavaScript client or by using Transposit as a simple HTTP endpoint. See the [JavaScript Client](../building/js-client.md) and [Endpoints](../building/endpoints.md) documentation for your options.
 {% endhint %}
 
 If you look at the **Documentation** tab in the lower half of the code window, you can see in the manual that there's a link to the hosted app page. If you click it, it will populate your published and available application, accessible to you only, by signing in with your Google account.
@@ -135,7 +135,7 @@ SELECT * FROM google_sheets.get_sheet_values
 ```
 
 {% hint style="info" %}
-Note that in addition to passing through parameters in your SQL statement, you can also filter out the result values in the `WHERE` clause. See the [SQL quickstart](../get-started/sql-quickstart.md) and the [SQL reference](../references/sql-operations.md) for more information.
+Note that in addition to passing through parameters in your SQL statement, you can also filter out the result values in the `WHERE` clause. See the [SQL quickstart](sql-quickstart.md) and the [SQL reference](../references/sql-operations.md) for more information.
 {% endhint %}
 
 ## 5. Mix in JavaScript
@@ -227,5 +227,5 @@ Your app is now live!
 ## Related topics
 
 * [Allowing user-supplied keys through the managed connect page](../building/authentication.md)
-* [Integrating multiple data sources together](../sql-quickstart.md)
+* [Integrating multiple data sources together](https://github.com/transposit/docs/tree/a904787def8c7c2659529ff8ec7ee68ce43a461d/sql-quickstart.md)
 
