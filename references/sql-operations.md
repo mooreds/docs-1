@@ -3,12 +3,16 @@
 ## Terms
 
 TODO -  column/field, input parameters, data source/set, results JSON object
+
+Operation - A Transposit [operation](https://docs.transposit.com/-LMF0qhoGWV0YpMmuC_Z/get-started/terms#operations) in a data connector. This takes the place of a 'table' in SQL for relational databases.
+
 Data source: part of a query that generates results. This is either an operation in a data connector, a subquery, or a join statement.
+
 Result set - the list of results, or rows, produced by a query. In Transposit, each result is a JSON object or array.
-Column - 
+Column - a field in a result.
 
 
-TODO: string quotes, identifier \(and escaping\), immediate value
+TODO: string quotes, identifier \(and escaping\), literal values
 
 ## Select statement
 
@@ -73,7 +77,7 @@ SELECT <column-expression> AS <column-alias>, <column-expression> AS <column-ali
 `<column-expression>` describes how to construct a value in the output JSON object and can be one of the following:
 
 * `<path>`
-* `<connector-alias>.<path>`
+* `<operation-alias>.<path>`
 * `<literal-value>`
 * `<binary-expression>`
 
@@ -88,7 +92,7 @@ SELECT <column-expression> AS <column-alias>, <column-expression> AS <column-ali
 
 `<key>` is an identifier.
 
-`<connector-alias>` is an identifier.
+`<operation-alias>` is an identifier.
 
 `<literal-value>` is a number, string or boolean value.
 
@@ -101,7 +105,7 @@ SELECT <column-expression> AS <column-alias>, <column-expression> AS <column-ali
 
 `AS <column-alias>` is optional. `<column-alias>` is an identifier.
 
-**Object construction**
+**Result construction**
 
 Column selection constructs a JSON object for each item in the data source based on the specified `<column-expression>`s and `<column-alias>`s.
 
@@ -113,8 +117,8 @@ When resolving a `<path>`, lookups are done recursively into the JSON object for
 
 A `.*` at the end of a `<path>` works as a 'spread' operator, copying each key at the current location into the result object.
 
-For `<connector-alias>.<path>` - the resolve process will resolve the specified `<path>` only under the results from the table that was marked with the specified alias.  
-If no table was marked with `<connector-alias>` the resolve will stop and the value will be considered as 'not found'.
+For `<operation-alias>.<path>` - the resolve process will resolve the specified `<path>` only under the results from the operation that was marked with the specified alias.  
+If no operation was marked with `<operation-alias>` the resolve will stop and the value will be considered as 'not found'.
 
 For `<binary-expression>` the resolve process will deconstruct the expression and will resolved each part and then will reconstruct the resolved parts to produce immediate value.  
 If the types of the operands is not the same the resolve process will produce an error and the entire query will fail.  
@@ -227,9 +231,9 @@ Will generate a JSON object with the key `foo`, the value will be the value of `
 ]
 ```
 
-_Using table aliases:_
+_Using operation aliases:_
 
-When a table is marked with alias \(see [table alias](https://github.com/transposit/docs/tree/052cc31e86f4f0cb3c4c208bac0f55fd4ad10d9b/references/tql-reference.md#connector-alias)\) the same table alias can be used as a qualifier in the beginning of the path to define exactly where to do the lookup for the path \(the results of which table to use\). This is useful when the query contains more than one table \(for example in [join query](https://github.com/transposit/docs/tree/052cc31e86f4f0cb3c4c208bac0f55fd4ad10d9b/references/tql-reference.md#join-query)\).
+When an operation is marked with alias \(see [operation alias](https://github.com/transposit/docs/tree/052cc31e86f4f0cb3c4c208bac0f55fd4ad10d9b/references/tql-reference.md#operation-alias)\) the same operation alias can be used as a qualifier in the beginning of the path to define exactly where to do the lookup for the path \(the results of which operation to use\). This is useful when the query contains more than one operation \(for example in [join query](https://github.com/transposit/docs/tree/052cc31e86f4f0cb3c4c208bac0f55fd4ad10d9b/references/tql-reference.md#join-query)\).
 
 ```sql
 SELECT T.col1
@@ -359,13 +363,13 @@ SELECT [ <json-value>, ... ]
 `<json-value>` can be one of the following:
 
 * `<path>` - a column selection
-* `<connector-alias>.<path>` - a column selection with table alias qualifier
+* `<operation-alias>.<path>` - a column selection with operation alias qualifier
 * `<immediate-value>` - number, string or boolean
 * `<binary-expression>` - a calculated expression
 * `<json-object>` - construct a nested object
 * `<json-array>` - construct a nested array
 
-`<path>`, `<connector-alias>.<path>`, `<immediate-value>` and `<binary-expression>` are the same as in [column selection](https://github.com/transposit/docs/tree/052cc31e86f4f0cb3c4c208bac0f55fd4ad10d9b/references/tql-reference.md#columns-selection). The only difference is that `.*` in the end of `<path>` is not allowed in JSON template, use [spread operator](https://github.com/transposit/docs/tree/052cc31e86f4f0cb3c4c208bac0f55fd4ad10d9b/references/tql-reference.md#spread-operator) instead.
+`<path>`, `<operation-alias>.<path>`, `<immediate-value>` and `<binary-expression>` are the same as in [column selection](https://github.com/transposit/docs/tree/052cc31e86f4f0cb3c4c208bac0f55fd4ad10d9b/references/tql-reference.md#columns-selection). The only difference is that `.*` in the end of `<path>` is not allowed in JSON template, use [spread operator](https://github.com/transposit/docs/tree/052cc31e86f4f0cb3c4c208bac0f55fd4ad10d9b/references/tql-reference.md#spread-operator) instead.
 
 `<json-object>` constructs a JSON object, the syntax is:
 
@@ -408,7 +412,7 @@ The `<key>`s and `<json-value>`s are used in the same order as they appear in th
 
 Each `<json-value>` will be calculated and resolved. The resolved value can be immediate value \(number, string or boolean\), JSON object or JSON array.
 
-`<path>`, `<connector-alias>.<path>`, `<immediate-value>` and `<binary-expression>` are resolved the same as in [column selection](https://github.com/transposit/docs/tree/052cc31e86f4f0cb3c4c208bac0f55fd4ad10d9b/references/tql-reference.md#columns-selection).
+`<path>`, `<operation-alias>.<path>`, `<immediate-value>` and `<binary-expression>` are resolved the same as in [column selection](https://github.com/transposit/docs/tree/052cc31e86f4f0cb3c4c208bac0f55fd4ad10d9b/references/tql-reference.md#columns-selection).
 
 `<json-object>` and `<json-array>` are resolved recursively.
 
@@ -535,9 +539,9 @@ Will generate
 ]
 ```
 
-_Using table alias:_
+_Using operation alias:_
 
-When a table is marked with alias \(see [table alias](https://github.com/transposit/docs/tree/052cc31e86f4f0cb3c4c208bac0f55fd4ad10d9b/references/tql-reference.md#connector-alias)\) the same table alias can be used as a qualifier in the beginning of the path to define exactly where to do the lookup for the path \(the results of which table to use\). This is useful when the query contains more than one table \(for example in [join query](https://github.com/transposit/docs/tree/052cc31e86f4f0cb3c4c208bac0f55fd4ad10d9b/references/tql-reference.md#join-query)\).
+When a operation is marked with alias \(see [operation alias](https://github.com/transposit/docs/tree/052cc31e86f4f0cb3c4c208bac0f55fd4ad10d9b/references/tql-reference.md#operation-alias)\) the same operation alias can be used as a qualifier in the beginning of the path to define exactly where to do the lookup for the path \(the results of which operation to use\). This is useful when the query contains more than one operation \(for example in [join query](https://github.com/transposit/docs/tree/052cc31e86f4f0cb3c4c208bac0f55fd4ad10d9b/references/tql-reference.md#join-query)\).
 
 ```sql
 SELECT { col1: T.col1 }
@@ -626,7 +630,7 @@ Will generate a JSON array with a single item \(the item is the value of `col1`\
 ]
 ```
 
-And you can use all the other expressions as in the previous examples - nested object, table alias, immediate values and binary expressions:
+And you can use all the other expressions as in the previous examples - nested object, operation alias, immediate values and binary expressions:
 
 ```sql
 SELECT [ (col1 + 10) * nested.object.value1, T.col2, 7, 'seven', true ]
@@ -774,20 +778,20 @@ The `FROM` clause is the first part that is running when the query is executed.
 
 The `FROM` clause support three types of data sources:
 
-* [Table](https://github.com/transposit/docs/tree/052cc31e86f4f0cb3c4c208bac0f55fd4ad10d9b/references/tql-reference.md#table)
+* [Operation](https://github.com/transposit/docs/tree/052cc31e86f4f0cb3c4c208bac0f55fd4ad10d9b/references/tql-reference.md#operation)
 * [Sub query](https://github.com/transposit/docs/tree/052cc31e86f4f0cb3c4c208bac0f55fd4ad10d9b/references/tql-reference.md#sub-query)
 * [Join](https://github.com/transposit/docs/tree/052cc31e86f4f0cb3c4c208bac0f55fd4ad10d9b/references/tql-reference.md#join)
 
-#### Table
+#### Operation
 
 To get data from a single service you can use the service directly in the `FROM` clause:
 
 ```sql
 SELECT *
-FROM connector.operation AS <connector-alias>
+FROM connector.operation AS <operation-alias>
 ```
 
-`AS <column-alias>` is optional. `<connector-alias>` is an identifier.
+`AS <operation-alias>` is optional. `<operation-alias>` is an identifier.
 
 #### Sub query
 
@@ -798,13 +802,13 @@ SELECT *
 FROM (SELECT * FROM connector.operation) AS <operation-alias>
 ```
 
-`AS <column-alias>` is optional. `<operation-alias>` is an identifier.
+`AS <operation-alias>` is optional. `<operation-alias>` is an identifier.
 
 Both the outer and the inner queries can use any of the other clauses - `FROM`, `WHERE`, `EXPAND BY`, `LIMIT`, `SELECT`.
 
 #### Join
 
-Join can be used to merge the results of two or more tables that share some common data.
+Join can be used to merge the results of two or more operations that share some common data.
 
 ```sql
 SELECT *
