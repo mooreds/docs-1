@@ -4,7 +4,7 @@
 
 TODO -  column/field, input parameters, data source/set, results JSON object
 
-Operation - A Transposit [operation](https://docs.transposit.com/-LMF0qhoGWV0YpMmuC_Z/get-started/terms#operations) in a data connector. This takes the place of a 'table' in SQL for relational databases.
+Operation - A Transposit [operation](/get-started/terms#operations) in a data connector. This takes the place of a 'table' in SQL for relational databases.
 
 Data source: part of a query that generates results. This is either an operation, a subquery, or a join statement.
 
@@ -113,7 +113,7 @@ The `<column-expression>`s and `<column-alias>`s are used in the same order as t
 
 Each `<column-expression>` will be calculated and resolved to a value. The resolved value can be a scalar value \(number, string or boolean\), JSON object or JSON array.
 
-When resolving a `<path>`, lookups are done recursively into the JSON object for each path component. If no value is found at that `<path>`, the field is not included in the output result.
+When resolving a `<path>`, lookups are done recursively into the JSON object for each path component. If no value is found at that `<path>`, the value is considered 'not found'.
 
 A `.*` at the end of a `<path>` works as a 'spread' operator, copying each key at the current location into the result object.
 
@@ -131,7 +131,7 @@ If the resolve process produces a valid value, this value will be added to the o
 * If `<column-expression>` is `<path>` that ends with `.*`, the keys and values under the last `<key>` will all be copied into the result object.
 * Otherwise the entire `<column-expression>` will be used as the key. It's recommended to use `<column-alias>` in this case.
 
-If the same key is used more than once the last value will be used and will override any previous values that had the same key.
+{% hint style="info" %} If the same key is used more than once the last value will be used and will override any previous values that had the same key. {% endhint %}
 
 If the value is resolved to `null` or 'not found' this value will not be added it to the output JSON object.
 
@@ -370,7 +370,7 @@ SELECT [ <json-value>, ... ]
 * `<json-object>` - construct a nested object
 * `<json-array>` - construct a nested array
 
-`<path>`, `<operation-alias>.<path>`, `<literal-value>` and `<binary-expression>` are the same as in [column selection](#columns-selection). The only difference is that `.*` in the end of `<path>` is not allowed in JSON template, use [spread operator](#spread-operator) instead.
+`<path>`, `<operation-alias>.<path>`, `<literal-value>` and `<binary-expression>` are the same as in [column selection](#columns-selection). The only difference is that `.*` at the end of `<path>` is not allowed in JSON templates; use the [spread operator](#spread-operator) instead.
 
 `<json-object>` constructs a JSON object, the syntax is:
 
@@ -404,22 +404,22 @@ The spread operator can be mixed with any other JSON template features.
 
 **Object construction**
 
-JSON template construct a JSON object or array for each item in the 'data source' based on the specified template.  
+A JSON template constructs a JSON object or array for each item from the data source based on the specified template.  
 If the outer template is a `<json-object>` the item will be JSON object.  
 If the outer template is a `<json-array>` the item will be JSON array.  
 The values inside the outer template can be any type.
 
 The `<key>`s and `<json-value>`s are used in the same order as they appear in the template.
 
-Each `<json-value>` will be calculated and resolved. The resolved value can be immediate value \(number, string or boolean\), JSON object or JSON array.
+Each `<json-value>` will be calculated and resolved. The resolved value can be a scalar value \(number, string or boolean\), JSON object or JSON array.
 
 `<path>`, `<operation-alias>.<path>`, `<immediate-value>` and `<binary-expression>` are resolved the same as in [column selection](#columns-selection).
 
 `<json-object>` and `<json-array>` are resolved recursively.
 
-If the resolve process found a valid value, this value will be added to the output JSON object or array. If the output item is a JSON object the specified `<key>` will be used.
+If the resolve process finds a valid value, this value will be added to the output JSON object or array. If the output item is a JSON object, the specified `<key>` will be used.
 
-If the same key is used more than once the last value will be used and will override any previous values that had the same key.
+{% hint style="info" %} If the same key is used more than once the last value will be used and will override any previous values that had the same key. {% endhint %}
 
 If the value is resolved to `null` or 'not found':
 
@@ -466,18 +466,18 @@ Will generate a JSON object with multiple keys:
 ]
 ```
 
-_Selecting nested value:_
+_Selecting a nested value:_
 
 To access a value inside a nested object you can use a `.` \(dot\) as separator between the nested object keys.
 
-If the 'data source' is in the format:
+For the following result:
 
 ```javascript
 [
   {
     "nested": {
       "object": {
-        "value": ...
+        "value": "myValue"
       }
     }
   }
@@ -496,7 +496,7 @@ Will generate a JSON object with the key and value of the item in the specific p
 ```javascript
 [
   {
-    "value": ...
+    "value": "myValue"
   },
   ...
 ]
@@ -504,7 +504,7 @@ Will generate a JSON object with the key and value of the item in the specific p
 
 _Changing the key:_
 
-JSON template requires a key, so the same syntax can be used even if you want to use a different key:
+The key is a part of the JSON template, so the same syntax can be used even if you want to use a different key:
 
 ```sql
 SELECT { foo: col1 }
@@ -540,9 +540,9 @@ Will generate
 ]
 ```
 
-_Using operation alias:_
+_Using an operation alias:_
 
-When a operation is marked with alias \(see [operation alias](#operation-alias)\) the same operation alias can be used as a qualifier in the beginning of the path to define exactly where to do the lookup for the path \(the results of which operation to use\). This is useful when the query contains more than one operation \(for example in [join query](#join-query)\).
+When an operation (or subquery) is named with an alias \(see [operation alias](#operation-alias)\) the alias can later be used as a qualifier at the beginning of the path to define exactly where to do the lookup for the path \(the results of which operation or subquery to use\). This is particularly useful in [join queries](#join-query)\), where the query has more than one data source.
 
 ```sql
 SELECT { col1: T.col1 }
@@ -560,9 +560,9 @@ Will generate a JSON object with a single key:
 ]
 ```
 
-_Immediate value:_
+_Literal value:_
 
-Any value of the types number, string or boolean can be used as an immediate value.
+Numbers, strings and booleans can be used as the value in a JSON template:
 
 ```sql
 SELECT { value1: 7, value2: 'seven', value3: true }
@@ -613,7 +613,7 @@ Will use the values of `col1` and `nested.object.value1` to calculate the value 
 
 _Constructing an array:_
 
-The previous examples showed how to construct an object as the output item. With JSON template you can also construct an array as the output item.
+The previous examples showed how to construct an object as the output item. With JSON templates you can also construct an array as the output item.
 
 ```sql
 SELECT [ col1 ]
