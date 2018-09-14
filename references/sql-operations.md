@@ -2,9 +2,10 @@
 
 ## Terms
 
-TODO - table/service, column/field, input parameters, data source/set, results JSON object
+TODO -  column/field, input parameters, data source/set, results JSON object
 Data source: part of a query that generates results. This is either an operation in a data connector, a subquery, or a join statement.
 Result set - the list of results, or rows, produced by a query. In Transposit, each result is a JSON object or array.
+Column - 
 
 
 TODO: string quotes, identifier \(and escaping\), immediate value
@@ -16,7 +17,7 @@ Select queries return data from one or more data sources. In Transposit, nearly 
 Select statement syntax:
 
 ```sql
-SELECT <* or columns selection or JSON template>
+SELECT <* or column selection or JSON template>
 FROM <operation or subquery or join>
 WHERE <predicate>
 EXPAND BY <columns>
@@ -45,7 +46,7 @@ The `SELECT` clause gets as input a JSON object or JSON array from the data sour
 The `SELECT` clause supports three to ways to manipulate an item:
 
 * [Select star](https://github.com/transposit/docs/tree/052cc31e86f4f0cb3c4c208bac0f55fd4ad10d9b/references/tql-reference.md#select-star)
-* [Columns selection](https://github.com/transposit/docs/tree/052cc31e86f4f0cb3c4c208bac0f55fd4ad10d9b/references/tql-reference.md#columns-selection)
+* [Column selection](https://github.com/transposit/docs/tree/052cc31e86f4f0cb3c4c208bac0f55fd4ad10d9b/references/tql-reference.md#columns-selection)
 * [JSON template](https://github.com/transposit/docs/tree/052cc31e86f4f0cb3c4c208bac0f55fd4ad10d9b/references/tql-reference.md#json-template)
 
 #### Select star
@@ -61,9 +62,9 @@ FROM connector.operation
 
 Column selection can be used to construct a JSON object with specific keys that will appear in the top level of the object.
 
-Columns selection cannot construct a nested JSON object or a JSON array; to construct these items use [JSON template](https://github.com/transposit/docs/tree/052cc31e86f4f0cb3c4c208bac0f55fd4ad10d9b/references/tql-reference.md#json-template).
+Column selection cannot construct a nested JSON object or a JSON array; to construct these items use [JSON template](https://github.com/transposit/docs/tree/052cc31e86f4f0cb3c4c208bac0f55fd4ad10d9b/references/tql-reference.md#json-template).
 
-The syntax for columns selection is:
+The syntax for column selection is:
 
 ```sql
 SELECT <column-expression> AS <column-alias>, <column-expression> AS <column-alias>, ...
@@ -364,7 +365,7 @@ SELECT [ <json-value>, ... ]
 * `<json-object>` - construct a nested object
 * `<json-array>` - construct a nested array
 
-`<path>`, `<connector-alias>.<path>`, `<immediate-value>` and `<binary-expression>` are the same as in [columns selection](https://github.com/transposit/docs/tree/052cc31e86f4f0cb3c4c208bac0f55fd4ad10d9b/references/tql-reference.md#columns-selection). The only difference is that `.*` in the end of `<path>` is not allowed in JSON template, use [spread operator](https://github.com/transposit/docs/tree/052cc31e86f4f0cb3c4c208bac0f55fd4ad10d9b/references/tql-reference.md#spread-operator) instead.
+`<path>`, `<connector-alias>.<path>`, `<immediate-value>` and `<binary-expression>` are the same as in [column selection](https://github.com/transposit/docs/tree/052cc31e86f4f0cb3c4c208bac0f55fd4ad10d9b/references/tql-reference.md#columns-selection). The only difference is that `.*` in the end of `<path>` is not allowed in JSON template, use [spread operator](https://github.com/transposit/docs/tree/052cc31e86f4f0cb3c4c208bac0f55fd4ad10d9b/references/tql-reference.md#spread-operator) instead.
 
 `<json-object>` constructs a JSON object, the syntax is:
 
@@ -380,7 +381,7 @@ SELECT [ <json-value>, ... ]
 
 **Spread operator**
 
-The spread operator expands a JSON object into JSON object or JSON array into a JSON array \(similar to `<path>.*` in [columns selection](https://github.com/transposit/docs/tree/052cc31e86f4f0cb3c4c208bac0f55fd4ad10d9b/references/tql-reference.md#columns-selection)\).
+The spread operator expands a JSON object into JSON object or JSON array into a JSON array \(similar to `<path>.*` in [column selection](https://github.com/transposit/docs/tree/052cc31e86f4f0cb3c4c208bac0f55fd4ad10d9b/references/tql-reference.md#columns-selection)\).
 
 The spread JSON object use:
 
@@ -407,7 +408,7 @@ The `<key>`s and `<json-value>`s are used in the same order as they appear in th
 
 Each `<json-value>` will be calculated and resolved. The resolved value can be immediate value \(number, string or boolean\), JSON object or JSON array.
 
-`<path>`, `<connector-alias>.<path>`, `<immediate-value>` and `<binary-expression>` are resolved the same as in [columns selection](https://github.com/transposit/docs/tree/052cc31e86f4f0cb3c4c208bac0f55fd4ad10d9b/references/tql-reference.md#columns-selection).
+`<path>`, `<connector-alias>.<path>`, `<immediate-value>` and `<binary-expression>` are resolved the same as in [column selection](https://github.com/transposit/docs/tree/052cc31e86f4f0cb3c4c208bac0f55fd4ad10d9b/references/tql-reference.md#columns-selection).
 
 `<json-object>` and `<json-array>` are resolved recursively.
 
@@ -717,7 +718,7 @@ Immediate values can be use with and without `FROM` clause.
 
 Immediate value is an expression with the type: number, string or boolean value, or a boolean expression that can be resolved to one of these types, i.e. the expression doesn't contain `<path>`.
 
-Immediate values can be used in columns selection or in JSON template.
+Immediate values can be used in column selection or in JSON template.
 
 **Examples:**
 
