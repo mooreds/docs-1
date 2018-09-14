@@ -638,9 +638,9 @@ SELECT [ (col1 + 10) * nested.object.value1, T.col2, 7, 'seven', true ]
 FROM connector.operation AS T
 ```
 
-_Constructing nested template:_
+_Constructing nested objects:_
 
-You can use the JSON object and array templates recursively and construct any nested structure:
+You can use JSON object and array templates recursively and construct any nested structure:
 
 ```javascript
 SELECT {
@@ -656,11 +656,11 @@ SELECT {
 FROM connector.operation
 ```
 
-_Selecting all values under an object or array:_
+_Selecting all values in an object or array:_
 
 To access all the values inside an object or array you can use the spread operator \(`...`\). Note that the inner type and the outer type must be the same: an object can be spread into a JSON object template and an array can be spread into JSON array template:
 
-If the 'data source' is in the format:
+If the results have the format:
 
 ```javascript
 [
@@ -715,77 +715,21 @@ Will generate a JSON array with the all the values under `array`:
 ]
 ```
 
-#### Immediate values
-
-TODO: maybe we don't need this section.
-
-Immediate values can be use with and without `FROM` clause.
-
-Immediate value is an expression with the type: number, string or boolean value, or a boolean expression that can be resolved to one of these types, i.e. the expression doesn't contain `<path>`.
-
-Immediate values can be used in column selection or in JSON template.
-
-**Examples:**
-
-```sql
-SELECT 1 AS number, 'one' AS string, true AS boolean, (1 + 2) * 3 AS expression
-```
-
-Will generate:
-
-```javascript
-[
-  {
-    "number": 1,
-    "string": "one",
-    "boolean": true,
-    "expression": 9
-  }
-]
-```
-
-```sql
-SELECT { number: 1, string: 'one', boolean: true, expression: (1 + 2) * 3 }
-```
-
-Will generate:
-
-```javascript
-[
-  {
-    "number": 1,
-    "string": "one",
-    "boolean": true,
-    "expression": 9
-  }
-]
-```
-
-```sql
-SELECT [ 1, 'one', true, (1 + 2) * 3 ]
-```
-
-Will generate:
-
-```javascript
-[[1, "one", true, 9]]
-```
-
 ### From clause
 
-The `FROM` clause of a query creates the data set that the other parts of the query will use.
+The `FROM` clause of a query creates the result set that the other parts of the query will use.
 
 The `FROM` clause is the first part that is running when the query is executed.
 
-The `FROM` clause support three types of data sources:
+The `FROM` clause supports three types of data sources:
 
 * [Operation](#operation)
-* [Sub query](#sub-query)
+* [Subquery](#subquery)
 * [Join](#join)
 
 #### Operation
 
-To get data from a single service you can use the service directly in the `FROM` clause:
+To get data from a single operation you can use the operation directly in the `FROM` clause:
 
 ```sql
 SELECT *
@@ -794,9 +738,9 @@ FROM connector.operation AS <operation-alias>
 
 `AS <operation-alias>` is optional. `<operation-alias>` is an identifier.
 
-#### Sub query
+#### Subquery
 
-In some case when you want to manipulate the data set in multiple steps, you can use a sub query in the `FROM` clause:
+In some case when you want to manipulate the data set in multiple steps, you can use a subquery in the `FROM` clause:
 
 ```sql
 SELECT *
@@ -809,7 +753,7 @@ Both the outer and the inner queries can use any of the other clauses - `FROM`, 
 
 #### Join
 
-Join can be used to merge the results of two or more operations that share some common data.
+Joins can be used to merge the results of two or more operations that are related in some way.
 
 ```sql
 SELECT *
@@ -835,19 +779,126 @@ TODO - , add examples for join
 
 TODO - filters, input params, $body, AND/OR, IN, subquery, expressions
 
+The `WHERE` clause is where input parameters for operations are specified, as well as filters on results. The syntax for the `WHERE` clause is:
+
+```sql
+WHERE <predicate>
+```
+
+`<predicate>` describes the sequence of conditions that are applied to the data sources. Multiple `<predicate>`s can be recursively combined with boolean `AND`, `OR`, and `NOT` operators.
+input parameters passed to operations and filters applied to the results. It can be one of the following:
+
+* `<condition>`
+* `<predicate> AND <predicate>`
+* `<predicate> OR <predicate>`
+* `NOT <predicate>`
+
+For instance:
+```sql
+SELECT * FROM <connection.operation>
+WHERE <condition-1> AND NOT <condition-2> OR <condition-3> ...
+```
+
+Parentheses can also be used for grouping.
+
+Each condition can be one of the following:
+
+* `<name>` `<operator>` `<column-expression>`
+* `<name>` `<operator>` `<subquery>`
+* `<name>` `IN` `<literal-tuple>`
+* `<name-tuple>` `IN` `<nested-literal-tuple>`
+
+The `<operator>` can be one of the following:
+
+* `=` - equal to
+* `!=` - not equal to
+* `>` - greater than
+* `>=` - greater than or equal to
+* `<` - less than
+* `<=` - less than or equal to
+* `IN` - equal to any in a list of values.
+
+The `<column-expression>` is the same as what is used in [column selection](#column-selection).
+
+If a subquery is used, the `<operator>` must be `=` or `IN`. If the operator is `=`, the subquery must return a single result.
+
+#### Input parameters and filters
+
+A condition in a `WHERE` clause may either be passed as an input parameter or treated as a filter on the output of the data source. There is no difference in the syntax; Transposit automatically makes the determination based on whether the `<name>` in the condition is defined as a parameter for the operation. Otherwise, the condition is treated as a filter and will remove rows from the result set that do not match the criteria.
+
+When two input parameters are combined with an `AND`, both are passed to the underlying operation. However, if two input parameters are combined with an `OR`, it will result in two invocations of the operation. For instance:
+
+```sql
+SELECT * FROM <connector.operation> WHERE param1 = 'val1' AND param2 = 'val2'
+```
+
+Results in a single invocation of the operation that is passed `'val1'` as `param1` and `'val2'` as `param2`.
+
+```sql
+SELECT * FROM <connector.operation> WHERE param1 = 'val1' OR param2 = 'val2'
+```
+
+Results in two invocations of the operation that are run in parallel. The first is passed `'val1'` as `param1` and is not passed a value for `param2`. The second invocation is passed `'val2'` as `param2` and is not passed a value for `param1`. When both invocations are complete, the result sets from each are concatenated together before other parts of the query are run.
+
+Note that `IN` is equivalent to `OR`s of `=` operators, and thus may also result in multiple invocations of an operation. For instance:
+
+```sql
+SELECT * FROM <connector.operation> WHERE param1 IN ('val1', 'val2', 'val3')
+```
+
+Is equivalent to:
+
+```sql
+SELECT * FROM <connector.operation> WHERE param1 = 'val1' OR param1 = 'val2' OR param1 = 'val3'
+```
+
+Both will result in three parallel invocations of the operation.
+
+#### Mapping and Tuples
+
+The `<literal-tuple>` is one of:
+* `(<val-1>, <val-2>, ...)` - a list of literal values
+* `((<val-1-a>, <val-1-b>, ...), (<val-2-a>, <val-2-b>, ...), ...)` - a list of nested tuples
+
+The first can be used with the `IN` operator to map to a single parameter or result column:
+
+```sql
+WHERE col1 IN (<val-1>, <val-2>, ...)
+```
+
+The latter can be used to map to multiple parameters or result columns using a `<name-tuple>`:
+
+```sql
+WHERE (col1, col2) IN ((<col1-val1>, <col2-val1>), (<col1-val2>, <col2-val2>), ...)
+```
+
+The number of items in each nested tuple on the right side of the `IN` must match the number of items in the `<name-tuple>` on the left.
+
+This sort of column mapping is also possible with subqueries. 
+
+```sql
+WHERE (col1, col2, ..., colN) IN (SELECT col1, col2, ... colN FROM <connector.operation>)
+```
+
+The mapping is positional (first column is mapped to the first name in the tuple, and so on), so the names of the subquery columns do not have to match the names in the `<name-tuple>`. However, the number of columns in the subquery must match the number of items in the `<name-tuple>`.
+
+#### Operation aliases
+
+Like the `<path>` in [column selection](#column-selection), the `<name>` in a `WHERE` condition can be prefixed with an [operation alias](#operation-alias) to refer to the results of a named data source. 
+
 ### Expand by clause
 
 TODO - column, nested path, alias, multiple columns
 
 ### Limit clause
 
-TODO
+The limit clause specifies the maximum number of results to return in the query. The syntax is:
+
+```sql
+LIMIT <number>
+```
 
 TODO: Document the pagination bubble that gets shown in the documentation viewer to indicate that we support pagination with the LIMIT
-
-### Expressions
-
-TODO \(maybe this is not needed and we will talk about expressions in the relevant sections\)
 
 ## External parameters
 
