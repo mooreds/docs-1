@@ -890,6 +890,27 @@ Like the `<path>` in [column selection](#column-selection), the `<name>` in a `W
 
 TODO - column, nested path, alias, multiple columns
 
+The `EXPAND BY` clause expands, or flattens, the items in a JSON array. This tends to be useful when working with APIs, where the relevant results may be nested inside one or more JSON objects.
+
+The syntax for `EXPAND BY` is:
+```sql
+SELECT * FROM <connector.operation>
+WHERE <predicate>
+EXPAND BY <path-1> AS <column-alias>, <path-2> AS <column-alias>, ..., <path-N> AS <column-alias>
+```
+
+`<column-path>` 
+
+`EXPAND BY` works something like this:
+
+for each result in the result set:
+  for each `<path>` in the list of paths:
+    1. Resolve the value at the path using the same mechanism as in [column-selection](#result-construction)
+    2. Check that this value is an array of items, otherwise skip this result
+    3. Create a new result for each item in the array. If there is no `<column-alias>`, the item is placed in the same position as the array it came from (replacing the array). Otherwise, the alias is used to place the item and the original array is left intact.
+    4. Replace the top-level result set with this new list of results
+
+
 ### Limit clause
 
 The limit clause specifies the maximum number of results to return in the query. The syntax is:
@@ -902,7 +923,7 @@ TODO: Document the pagination bubble that gets shown in the documentation viewer
 
 ## External parameters
 
-TODO \(@userId\)
+TODO \(@userId\) -
 
 ## Escaping
 
