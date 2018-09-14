@@ -2,8 +2,6 @@
 
 Below we've covered common questions and technical scenarios you might encounter while building with Transposit. If there is a question you have that isn't covered here or elsewhere in our documentation, reach out for help by emailing us at [support@transposit.com](mailto:support@transposit.com), or ask on [Transposit Slack](http://transposit.slack.com).
 
-## When should I use SQL and when should I use JavaScript?
-
 ## What applications should use Transposit?
 
 * Anything that connects with multiple data sources and APIs
@@ -25,5 +23,5 @@ Below we've covered common questions and technical scenarios you might encounter
 
 ## Rate limits
 
-* To make sure you don't accidentally run through your API rate limits for your data connections, we limit the number of API fetches to 25 per operation per request.
+* To make sure you don't accidentally run through your API rate limits for your data connections, Transposit limits the number of API fetches to 25 per operation per request.
 
