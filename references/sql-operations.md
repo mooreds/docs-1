@@ -1,27 +1,30 @@
 # SQL Operations Reference
 
-## Terms and symbols
+## Terms
 
 TODO - table/service, column/field, input parameters, data source/set, results JSON object
+Data source: part of a query that generates results. This is either an operation in a data connector, a subquery, or a join statement.
+Result set - the list of results, or rows, produced by a query. In Transposit, each result is a JSON object or array.
+
 
 TODO: string quotes, identifier \(and escaping\), immediate value
 
 ## Select statement
 
-TODO: general description - manipulation of list of json objects, etc...
+Select queries return data from one or more data sources. In Transposit, nearly all queries will be select queries, regardless of what the underlying API HTTP method is.
 
 Select statement syntax:
 
 ```sql
 SELECT <* or columns selection or JSON template>
-FROM <table or subquery or join>
+FROM <operation or subquery or join>
 WHERE <predicate>
 EXPAND BY <columns>
 LIMIT <number>
 ```
 
 The `SELECT` clause is required.  
-The clauses `WHERE`, `EXPAND BY` and `LIMIT` can be used only if `FROM` clause is used.
+The clauses `WHERE`, `EXPAND BY` and `LIMIT` can be used only if a `FROM` clause is used.
 
 The clauses must appear in the order that was specific above.
 
@@ -37,7 +40,7 @@ The clauses must appear in the order that was specific above.
 
 The `SELECT` clause can be used for manipulating the structure and values of each item in the 'data source'.
 
-The `SELECT` clause gets as input a JSON object or JSON array from the 'data source' and produce a JSON object or a JSON array.
+The `SELECT` clause gets as input a JSON object or JSON array from the data source and produces a JSON object or a JSON array.
 
 The `SELECT` clause supports three to ways to manipulate an item:
 
@@ -47,18 +50,18 @@ The `SELECT` clause supports three to ways to manipulate an item:
 
 #### Select star
 
-The `*` symbol will keep the items from 'data source' without changes:
+The `*` symbol selects the entire result without modifying it:
 
 ```sql
 SELECT *
 FROM connector.operation
 ```
 
-#### Columns selection
+#### Column selection
 
-Columns selection can be used to construct a JSON object with specific keys that will appear in the top level of the object.
+Column selection can be used to construct a JSON object with specific keys that will appear in the top level of the object.
 
-Columns selection cannot construct a nested JSON object or a JSON array, to construct these items use [JSON template](https://github.com/transposit/docs/tree/052cc31e86f4f0cb3c4c208bac0f55fd4ad10d9b/references/tql-reference.md#json-template).
+Columns selection cannot construct a nested JSON object or a JSON array; to construct these items use [JSON template](https://github.com/transposit/docs/tree/052cc31e86f4f0cb3c4c208bac0f55fd4ad10d9b/references/tql-reference.md#json-template).
 
 The syntax for columns selection is:
 
@@ -70,10 +73,10 @@ SELECT <column-expression> AS <column-alias>, <column-expression> AS <column-ali
 
 * `<path>`
 * `<connector-alias>.<path>`
-* `<immediate-value>`
+* `<literal-value>`
 * `<binary-expression>`
 
-`<path>` describes the location of a value inside a JSON object or a JSON array. `<path>` contains one or more keys/field names that describe the lookup chain of fields inside the input JSON object - each `<key>` gets the inner JSON object/array and the lookup continues from that JSON object/array. The last item in `<path>` can be `.*`.
+`<path>` describes the location of a value inside a JSON object or array. `<path>` contains one or more dot-separated keys/field names that describe the lookup chain of fields inside the input JSON object. The last item in `<path>` can be `.*`.
 
 `<path>` can be one of the following:
 
@@ -82,15 +85,13 @@ SELECT <column-expression> AS <column-alias>, <column-expression> AS <column-ali
 * `<key>.*`
 * `<key-1>.<key-2>.` ... `<key-N>.*`
 
-\(TODO: need to update this when we support bracket syntax \(TR-1540\)\)
-
 `<key>` is an identifier.
 
 `<connector-alias>` is an identifier.
 
-`<immediate-value>` is a number, string or boolean value.
+`<literal-value>` is a number, string or boolean value.
 
-`<binary-expression>` describe basic math operation \(for numbers\) or string concatenation \(of strings\) and can be one of the following:
+`<binary-expression>` represents basic math operations \(for numbers\) or string concatenation \(of strings\) and can be one of the following:
 
 * `<column-expression>` + `<column-expression>`
 * `<column-expression>` - `<column-expression>`
@@ -101,15 +102,15 @@ SELECT <column-expression> AS <column-alias>, <column-expression> AS <column-ali
 
 **Object construction**
 
-Columns selection construct a JSON object for each item in the 'data source' based on the specified `<column-expression>`s and `<column-alias>`s.
+Column selection constructs a JSON object for each item in the data source based on the specified `<column-expression>`s and `<column-alias>`s.
 
 The `<column-expression>`s and `<column-alias>`s are used in the same order as they appear in the query.
 
-Each `<column-expression>` will be calculated and resolved. The resolved value can be immediate value \(number, string or boolean\), JSON object or JSON array.
+Each `<column-expression>` will be calculated and resolved to a value. The resolved value can be a scalar value \(number, string or boolean\), JSON object or JSON array.
 
-For `<path>` the resolve process will do a lookup for each `<key>` in the current location in the JSON object. The value that is found will be used as the resolved value. if `<path>` ends with `.*` - the value will be all the fields that were found under the last `<key>`  
-If a `<key>` is being resolved but the current item is not a JSON object, the resolve will stop and the value will be considered as 'not found'.  
-If a `<key>` is being resolved and the current item is a JSON object that doesn't contain the same key, the resolve will stop and the value will be considered as 'not found'.
+When resolving a `<path>`, lookups are done recursively into the JSON object for each path component. If no value is found at that `<path>`, the field is not included in the output result.
+
+A `.*` at the end of a `<path>` works as a 'spread' operator, copying each key at the current location into the result object.
 
 For `<connector-alias>.<path>` - the resolve process will resolve the specified `<path>` only under the results from the table that was marked with the specified alias.  
 If no table was marked with `<connector-alias>` the resolve will stop and the value will be considered as 'not found'.
@@ -225,7 +226,7 @@ Will generate a JSON object with the key `foo`, the value will be the value of `
 ]
 ```
 
-_Using table alias:_
+_Using table aliases:_
 
 When a table is marked with alias \(see [table alias](https://github.com/transposit/docs/tree/052cc31e86f4f0cb3c4c208bac0f55fd4ad10d9b/references/tql-reference.md#connector-alias)\) the same table alias can be used as a qualifier in the beginning of the path to define exactly where to do the lookup for the path \(the results of which table to use\). This is useful when the query contains more than one table \(for example in [join query](https://github.com/transposit/docs/tree/052cc31e86f4f0cb3c4c208bac0f55fd4ad10d9b/references/tql-reference.md#join-query)\).
 
@@ -245,7 +246,7 @@ Will generate a JSON object with a single key:
 ]
 ```
 
-_Immediate value:_
+_Literal value:_
 
 Any value of the types number, string or boolean can be used as an immediate value.
 
