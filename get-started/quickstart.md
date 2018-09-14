@@ -227,5 +227,5 @@ Your app is now live!
 ## Related topics
 
 * [Allowing user-supplied keys through the managed connect page](../building/authentication.md)
-* [Integrating multiple data sources together](https://github.com/transposit/docs/tree/a904787def8c7c2659529ff8ec7ee68ce43a461d/sql-quickstart.md)
+* [Integrating multiple data sources together](sql-quickstart.md)
 
