@@ -6,7 +6,7 @@ TODO -  column/field, input parameters, data source/set, results JSON object
 
 Operation - A Transposit [operation](https://docs.transposit.com/-LMF0qhoGWV0YpMmuC_Z/get-started/terms#operations) in a data connector. This takes the place of a 'table' in SQL for relational databases.
 
-Data source: part of a query that generates results. This is either an operation in a data connector, a subquery, or a join statement.
+Data source: part of a query that generates results. This is either an operation, a subquery, or a join statement.
 
 Result set - the list of results, or rows, produced by a query. In Transposit, each result is a JSON object or array.
 Column - a field in a result.
@@ -117,18 +117,18 @@ When resolving a `<path>`, lookups are done recursively into the JSON object for
 
 A `.*` at the end of a `<path>` works as a 'spread' operator, copying each key at the current location into the result object.
 
-For `<operation-alias>.<path>` - the resolve process will resolve the specified `<path>` only under the results from the operation that was marked with the specified alias.  
+For `<operation-alias>.<path>` the resolve process will resolve the specified `<path>` only under the results from the operation that was marked with the specified alias.  
 If no operation was marked with `<operation-alias>` the resolve will stop and the value will be considered as 'not found'.
 
-For `<binary-expression>` the resolve process will deconstruct the expression and will resolved each part and then will reconstruct the resolved parts to produce immediate value.  
+For `<binary-expression>` the resolve process will evaluate the expression to produce a value.  
 If the types of the operands is not the same the resolve process will produce an error and the entire query will fail.  
-If the types of the operands is string, only the `+` operator is allowed, if a different operator is use the resolve process will produce an error and the entire query will fail.
+If the types of the operands is string, only the `+` operator is allowed, if a different operator is used the resolve process will produce an error and the entire query will fail.
 
-If the resolve process found a valid value, this value will be added to the output JSON object with a key, the key is selected in the following way:
+If the resolve process produces a valid value, this value will be added to the output JSON object with a key, the key is selected in the following way:
 
 * If `<column-alias>` is specified it will be used as the key.
-* If `<column-expression>` is `<path>` that does not ends with `.*` - the last `<key>` will be used as the key.
-* If `<column-expression>` is `<path>` that ends with `.*` - the key and values under the last `<key>` will be used without change.
+* If `<column-expression>` is `<path>` that does not ends with `.*`, the last `<key>` will be used as the key.
+* If `<column-expression>` is `<path>` that ends with `.*`, the keys and values under the last `<key>` will all be copied into the result object.
 * Otherwise the entire `<column-expression>` will be used as the key. It's recommended to use `<column-alias>` in this case.
 
 If the same key is used more than once the last value will be used and will override any previous values that had the same key.
@@ -175,18 +175,18 @@ Will generate a JSON object with multiple keys:
 ]
 ```
 
-_Selecting nested value:_
+_Selecting a nested value:_
 
-To access a value inside a nested object you can use a `.` \(dot\) as separator between the nested object keys.
+To access a value inside a nested object you can use a `.` \(dot\) as a separator between the nested object keys.
 
-If the 'data source' is in the format:
+For the following result:
 
 ```javascript
 [
   {
     "nested": {
       "object": {
-        "value": ...
+        "value": "myValue"
       }
     }
   }
@@ -200,12 +200,12 @@ SELECT nested.object.value
 FROM connector.operation
 ```
 
-Will generate a JSON object with the key and value of the item in the specific path:
+Will generate a JSON object with the key and value of the item at the specific path:
 
 ```javascript
 [
   {
-    "value": ...
+    "value": "myValue"
   },
   ...
 ]
@@ -233,7 +233,7 @@ Will generate a JSON object with the key `foo`, the value will be the value of `
 
 _Using operation aliases:_
 
-When an operation is marked with alias \(see [operation alias](https://github.com/transposit/docs/tree/052cc31e86f4f0cb3c4c208bac0f55fd4ad10d9b/references/tql-reference.md#operation-alias)\) the same operation alias can be used as a qualifier in the beginning of the path to define exactly where to do the lookup for the path \(the results of which operation to use\). This is useful when the query contains more than one operation \(for example in [join query](https://github.com/transposit/docs/tree/052cc31e86f4f0cb3c4c208bac0f55fd4ad10d9b/references/tql-reference.md#join-query)\).
+When an operation (or subquery) is named with an alias \(see [operation alias](https://github.com/transposit/docs/tree/052cc31e86f4f0cb3c4c208bac0f55fd4ad10d9b/references/tql-reference.md#operation-alias)\) the alias can later be used as a qualifier at the beginning of the path to define exactly where to do the lookup for the path \(the results of which operation or subquery to use\). This is particularly useful in [join queries](https://github.com/transposit/docs/tree/052cc31e86f4f0cb3c4c208bac0f55fd4ad10d9b/references/tql-reference.md#join-query)\), where the query has more than one data source.
 
 ```sql
 SELECT T.col1
@@ -253,10 +253,10 @@ Will generate a JSON object with a single key:
 
 _Literal value:_
 
-Any value of the types number, string or boolean can be used as an immediate value.
+Numbers, strings and booleans can be used directly in a column selector. If no alias is provided, the literal value is used as both the key and value:
 
 ```sql
-SELECT 7 as value1, 'seven' as value2, true as value3
+SELECT 7, 7 as value1, 'seven' as value2, true as value3
 ```
 
 Will generate:
@@ -264,6 +264,7 @@ Will generate:
 ```javascript
 [
   {
+    "7": 7,
     "value1": 7,
     "value2": "seven",
     "value3": true
@@ -274,7 +275,7 @@ Will generate:
 _Binary expressions:_
 
 Binary expressions can be used for basic math operation \(for numbers\) or string concatenation \(of strings\).  
-Binary expressions can use any combination of path, immediate values and nested binary expressions.  
+Binary expressions can use any combination of paths, literal values, and nested binary expressions.  
 Parentheses can be used to define the order of operations.
 
 The query:
@@ -302,11 +303,11 @@ FROM connector.operation
 
 Will use the values of `col1` and `nested.object.value1` to calculate the value of the expression.
 
-_Selecting all values under an object:_
+_Selecting all values in an object:_
 
-To access all values inside a nested object you can use a `.*` in the end of the path that contains the values.
+To access all key/value in a nested object you can use a `.*` in the end of the path that contains the values.
 
-If the 'data source' is in the format:
+If the result has the format:
 
 ```javascript
 [
@@ -342,9 +343,9 @@ Will generate a JSON object with the all the keys and values in the specific pat
 ]
 ```
 
-#### JSON template
+#### JSON templates
 
-JSON template is a more generic way to construct a JSON object or a JSON array as the output item.
+JSON templates are a more generic way to construct JSON objects or arrays as the output item.
 
 To construct a JSON object use the syntax:
 
@@ -358,18 +359,18 @@ To construct a JSON array use the syntax:
 SELECT [ <json-value>, ... ]
 ```
 
-`<key>` is an identifier. For convenience JSON template doesn't require to use string quotes around the key but it should be used if the `<key>` contains spaces, illegal characters or keywords.
+`<key>` is an identifier. For convenience, JSON templates do not require the use of string quotes around the key unless the `<key>` contains spaces, illegal characters or keywords.
 
 `<json-value>` can be one of the following:
 
 * `<path>` - a column selection
 * `<operation-alias>.<path>` - a column selection with operation alias qualifier
-* `<immediate-value>` - number, string or boolean
+* `<literal-value>` - number, string or boolean
 * `<binary-expression>` - a calculated expression
 * `<json-object>` - construct a nested object
 * `<json-array>` - construct a nested array
 
-`<path>`, `<operation-alias>.<path>`, `<immediate-value>` and `<binary-expression>` are the same as in [column selection](https://github.com/transposit/docs/tree/052cc31e86f4f0cb3c4c208bac0f55fd4ad10d9b/references/tql-reference.md#columns-selection). The only difference is that `.*` in the end of `<path>` is not allowed in JSON template, use [spread operator](https://github.com/transposit/docs/tree/052cc31e86f4f0cb3c4c208bac0f55fd4ad10d9b/references/tql-reference.md#spread-operator) instead.
+`<path>`, `<operation-alias>.<path>`, `<literal-value>` and `<binary-expression>` are the same as in [column selection](https://github.com/transposit/docs/tree/052cc31e86f4f0cb3c4c208bac0f55fd4ad10d9b/references/tql-reference.md#columns-selection). The only difference is that `.*` in the end of `<path>` is not allowed in JSON template, use [spread operator](https://github.com/transposit/docs/tree/052cc31e86f4f0cb3c4c208bac0f55fd4ad10d9b/references/tql-reference.md#spread-operator) instead.
 
 `<json-object>` constructs a JSON object, the syntax is:
 
