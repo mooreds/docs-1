@@ -1,4 +1,4 @@
-# SQL Operations Reference
+# SQL operations
 
 ## Terms
 
@@ -49,9 +49,9 @@ The `SELECT` clause gets as input a JSON object or JSON array from the data sour
 
 The `SELECT` clause supports three to ways to manipulate an item:
 
-* [Select star](https://github.com/transposit/docs/tree/052cc31e86f4f0cb3c4c208bac0f55fd4ad10d9b/references/tql-reference.md#select-star)
-* [Column selection](https://github.com/transposit/docs/tree/052cc31e86f4f0cb3c4c208bac0f55fd4ad10d9b/references/tql-reference.md#columns-selection)
-* [JSON template](https://github.com/transposit/docs/tree/052cc31e86f4f0cb3c4c208bac0f55fd4ad10d9b/references/tql-reference.md#json-template)
+* [Select star](#select-star)
+* [Column selection](#columns-selection)
+* [JSON template](#json-template)
 
 #### Select star
 
@@ -66,7 +66,7 @@ FROM connector.operation
 
 Column selection can be used to construct a JSON object with specific keys that will appear in the top level of the object.
 
-Column selection cannot construct a nested JSON object or a JSON array; to construct these items use [JSON template](https://github.com/transposit/docs/tree/052cc31e86f4f0cb3c4c208bac0f55fd4ad10d9b/references/tql-reference.md#json-template).
+Column selection cannot construct a nested JSON object or a JSON array; to construct these items use [JSON template](#json-template).
 
 The syntax for column selection is:
 
@@ -233,7 +233,7 @@ Will generate a JSON object with the key `foo`, the value will be the value of `
 
 _Using operation aliases:_
 
-When an operation (or subquery) is named with an alias \(see [operation alias](https://github.com/transposit/docs/tree/052cc31e86f4f0cb3c4c208bac0f55fd4ad10d9b/references/tql-reference.md#operation-alias)\) the alias can later be used as a qualifier at the beginning of the path to define exactly where to do the lookup for the path \(the results of which operation or subquery to use\). This is particularly useful in [join queries](https://github.com/transposit/docs/tree/052cc31e86f4f0cb3c4c208bac0f55fd4ad10d9b/references/tql-reference.md#join-query)\), where the query has more than one data source.
+When an operation (or subquery) is named with an alias \(see [operation alias](#operation-alias)\) the alias can later be used as a qualifier at the beginning of the path to define exactly where to do the lookup for the path \(the results of which operation or subquery to use\). This is particularly useful in [join queries](#join-query)\), where the query has more than one data source.
 
 ```sql
 SELECT T.col1
@@ -370,7 +370,7 @@ SELECT [ <json-value>, ... ]
 * `<json-object>` - construct a nested object
 * `<json-array>` - construct a nested array
 
-`<path>`, `<operation-alias>.<path>`, `<literal-value>` and `<binary-expression>` are the same as in [column selection](https://github.com/transposit/docs/tree/052cc31e86f4f0cb3c4c208bac0f55fd4ad10d9b/references/tql-reference.md#columns-selection). The only difference is that `.*` in the end of `<path>` is not allowed in JSON template, use [spread operator](https://github.com/transposit/docs/tree/052cc31e86f4f0cb3c4c208bac0f55fd4ad10d9b/references/tql-reference.md#spread-operator) instead.
+`<path>`, `<operation-alias>.<path>`, `<literal-value>` and `<binary-expression>` are the same as in [column selection](#columns-selection). The only difference is that `.*` in the end of `<path>` is not allowed in JSON template, use [spread operator](#spread-operator) instead.
 
 `<json-object>` constructs a JSON object, the syntax is:
 
@@ -386,7 +386,7 @@ SELECT [ <json-value>, ... ]
 
 **Spread operator**
 
-The spread operator expands a JSON object into JSON object or JSON array into a JSON array \(similar to `<path>.*` in [column selection](https://github.com/transposit/docs/tree/052cc31e86f4f0cb3c4c208bac0f55fd4ad10d9b/references/tql-reference.md#columns-selection)\).
+The spread operator expands a JSON object into JSON object or JSON array into a JSON array \(similar to `<path>.*` in [column selection](#columns-selection)\).
 
 The spread JSON object use:
 
@@ -413,7 +413,7 @@ The `<key>`s and `<json-value>`s are used in the same order as they appear in th
 
 Each `<json-value>` will be calculated and resolved. The resolved value can be immediate value \(number, string or boolean\), JSON object or JSON array.
 
-`<path>`, `<operation-alias>.<path>`, `<immediate-value>` and `<binary-expression>` are resolved the same as in [column selection](https://github.com/transposit/docs/tree/052cc31e86f4f0cb3c4c208bac0f55fd4ad10d9b/references/tql-reference.md#columns-selection).
+`<path>`, `<operation-alias>.<path>`, `<immediate-value>` and `<binary-expression>` are resolved the same as in [column selection](#columns-selection).
 
 `<json-object>` and `<json-array>` are resolved recursively.
 
@@ -542,7 +542,7 @@ Will generate
 
 _Using operation alias:_
 
-When a operation is marked with alias \(see [operation alias](https://github.com/transposit/docs/tree/052cc31e86f4f0cb3c4c208bac0f55fd4ad10d9b/references/tql-reference.md#operation-alias)\) the same operation alias can be used as a qualifier in the beginning of the path to define exactly where to do the lookup for the path \(the results of which operation to use\). This is useful when the query contains more than one operation \(for example in [join query](https://github.com/transposit/docs/tree/052cc31e86f4f0cb3c4c208bac0f55fd4ad10d9b/references/tql-reference.md#join-query)\).
+When a operation is marked with alias \(see [operation alias](#operation-alias)\) the same operation alias can be used as a qualifier in the beginning of the path to define exactly where to do the lookup for the path \(the results of which operation to use\). This is useful when the query contains more than one operation \(for example in [join query](#join-query)\).
 
 ```sql
 SELECT { col1: T.col1 }
@@ -779,9 +779,9 @@ The `FROM` clause is the first part that is running when the query is executed.
 
 The `FROM` clause support three types of data sources:
 
-* [Operation](https://github.com/transposit/docs/tree/052cc31e86f4f0cb3c4c208bac0f55fd4ad10d9b/references/tql-reference.md#operation)
-* [Sub query](https://github.com/transposit/docs/tree/052cc31e86f4f0cb3c4c208bac0f55fd4ad10d9b/references/tql-reference.md#sub-query)
-* [Join](https://github.com/transposit/docs/tree/052cc31e86f4f0cb3c4c208bac0f55fd4ad10d9b/references/tql-reference.md#join)
+* [Operation](#operation)
+* [Sub query](#sub-query)
+* [Join](#join)
 
 #### Operation
 

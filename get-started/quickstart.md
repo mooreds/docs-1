@@ -42,7 +42,7 @@ Create a new application, give it a name, and pick the "Simple app" template for
 Each new Transposit application has basic hosting enabled automatically. This allows you to test as you build and share with friends for feedback during the development process. There's a gated front door \(sign in is required\) so that only you and the people you've authorized can view your application.
 
 {% hint style="info" %}
-If you want more control over your app's hosting, you can do so at any time with our JavaScript client or by using Transposit as a simple HTTP endpoint. See our [JavaScript Client](https://docs.transposit.com/building/js-client) and [Endpoints](https://docs.transposit.com/building/endpoints) documentation for your options.
+If you want more control over your app's hosting, you can do so at any time with our JavaScript client or by using Transposit as a simple HTTP endpoint. See the [JavaScript Client](../building/js-client.md) and [Endpoints](../building/endpoints.md) documentation for your options.
 {% endhint %}
 
 If you look at the **Documentation** tab in the lower half of the code window, you can see in the manual that there's a link to the hosted app page. If you click it, it will populate your published and available application, accessible to you only, by signing in with your Google account.
@@ -95,7 +95,7 @@ This template shows all of the possible parameters available to the API in this 
 
 For this application, you only need to specify `spreadsheetId` and `range`. The `spreadsheetId` can be copied from the document's URL:
 
-![An example of a spreadsheet ID, highlighted in purple.](../.gitbook/assets/spreadsheet-id%20%281%29.png)
+![An example of a spreadsheet ID, highlighted in purple.](../.gitbook/assets/spreadsheet-id.png)
 
 You can fill in the information for the private spreadsheet you created or copied, and it should look something like this:
 
@@ -124,7 +124,7 @@ SELECT * FROM google_sheets.get_sheet_values
 ]
 ```
 
-Transposit introduces a few conveniences to SQL for working with JSON, including [EXPAND BY](https://github.com/transposit/docs/tree/858f21e930dcd3fb82dc32880087431acd81a13c/get-started/references/sql-operations.md). If you want to extract the items in the values array to be easier to manipulate and display later, you can use the `EXPAND BY` syntax. However, since `values` is a SQL keyword, it must be escaped with backticks.
+Transposit introduces a few conveniences to SQL for working with JSON, including [EXPAND BY](../references/sql-operations.md). If you want to extract the items in the values array to be easier to manipulate and display later, you can use the `EXPAND BY` syntax. However, since `values` is a SQL keyword, it must be escaped with backticks.
 
 Try expanding the results using something similar to the following:
 
@@ -135,7 +135,7 @@ SELECT * FROM google_sheets.get_sheet_values
 ```
 
 {% hint style="info" %}
-Note that in addition to passing through parameters in your SQL statement, you can also filter out the result values in the `WHERE` clause. See the [SQL quickstart](https://github.com/transposit/docs/tree/858f21e930dcd3fb82dc32880087431acd81a13c/get-started/get-started/sql-quickstart.md) and the [SQL reference](https://github.com/transposit/docs/tree/858f21e930dcd3fb82dc32880087431acd81a13c/get-started/references/sql-operations.md) for more information.
+Note that in addition to passing through parameters in your SQL statement, you can also filter out the result values in the `WHERE` clause. See the [SQL quickstart](sql-quickstart.md) and the [SQL reference](../references/sql-operations.md) for more information.
 {% endhint %}
 
 ## 5. Mix in JavaScript
@@ -168,7 +168,7 @@ function run(params) {
 * Commit all your code by clicking the **Commit code** button one more time.
 
 {% hint style="info" %}
-In the commented code there's a method named `api.run` that is available for you to call other operations. This can include data sources \(e.g. google\_sheets, similar to the SQL interface\) as well as other operations in your application using the `this` syntax. You can also do things like access the current user using `api.user()`. See the [JavaScript Operations Reference](https://github.com/transposit/docs/tree/858f21e930dcd3fb82dc32880087431acd81a13c/get-started/references/js-operations.md) for more information.
+In the commented code there's a method named `api.run` that is available for you to call other operations. This can include data sources \(e.g. google\_sheets, similar to the SQL interface\) as well as other operations in your application using the `this` syntax. You can also do things like access the current user using `api.user()`. See the [JavaScript Operations Reference](../references/js-operations.md) for more information.
 {% endhint %}
 
 ## 6. Deploy your operation
@@ -196,7 +196,7 @@ The credentials you add in the development console are for use in development on
 
 This uses the keys you've just personally provided in the context of running the application in production for other users.
 
-To see more authentication options, refer to [Authentication](https://github.com/transposit/docs/tree/858f21e930dcd3fb82dc32880087431acd81a13c/get-started/building/authentication.md).
+To see more authentication options, refer to [Authentication](../building/authentication.md).
 
 ## 8. Putting it all together
 
@@ -226,6 +226,6 @@ Your app is now live!
 
 ## Related topics
 
-* [Allowing user-supplied keys through the managed connect page](https://github.com/transposit/docs/tree/858f21e930dcd3fb82dc32880087431acd81a13c/get-started/building/authentication.md)
-* [Integrating multiple data sources together](https://github.com/transposit/docs/tree/858f21e930dcd3fb82dc32880087431acd81a13c/get-started/building/sql-quickstart.md)
+* [Allowing user-supplied keys through the managed connect page](../building/authentication.md)
+* [Integrating multiple data sources together](sql-quickstart.md)
 

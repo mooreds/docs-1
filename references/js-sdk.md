@@ -1,4 +1,10 @@
-# JavaScript SDK Reference
+# JavaScript SDK
+
+Our JavaScript SDK makes it simple to deal with login, authentication, and running operations in your application. For instructions on implementing the SDK and basic usage, see our Javascript client guide:
+
+{% page-ref page="../building/js-client.md" %}
+
+## Reference
 
 ### `transposit.handleLogin()`
 

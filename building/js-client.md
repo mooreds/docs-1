@@ -16,7 +16,7 @@ yarn add transposit
 
 or add via a script tag:
 
-```html
+```markup
 <script src="https://unpkg.com/transposit@0.2.1/dist/bundle.prod.js" /></script>
 ```
 
@@ -105,3 +105,12 @@ transposit.logout();
 ```
 
 to log the user out of your application.
+
+## Reference
+
+For more comprehensive information about using our JavaScript client, see the JavaScript SDK reference:
+
+{% page-ref page="../references/js-sdk.md" %}
+
+
+
