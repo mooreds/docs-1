@@ -18,7 +18,7 @@ https://api.transposit.com/app/v1/{maintainer}/{serviceName}/api/execute-http/{o
 
 ## HTTP Event Information
 
-When deployed as a webhook, the HTTP event information corresponding to the incoming HTTP request (i.e. the webhook callback) can be made available to the Transposit operation. To gain access to the HTTP event information, the Transposit webhook operation must be implemented with exactly one special `'object'` type parameter that is named `'http_event'`. If the deployed webhook is not implemented with this special parameter, then the webhook can still be invoked, but the HTTP event information will not be available to the operation.
+When deployed as a webhook, the HTTP event information corresponding to the incoming HTTP request \(i.e. the webhook callback\) can be made available to the Transposit operation. To gain access to the HTTP event information, the Transposit webhook operation must be implemented with exactly one special `'object'` type parameter that is named `'http_event'`. If the deployed webhook is not implemented with this special parameter, then the webhook can still be invoked, but the HTTP event information will not be available to the operation.
 
 The incoming HTTP event information includes the method type, header parameters, query parameters, and body parameter:
 
@@ -76,3 +76,4 @@ Connection: keep-alive
 ```
 
 In the HTTP response, the `"Content-Type"` header will default to `"application/json"` if nothing is provided by the Transposit webhook operation, and the `"Content-Length"` header will automatically be updated to match the final HTTP response entity. The HTTP response entity will closely resemble the body value that is returned from the Transposit webhook operation, but it will not necessarily be identical due to JSON serialization/deserialization.
+

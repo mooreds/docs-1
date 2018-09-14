@@ -1,9 +1,3 @@
----
-description: >-
-  Reference for JavaScript syntax supported in the Transposit editor, return
-  formats, and example code.
----
-
 # JavaScript operations
 
 ### `api.run(operation, [params={}], [options={}])`
