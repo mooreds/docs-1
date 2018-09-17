@@ -20,12 +20,12 @@ To make it easy, you can [copy this sample spreadsheet](https://docs.google.com/
 
 Here's the format of that spreadsheet, with data owner email addresses in the left column, and the data you want them to have access to in the right column:
 
-| Email address | Data |
-| :--- | :--- |
-| you@domain.com | This is some sample data that is available |
-| you@domain.com | Some more data that is available |
-| iggy@transposit.com | Iggy's data you can't see |
-| iggy@transposit.com | Iggy's data in this row too |
+| Date  | Email | Cost |
+| :--- | :--- | :--- |
+| 8/05/2018 | you@domain.com | $20 |
+| 8/10/2018 | you@domain.com | $30 |
+| 9/05/2018 | iggy@transposit.com | $25 |
+| 9/12/2018 | iggy@transposit.com | $45 |
 
 {% hint style="info" %}
 Be sure to replace these email addresses with your own in one or more of the spreadsheet rows.
