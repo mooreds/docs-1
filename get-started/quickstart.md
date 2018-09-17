@@ -62,7 +62,7 @@ return [
     "message": "Hola Mundo"
   },
   {
-    "message": "Ciao mondo"
+    "message": "Ciao Mondo"
   }
 ];
 ```
