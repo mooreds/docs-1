@@ -20,7 +20,7 @@ Additional parameters and headers may be required depending on how endpoints are
 
 Once you select **Deployed**, you have a few different options, outlined below:
 
-#### Require API key
+### Require API key
 
 API keys are a simple, hard-to-guess string that can be used to protect your endpoint. You can find your application's API key by visiting **Deploy &gt; API Key**. If you have an API key enabled, you must provide it as a query parameter:
 
@@ -28,10 +28,11 @@ API keys are a simple, hard-to-guess string that can be used to protect your end
 https://api.transposit.com/app/v1/{maintainer}/{serviceName}/api/execute/{operationId}?api_key={API_KEY}
 ```
 
-#### Require user sign-in
+### Require user sign-in
 
 Requiromg user sign-in allows you to identify the user calling your endpoint. The best way to call an endpoint requiring sign in is to use the [JavaScript SDK](../references/js-sdk.md).
 
-#### Deploy as webhook
+### Deploy as webhook
 
-Change the deployment configuration to [webhook](webhook.md).
+Change the deployment configuration to [webhook](https://github.com/transposit/docs/tree/a08ea2ce45c6152d6b4be267b492e9ebdbb07806/building/webhook.md).
+

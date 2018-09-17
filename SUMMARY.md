@@ -14,9 +14,9 @@
   * [Javascript SDK](building/js-sdk.md)
   * [Hosted apps](building/hosted-apps.md)
 * [References](references/README.md)
-  * [FAQ](references/faq.md)
   * [Authentication](references/authentication.md)
   * [SQL operations](references/sql-operations.md)
   * [JavaScript operations](references/js-operations.md)
   * [JavaScript SDK](references/js-sdk.md)
+  * [FAQ](references/faq.md)
 

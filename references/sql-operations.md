@@ -2,12 +2,11 @@
 
 ## Terms
 
-Operation - A Transposit [operation](/get-started/terms#operations) in a data connector. This takes the place of a 'table' in SQL for relational databases.
+Operation - A Transposit [operation](https://github.com/transposit/docs/tree/bd5f32a0939712aa922771db9dd7254a1b17bb5e/get-started/terms/README.md#operations) in a data connector. This takes the place of a 'table' in SQL for relational databases.
 
 Data source: part of a query that generates results. This is either an operation, a subquery, or a join statement.
 
-Result set - the list of results, or rows, produced by a query. In Transposit, each result is a JSON object or array.
-Column - a field in a result.
+Result set - the list of results, or rows, produced by a query. In Transposit, each result is a JSON object or array. Column - a field in a result.
 
 ## Select statement
 
@@ -44,9 +43,9 @@ The `SELECT` clause gets as input a JSON object or JSON array from the data sour
 
 The `SELECT` clause supports three to ways to manipulate an item:
 
-* [Select star](#select-star)
-* [Column selection](#columns-selection)
-* [JSON template](#json-template)
+* [Select star](sql-operations.md#select-star)
+* [Column selection](sql-operations.md#columns-selection)
+* [JSON template](sql-operations.md#json-template)
 
 #### Select star
 
@@ -61,7 +60,7 @@ FROM connector.operation
 
 Column selection can be used to construct a JSON object with specific keys that will appear in the top level of the object.
 
-Column selection cannot construct a nested JSON object or a JSON array; to construct these items use [JSON template](#json-template).
+Column selection cannot construct a nested JSON object or a JSON array; to construct these items use [JSON template](sql-operations.md#json-template).
 
 The syntax for column selection is:
 
@@ -126,7 +125,9 @@ If the resolve process produces a valid value, this value will be added to the o
 * If `<column-expression>` is `<path>` that ends with `.*`, the keys and values under the last `<key>` will all be copied into the result object.
 * Otherwise the entire `<column-expression>` will be used as the key. It's recommended to use `<column-alias>` in this case.
 
-{% hint style="info" %} If the same key is used more than once the last value will be used and will override any previous values that had the same key. {% endhint %}
+{% hint style="info" %}
+If the same key is used more than once the last value will be used and will override any previous values that had the same key.
+{% endhint %}
 
 If the value is resolved to `null` or 'not found' this value will not be added it to the output JSON object.
 
@@ -228,7 +229,7 @@ Will generate a JSON object with the key `foo`, the value will be the value of `
 
 _Using operation aliases:_
 
-When an operation (or subquery) is named with an alias \(see [operation alias](#operation-alias)\) the alias can later be used as a qualifier at the beginning of the path to define exactly where to do the lookup for the path \(the results of which operation or subquery to use\). This is particularly useful in [join queries](#join-query)\), where the query has more than one data source.
+When an operation \(or subquery\) is named with an alias \(see [operation alias](sql-operations.md#operation-alias)\) the alias can later be used as a qualifier at the beginning of the path to define exactly where to do the lookup for the path \(the results of which operation or subquery to use\). This is particularly useful in [join queries](sql-operations.md#join-query)\), where the query has more than one data source.
 
 ```sql
 SELECT T.col1
@@ -365,7 +366,7 @@ SELECT [ <json-value>, ... ]
 * `<json-object>` - construct a nested object
 * `<json-array>` - construct a nested array
 
-`<path>`, `<operation-alias>.<path>`, `<literal-value>` and `<binary-expression>` are the same as in [column selection](#columns-selection). The only difference is that `.*` at the end of `<path>` is not allowed in JSON templates; use the [spread operator](#spread-operator) instead.
+`<path>`, `<operation-alias>.<path>`, `<literal-value>` and `<binary-expression>` are the same as in [column selection](sql-operations.md#columns-selection). The only difference is that `.*` at the end of `<path>` is not allowed in JSON templates; use the [spread operator](sql-operations.md#spread-operator) instead.
 
 `<json-object>` constructs a JSON object, the syntax is:
 
@@ -381,7 +382,7 @@ SELECT [ <json-value>, ... ]
 
 **Spread operator**
 
-The spread operator expands a JSON object into JSON object or JSON array into a JSON array \(similar to `<path>.*` in [column selection](#columns-selection)\).
+The spread operator expands a JSON object into JSON object or JSON array into a JSON array \(similar to `<path>.*` in [column selection](sql-operations.md#columns-selection)\).
 
 The spread JSON object use:
 
@@ -408,13 +409,15 @@ The `<key>`s and `<json-value>`s are used in the same order as they appear in th
 
 Each `<json-value>` will be calculated and resolved. The resolved value can be a scalar value \(number, string or boolean\), JSON object or JSON array.
 
-`<path>`, `<operation-alias>.<path>`, `<immediate-value>` and `<binary-expression>` are resolved the same as in [column selection](#columns-selection).
+`<path>`, `<operation-alias>.<path>`, `<immediate-value>` and `<binary-expression>` are resolved the same as in [column selection](sql-operations.md#columns-selection).
 
 `<json-object>` and `<json-array>` are resolved recursively.
 
 If the resolve process finds a valid value, this value will be added to the output JSON object or array. If the output item is a JSON object, the specified `<key>` will be used.
 
-{% hint style="info" %} If the same key is used more than once the last value will be used and will override any previous values that had the same key. {% endhint %}
+{% hint style="info" %}
+If the same key is used more than once the last value will be used and will override any previous values that had the same key.
+{% endhint %}
 
 If the value is resolved to `null` or 'not found':
 
@@ -537,7 +540,7 @@ Will generate
 
 _Using an operation alias:_
 
-When an operation (or subquery) is named with an alias \(see [operation alias](#operation-alias)\) the alias can later be used as a qualifier at the beginning of the path to define exactly where to do the lookup for the path \(the results of which operation or subquery to use\). This is particularly useful in [join queries](#join-query)\), where the query has more than one data source.
+When an operation \(or subquery\) is named with an alias \(see [operation alias](sql-operations.md#operation-alias)\) the alias can later be used as a qualifier at the beginning of the path to define exactly where to do the lookup for the path \(the results of which operation or subquery to use\). This is particularly useful in [join queries](sql-operations.md#join-query)\), where the query has more than one data source.
 
 ```sql
 SELECT { col1: T.col1 }
@@ -718,9 +721,9 @@ The `FROM` clause is the first part that is running when the query is executed.
 
 The `FROM` clause supports three types of data sources:
 
-* [Operation](#operation)
-* [Subquery](#subquery)
-* [Join](#join)
+* [Operation](sql-operations.md#operation)
+* [Subquery](sql-operations.md#subquery)
+* [Join](sql-operations.md#join)
 
 #### Operation
 
@@ -776,8 +779,7 @@ The `WHERE` clause is where input parameters for operations are specified, as we
 WHERE <predicate>
 ```
 
-`<predicate>` describes the sequence of conditions that are applied to the data sources. Multiple `<predicate>`s can be recursively combined with boolean `AND`, `OR`, and `NOT` operators.
-input parameters passed to operations and filters applied to the results. It can be one of the following:
+`<predicate>` describes the sequence of conditions that are applied to the data sources. Multiple `<predicate>`s can be recursively combined with boolean `AND`, `OR`, and `NOT` operators. input parameters passed to operations and filters applied to the results. It can be one of the following:
 
 * `<condition>`
 * `<predicate> AND <predicate>`
@@ -785,6 +787,7 @@ input parameters passed to operations and filters applied to the results. It can
 * `NOT <predicate>`
 
 For instance:
+
 ```sql
 SELECT * FROM <connection.operation>
 WHERE <condition-1> AND NOT <condition-2> OR <condition-3> ...
@@ -809,7 +812,7 @@ The `<operator>` can be one of the following:
 * `<=` - less than or equal to
 * `IN` - equal to any in a list of values.
 
-The `<column-expression>` is the same as what is used in [column selection](#column-selection).
+The `<column-expression>` is the same as what is used in [column selection](sql-operations.md#column-selection).
 
 If a subquery is used, the `<operator>` must be `=` or `IN`. If the operator is `=`, the subquery must return a single result.
 
@@ -848,6 +851,7 @@ Both will result in three parallel invocations of the operation.
 #### Mapping and Tuples
 
 The `<literal-tuple>` is one of:
+
 * `(<val-1>, <val-2>, ...)` - a list of literal values
 * `((<val-1-a>, <val-1-b>, ...), (<val-2-a>, <val-2-b>, ...), ...)` - a list of nested tuples
 
@@ -865,40 +869,35 @@ WHERE (col1, col2) IN ((<col1-val1>, <col2-val1>), (<col1-val2>, <col2-val2>), .
 
 The number of items in each nested tuple on the right side of the `IN` must match the number of items in the `<name-tuple>` on the left.
 
-This sort of column mapping is also possible with subqueries. 
+This sort of column mapping is also possible with subqueries.
 
 ```sql
 WHERE (col1, col2, ..., colN) IN (SELECT col1, col2, ... colN FROM <connector.operation>)
 ```
 
-The mapping is positional (first column is mapped to the first name in the tuple, and so on), so the names of the subquery columns do not have to match the names in the `<name-tuple>`. However, the number of columns in the subquery must match the number of items in the `<name-tuple>`.
+The mapping is positional \(first column is mapped to the first name in the tuple, and so on\), so the names of the subquery columns do not have to match the names in the `<name-tuple>`. However, the number of columns in the subquery must match the number of items in the `<name-tuple>`.
 
 #### Operation aliases
 
-Like the `<path>` in [column selection](#column-selection), the `<name>` in a `WHERE` condition can be prefixed with an [operation alias](#operation-alias) to refer to the results of a named data source. 
+Like the `<path>` in [column selection](sql-operations.md#column-selection), the `<name>` in a `WHERE` condition can be prefixed with an [operation alias](sql-operations.md#operation-alias) to refer to the results of a named data source.
 
 ### Expand by clause
 
 The `EXPAND BY` clause expands, or flattens, the items in a JSON array. This tends to be useful when working with APIs, where the relevant results may be nested inside one or more JSON objects.
 
 The syntax for `EXPAND BY` is:
+
 ```sql
 SELECT * FROM <connector.operation>
 WHERE <predicate>
 EXPAND BY <path-1> AS <column-alias>, <path-2> AS <column-alias>, ..., <path-N> AS <column-alias>
 ```
 
-`<column-path>` 
+`<column-path>`
 
 `EXPAND BY` works something like this:
 
-for each result in the result set:
-  for each `<path>` in the list of paths:
-    1. Resolve the value at the path using the same mechanism as in [column-selection](#result-construction)
-    2. Check that this value is an array of items, otherwise skip this result
-    3. Create a new result for each item in the array. If there is no `<column-alias>`, the item is placed in the same position as the array it came from (replacing the array). Otherwise, the alias is used to place the item and the original array is left intact.
-    4. Replace the top-level result set with this new list of results
-
+for each result in the result set: for each `<path>` in the list of paths: 1. Resolve the value at the path using the same mechanism as in [column-selection](sql-operations.md#result-construction) 2. Check that this value is an array of items, otherwise skip this result 3. Create a new result for each item in the array. If there is no `<column-alias>`, the item is placed in the same position as the array it came from \(replacing the array\). Otherwise, the alias is used to place the item and the original array is left intact. 4. Replace the top-level result set with this new list of results
 
 ### Limit clause
 

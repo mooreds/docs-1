@@ -5,10 +5,12 @@ Transposit proivides lightweight page hosting facilities for creating simple app
 Transposit manages the interface for user sign-in and settings, provides the scaffolding for connecting to your Transposit backend, plus some basic interfaces for rendering operation results. For more granular control, you can either use the [JavaScript SDK](../references/js-sdk.md) or directly call [http endpoints](endpoints.md).
 
 You can access your hosted app using:
+
 ```text
 https://api.transposit.com/app/v1/{maintainer}/{applicationName}/public/
 ```
-This URL can also be found on the Documentation tab (under your application's manual page), and under under **Settings &gt; Hosting**.
+
+This URL can also be found on the Documentation tab \(under your application's manual page\), and under under **Settings &gt; Hosting**.
 
 ## Modifying the page template
 
@@ -21,3 +23,4 @@ This URL can also be found on the Documentation tab (under your application's ma
 
 1. Navigate to **Authentication &gt; User Sign-in**
 2. You have 3 options:  Allow sign in from any Google account, add your GSuite domain name, or add individual email addresses to the whitelist.
+

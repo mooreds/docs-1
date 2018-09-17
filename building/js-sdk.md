@@ -112,5 +112,3 @@ For more comprehensive information about using the JavaScript SDK, see the JavaS
 
 {% page-ref page="../references/js-sdk.md" %}
 
-
-
