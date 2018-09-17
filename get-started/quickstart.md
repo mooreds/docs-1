@@ -124,9 +124,9 @@ SELECT * FROM google_sheets.get_sheet_values
 ]
 ```
 
-Transposit introduces a few conveniences to SQL for working with JSON, including [EXPAND BY](../references/sql-operations.md). If you want to extract the items in the values array to be easier to manipulate and display later, you can use the `EXPAND BY` syntax. However, since `values` is a SQL keyword, it must be escaped with backticks.
+Transposit introduces a few conveniences to SQL for working with JSON, including [EXPAND BY](../references/sql-operations.md). You'll want to use the `EXPAND BY` syntax here to return one item for each nested row so the values will be easier to manipulate and display later. \(Note: Since `values` is a SQL keyword, it must be escaped with backticks.\)
 
-Try expanding the results using something similar to the following:
+Try expanding the results:
 
 ```sql
 SELECT * FROM google_sheets.get_sheet_values
@@ -135,7 +135,7 @@ SELECT * FROM google_sheets.get_sheet_values
 ```
 
 {% hint style="info" %}
-Note that in addition to passing through parameters in your SQL statement, you can also filter out the result values in the `WHERE` clause. See the [SQL quickstart](sql-quickstart.md) and the [SQL reference](../references/sql-operations.md) for more information.
+In addition to passing through parameters in your SQL statement, you can also filter out the result values in the `WHERE` clause. See the [SQL quickstart](sql-quickstart.md) and the [SQL reference](../references/sql-operations.md) for more information.
 {% endhint %}
 
 ## 5. Mix in JavaScript
@@ -173,11 +173,7 @@ In the commented code there's a method named `api.run` that is available for you
 
 ## 6. Deploy your operation
 
-Since this hosted app should be able to call our newly created operation, we need to deploy that new operation.
-
-{% hint style="info" %}
-By default, the HTTP endpoints for your operations \(other than the default `helloworld` operation we created for you\) are private.
-{% endhint %}
+By default, the HTTP endpoints for your operations \(other than the default `helloworld` operation we created for you\) are private. Since this hosted app should be able to call our newly created operation, you need to deploy that new operation.
 
 * Click the **Deploy**  in the navigation menu.
 * Find your `get_user_messages` operation and select **Deployed**
