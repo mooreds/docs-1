@@ -7,7 +7,7 @@ The exception to this: operations bundled as part of [hosted app templates](host
 Deployed Transposit operation URL:
 
 ```text
-https://api.transposit.com/app/v1/{maintainer}/{serviceName}/api/execute/{operationId}
+https://api.transposit.com/app/{maintainer}/{serviceName}/api/v1/execute/{operationId}
 ```
 
 Additional parameters and headers may be required depending on how endpoints are comfigured, so the easiest way to determine how to call an endpoint is to visit **Deploy &gt; Setup** and select the operation for your endpoint.
@@ -25,7 +25,7 @@ Once you select **Deployed**, you have a few different options, outlined below:
 API keys are a simple, hard-to-guess string that can be used to protect your endpoint. You can find your application's API key by visiting **Deploy &gt; API Key**. If you have an API key enabled, you must provide it as a query parameter:
 
 ```text
-https://api.transposit.com/app/v1/{maintainer}/{serviceName}/api/execute/{operationId}?api_key={API_KEY}
+https://api.transposit.com/app/{maintainer}/{serviceName}/api/v1/execute/{operationId}?api_key={API_KEY}
 ```
 
 ### Require user sign-in

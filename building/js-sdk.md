@@ -17,7 +17,7 @@ yarn add transposit
 or add via a script tag:
 
 ```markup
-<script src="https://unpkg.com/transposit@0.2.1/dist/bundle.prod.js" /></script>
+<script src="https://unpkg.com/transposit@0.4.0/dist/bundle.prod.js" /></script>
 ```
 
 ## Usage
@@ -101,7 +101,7 @@ transposit.runOperation("myOperation", { param1: "hello", param2: "world" })
 Use
 
 ```text
-transposit.logout();
+transposit.logOut();
 ```
 
 to log the user out of your application.
