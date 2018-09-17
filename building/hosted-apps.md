@@ -7,7 +7,7 @@ Transposit manages the interface for user sign-in and settings, provides the sca
 You can access your hosted app using:
 
 ```text
-https://api.transposit.com/app/v1/{maintainer}/{applicationName}/public/
+https://api.transposit.com/app/{maintainer}/{applicationName}
 ```
 
 This URL can also be found on the Documentation tab \(under your application's manual page\), and under under **Settings &gt; Hosting**.
