@@ -101,7 +101,7 @@ transposit.runOperation("myOperation", { param1: "hello", param2: "world" })
 Use
 
 ```text
-transposit.logout();
+transposit.logOut();
 ```
 
 to log the user out of your application.
