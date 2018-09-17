@@ -24,7 +24,7 @@ EXPAND BY <columns>
 LIMIT <number>
 ```
 
-The `SELECT` clause is required.  
+The `SELECT` clause is required.
 
 The clauses `WHERE`, `EXPAND BY` and `LIMIT` can be used only if a `FROM` clause is used.
 
@@ -102,7 +102,7 @@ SELECT <column-expression> AS <column-alias>, <column-expression> AS <column-ali
 
 `AS <column-alias>` is optional. `<column-alias>` is an identifier.
 
-##### Result construction
+**Result construction**
 
 Column selection constructs a JSON object for each item in the data source based on the specified `<column-expression>`s and `<column-alias>`s.
 
@@ -114,13 +114,13 @@ When resolving a `<path>`, lookups are done recursively into the JSON object for
 
 A `.*` at the end of a `<path>` works as a 'spread' operator, copying each key at the current location into the result object.
 
-For `<operation-alias>.<path>` the resolve process will resolve the specified `<path>` only under the results from the operation that was marked with the specified alias.  
+For `<operation-alias>.<path>` the resolve process will resolve the specified `<path>` only under the results from the operation that was marked with the specified alias.
 
 If no operation was marked with `<operation-alias>` the resolve will stop and the value will be considered as 'not found'.
 
-For `<binary-expression>` the resolve process will evaluate the expression to produce a value.  
+For `<binary-expression>` the resolve process will evaluate the expression to produce a value.
 
-If the types of the operands is not the same the resolve process will produce an error and the entire query will fail.  
+If the types of the operands is not the same the resolve process will produce an error and the entire query will fail.
 
 If the types of the operand is string, only the `+` operator is allowed, if a different operator is used the resolve process will produce an error and the entire query will fail.
 
@@ -137,7 +137,7 @@ If the same key is used more than once the last value will be used and will over
 
 If the value is resolved to `null` or 'not found' this value will not be added it to the output JSON object.
 
-##### Examples
+**Examples**
 
 _Selecting a single value:_
 
@@ -404,13 +404,13 @@ SELECT [ ... arr ]
 
 The spread operator can be mixed with any other JSON template features.
 
-#### Object construction 
+#### Object construction
 
 A JSON template constructs a JSON object or array for each item from the data source based on the specified template.
 
-If the outer template is a `<json-object>` the item will be JSON object.  
+If the outer template is a `<json-object>` the item will be JSON object.
 
-If the outer template is a `<json-array>` the item will be JSON array.  
+If the outer template is a `<json-array>` the item will be JSON array.
 
 The values inside the outer template can be any type.
 
@@ -433,7 +433,7 @@ If the value is resolved to `null` or 'not found':
 * If the output item is JSON object, this value will not be added it to the output item.
 * If the output item is JSON array, this value will be added it to the output item as `null`.
 
-##### Examples
+**Examples**
 
 _Selecting a single value:_
 

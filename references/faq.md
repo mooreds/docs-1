@@ -1,6 +1,6 @@
 # FAQ
 
-Below we've covered common questions and technical scenarios you might encounter while building with Transposit. If there is a question you have that isn't covered here or elsewhere in our documentation, reach out for help by emailing us at [support@transposit.com](mailto:support@transposit.com), or ask on [Transposit Slack](http://transposit.slack.com).
+Below we've covered common questions and technical scenarios you might encounter while building with Transposit. If there is a question you have that isn't covered here or elsewhere in our documentation, reach out for help by emailing us at [support@transposit.com](mailto:support@transposit.com).
 
 ## What applications should use Transposit?
 

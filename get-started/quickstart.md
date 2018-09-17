@@ -228,3 +228,4 @@ Your app is now live!
 
 * [Allowing user-supplied keys through the managed connect page](../building/authentication.md)
 * [Integrating multiple data sources together](sql-quickstart.md)
+

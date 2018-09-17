@@ -10,7 +10,7 @@ If you'd like to jump straight to all authentication options, including keys and
 
 Transposit gives you tooling to centrally manage all the aspects of authentication you might require while building a data-driven application with a "front door" for user sign-in.
 
-Imagine the following scenario: You, a developer, are trying to build an application that allows users to sign in (via Google) and connect their own data from other services your app integrates with (e.g. GMail, Slack, Salesforce). You also want to connect your application to data sources needed by _all_ app users&mdash;but requiring your own credentials (e.g. APIs, databases, spreadsheets, etc).
+Imagine the following scenario: You, a developer, are trying to build an application that allows users to sign in \(via Google\) and connect their own data from other services your app integrates with \(e.g. GMail, Slack, Salesforce\). You also want to connect your application to data sources needed by _all_ app users—but requiring your own credentials \(e.g. APIs, databases, spreadsheets, etc\).
 
 Here's what this process looks like when building with Transposit:
 
@@ -42,7 +42,7 @@ Finally, Transposit allows you to do all this while securely managing access to 
 
 ## How does Transposit-managed authentication work in practice?
 
-To use Transposit as an authentication provider in your app, you’d copy/paste provided code into your app’s logic. Your app should also have a "connection settings" section which links to a Transposit-hosted page (which you can customize) providing the end user a way to connect and disconnect authenticated data sources.
+To use Transposit as an authentication provider in your app, you’d copy/paste provided code into your app’s logic. Your app should also have a "connection settings" section which links to a Transposit-hosted page \(which you can customize\) providing the end user a way to connect and disconnect authenticated data sources.
 
 In Transposit, if you’re using sign-in identity management, you can manage a whitelist of app users, inspect user records, see what connections and authentications exist, and modify these as an admin.
 

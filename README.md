@@ -36,10 +36,9 @@ Transposit also provides the features you'd expect of a first-class developer to
 
 ## Get in touch
 
-If you run into any issues or questions that aren't covered in our documentation, reach out to our team to get support. We'd also love to hear from you if you have feedback about our product or documentation, or have built something awesome you'd like to share. 
+If you run into any issues or questions that aren't covered in our documentation, reach out to our team to get support. We'd also love to hear from you if you have feedback about our product or documentation, or have built something awesome you'd like to share. You can email us at [support@transposit.com](mailto:support@transposit.com).
 
-* Email us at [support@transposit.com](mailto:support@transposit.com)
-* Ask in our [Slack community](http://transposit.slack.com)
+
 
 
 
