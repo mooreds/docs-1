@@ -148,10 +148,10 @@ Sometimes it's easiest to use a bit of JavaScript to manipulate data and encode 
 ```javascript
 function run(params) {
   var results = api.run('this.get_sheet_values_1').filter(function(item) {
-    return item.values[0] === api.user().email;
+    return item.values[1] === api.user().email;
   }).map(function(item) {
     return {
-      message: item.values[1]
+      message: item.values[0] + ': ' + item.values[2]
     }
   });
   if (results.length === 0) {
@@ -228,4 +228,3 @@ Your app is now live!
 
 * [Allowing user-supplied keys through the managed connect page](../building/authentication.md)
 * [Integrating multiple data sources together](sql-quickstart.md)
-
