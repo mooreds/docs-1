@@ -1,4 +1,4 @@
-# Javascript client
+# Javascript SDK
 
 Transposit's JavaScript SDK makes it simple to deal with sign-in and authentication, and to run operations in your application.
 
