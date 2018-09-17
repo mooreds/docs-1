@@ -2,17 +2,12 @@
 
 ## Terms
 
-TODO -  column/field, input parameters, data source/set, results JSON object
-
 Operation - A Transposit [operation](/get-started/terms#operations) in a data connector. This takes the place of a 'table' in SQL for relational databases.
 
 Data source: part of a query that generates results. This is either an operation, a subquery, or a join statement.
 
 Result set - the list of results, or rows, produced by a query. In Transposit, each result is a JSON object or array.
 Column - a field in a result.
-
-
-TODO: string quotes, identifier \(and escaping\), literal values
 
 ## Select statement
 
@@ -773,11 +768,7 @@ If `<join-type>` is not specified the default is `INNER`.
 
 In joins `AS <column-alias>` is required. `<operation-alias>` is an identifier.
 
-TODO - , add examples for join
-
 ### Where clause
-
-TODO - filters, input params, $body, AND/OR, IN, subquery, expressions
 
 The `WHERE` clause is where input parameters for operations are specified, as well as filters on results. The syntax for the `WHERE` clause is:
 
@@ -888,8 +879,6 @@ Like the `<path>` in [column selection](#column-selection), the `<name>` in a `W
 
 ### Expand by clause
 
-TODO - column, nested path, alias, multiple columns
-
 The `EXPAND BY` clause expands, or flattens, the items in a JSON array. This tends to be useful when working with APIs, where the relevant results may be nested inside one or more JSON objects.
 
 The syntax for `EXPAND BY` is:
@@ -918,16 +907,6 @@ The limit clause specifies the maximum number of results to return in the query.
 ```sql
 LIMIT <number>
 ```
-
-TODO: Document the pagination bubble that gets shown in the documentation viewer to indicate that we support pagination with the LIMIT
-
-## External parameters
-
-TODO \(@userId\) -
-
-## Escaping
-
-TODO - list of keywords, valid/invalid characters, how to escape
 
 ### Comments
 
