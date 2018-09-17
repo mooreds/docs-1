@@ -2,11 +2,13 @@
 
 ## Terms
 
-Operation - A Transposit [operation](https://github.com/transposit/docs/tree/bd5f32a0939712aa922771db9dd7254a1b17bb5e/get-started/terms/README.md#operations) in a data connector. This takes the place of a 'table' in SQL for relational databases.
+Operation: An [operation](../building/operations.md) in a data connection. This takes the place of a "table" in SQL for relational databases.
 
 Data source: part of a query that generates results. This is either an operation, a subquery, or a join statement.
 
-Result set - the list of results, or rows, produced by a query. In Transposit, each result is a JSON object or array. Column - a field in a result.
+Result set: the list of results, or rows, produced by a query. In Transposit, each result is a JSON object or array.
+
+Column: a field in a result.
 
 ## Select statement
 
@@ -23,9 +25,10 @@ LIMIT <number>
 ```
 
 The `SELECT` clause is required.  
+
 The clauses `WHERE`, `EXPAND BY` and `LIMIT` can be used only if a `FROM` clause is used.
 
-The clauses must appear in the order that was specific above.
+The clauses must appear in the order specified above.
 
 ### Order of execution
 
@@ -37,15 +40,15 @@ The clauses must appear in the order that was specific above.
 
 ### Select clause
 
-The `SELECT` clause can be used for manipulating the structure and values of each item in the 'data source'.
+The `SELECT` clause can be used for manipulating the structure and values of each item in the data source.
 
 The `SELECT` clause gets as input a JSON object or JSON array from the data source and produces a JSON object or a JSON array.
 
 The `SELECT` clause supports three to ways to manipulate an item:
 
 * [Select star](sql-operations.md#select-star)
-* [Column selection](sql-operations.md#columns-selection)
-* [JSON template](sql-operations.md#json-template)
+* [Column selection](sql-operations.md#column-selection)
+* [JSON template](sql-operations.md#json-templates)
 
 #### Select star
 
@@ -60,7 +63,7 @@ FROM connector.operation
 
 Column selection can be used to construct a JSON object with specific keys that will appear in the top level of the object.
 
-Column selection cannot construct a nested JSON object or a JSON array; to construct these items use [JSON template](sql-operations.md#json-template).
+Column selection cannot construct a nested JSON object or a JSON array; to construct these items use a [JSON template](sql-operations.md#json-template).
 
 The syntax for column selection is:
 
@@ -99,7 +102,7 @@ SELECT <column-expression> AS <column-alias>, <column-expression> AS <column-ali
 
 `AS <column-alias>` is optional. `<column-alias>` is an identifier.
 
-**Result construction**
+##### Result construction
 
 Column selection constructs a JSON object for each item in the data source based on the specified `<column-expression>`s and `<column-alias>`s.
 
@@ -112,11 +115,14 @@ When resolving a `<path>`, lookups are done recursively into the JSON object for
 A `.*` at the end of a `<path>` works as a 'spread' operator, copying each key at the current location into the result object.
 
 For `<operation-alias>.<path>` the resolve process will resolve the specified `<path>` only under the results from the operation that was marked with the specified alias.  
+
 If no operation was marked with `<operation-alias>` the resolve will stop and the value will be considered as 'not found'.
 
 For `<binary-expression>` the resolve process will evaluate the expression to produce a value.  
+
 If the types of the operands is not the same the resolve process will produce an error and the entire query will fail.  
-If the types of the operands is string, only the `+` operator is allowed, if a different operator is used the resolve process will produce an error and the entire query will fail.
+
+If the types of the operand is string, only the `+` operator is allowed, if a different operator is used the resolve process will produce an error and the entire query will fail.
 
 If the resolve process produces a valid value, this value will be added to the output JSON object with a key, the key is selected in the following way:
 
@@ -131,7 +137,7 @@ If the same key is used more than once the last value will be used and will over
 
 If the value is resolved to `null` or 'not found' this value will not be added it to the output JSON object.
 
-**Examples:**
+##### Examples
 
 _Selecting a single value:_
 
@@ -366,7 +372,7 @@ SELECT [ <json-value>, ... ]
 * `<json-object>` - construct a nested object
 * `<json-array>` - construct a nested array
 
-`<path>`, `<operation-alias>.<path>`, `<literal-value>` and `<binary-expression>` are the same as in [column selection](sql-operations.md#columns-selection). The only difference is that `.*` at the end of `<path>` is not allowed in JSON templates; use the [spread operator](sql-operations.md#spread-operator) instead.
+`<path>`, `<operation-alias>.<path>`, `<literal-value>` and `<binary-expression>` are the same as in [column selection](sql-operations.md#column-selection). The only difference is that `.*` at the end of `<path>` is not allowed in JSON templates; use the [spread operator](sql-operations.md#spread-operator) instead.
 
 `<json-object>` constructs a JSON object, the syntax is:
 
@@ -380,17 +386,17 @@ SELECT [ <json-value>, ... ]
 [ <json-value-1>,  <json-value-2>, ... <json-value-N>]
 ```
 
-**Spread operator**
+#### Spread operator
 
-The spread operator expands a JSON object into JSON object or JSON array into a JSON array \(similar to `<path>.*` in [column selection](sql-operations.md#columns-selection)\).
+The spread operator expands a JSON object into JSON object or JSON array into a JSON array \(similar to `<path>.*` in [column selection](sql-operations.md#column-selection)\).
 
-The spread JSON object use:
+Spread JSON object use:
 
 ```sql
 SELECT { ... obj }
 ```
 
-The spread JSON array use:
+Spread JSON array use:
 
 ```sql
 SELECT [ ... arr ]
@@ -398,11 +404,14 @@ SELECT [ ... arr ]
 
 The spread operator can be mixed with any other JSON template features.
 
-**Object construction**
+#### Object construction 
 
-A JSON template constructs a JSON object or array for each item from the data source based on the specified template.  
+A JSON template constructs a JSON object or array for each item from the data source based on the specified template.
+
 If the outer template is a `<json-object>` the item will be JSON object.  
+
 If the outer template is a `<json-array>` the item will be JSON array.  
+
 The values inside the outer template can be any type.
 
 The `<key>`s and `<json-value>`s are used in the same order as they appear in the template.
@@ -416,15 +425,15 @@ Each `<json-value>` will be calculated and resolved. The resolved value can be a
 If the resolve process finds a valid value, this value will be added to the output JSON object or array. If the output item is a JSON object, the specified `<key>` will be used.
 
 {% hint style="info" %}
-If the same key is used more than once the last value will be used and will override any previous values that had the same key.
+If the same key is used more than once, the last value will be used and will override any previous values that had the same key.
 {% endhint %}
 
 If the value is resolved to `null` or 'not found':
 
-* If the output item is JSON object this value will not be added it to the output item.
-* if the output item is JSON array this value will be added it to the output item as `null`.
+* If the output item is JSON object, this value will not be added it to the output item.
+* If the output item is JSON array, this value will be added it to the output item as `null`.
 
-**Examples**
+##### Examples
 
 _Selecting a single value:_
 
@@ -629,7 +638,7 @@ Will generate a JSON array with a single item \(the item is the value of `col1`\
 ]
 ```
 
-And you can use all the other expressions as in the previous examples - nested object, operation alias, immediate values and binary expressions:
+And you can use all the other expressions as in the previous examples: nested object, operation alias, immediate values and binary expressions:
 
 ```sql
 SELECT [ (col1 + 10) * nested.object.value1, T.col2, 7, 'seven', true ]
@@ -717,7 +726,7 @@ Will generate a JSON array with the all the values under `array`:
 
 The `FROM` clause of a query creates the result set that the other parts of the query will use.
 
-The `FROM` clause is the first part that is running when the query is executed.
+The `FROM` clause is the first part that runs when the query is executed.
 
 The `FROM` clause supports three types of data sources:
 
@@ -727,7 +736,7 @@ The `FROM` clause supports three types of data sources:
 
 #### Operation
 
-To get data from a single operation you can use the operation directly in the `FROM` clause:
+To get data from a single operation, you can use the operation directly in the `FROM` clause:
 
 ```sql
 SELECT *
@@ -749,7 +758,7 @@ FROM (SELECT * FROM connector.operation) AS <operation-alias>
 
 Both the outer and the inner queries can use any of the other clauses - `FROM`, `WHERE`, `EXPAND BY`, `LIMIT`, `SELECT`.
 
-#### Join
+### Join
 
 Joins can be used to merge the results of two or more operations that are related in some way.
 
@@ -897,7 +906,12 @@ EXPAND BY <path-1> AS <column-alias>, <path-2> AS <column-alias>, ..., <path-N> 
 
 `EXPAND BY` works something like this:
 
-for each result in the result set: for each `<path>` in the list of paths: 1. Resolve the value at the path using the same mechanism as in [column-selection](sql-operations.md#result-construction) 2. Check that this value is an array of items, otherwise skip this result 3. Create a new result for each item in the array. If there is no `<column-alias>`, the item is placed in the same position as the array it came from \(replacing the array\). Otherwise, the alias is used to place the item and the original array is left intact. 4. Replace the top-level result set with this new list of results
+For each result in the result set, for each `<path>` in the list of paths:
+
+1. Resolve the value at the path using the same mechanism as in [column-selection](sql-operations.md#result-construction).
+2. Check that this value is an array of items, otherwise skip this result.
+3. Create a new result for each item in the array. If there is no `<column-alias>`, the item is placed in the same position as the array it came from \(replacing the array\). Otherwise, the alias is used to place the item and the original array is left intact.
+4. Replace the top-level result set with this new list of results
 
 ### Limit clause
 
@@ -909,5 +923,5 @@ LIMIT <number>
 
 ### Comments
 
-We support multi-line comments using `/* */` or single line comments using the `--` prefix
+Transposit supports multi-line comments using `/* */` or single line comments using the `--` prefix.
 
