@@ -1,27 +1,30 @@
 # SQL operations
 
-## Terms and symbols
+## Terms
 
-TODO - table/service, column/field, input parameters, data source/set, results JSON object
+Operation - A Transposit [operation](/get-started/terms#operations) in a data connector. This takes the place of a 'table' in SQL for relational databases.
 
-TODO: string quotes, identifier \(and escaping\), immediate value
+Data source: part of a query that generates results. This is either an operation, a subquery, or a join statement.
+
+Result set - the list of results, or rows, produced by a query. In Transposit, each result is a JSON object or array.
+Column - a field in a result.
 
 ## Select statement
 
-TODO: general description - manipulation of list of json objects, etc...
+Select queries return data from one or more data sources. In Transposit, nearly all queries will be select queries, regardless of what the underlying API HTTP method is.
 
 Select statement syntax:
 
 ```sql
-SELECT <* or columns selection or JSON template>
-FROM <table or subquery or join>
+SELECT <* or column selection or JSON template>
+FROM <operation or subquery or join>
 WHERE <predicate>
 EXPAND BY <columns>
 LIMIT <number>
 ```
 
 The `SELECT` clause is required.  
-The clauses `WHERE`, `EXPAND BY` and `LIMIT` can be used only if `FROM` clause is used.
+The clauses `WHERE`, `EXPAND BY` and `LIMIT` can be used only if a `FROM` clause is used.
 
 The clauses must appear in the order that was specific above.
 
@@ -37,30 +40,30 @@ The clauses must appear in the order that was specific above.
 
 The `SELECT` clause can be used for manipulating the structure and values of each item in the 'data source'.
 
-The `SELECT` clause gets as input a JSON object or JSON array from the 'data source' and produce a JSON object or a JSON array.
+The `SELECT` clause gets as input a JSON object or JSON array from the data source and produces a JSON object or a JSON array.
 
 The `SELECT` clause supports three to ways to manipulate an item:
 
 * [Select star](#select-star)
-* [Columns selection](#columns-selection)
+* [Column selection](#columns-selection)
 * [JSON template](#json-template)
 
 #### Select star
 
-The `*` symbol will keep the items from 'data source' without changes:
+The `*` symbol selects the entire result without modifying it:
 
 ```sql
 SELECT *
 FROM connector.operation
 ```
 
-#### Columns selection
+#### Column selection
 
-Columns selection can be used to construct a JSON object with specific keys that will appear in the top level of the object.
+Column selection can be used to construct a JSON object with specific keys that will appear in the top level of the object.
 
-Columns selection cannot construct a nested JSON object or a JSON array, to construct these items use [JSON template](#json-template).
+Column selection cannot construct a nested JSON object or a JSON array; to construct these items use [JSON template](#json-template).
 
-The syntax for columns selection is:
+The syntax for column selection is:
 
 ```sql
 SELECT <column-expression> AS <column-alias>, <column-expression> AS <column-alias>, ...
@@ -69,11 +72,11 @@ SELECT <column-expression> AS <column-alias>, <column-expression> AS <column-ali
 `<column-expression>` describes how to construct a value in the output JSON object and can be one of the following:
 
 * `<path>`
-* `<connector-alias>.<path>`
-* `<immediate-value>`
+* `<operation-alias>.<path>`
+* `<literal-value>`
 * `<binary-expression>`
 
-`<path>` describes the location of a value inside a JSON object or a JSON array. `<path>` contains one or more keys/field names that describe the lookup chain of fields inside the input JSON object - each `<key>` gets the inner JSON object/array and the lookup continues from that JSON object/array. The last item in `<path>` can be `.*`.
+`<path>` describes the location of a value inside a JSON object or array. `<path>` contains one or more dot-separated keys/field names that describe the lookup chain of fields inside the input JSON object. The last item in `<path>` can be `.*`.
 
 `<path>` can be one of the following:
 
@@ -82,15 +85,13 @@ SELECT <column-expression> AS <column-alias>, <column-expression> AS <column-ali
 * `<key>.*`
 * `<key-1>.<key-2>.` ... `<key-N>.*`
 
-\(TODO: need to update this when we support bracket syntax \(TR-1540\)\)
-
 `<key>` is an identifier.
 
-`<connector-alias>` is an identifier.
+`<operation-alias>` is an identifier.
 
-`<immediate-value>` is a number, string or boolean value.
+`<literal-value>` is a number, string or boolean value.
 
-`<binary-expression>` describe basic math operation \(for numbers\) or string concatenation \(of strings\) and can be one of the following:
+`<binary-expression>` represents basic math operations \(for numbers\) or string concatenation \(of strings\) and can be one of the following:
 
 * `<column-expression>` + `<column-expression>`
 * `<column-expression>` - `<column-expression>`
@@ -99,33 +100,33 @@ SELECT <column-expression> AS <column-alias>, <column-expression> AS <column-ali
 
 `AS <column-alias>` is optional. `<column-alias>` is an identifier.
 
-**Object construction**
+**Result construction**
 
-Columns selection construct a JSON object for each item in the 'data source' based on the specified `<column-expression>`s and `<column-alias>`s.
+Column selection constructs a JSON object for each item in the data source based on the specified `<column-expression>`s and `<column-alias>`s.
 
 The `<column-expression>`s and `<column-alias>`s are used in the same order as they appear in the query.
 
-Each `<column-expression>` will be calculated and resolved. The resolved value can be immediate value \(number, string or boolean\), JSON object or JSON array.
+Each `<column-expression>` will be calculated and resolved to a value. The resolved value can be a scalar value \(number, string or boolean\), JSON object or JSON array.
 
-For `<path>` the resolve process will do a lookup for each `<key>` in the current location in the JSON object. The value that is found will be used as the resolved value. if `<path>` ends with `.*` - the value will be all the fields that were found under the last `<key>`  
-If a `<key>` is being resolved but the current item is not a JSON object, the resolve will stop and the value will be considered as 'not found'.  
-If a `<key>` is being resolved and the current item is a JSON object that doesn't contain the same key, the resolve will stop and the value will be considered as 'not found'.
+When resolving a `<path>`, lookups are done recursively into the JSON object for each path component. If no value is found at that `<path>`, the value is considered 'not found'.
 
-For `<connector-alias>.<path>` - the resolve process will resolve the specified `<path>` only under the results from the table that was marked with the specified alias.  
-If no table was marked with `<connector-alias>` the resolve will stop and the value will be considered as 'not found'.
+A `.*` at the end of a `<path>` works as a 'spread' operator, copying each key at the current location into the result object.
 
-For `<binary-expression>` the resolve process will deconstruct the expression and will resolved each part and then will reconstruct the resolved parts to produce immediate value.  
+For `<operation-alias>.<path>` the resolve process will resolve the specified `<path>` only under the results from the operation that was marked with the specified alias.  
+If no operation was marked with `<operation-alias>` the resolve will stop and the value will be considered as 'not found'.
+
+For `<binary-expression>` the resolve process will evaluate the expression to produce a value.  
 If the types of the operands is not the same the resolve process will produce an error and the entire query will fail.  
-If the types of the operands is string, only the `+` operator is allowed, if a different operator is use the resolve process will produce an error and the entire query will fail.
+If the types of the operands is string, only the `+` operator is allowed, if a different operator is used the resolve process will produce an error and the entire query will fail.
 
-If the resolve process found a valid value, this value will be added to the output JSON object with a key, the key is selected in the following way:
+If the resolve process produces a valid value, this value will be added to the output JSON object with a key, the key is selected in the following way:
 
 * If `<column-alias>` is specified it will be used as the key.
-* If `<column-expression>` is `<path>` that does not ends with `.*` - the last `<key>` will be used as the key.
-* If `<column-expression>` is `<path>` that ends with `.*` - the key and values under the last `<key>` will be used without change.
+* If `<column-expression>` is `<path>` that does not ends with `.*`, the last `<key>` will be used as the key.
+* If `<column-expression>` is `<path>` that ends with `.*`, the keys and values under the last `<key>` will all be copied into the result object.
 * Otherwise the entire `<column-expression>` will be used as the key. It's recommended to use `<column-alias>` in this case.
 
-If the same key is used more than once the last value will be used and will override any previous values that had the same key.
+{% hint style="info" %} If the same key is used more than once the last value will be used and will override any previous values that had the same key. {% endhint %}
 
 If the value is resolved to `null` or 'not found' this value will not be added it to the output JSON object.
 
@@ -169,18 +170,18 @@ Will generate a JSON object with multiple keys:
 ]
 ```
 
-_Selecting nested value:_
+_Selecting a nested value:_
 
-To access a value inside a nested object you can use a `.` \(dot\) as separator between the nested object keys.
+To access a value inside a nested object you can use a `.` \(dot\) as a separator between the nested object keys.
 
-If the 'data source' is in the format:
+For the following result:
 
 ```javascript
 [
   {
     "nested": {
       "object": {
-        "value": ...
+        "value": "myValue"
       }
     }
   }
@@ -194,12 +195,12 @@ SELECT nested.object.value
 FROM connector.operation
 ```
 
-Will generate a JSON object with the key and value of the item in the specific path:
+Will generate a JSON object with the key and value of the item at the specific path:
 
 ```javascript
 [
   {
-    "value": ...
+    "value": "myValue"
   },
   ...
 ]
@@ -225,9 +226,9 @@ Will generate a JSON object with the key `foo`, the value will be the value of `
 ]
 ```
 
-_Using table alias:_
+_Using operation aliases:_
 
-When a table is marked with alias \(see [table alias](#connector-alias)\) the same table alias can be used as a qualifier in the beginning of the path to define exactly where to do the lookup for the path \(the results of which table to use\). This is useful when the query contains more than one table \(for example in [join query](#join-query)\).
+When an operation (or subquery) is named with an alias \(see [operation alias](#operation-alias)\) the alias can later be used as a qualifier at the beginning of the path to define exactly where to do the lookup for the path \(the results of which operation or subquery to use\). This is particularly useful in [join queries](#join-query)\), where the query has more than one data source.
 
 ```sql
 SELECT T.col1
@@ -245,12 +246,12 @@ Will generate a JSON object with a single key:
 ]
 ```
 
-_Immediate value:_
+_Literal value:_
 
-Any value of the types number, string or boolean can be used as an immediate value.
+Numbers, strings and booleans can be used directly in a column selector. If no alias is provided, the literal value is used as both the key and value:
 
 ```sql
-SELECT 7 as value1, 'seven' as value2, true as value3
+SELECT 7, 7 as value1, 'seven' as value2, true as value3
 ```
 
 Will generate:
@@ -258,6 +259,7 @@ Will generate:
 ```javascript
 [
   {
+    "7": 7,
     "value1": 7,
     "value2": "seven",
     "value3": true
@@ -268,7 +270,7 @@ Will generate:
 _Binary expressions:_
 
 Binary expressions can be used for basic math operation \(for numbers\) or string concatenation \(of strings\).  
-Binary expressions can use any combination of path, immediate values and nested binary expressions.  
+Binary expressions can use any combination of paths, literal values, and nested binary expressions.  
 Parentheses can be used to define the order of operations.
 
 The query:
@@ -296,11 +298,11 @@ FROM connector.operation
 
 Will use the values of `col1` and `nested.object.value1` to calculate the value of the expression.
 
-_Selecting all values under an object:_
+_Selecting all values in an object:_
 
-To access all values inside a nested object you can use a `.*` in the end of the path that contains the values.
+To access all key/value in a nested object you can use a `.*` in the end of the path that contains the values.
 
-If the 'data source' is in the format:
+If the result has the format:
 
 ```javascript
 [
@@ -336,9 +338,9 @@ Will generate a JSON object with the all the keys and values in the specific pat
 ]
 ```
 
-#### JSON template
+#### JSON templates
 
-JSON template is a more generic way to construct a JSON object or a JSON array as the output item.
+JSON templates are a more generic way to construct JSON objects or arrays as the output item.
 
 To construct a JSON object use the syntax:
 
@@ -352,18 +354,18 @@ To construct a JSON array use the syntax:
 SELECT [ <json-value>, ... ]
 ```
 
-`<key>` is an identifier. For convenience JSON template doesn't require to use string quotes around the key but it should be used if the `<key>` contains spaces, illegal characters or keywords.
+`<key>` is an identifier. For convenience, JSON templates do not require the use of string quotes around the key unless the `<key>` contains spaces, illegal characters or keywords.
 
 `<json-value>` can be one of the following:
 
 * `<path>` - a column selection
-* `<connector-alias>.<path>` - a column selection with table alias qualifier
-* `<immediate-value>` - number, string or boolean
+* `<operation-alias>.<path>` - a column selection with operation alias qualifier
+* `<literal-value>` - number, string or boolean
 * `<binary-expression>` - a calculated expression
 * `<json-object>` - construct a nested object
 * `<json-array>` - construct a nested array
 
-`<path>`, `<connector-alias>.<path>`, `<immediate-value>` and `<binary-expression>` are the same as in [columns selection](#columns-selection). The only difference is that `.*` in the end of `<path>` is not allowed in JSON template, use [spread operator](#spread-operator) instead.
+`<path>`, `<operation-alias>.<path>`, `<literal-value>` and `<binary-expression>` are the same as in [column selection](#columns-selection). The only difference is that `.*` at the end of `<path>` is not allowed in JSON templates; use the [spread operator](#spread-operator) instead.
 
 `<json-object>` constructs a JSON object, the syntax is:
 
@@ -379,7 +381,7 @@ SELECT [ <json-value>, ... ]
 
 **Spread operator**
 
-The spread operator expands a JSON object into JSON object or JSON array into a JSON array \(similar to `<path>.*` in [columns selection](#columns-selection)\).
+The spread operator expands a JSON object into JSON object or JSON array into a JSON array \(similar to `<path>.*` in [column selection](#columns-selection)\).
 
 The spread JSON object use:
 
@@ -397,22 +399,22 @@ The spread operator can be mixed with any other JSON template features.
 
 **Object construction**
 
-JSON template construct a JSON object or array for each item in the 'data source' based on the specified template.  
+A JSON template constructs a JSON object or array for each item from the data source based on the specified template.  
 If the outer template is a `<json-object>` the item will be JSON object.  
 If the outer template is a `<json-array>` the item will be JSON array.  
 The values inside the outer template can be any type.
 
 The `<key>`s and `<json-value>`s are used in the same order as they appear in the template.
 
-Each `<json-value>` will be calculated and resolved. The resolved value can be immediate value \(number, string or boolean\), JSON object or JSON array.
+Each `<json-value>` will be calculated and resolved. The resolved value can be a scalar value \(number, string or boolean\), JSON object or JSON array.
 
-`<path>`, `<connector-alias>.<path>`, `<immediate-value>` and `<binary-expression>` are resolved the same as in [columns selection](#columns-selection).
+`<path>`, `<operation-alias>.<path>`, `<immediate-value>` and `<binary-expression>` are resolved the same as in [column selection](#columns-selection).
 
 `<json-object>` and `<json-array>` are resolved recursively.
 
-If the resolve process found a valid value, this value will be added to the output JSON object or array. If the output item is a JSON object the specified `<key>` will be used.
+If the resolve process finds a valid value, this value will be added to the output JSON object or array. If the output item is a JSON object, the specified `<key>` will be used.
 
-If the same key is used more than once the last value will be used and will override any previous values that had the same key.
+{% hint style="info" %} If the same key is used more than once the last value will be used and will override any previous values that had the same key. {% endhint %}
 
 If the value is resolved to `null` or 'not found':
 
@@ -459,18 +461,18 @@ Will generate a JSON object with multiple keys:
 ]
 ```
 
-_Selecting nested value:_
+_Selecting a nested value:_
 
 To access a value inside a nested object you can use a `.` \(dot\) as separator between the nested object keys.
 
-If the 'data source' is in the format:
+For the following result:
 
 ```javascript
 [
   {
     "nested": {
       "object": {
-        "value": ...
+        "value": "myValue"
       }
     }
   }
@@ -489,7 +491,7 @@ Will generate a JSON object with the key and value of the item in the specific p
 ```javascript
 [
   {
-    "value": ...
+    "value": "myValue"
   },
   ...
 ]
@@ -497,7 +499,7 @@ Will generate a JSON object with the key and value of the item in the specific p
 
 _Changing the key:_
 
-JSON template requires a key, so the same syntax can be used even if you want to use a different key:
+The key is a part of the JSON template, so the same syntax can be used even if you want to use a different key:
 
 ```sql
 SELECT { foo: col1 }
@@ -533,9 +535,9 @@ Will generate
 ]
 ```
 
-_Using table alias:_
+_Using an operation alias:_
 
-When a table is marked with alias \(see [table alias](#connector-alias)\) the same table alias can be used as a qualifier in the beginning of the path to define exactly where to do the lookup for the path \(the results of which table to use\). This is useful when the query contains more than one table \(for example in [join query](#join-query)\).
+When an operation (or subquery) is named with an alias \(see [operation alias](#operation-alias)\) the alias can later be used as a qualifier at the beginning of the path to define exactly where to do the lookup for the path \(the results of which operation or subquery to use\). This is particularly useful in [join queries](#join-query)\), where the query has more than one data source.
 
 ```sql
 SELECT { col1: T.col1 }
@@ -553,9 +555,9 @@ Will generate a JSON object with a single key:
 ]
 ```
 
-_Immediate value:_
+_Literal value:_
 
-Any value of the types number, string or boolean can be used as an immediate value.
+Numbers, strings and booleans can be used as the value in a JSON template:
 
 ```sql
 SELECT { value1: 7, value2: 'seven', value3: true }
@@ -606,7 +608,7 @@ Will use the values of `col1` and `nested.object.value1` to calculate the value 
 
 _Constructing an array:_
 
-The previous examples showed how to construct an object as the output item. With JSON template you can also construct an array as the output item.
+The previous examples showed how to construct an object as the output item. With JSON templates you can also construct an array as the output item.
 
 ```sql
 SELECT [ col1 ]
@@ -624,16 +626,16 @@ Will generate a JSON array with a single item \(the item is the value of `col1`\
 ]
 ```
 
-And you can use all the other expressions as in the previous examples - nested object, table alias, immediate values and binary expressions:
+And you can use all the other expressions as in the previous examples - nested object, operation alias, immediate values and binary expressions:
 
 ```sql
 SELECT [ (col1 + 10) * nested.object.value1, T.col2, 7, 'seven', true ]
 FROM connector.operation AS T
 ```
 
-_Constructing nested template:_
+_Constructing nested objects:_
 
-You can use the JSON object and array templates recursively and construct any nested structure:
+You can use JSON object and array templates recursively and construct any nested structure:
 
 ```javascript
 SELECT {
@@ -649,11 +651,11 @@ SELECT {
 FROM connector.operation
 ```
 
-_Selecting all values under an object or array:_
+_Selecting all values in an object or array:_
 
 To access all the values inside an object or array you can use the spread operator \(`...`\). Note that the inner type and the outer type must be the same: an object can be spread into a JSON object template and an array can be spread into JSON array template:
 
-If the 'data source' is in the format:
+If the results have the format:
 
 ```javascript
 [
@@ -708,101 +710,45 @@ Will generate a JSON array with the all the values under `array`:
 ]
 ```
 
-#### Immediate values
-
-TODO: maybe we don't need this section.
-
-Immediate values can be use with and without `FROM` clause.
-
-Immediate value is an expression with the type: number, string or boolean value, or a boolean expression that can be resolved to one of these types, i.e. the expression doesn't contain `<path>`.
-
-Immediate values can be used in columns selection or in JSON template.
-
-**Examples:**
-
-```sql
-SELECT 1 AS number, 'one' AS string, true AS boolean, (1 + 2) * 3 AS expression
-```
-
-Will generate:
-
-```javascript
-[
-  {
-    "number": 1,
-    "string": "one",
-    "boolean": true,
-    "expression": 9
-  }
-]
-```
-
-```sql
-SELECT { number: 1, string: 'one', boolean: true, expression: (1 + 2) * 3 }
-```
-
-Will generate:
-
-```javascript
-[
-  {
-    "number": 1,
-    "string": "one",
-    "boolean": true,
-    "expression": 9
-  }
-]
-```
-
-```sql
-SELECT [ 1, 'one', true, (1 + 2) * 3 ]
-```
-
-Will generate:
-
-```javascript
-[[1, "one", true, 9]]
-```
-
 ### From clause
 
-The `FROM` clause of a query creates the data set that the other parts of the query will use.
+The `FROM` clause of a query creates the result set that the other parts of the query will use.
 
 The `FROM` clause is the first part that is running when the query is executed.
 
-The `FROM` clause support three types of data sources:
+The `FROM` clause supports three types of data sources:
 
-* [Table](#table)
-* [Sub query](#sub-query)
+* [Operation](#operation)
+* [Subquery](#subquery)
 * [Join](#join)
 
-#### Table
+#### Operation
 
-To get data from a single service you can use the service directly in the `FROM` clause:
+To get data from a single operation you can use the operation directly in the `FROM` clause:
 
 ```sql
 SELECT *
-FROM connector.operation AS <connector-alias>
+FROM connector.operation AS <operation-alias>
 ```
 
-`AS <column-alias>` is optional. `<connector-alias>` is an identifier.
+`AS <operation-alias>` is optional. `<operation-alias>` is an identifier.
 
-#### Sub query
+#### Subquery
 
-In some case when you want to manipulate the data set in multiple steps, you can use a sub query in the `FROM` clause:
+In some case when you want to manipulate the data set in multiple steps, you can use a subquery in the `FROM` clause:
 
 ```sql
 SELECT *
 FROM (SELECT * FROM connector.operation) AS <operation-alias>
 ```
 
-`AS <column-alias>` is optional. `<operation-alias>` is an identifier.
+`AS <operation-alias>` is optional. `<operation-alias>` is an identifier.
 
 Both the outer and the inner queries can use any of the other clauses - `FROM`, `WHERE`, `EXPAND BY`, `LIMIT`, `SELECT`.
 
 #### Join
 
-Join can be used to merge the results of two or more tables that share some common data.
+Joins can be used to merge the results of two or more operations that are related in some way.
 
 ```sql
 SELECT *
@@ -822,33 +768,145 @@ If `<join-type>` is not specified the default is `INNER`.
 
 In joins `AS <column-alias>` is required. `<operation-alias>` is an identifier.
 
-TODO - , add examples for join
-
 ### Where clause
 
-TODO - filters, input params, $body, AND/OR, IN, subquery, expressions
+The `WHERE` clause is where input parameters for operations are specified, as well as filters on results. The syntax for the `WHERE` clause is:
+
+```sql
+WHERE <predicate>
+```
+
+`<predicate>` describes the sequence of conditions that are applied to the data sources. Multiple `<predicate>`s can be recursively combined with boolean `AND`, `OR`, and `NOT` operators.
+input parameters passed to operations and filters applied to the results. It can be one of the following:
+
+* `<condition>`
+* `<predicate> AND <predicate>`
+* `<predicate> OR <predicate>`
+* `NOT <predicate>`
+
+For instance:
+```sql
+SELECT * FROM <connection.operation>
+WHERE <condition-1> AND NOT <condition-2> OR <condition-3> ...
+```
+
+Parentheses can also be used for grouping.
+
+Each condition can be one of the following:
+
+* `<name>` `<operator>` `<column-expression>`
+* `<name>` `<operator>` `<subquery>`
+* `<name>` `IN` `<literal-tuple>`
+* `<name-tuple>` `IN` `<nested-literal-tuple>`
+
+The `<operator>` can be one of the following:
+
+* `=` - equal to
+* `!=` - not equal to
+* `>` - greater than
+* `>=` - greater than or equal to
+* `<` - less than
+* `<=` - less than or equal to
+* `IN` - equal to any in a list of values.
+
+The `<column-expression>` is the same as what is used in [column selection](#column-selection).
+
+If a subquery is used, the `<operator>` must be `=` or `IN`. If the operator is `=`, the subquery must return a single result.
+
+#### Input parameters and filters
+
+A condition in a `WHERE` clause may either be passed as an input parameter or treated as a filter on the output of the data source. There is no difference in the syntax; Transposit automatically makes the determination based on whether the `<name>` in the condition is defined as a parameter for the operation. Otherwise, the condition is treated as a filter and will remove rows from the result set that do not match the criteria.
+
+When two input parameters are combined with an `AND`, both are passed to the underlying operation. However, if two input parameters are combined with an `OR`, it will result in two invocations of the operation. For instance:
+
+```sql
+SELECT * FROM <connector.operation> WHERE param1 = 'val1' AND param2 = 'val2'
+```
+
+Results in a single invocation of the operation that is passed `'val1'` as `param1` and `'val2'` as `param2`.
+
+```sql
+SELECT * FROM <connector.operation> WHERE param1 = 'val1' OR param2 = 'val2'
+```
+
+Results in two invocations of the operation that are run in parallel. The first is passed `'val1'` as `param1` and is not passed a value for `param2`. The second invocation is passed `'val2'` as `param2` and is not passed a value for `param1`. When both invocations are complete, the result sets from each are concatenated together before other parts of the query are run.
+
+Note that `IN` is equivalent to `OR`s of `=` operators, and thus may also result in multiple invocations of an operation. For instance:
+
+```sql
+SELECT * FROM <connector.operation> WHERE param1 IN ('val1', 'val2', 'val3')
+```
+
+Is equivalent to:
+
+```sql
+SELECT * FROM <connector.operation> WHERE param1 = 'val1' OR param1 = 'val2' OR param1 = 'val3'
+```
+
+Both will result in three parallel invocations of the operation.
+
+#### Mapping and Tuples
+
+The `<literal-tuple>` is one of:
+* `(<val-1>, <val-2>, ...)` - a list of literal values
+* `((<val-1-a>, <val-1-b>, ...), (<val-2-a>, <val-2-b>, ...), ...)` - a list of nested tuples
+
+The first can be used with the `IN` operator to map to a single parameter or result column:
+
+```sql
+WHERE col1 IN (<val-1>, <val-2>, ...)
+```
+
+The latter can be used to map to multiple parameters or result columns using a `<name-tuple>`:
+
+```sql
+WHERE (col1, col2) IN ((<col1-val1>, <col2-val1>), (<col1-val2>, <col2-val2>), ...)
+```
+
+The number of items in each nested tuple on the right side of the `IN` must match the number of items in the `<name-tuple>` on the left.
+
+This sort of column mapping is also possible with subqueries. 
+
+```sql
+WHERE (col1, col2, ..., colN) IN (SELECT col1, col2, ... colN FROM <connector.operation>)
+```
+
+The mapping is positional (first column is mapped to the first name in the tuple, and so on), so the names of the subquery columns do not have to match the names in the `<name-tuple>`. However, the number of columns in the subquery must match the number of items in the `<name-tuple>`.
+
+#### Operation aliases
+
+Like the `<path>` in [column selection](#column-selection), the `<name>` in a `WHERE` condition can be prefixed with an [operation alias](#operation-alias) to refer to the results of a named data source. 
 
 ### Expand by clause
 
-TODO - column, nested path, alias, multiple columns
+The `EXPAND BY` clause expands, or flattens, the items in a JSON array. This tends to be useful when working with APIs, where the relevant results may be nested inside one or more JSON objects.
+
+The syntax for `EXPAND BY` is:
+```sql
+SELECT * FROM <connector.operation>
+WHERE <predicate>
+EXPAND BY <path-1> AS <column-alias>, <path-2> AS <column-alias>, ..., <path-N> AS <column-alias>
+```
+
+`<column-path>` 
+
+`EXPAND BY` works something like this:
+
+for each result in the result set:
+  for each `<path>` in the list of paths:
+    1. Resolve the value at the path using the same mechanism as in [column-selection](#result-construction)
+    2. Check that this value is an array of items, otherwise skip this result
+    3. Create a new result for each item in the array. If there is no `<column-alias>`, the item is placed in the same position as the array it came from (replacing the array). Otherwise, the alias is used to place the item and the original array is left intact.
+    4. Replace the top-level result set with this new list of results
+
 
 ### Limit clause
 
-TODO
+The limit clause specifies the maximum number of results to return in the query. The syntax is:
 
-TODO: Document the pagination bubble that gets shown in the documentation viewer to indicate that we support pagination with the LIMIT
-
-### Expressions
-
-TODO \(maybe this is not needed and we will talk about expressions in the relevant sections\)
-
-## External parameters
-
-TODO \(@userId\)
-
-## Escaping
-
-TODO - list of keywords, valid/invalid characters, how to escape
+```sql
+LIMIT <number>
+```
 
 ### Comments
 
