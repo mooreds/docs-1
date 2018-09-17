@@ -108,7 +108,7 @@ to log the user out of your application.
 
 ## Reference
 
-For more comprehensive information about using our JavaScript client, see the JavaScript SDK reference:
+For more comprehensive information about using the JavaScript SDK, see the JavaScript SDK reference:
 
 {% page-ref page="../references/js-sdk.md" %}
 

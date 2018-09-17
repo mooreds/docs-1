@@ -34,11 +34,11 @@ Learn about how to schedule tasks once or periodically in your Transposit applic
 
 {% page-ref page="scheduled-tasks.md" %}
 
-### JavaScript client
+### JavaScript SDK
 
-Learn how to implement the Transposit JavaScript client in your external application to handle login, authenticaiton, and running operations:
+Learn how to implement the Transposit JavaScript SDK in your external application to handle login, authenticaiton, and running operations:
 
-{% page-ref page="js-client.md" %}
+{% page-ref page="js-sdk.md" %}
 
 ### Hosted apps
 

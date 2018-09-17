@@ -11,7 +11,7 @@
   * [Endpoints](building/endpoints.md)
   * [Webhooks](building/webhooks.md)
   * [Scheduled tasks](building/scheduled-tasks.md)
-  * [Javascript client](building/js-client.md)
+  * [Javascript SDK](building/js-sdk.md)
   * [Hosted apps](building/hosted-apps.md)
 * [References](references/README.md)
   * [FAQ](references/faq.md)
