@@ -173,7 +173,7 @@ In the commented code there's a method named `api.run` that is available for you
 
 ## 6. Deploy your operation
 
-Since this hosted app should be able to hit our newly created operation, we need to deploy that new operation.
+Since this hosted app should be able to call our newly created operation, we need to deploy that new operation.
 
 {% hint style="info" %}
 By default, the HTTP endpoints for your operations \(other than the default `helloworld` operation we created for you\) are private.

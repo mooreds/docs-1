@@ -1,12 +1,12 @@
 # Hosted apps
 
-Tranpsoit offers lightweight page hosting facilities for creating simple application frontends. Even for applications that have more complex hosting needs, they can be a great starting point when prototyping.
+Transposit proivides lightweight page hosting facilities for creating simple application frontends. Even for applications that have more complex hosting needs, they can be a great starting point when prototyping.
 
 Transposit manages the interface for user sign-in and settings, provides the scaffolding for connecting to your Transposit backend, plus some basic interfaces for rendering operation results. For more granular control, you can either use the [JavaScript SDK](../references/js-sdk.md) or directly call [http endpoints](endpoints.md).
 
 You can access your hosted app using:
 ```text
-https://demo.transposit.com/app/v1/{maintainer}/{applicationName}/public/
+https://api.transposit.com/app/v1/{maintainer}/{applicationName}/public/
 ```
 This URL can also be found on the Documentation tab (under your application's manual page), and under under **Settings &gt; Hosting**.
 

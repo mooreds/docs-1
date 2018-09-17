@@ -1,15 +1,14 @@
 # Webhooks
 
-A Transposit operation can be deployed to consumers as an [http endpoint](endpoints.md) or as a webhook. The easiest way to create a webhook in Transposit is to:
+A Transposit operation can be deployed to consumers as an [HTTP endpoint](endpoints.md) or as a webhook. The easiest way to create a webhook in Transposit is to:
 
-1. Navigate to **code**
-2. Create a new operation using the plus icon next to the Operation menu
+1. Navigate to **Code**.
+2. Create a new operation using the plus icon next to the Operation menu.
 3. Select **Webhook** to create a new operation as a webhook.
 
 {% hint style="info" %}
-You can also manually configure an existing operation to be a webhook by going to **Deploy &gt; Endpoints**. The operation may be in either a normal http endpoint state or the webhook state, but not both at the same time. It is advisable to protect your webhook with an API key.
+You can also manually configure an existing operation to be a webhook by going to **Deploy &gt; Endpoints**. The operation may be in either a normal HTTP endpoint state or the webhook state, but not both at the same time. It is advisable to protect your webhook with an API key.
 {% endhint %}
-
 
 Once a Transposit operation is deployed as a webhook, it can be executed at the designated URL with either a simple `HTTP GET`, or with an `HTTP POST` that may include payload data.
 
