@@ -2,7 +2,7 @@
 
 One of Transposit’s powerful features is the way it can manage authentication for you, the app developer, and for your app's end users. Here are high-level explanations for what's meant by "managed auth" and how it gives you freedom to develop applications without the burden of hard-coding authentication logic into every app.
 
-If you'd like to jump straight to all authentication options, including keys and keychains, API keys, and hosted app authentication, and endpoint deploy settings, see the Authentication reference:
+If you'd like to jump straight to all authentication options, including keys and keychains, see the Authentication reference:
 
 {% page-ref page="../references/authentication.md" %}
 
