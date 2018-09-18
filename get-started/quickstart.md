@@ -65,7 +65,7 @@ function hello_world() {
     {
       language: "italian",
       message: "Ciao Mondo"
-    }    
+    }
   ]
 }
 ```
@@ -106,6 +106,14 @@ You can fill in the information for the private spreadsheet you created or copie
 SELECT * FROM google_sheets.get_sheet_values
   WHERE range='Sheet1'
   AND spreadsheetId='<INSERT YOUR SPREADSHEET ID>'
+  /**
+  You can comment out or delete unused parameters:
+
+  AND dateTimeRenderOption='SERIAL_NUMBER | FORMATTED_STRING'
+  AND majorDimension='DIMENSION_UNSPECIFIED | ROWS | COLUMNS'
+  AND valueRenderOption='FORMATTED_VALUE | UNFORMATTED_VALUE | FORMULA'
+  AND quotaUser='<string>'
+  **/
 ```
 
 * Now click the **Run** button and you should see your results.
