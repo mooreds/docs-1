@@ -39,17 +39,15 @@ Create a new application, give it a name, and pick the "Simple app" template for
 
 ## 2. View your app live
 
-Each new Transposit application has basic hosting enabled automatically. This allows you to test as you build and share with friends for feedback during the development process. There's a gated front door \(sign in is required\) so that only you and the people you've authorized can view your application.
+Each new Transposit application has basic hosting enabled automatically. Even if you outgrow this basic hosting later, it's still helpful for testing and sharing your app while it’s in development. If and when you _do_ need more control, you can use our [JavaScript SDK](../building/js-sdk.md) or directly call our [HTTP endpoints](../building/endpoints.md) from your app.  
+  
+Transposit's hosting also requires sign in by default so that only you and the people you've authorized can view your application.
 
-{% hint style="info" %}
-If you want more control over your app's hosting, you can do so at any time with our JavaScript SDK or by using Transposit as a simple HTTP endpoint. See the [JavaScript SDK](../building/js-sdk.md) and [Endpoints](../building/endpoints.md) documentation for your options.
-{% endhint %}
-
-If you look at the **Documentation** tab in the lower half of the code window, you can see in the manual that there's a link to the hosted app page. If you click it, it will populate your published and available application, accessible to you only, by signing in with your Google account.
+Look at the **Documentation** tab in the lower half of the code window. Find the link to the hosted app page in the manual to populate your published and available application, accessible to you only, by signing in with your Google account.
 
 Once signed in, you'll see some stub data displayed. This data is populated by the `helloworld` operation that comes already deployed in every new application.
 
-If you go back to the Transposit code editor and select the `helloworld` operation, you will see the operation the hosted application calls. Any changes you make to the operation here will be reflected in your hosted app.
+Go back to the Transposit code editor and select the `helloworld` operation to the code your app is calling. Any changes you make to the operation here will be reflected in your hosted app.
 
 Try this out by adding Italian to the list of languages by replacing the code in this operation with the sample below:
 
