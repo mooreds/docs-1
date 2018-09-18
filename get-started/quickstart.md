@@ -45,9 +45,9 @@ Transposit's hosting also requires sign in by default so that only you and the p
 
 Look at the **Documentation** tab in the lower half of the code window. Find the link to the hosted app page in the manual to populate your published and available application, accessible to you only, by signing in with your Google account.
 
-Once signed in, you'll see some stub data displayed. This data is populated by the `helloworld` operation that comes already deployed in every new application.
+Once signed in, you'll see some stub data displayed. This data is populated by the `hello_world` operation that comes already deployed in every new application.
 
-Go back to the Transposit code editor and select the `helloworld` operation to the code your app is calling. Any changes you make to the operation here will be reflected in your hosted app.
+Go back to the Transposit code editor and select the `hello_world` operation to the code your app is calling. Any changes you make to the operation here will be reflected in your hosted app.
 
 Try this out by adding Italian to the list of languages by replacing the code in this operation with the sample below:
 
@@ -171,7 +171,7 @@ In the commented code there's a method named `api.run` that is available for you
 
 ## 6. Deploy your operation
 
-By default, the HTTP endpoints for your operations \(other than the default `helloworld` operation we created for you\) are private. Since this hosted app should be able to call our newly created operation, you need to deploy that new operation.
+By default, the HTTP endpoints for your operations \(other than the default `hello_world` operation we created for you\) are private. Since this hosted app should be able to call our newly created operation, you need to deploy that new operation.
 
 * Click the **Deploy**  in the navigation menu.
 * Find your `get_user_messages` operation and select **Deployed**
@@ -198,7 +198,7 @@ Now you're ready to have your hosted application display the results of your new
 
 * Return to your application's code
 * Go to your hosted app template by clicking on the **Page template** section
-* Replace `var operation = "helloworld";` with `var operation = "get_user_messages";` \(line 42 in the hosted app page markup\).
+* Replace `transposit.runOperation("hello_world");` with `transposit.runOperation("get_user_messages")` \(line 55 in the hosted app page markup\).
 * Click **Preview** to see the results. \(Note that any time you make a change to code or to the template, you need to click this button again to see the changes in the preview. Reloading the preview will not work.\)
 * Now that you see that it working in the preview, return to Transposit and commit your code changes so that you'll see it in the public link that you can once again access from your application manual.
 
