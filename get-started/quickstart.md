@@ -198,7 +198,7 @@ Now you're ready to have your hosted application display the results of your new
 
 * Return to your application's code
 * Go to your hosted app template by clicking on the **Page template** section
-* Replace `var operation = "helloworld";` with `var operation = "get_user_messages";` \(line 42 in the hosted app page markup\).
+* Replace `transposit.runOperation("hello_world");` with `transposit.runOperation("get_user_messages")` \(line 55 in the hosted app page markup\).
 * Click **Preview** to see the results. \(Note that any time you make a change to code or to the template, you need to click this button again to see the changes in the preview. Reloading the preview will not work.\)
 * Now that you see that it working in the preview, return to Transposit and commit your code changes so that you'll see it in the public link that you can once again access from your application manual.
 
