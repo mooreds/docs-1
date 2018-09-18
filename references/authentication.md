@@ -26,5 +26,64 @@ Keychains are sets of keys that you can enable in development, production, or ot
 
 In order to share keychains within an organization, create the keychain with the organization as the owner. Any keys put in that organization-owned keychain will be usable by others in the organization.
 
+## Common Authorization Mechanisms
+
+### **Auth via oAuth and oAuth v1**
+
+For most data connectors that implement either version of oAuth, the oAuth token exchange can be performed out-of-the-box using Transposit oAuth settings to acquire an API access token.
+A small subset of data connectors will require custom oAuth settings to be provided when adding the connector to an application.
+
+* [Github](https://developer.github.com/v3/?#authentication)
+* [Google Analytics](https://developers.google.com/analytics/devguides/reporting/core/v4/authorization#OAuth2Authorizing)
+* [Google Calendar](https://developers.google.com/calendar/auth#OAuth2Authorizing)
+* [Google Directory](https://developers.google.com/admin-sdk/directory/v1/guides/authorizing#OAuth2Authorizing)
+* [Google Drive](https://developers.google.com/drive/api/v3/about-auth#OAuth2Authorizing)
+* [Google Mail](https://developers.google.com/gmail/api/auth/web-server)
+* [Google Sheets](https://developers.google.com/sheets/api/guides/authorizing#OAuth2Authorizing)
+* [Jira](https://developer.atlassian.com/cloud/jira/platform/jira-rest-api-oauth-authentication/) _(requires custom oAuth settings)_
+* [Lyft](https://developer.lyft.com/docs/authentication)
+* [Medium](https://github.com/Medium/medium-api-docs#21-browser-based-authentication)
+* [Salesforce](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/quickstart_oauth.htm) _(requires custom oAuth settings)_
+* [Shopify](https://help.shopify.com/en/api/getting-started/authentication/oauth) _(requires custom oAuth settings)_
+* [Slack](https://api.slack.com/docs/oauth)
+* [Spotify](https://developer.spotify.com/documentation/general/guides/authorization-guide/)
+* [Strava](https://developers.strava.com/docs/authentication/)
+* [Survey Monkey](https://developer.surveymonkey.com/api/v3/#authentication) _(requires custom oAuth settings)_
+
+### **Auth via header parameters**
+
+For data connectors that implement authentication with header parameters, such as PagerDuty, the header parameter name (as documented by the external API site) and header parameter value (typically a secret token distributed by the external API site) must be provided when adding the connector to an application.
+
+E.g. [PagerDuty](https://v2.developer.pagerduty.com/docs/authentication)
+INSERT SCREENSHOT 'EXEMPLARY pagerduty'
+
+* [PagerDuty](https://v2.developer.pagerduty.com/docs/authentication)
+* [Yelp](https://www.yelp.com/developers/documentation/v3/authentication)
+
+### **Auth via query parameters**
+
+For data connectors that implement authentication with query parameters, such as Zoom, only the query parameter value (typically a secret distributed by the external API site) must be provided when adding the connector to an application.
+
+E.g. [Zoom](https://zoom.github.io/api/#authentication)
+INSERT SCREENSHOT 'EXEMPLARY zoom'
+
+Data connectors:
+* [Airtable](https://airtable.com/account)
+* [Apify Crawler](https://www.apify.com/docs/api/v1#/introduction/authentication)
+* [Giphy](https://developers.giphy.com/docs/)
+* [Zoom](https://zoom.github.io/api/#authentication)
+
+### **Auth via AWS parameters**
+
+For AWS data connectors, such as Lambda, the required combination of authentication parameters 'Access Key', 'Secret Key', and 'Role' depends on the authentication setup of your particular AWS service being connected to.
+The pair of 'Access Key' and 'Secret Key' authenticates you as an [IAM user](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html), and the 'Role' can be used to specify the ARN of an [IAM role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html).
+
+E.g. Lambda with all three parameters provided (i.e. authentication as an IAM user assuming an IAM role)
+INSERT SCREENSHOT 'EXEMPLARY lambda'
+
+Data connectors:
+* AWS Basic
+* Elastic
+* Lambda
 
 
