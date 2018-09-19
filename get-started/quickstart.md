@@ -82,13 +82,13 @@ If you encounter an error, you can view logs in the Monitor tab under the code e
 In this guide, we'll ask you to either _commit_ or _run_ code in your operations. Commiting code pushes any changes to already deployed operations to your hosted application; running code allows you to see the results of your current operation code locally in Transposit.
 {% endhint %}
 
-## 3. Add a data connector
+## 3. Add a data connection
 
 Next you'll need to fetch the values from the spreadsheet, then filter those values to only return the rows owned by a given email address in the form that the hosted application expects.
 
-To give your application access to data from other sources, you need to add each source as a _data connector_. Add a data connection to Google Sheets so you can query data stored in that spreadsheet:
+To give your application access to data from other sources, you need to add each source as a _data connection_. Add a data connection to Google Sheets so you can query data stored in that spreadsheet:
 
-* Click on the plus icon next to **Data connections** to add a data connector.
+* Click on the plus icon next to **Data connections** to add a data connection.
 * Search for **Google Sheets** and add it.
 
 Notice that you'll be prompted to authorize. Transposit allows you to use our OAuth application credentials so you can get instant access to your data. But you can also supply your own credentials later on to customize the authorization screen.
