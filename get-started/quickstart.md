@@ -35,7 +35,7 @@ Be sure to replace these email addresses with your own in one or more of the spr
 
 ## 1. Create a new application
 
-To begin a new project, sign in to Transposit, and create a new _application_. An application is Transposit's representation of a set of functionality you want to build, and contains operations, data connections, keys to access data connections, and configurations for authentication and deployment.
+To begin a new project, [sign in to Transposit](api.transposit.com), and create a new _application_. An application is Transposit's representation of a set of functionality you want to build, and contains operations, data connections, keys to access data connections, and configurations for authentication and deployment.
 
 Create your new application, give it a name, and pick the "Simple app" template for use in this guide.
 
