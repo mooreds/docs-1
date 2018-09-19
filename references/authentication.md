@@ -56,7 +56,7 @@ For data connectors that implement authentication with header parameters, such a
 
 Example: [PagerDuty](https://v2.developer.pagerduty.com/docs/authentication)
 
-INSERT SCREENSHOT 'EXEMPLARY pagerduty'
+![](../.gitbook/assets/auth-exemplary-pagerduty.png)
 
 * [PagerDuty](https://v2.developer.pagerduty.com/docs/authentication)
 * [Yelp](https://www.yelp.com/developers/documentation/v3/authentication)
@@ -67,7 +67,7 @@ For data connectors that implement authentication with query parameters, such as
 
 Example: [Zoom](https://zoom.github.io/api/#authentication)
 
-INSERT SCREENSHOT 'EXEMPLARY zoom'
+![](../.gitbook/assets/auth-exemplary-zoom.png)
 
 * [Airtable](https://airtable.com/account)
 * [Apify Crawler](https://www.apify.com/docs/api/v1#/introduction/authentication)
@@ -81,7 +81,7 @@ The pair of 'Access Key' and 'Secret Key' authenticates you as an [IAM user](htt
 
 Example: Lambda with all three parameters provided (i.e. authentication as an IAM user assuming an IAM role)
 
-INSERT SCREENSHOT 'EXEMPLARY lambda'
+![](../.gitbook/assets/auth-exemplary-lambda.png)
 
 * AWS Basic
 * Elastic
