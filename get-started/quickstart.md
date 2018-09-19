@@ -39,38 +39,45 @@ Create a new application, give it a name, and pick the "Simple app" template for
 
 ## 2. View your app live
 
-Each new Transposit application has basic hosting enabled automatically. This allows you to test as you build and share with friends for feedback during the development process. There's a gated front door \(sign in is required\) so that only you and the people you've authorized can view your application.
+Each new Transposit application has basic hosting enabled automatically. Even if you outgrow this basic hosting later, it's still helpful for testing and sharing your app while it’s in development. If and when you _do_ need more control, you can use our [JavaScript SDK](../building/js-sdk.md) or directly call our [HTTP endpoints](../building/endpoints.md) from your app.  
 
-{% hint style="info" %}
-If you want more control over your app's hosting, you can do so at any time with our JavaScript SDK or by using Transposit as a simple HTTP endpoint. See the [JavaScript SDK](../building/js-sdk.md) and [Endpoints](../building/endpoints.md) documentation for your options.
-{% endhint %}
+Transposit's hosting also requires sign in by default so that only you and the people you've authorized can view your application.
 
-If you look at the **Documentation** tab in the lower half of the code window, you can see in the manual that there's a link to the hosted app page. If you click it, it will populate your published and available application, accessible to you only, by signing in with your Google account.
+Look at the **Documentation** tab in the lower half of the code window. Find the link to the hosted app page in the manual to populate your published and available application, accessible to you only, by signing in with your Google account.
 
-Once signed in, you'll see some stub data displayed. This data is populated by the `helloworld` operation that comes already deployed in every new application.
+Once signed in, you'll see some stub data displayed. This data is populated by the `hello_world` operation that comes already deployed in every new application.
 
-If you go back to the Transposit code editor and select the `helloworld` operation, you will see the operation the hosted application calls. Any changes you make to the operation here will be reflected in your hosted app.
+Go back to the Transposit code editor and select the `hello_world` operation to the code your app is calling. Any changes you make to the operation here will be reflected in your hosted app.
 
 Try this out by adding Italian to the list of languages by replacing the code in this operation with the sample below:
 
 ```javascript
-return [
-  {
-    "message": "Hello World"
-  },
-  {
-    "message": "Hola Mundo"
-  },
-  {
-    "message": "Ciao Mondo"
-  }
-];
+function hello_world() {
+  return [
+    {
+      language: "english",
+      message: "Hello, world"
+    },
+    {
+      language: "spanish",
+      message: "Hola, mundo"
+    },
+    {
+      language: "italian",
+      message: "Ciao Mondo"
+    }
+  ]
+}
 ```
 
 Click the **Commit code** button in the upper right to commit the changes. If you then go to the browser tab where your hosted app is open and refresh the page, you'll see the new data.
 
+{% hint style="danger" %}
+If you encounter an error, you can view logs in the Monitor tab under the code editor.
+{% endhint %}
+
 {% hint style="info" %}
-In this quickstart, we'll ask you to either "commit" or "run" code in your operations. Commiting code pushes any changes to already deployed operations to your hosted application, while running code allows you to see the results of your current operation code locally in Transposit.
+In this guide, we'll ask you to either _commit_ or _run_ code in your operations. Commiting code pushes any changes to already deployed operations to your hosted application; running code allows you to see the results of your current operation code locally in Transposit.
 {% endhint %}
 
 ## 3. Add a data connector
@@ -103,6 +110,14 @@ You can fill in the information for the private spreadsheet you created or copie
 SELECT * FROM google_sheets.get_sheet_values
   WHERE range='Sheet1'
   AND spreadsheetId='<INSERT YOUR SPREADSHEET ID>'
+  /**
+  You can comment out or delete unused parameters:
+
+  AND dateTimeRenderOption='SERIAL_NUMBER | FORMATTED_STRING'
+  AND majorDimension='DIMENSION_UNSPECIFIED | ROWS | COLUMNS'
+  AND valueRenderOption='FORMATTED_VALUE | UNFORMATTED_VALUE | FORMULA'
+  AND quotaUser='<string>'
+  **/
 ```
 
 * Now click the **Run** button and you should see your results.
@@ -124,7 +139,11 @@ SELECT * FROM google_sheets.get_sheet_values
 ]
 ```
 
-Transposit introduces a few conveniences to SQL for working with JSON, including [EXPAND BY](../references/sql-operations.md). You'll want to use the `EXPAND BY` syntax here to return one item for each nested row so the values will be easier to manipulate and display later. \(Note: Since `values` is a SQL keyword, it must be escaped with backticks.\)
+Transposit introduces a few conveniences to SQL for working with JSON, including [EXPAND BY](../references/sql-operations.md). You'll want to use the `EXPAND BY` syntax here to return one item for each nested row so the values will be easier to manipulate and display later.
+
+{% hint style="danger" %}
+Note: Since `values` is a SQL keyword, it must be escaped with backticks.
+{% endhint %}
 
 Try expanding the results:
 
@@ -173,7 +192,7 @@ In the commented code there's a method named `api.run` that is available for you
 
 ## 6. Deploy your operation
 
-By default, the HTTP endpoints for your operations \(other than the default `helloworld` operation we created for you\) are private. Since this hosted app should be able to call our newly created operation, you need to deploy that new operation.
+By default, the HTTP endpoints for your operations \(other than the default `hello_world` operation we created for you\) are private. Since this hosted app should be able to call our newly created operation, you need to deploy that new operation.
 
 * Click the **Deploy**  in the navigation menu.
 * Find your `get_user_messages` operation and select **Deployed**
@@ -200,7 +219,7 @@ Now you're ready to have your hosted application display the results of your new
 
 * Return to your application's code
 * Go to your hosted app template by clicking on the **Page template** section
-* Replace `var operation = "helloworld";` with `var operation = "get_user_messages";` \(line 42 in the hosted app page markup\).
+* Replace `transposit.runOperation("hello_world");` with `transposit.runOperation("get_user_messages")` \(line 55 in the hosted app page markup\).
 * Click **Preview** to see the results. \(Note that any time you make a change to code or to the template, you need to click this button again to see the changes in the preview. Reloading the preview will not work.\)
 * Now that you see that it working in the preview, return to Transposit and commit your code changes so that you'll see it in the public link that you can once again access from your application manual.
 
@@ -224,4 +243,3 @@ Your app is now live!
 
 * [Allowing user-supplied keys through the managed connect page](../building/authentication.md)
 * [Integrating multiple data sources together](sql-quickstart.md)
-
