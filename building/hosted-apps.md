@@ -17,7 +17,7 @@ For more granular control, it is possible to host your app with a third-party an
 
 Click **Preview** to preview uncommitted page changes in your browser. You will need to click **Preview** every time you make a new change; reloading an old preview will not load new changes.
 
-A preview of your hosted app interacts with committed operations—You must commit changes to operation code before these changes will be reflected in a preview. A preview obeys the same configuration as your deployment, so if your hosted app has sign-in enabled, you will need to sign in to interact with the preview.
+A preview of your hosted app interacts with committed operations; you must commit changes to operation code before these changes will be reflected in a preview. A preview obeys the same configuration as your deployment, so if your hosted app has sign-in enabled, you will need to sign in to interact with the preview.
 
 A preview is not accessible to others and only exists for one minute. After one minute, loading a preview will merely load the committed page.
 
