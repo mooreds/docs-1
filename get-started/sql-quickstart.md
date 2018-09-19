@@ -59,7 +59,7 @@ SELECT * FROM google_mail.get_messages
 
 One of the challenges of working with APIs is that you often need to combine data across multiple APIs in order to make use of them. In this case, we need to do a separate API call to retrieve any useful information about the email messages.
 
-Let's create an operation that takes a message id and returns the ???
+Let's create an operation that takes a message id and returns the details for that message.
 
 * Create a new SQL operation from template, but this time select the `get_message` template.
 * In the right side of the editor, create a new parameter and name it `messageId`. You can now reference this parameter in the SQL with `@messageId`.
