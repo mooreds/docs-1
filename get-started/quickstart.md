@@ -16,7 +16,7 @@ By the end of this guide, you will have created a simple app that allows users t
 
 ## What you'll need
 
-You'll need a Google account with access to Google Sheets, and a Google spreadsheet where each row has an email address for the person who has access to that row.
+You'll need a Transposit account, a Google account with access to Google Sheets, and a Google spreadsheet where each row has an email address for the person who has access to that row.
 
 To make it easy, you can [copy this sample spreadsheet](https://docs.google.com/spreadsheets/d/1zwe5BJV8QrCK-WEGw5dt_kOPIRGmI_0Qw757bym21ow/copy) for use in this guide.
 
@@ -35,9 +35,9 @@ Be sure to replace these email addresses with your own in one or more of the spr
 
 ## 1. Create a new application
 
-To start a new project in Transposit, you will first create a new _application_. An application is Transposit's representation of a set of functionality you want to build, and contains operations, data connections, keys to access data connections, and configurations for authentication and deployment.
+To begin a new project, sign in to Transposit, and create a new _application_. An application is Transposit's representation of a set of functionality you want to build, and contains operations, data connections, keys to access data connections, and configurations for authentication and deployment.
 
-Create a new application, give it a name, and pick the "Simple app" template for use in this guide.
+Create your new application, give it a name, and pick the "Simple app" template for use in this guide.
 
 ## 2. View your app live
 
