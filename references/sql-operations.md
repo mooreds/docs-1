@@ -921,6 +921,48 @@ The limit clause specifies the maximum number of results to return in the query.
 LIMIT <number>
 ```
 
+### External parameters
+
+To access the value of a parameter defined on the SQL operation, use the following syntax:
+
+```sql
+@<param-name>
+```
+
+The `<param-name>` has the same restrictions as operations: it must start with an underscore or letter, after which letters, digits, underscores, and dashes are allowed.
+
+External parameters can be used anywhere literal values are allowed, including column selection and the WHERE clause.
+
+**Examples**
+
+_Using parameters in WHERE clause:_
+
+In the following query:
+
+```sql
+SELECT * FROM connector.operation
+WHERE input1 = @myParam
+```
+
+The value of the parameter `myParam` will be passed to `input1`.
+
+_Using parameters with string concatenation:_
+
+Because parameters get replaced with their value at runtime, they can be used in binary expressions. In the following query, if `myParam` is a string, it can be used in string concatenation:
+
+```sql
+SELECT * FROM connector.operation
+WHERE input1 = 'foo ' + @myParam
+```
+
+_Using parameters in a JSON template:_
+
+The following query again shows a parameter being used in a binary expression, but this time in column selection:
+
+```sql
+SELECT { foo: @myParam + 1 }
+```
+
 ### Comments
 
 Transposit supports multi-line comments using `/* */` or single line comments using the `--` prefix.
