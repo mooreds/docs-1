@@ -30,8 +30,8 @@ In order to share keychains within an organization, create the keychain with the
 
 ### **Auth via OAuth and OAuth v1**
 
-For most data connectors that implement either version of OAuth, Transposit provides OAuth settings (i.e. application client IDs and secrets) for limited use, meaning the OAuth token exchange can be performed out-of-the-box to acquire an API access token for the data connector. If you do not want to use the Transposit-provided OAuth settings, you always have the option to overwrite the limited use settings with your own custom OAuth settings.
-A small subset of data connectors will require you to provide custom OAuth settings because no feasible Transposit-provided OAuth settings exist for those connectors.
+For most data connections that implement either version of OAuth, Transposit provides OAuth settings (i.e. application client IDs and secrets) for limited use, meaning the OAuth token exchange can be performed out-of-the-box to acquire an API access token for the data connection. If you do not want to use the Transposit-provided OAuth settings, you always have the option to overwrite the limited use settings with your own custom OAuth settings.
+A small subset of data connections will require you to provide custom OAuth settings because no feasible Transposit-provided OAuth settings exist for those connections.
 
 * [Github](https://developer.github.com/v3/?#authentication)
 * [Google Analytics](https://developers.google.com/analytics/devguides/reporting/core/v4/authorization#OAuth2Authorizing)
@@ -52,7 +52,7 @@ A small subset of data connectors will require you to provide custom OAuth setti
 
 ### **Auth via header parameters**
 
-For data connectors that implement authentication with header parameters, such as PagerDuty, the header parameter name (as documented by the external API site) and header parameter value (typically a secret token distributed by the external API site) must be provided when adding the connector to an application.
+For data connections that implement authentication with header parameters, such as PagerDuty, the header parameter name (as documented by the external API site) and header parameter value (typically a secret token distributed by the external API site) must be provided when adding the connection to an application.
 
 Example: [PagerDuty](https://v2.developer.pagerduty.com/docs/authentication)
 
@@ -63,7 +63,7 @@ Example: [PagerDuty](https://v2.developer.pagerduty.com/docs/authentication)
 
 ### **Auth via query parameters**
 
-For data connectors that implement authentication with query parameters, such as Zoom, only the query parameter value (typically a secret distributed by the external API site) must be provided when adding the connector to an application.
+For data connections that implement authentication with query parameters, such as Zoom, only the query parameter value (typically a secret distributed by the external API site) must be provided when adding the connection to an application.
 
 Example: [Zoom](https://zoom.github.io/api/#authentication)
 
@@ -76,7 +76,7 @@ Example: [Zoom](https://zoom.github.io/api/#authentication)
 
 ### **Auth via AWS parameters**
 
-For AWS data connectors, such as Lambda, the required combination of authentication parameters 'Access Key', 'Secret Key', and 'Role' depends on the authentication setup of your particular AWS service being connected to.
+For AWS data connections, such as Lambda, the required combination of authentication parameters 'Access Key', 'Secret Key', and 'Role' depends on the authentication setup of your particular AWS service being connected to.
 The pair of 'Access Key' and 'Secret Key' authenticates you as an [IAM user](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html), and the 'Role' can be used to specify the ARN of an [IAM role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html).
 
 Example: Lambda with all three parameters provided (i.e. authentication as an IAM user assuming an IAM role)
