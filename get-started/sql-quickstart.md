@@ -114,8 +114,8 @@ Transposit makes it easy to join data across APIs in a single data source as wel
 
 ```sql
 SELECT *
-  FROM connector.operation_1 AS <operation-alias-1>
-  JOIN connector.operation_2 AS <operation-alias-2>
+  FROM connection.operation_1 AS <operation-alias-1>
+  JOIN connection.operation_2 AS <operation-alias-2>
   ON <predicate>
 ```
 

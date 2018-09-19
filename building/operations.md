@@ -1,6 +1,6 @@
 # SQL & JavaScript operations
 
-Operations are callable units of work. Operations can be written in [JavaScript](../references/js-operations.md) or [SQL](../references/sql-operations.md), and they may be private \(e.g. used only for development, or called by other operations within the application\), [scheduled for periodic execution](scheduled-tasks.md), or deployed as [endpoints](endpoints.md). Here's a quick look at why Transposit supports SQL, when to use JavaScript instead, and basic usage examples for each. 
+Operations are callable units of work. Operations can be written in [JavaScript](../references/js-operations.md) or [SQL](../references/sql-operations.md), and they may be private \(e.g. used only for development, or called by other operations within the application\), [scheduled for periodic execution](scheduled-tasks.md), or deployed as [endpoints](endpoints.md). Here's a quick look at why Transposit supports SQL, when to use JavaScript instead, and basic usage examples for each.
 
 ## Why use SQL?
 
@@ -56,13 +56,13 @@ function run(params) {
 To run another operation from inside a JavaScript operation, use the `run` method. The first argument is the operation reference; the second argument is a map of operation parameters to run with:
 
 ```javascript
-api.run("connector.operation", {});
+api.run("connection.operation", {});
 ```
 
 To run a SQL statement inside a JavaScript operation, use the `query` method:
 
 ```javascript
-api.query("select * from connector.operation");
+api.query("select * from connection.operation");
 ```
 
 To print to the console, use the `log` method; `log` accepts any number of arguments:
