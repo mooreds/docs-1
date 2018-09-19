@@ -30,8 +30,8 @@ In order to share keychains within an organization, create the keychain with the
 
 ### **Auth via oAuth and oAuth v1**
 
-For most data connectors that implement either version of oAuth, the oAuth token exchange can be performed out-of-the-box using Transposit oAuth settings to acquire an API access token.
-A small subset of data connectors will require custom oAuth settings to be provided when adding the connector to an application.
+For most data connectors that implement either version of oAuth, Transposit provides oAuth settings (i.e. application client IDs and secrets) for limited use, meaning the oAuth token exchange can be performed out-of-the-box to acquire an API access token for the data connector. If you do not want to use the Transposit-provided oAuth settings, you always have the option to overwrite the limited use settings with your own custom oAuth settings.
+A small subset of data connectors will require you to provide custom oAuth settings because no feasible Transposit-provided oAuth settings exist for those connectors.
 
 * [Github](https://developer.github.com/v3/?#authentication)
 * [Google Analytics](https://developers.google.com/analytics/devguides/reporting/core/v4/authorization#OAuth2Authorizing)
