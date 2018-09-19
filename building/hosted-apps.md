@@ -1,8 +1,10 @@
 # Hosted apps
 
-Transposit offers webpage hosting facilities, _hosted apps_, for exposing functionality to your users. Even for complex frontends, these facilities can be a great starting point when prototyping.
+Transposit offers web hosting facilities, _hosted apps_, for exposing functionality to your users. They are the simplest alternative to hosting a webapp with a third-party.
 
-Hosted apps are written in HTML and JavaScript. They can be protected by sign-in and they can require that users provide their own keys for applications to consume.
+Hosted app pages are written in HTML and JavaScript, but do not require much code to make useful. Transposit manages user sign-in and settings, provides the scaffolding for connecting to your Transposit backend, and suggests some basic interfaces for rendering operation results. Even for complex frontends, these facilities can be a great starting point when prototyping.
+
+For more granular control, it is possible to host your webapp with a third-party and use Transposit as a backend. These webapps can interface with Transposit via our [JavaScript SDK](../references/js-sdk.md) or by directly invoking [http endpoints](endpoints.md).
 
 ## Modify HTML
 
