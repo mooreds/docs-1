@@ -6,7 +6,7 @@ Here you can find details around Transposit's options for authentication, includ
 
 ## Keys
 
-Transposit supports several authorization mechanisms including oAuth, auth via headers, username/password, and a few less common options such as WSDL auth and oAuth v1. When you enter credentials \(or complete an oAuth flow\), Transposit securely stores them for future use as a key. Each Transposit application has its own keys that are not shared across applications, contexts, or organizations \(unless using keychains; see below\).
+Transposit supports several authorization mechanisms including OAuth, auth via headers, username/password, and a few less common options such as WSDL auth and OAuth v1. When you enter credentials \(or complete an OAuth flow\), Transposit securely stores them for future use as a key. Each Transposit application has its own keys that are not shared across applications, contexts, or organizations \(unless using keychains; see below\).
 
 When first adding a data connection to your application, Transposit will ask you to authorize the connection. After adding a data connection, keys for that dependency can be added or removed from the Keys section of the Transposit operations console.
 
@@ -28,10 +28,10 @@ In order to share keychains within an organization, create the keychain with the
 
 ## Common Authorization Mechanisms
 
-### **Auth via oAuth and oAuth v1**
+### **Auth via OAuth and OAuth v1**
 
-For most data connectors that implement either version of oAuth, Transposit provides oAuth settings (i.e. application client IDs and secrets) for limited use, meaning the oAuth token exchange can be performed out-of-the-box to acquire an API access token for the data connector. If you do not want to use the Transposit-provided oAuth settings, you always have the option to overwrite the limited use settings with your own custom oAuth settings.
-A small subset of data connectors will require you to provide custom oAuth settings because no feasible Transposit-provided oAuth settings exist for those connectors.
+For most data connectors that implement either version of OAuth, Transposit provides OAuth settings (i.e. application client IDs and secrets) for limited use, meaning the OAuth token exchange can be performed out-of-the-box to acquire an API access token for the data connector. If you do not want to use the Transposit-provided OAuth settings, you always have the option to overwrite the limited use settings with your own custom OAuth settings.
+A small subset of data connectors will require you to provide custom OAuth settings because no feasible Transposit-provided OAuth settings exist for those connectors.
 
 * [Github](https://developer.github.com/v3/?#authentication)
 * [Google Analytics](https://developers.google.com/analytics/devguides/reporting/core/v4/authorization#OAuth2Authorizing)
@@ -40,15 +40,15 @@ A small subset of data connectors will require you to provide custom oAuth setti
 * [Google Drive](https://developers.google.com/drive/api/v3/about-auth#OAuth2Authorizing)
 * [Google Mail](https://developers.google.com/gmail/api/auth/web-server)
 * [Google Sheets](https://developers.google.com/sheets/api/guides/authorizing#OAuth2Authorizing)
-* [Jira](https://developer.atlassian.com/cloud/jira/platform/jira-rest-api-oauth-authentication/) _(requires custom oAuth settings)_
+* [Jira](https://developer.atlassian.com/cloud/jira/platform/jira-rest-api-oauth-authentication/) _(requires custom OAuth settings)_
 * [Lyft](https://developer.lyft.com/docs/authentication)
 * [Medium](https://github.com/Medium/medium-api-docs#21-browser-based-authentication)
-* [Salesforce](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/quickstart_oauth.htm) _(requires custom oAuth settings)_
-* [Shopify](https://help.shopify.com/en/api/getting-started/authentication/oauth) _(requires custom oAuth settings)_
+* [Salesforce](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/quickstart_oauth.htm) _(requires custom OAuth settings)_
+* [Shopify](https://help.shopify.com/en/api/getting-started/authentication/oauth) _(requires custom OAuth settings)_
 * [Slack](https://api.slack.com/docs/oauth)
 * [Spotify](https://developer.spotify.com/documentation/general/guides/authorization-guide/)
 * [Strava](https://developers.strava.com/docs/authentication/)
-* [Survey Monkey](https://developer.surveymonkey.com/api/v3/#authentication) _(requires custom oAuth settings)_
+* [Survey Monkey](https://developer.surveymonkey.com/api/v3/#authentication) _(requires custom OAuth settings)_
 
 ### **Auth via header parameters**
 
