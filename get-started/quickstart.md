@@ -73,11 +73,11 @@ function hello_world() {
 Click the **Commit code** button in the upper right to commit the changes. If you then go to the browser tab where your hosted app is open and refresh the page, you'll see the new data.
 
 {% hint style="danger" %}
-If you hit an error, you can view the logs in the Monitor tab.
+If you encounter an error, you can view logs in the Monitor tab under the code editor.
 {% endhint %}
 
 {% hint style="info" %}
-In this quickstart, we'll ask you to either "commit" or "run" code in your operations. Commiting code pushes any changes to already deployed operations to your hosted application, while running code allows you to see the results of your current operation code locally in Transposit.
+In this guide, we'll ask you to either _commit_ or _run_ code in your operations. Commiting code pushes any changes to already deployed operations to your hosted application; running code allows you to see the results of your current operation code locally in Transposit.
 {% endhint %}
 
 ## 3. Add a data connector
