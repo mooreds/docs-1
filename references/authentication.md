@@ -54,7 +54,8 @@ A small subset of data connectors will require custom oAuth settings to be provi
 
 For data connectors that implement authentication with header parameters, such as PagerDuty, the header parameter name (as documented by the external API site) and header parameter value (typically a secret token distributed by the external API site) must be provided when adding the connector to an application.
 
-E.g. [PagerDuty](https://v2.developer.pagerduty.com/docs/authentication)
+Example: [PagerDuty](https://v2.developer.pagerduty.com/docs/authentication)
+
 INSERT SCREENSHOT 'EXEMPLARY pagerduty'
 
 * [PagerDuty](https://v2.developer.pagerduty.com/docs/authentication)
@@ -64,10 +65,10 @@ INSERT SCREENSHOT 'EXEMPLARY pagerduty'
 
 For data connectors that implement authentication with query parameters, such as Zoom, only the query parameter value (typically a secret distributed by the external API site) must be provided when adding the connector to an application.
 
-E.g. [Zoom](https://zoom.github.io/api/#authentication)
+Example: [Zoom](https://zoom.github.io/api/#authentication)
+
 INSERT SCREENSHOT 'EXEMPLARY zoom'
 
-Data connectors:
 * [Airtable](https://airtable.com/account)
 * [Apify Crawler](https://www.apify.com/docs/api/v1#/introduction/authentication)
 * [Giphy](https://developers.giphy.com/docs/)
@@ -78,10 +79,10 @@ Data connectors:
 For AWS data connectors, such as Lambda, the required combination of authentication parameters 'Access Key', 'Secret Key', and 'Role' depends on the authentication setup of your particular AWS service being connected to.
 The pair of 'Access Key' and 'Secret Key' authenticates you as an [IAM user](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html), and the 'Role' can be used to specify the ARN of an [IAM role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html).
 
-E.g. Lambda with all three parameters provided (i.e. authentication as an IAM user assuming an IAM role)
+Example: Lambda with all three parameters provided (i.e. authentication as an IAM user assuming an IAM role)
+
 INSERT SCREENSHOT 'EXEMPLARY lambda'
 
-Data connectors:
 * AWS Basic
 * Elastic
 * Lambda
