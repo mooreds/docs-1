@@ -23,5 +23,5 @@ Below we've covered common questions and technical scenarios you might encounter
 
 ## Rate limits
 
-* To make sure you don't accidentally run through your API rate limits for your data connections, Transposit limits the number of API fetches to 25 per operation per request.
+* To make sure you don't accidentally run through your API rate limits for your data connections, Transposit limits the number of API fetches to 25 per data connector per request.
 
