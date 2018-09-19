@@ -72,6 +72,10 @@ function hello_world() {
 
 Click the **Commit code** button in the upper right to commit the changes. If you then go to the browser tab where your hosted app is open and refresh the page, you'll see the new data.
 
+{% hint style="danger" %}
+If you hit an error, you can view the logs in the Monitor tab.
+{% endhint %}
+
 {% hint style="info" %}
 In this quickstart, we'll ask you to either "commit" or "run" code in your operations. Commiting code pushes any changes to already deployed operations to your hosted application, while running code allows you to see the results of your current operation code locally in Transposit.
 {% endhint %}
@@ -135,7 +139,11 @@ SELECT * FROM google_sheets.get_sheet_values
 ]
 ```
 
-Transposit introduces a few conveniences to SQL for working with JSON, including [EXPAND BY](../references/sql-operations.md). You'll want to use the `EXPAND BY` syntax here to return one item for each nested row so the values will be easier to manipulate and display later. \(Note: Since `values` is a SQL keyword, it must be escaped with backticks.\)
+Transposit introduces a few conveniences to SQL for working with JSON, including [EXPAND BY](../references/sql-operations.md). You'll want to use the `EXPAND BY` syntax here to return one item for each nested row so the values will be easier to manipulate and display later.
+
+{% hint style="danger" %}
+Note: Since `values` is a SQL keyword, it must be escaped with backticks.
+{% endhint %}
 
 Try expanding the results:
 
