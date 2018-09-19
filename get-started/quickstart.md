@@ -43,7 +43,7 @@ Create your new application, give it a name, and pick the "Simple app" template 
 
 Each new Transposit application has basic hosting enabled automatically. Even if you outgrow this basic hosting later, it's still helpful for testing and sharing your app while it’s in development. If and when you _do_ need more control, you can use our [JavaScript SDK](../building/js-sdk.md) or directly call our [HTTP endpoints](../building/endpoints.md) from your app.
 
-Transposit's hosting also requires sign-in by default so that only you and the people you've authorized can view your application.
+Transposit's hosting also requires sign in by default so that only you and the people you've authorized can view your application.
 
 Look at the **Documentation** tab in the lower half of the code window. Find the link to the hosted app page in the manual to populate your published and available application, accessible to you only, by signing in with your Google account.
 
