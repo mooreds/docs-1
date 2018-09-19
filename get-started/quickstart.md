@@ -1,5 +1,9 @@
 # Quickstart
 
+
+
+{% embed data="{\"url\":\"https://youtu.be/tiN3zu9Ae28\",\"type\":\"video\",\"title\":\"Transposit Quickstart\",\"description\":\"Build a data-driven application using Transposit and Google Sheets.\",\"icon\":{\"type\":\"icon\",\"url\":\"https://www.youtube.com/yts/img/favicon\_144-vfliLAfaB.png\",\"width\":144,\"height\":144,\"aspectRatio\":1},\"thumbnail\":{\"type\":\"thumbnail\",\"url\":\"https://i.ytimg.com/vi/tiN3zu9Ae28/maxresdefault.jpg\",\"width\":1280,\"height\":720,\"aspectRatio\":0.5625},\"embed\":{\"type\":\"player\",\"url\":\"https://www.youtube.com/embed/tiN3zu9Ae28?rel=0&showinfo=0\",\"html\":\"<div style=\\\"left: 0; width: 100%; height: 0; position: relative; padding-bottom: 56.2493%;\\\"><iframe src=\\\"https://www.youtube.com/embed/tiN3zu9Ae28?rel=0&amp;showinfo=0\\\" style=\\\"border: 0; top: 0; left: 0; width: 100%; height: 100%; position: absolute;\\\" allowfullscreen scrolling=\\\"no\\\"></iframe></div>\",\"aspectRatio\":1.7778}}" %}
+
 In this guide, you'll build a data-driven application using Transposit and Google Sheets.
 
 ## The scenario
@@ -20,7 +24,7 @@ To make it easy, you can [copy this sample spreadsheet](https://docs.google.com/
 
 Here's the format of that spreadsheet, with data owner email addresses in the left column, and the data you want them to have access to in the right column:
 
-| Date  | Email | Cost |
+| Date | Email | Cost |
 | :--- | :--- | :--- |
 | 8/05/2018 | you@domain.com | $20 |
 | 8/10/2018 | you@domain.com | $30 |
@@ -39,7 +43,7 @@ Create a new application, give it a name, and pick the "Simple app" template for
 
 ## 2. View your app live
 
-Each new Transposit application has basic hosting enabled automatically. Even if you outgrow this basic hosting later, it's still helpful for testing and sharing your app while it’s in development. If and when you _do_ need more control, you can use our [JavaScript SDK](../building/js-sdk.md) or directly call our [HTTP endpoints](../building/endpoints.md) from your app.  
+Each new Transposit application has basic hosting enabled automatically. Even if you outgrow this basic hosting later, it's still helpful for testing and sharing your app while it’s in development. If and when you _do_ need more control, you can use our [JavaScript SDK](../building/js-sdk.md) or directly call our [HTTP endpoints](../building/endpoints.md) from your app.
 
 Transposit's hosting also requires sign in by default so that only you and the people you've authorized can view your application.
 
@@ -243,3 +247,4 @@ Your app is now live!
 
 * [Allowing user-supplied keys through the managed connect page](../building/authentication.md)
 * [Integrating multiple data sources together](sql-quickstart.md)
+
