@@ -4,11 +4,11 @@
 
 An application is the representation of a particular project; a container functionality you want to build. Applications contain operations, data connections, keys to access data connections, and configurations for authentication and deployment.
 
-## Data connectors
+## Data connections
 
-Transposit creates a unified interface for interacting with various APIs. A data connector represents either external applications or other Transposit applications. OpenAPI or WSDL specifications are used to map external APIs to the Transposit ecosystem. Applications built within Transposit can be connected to each other without additional bindings.
+Transposit creates a unified interface for interacting with various APIs. A data connection represents either external applications or other Transposit applications. OpenAPI or WSDL specifications are used to map external APIs to the Transposit ecosystem. Applications built within Transposit can be connected to each other without additional bindings.
 
-The data connector encapsulates:
+The data connection encapsulates:
 
 * [Authentication](../references/authentication.md) \(OAuth, username/password, basic header auth, etc\)
 * API schema and delivery mechanism

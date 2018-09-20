@@ -56,7 +56,7 @@ The `*` symbol selects the entire result without modifying it:
 
 ```sql
 SELECT *
-FROM connector.operation
+FROM connection.operation
 ```
 
 #### Column selection
@@ -143,7 +143,7 @@ _Selecting a single value:_
 
 ```sql
 SELECT col1
-FROM connector.operation
+FROM connection.operation
 ```
 
 Will generate a JSON object with a single key:
@@ -161,7 +161,7 @@ _Selecting multiple values:_
 
 ```sql
 SELECT col1, col2, col3
-FROM connector.operation
+FROM connection.operation
 ```
 
 Will generate a JSON object with multiple keys:
@@ -199,7 +199,7 @@ The query:
 
 ```sql
 SELECT nested.object.value
-FROM connector.operation
+FROM connection.operation
 ```
 
 Will generate a JSON object with the key and value of the item at the specific path:
@@ -219,7 +219,7 @@ You can use column alias to change the key of a value:
 
 ```sql
 SELECT col1 AS foo
-FROM connector.operation
+FROM connection.operation
 ```
 
 Will generate a JSON object with the key `foo`, the value will be the value of `col1`:
@@ -239,7 +239,7 @@ When an operation \(or subquery\) is named with an alias \(see [operation alias]
 
 ```sql
 SELECT T.col1
-FROM connector.operation AS T
+FROM connection.operation AS T
 ```
 
 Will generate a JSON object with a single key:
@@ -276,8 +276,8 @@ Will generate:
 
 _Binary expressions:_
 
-Binary expressions can be used for basic math operation \(for numbers\) or string concatenation \(of strings\).  
-Binary expressions can use any combination of paths, literal values, and nested binary expressions.  
+Binary expressions can be used for basic math operation \(for numbers\) or string concatenation \(of strings\).
+Binary expressions can use any combination of paths, literal values, and nested binary expressions.
 Parentheses can be used to define the order of operations.
 
 The query:
@@ -300,7 +300,7 @@ With columns:
 
 ```sql
 SELECT (col1 + 10) * nested.object.value1 as value
-FROM connector.operation
+FROM connection.operation
 ```
 
 Will use the values of `col1` and `nested.object.value1` to calculate the value of the expression.
@@ -329,7 +329,7 @@ The query:
 
 ```sql
 SELECT nested.object.*
-FROM connector.operation
+FROM connection.operation
 ```
 
 Will generate a JSON object with the all the keys and values in the specific path:
@@ -439,7 +439,7 @@ _Selecting a single value:_
 
 ```sql
 SELECT { col1: col1 }
-FROM connector.operation
+FROM connection.operation
 ```
 
 Will generate a JSON object with a single key:
@@ -457,7 +457,7 @@ _Selecting multiple values:_
 
 ```sql
 SELECT { col1: col1, col2: col2, col3: col3 }
-FROM connector.operation
+FROM connection.operation
 ```
 
 Will generate a JSON object with multiple keys:
@@ -495,7 +495,7 @@ The query:
 
 ```sql
 SELECT { value: nested.object.value }
-FROM connector.operation
+FROM connection.operation
 ```
 
 Will generate a JSON object with the key and value of the item in the specific path:
@@ -515,7 +515,7 @@ The key is a part of the JSON template, so the same syntax can be used even if y
 
 ```sql
 SELECT { foo: col1 }
-FROM connector.operation
+FROM connection.operation
 ```
 
 Will generate a JSON object with the key `foo`, the value will be the value of `col1`:
@@ -533,7 +533,7 @@ If the key contains spaces, illegal characters or is a keyword, it must be escap
 
 ```sql
 SELECT { `key with spaces`: col1 }
-FROM connector.operation
+FROM connection.operation
 ```
 
 Will generate
@@ -553,7 +553,7 @@ When an operation \(or subquery\) is named with an alias \(see [operation alias]
 
 ```sql
 SELECT { col1: T.col1 }
-FROM connector.operation AS T
+FROM connection.operation AS T
 ```
 
 Will generate a JSON object with a single key:
@@ -589,8 +589,8 @@ Will generate:
 
 _Binary expressions:_
 
-Binary expressions can be used for basic math operation \(for numbers\) or string concatenation \(of strings\).  
-Binary expressions can use any combination of path, immediate values and nested binary expressions.  
+Binary expressions can be used for basic math operation \(for numbers\) or string concatenation \(of strings\).
+Binary expressions can use any combination of path, immediate values and nested binary expressions.
 Parentheses can be used to define the order of operations.
 
 The query:
@@ -613,7 +613,7 @@ With columns:
 
 ```sql
 SELECT { value: (col1 + 10) * nested.object.value1 }
-FROM connector.operation
+FROM connection.operation
 ```
 
 Will use the values of `col1` and `nested.object.value1` to calculate the value of the expression.
@@ -624,7 +624,7 @@ The previous examples showed how to construct an object as the output item. With
 
 ```sql
 SELECT [ col1 ]
-FROM connector.operation
+FROM connection.operation
 ```
 
 Will generate a JSON array with a single item \(the item is the value of `col1`\):
@@ -642,7 +642,7 @@ And you can use all the other expressions as in the previous examples: nested ob
 
 ```sql
 SELECT [ (col1 + 10) * nested.object.value1, T.col2, 7, 'seven', true ]
-FROM connector.operation AS T
+FROM connection.operation AS T
 ```
 
 _Constructing nested objects:_
@@ -660,7 +660,7 @@ SELECT {
       ]
     }
   }
-FROM connector.operation
+FROM connection.operation
 ```
 
 _Selecting all values in an object or array:_
@@ -686,7 +686,7 @@ The query:
 
 ```sql
 SELECT { ... object }
-FROM connector.operation
+FROM connection.operation
 ```
 
 Will generate a JSON object with the all the keys and values under `object`:
@@ -706,7 +706,7 @@ The query:
 
 ```sql
 SELECT [ ... array ]
-FROM connector.operation
+FROM connection.operation
 ```
 
 Will generate a JSON array with the all the values under `array`:
@@ -740,7 +740,7 @@ To get data from a single operation, you can use the operation directly in the `
 
 ```sql
 SELECT *
-FROM connector.operation AS <operation-alias>
+FROM connection.operation AS <operation-alias>
 ```
 
 `AS <operation-alias>` is optional. `<operation-alias>` is an identifier.
@@ -751,7 +751,7 @@ In some case when you want to manipulate the data set in multiple steps, you can
 
 ```sql
 SELECT *
-FROM (SELECT * FROM connector.operation) AS <operation-alias>
+FROM (SELECT * FROM connection.operation) AS <operation-alias>
 ```
 
 `AS <operation-alias>` is optional. `<operation-alias>` is an identifier.
@@ -764,8 +764,8 @@ Joins can be used to merge the results of two or more operations that are relate
 
 ```sql
 SELECT *
-FROM connector.operation_1 AS <operation-alias-1>
-<join-type> JOIN connector.operation_2 AS <operation-alias-2>
+FROM connection.operation_1 AS <operation-alias-1>
+<join-type> JOIN connection.operation_2 AS <operation-alias-2>
 ON <predicate>
 ```
 
@@ -832,13 +832,13 @@ A condition in a `WHERE` clause may either be passed as an input parameter or tr
 When two input parameters are combined with an `AND`, both are passed to the underlying operation. However, if two input parameters are combined with an `OR`, it will result in two invocations of the operation. For instance:
 
 ```sql
-SELECT * FROM <connector.operation> WHERE param1 = 'val1' AND param2 = 'val2'
+SELECT * FROM <connection.operation> WHERE param1 = 'val1' AND param2 = 'val2'
 ```
 
 Results in a single invocation of the operation that is passed `'val1'` as `param1` and `'val2'` as `param2`.
 
 ```sql
-SELECT * FROM <connector.operation> WHERE param1 = 'val1' OR param2 = 'val2'
+SELECT * FROM <connection.operation> WHERE param1 = 'val1' OR param2 = 'val2'
 ```
 
 Results in two invocations of the operation that are run in parallel. The first is passed `'val1'` as `param1` and is not passed a value for `param2`. The second invocation is passed `'val2'` as `param2` and is not passed a value for `param1`. When both invocations are complete, the result sets from each are concatenated together before other parts of the query are run.
@@ -846,13 +846,13 @@ Results in two invocations of the operation that are run in parallel. The first 
 Note that `IN` is equivalent to `OR`s of `=` operators, and thus may also result in multiple invocations of an operation. For instance:
 
 ```sql
-SELECT * FROM <connector.operation> WHERE param1 IN ('val1', 'val2', 'val3')
+SELECT * FROM <connection.operation> WHERE param1 IN ('val1', 'val2', 'val3')
 ```
 
 Is equivalent to:
 
 ```sql
-SELECT * FROM <connector.operation> WHERE param1 = 'val1' OR param1 = 'val2' OR param1 = 'val3'
+SELECT * FROM <connection.operation> WHERE param1 = 'val1' OR param1 = 'val2' OR param1 = 'val3'
 ```
 
 Both will result in three parallel invocations of the operation.
@@ -881,7 +881,7 @@ The number of items in each nested tuple on the right side of the `IN` must matc
 This sort of column mapping is also possible with subqueries.
 
 ```sql
-WHERE (col1, col2, ..., colN) IN (SELECT col1, col2, ... colN FROM <connector.operation>)
+WHERE (col1, col2, ..., colN) IN (SELECT col1, col2, ... colN FROM <connection.operation>)
 ```
 
 The mapping is positional \(first column is mapped to the first name in the tuple, and so on\), so the names of the subquery columns do not have to match the names in the `<name-tuple>`. However, the number of columns in the subquery must match the number of items in the `<name-tuple>`.
@@ -897,7 +897,7 @@ The `EXPAND BY` clause expands, or flattens, the items in a JSON array. This ten
 The syntax for `EXPAND BY` is:
 
 ```sql
-SELECT * FROM <connector.operation>
+SELECT * FROM <connection.operation>
 WHERE <predicate>
 EXPAND BY <path-1> AS <column-alias>, <path-2> AS <column-alias>, ..., <path-N> AS <column-alias>
 ```
@@ -940,7 +940,7 @@ _Using parameters in WHERE clause:_
 In the following query:
 
 ```sql
-SELECT * FROM connector.operation
+SELECT * FROM connection.operation
 WHERE input1 = @myParam
 ```
 
@@ -951,7 +951,7 @@ _Using parameters with string concatenation:_
 Because parameters get replaced with their value at runtime, they can be used in binary expressions. In the following query, if `myParam` is a string, it can be used in string concatenation:
 
 ```sql
-SELECT * FROM connector.operation
+SELECT * FROM connection.operation
 WHERE input1 = 'foo ' + @myParam
 ```
 
