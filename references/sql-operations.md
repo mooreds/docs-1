@@ -276,9 +276,7 @@ Will generate:
 
 _Binary expressions:_
 
-Binary expressions can be used for basic math operation \(for numbers\) or string concatenation \(of strings\).
-Binary expressions can use any combination of paths, literal values, and nested binary expressions.
-Parentheses can be used to define the order of operations.
+Binary expressions can be used for basic math operation \(for numbers\) or string concatenation \(of strings\). Binary expressions can use any combination of paths, literal values, and nested binary expressions. Parentheses can be used to define the order of operations.
 
 The query:
 
@@ -589,9 +587,7 @@ Will generate:
 
 _Binary expressions:_
 
-Binary expressions can be used for basic math operation \(for numbers\) or string concatenation \(of strings\).
-Binary expressions can use any combination of path, immediate values and nested binary expressions.
-Parentheses can be used to define the order of operations.
+Binary expressions can be used for basic math operation \(for numbers\) or string concatenation \(of strings\). Binary expressions can use any combination of path, immediate values and nested binary expressions. Parentheses can be used to define the order of operations.
 
 The query:
 

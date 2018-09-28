@@ -30,8 +30,7 @@ In order to share keychains within an organization, create the keychain with the
 
 ### **Auth via OAuth and OAuth v1**
 
-For most data connections that implement either version of OAuth, Transposit provides OAuth settings (i.e. application client IDs and secrets) for limited use, meaning the OAuth token exchange can be performed out-of-the-box to acquire an API access token for the data connection. If you do not want to use the Transposit-provided OAuth settings, you always have the option to overwrite the limited use settings with your own custom OAuth settings.
-A small subset of data connections will require you to provide custom OAuth settings because no feasible Transposit-provided OAuth settings exist for those connections.
+For most data connections that implement either version of OAuth, Transposit provides OAuth settings \(i.e. application client IDs and secrets\) for limited use, meaning the OAuth token exchange can be performed out-of-the-box to acquire an API access token for the data connection. If you do not want to use the Transposit-provided OAuth settings, you always have the option to overwrite the limited use settings with your own custom OAuth settings. A small subset of data connections will require you to provide custom OAuth settings because no feasible Transposit-provided OAuth settings exist for those connections.
 
 * [Github](https://developer.github.com/v3/?#authentication)
 * [Google Analytics](https://developers.google.com/analytics/devguides/reporting/core/v4/authorization#OAuth2Authorizing)
@@ -40,19 +39,19 @@ A small subset of data connections will require you to provide custom OAuth sett
 * [Google Drive](https://developers.google.com/drive/api/v3/about-auth#OAuth2Authorizing)
 * [Google Mail](https://developers.google.com/gmail/api/auth/web-server)
 * [Google Sheets](https://developers.google.com/sheets/api/guides/authorizing#OAuth2Authorizing)
-* [Jira](https://developer.atlassian.com/cloud/jira/platform/jira-rest-api-oauth-authentication/) _(requires custom OAuth settings)_
+* [Jira](https://developer.atlassian.com/cloud/jira/platform/jira-rest-api-oauth-authentication/) _\(requires custom OAuth settings\)_
 * [Lyft](https://developer.lyft.com/docs/authentication)
 * [Medium](https://github.com/Medium/medium-api-docs#21-browser-based-authentication)
-* [Salesforce](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/quickstart_oauth.htm) _(requires custom OAuth settings)_
-* [Shopify](https://help.shopify.com/en/api/getting-started/authentication/oauth) _(requires custom OAuth settings)_
+* [Salesforce](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/quickstart_oauth.htm) _\(requires custom OAuth settings\)_
+* [Shopify](https://help.shopify.com/en/api/getting-started/authentication/oauth) _\(requires custom OAuth settings\)_
 * [Slack](https://api.slack.com/docs/oauth)
 * [Spotify](https://developer.spotify.com/documentation/general/guides/authorization-guide/)
 * [Strava](https://developers.strava.com/docs/authentication/)
-* [Survey Monkey](https://developer.surveymonkey.com/api/v3/#authentication) _(requires custom OAuth settings)_
+* [Survey Monkey](https://developer.surveymonkey.com/api/v3/#authentication) _\(requires custom OAuth settings\)_
 
 ### **Auth via header parameters**
 
-For data connections that implement authentication with header parameters, such as PagerDuty, the header parameter name (as documented by the external API site) and header parameter value (typically a secret token distributed by the external API site) must be provided when adding the connection to an application.
+For data connections that implement authentication with header parameters, such as PagerDuty, the header parameter name \(as documented by the external API site\) and header parameter value \(typically a secret token distributed by the external API site\) must be provided when adding the connection to an application.
 
 Example: [PagerDuty](https://v2.developer.pagerduty.com/docs/authentication)
 
@@ -63,7 +62,7 @@ Example: [PagerDuty](https://v2.developer.pagerduty.com/docs/authentication)
 
 ### **Auth via query parameters**
 
-For data connections that implement authentication with query parameters, such as Zoom, only the query parameter value (typically a secret distributed by the external API site) must be provided when adding the connection to an application.
+For data connections that implement authentication with query parameters, such as Zoom, only the query parameter value \(typically a secret distributed by the external API site\) must be provided when adding the connection to an application.
 
 Example: [Zoom](https://zoom.github.io/api/#authentication)
 
@@ -76,15 +75,13 @@ Example: [Zoom](https://zoom.github.io/api/#authentication)
 
 ### **Auth via AWS parameters**
 
-For AWS data connections, such as Lambda, the required combination of authentication parameters 'Access Key', 'Secret Key', and 'Role' depends on the authentication setup of your particular AWS service being connected to.
-The pair of 'Access Key' and 'Secret Key' authenticates you as an [IAM user](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html), and the 'Role' can be used to specify the ARN of an [IAM role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html).
+For AWS data connections, such as Lambda, the required combination of authentication parameters 'Access Key', 'Secret Key', and 'Role' depends on the authentication setup of your particular AWS service being connected to. The pair of 'Access Key' and 'Secret Key' authenticates you as an [IAM user](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html), and the 'Role' can be used to specify the ARN of an [IAM role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html).
 
-Example: Lambda with all three parameters provided (i.e. authentication as an IAM user assuming an IAM role)
+Example: Lambda with all three parameters provided \(i.e. authentication as an IAM user assuming an IAM role\)
 
 ![](../.gitbook/assets/auth-exemplary-lambda.png)
 
 * AWS Basic
 * Elastic
 * Lambda
-
 

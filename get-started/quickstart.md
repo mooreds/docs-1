@@ -1,6 +1,6 @@
 # Quickstart
 
-{% embed data="{\"url\":\"https://youtu.be/tiN3zu9Ae28\",\"type\":\"video\",\"title\":\"Transposit Quickstart\",\"description\":\"Build a data-driven application using Transposit and Google Sheets.\",\"icon\":{\"type\":\"icon\",\"url\":\"https://www.youtube.com/yts/img/favicon\_144-vfliLAfaB.png\",\"width\":144,\"height\":144,\"aspectRatio\":1},\"thumbnail\":{\"type\":\"thumbnail\",\"url\":\"https://i.ytimg.com/vi/tiN3zu9Ae28/maxresdefault.jpg\",\"width\":1280,\"height\":720,\"aspectRatio\":0.5625},\"embed\":{\"type\":\"player\",\"url\":\"https://www.youtube.com/embed/tiN3zu9Ae28?rel=0&showinfo=0\",\"html\":\"<div style=\\\"left: 0; width: 100%; height: 0; position: relative; padding-bottom: 56.2493%;\\\"><iframe src=\\\"https://www.youtube.com/embed/tiN3zu9Ae28?rel=0&amp;showinfo=0\\\" style=\\\"border: 0; top: 0; left: 0; width: 100%; height: 100%; position: absolute;\\\" allowfullscreen scrolling=\\\"no\\\"></iframe></div>\",\"aspectRatio\":1.7778}}" %}
+{% embed data="{\"url\":\"https://youtu.be/tiN3zu9Ae28\",\"type\":\"video\",\"title\":\"Transposit Quickstart\",\"description\":\"Build a data-driven application using Transposit and Google Sheets.\",\"icon\":{\"type\":\"icon\",\"url\":\"https://www.youtube.com/yts/img/favicon\_144-vfliLAfaB.png\",\"width\":144,\"height\":144,\"aspectRatio\":1},\"thumbnail\":{\"type\":\"thumbnail\",\"url\":\"https://i.ytimg.com/vi/tiN3zu9Ae28/maxresdefault.jpg\",\"width\":1280,\"height\":720,\"aspectRatio\":0.5625},\"embed\":{\"type\":\"player\",\"url\":\"https://www.youtube.com/embed/tiN3zu9Ae28?rel=0&showinfo=0\",\"html\":\"<div style=\\\"left: 0; width: 100%; height: 0; position: relative; padding-bottom: 56.2493%;\\\"><iframe src=\\\"https://www.youtube.com/embed/tiN3zu9Ae28?rel=0&amp;showinfo=0\\\" style=\\\"border: 0; top: 0; left: 0; width: 100%; height: 100%; position: absolute;\\\" allowfullscreen scrolling=\\\"no\\\"></iframe></div>\",\"aspectRatio\":1.7778},\"caption\":\"A video demo of this Quickstart. View in Youtube for fullscreen. \"}" %}
 
 In this guide, you'll build a data-driven application using Transposit and Google Sheets.
 
@@ -37,7 +37,7 @@ Be sure to replace these email addresses with your own in one or more of the spr
 
 To begin a new project, [sign in to Transposit](http://api.transposit.com), and create a new _application_. An application is Transposit's representation of a set of functionality you want to build, and contains operations, data connections, keys to access data connections, and configurations for authentication and deployment.
 
-Create your new application, give it a name, and pick the "Simple app" template for use in this guide.
+Create your new application, give it a name, and pick the "Card display app" template for use in this guide.
 
 ## 2. View your app live
 
@@ -46,6 +46,10 @@ Each new Transposit application has basic hosting enabled automatically. Even if
 Transposit's hosting also requires sign-in by default so that only you and the people you've authorized can view your application.
 
 Look at the **Documentation** tab in the lower half of the code window. Find the link to the hosted app page in the manual to populate your published and available application, accessible to you only, by signing in with your Google account.
+
+{% hint style="warning" %}
+For now, please use Chrome to interact with Transposit-hosted applications.
+{% endhint %}
 
 Once signed in, you'll see some stub data displayed. This data is populated by the `hello_world` operation that comes already deployed in every new application.
 
@@ -74,7 +78,7 @@ function hello_world() {
 
 Click the **Commit code** button in the upper right to commit the changes. If you then go to the browser tab where your hosted app is open and refresh the page, you'll see the new data.
 
-{% hint style="danger" %}
+{% hint style="info" %}
 If you encounter an error, you can view logs in the Monitor tab under the code editor.
 {% endhint %}
 
@@ -143,7 +147,7 @@ SELECT * FROM google_sheets.get_sheet_values
 
 Transposit introduces a few conveniences to SQL for working with JSON, including [EXPAND BY](../references/sql-operations.md). You'll want to use the `EXPAND BY` syntax here to return one item for each nested row so the values will be easier to manipulate and display later.
 
-{% hint style="danger" %}
+{% hint style="warning" %}
 Note: Since `values` is a SQL keyword, it must be escaped with backticks.
 {% endhint %}
 
@@ -168,7 +172,7 @@ Sometimes it's easiest to use a bit of JavaScript to manipulate data and encode 
 
 ```javascript
 function run(params) {
-  var results = api.run('this.get_sheet_values_1').filter(function(item) {
+  var results = api.run('this.get_sheet_values').filter(function(item) {
     return item.values[1] === api.user().email;
   }).map(function(item) {
     return {
