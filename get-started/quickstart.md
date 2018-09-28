@@ -245,6 +245,14 @@ By default, your hosted app is available to only you. To make it available to mo
 
 Your app is now live!
 
+## 10. Beyond the Quickstart
+
+Now, start playing around with Transposit on your own by expanding on the Quickstart demo app or by creating an application of your own. Start small by simply creating a new app and adding data connections that are meaninful to you. 
+
+To get inspired, browse the data connectors that are currently available in Transposit:
+
+{% page-ref page="../references/data-connectors.md" %}
+
 ## Related topics
 
 * [Allowing user-supplied keys through the managed connect page](../building/authentication.md)
