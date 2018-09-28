@@ -18,5 +18,6 @@
   * [SQL operations](references/sql-operations.md)
   * [JavaScript operations](references/js-operations.md)
   * [JavaScript SDK](references/js-sdk.md)
+  * [Data connectors](references/data-connectors.md)
   * [FAQ](references/faq.md)
 
