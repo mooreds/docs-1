@@ -12,6 +12,7 @@ Don't see the connector you need here? Request it by getting in touch at [suppor
 
 * AWS Basic
 * AWS ECS
+* AWS Lambda
 * Airtable
 * Apify
 
@@ -48,7 +49,6 @@ Don't see the connector you need here? Request it by getting in touch at [suppor
 
 ## L
 
-* Lambda
 * Lyft
 
 ## M
