@@ -172,7 +172,7 @@ Sometimes it's easiest to use a bit of JavaScript to manipulate data and encode 
 
 ```javascript
 function run(params) {
-  var results = api.run('this.get_sheet_values').filter(function(item) {
+  var results = api.run('this.get_sheet_values_1').filter(function(item) {
     return item.values[1] === api.user().email;
   }).map(function(item) {
     return {
@@ -225,7 +225,7 @@ Now you're ready to have your hosted application display the results of your new
 
 * Return to your application's code
 * Go to your hosted app template by clicking on the **Page template** section
-* Replace `transposit.runOperation("hello_world");` with `transposit.runOperation("get_user_messages")` \(line 55 in the hosted app page markup\).
+* Replace `transposit.runOperation("hello_world")` with `transposit.runOperation("get_user_messages")` \(line 55 in the hosted app page markup\).
 * Click **Preview** to see the results. \(Note that any time you make a change to code or to the template, you need to click this button again to see the changes in the preview. Reloading the preview will not work.\)
 * Now that you see that it working in the preview, return to Transposit and commit your code changes so that you'll see it in the public link that you can once again access from your application manual.
 
