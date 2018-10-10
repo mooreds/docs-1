@@ -145,11 +145,8 @@ SELECT * FROM google_sheets.get_sheet_values
 ]
 ```
 
-Transposit introduces a few conveniences to SQL for working with JSON, including [EXPAND BY](../references/sql-operations.md). You'll want to use the `EXPAND BY` syntax here to return one item for each nested row so the values will be easier to manipulate and display later.
+Transposit introduces a few conveniences to SQL for working with JSON, including [EXPAND BY](../references/sql-operations.md). You'll want to use the `EXPAND BY` syntax here to return one item for each nested row so the values will be easier to manipulate and display later. Note that because `values` is a SQL keyword, it must be escaped with backticks.
 
-{% hint style="warning" %}
-Note: Since `values` is a SQL keyword, it must be escaped with backticks.
-{% endhint %}
 
 Try expanding the results:
 

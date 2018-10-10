@@ -34,4 +34,3 @@ Paginated operations are denoted by a green "paginated" tag in the documentation
 {% hint style="warning" %}
 Transposit will continue paginating such APIs until it reaches the `limit` specified in your query, or the API has no more results. For this reason, it is important to always provide a `limit` when using a paginated operation.
 {% endhint %}
-
