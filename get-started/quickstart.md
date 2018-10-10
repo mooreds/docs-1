@@ -153,7 +153,16 @@ Try expanding the results:
 ```sql
 SELECT * FROM google_sheets.get_sheet_values
   WHERE range='Sheet1'
-  AND spreadsheetId='<INSERT YOUR SPREADSHEET ID>' EXPAND BY `values`
+  AND spreadsheetId='<INSERT YOUR SPREADSHEET ID>'
+  EXPAND BY `values`
+  /**
+  You can comment out or delete unused parameters:
+
+  AND dateTimeRenderOption='SERIAL_NUMBER | FORMATTED_STRING'
+  AND majorDimension='DIMENSION_UNSPECIFIED | ROWS | COLUMNS'
+  AND valueRenderOption='FORMATTED_VALUE | UNFORMATTED_VALUE | FORMULA'
+  AND quotaUser='<string>'
+  **/
 ```
 
 {% hint style="info" %}
