@@ -81,22 +81,36 @@ api.log("logging the following greeting:", {"Hello", "World"})
 Transposit provides you access to a few different popular JavaScript libraries.
 
 * [qs \(v6.5.2\)](https://github.com/ljharb/qs)
-* [underscore](https://underscorejs.org/)
-* [jsonpath](https://github.com/dchester/jsonpath)
-* [moment](https://momentjs.com/timezone/)
-* [moment-timezone](https://momentjs.com/timezone/)
-* [moment-timezone-with-data](https://momentjs.com/timezone/)
-
-Example usage:
-
 ```javascript
 var qs = require('qs.js');
 var limited = qs.parse('a=b&c=d', { parameterLimit: 1 });
 ```
 
+* [underscore](https://underscorejs.org/)
+```javascript
+var _ = require('underscore.js');
+return _.map([1, 2, 3], function(num){ return num * 3; });
+```
+
+* [moment](https://momentjs.com/timezone/)
+* [moment-timezone](https://momentjs.com/timezone/)
+* [moment-timezone-with-data](https://momentjs.com/timezone/)
 ```javascript
 var moment = require('moment-timezone-with-data.js');
 var jun = moment("2014-06-01T12:00:00Z");
 api.log(jun.clone().tz('America/New_York').format('ha z')); // 8am EDT
 ```
 
+* [mustache](https://github.com/janl/mustache.js)
+```javascript
+var mustache = require('mustache.js');
+var view = {
+  title: "Joe",
+  calc: function () {
+    return 2 + 4;
+  }
+};
+var output = mustache.render("{{title}} spends {{calc}}", view);
+```
+
+* [jsonpath](https://github.com/dchester/jsonpath)
