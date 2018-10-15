@@ -178,7 +178,7 @@ Sometimes it's easiest to use a bit of JavaScript to manipulate data and encode 
 
 ```javascript
 function run(params) {
-  var results = api.run('this.get_sheet_values_1').filter(function(item) {
+  var results = api.run('this.get_sheet_values').filter(function(item) {
     return item.values[1] === api.user().email;
   }).map(function(item) {
     return {
