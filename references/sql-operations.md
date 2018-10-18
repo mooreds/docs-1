@@ -963,3 +963,21 @@ SELECT { foo: @myParam + 1 }
 
 Transposit supports multi-line comments using `/* */` or single line comments using the `--` prefix.
 
+### Pagination and streaming
+
+Transposit automatically paginates many APIs (see (faq)[./faq.md#automatic-pagination]). This feature is deeply integrated with our SQL engine, allowing queries to dynamically pull more results from data connectors until it has reached the desired limit.
+
+For example, if we have the following query:
+```sql
+SELECT * FROM connection.operation LIMIT 10
+```
+Assume `operation` is paginated and has a parameter called `pageSize` to control the number of results from the API. In this case, Transposit is smart enough to set the `pageSize` to 10 based on the desired limit.
+
+This is easy for a simple query, but imagine a more complex query that filters the results of the API:
+```sql
+SELECT * FROM connection.operation
+WHERE foo='bar'
+LIMIT 10
+```
+The where clause may filter out some of the results of the API call, leaving us with fewer than ten results. When this happens, the query will iterate and fetch the next page of results from the API. This continues until the query has accumulated ten total results, or the API indicates it is done paginating.
+
