@@ -24,7 +24,7 @@ A preview is not accessible to others and only exists for one minute. After one 
 You can access previews at:
 
 ```text
-https://api.transposit.com/app/{maintainer}/{applicationName}/preview
+https://console.transposit.com/app/{maintainer}/{applicationName}/preview
 ```
 
 ### Deployment process
@@ -36,7 +36,7 @@ Sign-in and authentication for data connections can be configured under **Authen
 Your hosted app can be accessed at:
 
 ```text
-https://api.transposit.com/app/{maintainer}/{applicationName}
+https://console.transposit.com/app/{maintainer}/{applicationName}
 ```
 
 ## Configure sign-in
@@ -58,4 +58,3 @@ Each data connection in your application can either reference a production key o
 ## Manage users
 
 You can view and administer registered users in **Authentication &gt; Registered Users**. You can delete users or their keys if necessary.
-
