@@ -1133,6 +1133,58 @@ Will create the following result set:
 ]
 ```
 
+_Expand by with missing fields_
+
+If the results of `connection.operation` have the format where `vals` is missing from one of the rows:
+
+```javascript
+[
+  {
+    "id": 1,
+    "vals": [1, 2] 
+  },
+  {
+    "id": 2,
+  },
+  {
+    "id": 3,
+    "vals": [3, 4] 
+  }
+]
+```
+
+The query:
+
+```sql
+SELECT * FROM connection.operation
+EXPAND BY vals
+```
+
+Will create the following result set:
+
+```javascript
+[
+  {
+    "id": 1,
+    "vals": 1
+  },
+  {
+    "id": 1,
+    "vals": 2
+  },
+  {
+    "id": 3,
+    "vals": 3
+  },
+  {
+    "id": 3,
+    "vals": 4
+  }
+]
+```
+
+Notice that because the item with `id: 2` did not have a field at the path `vals`, it does not show up in the result set.
+
 ### Limit clause
 
 The limit clause specifies the maximum number of results to return in the query. The syntax is:
