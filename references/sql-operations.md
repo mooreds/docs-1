@@ -961,7 +961,10 @@ SELECT { foo: @myParam + 1 }
 
 ### Keywords and escaping
 
-Transposit has a number of keywords and reserved words in SQL. In order to use a reserved word as an identifier in a query, it is necessary to escape it using backticks: `<keyword>`.
+Transposit has a number of keywords and reserved words in SQL. In order to use a reserved word as an identifier in a query, it is necessary to escape it using backticks: 
+```
+`<keyword>`
+```
 
 Escaping is necessary when the identifier is used in many parts of the query, including column selection, WHERE clauses, and EXPAND BY. However, it is not necessary to escape operation names or external variables.
 
