@@ -961,7 +961,7 @@ SELECT { foo: @myParam + 1 }
 
 ### Keywords and escaping
 
-Transposit has a number of keywords and reserved words in SQL. In order to use a reserved word as an identifier in a query, it is necessary to escape it using backticks ``.
+Transposit has a number of keywords and reserved words in SQL. In order to use a reserved word as an identifier in a query, it is necessary to escape it using backticks: `<keyword>`.
 
 Escaping is necessary when the identifier is used in many parts of the query, including column selection, WHERE clauses, and EXPAND BY. However, it is not necessary to escape operation names or external variables.
 
@@ -1048,5 +1048,23 @@ WHERE foo='values'
 
 ### Comments
 
-Transposit supports multi-line comments using `/* */` or single line comments using the `--` prefix.
+Transposit supports block comments using `/* */` or single line comments using the `--` prefix.
 
+**Examples**
+
+_Line comment_
+
+```sql
+SELECT *  -- the rest of the line is a comment
+FROM connection.operation
+WHERE foo=bar
+```
+
+_Block comment_
+
+```sql
+SELECT * /* 
+ everything in here is a comment 
+*/ FROM connection.operation
+WHERE foo=bar
+```
