@@ -970,7 +970,7 @@ SELECT * FROM connection.operation
 EXPAND BY vals as aliasedVals
 ```
 
-Will create a row for each item in `vals`:
+Will create the following result set:
 
 ```javascript
 [
@@ -1027,7 +1027,7 @@ SELECT * FROM connection.operation
 EXPAND BY nested.vals
 ```
 
-Will create a row for each item in `vals`:
+Will create the following result set:
 
 ```javascript
 [
@@ -1054,6 +1054,81 @@ Will create a row for each item in `vals`:
     "nested": {
       "vals": 4
     }
+  }
+]
+```
+
+Notice that the nested structure is maintained.
+
+_Expand by multiple fields_
+
+If the results of `connection.operation` have the format:
+
+```javascript
+[
+  {
+    "id": 1,
+    "letters": ["a", "b"],
+    "numbers": [1, 2] 
+  },
+  {
+    "id": 2,
+    "letters": ["c", "d"],
+    "numbers": [3, 4] 
+  }
+]
+```
+
+The query:
+
+```sql
+SELECT * FROM connection.operation
+EXPAND BY letters, numbers
+```
+
+Will create the following result set:
+
+```javascript
+[
+  {
+    "id": 1,
+    "letters": "a",
+    "numbers": 1
+  },
+  {
+    "id": 1,
+    "letters": "a",
+    "numbers": 2
+  },
+  {
+    "id": 1,
+    "letters": "b",
+    "numbers": 1
+  },
+  {
+    "id": 1,
+    "letters": "b",
+    "numbers": 2
+  },
+  {
+    "id": 2,
+    "letters": "c",
+    "numbers": 3
+  },
+  {
+    "id": 2,
+    "letters": "c",
+    "numbers": 4
+  },
+  {
+    "id": 2,
+    "letters": "d",
+    "numbers": 3
+  },
+  {
+    "id": 2,
+    "letters": "d",
+    "numbers": 4
   }
 ]
 ```
