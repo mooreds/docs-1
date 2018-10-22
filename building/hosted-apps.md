@@ -24,7 +24,7 @@ A preview is not accessible to others and only exists for one minute. After one 
 You can access previews at:
 
 ```text
-https://console.transposit.com/app/{maintainer}/{applicationName}/preview
+https://api.transposit.com/app/{maintainer}/{applicationName}/preview
 ```
 
 ### Deployment process
