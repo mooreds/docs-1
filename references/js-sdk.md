@@ -15,7 +15,7 @@ Reads login information from the url and stores the claims object in localStorag
 **Example**
 
 ```javascript
-transposit.handleLogin()
+transposit.handleLogin();
 // => "patjones"
 ```
 
@@ -33,9 +33,9 @@ Invalidates stored claims and clears them from localStorage.
 
 Runs an operation.
 
-| Argument | Type |  |
-| :--- | :--- | :--- |
-| operation | String | the name of the operation to be run |
+| Argument      | Type   |                                                       |
+| :------------ | :----- | :---------------------------------------------------- |
+| operation     | String | the name of the operation to be run                   |
 | \[params={}\] | Object | an object containing any operation-defined parameters |
 
 **Returns** \(EndRequestLog\): Returns the operation results and metadata about that result
@@ -52,8 +52,8 @@ transposit.runOperation("source.users", { id: params.userId });
 
 ### `transposit.getConnectLocation([redirectUri=window.location.href])`
 
-| Argument | Type |  |
-| :--- | :--- | :--- |
+| Argument                             | Type   |                                                       |
+| :----------------------------------- | :----- | :---------------------------------------------------- |
 | \[redirectUri=window.location.href\] | String | an optional param to specify an alternate redirectUri |
 
 **Returns** \(String\): A url to redirect to for user authorization.
@@ -69,8 +69,8 @@ transposit.getConnectLocation("localhost");
 
 Runs an operation.
 
-| Argument | Type |  |
-| :--- | :--- | :--- |
+| Argument                             | Type   |                                                       |
+| :----------------------------------- | :----- | :---------------------------------------------------- |
 | \[redirectUri=window.location.href\] | String | an optional param to specify an alternate redirectUri |
 
 **Returns** \(String\): A url to redirect to for google login.
@@ -91,7 +91,7 @@ Returns available user information.
 **Example**
 
 ```javascript
-transposit.getUserInfo()
+transposit.getUserInfo();
 // => "patjones"
 ```
 
@@ -141,4 +141,3 @@ export interface ScriptExceptionLog {
   column?: number;
 }
 ```
-

@@ -22,12 +22,12 @@ To make it easy, you can [copy this sample spreadsheet](https://docs.google.com/
 
 Here's the format of that spreadsheet, with data owner email addresses in the left column, and the data you want them to have access to in the right column:
 
-| Date | Email | Cost |
-| :--- | :--- | :--- |
-| 8/05/2018 | you@domain.com | $20 |
-| 8/10/2018 | you@domain.com | $30 |
-| 9/05/2018 | iggy@transposit.com | $25 |
-| 9/12/2018 | iggy@transposit.com | $45 |
+| Date      | Email               | Cost |
+| :-------- | :------------------ | :--- |
+| 8/05/2018 | you@domain.com      | $20  |
+| 8/10/2018 | you@domain.com      | $30  |
+| 9/05/2018 | iggy@transposit.com | $25  |
+| 9/12/2018 | iggy@transposit.com | $45  |
 
 {% hint style="info" %}
 Be sure to replace these email addresses with your own in one or more of the spreadsheet rows.
@@ -35,7 +35,7 @@ Be sure to replace these email addresses with your own in one or more of the spr
 
 ## 1. Create a new application
 
-To begin a new project, [sign in to Transposit](http://api.transposit.com), and create a new _application_. An application is Transposit's representation of a set of functionality you want to build, and contains operations, data connections, keys to access data connections, and configurations for authentication and deployment.
+To begin a new project, [sign in to Transposit](http://console.transposit.com), and create a new _application_. An application is Transposit's representation of a set of functionality you want to build, and contains operations, data connections, keys to access data connections, and configurations for authentication and deployment.
 
 Create your new application, give it a name, and pick the "Card display app" template for use in this guide.
 
@@ -72,7 +72,7 @@ function hello_world() {
       language: "italian",
       message: "Ciao Mondo"
     }
-  ]
+  ];
 }
 ```
 

@@ -4,7 +4,7 @@ Transposit is an end-to-end solution for building production-ready applications 
 
 ## Relational engine
 
-Transposit provides the ability to write SQL queries \(or JavaScript\) to transform and explore your data, as if each data connection is a virtual table in a single single relational database. It abstracts away the details of data representation allowing you to express your intent, while the relational engine translates that intent, optimizes it, and executes it.
+Transposit provides the ability to write SQL queries \(or JavaScript\) to transform and explore your data, as if each data connection is a virtual table in a single relational database. It abstracts away the details of data representation allowing you to express your intent, while the relational engine translates that intent, optimizes it, and executes it.
 
 To make this work, we’ve built Transposit to know how to securely communicate with APIs, optimize performance around network calls, and account for the unreliable nature of modern APIs.
 
