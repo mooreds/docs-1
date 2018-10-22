@@ -959,7 +959,115 @@ The following query again shows a parameter being used in a binary expression, b
 SELECT { foo: @myParam + 1 }
 ```
 
+### Keywords and escaping
+
+Transposit has a number of keywords and reserved words in SQL. In order to use a reserved word as an identifier in a query, it is necessary to escape it using backticks: 
+```
+`<keyword>`
+```
+
+Escaping is necessary when the identifier is used in many parts of the query, including column selection, WHERE clauses, and EXPAND BY. However, it is not necessary to escape operation names or external variables.
+
+**Examples**
+
+In these examples, we will use the reserved word "values" to demonstrate when it is necessary to escape identifiers.
+
+_Keywords in column selection_
+
+It is necessary to escape column names in the SELECT clause.
+
+```sql
+SELECT `values` FROM connection.operation
+```
+
+_Keywords in the WHERE clause_
+
+It is necessary to escape column names on both sides of a condition in a WHERE clause.
+
+```sql
+SELECT * FROM connection.operation
+WHERE `values`=foo
+```
+
+```sql
+SELECT * FROM connection.operation
+WHERE foo=`values`
+```
+
+However, it is not necessary if the keyword is part of a longer path.
+
+```sql
+SELECT * FROM connection.operation
+WHERE foo=path.to.values
+```
+
+_Keywords in the EXPAND BY clause_
+
+It is necessary to escape column names in the EXPAND BY clause.
+
+```sql
+SELECT * FROM connection.operation
+EXPAND BY `values`
+```
+
+Like with the WHERE clause, it is not necessary to escape if part of a longer path.
+
+```sql
+SELECT * FROM connection.operation
+EXPAND BY path.to.values
+```
+
+_Keywords in the connection or operation name_
+
+It is not necessary to escape keywords in the connection name.
+
+```sql
+SELECT * FROM values.operation
+```
+
+Similarly, it is not necessary to escape keywords in the operation name.
+
+```sql
+SELECT * FROM connection.values
+```
+
+_Keywords in external parameters_
+
+It is not necessary to escape external parameters, as they are already denoted by the @ symbol.
+
+```sql
+SELECT * FROM connection.operation
+WHERE foo=@values
+```
+
+_Keywords in literal strings_
+
+It is not necessary to escape keywords when they are used in a string literal.
+
+```sql
+SELECT * FROM connection.operation
+WHERE foo='values'
+```
+
 ### Comments
 
-Transposit supports multi-line comments using `/* */` or single line comments using the `--` prefix.
+Transposit supports block comments using `/* */` or single line comments using the `--` prefix.
 
+**Examples**
+
+_Line comment_
+
+```sql
+SELECT *  -- the rest of the line is a comment
+FROM connection.operation
+WHERE foo=bar
+```
+
+_Block comment_
+
+```sql
+SELECT * /* 
+ everything in here is a comment 
+*/ FROM connection.operation
+WHERE foo=bar
+```
