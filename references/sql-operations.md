@@ -909,6 +909,282 @@ For each result in the result set, for each `<path>` in the list of paths:
 3. Create a new result for each item in the array. If there is no `<column-alias>`, the item is placed in the same position as the array it came from \(replacing the array\). Otherwise, the alias is used to place the item and the original array is left intact.
 4. Replace the top-level result set with this new list of results
 
+**Examples**
+
+_Expand by a single column_
+
+If the results of `connection.operation` have the format:
+
+```javascript
+[
+  {
+    "id": 1,
+    "vals": [1, 2]
+  },
+  {
+    "id": 2,
+    "vals": [3, 4]
+  }
+]
+```
+
+The query:
+
+```sql
+SELECT * FROM connection.operation
+EXPAND BY vals
+```
+
+Will create a row for each item in `vals`:
+
+```javascript
+[
+  { "id": 1, "vals": 1 },
+  { "id": 1, "vals": 2 },
+  { "id": 2, "vals": 3 },
+  { "id": 2, "vals": 4 }
+]
+```
+
+_Expand by a single column with an alias_
+
+If the results of `connection.operation` have the format:
+
+```javascript
+[
+  {
+    "id": 1,
+    "vals": [1, 2]
+  },
+  {
+    "id": 2,
+    "vals": [3, 4]
+  }
+]
+```
+
+The query:
+
+```sql
+SELECT * FROM connection.operation
+EXPAND BY vals as aliasedVals
+```
+
+Will create the following result set:
+
+```javascript
+[
+  {
+    "id": 1,
+    "vals": [1, 2],
+    "aliasedVals": 1
+  },
+  {
+    "id": 1,
+    "vals": [1, 2],
+    "aliasedVals": 2
+  },
+  {
+    "id": 2,
+    "vals": [3, 4],
+    "aliasedVals": 3
+  },
+  {
+    "id": 2,
+    "vals": [3, 4],
+    "aliasedVals": 4
+  }
+]
+```
+
+Notice that when an alias is used, the original array is left in the results.
+
+_Expand by a nested field_
+
+If the results of `connection.operation` have the format:
+
+```javascript
+[
+  {
+    "id": 1,
+    "nested": {
+      "vals": [1, 2] 
+    }
+  },
+  {
+    "id": 2,
+    "nested": {
+      "vals": [3, 4] 
+    }
+  }
+]
+```
+
+The query:
+
+```sql
+SELECT * FROM connection.operation
+EXPAND BY nested.vals
+```
+
+Will create the following result set:
+
+```javascript
+[
+  {
+    "id": 1,
+    "nested": {
+      "vals": 1
+    }
+  },
+  {
+    "id": 1,
+    "nested": {
+      "vals": 2
+    }
+  },
+  {
+    "id": 2,
+    "nested": {
+      "vals": 3
+    }
+  },
+  {
+    "id": 2,
+    "nested": {
+      "vals": 4
+    }
+  }
+]
+```
+
+Notice that the nested structure is maintained.
+
+_Expand by multiple fields_
+
+If the results of `connection.operation` have the format:
+
+```javascript
+[
+  {
+    "id": 1,
+    "letters": ["a", "b"],
+    "numbers": [1, 2] 
+  },
+  {
+    "id": 2,
+    "letters": ["c", "d"],
+    "numbers": [3, 4] 
+  }
+]
+```
+
+The query:
+
+```sql
+SELECT * FROM connection.operation
+EXPAND BY letters, numbers
+```
+
+Will create the following result set:
+
+```javascript
+[
+  {
+    "id": 1,
+    "letters": "a",
+    "numbers": 1
+  },
+  {
+    "id": 1,
+    "letters": "a",
+    "numbers": 2
+  },
+  {
+    "id": 1,
+    "letters": "b",
+    "numbers": 1
+  },
+  {
+    "id": 1,
+    "letters": "b",
+    "numbers": 2
+  },
+  {
+    "id": 2,
+    "letters": "c",
+    "numbers": 3
+  },
+  {
+    "id": 2,
+    "letters": "c",
+    "numbers": 4
+  },
+  {
+    "id": 2,
+    "letters": "d",
+    "numbers": 3
+  },
+  {
+    "id": 2,
+    "letters": "d",
+    "numbers": 4
+  }
+]
+```
+
+_Expand by with missing fields_
+
+If the results of `connection.operation` have the format where `vals` is missing from one of the rows:
+
+```javascript
+[
+  {
+    "id": 1,
+    "vals": [1, 2] 
+  },
+  {
+    "id": 2,
+  },
+  {
+    "id": 3,
+    "vals": [3, 4] 
+  }
+]
+```
+
+The query:
+
+```sql
+SELECT * FROM connection.operation
+EXPAND BY vals
+```
+
+Will create the following result set:
+
+```javascript
+[
+  {
+    "id": 1,
+    "vals": 1
+  },
+  {
+    "id": 1,
+    "vals": 2
+  },
+  {
+    "id": 3,
+    "vals": 3
+  },
+  {
+    "id": 3,
+    "vals": 4
+  }
+]
+```
+
+Notice that because the item with `id: 2` did not have a field at the path `vals`, it does not show up in the result set.
+
 ### Limit clause
 
 The limit clause specifies the maximum number of results to return in the query. The syntax is:
