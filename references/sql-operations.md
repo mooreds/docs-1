@@ -235,7 +235,7 @@ Will generate a JSON object with the key `foo`, the value will be the value of `
 
 _Using operation aliases:_
 
-When an operation \(or subquery\) is named with an [alias](sql-operations.md#operation-alias), the alias can later be used as a qualifier at the beginning of the path to define exactly where to do the lookup for the path \(the results of which operation or subquery to use\). This is particularly useful in [join queries](sql-operations.md#join-query)\, where the query has more than one data source.
+When an operation \(or subquery\) is named with an [alias](sql-operations.md#operation-alias), the alias can later be used as a qualifier at the beginning of the path to define exactly where to do the lookup for the path \(the results of which operation or subquery to use\). This is particularly useful in [join queries](sql-operations.md#join-query), where the query has more than one data source.
 
 ```sql
 SELECT T.col1
@@ -547,7 +547,7 @@ Will generate
 
 _Using an operation alias:_
 
-When an operation \(or subquery\) is named with an [alias](sql-operations.md#operation-alias), the alias can later be used as a qualifier at the beginning of the path to define exactly where to do the lookup for the path \(the results of which operation or subquery to use\). This is particularly useful in [join queries](sql-operations.md#join-query)\, where the query has more than one data source.
+When an operation \(or subquery\) is named with an [alias](sql-operations.md#operation-alias), the alias can later be used as a qualifier at the beginning of the path to define exactly where to do the lookup for the path \(the results of which operation or subquery to use\). This is particularly useful in [join queries](sql-operations.md#join-query), where the query has more than one data source.
 
 ```sql
 SELECT { col1: T.col1 }
