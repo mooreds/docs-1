@@ -127,8 +127,8 @@ If the types of the operand is string, only the `+` operator is allowed, if a di
 If the resolve process produces a valid value, this value will be added to the output JSON object with a key, the key is selected in the following way:
 
 * If `<column-alias>` is specified it will be used as the key.
-* If `<column-expression>` is `<path>` that does not ends with `.*`, the last `<key>` will be used as the key.
-* If `<column-expression>` is `<path>` that ends with `.*`, the keys and values under the last `<key>` will all be copied into the result object.
+* If `<column-expression>` is a `<path>` that does not end with `.*`, the last `<key>` will be used as the key.
+* If `<column-expression>` is a `<path>` that ends with `.*`, the keys and values under the last `<key>` will all be copied into the result object.
 * Otherwise the entire `<column-expression>` will be used as the key. It's recommended to use `<column-alias>` in this case.
 
 {% hint style="info" %}
@@ -235,7 +235,7 @@ Will generate a JSON object with the key `foo`, the value will be the value of `
 
 _Using operation aliases:_
 
-When an operation \(or subquery\) is named with an alias \(see [operation alias](sql-operations.md#operation-alias)\) the alias can later be used as a qualifier at the beginning of the path to define exactly where to do the lookup for the path \(the results of which operation or subquery to use\). This is particularly useful in [join queries](sql-operations.md#join-query)\), where the query has more than one data source.
+When an operation \(or subquery\) is named with an [alias](sql-operations.md#operation-alias), the alias can later be used as a qualifier at the beginning of the path to define exactly where to do the lookup for the path \(the results of which operation or subquery to use\). This is particularly useful in [join queries](sql-operations.md#join-query), where the query has more than one data source.
 
 ```sql
 SELECT T.col1
@@ -428,8 +428,8 @@ If the same key is used more than once, the last value will be used and will ove
 
 If the value is resolved to `null` or 'not found':
 
-* If the output item is JSON object, this value will not be added it to the output item.
-* If the output item is JSON array, this value will be added it to the output item as `null`.
+* If the output item is a JSON object, this value will not be added it to the output item.
+* If the output item is a JSON array, this value will be added it to the output item as `null`.
 
 **Examples**
 
@@ -547,7 +547,7 @@ Will generate
 
 _Using an operation alias:_
 
-When an operation \(or subquery\) is named with an alias \(see [operation alias](sql-operations.md#operation-alias)\) the alias can later be used as a qualifier at the beginning of the path to define exactly where to do the lookup for the path \(the results of which operation or subquery to use\). This is particularly useful in [join queries](sql-operations.md#join-query)\), where the query has more than one data source.
+When an operation \(or subquery\) is named with an [alias](sql-operations.md#operation-alias), the alias can later be used as a qualifier at the beginning of the path to define exactly where to do the lookup for the path \(the results of which operation or subquery to use\). This is particularly useful in [join queries](sql-operations.md#join-query), where the query has more than one data source.
 
 ```sql
 SELECT { col1: T.col1 }
@@ -634,7 +634,7 @@ Will generate a JSON array with a single item \(the item is the value of `col1`\
 ]
 ```
 
-And you can use all the other expressions as in the previous examples: nested object, operation alias, immediate values and binary expressions:
+All expressions shown in the previous examples can also be used: nested object, operation alias, immediate values, and binary expressions:
 
 ```sql
 SELECT [ (col1 + 10) * nested.object.value1, T.col2, 7, 'seven', true ]
@@ -743,7 +743,7 @@ FROM connection.operation AS <operation-alias>
 
 #### Subquery
 
-In some case when you want to manipulate the data set in multiple steps, you can use a subquery in the `FROM` clause:
+To manipulate the data set in multiple steps, you can use a subquery in the `FROM` clause:
 
 ```sql
 SELECT *
@@ -774,17 +774,17 @@ ON <predicate>
 
 If `<join-type>` is not specified the default is `INNER`.
 
-In joins `AS <column-alias>` is required. `<operation-alias>` is an identifier.
+In joins, `AS <column-alias>` is required. `<operation-alias>` is an identifier.
 
 ### Where clause
 
-The `WHERE` clause is where input parameters for operations are specified, as well as filters on results. The syntax for the `WHERE` clause is:
+The `WHERE` clause is used to specify input parameters to operations and filters on results. The syntax for the `WHERE` clause is:
 
 ```sql
 WHERE <predicate>
 ```
 
-`<predicate>` describes the sequence of conditions that are applied to the data sources. Multiple `<predicate>`s can be recursively combined with boolean `AND`, `OR`, and `NOT` operators. input parameters passed to operations and filters applied to the results. It can be one of the following:
+A `<predicate>` describes the sequence of conditions that are applied to the data sources. Multiple `<predicate>`s can be recursively combined with boolean `AND`, `OR`, and `NOT` operators in the following format:
 
 * `<condition>`
 * `<predicate> AND <predicate>`
@@ -823,7 +823,7 @@ If a subquery is used, the `<operator>` must be `=` or `IN`. If the operator is 
 
 #### Input parameters and filters
 
-A condition in a `WHERE` clause may either be passed as an input parameter or treated as a filter on the output of the data source. There is no difference in the syntax; Transposit automatically makes the determination based on whether the `<name>` in the condition is defined as a parameter for the operation. Otherwise, the condition is treated as a filter and will remove rows from the result set that do not match the criteria.
+A condition in a `WHERE` clause may either be passed as an input parameter or treated as a filter on the output of the data source. There is no difference in the syntax; Transposit automatically makes the determination based on the `<name>` of the condition: if it is defined as a parameter for the operation, the condition will be passed into the operation. Otherwise, the condition is treated as a filter and will remove rows from the result set that do not match the criteria.
 
 When two input parameters are combined with an `AND`, both are passed to the underlying operation. However, if two input parameters are combined with an `OR`, it will result in two invocations of the operation. For instance:
 
@@ -888,7 +888,7 @@ Like the `<path>` in [column selection](sql-operations.md#column-selection), the
 
 ### Expand by clause
 
-The `EXPAND BY` clause expands, or flattens, the items in a JSON array. This tends to be useful when working with APIs, where the relevant results may be nested inside one or more JSON objects.
+The `EXPAND BY` clause expands (flattens) the items in a JSON array. This tends to be useful when working with APIs, where the relevant results may be nested inside one or more JSON objects.
 
 The syntax for `EXPAND BY` is:
 
