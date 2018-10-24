@@ -19,5 +19,6 @@
   * [JavaScript operations](references/js-operations.md)
   * [JavaScript SDK](references/js-sdk.md)
   * [Data connectors](references/data-connectors.md)
+  * [Connecting to JIRA](references/connect-to-jira.md)
   * [FAQ](references/faq.md)
 
