@@ -888,7 +888,7 @@ Like the `<path>` in [column selection](sql-operations.md#column-selection), the
 
 ### Expand by clause
 
-The `EXPAND BY` clause expands or flattens the items in a JSON array. This tends to be useful when working with APIs, where the relevant results may be nested inside one or more JSON objects.
+The `EXPAND BY` clause expands (flattens) the items in a JSON array. This tends to be useful when working with APIs, where the relevant results may be nested inside one or more JSON objects.
 
 The syntax for `EXPAND BY` is:
 
