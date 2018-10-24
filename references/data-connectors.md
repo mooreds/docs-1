@@ -45,7 +45,7 @@ Don't see the connector you need here? Request it by getting in touch at [suppor
 ## J
 
 * JSONbin
-* Jira
+* [Jira](connect-to-jira.md)
 
 ## L
 
