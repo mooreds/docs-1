@@ -15,14 +15,14 @@ Once you have successfully created an application link, keep your RSA private ke
 Navigate to your Transposit application. Add _transposit/jira_ as a data connection.
 
 Configure this data connection. You will need to specify a couple values specific to your Jira instance:
-- Set the **Base URL** to _https://\<instance>.atlassian.net/rest/_. Replace _\<instance>_ with the name of your Jira instance (this value appears in the URL you use to access Jira normally).
-- Set the **OAuthV1 Config** values. Replace _\<instance>_ as you did in the previous step.
+- Set the **Base URL** to _https://&lt;instance&gt;.atlassian.net/rest/_. Replace _&lt;instance&gt;_ with the name of your Jira instance (this value appears in the URL you use to access Jira normally).
+- Set the **OAuthV1 Config** values. Replace _&lt;instance&gt;_ as you did in the previous step.
 
 |            |           |
 |------------|-----------|
-|**Auth URI**|_https://\<instance>.atlassian.net/plugins/servlet/oauth/authorize_|
-|**Access Token URI**|_https://\<instance>.atlassian.net/plugins/servlet/oauth/access-token_|
-|**Request Token URI**|_https://\<instance>.atlassian.net/plugins/servlet/oauth/request-token_|
+|**Auth URI**|_https://&lt;instance&gt;.atlassian.net/plugins/servlet/oauth/authorize_|
+|**Access Token URI**|_https://&lt;instance&gt;.atlassian.net/plugins/servlet/oauth/access-token_|
+|**Request Token URI**|_https://&lt;instance&gt;.atlassian.net/plugins/servlet/oauth/request-token_|
 
 
 Configure **Authentication** for this data connection. The **Consumer Key** should always be _OauthKey_. The **Private Key** should be a processed version of the RSA private key you generated previously. Specifically, remove the header and footer from the key, and then remove all line breaks from the body.
