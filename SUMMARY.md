@@ -21,4 +21,5 @@
   * [Data connectors](references/data-connectors.md)
   * [Connecting to JIRA](references/connect-to-jira.md)
   * [Google push notifications](references/google-push-notifications.md)
+  * [Application code repository](references/repository.md)
   * [FAQ](references/faq.md)
