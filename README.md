@@ -22,7 +22,7 @@ Transposit also provides the features you'd expect of a first-class developer to
 
 * **Incrementally adoptable:** Transposit is a library, not an ecosystem. You can use Transposit to build a single endpoint, or as your entire backend.
 * **Based on open standards:** Take advantage of the battle-tested tools and libraries you already know and love.
-* **Backed by git:** Your application’s code is stored and versioned in a git repository, so you can edit in the cloud or clone it locally.
+* **Backed by git:** Your application’s code is stored and versioned in a [git repository](references/repository.md), so you can edit in the cloud or clone it locally.
 * **Equipped with modern tooling:** Build on a standard interface with smart treatments of APIs, pagination, serverless functions, caching, and basic application hosting.
 * **Free to try:** You can start using Transposit without speaking to a single person. No need to pay until your applications or endpoints start to see a lot of traffic.
 
@@ -37,8 +37,3 @@ Transposit also provides the features you'd expect of a first-class developer to
 ## Get in touch
 
 If you run into any issues or questions that aren't covered in our documentation, reach out to our team to get support. We'd also love to hear from you if you have feedback about our product or documentation, or have built something awesome you'd like to share. You can email us at [support@transposit.com](mailto:support@transposit.com).
-
-
-
-
-
