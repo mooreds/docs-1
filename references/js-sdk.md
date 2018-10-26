@@ -8,9 +8,9 @@ The Transposit JavaScript SDK makes it simple to deal with login, authentication
 
 ### `transposit.handleLogin()`
 
-Reads login information from the url and stores the claims object in localStorage for use in subsequent api calls. This is used after google login redirect.
+Reads login information from the url and stores the claims object in localStorage for use in subsequent api calls. This is used after google login redirect. This function redirects the user to authenticate if they are missing credentials.
 
-**Returns** \(String\): The subject for which the claim was issued
+**Returns** void
 
 **Example**
 
@@ -27,7 +27,7 @@ transposit.handleLogin();
 
 Invalidates stored claims and clears them from localStorage.
 
-**Returns**: null
+**Returns**: Promise&lt;void&gt;
 
 ### `transposit.runOperation(operation, [params={}])`
 
