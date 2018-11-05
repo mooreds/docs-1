@@ -1,12 +1,14 @@
 ---
-description: An alphabetized list of our available data connectors.
+description: A listing of available data connectors.
 ---
 
 # Data connectors
 
-{% hint style="info" %}
-Don't see the connector you need here? Request it by getting in touch at [support@transposit.com](mailto:support@transposit.com).
-{% endhint %}
+## Connector-specific documentation
+
+Reference material for each data connector can be viewed in the code editor's Documentation tab:
+
+![](../.gitbook/assets/documentation-tab.png)
 
 ## A
 
