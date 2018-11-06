@@ -65,10 +65,10 @@ To run a SQL statement inside a JavaScript operation, use the `query` method:
 api.query("select * from connection.operation");
 ```
 
-To print to the console, use the `log` method; `log` accepts any number of arguments:
+To print to the console, use `console.log`, which accepts any number of arguments:
 
 ```javascript
-api.log("hello world");
+console.log("hello world");
 ```
 
 Learn more in the JavaScript operations reference:
