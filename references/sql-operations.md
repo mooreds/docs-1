@@ -78,7 +78,7 @@ SELECT <column-expression> AS <column-alias>, <column-expression> AS <column-ali
 * `<literal-value>`
 * `<binary-expression>`
 
-`<path>` describes the location of a value inside a JSON object or array. `<path>` contains one or more dot-separated keys/field names that describe the lookup chain of fields inside the input JSON object. The last item in `<path>` can be `.*`.
+`<path>` describes the location of a value inside a JSON object or array. `<path>` contains one or more dot-separated keys/field names that describe the lookup chain of fields inside the input JSON object. The last item in `<path>` can be `.*`. Bracket notation with array indexes and string keys is also supported.
 
 `<path>` can be one of the following:
 
@@ -86,6 +86,7 @@ SELECT <column-expression> AS <column-alias>, <column-expression> AS <column-ali
 * `<key-1>.<key-2>.` ... `<key-N>`
 * `<key>.*`
 * `<key-1>.<key-2>.` ... `<key-N>.*`
+* `[<key>]`
 
 `<key>` is an identifier.
 
@@ -179,7 +180,7 @@ Will generate a JSON object with multiple keys:
 
 _Selecting a nested value:_
 
-To access a value inside a nested object you can use a `.` \(dot\) as a separator between the nested object keys.
+To access a value inside a nested object you can use a `.` \(dot\) or `[<key>]` \(bracket notation\) as a separator between the nested object keys.
 
 For the following result:
 
@@ -195,21 +196,53 @@ For the following result:
 ]
 ```
 
-The query:
+The queries:
 
 ```sql
 SELECT nested.object.value
 FROM connection.operation
 ```
 
+```sql
+SELECT nested['object']['value']
+FROM connection.operation
+```
+
 Will generate a JSON object with the key and value of the item at the specific path:
+
+```javascript
+ [
+   {
+     "value": "myValue"
+   },
+   ...
+ ]
+```
+
+Array indexing is also supported. For example, for the following result:
 
 ```javascript
 [
   {
-    "value": "myValue"
-  },
-  ...
+    "nested": ["value0", "value1", "value2"]
+  }
+]
+```
+
+The query:
+```sql
+SELECT nested[0], nested[1]
+FROM connection.operation
+```
+
+Will generate a JSON object of:
+
+```javascript
+[
+  {
+    "0": "value0",
+    "1": "value1"
+  }
 ]
 ```
 
