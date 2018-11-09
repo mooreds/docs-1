@@ -16,11 +16,7 @@ Reference material for each data connector can be viewed in the code editor's Do
 * AWS ECS
 * AWS Lambda
 * Airtable
-* Apify
-
-## C
-
-* Crawler
+* Apify Crawler
 
 ## D
 
@@ -41,8 +37,6 @@ Reference material for each data connector can be viewed in the code editor's Do
 * Google Drive
 * Google Mail
 * Google Sheets
-
-
 
 ## J
 
@@ -77,8 +71,3 @@ Reference material for each data connector can be viewed in the code editor's Do
 ## Z 
 
 * Zoom
-
-
-
-
-
