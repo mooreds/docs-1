@@ -97,7 +97,7 @@ api.user()
 
 ### `api.log([objects])`
 
-Logs to the console. This is an alias for `console.log()`.
+Prints to the debug tab. `console.log()` can also be used.
 
 | Argument | Type |  |
 | :--- | :--- | :--- |
