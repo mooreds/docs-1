@@ -1,6 +1,6 @@
 # $body 
 
-Many Transposit operations have a parameter named `$body` to represent the request body of the operation. The `$body` can written as plain JSON in a javascript operation or a JSON-like object constructed through a SELECT statement in SQL.
+Many Transposit operations have a parameter named `$body` to represent the request body of the operation. The `$body` can be written as plain JSON in a javascript operation or a JSON-like object constructed through a SELECT statement in SQL.
 
 For example, the following JS and SQL operations are equivalent:
 ```
