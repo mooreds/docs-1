@@ -1,6 +1,6 @@
 # $body 
 
-Many Transposit operations have a parameter named `$body` to represent the request body of the operation. The `$body` can be written as plain JSON in a javascript operation or a JSON-like object constructed through a SELECT statement in SQL.
+Many Transposit operations have a parameter named `$body` to represent the request body of the operation. The `$body` can be written as plain JSON in a JavaScript operation or a JSON-like object constructed through a SELECT statement in SQL.
 
 For example, the following JS and SQL operations are equivalent:
 ```
@@ -13,7 +13,7 @@ function run(params) {
 }
 ```
 
-```
+```sql
 SELECT * FROM spotify.create_playlist
   WHERE user_id='12345'
   AND $body=(SELECT {
@@ -29,7 +29,7 @@ Note: the single quotes are optional for `public` and `name` in the SQL call, bu
 The `$body` parameter supports nested object assignment, similar to a JSON object.
 
 For example: the above SQL statement can also be written as
-```
+```sql
 SELECT * FROM spotify.create_playlist
   WHERE user_id='12345'
   AND $body.public = true
@@ -41,7 +41,7 @@ Duplicate variable assignments are not allowed.
 {% endhint %}
 
 Extracted `$body` parameters can also be objects. For example: 
-```
+```sql
 SELECT * FROM stripe.create_charge
   WHERE $body.shipping = (SELECT {
     'carrier': 'USPS',
