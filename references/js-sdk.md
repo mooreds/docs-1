@@ -101,13 +101,8 @@ The full format of the return object for `transposit.runOperation`
 
 ```javascript
 export interface EndRequestLog {
-  status: "SUCCESS" | "ERROR";
+  status: "SUCCESS" | "ERROR" | "CANCELLED" | "TIMEOUT";
   requestId: string;
-  timestamp: string;
-  serviceName: string;
-  serviceMaintainer: string;
-  operationId: string;
-  resultActionId?: string;
   result: EndRequestLogResult;
 }
 
@@ -118,26 +113,5 @@ export interface EndRequestLogResult {
 
 export interface ExceptionLog {
   message?: string;
-  stackTrace?: string;
-  exceptionClass?: string;
-  details?: ExceptionLogDetails;
-}
-
-export interface ExceptionLogDetails {
-  httpLog?: HttpLog;
-  scriptExceptionLog?: ScriptExceptionLog;
-  type: "HTTP" | "SCRIPTEXCEPTION" | "DETAILSNOTSET";
-}
-
-export interface HttpLog {
-  uri: string;
-  statusCode: number;
-  response?: string;
-  curlCommand?: string;
-}
-
-export interface ScriptExceptionLog {
-  line: number;
-  column?: number;
 }
 ```
