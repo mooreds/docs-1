@@ -15,8 +15,12 @@ Reads login information from the url and stores the claims object in localStorag
 **Example**
 
 ```javascript
-transposit.handleLogin();
-// => "patjones"
+// call this when your handle-redirect page loads
+try {
+  transposit.handleLogin();
+} catch (err) {
+  // do nothing if this page is viewable when you are not logging in
+}
 ```
 
 ### `transposit.isLoggedIn()`
