@@ -36,7 +36,7 @@ Sign-in and authentication for data connections can be configured under **Authen
 Your hosted app can be accessed at:
 
 ```text
-https://console.transposit.com/app/{maintainer}/{applicationName}
+https://api.transposit.com/app/{maintainer}/{applicationName}
 ```
 
 ## Configure sign-in
