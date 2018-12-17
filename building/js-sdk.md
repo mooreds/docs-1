@@ -17,7 +17,7 @@ yarn add transposit
 or add via a script tag:
 
 ```markup
-<script src="https://unpkg.com/transposit@0.4.0/dist/bundle.prod.js" /></script>
+<script src="https://unpkg.com/transposit@0.7.1/dist/bundle.prod.js" /></script>
 ```
 
 ## Usage
@@ -33,7 +33,7 @@ esmodules:
 ```text
 import { Transposit } from "transposit";
 
-const transposit = new Transposit(serviceMaintainer, serviceName, transpositUrl);
+const transposit = new Transposit(serviceMaintainer, serviceName);
 ```
 
 commonjs modules:
@@ -41,13 +41,13 @@ commonjs modules:
 ```text
 const transposit = require("transposit");
 
-const transposit = new Transposit(serviceMaintainer, serviceName, transpositUrl);
+const transposit = new Transposit(serviceMaintainer, serviceName);
 ```
 
 Or, if you've made the library globally available via a script tag:
 
 ```text
-var transposit = new Transposit.Transposit(serviceMaintainer, serviceName, transpositUrl);
+var transposit = new Transposit.Transposit(serviceMaintainer, serviceName);
 ```
 
 ### Login
@@ -56,13 +56,13 @@ Once you've configured login for your application, add a link to start the login
 
 ```text
 <button type="button" onclick="loginWithGoogle()">Login</button>
-...
+
 function loginWithGoogle() {
-  window.location.href = host + "/app/v1/" + maintainer + "/" + serviceName + "/login/google?redirectUri=" + window.location.origin + window.location.pathname;
-    }
+  window.location.href = transposit.getGoogleLoginLocation(window.location.origin + window.location.pathname);
+}
 ```
 
-This kicks off the login flow with Transposit and Google. Note the `redirectUri` query parameter in the URL above. This tells Transposit where to send the user after a successful login. This is where the SDK comes into the picture. On the page that the user has been redirected to, simply call:
+This kicks off the login flow with Transposit and Google. The provided URL tells Transposit where to send the user after a successful login. This is where the SDK comes into the picture. On the page that the user has been redirected to, simply call:
 
 ```text
 transposit.handleLogin();
@@ -86,7 +86,6 @@ Use the `runOperation()` method to run a deployed operation in your application:
 transposit.runOperation("myOperation")
   .then(function(response) {
     // response.result.results contains the results
-    // TODO document handling errors
   })
 ```
 
