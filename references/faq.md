@@ -21,9 +21,12 @@ Below we've covered common questions and technical scenarios you might encounter
 * No wiki required
 * Error-proof, share, and customize your presentation
 
-## Rate limits
+## API call limits
 
-* To make sure you don't accidentally run through your API rate limits for your data connections, Transposit limits the number of API fetches to 25 per data connection per request.
+* To make sure you don't accidentally run through your API rate limits for your data connections, Transposit limits the number of API calls.
+* By default, the limit is 25 per data connection per request.
+* This can be changed for a particular data connector by the data connector's author.
+* This can be further overridden in your application in the settings for the data connection. Select the data connection, click "Configure", and edit the value under "Max API calls".
 
 ## Automatic pagination
 
