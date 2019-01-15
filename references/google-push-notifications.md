@@ -10,7 +10,7 @@ To use Google's push notifications, use the instructions below.
 ## Register your Transposit application domain with Google
 
 * Follow the instructions at **Deploy > Site Verification**.
-* Add your newly verified domain: Use the same app url (e.g. `https://api.transposit.com/app/org/app/`) from the previous step and add it [here](https://console.cloud.google.com/apis/credentials/domainverification).
+* Add your newly verified domain: Use the same app url (e.g. `https://console.transposit.com/app/org/app/`) from the previous step and add it [here](https://console.cloud.google.com/apis/credentials/domainverification).
 
 ## Set up your OAuth2 credentials and enable the service API
 
@@ -23,7 +23,7 @@ where you registered Transposit as a domain above. Google provides instructions 
 * Either configure a consent screen if this is your first time, or modify your existing consent screen to add `transposit.com` as an authorized domain.
 * Select **Web application**.
 * Note the Client ID and Client Secret to be used in the next step, and click Save.
-* Select the credential you just created and add `https://api.transposit.com/oauthCallback` as an authorized redirect URI. If you did not properly set up your authorized domain in your consent screen, you may get an `Invalid Redirect` error. If so, follow the link and add `transposit.com` to the authorized domains list.
+* Select the credential you just created and add `https://console.transposit.com/oauthCallback` as an authorized redirect URI. If you did not properly set up your authorized domain in your consent screen, you may get an `Invalid Redirect` error. If so, follow the link and add `transposit.com` to the authorized domains list.
 * Go to **APIs & Services > Library**, search for the correct API (e.g. Google Mail, Google Calendar, or Google Drive), and enable the API.
 
 ## Tell Transposit to use those OAuth2 credentials
