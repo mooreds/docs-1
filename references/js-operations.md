@@ -132,7 +132,7 @@ api.listUsers()
 
 ### `api.auths(dataConnection)`
 
-Returns credentials for a data connection that uses runtime authentication (Note: currently no official connectors use runtime authentication).
+Returns credentials for a data connection that uses runtime authentication.
 
 | Argument | Type |  |
 | :--- | :--- | :--- |
