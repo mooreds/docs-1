@@ -1,0 +1,24 @@
+/* your custom css */
+
+article a, article a:hover {color: #1A90A2;}
+
+/*li.navListItemActive a {color: #393939 !important;}*/
+
+/*li.navListItem a:hover, a:hover {color: #1A90A2 !important;}*/
+
+.nav-site a { font-weight: 500 !important;  }
+
+@media only screen and (min-device-width: 360px) and (max-device-width: 736px) {
+}
+
+@media only screen and (min-width: 1024px) {
+}
+
+@media only screen and (max-width: 1023px) {
+}
+
+@media only screen and (min-width: 1400px) {
+}
+
+@media only screen and (min-width: 1500px) {
+}
