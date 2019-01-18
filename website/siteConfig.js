@@ -38,7 +38,7 @@ const siteConfig = {
 
   // For no header links in the top nav bar -> headerLinks: [],
   headerLinks: [
-    { href: "https://console.transposit.com//", label: "Back to Transposit" },
+    { href: "https://console.transposit.com", label: "Back to Transposit" },
   ],
 
   // If you have users set above, you add it here:
