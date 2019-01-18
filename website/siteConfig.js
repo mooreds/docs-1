@@ -41,6 +41,8 @@ const siteConfig = {
     { href: "https://console.transposit.com", label: "Back to Transposit" },
   ],
 
+  docsUrl: '', // Get rid of the `/docs/` part of the site URL
+
   // If you have users set above, you add it here:
   users,
 
