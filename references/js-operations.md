@@ -35,7 +35,7 @@ Runs any number of operations in parallel and waits for all to complete, or any 
 | Argument | Type |  |
 | :--- | :--- | :--- |
 | operations | Array<Object> | an array of descriptor objects, each describing one of the operations to run in parallel |
-  
+
 Each descriptor object has the following properties:
 
 | Field | Type |  |
@@ -202,3 +202,11 @@ var output = mustache.render("{{title}} spends {{calc}}", view);
 ```
 
 * [jsonpath](https://github.com/dchester/jsonpath)
+
+* [js-yaml](https://github.com/nodeca/js-yaml)
+```javascript
+var yaml = require("js-yaml.js");
+var data = '- name: "Rocky"' +
+    '\n  breed: "german shepherd"';
+var doc = yaml.safeLoad(data);
+```
