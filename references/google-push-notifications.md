@@ -29,10 +29,10 @@ where you registered Transposit as a domain above. Google provides instructions 
 ## Tell Transposit to use those OAuth2 credentials
 
 * In your Transposit application, add the data connector for the desired Google service.
-* Go to **Settings > Data Connections** and find your data connector under **Authentication**.
-* Click **Configure**, replace the Client ID and Client Secret with the values from the previous step.
+* Go to **Code > Data Connections** and find your data connector.
+* Click **Authentication > Configure**, replace the Client ID and Client Secret with the values from the previous step.
 * Save your changes.
-* Go back to **Code**, hover over your key and select remove key from the context menu.
+* Hover over your key and select remove key from the context menu.
 * Add the key again with your new credentials. You should now see your Google project's consent screen.
 
 ## Create a webhook in Transposit to receive the callback
