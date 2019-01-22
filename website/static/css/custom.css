@@ -1,6 +1,6 @@
 /* your custom css */
 
-article a, article a:hover {color: #1A90A2;}
+.blockContent a, article a, article a:hover {color: #1A90A2;}
 
 /*li.navListItemActive a {color: #393939 !important;}*/
 

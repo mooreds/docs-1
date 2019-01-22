@@ -21,14 +21,12 @@ const users = [
 ];
 
 const siteConfig = {
-  title: 'Transposit Docs', // Title for your website.
+  title: 'Transposit', // Title for your website.
   tagline: 'An end-to-end solution for building production-ready applications on top of APIs',
   url: 'https://docs.transposit.com', // Your website URL
   baseUrl: '/', // Base URL for your project */
-  // For github.io type URLs, you would set the url and baseUrl like:
-  //   url: 'https://facebook.github.io',
-  //   baseUrl: '/test-site/',
-
+  docsUrl: '', // Get rid of the `/docs/` part of the site URL
+  
   // Used for publishing and more
   projectName: 'documentation',
   organizationName: 'Transposit',
@@ -38,10 +36,11 @@ const siteConfig = {
 
   // For no header links in the top nav bar -> headerLinks: [],
   headerLinks: [
-    { href: "https://console.transposit.com", label: "Back to Transposit" },
+    { href: "https://docs.transposit.com", label: "Docs" },
+    { href: "https://console.transposit.com", label: "Return to code editor" },
   ],
 
-  docsUrl: '', // Get rid of the `/docs/` part of the site URL
+
 
   // If you have users set above, you add it here:
   users,
@@ -54,7 +53,7 @@ const siteConfig = {
   /* Colors for website */
   colors: {
     primaryColor: '#053D4A',
-    secondaryColor: '#D1E0D7',
+    secondaryColor: '#053D4A',
   },
 
   /* Custom fonts for website */
