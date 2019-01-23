@@ -10,10 +10,10 @@ Runs an operation.
 | Argument | Type |  |
 | :--- | :--- | :--- |
 | operation | String | the name of the operation to be run |
-| \[parameters={}\] | Object | an object containing any operation-defined parameters |
-| \[options={}\] | Object | additional options - `limit`: limits the number of results returned. Infinity if undefined. |
+| [parameters={}] | Object | an object containing any operation-defined parameters |
+| [options={}] | Object | additional options - `limit`: limits the number of results returned. Infinity if undefined. |
 
-**Returns** \(Array\): Returns the operation results or throws any operation failure.
+**Returns** (Array): Returns the operation results or throws any operation failure.
 
 **Example**
 
@@ -41,10 +41,10 @@ Each descriptor object has the following properties:
 | Field | Type |  |
 | :--- | :--- | :--- |
 | operation | String | the name of the operation to be run |
-| \[parameters={}\] | Object | an object containing any operation-defined parameters |
-| \[options={}\] | Object | additional options - `limit`: limits the number of results returned. Infinity if undefined. |
+| [parameters={}] | Object | an object containing any operation-defined parameters |
+| [options={}] | Object | additional options - `limit`: limits the number of results returned. Infinity if undefined. |
 
-**Returns** \(Array\): Returns an array where each element is the result set from one of the parallel operations. If any fail, the error is thrown.
+**Returns** (Array): Returns an array where each element is the result set from one of the parallel operations. If any fail, the error is thrown.
 
 **Example**
 
@@ -71,9 +71,9 @@ Run a SQL query
 | Argument | Type |  |
 | :--- | :--- | :--- |
 | query | String | The SQL query to be run |
-| \[parameters={}\] | Object | an object containing any operation-defined parameters |
+| [parameters={}] | Object | an object containing any operation-defined parameters |
 
-**Returns** \(Array\): Returns the query results or throws any query failure.
+**Returns** (Array): Returns the query results or throws any query failure.
 
 **Example**
 
@@ -89,7 +89,7 @@ api.query("select * from source.users where id=@userId", {userId: params.userId}
 
 Get the logged-in user information
 
-**Returns** \(Object\): An object that includes the user's `fullName` and `email`
+**Returns** (Object): An object that includes the user's `fullName` and `email`
 
 **Example**
 
@@ -104,7 +104,7 @@ Prints to the debug tab. `console.log()` can also be used.
 
 | Argument | Type |  |
 | :--- | :--- | :--- |
-| \[objects\] | String or Object | One or more objects or strings to log. Objects are automatically serialized. |
+| [objects] | String or Object | One or more objects or strings to log. Objects are automatically serialized. |
 
 **Returns** null
 
@@ -119,7 +119,7 @@ api.log("logging the following greeting:", {"Hello", "World"})
 
 Transposit provides you access to a few different popular JavaScript libraries.
 
-* [qs \(v6.5.2\)](https://github.com/ljharb/qs)
+* [qs (v6.5.2)](https://github.com/ljharb/qs)
 ```javascript
 var qs = require('qs.js');
 var limited = qs.parse('a=b&c=d', { parameterLimit: 1 });

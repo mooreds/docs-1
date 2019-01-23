@@ -66,7 +66,7 @@ FROM connection.operation
 
 Column selection can be used to construct a JSON object with specific keys that will appear in the top level of the object.
 
-Column selection cannot construct a nested JSON object or a JSON array; to construct these items use a [JSON template](sql-operations.md#json-template).
+Column selection cannot construct a nested JSON object or a JSON array; to construct these items use a [JSON template](sql-operations.md#json-templates).
 
 The syntax for column selection is:
 
@@ -97,7 +97,7 @@ SELECT <column-expression> AS <column-alias>, <column-expression> AS <column-ali
 
 `<literal-value>` is a number, string or boolean value.
 
-`<binary-expression>` represents basic math operations \(for numbers\) or string concatenation \(of strings\) and can be one of the following:
+`<binary-expression>` represents basic math operations (for numbers) or string concatenation (of strings) and can be one of the following:
 
 * `<column-expression>` + `<column-expression>`
 * `<column-expression>` - `<column-expression>`
@@ -106,13 +106,13 @@ SELECT <column-expression> AS <column-alias>, <column-expression> AS <column-ali
 
 `AS <column-alias>` is optional. `<column-alias>` is an identifier.
 
-**Result construction**
+##### Result construction
 
 Column selection constructs a JSON object for each item in the data source based on the specified `<column-expression>`s and `<column-alias>`s.
 
 The `<column-expression>`s and `<column-alias>`s are used in the same order as they appear in the query.
 
-Each `<column-expression>` will be calculated and resolved to a value. The resolved value can be a scalar value \(number, string or boolean\), JSON object or JSON array.
+Each `<column-expression>` will be calculated and resolved to a value. The resolved value can be a scalar value (number, string or boolean), JSON object or JSON array.
 
 When resolving a `<path>`, lookups are done recursively into the JSON object for each path component. If no value is found at that `<path>`, the value is considered 'not found'.
 
@@ -135,13 +135,12 @@ If the resolve process produces a valid value, this value will be added to the o
 * If `<column-expression>` is a `<path>` that ends with `.*`, the keys and values under the last `<key>` will all be copied into the result object.
 * Otherwise the entire `<column-expression>` will be used as the key. It's recommended to use `<column-alias>` in this case.
 
-{% hint style="info" %}
-If the same key is used more than once the last value will be used and will override any previous values that had the same key.
-{% endhint %}
+
+> If the same key is used more than once the last value will be used and will override any previous values that had the same key.
 
 If the value is resolved to `null` or 'not found' this value will not be added it to the output JSON object.
 
-**Examples**
+##### Examples
 
 _Selecting a single value:_
 
@@ -183,7 +182,7 @@ Will generate a JSON object with multiple keys:
 
 _Selecting a nested value:_
 
-To access a value inside a nested object you can use a `.` \(dot\) or `[<key>]` \(bracket notation\) as a separator between the nested object keys.
+To access a value inside a nested object you can use a `.` (dot) or `[<key>]` (bracket notation) as a separator between the nested object keys.
 
 For the following result:
 
@@ -271,7 +270,7 @@ Will generate a JSON object with the key `foo`, the value will be the value of `
 
 _Using operation aliases:_
 
-When an operation \(or subquery\) is named with an [alias](sql-operations.md#operation-alias), the alias can later be used as a qualifier at the beginning of the path to define exactly where to do the lookup for the path \(the results of which operation or subquery to use\). This is particularly useful in [join queries](sql-operations.md#join-query), where the query has more than one data source.
+When an operation (or subquery) is named with an [alias](sql-operations.md#operation-alias), the alias can later be used as a qualifier at the beginning of the path to define exactly where to do the lookup for the path (the results of which operation or subquery to use). This is particularly useful in [join queries](sql-operations.md#join-query), where the query has more than one data source.
 
 ```sql
 SELECT T.col1
@@ -312,7 +311,7 @@ Will generate:
 
 _Binary expressions:_
 
-Binary expressions can be used for basic math operation \(for numbers\) or string concatenation \(of strings\). Binary expressions can use any combination of paths, literal values, and nested binary expressions. Parentheses can be used to define the order of operations.
+Binary expressions can be used for basic math operation (for numbers) or string concatenation (of strings). Binary expressions can use any combination of paths, literal values, and nested binary expressions. Parentheses can be used to define the order of operations.
 
 The query:
 
@@ -422,7 +421,7 @@ SELECT [ <json-value>, ... ]
 
 #### Spread operator
 
-The spread operator expands a JSON object into JSON object or JSON array into a JSON array \(similar to `<path>.*` in [column selection](sql-operations.md#column-selection)\).
+The spread operator expands a JSON object into JSON object or JSON array into a JSON array (similar to `<path>.*` in [column selection](sql-operations.md#column-selection)).
 
 Spread JSON object use:
 
@@ -450,7 +449,7 @@ The values inside the outer template can be any type.
 
 The `<key>`s and `<json-value>`s are used in the same order as they appear in the template.
 
-Each `<json-value>` will be calculated and resolved. The resolved value can be a scalar value \(number, string or boolean\), JSON object or JSON array.
+Each `<json-value>` will be calculated and resolved. The resolved value can be a scalar value (number, string or boolean), JSON object or JSON array.
 
 `<path>`, `<operation-alias>.<path>`, `<immediate-value>` and `<binary-expression>` are resolved the same as in [column selection](sql-operations.md#columns-selection).
 
@@ -458,9 +457,7 @@ Each `<json-value>` will be calculated and resolved. The resolved value can be a
 
 If the resolve process finds a valid value, this value will be added to the output JSON object or array. If the output item is a JSON object, the specified `<key>` will be used.
 
-{% hint style="info" %}
-If the same key is used more than once, the last value will be used and will override any previous values that had the same key.
-{% endhint %}
+> If the same key is used more than once, the last value will be used and will override any previous values that had the same key.
 
 If the value is resolved to `null` or 'not found':
 
@@ -509,7 +506,7 @@ Will generate a JSON object with multiple keys:
 
 _Selecting a nested value:_
 
-To access a value inside a nested object you can use a `.` \(dot\) as separator between the nested object keys.
+To access a value inside a nested object you can use a `.` (dot) as separator between the nested object keys.
 
 For the following result:
 
@@ -583,7 +580,7 @@ Will generate
 
 _Using an operation alias:_
 
-When an operation \(or subquery\) is named with an [alias](sql-operations.md#operation-alias), the alias can later be used as a qualifier at the beginning of the path to define exactly where to do the lookup for the path \(the results of which operation or subquery to use\). This is particularly useful in [join queries](sql-operations.md#join-query), where the query has more than one data source.
+When an operation (or subquery) is named with an [alias](sql-operations.md#operation-alias), the alias can later be used as a qualifier at the beginning of the path to define exactly where to do the lookup for the path (the results of which operation or subquery to use). This is particularly useful in [join queries](sql-operations.md#join-query), where the query has more than one data source.
 
 ```sql
 SELECT { col1: T.col1 }
@@ -623,7 +620,7 @@ Will generate:
 
 _Binary expressions:_
 
-Binary expressions can be used for basic math operation \(for numbers\) or string concatenation \(of strings\). Binary expressions can use any combination of path, immediate values and nested binary expressions. Parentheses can be used to define the order of operations.
+Binary expressions can be used for basic math operation (for numbers) or string concatenation (of strings). Binary expressions can use any combination of path, immediate values and nested binary expressions. Parentheses can be used to define the order of operations.
 
 The query:
 
@@ -659,7 +656,7 @@ SELECT [ col1 ]
 FROM connection.operation
 ```
 
-Will generate a JSON array with a single item \(the item is the value of `col1`\):
+Will generate a JSON array with a single item (the item is the value of `col1`):
 
 ```javascript
 [
@@ -697,7 +694,7 @@ FROM connection.operation
 
 _Selecting all values in an object or array:_
 
-To access all the values inside an object or array you can use the spread operator \(`...`\). Note that the inner type and the outer type must be the same: an object can be spread into a JSON object template and an array can be spread into JSON array template:
+To access all the values inside an object or array you can use the spread operator (`...`). Note that the inner type and the outer type must be the same: an object can be spread into a JSON object template and an array can be spread into JSON array template:
 
 If the results have the format:
 
@@ -916,7 +913,7 @@ This sort of column mapping is also possible with subqueries.
 WHERE (col1, col2, ..., colN) IN (SELECT col1, col2, ... colN FROM <connection.operation>)
 ```
 
-The mapping is positional \(first column is mapped to the first name in the tuple, and so on\), so the names of the subquery columns do not have to match the names in the `<name-tuple>`. However, the number of columns in the subquery must match the number of items in the `<name-tuple>`.
+The mapping is positional (first column is mapped to the first name in the tuple, and so on), so the names of the subquery columns do not have to match the names in the `<name-tuple>`. However, the number of columns in the subquery must match the number of items in the `<name-tuple>`.
 
 #### Operation aliases
 
@@ -942,7 +939,7 @@ For each result in the result set, for each `<path>` in the list of paths:
 
 1. Resolve the value at the path using the same mechanism as in [column-selection](sql-operations.md#result-construction).
 2. Check that this value is an array of items, otherwise skip this result.
-3. Create a new result for each item in the array. If there is no `<column-alias>`, the item is placed in the same position as the array it came from \(replacing the array\). Otherwise, the alias is used to place the item and the original array is left intact.
+3. Create a new result for each item in the array. If there is no `<column-alias>`, the item is placed in the same position as the array it came from (replacing the array). Otherwise, the alias is used to place the item and the original array is left intact.
 4. Replace the top-level result set with this new list of results
 
 **Examples**

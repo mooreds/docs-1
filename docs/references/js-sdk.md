@@ -24,7 +24,7 @@ transposit.handleLogin();
 
 ### `transposit.isLoggedIn()`
 
-**Returns** \(boolean\): True if there exists login information \(does not check if the token is expired\).
+**Returns** (boolean): True if there exists login information (does not check if the token is expired).
 
 ### `transposit.logOut()`
 
@@ -39,9 +39,9 @@ Runs an operation.
 | Argument      | Type   |                                                       |
 | :------------ | :----- | :---------------------------------------------------- |
 | operation     | String | the name of the operation to be run                   |
-| \[params={}\] | Object | an object containing any operation-defined parameters |
+| [params={}]   | Object | an object containing any operation-defined parameters |
 
-**Returns** \(EndRequestLog\): Returns the operation results and metadata about that result
+**Returns** (EndRequestLog): Returns the operation results and metadata about that result
 
 **Example**
 
@@ -57,9 +57,9 @@ transposit.runOperation("source.users", { id: params.userId });
 
 | Argument                             | Type   |                                                       |
 | :----------------------------------- | :----- | :---------------------------------------------------- |
-| \[redirectUri=window.location.href\] | String | an optional param to specify an alternate redirectUri |
+| [redirectUri=window.location.href] | String | an optional param to specify an alternate redirectUri |
 
-**Returns** \(String\): A url to redirect to for user authorization.
+**Returns** (String): A url to redirect to for user authorization.
 
 **Example**
 
@@ -74,9 +74,9 @@ Runs an operation.
 
 | Argument                             | Type   |                                                       |
 | :----------------------------------- | :----- | :---------------------------------------------------- |
-| \[redirectUri=window.location.href\] | String | an optional param to specify an alternate redirectUri |
+| [redirectUri=window.location.href] | String | an optional param to specify an alternate redirectUri |
 
-**Returns** \(String\): A url to redirect to for google login.
+**Returns** (String): A url to redirect to for google login.
 
 **Example**
 
@@ -89,7 +89,7 @@ transposit.getConnectLocation("localhost");
 
 Returns available user information.
 
-**Returns** \(String\): The subject for which the claim was issued
+**Returns** (String): The subject for which the claim was issued
 
 **Example**
 

@@ -10,9 +10,9 @@ Below we've covered common questions and technical scenarios you might encounter
 * Anything that connects with multiple data sources and APIs
 * Bots and utilities for interacting with/integrating multiple applications
 * Automating custom workflows as applications
-  * Not just event-based -- on-demand \(calling out to other sources of data\)
+  * Not just event-based&mdash;on-demand (calling out to other sources of data)
   * standalone
-* Applications that require access management \(eg, to business data\)
+* Applications that require access management (eg, to business data)
   * Useful in big organizations
   * Sharing data with customers or partners
   * With security concerns
