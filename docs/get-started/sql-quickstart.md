@@ -17,7 +17,7 @@ You can use the documentation tab in the bottom half of the code console. If you
 
 ## SELECT statements
 
-Let's query Gmail for your 10 most recent messages.
+Let's query GMail for your 10 most recent messages.
 
 * Create a new SQL operation from template and select `get_messages`.
 * For the required userId, set it `me`.
