@@ -10,24 +10,23 @@
 
 // List of projects/orgs using your project for the users page.
 const users = [
-  {
-    caption: 'User1',
+{
+  caption: 'User1',
     // You will need to prepend the image path with your baseUrl
     // if it is not '/', like: '/test-site/img/docusaurus.svg'.
     image: '/img/docusaurus.svg',
     infoLink: 'https://www.facebook.com',
     pinned: true,
   },
-];
+  ];
 
-const siteConfig = {
+  const siteConfig = {
   title: 'Transposit', // Title for your website.
   tagline: 'An end-to-end solution for building production-ready applications on top of APIs',
   url: 'https://docs.transposit.com', // Your website URL
   baseUrl: '/', // Base URL for your project */
   docsUrl: '', // Get rid of the `/docs/` part of the site URL
-  
-  // Used for publishing and more
+
   projectName: 'documentation',
   organizationName: 'Transposit',
   // For top-level user or org sites, the organization is still the same.
@@ -36,11 +35,9 @@ const siteConfig = {
 
   // For no header links in the top nav bar -> headerLinks: [],
   headerLinks: [
-    { href: "https://docs.transposit.com", label: "Docs" },
-    { href: "https://console.transposit.com", label: "Return to code editor" },
+  { href: "https://docs.transposit.com", label: "Docs" },
+  { href: "https://console.transposit.com", label: "Return to code editor" },
   ],
-
-
 
   // If you have users set above, you add it here:
   users,
@@ -56,7 +53,7 @@ const siteConfig = {
     secondaryColor: '#053D4A',
   },
 
-  /* Custom fonts for website */
+    /* Custom fonts for website */
   /*
   fonts: {
     myFont: [
@@ -75,11 +72,11 @@ const siteConfig = {
 
   highlight: {
     // Highlight.js theme to use for syntax highlighting in code blocks.
-    theme: 'default',
+    theme: 'atelier-forest-light',
   },
 
   // Add custom scripts here that would be placed in <script> tags.
-  scripts: ['https://buttons.github.io/buttons.js'],
+  // scripts: ['https://buttons.github.io/buttons.js'],
 
   // On page navigation for the current documentation page.
   onPageNav: 'separate',
