@@ -29,17 +29,11 @@ In order to share keychains within an organization, create the keychain with the
 
 ## Common Authorization Mechanisms
 
-<<<<<<< HEAD:references/authentication.md
-### **Auth via OAuth v2 and OAuth v1**
-=======
 ### Auth via OAuth v2 and OAuth v1
 
 For most data connections that implement either version of OAuth, Transposit provides OAuth settings (i.e. application client IDs and secrets) for limited use, meaning the OAuth token exchange can be performed out-of-the-box to acquire an API access token for the data connection. If you do not want to use the Transposit-provided OAuth settings, you always have the option to overwrite the limited use settings with your own custom OAuth settings. A small subset of data connections will require you to provide custom OAuth settings because no feasible Transposit-provided OAuth settings exist for those connections.
->>>>>>> v2:docs/references/authentication.md
 
 You can modify OAuth settings by going to **Code > Data Connections** and finding your data connector. You can configure your own client ID and secret under **Authentication** or customize the scope under **Configuration**.
-
-You can modify OAuth settings by going to **Code > Data Connections** and finding your data connector. You can configure your own client ID and secret under `Authentication` or customize the scope under `Configuration`.
 
 * [Github](https://developer.github.com/v3/?#authentication)
 * [Google Analytics](https://developers.google.com/analytics/devguides/reporting/core/v4/authorization#OAuth2Authorizing)
@@ -92,8 +86,4 @@ Example: Lambda with all three parameters provided (i.e. authentication as an IA
 
 * AWS Basic
 * Elastic
-<<<<<<< HEAD:references/authentication.md
 * Lambda
-=======
-* Lambda
->>>>>>> v2:docs/references/authentication.md
