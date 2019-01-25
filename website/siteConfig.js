@@ -87,6 +87,8 @@ const users = [
   ogImage: 'img/docusaurus.png',
   twitterImage: 'img/docusaurus.png',
 
+  gaTrackingId: 'UA-91776061-2',
+  
   // Show documentation's last contributor's name.
   // enableUpdateBy: true,
 
