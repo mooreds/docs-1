@@ -29,5 +29,11 @@
       "references/body-parameter",
       "references/faq"
     ]
+  },
+  "connectors": {
+    "Connectors": [
+      "connectors/stripe_v1.star.star.md"
+    ]
+    
   }
 }

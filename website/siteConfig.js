@@ -36,6 +36,7 @@ const users = [
   // For no header links in the top nav bar -> headerLinks: [],
   headerLinks: [
   { href: "https://docs.transposit.com", label: "Docs" },
+  { href: "https://docs.transposit.com/connectors", label: "Connectors" },
   { href: "https://console.transposit.com", label: "Return to code editor" },
   ],
 
