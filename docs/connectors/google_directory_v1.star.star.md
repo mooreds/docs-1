@@ -1,11 +1,6 @@
 ---
-
-id: google_directory_documentation
-
-title: Google Directory
-
-version: v1.*.*
-
+id: google-directory-documentation
+title: Google Directory (version v1.*.*)
 ---
 
 ## delete_calendar_resource

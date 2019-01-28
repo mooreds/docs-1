@@ -1,11 +1,6 @@
 ---
-
-id: elastic_documentation
-
-title: Elastic
-
-version: v1.*.*
-
+id: elastic-documentation
+title: Elastic (version v1.*.*)
 ---
 
 ## add_document

@@ -1,11 +1,6 @@
 ---
-
-id: dark_sky_documentation
-
-title: Dark Sky
-
-version: v2.*.*
-
+id: dark-sky-documentation
+title: Dark Sky (version v2.*.*)
 ---
 
 ## get_forecast

@@ -1,12 +1,9 @@
 ---
-
-id: opencage_documentation
-
-title: OpenCage Geocoder
-
-version: v1.*.*
-
+id: opencage-documentation
+title: OpenCage Geocoder (version v1.*.*)
 ---
+
+# geocoding api
 
 ## geocode
 

@@ -1,11 +1,6 @@
 ---
-
-id: salesforce_documentation
-
-title: Salesforce
-
-version: v1.*.*
-
+id: salesforce-documentation
+title: Salesforce (version v1.*.*)
 ---
 
 ## delete_apex

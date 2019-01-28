@@ -1,11 +1,6 @@
 ---
-
-id: google_calendar_documentation
-
-title: Google Calendar
-
-version: v1.*.*
-
+id: google-calendar-documentation
+title: Google Calendar (version v1.*.*)
 ---
 
 ## clear_calendar

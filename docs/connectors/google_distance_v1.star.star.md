@@ -1,11 +1,6 @@
 ---
-
-id: google_distance_documentation
-
-title: Google Distance
-
-version: v1.*.*
-
+id: google-distance-documentation
+title: Google Distance (version v1.*.*)
 ---
 
 ## get_direction_matrix

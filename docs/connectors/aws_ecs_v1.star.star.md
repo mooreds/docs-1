@@ -1,11 +1,6 @@
 ---
-
-id: aws_ecs_documentation
-
-title: AWS ECS
-
-version: v1.*.*
-
+id: aws-ecs-documentation
+title: AWS ECS (version v1.*.*)
 ---
 
 ## deregister_task_definitions

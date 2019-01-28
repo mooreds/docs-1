@@ -1,11 +1,6 @@
 ---
-
-id: medium_documentation
-
-title: Medium
-
-version: v1.*.*
-
+id: medium-documentation
+title: Medium (version v1.*.*)
 ---
 
 ## create_post

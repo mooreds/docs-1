@@ -1,11 +1,6 @@
 ---
-
-id: pagerduty_documentation
-
-title: PagerDuty
-
-version: v1.*.*
-
+id: pagerduty-documentation
+title: PagerDuty (version v1.*.*)
 ---
 
 ## delete_addons_by_id

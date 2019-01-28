@@ -1,11 +1,6 @@
 ---
-
-id: airtable_documentation
-
-title: Airtable
-
-version: v2.*.*
-
+id: airtable-documentation
+title: Airtable (version v2.*.*)
 ---
 
 ## create_record

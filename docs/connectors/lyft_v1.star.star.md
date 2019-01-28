@@ -1,11 +1,6 @@
 ---
-
-id: lyft_documentation
-
-title: Lyft
-
-version: v1.*.*
-
+id: lyft-documentation
+title: Lyft (version v1.*.*)
 ---
 
 ## cancel_ride

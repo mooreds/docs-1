@@ -1,11 +1,6 @@
 ---
-
-id: lambda_documentation
-
-title: Lambda
-
-version: v1.*.*
-
+id: lambda-documentation
+title: Lambda (version v1.*.*)
 ---
 
 ## invoke_function

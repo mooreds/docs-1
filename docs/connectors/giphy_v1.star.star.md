@@ -1,11 +1,6 @@
 ---
-
-id: giphy_documentation
-
-title: Giphy
-
-version: v1.*.*
-
+id: giphy-documentation
+title: Giphy (version v1.*.*)
 ---
 
 ## get_gif

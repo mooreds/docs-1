@@ -1,11 +1,6 @@
 ---
-
-id: yelp_documentation
-
-title: Yelp
-
-version: v1.*.*
-
+id: yelp-documentation
+title: Yelp (version v1.*.*)
 ---
 
 ## get_autocomplete

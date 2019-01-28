@@ -1,12 +1,9 @@
 ---
-
-id: survey_monkey_documentation
-
-title: Survey Monkey
-
-version: v1.*.*
-
+id: survey-monkey-documentation
+title: Survey Monkey (version v1.*.*)
 ---
+
+# Survey Monkey Integration
 
 ## delete_survey_by_id
 

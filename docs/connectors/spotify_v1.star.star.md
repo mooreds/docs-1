@@ -1,11 +1,6 @@
 ---
-
-id: spotify_documentation
-
-title: Spotify
-
-version: v1.*.*
-
+id: spotify-documentation
+title: Spotify (version v1.*.*)
 ---
 
 ## add_track_to_playlist

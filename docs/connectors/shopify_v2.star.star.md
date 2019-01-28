@@ -1,11 +1,6 @@
 ---
-
-id: shopify_documentation
-
-title: Shopify
-
-version: v2.*.*
-
+id: shopify-documentation
+title: Shopify (version v2.*.*)
 ---
 
 ## delete_blogs_id

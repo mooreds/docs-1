@@ -1,12 +1,9 @@
 ---
-
-id: aws_basic_documentation
-
-title: AWS Basic
-
-version: v1.*.*
-
+id: aws-basic-documentation
+title: AWS Basic (version v1.*.*)
 ---
+
+# Raw AWS connector by Transposit
 
 ## post
 

@@ -1,11 +1,6 @@
 ---
-
-id: stripe_documentation
-
-title: Stripe
-
-version: v1.*.*
-
+id: stripe-documentation
+title: Stripe (version v1.*.*)
 ---
 
 ## cancel_payment_intent

@@ -1,11 +1,6 @@
 ---
-
-id: zoom_documentation
-
-title: Zoom
-
-version: v1.*.*
-
+id: zoom-documentation
+title: Zoom (version v1.*.*)
 ---
 
 ## account

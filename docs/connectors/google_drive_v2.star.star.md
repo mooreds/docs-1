@@ -1,12 +1,9 @@
 ---
-
-id: google_drive_documentation
-
-title: Google Drive
-
-version: v2.*.*
-
+id: google-drive-documentation
+title: Google Drive (version v2.*.*)
 ---
+
+# Google Drive Integration
 
 ## copy_file
 

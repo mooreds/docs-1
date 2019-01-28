@@ -1,12 +1,9 @@
 ---
-
-id: circleci_documentation
-
-title: CircleCI
-
-version: v1.*.*
-
+id: circleci-documentation
+title: CircleCI (version v1.*.*)
 ---
+
+# Circle CI integration
 
 ## delete_project_build_cache
 

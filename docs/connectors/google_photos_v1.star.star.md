@@ -1,11 +1,6 @@
 ---
-
-id: google_photos_documentation
-
-title: Google Photos
-
-version: v1.*.*
-
+id: google-photos-documentation
+title: Google Photos (version v1.*.*)
 ---
 
 ## add_enrichment

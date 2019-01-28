@@ -1,11 +1,6 @@
 ---
-
-id: google_sheets_documentation
-
-title: Google Sheets
-
-version: v1.*.*
-
+id: google-sheets-documentation
+title: Google Sheets (version v1.*.*)
 ---
 
 ## append_sheet_values

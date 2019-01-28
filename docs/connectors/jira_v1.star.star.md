@@ -1,11 +1,6 @@
 ---
-
-id: jira_documentation
-
-title: Jira
-
-version: v1.*.*
-
+id: jira-documentation
+title: Jira (version v1.*.*)
 ---
 
 ## acknowledge_errors

@@ -1,11 +1,6 @@
 ---
-
-id: google_mail_documentation
-
-title: Google Mail
-
-version: v1.*.*
-
+id: google-mail-documentation
+title: Google Mail (version v1.*.*)
 ---
 
 ## create_draft

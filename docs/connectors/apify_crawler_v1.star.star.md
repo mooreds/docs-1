@@ -1,11 +1,6 @@
 ---
-
-id: apify_crawler_documentation
-
-title: Apify Crawler
-
-version: v1.*.*
-
+id: apify-crawler-documentation
+title: Apify Crawler (version v1.*.*)
 ---
 
 ## create_crawler

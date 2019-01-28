@@ -1,11 +1,6 @@
 ---
-
-id: strava_documentation
-
-title: Strava
-
-version: v1.*.*
-
+id: strava-documentation
+title: Strava (version v1.*.*)
 ---
 
 ## explore_segments

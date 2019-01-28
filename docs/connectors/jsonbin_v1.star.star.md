@@ -1,11 +1,6 @@
 ---
-
-id: jsonbin_documentation
-
-title: JSONbin
-
-version: v1.*.*
-
+id: jsonbin-documentation
+title: JSONbin (version v1.*.*)
 ---
 
 ## create_bin

@@ -1,11 +1,6 @@
 ---
-
-id: github_documentation
-
-title: GitHub
-
-version: v2.*.*
-
+id: github-documentation
+title: GitHub (version v2.*.*)
 ---
 
 ## add_email_to_user

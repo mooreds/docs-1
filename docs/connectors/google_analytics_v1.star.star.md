@@ -1,11 +1,6 @@
 ---
-
-id: google_analytics_documentation
-
-title: Google Analytics
-
-version: v1.*.*
-
+id: google-analytics-documentation
+title: Google Analytics (version v1.*.*)
 ---
 
 ## get_account_summaries
