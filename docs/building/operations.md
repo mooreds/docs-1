@@ -73,3 +73,24 @@ console.log("hello world");
 ```
 
 Learn more in the [JavaScript operations reference](../references/js-operations.md).
+
+## Usage limits for operations
+
+Transposit enforces usage limits on your operations. This helps to protect our infrastructure as well as your API rate limits.
+
+### Memory
+
+* Each request is given a quota of 1 GB of memory allocated
+* This is not configurable by the developer
+
+### Cpu time
+
+* Each request is given a quota of 1 minute of cpu time
+* This is not configurable by the developer
+
+### API call limits
+
+To make sure you don't accidentally run through your API rate limits for your data connections, Transposit limits the number of API calls.
+* By default, the limit is 500 per data connection per request.
+* This can be changed for a particular data connector by the data connector's author.
+* This can be further overridden in your application in the settings for the data connection. Select the data connection, click "Configure", and edit the value under "Max API calls".
