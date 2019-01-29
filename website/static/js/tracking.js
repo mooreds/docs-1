@@ -3,8 +3,6 @@ window.addEventListener('load', function () {
   const URL = "https://console.monkey.transposit.com/api/v1/public/activity"
 
   function sendEventsUsingBeacon(event) {
-    console.log("~~~~ sendEventsUsingBeacon");
-    
     if (navigator.sendBeacon) {
       const addedToQueue = navigator.sendBeacon(URL, JSON.stringify(event));
 
@@ -17,8 +15,6 @@ window.addEventListener('load', function () {
   }
 
   function sendEventsUsingPost(event) {
-    console.log("**** sendEventsUsingPost");
-
     fetch(URL, {
       method: "POST",
       credentials: "include",
