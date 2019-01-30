@@ -48,13 +48,13 @@ where you registered Transposit as a domain above. Google provides instructions 
 
 Create a new SQL operation to initiate the watch.
 
-Google Calendar example: (TODO: this needs a random UUID...)
+Google Calendar example. The `@id` parameter should be a UUID or similar unique string that identifies this channel.
 
 ```
 SELECT * FROM google_calendar.watch_calendar_events
   WHERE calendarId='primary'
   AND $body='{
-    "id" : "test",
+    "id" : @id,
     "address" : "https://api.transposit.com/app/name/app_name/api/v1/execute-http/webhook?api_key=XXX",
     "params" : {
       "ttl" : "86400"
