@@ -153,3 +153,10 @@ var output = mustache.render("{{title}} spends {{calc}}", view);
 ```
 
 * [jsonpath](https://github.com/dchester/jsonpath)
+* [crypto-js](https://github.com/brix/crypto-js)
+```javascript
+const CryptoJS = require("crypto-js");
+const parsedWordArray = CryptoJS.enc.Base64.parse(params.str);
+const decoded = parsedWordArray.toString(CryptoJS.enc.Utf8);
+return decoded;
+```
