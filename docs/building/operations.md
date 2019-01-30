@@ -93,4 +93,4 @@ Transposit enforces usage limits on your operations. This helps to protect our i
 To make sure you don't accidentally run through your API rate limits for your data connections, Transposit limits the number of API calls.
 * By default, the limit is 500 per data connection per request.
 * This can be changed for a particular data connector by the data connector's author.
-* This can be further overridden in your application in the settings for the data connection. Select the data connection, click "Configure", and edit the value under "Max API calls".
+* This can be further overridden in your application in the settings for the data connection. Navigate to **Data connection > Configure**, and edit the value under **Max API calls**.
