@@ -31,9 +31,6 @@
     ]
   },
   "connectors": {
-    "Connectors": [
-      "connectors/stripe_v1.star.star.md"
-    ],
     "Data connectors": [
       "connectors/airtable-documentation",
       "connectors/apify-crawler-documentation",
@@ -62,6 +59,7 @@
       "connectors/pagerduty-documentation",
       "connectors/salesforce-documentation",
       "connectors/shopify-documentation",
+      "connectors/sisig-documentation",
       "connectors/slack-documentation",
       "connectors/spotify-documentation",
       "connectors/strava-documentation",

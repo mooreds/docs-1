@@ -12,10 +12,10 @@ Reference material for each data connector can be viewed in the code editor's Do
 
 ## A
 
-* [AWS Basic](../connectors/aws-basic-documentation.md)
-* [AWS ECS](../connectors/aws-ecs-documentation.md)
 * [Airtable](../connectors/airtable-documentation.md)
 * [Apify Crawler](../connectors/apify-crawler-documentation.md)
+* [AWS Basic](../connectors/aws-basic-documentation.md)
+* [AWS ECS](../connectors/aws-ecs-documentation.md)
 
 ## C
 
@@ -45,8 +45,8 @@ Reference material for each data connector can be viewed in the code editor's Do
 
 ## J
 
-* [JSONbin](../connectors/jsonbin-documentation.md)
 * [Jira](../connectors/jira-documentation.md)
+* [JSONbin](../connectors/jsonbin-documentation.md)
 
 ## L
 
@@ -55,6 +55,7 @@ Reference material for each data connector can be viewed in the code editor's Do
 
 ## O
 
+* [OpenCage Geocoder](../connectors/opencage-documentation.md)
 * [OpenCage Geocoder](../connectors/opencage-geocoder-documentation.md)
 
 ## P
@@ -65,6 +66,7 @@ Reference material for each data connector can be viewed in the code editor's Do
 
 * [Salesforce](../connectors/salesforce-documentation.md)
 * [Shopify](../connectors/shopify-documentation.md)
+* [sisig](../connectors/sisig.md)
 * [Slack](../connectors/slack-documentation.md)
 * [Spotify](../connectors/spotify-documentation.md)
 * [Strava](../connectors/strava-documentation.md)
