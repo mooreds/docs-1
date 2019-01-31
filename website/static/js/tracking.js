@@ -35,6 +35,7 @@ window.addEventListener('load', function () {
 
   function sendEvent(category, action, label) {
     const event = {
+      trackerSource: "DOCS",
       type: "event",
       category,
       action,
