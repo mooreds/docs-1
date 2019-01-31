@@ -76,7 +76,7 @@ const users = [
   },
 
   // Add custom scripts here that would be placed in <script> tags.
-  scripts: ['/js/tracking.js'],
+  scripts: ['/js/activity.js'],
 
   // On page navigation for the current documentation page.
   onPageNav: 'separate',
@@ -88,7 +88,7 @@ const users = [
   twitterImage: 'img/docusaurus.png',
 
   gaTrackingId: 'UA-91776061-2',
-
+  
   // Show documentation's last contributor's name.
   // enableUpdateBy: true,
 
