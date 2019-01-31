@@ -5,15 +5,20 @@ import subprocess
 from pprint import pprint
 from collections import OrderedDict
 
+if sys.version_info[0] < 3:
+    print('Please run this with Python 3')
+    sys.exit(1)
 
 connectorsList = [];
 sidebarsFile = 'sidebars.json'
 dataConnectorsFile = "data-connectors.md"
 
 # move the generated data connectors file
-os.rename(dataConnectorsFile, "../references/" + dataConnectorsFile)
-
 files = os.listdir('.')
+if dataConnectorsFile in files:
+    os.rename(dataConnectorsFile, "../references/" + dataConnectorsFile)
+
+
 for possibleMarkdown in files:
     if possibleMarkdown.endswith(".md"):
         name = possibleMarkdown.replace(".md", "")
