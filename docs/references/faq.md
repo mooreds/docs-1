@@ -24,10 +24,6 @@ Below we've covered common questions and technical scenarios you might encounter
 * No wiki required
 * Error-proof, share, and customize your presentation
 
-## Rate limits
-
-* To make sure you don't accidentally run through your API rate limits for your data connections, Transposit limits the number of API fetches to 25 per data connection per request.
-
 ## Automatic pagination
 
 It is common for APIs that return a long list of results to paginate those results, often relying on the caller to keep track of a cursor or page number. Transposit takes care of iterating through these paginated APIs for you and returns a single list of all of the results.
