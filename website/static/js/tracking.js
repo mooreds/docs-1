@@ -1,6 +1,5 @@
 window.addEventListener('load', function () {
-  // TODO: change to prod
-  const URL = "https://console.monkey.transposit.com/api/v1/public/activity"
+  const URL = "https://console.transposit.com/api/v1/public/activity"
 
   function sendEventsUsingBeacon(event) {
     if (navigator.sendBeacon) {
