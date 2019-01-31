@@ -11,6 +11,9 @@ window.addEventListener('load', function () {
         sendEventsUsingPost(url, data);
       }
     }
+    else {
+      sendEventsUsingPost(url, data);
+    }
   }
 
   function sendEventsUsingPost(event) {
@@ -26,6 +29,7 @@ window.addEventListener('load', function () {
 
   function sendPageView(path) {
     const event = {
+      trackerSource: "DOCS",
       type: "page-view",
       path
     };
