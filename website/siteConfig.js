@@ -76,7 +76,7 @@ const users = [
   },
 
   // Add custom scripts here that would be placed in <script> tags.
-  // scripts: ['https://buttons.github.io/buttons.js'],
+  scripts: ['/js/activity.js'],
 
   // On page navigation for the current documentation page.
   onPageNav: 'separate',
