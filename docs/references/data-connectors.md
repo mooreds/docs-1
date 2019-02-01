@@ -55,7 +55,6 @@ Reference material for each data connector can be viewed in the code editor's Do
 
 ## O
 
-* [OpenCage Geocoder](../connectors/opencage-documentation.md)
 * [OpenCage Geocoder](../connectors/opencage-geocoder-documentation.md)
 
 ## P

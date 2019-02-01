@@ -54,7 +54,6 @@
       "connectors/jsonbin-documentation",
       "connectors/lambda-documentation",
       "connectors/lyft-documentation",
-      "connectors/opencage-documentation",
       "connectors/opencage-geocoder-documentation",
       "connectors/pagerduty-documentation",
       "connectors/salesforce-documentation",
