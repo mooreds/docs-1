@@ -29,5 +29,5 @@ summary {
 }
 
 details :focus {
-    outline: none !important;
+    outline: none;
 }
