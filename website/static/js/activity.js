@@ -8,11 +8,11 @@ window.addEventListener('load', function () {
       if (!addedToQueue) {
         // if the beacon API is available in the browser, but the browser wasn't able to
         // add the request to the queue we revert to POST request.
-        sendEventsUsingPost(url, data);
+        sendEventsUsingPost(event);
       }
     }
     else {
-      sendEventsUsingPost(url, data);
+      sendEventsUsingPost(event);
     }
   }
 
