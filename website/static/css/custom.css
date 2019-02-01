@@ -22,3 +22,12 @@
 
 @media only screen and (min-width: 1500px) {
 }
+
+summary {
+	width: 125px;
+	cursor: pointer;
+}
+
+details :focus {
+    outline: none;
+}
