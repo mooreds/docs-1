@@ -31,3 +31,17 @@ summary {
 details :focus {
     outline: none;
 }
+
+.vote_btn {
+	border: 1px solid #053D4A;
+    border-radius: 3px;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.2em;
+    margin-left: 10px;
+    padding: 8px;
+    text-decoration: none !important;
+    /*text-transform: uppercase;*/
+    transition: background 0.3s, color 0.3s;
+}

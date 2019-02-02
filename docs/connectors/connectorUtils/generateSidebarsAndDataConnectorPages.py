@@ -61,7 +61,7 @@ with open(sidebarsFile, 'r') as f:
     data = OrderedDict(json.load(f));
     data["connectors"]["Data connectors"] = sidebarsList
 
-with open(sidebarsFile, 'r+') as f:
+with open(sidebarsFile, 'w+') as f:
     json.dump(data, f, indent=2)
 
 
