@@ -1,5 +1,27 @@
-window.addEventListener('load', function () {
-  const URL = "https://console.transposit.com/api/v1/public/activity"
+const activity = (function () {
+  const URL = "https://console.transposit.com/api/v1/public/activity";
+
+  function sendEvent(category, action, label) {
+    const event = {
+      trackerSource: "DOCS",
+      type: "event",
+      category,
+      action,
+      label,
+    };
+
+    sendEventsUsingBeacon(event);
+  }
+
+  function sendPageView(path) {
+    const event = {
+      trackerSource: "DOCS",
+      type: "page-view",
+      path
+    };
+
+    sendEventsUsingBeacon(event);
+  }
 
   function sendEventsUsingBeacon(event) {
     if (navigator.sendBeacon) {
@@ -10,8 +32,7 @@ window.addEventListener('load', function () {
         // add the request to the queue we revert to POST request.
         sendEventsUsingPost(event);
       }
-    }
-    else {
+    } else {
       sendEventsUsingPost(event);
     }
   }
@@ -27,39 +48,20 @@ window.addEventListener('load', function () {
     });
   }
 
-  function sendPageView(path) {
-    const event = {
-      trackerSource: "DOCS",
-      type: "page-view",
-      path
-    };
+  return {
+    sendEvent,
+    sendPageView
+  };
+});
 
-    sendEventsUsingBeacon(event);
-  }
-
-  function sendEvent(category, action, label) {
-    const event = {
-      trackerSource: "DOCS",
-      type: "event",
-      category,
-      action,
-      label,
-    };
-
-    sendEventsUsingBeacon(event);
-  }
-
-  function handlePageLoad() {
-    sendPageView(window.location.href);
-  }
-
+window.addEventListener('load', function () {
   function handleLinkClick(event) {
-    sendEvent("link", "click", event.target.href);
+    activity.sendEvent("link", "click", event.target.href);
   }
 
   document.querySelectorAll('a').forEach(function (linkElement) {
     linkElement.addEventListener('click', handleLinkClick);
   });
-
-  handlePageLoad();
+  
+  activity.sendPageView(window.location.href);
 });
