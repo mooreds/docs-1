@@ -5,7 +5,7 @@ title: JavaScript SDK
 
 The Transposit JavaScript SDK makes it simple to deal with login, authentication, and running operations in your application. For instructions on implementing the SDK and basic usage, see this guide:
 
-{% page-ref page="../building/js-sdk.md" %}
+[Building with the Javascript SDK](../building/js-sdk.md)
 
 ## Reference
 
