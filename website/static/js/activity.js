@@ -52,7 +52,7 @@ const activity = (function () {
     sendEvent,
     sendPageView
   };
-});
+})();
 
 window.addEventListener('load', function () {
   function handleLinkClick(event) {
@@ -62,6 +62,6 @@ window.addEventListener('load', function () {
   document.querySelectorAll('a').forEach(function (linkElement) {
     linkElement.addEventListener('click', handleLinkClick);
   });
-  
+
   activity.sendPageView(window.location.href);
 });
