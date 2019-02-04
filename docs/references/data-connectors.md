@@ -17,13 +17,19 @@ Reference material for each data connector can be viewed in the code editor's Do
 * [AWS Basic](../connectors/aws-basic-documentation.md)
 * [AWS ECS](../connectors/aws-ecs-documentation.md)
 
+## B
+
+* [Box](../connectors/box-honeypot.md)
+
 ## C
 
 * [CircleCI](../connectors/circleci-documentation.md)
+* [Coinbase](../connectors/coinbase-honeypot.md)
 
 ## D
 
 * [Dark Sky](../connectors/dark-sky-documentation.md)
+* [Datadog](../connectors/datadog-honeypot.md)
 * [Dog.ceo](../connectors/dog.ceo-documentation.md)
 
 ## E
@@ -65,9 +71,9 @@ Reference material for each data connector can be viewed in the code editor's Do
 
 * [Salesforce](../connectors/salesforce-documentation.md)
 * [Shopify](../connectors/shopify-documentation.md)
-* [sisig](../connectors/sisig.md)
 * [Slack](../connectors/slack-documentation.md)
 * [Spotify](../connectors/spotify-documentation.md)
+* [Square](../connectors/square-honeypot.md)
 * [Strava](../connectors/strava-documentation.md)
 * [Stripe](../connectors/stripe-documentation.md)
 * [Survey Monkey](../connectors/survey-monkey-documentation.md)
