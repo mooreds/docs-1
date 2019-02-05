@@ -11,11 +11,11 @@ Runs an operation.
 | :--- | :--- | :--- |
 | operation | String | the name of the operation to be run |
 | [parameters={}] | Object | an object containing any operation-defined parameters |
-| [options={}] | Object | additional options - `limit`: limits the number of results returned. Infinity if undefined. |
+| [options={}] | Object | additional options - `limit`: limits the number of results returned. Infinity if undefined. | `asUser`: runs the operation with the credentials provided by the user with this email address. Current user if undefined. |
 
 **Returns** (Array): Returns the operation results or throws any operation failure.
 
-**Example**
+**Examples**
 
 ```javascript
 api.run("this.helloworld");
@@ -26,6 +26,9 @@ api.run("source.users", { id: params.userId });
 
 api.run("connection.many_results", {}, {limit: 10});
 // => returns result array of size 10
+
+api.run("this.tickets_in_progress", {}, {"asUser": "iggy@transposit.com"})
+// => runs the operation with iggy's provided credentials
 ```
 
 ### `api.runBulk(operations)`
@@ -64,6 +67,27 @@ results[1] // => [{id:1234, ...}]
 results[2] // => result array of size 10
 ```
 
+### `api.runForAllUsers(operation, [parameters={}], [options={}])`
+
+Runs an operation for every production user in parallel.
+
+| Argument | Type |  |
+| :--- | :--- | :--- |
+| operation | String | the name of the operation to be run |
+| \[parameters={}\] | Object | an object containing any operation-defined parameters |
+| \[options={}\] | Object | additional options - `limit`: limits the number of results returned. Infinity if undefined. `users`: A list of user emails to run the operation for. If undefined, the operation will be run for all users. |
+
+**Returns** \(Array\): Returns an array where each element is the result set from one of the parallel operations. If any fail, the error is thrown.
+
+**Example**
+
+```javascript
+var results = api.runForAllUsers("this.say_hello", {}, {"users": ["iggy@transposit", "support@transposit"]});
+
+results[0] // => [{"greeting": "Hello Iggy!"}]
+results[1] // => [{"greeting": "Hello Support!"}]
+```
+
 ### `api.query(query, [parameters={}])`
 
 Run a SQL query
@@ -96,6 +120,34 @@ Get the logged-in user information
 ```javascript
 api.user()
 // => {"fullName":"iggy","email":"iggy@transposit.com"}
+```
+
+### `api.listUsers()`
+
+**Returns** \(Array\): Returns an array of all logged-in users' `fullName` and `email`. In development, it returns an array containing only the developer running the operation. In production, the array includes all production users.
+
+**Example**
+
+```javascript
+api.listUsers()
+// => [{"fullName":"iggy","email":"iggy@transposit.com"}, {"fullName":"support","email":"support@transposit.com"}]
+```
+
+### `api.auths(dataConnection)`
+
+Returns credentials for a data connection that uses runtime authentication.
+
+| Argument | Type |  |
+| :--- | :--- | :--- |
+| dataConnection | String | The name of the data connection to get credentials for |
+
+**Returns** \(Object\): A set of key-value pairs where the key is the credential name and the value is the credential value
+
+**Example**
+
+```javascript
+api.auths("myDataConnection");
+// => { "mySecret": "REVBREJFRUY="}
 ```
 
 ### `api.log([objects])`
