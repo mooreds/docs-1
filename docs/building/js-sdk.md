@@ -20,7 +20,7 @@ yarn add transposit
 Add via a script tag:
 
 ```markup
-<script src="https://unpkg.com/transposit@0.4.0/dist/bundle.prod.js" /></script>
+<script src="https://unpkg.com/transposit@0.4.0/dist/bundle.prod.js" />
 ```
 
 ## Usage
@@ -62,7 +62,7 @@ Once you've configured login for your application, add a link to start the login
 ...
 function loginWithGoogle() {
   window.location.href = host + "/app/v1/" + maintainer + "/" + serviceName + "/login/google?redirectUri=" + window.location.origin + window.location.pathname;
-    }
+}
 ```
 
 This kicks off the login flow with Transposit and Google. Note the `redirectUri` query parameter in the URL above. This tells Transposit where to send the user after a successful login. This is where the SDK comes into the picture. On the page that the user has been redirected to, simply call:
