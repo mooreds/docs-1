@@ -9,17 +9,27 @@ The Transposit JavaScript SDK makes it simple to deal with login, authentication
 
 ## Reference
 
-### `transposit.handleLogin()`
+### `transposit.handleLogin([callback])`
 
 Reads login information from the url and stores the claims object in localStorage for use in subsequent api calls. This is used after google login redirect. This function redirects the user to authenticate if they are missing credentials.
+
+If a callback is provided, it will be called after successful login.
 
 **Returns** void
 
 **Example**
 
 ```javascript
-transposit.handleLogin();
-// => "patjones"
+// call this when your handle-redirect page loads
+try {
+  transposit.handleLogin(({ needsKeys }) => {
+    if (needsKeys === true) {
+      // user has not yet provided all credentials
+    }
+  });
+} catch (err) {
+  // do nothing if this page is viewable when you are not logging in
+}
 ```
 
 ### `transposit.isLoggedIn()`
@@ -36,10 +46,10 @@ Invalidates stored claims and clears them from localStorage.
 
 Runs an operation.
 
-| Argument      | Type   |                                                       |
-| :------------ | :----- | :---------------------------------------------------- |
-| operation     | String | the name of the operation to be run                   |
-| [params={}]   | Object | an object containing any operation-defined parameters |
+| Argument    | Type   |                                                       |
+| :---------- | :----- | :---------------------------------------------------- |
+| operation   | String | the name of the operation to be run                   |
+| [params={}] | Object | an object containing any operation-defined parameters |
 
 **Returns** (EndRequestLog): Returns the operation results and metadata about that result
 
@@ -55,8 +65,8 @@ transposit.runOperation("source.users", { id: params.userId });
 
 ### `transposit.getConnectLocation([redirectUri=window.location.href])`
 
-| Argument                             | Type   |                                                       |
-| :----------------------------------- | :----- | :---------------------------------------------------- |
+| Argument                           | Type   |                                                       |
+| :--------------------------------- | :----- | :---------------------------------------------------- |
 | [redirectUri=window.location.href] | String | an optional param to specify an alternate redirectUri |
 
 **Returns** (String): A url to redirect to for user authorization.
@@ -72,8 +82,8 @@ transposit.getConnectLocation("localhost");
 
 Runs an operation.
 
-| Argument                             | Type   |                                                       |
-| :----------------------------------- | :----- | :---------------------------------------------------- |
+| Argument                           | Type   |                                                       |
+| :--------------------------------- | :----- | :---------------------------------------------------- |
 | [redirectUri=window.location.href] | String | an optional param to specify an alternate redirectUri |
 
 **Returns** (String): A url to redirect to for google login.
@@ -85,17 +95,30 @@ transposit.getConnectLocation("localhost");
 // => "https://api.transposit.com/app/v1/gardener/hose/login/google?redirectUri=localhost"
 ```
 
-### `transposit.getUserInfo()`
+### `transposit.getUserName()`
 
-Returns available user information.
+Returns the full name of the logged-in user.
 
-**Returns** (String): The subject for which the claim was issued
+**Returns** \(String\): The full name of the logged-in user
 
 **Example**
 
 ```javascript
-transposit.getUserInfo();
-// => "patjones"
+transposit.getUserName();
+// => "Pat Jones"
+```
+
+### `transposit.getUserEmail()`
+
+Returns the email address of the signed-in user.
+
+**Returns** \(String\): The email address of the signed-in user
+
+**Example**
+
+```javascript
+transposit.getUserEmail();
+// => "patjones@gmail.com"
 ```
 
 ## EndRequestLog format
