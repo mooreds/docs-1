@@ -70,6 +70,7 @@ Reference material for each data connector can be viewed in the code editor's Do
 ## S
 
 * [Salesforce](../connectors/salesforce-documentation.md)
+* [Sendgrid](../connectors/sendgrid-documentation.md)
 * [Shopify](../connectors/shopify-documentation.md)
 * [Slack](../connectors/slack-documentation.md)
 * [Spotify](../connectors/spotify-documentation.md)
@@ -77,6 +78,7 @@ Reference material for each data connector can be viewed in the code editor's Do
 * [Strava](../connectors/strava-documentation.md)
 * [Stripe](../connectors/stripe-documentation.md)
 * [Survey Monkey](../connectors/survey-monkey-documentation.md)
+* [Swaggerhub](../connectors/swaggerhub-documentation.md)
 
 ## Y
 

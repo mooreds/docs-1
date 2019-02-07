@@ -48,7 +48,7 @@ An opaque string that represents a user for quota purposes. Must not exceed 40 c
 
 #### sendNotifications
 
-Whether to send notifications about the calendar sharing change. Optional. The default is True.
+Deprecated. Use sendUpdates instead
 
 **Type:** boolean
 
@@ -108,7 +108,7 @@ An opaque string that represents a user for quota purposes. Must not exceed 40 c
 
 #### sendNotifications
 
-Whether to send notifications about the creation of the new event. Optional. The default is False.
+Deprecated. Use sendUpdates instead
 
 **Type:** boolean
 
@@ -216,7 +216,7 @@ An opaque string that represents a user for quota purposes. Must not exceed 40 c
 
 #### sendNotifications
 
-Whether to send notifications about the deletion of the event. Optional. The default is False.
+Deprecated. Use sendUpdates instead
 
 **Type:** boolean
 
@@ -767,7 +767,7 @@ An opaque string that represents a user for quota purposes. Must not exceed 40 c
 
 #### sendNotifications
 
-Whether to send notifications about the change of the event's organizer. Optional. The default is False.
+Deprecated. Use sendUpdates instead
 
 **Type:** boolean
 
@@ -799,7 +799,7 @@ An opaque string that represents a user for quota purposes. Must not exceed 40 c
 
 #### sendNotifications
 
-Whether to send notifications about the creation of the event. Optional. The default is False.
+Deprecated. Use sendUpdates instead
 
 **Type:** boolean
 
@@ -825,7 +825,7 @@ An opaque string that represents a user for quota purposes. Must not exceed 40 c
 
 ## update_acl_rule
 
-Updates an access control rule.
+Updates an access control rule with patch semantics.
 
 <details><summary>Parameters</summary>
 
@@ -853,7 +853,7 @@ An opaque string that represents a user for quota purposes. Must not exceed 40 c
 
 #### sendNotifications
 
-Whether to send notifications about the calendar sharing change. Note that there are no notifications on access removal. Optional. The default is True.
+Deprecated. Use sendUpdates instead
 
 **Type:** boolean
 
@@ -861,7 +861,7 @@ Whether to send notifications about the calendar sharing change. Note that there
 
 ## update_calendar
 
-Updates metadata for a calendar.
+Updates some metadata for a calendar, using patch semantics.
 
 <details><summary>Parameters</summary>
 
@@ -885,7 +885,7 @@ An opaque string that represents a user for quota purposes. Must not exceed 40 c
 
 ## update_calendar_event
 
-Updates an event.
+Updates an event with patch semantics.
 
 <details><summary>Parameters</summary>
 
@@ -931,7 +931,7 @@ An opaque string that represents a user for quota purposes. Must not exceed 40 c
 
 #### sendNotifications
 
-Whether to send notifications about the event update (e.g. attendee's responses, title changes, etc.). Optional. The default is False.
+Deprecated. Use sendUpdates instead
 
 **Type:** boolean
 
@@ -945,7 +945,7 @@ Whether API client performing operation supports event attachments. Optional. Th
 
 ## update_calendarlist_entry
 
-Updates an entry on the user's calendar list.
+Updates an entry on the user's calendar list, with patch semantics.
 
 <details><summary>Parameters</summary>
 
