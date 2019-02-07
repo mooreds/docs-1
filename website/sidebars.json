@@ -60,6 +60,7 @@
       "connectors/opencage-geocoder-documentation",
       "connectors/pagerduty-documentation",
       "connectors/salesforce-documentation",
+      "connectors/sendgrid-documentation",
       "connectors/shopify-documentation",
       "connectors/slack-documentation",
       "connectors/spotify-documentation",
@@ -67,6 +68,7 @@
       "connectors/strava-documentation",
       "connectors/stripe-documentation",
       "connectors/survey-monkey-documentation",
+      "connectors/swaggerhub-documentation",
       "connectors/yelp-documentation",
       "connectors/zoom-documentation"
     ]
