@@ -20,7 +20,7 @@ yarn add transposit
 Add via a script tag:
 
 ```markup
-<script src="https://unpkg.com/transposit@0.4.0/dist/bundle.prod.js" />
+<script src="https://unpkg.com/transposit@0.7.2/dist/bundle.prod.js"></script>
 ```
 
 ## Usage
