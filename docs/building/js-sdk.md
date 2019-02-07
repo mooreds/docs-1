@@ -33,7 +33,7 @@ If you're using a bundler:
 
 esmodules:
 
-```text
+```javascript
 import { Transposit } from "transposit";
 
 const transposit = new Transposit(serviceMaintainer, serviceName);
@@ -41,7 +41,7 @@ const transposit = new Transposit(serviceMaintainer, serviceName);
 
 commonjs modules:
 
-```text
+```javascript
 const transposit = require("transposit");
 
 const transposit = new Transposit(serviceMaintainer, serviceName);
@@ -49,7 +49,7 @@ const transposit = new Transposit(serviceMaintainer, serviceName);
 
 Or, if you've made the library globally available via a script tag:
 
-```text
+```javascript
 var transposit = new Transposit.Transposit(serviceMaintainer, serviceName);
 ```
 
@@ -57,7 +57,7 @@ var transposit = new Transposit.Transposit(serviceMaintainer, serviceName);
 
 Once you've configured login for your application, add a link to start the login process:
 
-```html
+```
 <button type="button" onclick="loginWithGoogle()">Login</button>
 
 function loginWithGoogle() { 
