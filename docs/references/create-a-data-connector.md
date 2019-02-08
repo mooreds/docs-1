@@ -1,6 +1,7 @@
 ---
 id: create-a-data-connector
 title: Creating a simple data connector in Transposit
+sidebar_label: Create a data connector
 ---
 
 Imagine you have a public JSON bin with fun data accessible at this URL: https://api.jsonbin.io/b/5c5cded2e9e7c118390e07d5.
