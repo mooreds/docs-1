@@ -1,9 +1,7 @@
 ---
 id: create-a-data-connector
-title: Create a data connector
+title: Creating a simple data connector in Transposit
 ---
-
-## Creating a simple data connector in Transposit
 
 Imagine you have a public JSON bin with fun data accessible at this URL: https://api.jsonbin.io/b/5c5cded2e9e7c118390e07d5.
 You can implement a very bare Swagger file (below) representing this single API endpoint using SwaggerHub or some other online editor.
