@@ -23,6 +23,7 @@
       "references/js-operations",
       "references/js-sdk",
       "references/data-connectors",
+      "references/create-a-data-connector",
       "references/connect-to-jira",
       "references/google-push-notifications",
       "references/repository",
