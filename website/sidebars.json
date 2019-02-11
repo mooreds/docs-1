@@ -17,13 +17,15 @@
       "building/js-sdk",
       "building/hosted-apps"
     ],
+    "Data connectors": [
+      "references/create-a-data-connector",
+      "references/data-connectors"
+    ],
     "References": [
       "references/authentication",
       "references/sql-operations",
       "references/js-operations",
       "references/js-sdk",
-      "references/data-connectors",
-      "references/create-a-data-connector",
       "references/connect-to-jira",
       "references/google-push-notifications",
       "references/repository",
