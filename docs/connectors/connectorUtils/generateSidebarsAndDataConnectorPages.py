@@ -69,10 +69,15 @@ with open(sidebarsFile, 'w+') as f:
 # Create data-connector.md file
 with open(dataConnectorsTemplateFile) as template:
     lines = template.readlines()
+    newlinesNeeded = 0
+    if lines[-1] != NEWLINE:
+        newlinesNeeded += 1
+        if lines[-1][-1] != NEWLINE:
+            newlinesNeeded += 1
 
     with open(dataConnectorsFile, "w+") as f:
         f.writelines(lines)
-        if lines[-1] != NEWLINE:
+        for i in range(newlinesNeeded):
             f.write(NEWLINE)
 
 
