@@ -33,7 +33,7 @@ def bulletPointAndLink(connectorName):
 # Get all the documentation files. Read each file to get its display name
 files = os.listdir(".")
 for fileName in files:
-    if fileName.endswith(".md") and fileName != dataConnectorsFile:
+    if (fileName.endswith("-documentation.md") or fileName.endswith("-honeypot.md")) and fileName != dataConnectorsFile:
         name = fileName.replace(".md", "")
         connectorsList.append(name)
 
@@ -63,6 +63,7 @@ with open(sidebarsFile, 'r') as f:
 
 with open(sidebarsFile, 'w+') as f:
     json.dump(data, f, indent=2)
+    f.write("\n")
 
 
 # Create data-connector.md file
