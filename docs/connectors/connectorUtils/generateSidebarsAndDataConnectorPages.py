@@ -23,7 +23,7 @@ fileNameToDisplayName = {}
 
 SIDEBAR_LABEL = "sidebar_label: "
 ID = "id: "
-
+NEWLINE = "\n"
 
 def bulletPointAndLink(connectorName):
     displayName = fileNameToDisplayName[connectorName]
@@ -63,15 +63,22 @@ with open(sidebarsFile, 'r') as f:
 
 with open(sidebarsFile, 'w+') as f:
     json.dump(data, f, indent=2)
-    f.write("\n")
+    f.write(NEWLINE)
 
 
 # Create data-connector.md file
 with open(dataConnectorsTemplateFile) as template:
     lines = template.readlines()
+    newlinesNeeded = 0
+    if lines[-1] != NEWLINE:
+        newlinesNeeded += 1
+        if lines[-1][-1] != NEWLINE:
+            newlinesNeeded += 1
 
     with open(dataConnectorsFile, "w+") as f:
         f.writelines(lines)
+        for i in range(newlinesNeeded):
+            f.write(NEWLINE)
 
 
 # Write to the data-connector.md file with all the connector names + display names
@@ -85,12 +92,12 @@ for name in connectorsList:
 with open(dataConnectorsFile, "a") as f:
     for letter in connectorsByLetter.keys():
         f.write("## " + letter)
-        f.write("\n")
-        f.write("\n")
+        f.write(NEWLINE)
+        f.write(NEWLINE)
         for connector in connectorsByLetter.get(letter):
             f.write(bulletPointAndLink(connector))
-            f.write("\n")
-        f.write("\n")
+            f.write(NEWLINE)
+        f.write(NEWLINE)
 
 # move the generated data connectors file
 os.rename(dataConnectorsFile, "../references/" + dataConnectorsFile)
