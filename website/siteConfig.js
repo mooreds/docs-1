@@ -23,7 +23,7 @@ const users = [
   const siteConfig = {
   title: 'Transposit', // Title for your website.
   tagline: 'An end-to-end solution for building production-ready applications on top of APIs',
-  url: 'https://docs.transposit.com', // Your website URL
+  url: 'https://api-composition.transposit.com', // Your website URL
   baseUrl: '/', // Base URL for your project */
   docsUrl: '', // Get rid of the `/docs/` part of the site URL
 
@@ -39,8 +39,8 @@ const users = [
 
   // For no header links in the top nav bar -> headerLinks: [],
   headerLinks: [
-  { href: "https://docs.transposit.com", label: "Docs" },
-  { href: "https://docs.transposit.com/connectors", label: "Connectors" },
+  { href: "/", label: "Docs" },
+  { href: "/connectors", label: "Connectors" },
   { href: "https://console.transposit.com", label: "Return to code editor" },
   ],
 
