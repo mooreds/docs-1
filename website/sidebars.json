@@ -39,6 +39,8 @@
       "connectors/apify-crawler-documentation",
       "connectors/aws-basic-documentation",
       "connectors/aws-ecs-documentation",
+      "connectors/aws-s3-documentation",
+      "connectors/box-documentation",
       "connectors/box-documentation",
       "connectors/circleci-documentation",
       "connectors/coinbase-documentation",
@@ -72,6 +74,7 @@
       "connectors/stripe-documentation",
       "connectors/survey-monkey-documentation",
       "connectors/swaggerhub-documentation",
+      "connectors/twilio-documentation",
       "connectors/yelp-documentation",
       "connectors/zoom-documentation"
     ]
