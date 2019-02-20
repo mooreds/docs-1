@@ -118,9 +118,23 @@ sidebar_label: AWS ECS
 
 **Type:** OBJECT
 
+#### maxResults
+
+**Type:** STRING
+
+#### nextToken
+
+**Type:** STRING
+
 #### target
 
 **Type:** STRING
 
 </details>
+
+## paginated_list_task_definitions
+
+
+
+*This operation has no parameters*
 

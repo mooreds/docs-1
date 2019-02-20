@@ -482,6 +482,13 @@ The country (an ISO 3166-1 alpha-2 country code)
 
 </details>
 
+## get_my_playlists
+
+[Get a List of Current User's Playlists](https://developer.spotify.com/documentation/web-api/reference/playlists/get-a-list-of-current-users-playlists/)
+
+
+*This operation has no parameters*
+
 ## get_my_profile
 
 
@@ -651,6 +658,52 @@ The user's Spotify user ID.
 The user's Spotify user ID.
 
 **Type:** string
+
+</details>
+
+## player
+
+
+
+*This operation has no parameters*
+
+## player_currently_playing
+
+
+
+*This operation has no parameters*
+
+## player_pause
+
+
+
+*This operation has no parameters*
+
+## player_play
+
+[Start/Resume a User's Playback](https://developer.spotify.com/documentation/web-api/reference/player/start-a-users-playback/)
+
+
+<details><summary>Parameters</summary>
+
+#### $body
+
+**Type:** object
+
+</details>
+
+## player_seek
+
+[Seek To Position In Currently Playing Track](https://developer.spotify.com/documentation/web-api/reference/player/seek-to-position-in-currently-playing-track/)
+
+
+<details><summary>Parameters</summary>
+
+#### position_ms (required)
+
+The position in milliseconds to seek to. Must be a positive number. Passing in a position that is greater than the length of the track will cause the player to start playing the next song.
+
+**Type:** integer
 
 </details>
 

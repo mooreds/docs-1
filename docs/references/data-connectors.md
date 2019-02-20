@@ -14,9 +14,11 @@ Note: reference material for each data connector can additionally be viewed in t
 * [Apify Crawler](../connectors/apify-crawler-documentation.md)
 * [AWS Basic](../connectors/aws-basic-documentation.md)
 * [AWS ECS](../connectors/aws-ecs-documentation.md)
+* [AWS S3](../connectors/aws-s3-documentation.md)
 
 ## B
 
+* [Box](../connectors/box-documentation.md)
 * [Box](../connectors/box-honeypot.md)
 
 ## C
@@ -77,6 +79,10 @@ Note: reference material for each data connector can additionally be viewed in t
 * [Stripe](../connectors/stripe-documentation.md)
 * [Survey Monkey](../connectors/survey-monkey-documentation.md)
 * [Swaggerhub](../connectors/swaggerhub-documentation.md)
+
+## T
+
+* [Twilio](../connectors/twilio-documentation.md)
 
 ## Y
 

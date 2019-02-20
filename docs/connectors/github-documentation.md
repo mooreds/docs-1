@@ -14,7 +14,7 @@ You can post a single email address or an array of addresses.
 
 #### $body
 
-**Type:** object
+**Type:** array
 
 #### Accept
 
@@ -106,7 +106,7 @@ Name of repository.
 
 #### $body
 
-**Type:** object
+**Type:** array
 
 #### Accept
 
@@ -881,7 +881,7 @@ Name of repository.
 
 #### $body
 
-**Type:** object
+**Type:** array
 
 #### Accept
 
@@ -2605,7 +2605,7 @@ Name of repository.
 
 #### $body
 
-**Type:** object
+**Type:** array
 
 #### Accept
 
@@ -2653,7 +2653,7 @@ Name of repository.
 
 #### $body
 
-**Type:** object
+**Type:** array
 
 #### Accept
 

@@ -26,7 +26,7 @@ The name of the table being referenced within the base. This table must already 
 
 New record to add
 
-**Type:** string
+**Type:** object
 
 </details>
 
@@ -168,7 +168,7 @@ The name of the table being referenced within the base. This table must already 
 
 Record to update
 
-**Type:** string
+**Type:** object
 
 </details>
 
@@ -200,7 +200,7 @@ The name of the table being referenced within the base. This table must already 
 
 Record to update
 
-**Type:** string
+**Type:** object
 
 </details>
 
