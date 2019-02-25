@@ -19,7 +19,6 @@ Note: reference material for each data connector can additionally be viewed in t
 ## B
 
 * [Box](../connectors/box-documentation.md)
-* [Box](../connectors/box-honeypot.md)
 
 ## C
 
