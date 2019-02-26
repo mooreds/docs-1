@@ -7,7 +7,9 @@ Transposit is a zero-ops platform that lets developers instantly connect to and 
 
 In this quickstart, we’re going to build a slash command in Slack that connects to an external data source. Slack commands trigger an app and display a custom response. Our command will display a random image of a dog&mdash;you can modify it later to work with cats, Pokemon, your calendar, updates from Github, or whatever data you want.
 
-You can also [watch this in a short video](https://www.youtube.com/watch?v=VLvjSh1fkp0).
+You can also [watch this in a short video](https://www.youtube.com/watch?v=VLvjSh1fkp0):
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/VLvjSh1fkp0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## What you'll need
 
