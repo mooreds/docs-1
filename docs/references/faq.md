@@ -37,6 +37,7 @@ Paginated operations are denoted by a green "paginated" tag in the documentation
 You may want to include a LICENSE file with your application because Transposit users who can view your application can also create a fork of your application. This is especially true of public applications that all Transposit users can view.
 
 To add a LICENSE to your application:
+
 * Clone your application's git repository
 * Add a LICENSE file in the root directory of your git repository
 * Commit and push the LICENSE back upstream to Transposit
