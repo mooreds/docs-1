@@ -234,12 +234,6 @@ Resource that represents a spreadsheet.
 
 **Type:** object
 
-#### $body.properties.title
-
-The title of the spreadsheet.
-
-**Type:** string
-
 #### quotaUser
 
 Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.

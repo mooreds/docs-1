@@ -13,7 +13,12 @@ Note: reference material for each data connector can additionally be viewed in t
 * [Airtable](../connectors/airtable-documentation.md)
 * [Apify Crawler](../connectors/apify-crawler-documentation.md)
 * [AWS Basic](../connectors/aws-basic-documentation.md)
+* [AWS Cloudwatch Events](../connectors/aws-cloudwatch-events-documentation.md)
+* [AWS Cloudwatch Logs](../connectors/aws-cloudwatch-logs-documentation.md)
+* [AWS DynamoDB](../connectors/aws-dynamodb-documentation.md)
+* [AWS EC2 Container Registry](../connectors/aws-ec2-container-registry-documentation.md)
 * [AWS ECS](../connectors/aws-ecs-documentation.md)
+* [AWS Lambda](../connectors/aws-lambda-documentation.md)
 * [AWS S3](../connectors/aws-s3-documentation.md)
 
 ## B
