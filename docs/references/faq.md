@@ -31,3 +31,15 @@ It is common for APIs that return a long list of results to paginate those resul
 Paginated operations are denoted by a green "paginated" tag in the documentation for the data connection.
 
 > Transposit will continue paginating such APIs until it reaches the `limit` specified in your query, or the API has no more results. For this reason, it is important to always provide a `limit` when using a paginated operation.
+
+## Licensing applications
+
+You may want to include a LICENSE file with your application because Transposit users who can view your application can also create a fork of your application. This is especially true of public applications that all Transposit users can view.
+
+To add a LICENSE to your application:
+
+* Clone your application's git repository
+* Add a LICENSE file in the root directory of your git repository
+* Commit and push the LICENSE back upstream to Transposit
+
+Henceforth, all forks of your application will include your LICENSE file.

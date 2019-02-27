@@ -28,11 +28,11 @@ Transposit also provides the features you'd expect of a first-class developer to
 
 ## How to use these docs
 
-​[Getting started](get-started/) — Get acquainted with Transposit by following easy guides, learning product basics, and getting answers to common questions.
+​[Getting started](get-started/quickstart) — Get acquainted with Transposit by following easy guides, learning product basics, and getting answers to common questions.
 
-​[Building and deploying applications](building/) — Learn how to connect data sources, write operations to manipulate data, and deploy to real users.
+​[Building and deploying applications](building/operations) — Learn how to connect data sources, write operations to manipulate data, and deploy to real users.
 
-[​References](references/) — Dive deep into our reference documentation for SQL and JavaScript, authentication and credentials, and answers for common technical scenarios.
+[​References](references/authentication) — Dive deep into our reference documentation for SQL and JavaScript, authentication and credentials, and answers for common technical scenarios.
 
 ## Get in touch
 
