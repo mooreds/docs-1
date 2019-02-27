@@ -27,11 +27,11 @@ Here's what this process looks like when building with Transposit:
 
 Here's a visualization of what Transposit's authentication solution looks like from the perspective of managing multiple, authenticated data connections, both developer and user-provided:
 
-![](/assets/managed-auth-1.png)
+![](/docs/assets/managed-auth-1.png)
 
 And here's a visualization of how Transposit can manage your application's "front door" sign-in and user records:
 
-![](/assets/managed-auth-2.png)
+![](/docs/assets/managed-auth-2.png)
 
 ## Why is managed authentication useful?
 

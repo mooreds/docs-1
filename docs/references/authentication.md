@@ -58,7 +58,7 @@ For data connections that implement authentication with header parameters, such 
 
 Example: [PagerDuty](https://v2.developer.pagerduty.com/docs/authentication)
 
-![](../assets/auth-exemplary-pagerduty.png)
+![](/docs/assets/auth-exemplary-pagerduty.png)
 
 * [PagerDuty](https://v2.developer.pagerduty.com/docs/authentication)
 * [Yelp](https://www.yelp.com/developers/documentation/v3/authentication)
@@ -69,7 +69,7 @@ For data connections that implement authentication with query parameters, such a
 
 Example: [Zoom](https://zoom.github.io/api/#authentication)
 
-![](../assets/auth-exemplary-zoom.png)
+![](/docs/assets/auth-exemplary-zoom.png)
 
 * [Airtable](https://airtable.com/account)
 * [Apify Crawler](https://www.apify.com/docs/api/v1#/introduction/authentication)
@@ -82,7 +82,7 @@ For AWS data connections, such as Lambda, the required combination of authentica
 
 Example: Lambda with all three parameters provided (i.e. authentication as an IAM user assuming an IAM role)
 
-![](../assets/auth-exemplary-lambda.png)
+![](/docs/assets/auth-exemplary-lambda.png)
 
 * AWS Basic
 * Elastic
