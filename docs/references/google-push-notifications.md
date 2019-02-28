@@ -19,24 +19,15 @@ To use Google's push notifications, use the instructions below.
 
 You can use a Transposit operation to watch Google events and register your previously
 created webhook as the callback. However, the OAuth2 credentials must match the project
-where you registered Transposit as a domain above. Google provides instructions for [setting up OAuth 2.0](https://support.google.com/cloud/answer/6158849).
-* Go to the [Google Cloud Platform Console](https://console.cloud.google.com/) and select a project.
-* Select **APIs & services > Credentials**.
-* Click  **New Credentials > OAuth client ID**.
-* Either configure a consent screen if this is your first time, or modify your existing consent screen to add `transposit.com` as an authorized domain.
-* Select **Web application**.
-* Note the Client ID and Client Secret to be used in the next step, and click Save.
-* Select the credential you just created and add `https://console.transposit.com/oauthCallback` as an authorized redirect URI. If you did not properly set up your authorized domain in your consent screen, you may get an `Invalid Redirect` error. If so, follow the link and add `transposit.com` to the authorized domains list.
-* Go to **APIs & Services > Library**, search for the correct API (e.g. Google Mail, Google Calendar, or Google Drive), and enable the API.
+where you registered Transposit as a domain above. This means that you cannot use the Tranpsosit-provided OAuth settings, and [must provide your own client ID and secret](../references/connector-authentication.md#generating-a-client-id-and-secret-with-google-connectors).
 
 ## Tell Transposit to use those OAuth2 credentials
 
 * In your Transposit application, add the data connector for the desired Google service.
-* Go to **Code > Data Connections** and find your data connector.
-* Click **Authentication > Configure**, replace the Client ID and Client Secret with the values from the previous step.
+* If not prompted with a button to configure Authentication, click `Cancel` and go to **Code > Data Connections** and find your data connector. 
+* Click **Authentication > Configure**, replace the Client ID and Client secret with the values from the previous step. 
 * Save your changes.
-* Hover over your key and select remove key from the context menu.
-* Add the key again with your new credentials. You should now see your Google project's consent screen.
+* Click `Add Key` for your connector. You should now see your Google project's consent screen.
 
 ## Create a webhook in Transposit to receive the callback
 

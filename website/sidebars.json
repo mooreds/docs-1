@@ -19,10 +19,11 @@
     ],
     "Data connectors": [
       "references/create-a-data-connector",
-      "references/data-connectors"
+      "references/data-connectors",
+      "references/connector-authentication"
     ],
     "References": [
-      "references/authentication",
+      "references/keys-and-keychains",
       "references/sql-operations",
       "references/js-operations",
       "references/js-sdk",
