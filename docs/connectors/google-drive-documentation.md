@@ -74,12 +74,6 @@ A comment on a file.
 
 **Type:** object
 
-#### $body.content
-
-The plain text content of the comment. This field is used for setting the content, while htmlContent should be displayed.
-
-**Type:** string
-
 #### fields
 
 Selector specifying which fields to include in a partial response.
@@ -111,6 +105,12 @@ The ID of the file.
 A reply to a comment on a file.
 
 **Type:** object
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
 
 #### quotaUser
 
@@ -992,6 +992,12 @@ A comment on a file.
 
 **Type:** object
 
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
 #### quotaUser
 
 Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
@@ -1029,6 +1035,12 @@ The ID of the reply.
 A reply to a comment on a file.
 
 **Type:** object
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
 
 #### quotaUser
 
