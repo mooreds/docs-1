@@ -24,7 +24,6 @@ Keys used when running scheduled tasks are kept separate from development and pr
 
 ## Keychains
 
-Keychains are sets of keys that you can enable in development, production, or other contexts. You can also share keychains within an organization. Keychains are managed in Transposit via **Authentication > Keychains**.
+Keychains are sets of keys that you can enable in development, production, or other contexts. They are managed in Transposit via **Authentication > Keychains**.
 
-In order to share keychains within an organization, create the keychain with the organization as the owner. Any keys put in that organization-owned keychain will be usable by others in the organization.
 
