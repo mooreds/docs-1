@@ -13,7 +13,7 @@ Transposit creates a unified interface for interacting with various APIs. A data
 
 The data connection encapsulates:
 
-* [Authentication](../references/authentication.md) (OAuth, username/password, basic header auth, etc)
+* [Authentication](../references/connector-authentication.md) (OAuth, username/password, basic header auth, etc)
 * API schema and delivery mechanism
 * Pagination (supported by some operations)
 
