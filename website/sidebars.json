@@ -23,7 +23,7 @@
       "references/connector-authentication"
     ],
     "References": [
-      "references/keychains",
+      "references/keys-and-keychains",
       "references/sql-operations",
       "references/js-operations",
       "references/js-sdk",
