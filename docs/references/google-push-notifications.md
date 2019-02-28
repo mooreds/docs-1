@@ -53,20 +53,18 @@ Google Calendar example. The `@id` parameter should be a UUID or similar unique 
 ```
 SELECT * FROM google_calendar.watch_calendar_events
   WHERE calendarId='primary'
-  AND $body='{
-    "id" : @id,
+  AND $body=(SELECT {
     "address" : "https://api.transposit.com/app/name/app_name/api/v1/execute-http/webhook?api_key=XXX",
-    "params" : {
-      "ttl" : "86400"
-    },
     "type" : "web_hook",
     "token" : "test-token"
-  }'
+  })
+  AND $body.id = @id
+  AND $body.params.ttl = "86400" 
 ```
 
 ## Schedule a task to refresh the watch
 
-If you used the above TTL (in milliseconds), you will need to refresh the watch every day.
+If you used the above TTL (in seconds), you will need to refresh the watch every day.
 
 * Go to **Deploy > Scheduled Tasks**.
 * Create a new scheduled task.
