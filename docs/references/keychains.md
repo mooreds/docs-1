@@ -8,7 +8,7 @@ Here you can find details around Transposit's options for authentication, includ
 
 ## Keys
 
-Transposit supports several authorization mechanisms including OAuth, auth via headers, username/password, and a few less common options such as WSDL auth and OAuth v1. When you [enter credentials or complete an OAuth flow](../connector-authentication.md), Transposit securely stores them for future use as a key. Each Transposit application has its own keys that are not shared across applications, contexts, or organizations (unless using keychains; see below).
+Transposit supports several authorization mechanisms including OAuth, auth via headers, username/password, and a few less common options such as WSDL auth and OAuth v1. When you [enter credentials or complete an OAuth flow](../references/connector-authentication.md), Transposit securely stores them for future use as a key. Each Transposit application has its own keys that are not shared across applications, contexts, or organizations (unless using keychains; see below).
 
 When first adding a data connection to your application, Transposit will ask you to authorize the connection. After adding a data connection, keys for that dependency can be added or removed from the Keys section of the Transposit operations console.
 
