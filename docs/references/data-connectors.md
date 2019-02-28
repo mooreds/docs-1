@@ -63,6 +63,12 @@ Note: reference material for each data connector can additionally be viewed in t
 * [Lambda](../connectors/lambda-documentation.md)
 * [Lyft](../connectors/lyft-documentation.md)
 
+## M
+
+* [Merriam-Webster Collegiate Dictionary](../connectors/merriam-webster-collegiate-dictionary-documentation.md)
+* [Merriam-Webster Medical Dictionary](../connectors/merriam-webster-medical-dictionary-documentation.md)
+* [Merriam-Webster Spanish-English Dictionary](../connectors/merriam-webster-spanish-english-dictionary-documentation.md)
+
 ## O
 
 * [OpenCage Geocoder](../connectors/opencage-geocoder-documentation.md)
