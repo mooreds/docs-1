@@ -68,6 +68,7 @@
       "connectors/lambda-documentation",
       "connectors/lyft-documentation",
       "connectors/merriam-webster-collegiate-dictionary-documentation",
+      "connectors/merriam-webster-collegiate-thesaurus-documentation",
       "connectors/merriam-webster-medical-dictionary-documentation",
       "connectors/merriam-webster-spanish-english-dictionary-documentation",
       "connectors/opencage-geocoder-documentation",
