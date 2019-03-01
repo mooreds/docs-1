@@ -472,7 +472,7 @@ You can check the current version of media type in responses.
 ## create_fork
 
 Create a fork.
-Forking a Repository happens asynchronously. Therefore, you may have to wai
+Forking a Repository happens asynchronously. Therefore, you may have to wait
 a short period before accessing the git objects. If this takes longer than 5
 minutes, be sure to contact Support.
 
