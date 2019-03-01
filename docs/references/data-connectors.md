@@ -66,6 +66,7 @@ Note: reference material for each data connector can additionally be viewed in t
 ## M
 
 * [Merriam-Webster Collegiate Dictionary](../connectors/merriam-webster-collegiate-dictionary-documentation.md)
+* [Merriam-Webster Collegiate Thesaurus](../connectors/merriam-webster-collegiate-thesaurus-documentation.md)
 * [Merriam-Webster Medical Dictionary](../connectors/merriam-webster-medical-dictionary-documentation.md)
 * [Merriam-Webster Spanish-English Dictionary](../connectors/merriam-webster-spanish-english-dictionary-documentation.md)
 
