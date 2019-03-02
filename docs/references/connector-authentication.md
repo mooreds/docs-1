@@ -4,7 +4,7 @@ title: Authenticating with Data Connectors
 sidebar_label: Connector authentication
 ---
 
-This page will explain how to provide authentication for Transposit's connectors.
+This page will explain how to provide authentication for Transposit's data connectors.
 
 ## Auth via OAuth 1.0 and 2.0
 
@@ -15,7 +15,7 @@ Given OAuth settings (i.e. client IDs and secrets), Transposit will automaticall
 If you do not want to use the Transposit-provided OAuth settings, you always have the option to overwrite the configuration with your own custom OAuth settings. A small subset of data connections will require you to provide custom OAuth settings because no feasible Transposit-provided OAuth settings exist for those connections.
 
 To use your own client ID and secret:
-* Set up a developer app using the connector's platform. Add `https://console.transposit.com/oauthCallback` as a Redirect URI.
+* Set up a developer app using the connector's platform. Add `https://console.transposit.com/oauthCallback` as a Redirect URI (use `/oauthV1Callback` for OAuth 1.0).
 * Go to **Code > Data Connections** in Transposit and select your data connector. 
 * Under  **Authentication > Configure**, add the client ID and secret from your created developer app.
 * If you'd like, customize the [scope](#custom-oauth-scope) under **Configuration**
@@ -25,7 +25,7 @@ To use your own client ID and secret:
 
 The following connectors require custom OAuth settings. When you add the connector to your service, you will be prompted to add these settings. Follow the links to create your own developer apps:
 * [Google Mail](#generating-a-client-id-and-secret-with-google-connectors)
-* [Jira](https://developer.atlassian.com/cloud/jira/platform/jira-rest-api-oauth-authentication/)  (use `https://console.transposit.com/oauthV1Callback` for the Redirect URI)
+* [Jira](/references/connect-to-jira)
 * [Salesforce](https://na50.lightning.force.com/lightning/setup/NavigationMenus/home) 
 * [Shopify](https://partners.shopify.com/organizations) (Select an account and click on the "Apps" link in the dashboard)
 * [Survey Monkey](https://developer.surveymonkey.com/apps/) 
