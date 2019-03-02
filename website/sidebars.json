@@ -65,7 +65,6 @@
       "connectors/google-sheets-documentation",
       "connectors/jira-documentation",
       "connectors/jsonbin-documentation",
-      "connectors/lambda-documentation",
       "connectors/lyft-documentation",
       "connectors/merriam-webster-collegiate-dictionary-documentation",
       "connectors/merriam-webster-collegiate-thesaurus-documentation",
