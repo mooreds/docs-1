@@ -64,7 +64,6 @@
       "connectors/google-sheets-documentation",
       "connectors/jira-documentation",
       "connectors/jsonbin-documentation",
-      "connectors/lambda-documentation",
       "connectors/lyft-documentation",
       "connectors/opencage-geocoder-documentation",
       "connectors/pagerduty-documentation",

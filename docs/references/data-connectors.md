@@ -60,7 +60,6 @@ Note: reference material for each data connector can additionally be viewed in t
 
 ## L
 
-* [Lambda](../connectors/lambda-documentation.md)
 * [Lyft](../connectors/lyft-documentation.md)
 
 ## O
