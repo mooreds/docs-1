@@ -19,10 +19,11 @@
     ],
     "Data connectors": [
       "references/create-a-data-connector",
-      "references/data-connectors"
+      "references/data-connectors",
+      "references/connector-authentication"
     ],
     "References": [
-      "references/authentication",
+      "references/keys-and-keychains",
       "references/sql-operations",
       "references/js-operations",
       "references/js-sdk",
@@ -64,8 +65,11 @@
       "connectors/google-sheets-documentation",
       "connectors/jira-documentation",
       "connectors/jsonbin-documentation",
-      "connectors/lambda-documentation",
       "connectors/lyft-documentation",
+      "connectors/merriam-webster-collegiate-dictionary-documentation",
+      "connectors/merriam-webster-collegiate-thesaurus-documentation",
+      "connectors/merriam-webster-medical-dictionary-documentation",
+      "connectors/merriam-webster-spanish-english-dictionary-documentation",
       "connectors/opencage-geocoder-documentation",
       "connectors/pagerduty-documentation",
       "connectors/salesforce-documentation",
