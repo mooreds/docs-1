@@ -1,3 +1,4 @@
 # Redirects from what the browser requests to what we serve
 /connectors /references/data-connectors
 
+/references/authentication /references/connector-authentication#auth-via-aws-parameters
