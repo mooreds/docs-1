@@ -1,8 +1,190 @@
 ---
 id: google-mail-documentation
-title: Google Mail (version v1.*.*)
+title: Google Mail (version v2.*.*)
 sidebar_label: Google Mail
 ---
+
+## construct_message
+
+
+
+<details><summary>Parameters</summary>
+
+#### cc
+
+**Type:** STRING
+
+#### deleted
+
+**Type:** BOOLEAN
+
+#### draftId
+
+**Type:** STRING
+
+#### from
+
+**Type:** STRING
+
+#### internalDateSource
+
+**Type:** STRING
+
+#### messageHtml
+
+**Type:** STRING
+
+#### neverMarkSpam
+
+**Type:** BOOLEAN
+
+#### processForCalendar
+
+**Type:** BOOLEAN
+
+#### subject
+
+**Type:** STRING
+
+#### threadId
+
+**Type:** STRING
+
+#### to
+
+**Type:** STRING
+
+#### userId
+
+**Type:** STRING
+
+</details>
+
+## create_alias
+
+Creates a custom "from" send-as alias. If an SMTP MSA is specified, Gmail will attempt to connect to the SMTP service to validate the configuration before creating the alias. If ownership verification is required for the alias, a message will be sent to the email address and the resource's verification status will be set to pending; otherwise, the resource will be created with verification status set to accepted. If a signature is provided, Gmail will sanitize the HTML before saving it with the alias.
+
+This method is only available to service account clients that have been delegated domain-wide authority.
+
+<details><summary>Parameters</summary>
+
+#### userId (required)
+
+User's email address. The special value "me" can be used to indicate the authenticated user.
+
+**Type:** string
+
+#### $body
+
+Settings associated with a send-as alias, which can be either the primary login address associated with the account or a custom "from" address. Send-as aliases correspond to the "Send Mail As" feature in the web interface.
+
+**Type:** object
+
+#### alt
+
+Data format for the response.
+
+**Type:** string
+
+**Potential values:** json
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
+#### key
+
+API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+
+**Type:** string
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
+#### quotaUser
+
+An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+
+**Type:** string
+
+#### userIp
+
+Deprecated. Please use quotaUser instead.
+
+**Type:** string
+
+</details>
+
+## create_delegate
+
+Adds a delegate with its verification status set directly to accepted, without sending any verification email. The delegate user must be a member of the same G Suite organization as the delegator user.
+
+Gmail imposes limtations on the number of delegates and delegators each user in a G Suite organization can have. These limits depend on your organization, but in general each user can have up to 25 delegates and up to 10 delegators.
+
+Note that a delegate user must be referred to by their primary email address, and not an email alias.
+
+Also note that when a new delegate is created, there may be up to a one minute delay before the new delegate is available for use.
+
+This method is only available to service account clients that have been delegated domain-wide authority.
+
+<details><summary>Parameters</summary>
+
+#### userId (required)
+
+User's email address. The special value "me" can be used to indicate the authenticated user.
+
+**Type:** string
+
+#### $body
+
+Settings for a delegate. Delegates can read, send, and delete messages, as well as view and add contacts, for the delegator's account. See "Set up mail delegation" for more information about delegates.
+
+**Type:** object
+
+#### alt
+
+Data format for the response.
+
+**Type:** string
+
+**Potential values:** json
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
+#### key
+
+API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+
+**Type:** string
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
+#### quotaUser
+
+An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+
+**Type:** string
+
+#### userIp
+
+Deprecated. Please use quotaUser instead.
+
+**Type:** string
+
+</details>
 
 ## create_draft
 
@@ -10,9 +192,149 @@ Creates a new draft with the DRAFT label.
 
 <details><summary>Parameters</summary>
 
+#### cc
+
+**Type:** STRING
+
+#### from
+
+**Type:** STRING
+
+#### messageHtml
+
+**Type:** STRING
+
+#### subject
+
+**Type:** STRING
+
+#### threadId
+
+**Type:** STRING
+
+#### to
+
+**Type:** STRING
+
+#### userId
+
+**Type:** STRING
+
+</details>
+
+## create_filter
+
+Creates a filter.
+
+<details><summary>Parameters</summary>
+
 #### userId (required)
 
-The users email address. The special value me can be used to indicate the authenticated user.
+User's email address. The special value "me" can be used to indicate the authenticated user.
+
+**Type:** string
+
+#### $body
+
+Resource definition for Gmail filters. Filters apply to specific messages instead of an entire email thread.
+
+**Type:** object
+
+#### alt
+
+Data format for the response.
+
+**Type:** string
+
+**Potential values:** json
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
+#### key
+
+API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+
+**Type:** string
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
+#### quotaUser
+
+An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+
+**Type:** string
+
+#### userIp
+
+Deprecated. Please use quotaUser instead.
+
+**Type:** string
+
+</details>
+
+## create_forwarding_address
+
+Creates a forwarding address. If ownership verification is required, a message will be sent to the recipient and the resource's verification status will be set to pending; otherwise, the resource will be created with verification status set to accepted.
+
+This method is only available to service account clients that have been delegated domain-wide authority.
+
+<details><summary>Parameters</summary>
+
+#### userId (required)
+
+User's email address. The special value "me" can be used to indicate the authenticated user.
+
+**Type:** string
+
+#### $body
+
+Settings for a forwarding address.
+
+**Type:** object
+
+#### alt
+
+Data format for the response.
+
+**Type:** string
+
+**Potential values:** json
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
+#### key
+
+API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+
+**Type:** string
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
+#### quotaUser
+
+An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+
+**Type:** string
+
+#### userIp
+
+Deprecated. Please use quotaUser instead.
 
 **Type:** string
 
@@ -26,7 +348,173 @@ Creates a new label.
 
 #### userId (required)
 
-The users email address. The special value me can be used to indicate the authenticated user.
+The user's email address. The special value me can be used to indicate the authenticated user.
+
+**Type:** string
+
+#### $body
+
+Labels are used to categorize messages and threads within the user's mailbox.
+
+**Type:** object
+
+#### alt
+
+Data format for the response.
+
+**Type:** string
+
+**Potential values:** json
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
+#### key
+
+API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+
+**Type:** string
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
+#### quotaUser
+
+An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+
+**Type:** string
+
+#### userIp
+
+Deprecated. Please use quotaUser instead.
+
+**Type:** string
+
+</details>
+
+## delete_alias
+
+Deletes the specified send-as alias. Revokes any verification that may have been required for using it.
+
+This method is only available to service account clients that have been delegated domain-wide authority.
+
+<details><summary>Parameters</summary>
+
+#### sendAsEmail (required)
+
+The send-as alias to be deleted.
+
+**Type:** string
+
+#### userId (required)
+
+User's email address. The special value "me" can be used to indicate the authenticated user.
+
+**Type:** string
+
+#### alt
+
+Data format for the response.
+
+**Type:** string
+
+**Potential values:** json
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
+#### key
+
+API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+
+**Type:** string
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
+#### quotaUser
+
+An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+
+**Type:** string
+
+#### userIp
+
+Deprecated. Please use quotaUser instead.
+
+**Type:** string
+
+</details>
+
+## delete_delegate
+
+Removes the specified delegate (which can be of any verification status), and revokes any verification that may have been required for using it.
+
+Note that a delegate user must be referred to by their primary email address, and not an email alias.
+
+This method is only available to service account clients that have been delegated domain-wide authority.
+
+<details><summary>Parameters</summary>
+
+#### delegateEmail (required)
+
+The email address of the user to be removed as a delegate.
+
+**Type:** string
+
+#### userId (required)
+
+User's email address. The special value "me" can be used to indicate the authenticated user.
+
+**Type:** string
+
+#### alt
+
+Data format for the response.
+
+**Type:** string
+
+**Potential values:** json
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
+#### key
+
+API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+
+**Type:** string
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
+#### quotaUser
+
+An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+
+**Type:** string
+
+#### userIp
+
+Deprecated. Please use quotaUser instead.
 
 **Type:** string
 
@@ -46,7 +534,163 @@ The ID of the draft to delete.
 
 #### userId (required)
 
-The users email address. The special value me can be used to indicate the authenticated user.
+The user's email address. The special value me can be used to indicate the authenticated user.
+
+**Type:** string
+
+#### alt
+
+Data format for the response.
+
+**Type:** string
+
+**Potential values:** json
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
+#### key
+
+API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+
+**Type:** string
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
+#### quotaUser
+
+An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+
+**Type:** string
+
+#### userIp
+
+Deprecated. Please use quotaUser instead.
+
+**Type:** string
+
+</details>
+
+## delete_filter
+
+Deletes a filter.
+
+<details><summary>Parameters</summary>
+
+#### id (required)
+
+The ID of the filter to be deleted.
+
+**Type:** string
+
+#### userId (required)
+
+User's email address. The special value "me" can be used to indicate the authenticated user.
+
+**Type:** string
+
+#### alt
+
+Data format for the response.
+
+**Type:** string
+
+**Potential values:** json
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
+#### key
+
+API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+
+**Type:** string
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
+#### quotaUser
+
+An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+
+**Type:** string
+
+#### userIp
+
+Deprecated. Please use quotaUser instead.
+
+**Type:** string
+
+</details>
+
+## delete_forwarding_address
+
+Deletes the specified forwarding address and revokes any verification that may have been required.
+
+This method is only available to service account clients that have been delegated domain-wide authority.
+
+<details><summary>Parameters</summary>
+
+#### forwardingEmail (required)
+
+The forwarding address to be deleted.
+
+**Type:** string
+
+#### userId (required)
+
+User's email address. The special value "me" can be used to indicate the authenticated user.
+
+**Type:** string
+
+#### alt
+
+Data format for the response.
+
+**Type:** string
+
+**Potential values:** json
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
+#### key
+
+API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+
+**Type:** string
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
+#### quotaUser
+
+An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+
+**Type:** string
+
+#### userIp
+
+Deprecated. Please use quotaUser instead.
 
 **Type:** string
 
@@ -66,7 +710,45 @@ The ID of the label to delete.
 
 #### userId (required)
 
-The users email address. The special value me can be used to indicate the authenticated user.
+The user's email address. The special value me can be used to indicate the authenticated user.
+
+**Type:** string
+
+#### alt
+
+Data format for the response.
+
+**Type:** string
+
+**Potential values:** json
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
+#### key
+
+API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+
+**Type:** string
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
+#### quotaUser
+
+An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+
+**Type:** string
+
+#### userIp
+
+Deprecated. Please use quotaUser instead.
 
 **Type:** string
 
@@ -86,7 +768,165 @@ The ID of the message to delete.
 
 #### userId (required)
 
-The users email address. The special value me can be used to indicate the authenticated user.
+The user's email address. The special value me can be used to indicate the authenticated user.
+
+**Type:** string
+
+#### alt
+
+Data format for the response.
+
+**Type:** string
+
+**Potential values:** json
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
+#### key
+
+API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+
+**Type:** string
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
+#### quotaUser
+
+An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+
+**Type:** string
+
+#### userIp
+
+Deprecated. Please use quotaUser instead.
+
+**Type:** string
+
+</details>
+
+## delete_messages
+
+Deletes many messages by message ID. Provides no guarantees that messages were not already deleted or even existed at all.
+
+<details><summary>Parameters</summary>
+
+#### userId (required)
+
+The user's email address. The special value me can be used to indicate the authenticated user.
+
+**Type:** string
+
+#### $body
+
+**Type:** object
+
+#### alt
+
+Data format for the response.
+
+**Type:** string
+
+**Potential values:** json
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
+#### key
+
+API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+
+**Type:** string
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
+#### quotaUser
+
+An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+
+**Type:** string
+
+#### userIp
+
+Deprecated. Please use quotaUser instead.
+
+**Type:** string
+
+</details>
+
+## delete_smime_for_alias
+
+Deletes the specified S/MIME config for the specified send-as alias.
+
+<details><summary>Parameters</summary>
+
+#### id (required)
+
+The immutable ID for the SmimeInfo.
+
+**Type:** string
+
+#### sendAsEmail (required)
+
+The email address that appears in the "From:" header for mail sent using this alias.
+
+**Type:** string
+
+#### userId (required)
+
+The user's email address. The special value me can be used to indicate the authenticated user.
+
+**Type:** string
+
+#### alt
+
+Data format for the response.
+
+**Type:** string
+
+**Potential values:** json
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
+#### key
+
+API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+
+**Type:** string
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
+#### quotaUser
+
+An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+
+**Type:** string
+
+#### userIp
+
+Deprecated. Please use quotaUser instead.
 
 **Type:** string
 
@@ -106,7 +946,103 @@ ID of the Thread to delete.
 
 #### userId (required)
 
-The users email address. The special value me can be used to indicate the authenticated user.
+The user's email address. The special value me can be used to indicate the authenticated user.
+
+**Type:** string
+
+#### alt
+
+Data format for the response.
+
+**Type:** string
+
+**Potential values:** json
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
+#### key
+
+API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+
+**Type:** string
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
+#### quotaUser
+
+An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+
+**Type:** string
+
+#### userIp
+
+Deprecated. Please use quotaUser instead.
+
+**Type:** string
+
+</details>
+
+## get_alias
+
+Gets the specified send-as alias. Fails with an HTTP 404 error if the specified address is not a member of the collection.
+
+<details><summary>Parameters</summary>
+
+#### sendAsEmail (required)
+
+The send-as alias to be retrieved.
+
+**Type:** string
+
+#### userId (required)
+
+User's email address. The special value "me" can be used to indicate the authenticated user.
+
+**Type:** string
+
+#### alt
+
+Data format for the response.
+
+**Type:** string
+
+**Potential values:** json
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
+#### key
+
+API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+
+**Type:** string
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
+#### quotaUser
+
+An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+
+**Type:** string
+
+#### userIp
+
+Deprecated. Please use quotaUser instead.
 
 **Type:** string
 
@@ -132,7 +1068,159 @@ The ID of the message containing the attachment.
 
 #### userId (required)
 
-The users email address. The special value me can be used to indicate the authenticated user.
+The user's email address. The special value me can be used to indicate the authenticated user.
+
+**Type:** string
+
+#### alt
+
+Data format for the response.
+
+**Type:** string
+
+**Potential values:** json
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
+#### key
+
+API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+
+**Type:** string
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
+#### quotaUser
+
+An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+
+**Type:** string
+
+#### userIp
+
+Deprecated. Please use quotaUser instead.
+
+**Type:** string
+
+</details>
+
+## get_auto_forwarding
+
+Gets the auto-forwarding setting for the specified account.
+
+<details><summary>Parameters</summary>
+
+#### userId (required)
+
+User's email address. The special value "me" can be used to indicate the authenticated user.
+
+**Type:** string
+
+#### alt
+
+Data format for the response.
+
+**Type:** string
+
+**Potential values:** json
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
+#### key
+
+API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+
+**Type:** string
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
+#### quotaUser
+
+An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+
+**Type:** string
+
+#### userIp
+
+Deprecated. Please use quotaUser instead.
+
+**Type:** string
+
+</details>
+
+## get_delegate
+
+Gets the specified delegate.
+
+Note that a delegate user must be referred to by their primary email address, and not an email alias.
+
+This method is only available to service account clients that have been delegated domain-wide authority.
+
+<details><summary>Parameters</summary>
+
+#### delegateEmail (required)
+
+The email address of the user whose delegate relationship is to be retrieved.
+
+**Type:** string
+
+#### userId (required)
+
+User's email address. The special value "me" can be used to indicate the authenticated user.
+
+**Type:** string
+
+#### alt
+
+Data format for the response.
+
+**Type:** string
+
+**Potential values:** json
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
+#### key
+
+API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+
+**Type:** string
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
+#### quotaUser
+
+An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+
+**Type:** string
+
+#### userIp
+
+Deprecated. Please use quotaUser instead.
 
 **Type:** string
 
@@ -152,13 +1240,221 @@ The ID of the draft to retrieve.
 
 #### userId (required)
 
-The users email address. The special value me can be used to indicate the authenticated user.
+The user's email address. The special value me can be used to indicate the authenticated user.
+
+**Type:** string
+
+#### alt
+
+Data format for the response.
+
+**Type:** string
+
+**Potential values:** json
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
 
 **Type:** string
 
 #### format
 
 The format to return the draft in.
+
+**Type:** string
+
+**Potential values:** full, metadata, minimal, raw
+
+#### key
+
+API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+
+**Type:** string
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
+#### quotaUser
+
+An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+
+**Type:** string
+
+#### userIp
+
+Deprecated. Please use quotaUser instead.
+
+**Type:** string
+
+</details>
+
+## get_filter
+
+Gets a filter.
+
+<details><summary>Parameters</summary>
+
+#### id (required)
+
+The ID of the filter to be fetched.
+
+**Type:** string
+
+#### userId (required)
+
+User's email address. The special value "me" can be used to indicate the authenticated user.
+
+**Type:** string
+
+#### alt
+
+Data format for the response.
+
+**Type:** string
+
+**Potential values:** json
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
+#### key
+
+API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+
+**Type:** string
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
+#### quotaUser
+
+An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+
+**Type:** string
+
+#### userIp
+
+Deprecated. Please use quotaUser instead.
+
+**Type:** string
+
+</details>
+
+## get_forwarding_address
+
+Gets the specified forwarding address.
+
+<details><summary>Parameters</summary>
+
+#### forwardingEmail (required)
+
+The forwarding address to be retrieved.
+
+**Type:** string
+
+#### userId (required)
+
+User's email address. The special value "me" can be used to indicate the authenticated user.
+
+**Type:** string
+
+#### alt
+
+Data format for the response.
+
+**Type:** string
+
+**Potential values:** json
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
+#### key
+
+API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+
+**Type:** string
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
+#### quotaUser
+
+An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+
+**Type:** string
+
+#### userIp
+
+Deprecated. Please use quotaUser instead.
+
+**Type:** string
+
+</details>
+
+## get_imap_settings
+
+Gets IMAP settings.
+
+<details><summary>Parameters</summary>
+
+#### userId (required)
+
+User's email address. The special value "me" can be used to indicate the authenticated user.
+
+**Type:** string
+
+#### alt
+
+Data format for the response.
+
+**Type:** string
+
+**Potential values:** json
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
+#### key
+
+API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+
+**Type:** string
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
+#### quotaUser
+
+An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+
+**Type:** string
+
+#### userIp
+
+Deprecated. Please use quotaUser instead.
 
 **Type:** string
 
@@ -178,21 +1474,45 @@ The ID of the label to retrieve.
 
 #### userId (required)
 
-The users email address. The special value me can be used to indicate the authenticated user.
+The user's email address. The special value me can be used to indicate the authenticated user.
 
 **Type:** string
 
-</details>
+#### alt
 
-## get_labels
+Data format for the response.
 
-Lists all labels in the users mailbox.
+**Type:** string
 
-<details><summary>Parameters</summary>
+**Potential values:** json
 
-#### userId (required)
+#### fields
 
-The users email address. The special value me can be used to indicate the authenticated user.
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
+#### key
+
+API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+
+**Type:** string
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
+#### quotaUser
+
+An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+
+**Type:** string
+
+#### userIp
+
+Deprecated. Please use quotaUser instead.
 
 **Type:** string
 
@@ -212,7 +1532,21 @@ The ID of the message to retrieve.
 
 #### userId (required)
 
-The users email address. The special value me can be used to indicate the authenticated user.
+The user's email address. The special value me can be used to indicate the authenticated user.
+
+**Type:** string
+
+#### alt
+
+Data format for the response.
+
+**Type:** string
+
+**Potential values:** json
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
 
 **Type:** string
 
@@ -222,41 +1556,87 @@ The format to return the message in.
 
 **Type:** string
 
+**Potential values:** full, metadata, minimal, raw
+
+#### key
+
+API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+
+**Type:** string
+
 #### metadataHeaders
 
 When given and format is METADATA, only include headers specified.
+
+**Type:** array
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
+#### quotaUser
+
+An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+
+**Type:** string
+
+#### userIp
+
+Deprecated. Please use quotaUser instead.
 
 **Type:** string
 
 </details>
 
-## get_messages
+## get_pop_settings
 
-Lists the messages in the users mailbox.
+Gets POP settings.
 
 <details><summary>Parameters</summary>
 
 #### userId (required)
 
-The users email address. The special value me can be used to indicate the authenticated user.
+User's email address. The special value "me" can be used to indicate the authenticated user.
 
 **Type:** string
 
-#### includeSpamTrash
+#### alt
 
-Include messages from SPAM and TRASH in the results.
+Data format for the response.
 
 **Type:** string
 
-#### labelIds
+**Potential values:** json
 
-Only return messages with labels that match all of the specified label IDs.
+#### fields
 
-**Type:** array
+Selector specifying which fields to include in a partial response.
 
-#### q
+**Type:** string
 
-Only return messages matching the specified query. Supports the same query format as the Gmail search box. For example, from:someuser@example.com rfc822msgid: is:unread.
+#### key
+
+API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+
+**Type:** string
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
+#### quotaUser
+
+An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+
+**Type:** string
+
+#### userIp
+
+Deprecated. Please use quotaUser instead.
 
 **Type:** string
 
@@ -264,13 +1644,115 @@ Only return messages matching the specified query. Supports the same query forma
 
 ## get_profile
 
-Gets the current users Gmail profile.
+Gets the current user's Gmail profile.
 
 <details><summary>Parameters</summary>
 
 #### userId (required)
 
-The users email address. The special value me can be used to indicate the authenticated user.
+The user's email address. The special value me can be used to indicate the authenticated user.
+
+**Type:** string
+
+#### alt
+
+Data format for the response.
+
+**Type:** string
+
+**Potential values:** json
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
+#### key
+
+API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+
+**Type:** string
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
+#### quotaUser
+
+An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+
+**Type:** string
+
+#### userIp
+
+Deprecated. Please use quotaUser instead.
+
+**Type:** string
+
+</details>
+
+## get_smime_for_alias
+
+Gets the specified S/MIME config for the specified send-as alias.
+
+<details><summary>Parameters</summary>
+
+#### id (required)
+
+The immutable ID for the SmimeInfo.
+
+**Type:** string
+
+#### sendAsEmail (required)
+
+The email address that appears in the "From:" header for mail sent using this alias.
+
+**Type:** string
+
+#### userId (required)
+
+The user's email address. The special value me can be used to indicate the authenticated user.
+
+**Type:** string
+
+#### alt
+
+Data format for the response.
+
+**Type:** string
+
+**Potential values:** json
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
+#### key
+
+API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+
+**Type:** string
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
+#### quotaUser
+
+An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+
+**Type:** string
+
+#### userIp
+
+Deprecated. Please use quotaUser instead.
 
 **Type:** string
 
@@ -290,7 +1772,21 @@ The ID of the thread to retrieve.
 
 #### userId (required)
 
-The users email address. The special value me can be used to indicate the authenticated user.
+The user's email address. The special value me can be used to indicate the authenticated user.
+
+**Type:** string
+
+#### alt
+
+Data format for the response.
+
+**Type:** string
+
+**Potential values:** json
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
 
 **Type:** string
 
@@ -302,73 +1798,351 @@ The format to return the messages in.
 
 **Potential values:** full, metadata, minimal
 
+#### key
+
+API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+
+**Type:** string
+
 #### metadataHeaders
 
 When given and format is METADATA, only include headers specified.
 
 **Type:** array
 
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
+#### quotaUser
+
+An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+
+**Type:** string
+
+#### userIp
+
+Deprecated. Please use quotaUser instead.
+
+**Type:** string
+
 </details>
 
-## import_message
+## get_vacation_settings
 
-Imports a message into only this users mailbox, with standard email delivery scanning and classification similar to receiving via SMTP. Does not send a message.
+Gets vacation responder settings.
 
 <details><summary>Parameters</summary>
 
 #### userId (required)
 
-The users email address. The special value me can be used to indicate the authenticated user.
+User's email address. The special value "me" can be used to indicate the authenticated user.
 
 **Type:** string
+
+#### alt
+
+Data format for the response.
+
+**Type:** string
+
+**Potential values:** json
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
+#### key
+
+API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+
+**Type:** string
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
+#### quotaUser
+
+An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+
+**Type:** string
+
+#### userIp
+
+Deprecated. Please use quotaUser instead.
+
+**Type:** string
+
+</details>
+
+## import_message
+
+Imports a message into only this user''s mailbox, with standard email delivery scanning and classification similar to receiving via SMTP. Does not send a message.
+
+<details><summary>Parameters</summary>
+
+#### cc
+
+**Type:** STRING
 
 #### deleted
 
-Mark the email as permanently deleted (not TRASH) and only visible in Google Apps Vault to a Vault administrator. Only used for Google Apps for Work accounts.
+**Type:** BOOLEAN
 
-**Type:** string
+#### from
+
+**Type:** STRING
 
 #### internalDateSource
 
-Source for Gmails internal date of the message.
+**Type:** STRING
 
-**Type:** string
+#### messageHtml
+
+**Type:** STRING
 
 #### neverMarkSpam
 
-Ignore the Gmail spam classifier decision and never mark this email as SPAM in the mailbox.
-
-**Type:** string
+**Type:** BOOLEAN
 
 #### processForCalendar
 
-Process calendar invites in the email and add any extracted meetings to the Google Calendar for this user.
+**Type:** BOOLEAN
 
-**Type:** string
+#### subject
+
+**Type:** STRING
+
+#### threadId
+
+**Type:** STRING
+
+#### to
+
+**Type:** STRING
+
+#### userId
+
+**Type:** STRING
 
 </details>
 
 ## insert_message
 
-Directly inserts a message into only this users mailbox similar to IMAP APPEND, bypassing most scanning and classification. Does not send a message.
+Directly inserts a message into only this user''s mailbox similar to IMAP APPEND, bypassing most scanning and classification. Does not send a message.
+
+<details><summary>Parameters</summary>
+
+#### cc
+
+**Type:** STRING
+
+#### deleted
+
+**Type:** BOOLEAN
+
+#### from
+
+**Type:** STRING
+
+#### internalDateSource
+
+**Type:** STRING
+
+#### messageHtml
+
+**Type:** STRING
+
+#### subject
+
+**Type:** STRING
+
+#### threadId
+
+**Type:** STRING
+
+#### to
+
+**Type:** STRING
+
+#### userId
+
+**Type:** STRING
+
+</details>
+
+## insert_smime_for_alias
+
+Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key.
+
+<details><summary>Parameters</summary>
+
+#### sendAsEmail (required)
+
+The email address that appears in the "From:" header for mail sent using this alias.
+
+**Type:** string
+
+#### userId (required)
+
+The user's email address. The special value me can be used to indicate the authenticated user.
+
+**Type:** string
+
+#### $body
+
+An S/MIME email config.
+
+**Type:** object
+
+#### alt
+
+Data format for the response.
+
+**Type:** string
+
+**Potential values:** json
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
+#### key
+
+API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+
+**Type:** string
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
+#### quotaUser
+
+An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+
+**Type:** string
+
+#### userIp
+
+Deprecated. Please use quotaUser instead.
+
+**Type:** string
+
+</details>
+
+## list_aliases
+
+Lists the send-as aliases for the specified account. The result includes the primary send-as address associated with the account as well as any custom "from" aliases.
 
 <details><summary>Parameters</summary>
 
 #### userId (required)
 
-The users email address. The special value me can be used to indicate the authenticated user.
+User's email address. The special value "me" can be used to indicate the authenticated user.
 
 **Type:** string
 
-#### deleted
+#### alt
 
-Mark the email as permanently deleted (not TRASH) and only visible in Google Apps Vault to a Vault administrator. Only used for Google Apps for Work accounts.
+Data format for the response.
 
 **Type:** string
 
-#### internalDateSource
+**Potential values:** json
 
-Source for Gmails internal date of the message.
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
+#### key
+
+API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+
+**Type:** string
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
+#### quotaUser
+
+An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+
+**Type:** string
+
+#### userIp
+
+Deprecated. Please use quotaUser instead.
+
+**Type:** string
+
+</details>
+
+## list_delegates
+
+Lists the delegates for the specified account.
+
+This method is only available to service account clients that have been delegated domain-wide authority.
+
+<details><summary>Parameters</summary>
+
+#### userId (required)
+
+User's email address. The special value "me" can be used to indicate the authenticated user.
+
+**Type:** string
+
+#### alt
+
+Data format for the response.
+
+**Type:** string
+
+**Potential values:** json
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
+#### key
+
+API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+
+**Type:** string
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
+#### quotaUser
+
+An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+
+**Type:** string
+
+#### userIp
+
+Deprecated. Please use quotaUser instead.
 
 **Type:** string
 
@@ -376,27 +2150,137 @@ Source for Gmails internal date of the message.
 
 ## list_drafts
 
-Lists the drafts in the users mailbox.
+Lists the drafts in the user's mailbox.
 
 <details><summary>Parameters</summary>
 
 #### userId (required)
 
-The users email address. The special value me can be used to indicate the authenticated user.
+The user's email address. The special value me can be used to indicate the authenticated user.
 
 **Type:** string
 
 </details>
 
-## list_histories
+## list_filters
 
-Lists the history of all changes to the given mailbox. History results are returned in chronological order (increasing historyId).
+Lists the message filters of a Gmail user.
 
 <details><summary>Parameters</summary>
 
 #### userId (required)
 
-The users email address. The special value me can be used to indicate the authenticated user.
+User's email address. The special value "me" can be used to indicate the authenticated user.
+
+**Type:** string
+
+#### alt
+
+Data format for the response.
+
+**Type:** string
+
+**Potential values:** json
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
+#### key
+
+API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+
+**Type:** string
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
+#### quotaUser
+
+An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+
+**Type:** string
+
+#### userIp
+
+Deprecated. Please use quotaUser instead.
+
+**Type:** string
+
+</details>
+
+## list_forwarding_addresses
+
+Lists the forwarding addresses for the specified account.
+
+<details><summary>Parameters</summary>
+
+#### userId (required)
+
+User's email address. The special value "me" can be used to indicate the authenticated user.
+
+**Type:** string
+
+#### alt
+
+Data format for the response.
+
+**Type:** string
+
+**Potential values:** json
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
+#### key
+
+API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+
+**Type:** string
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
+#### quotaUser
+
+An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+
+**Type:** string
+
+#### userIp
+
+Deprecated. Please use quotaUser instead.
+
+**Type:** string
+
+</details>
+
+## list_history_of_mailbox
+
+Lists the history of all changes to the given mailbox. History results are returned in chronological order (increasing historyId).
+
+<details><summary>Parameters</summary>
+
+#### startHistoryId (required)
+
+Required. Returns history records after the specified startHistoryId. The supplied startHistoryId should be obtained from the historyId of a message, thread, or previous list response. History IDs increase chronologically but are not contiguous with random gaps in between valid IDs. Supplying an invalid or out of date startHistoryId typically returns an HTTP 404 error code. A historyId is typically valid for at least a week, but in some rare circumstances may be valid for only a few hours. If you receive an HTTP 404 error response, your application should perform a full sync. If you receive no nextPageToken in the response, there are no updates to retrieve and you can store the returned historyId for a future request.
+
+**Type:** string
+
+#### userId (required)
+
+The user's email address. The special value me can be used to indicate the authenticated user.
 
 **Type:** string
 
@@ -406,9 +2290,145 @@ Only return messages with a label matching the ID.
 
 **Type:** string
 
-#### startHistoryId
+</details>
 
-Required. Returns history records after the specified startHistoryId. The supplied startHistoryId should be obtained from the historyId of a message, thread, or previous list response. History IDs increase chronologically but are not contiguous with random gaps in between valid IDs. Supplying an invalid or out of date startHistoryId typically returns an HTTP 404 error code. A historyId is typically valid for at least a week, but in some circumstances may be valid for only a few hours. If you rec
+## list_labels
+
+Lists all labels in the user's mailbox.
+
+<details><summary>Parameters</summary>
+
+#### userId (required)
+
+The user's email address. The special value me can be used to indicate the authenticated user.
+
+**Type:** string
+
+#### alt
+
+Data format for the response.
+
+**Type:** string
+
+**Potential values:** json
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
+#### key
+
+API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+
+**Type:** string
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
+#### quotaUser
+
+An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+
+**Type:** string
+
+#### userIp
+
+Deprecated. Please use quotaUser instead.
+
+**Type:** string
+
+</details>
+
+## list_messages
+
+Lists the messages in the user's mailbox.
+
+<details><summary>Parameters</summary>
+
+#### userId (required)
+
+The user's email address. The special value me can be used to indicate the authenticated user.
+
+**Type:** string
+
+#### includeSpamTrash
+
+Include messages from SPAM and TRASH in the results.
+
+**Type:** boolean
+
+#### labelIds
+
+Only return messages with labels that match all of the specified label IDs.
+
+**Type:** array
+
+#### q
+
+Only return messages matching the specified query. Supports the same query format as the Gmail search box. For example, "from:someuser@example.com rfc822msgid:<somemsgid@example.com> is:unread". Parameter cannot be used when accessing the api using the gmail.metadata scope.
+
+**Type:** string
+
+</details>
+
+## list_smimes_for_alias
+
+Lists S/MIME configs for the specified send-as alias.
+
+<details><summary>Parameters</summary>
+
+#### sendAsEmail (required)
+
+The email address that appears in the "From:" header for mail sent using this alias.
+
+**Type:** string
+
+#### userId (required)
+
+The user's email address. The special value me can be used to indicate the authenticated user.
+
+**Type:** string
+
+#### alt
+
+Data format for the response.
+
+**Type:** string
+
+**Potential values:** json
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
+#### key
+
+API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+
+**Type:** string
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
+#### quotaUser
+
+An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+
+**Type:** string
+
+#### userIp
+
+Deprecated. Please use quotaUser instead.
 
 **Type:** string
 
@@ -416,13 +2436,13 @@ Required. Returns history records after the specified startHistoryId. The suppli
 
 ## list_threads
 
-Lists the threads in the users mailbox.
+Lists the threads in the user's mailbox.
 
 <details><summary>Parameters</summary>
 
 #### userId (required)
 
-The users email address. The special value me can be used to indicate the authenticated user.
+The user's email address. The special value me can be used to indicate the authenticated user.
 
 **Type:** string
 
@@ -440,33 +2460,69 @@ Only return threads with labels that match all of the specified label IDs.
 
 #### q
 
-Only return threads matching the specified query. Supports the same query format as the Gmail search box. For example, from:someuser@example.com rfc822msgid: is:unread.
+Only return threads matching the specified query. Supports the same query format as the Gmail search box. For example, "from:someuser@example.com rfc822msgid: is:unread". Parameter cannot be used when accessing the api using the gmail.metadata scope.
 
 **Type:** string
 
 </details>
 
-## modify_message
+## modify_labels_for_messages
 
-Modifies the labels on the specified message.
+Modifies the labels on the specified messages.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+#### userId (required)
 
-The ID of the message to modify.
+The user's email address. The special value me can be used to indicate the authenticated user.
 
 **Type:** string
 
-#### userId (required)
+#### $body
 
-The users email address. The special value me can be used to indicate the authenticated user.
+**Type:** object
+
+#### alt
+
+Data format for the response.
+
+**Type:** string
+
+**Potential values:** json
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
+#### key
+
+API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+
+**Type:** string
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
+#### quotaUser
+
+An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+
+**Type:** string
+
+#### userIp
+
+Deprecated. Please use quotaUser instead.
 
 **Type:** string
 
 </details>
 
-## modify_thread
+## modify_labels_for_thread
 
 Modifies the labels applied to the thread. This applies to all messages in the thread.
 
@@ -480,15 +2536,179 @@ The ID of the thread to modify.
 
 #### userId (required)
 
-The users email address. The special value me can be used to indicate the authenticated user.
+The user's email address. The special value me can be used to indicate the authenticated user.
 
 **Type:** string
 
 #### $body
 
-Modifies the labels applied to the thread.
+**Type:** object
+
+#### alt
+
+Data format for the response.
+
+**Type:** string
+
+**Potential values:** json
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
+#### key
+
+API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+
+**Type:** string
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
+#### quotaUser
+
+An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+
+**Type:** string
+
+#### userIp
+
+Deprecated. Please use quotaUser instead.
+
+**Type:** string
+
+</details>
+
+## modify_message_labels
+
+Modifies the labels on the specified message.
+
+<details><summary>Parameters</summary>
+
+#### id (required)
+
+The ID of the message to modify.
+
+**Type:** string
+
+#### userId (required)
+
+The user's email address. The special value me can be used to indicate the authenticated user.
+
+**Type:** string
+
+#### $body
 
 **Type:** object
+
+#### alt
+
+Data format for the response.
+
+**Type:** string
+
+**Potential values:** json
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
+#### key
+
+API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+
+**Type:** string
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
+#### quotaUser
+
+An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+
+**Type:** string
+
+#### userIp
+
+Deprecated. Please use quotaUser instead.
+
+**Type:** string
+
+</details>
+
+## patch_alias
+
+Updates a send-as alias. If a signature is provided, Gmail will sanitize the HTML before saving it with the alias.
+
+Addresses other than the primary address for the account can only be updated by service account clients that have been delegated domain-wide authority. This method supports patch semantics.
+
+<details><summary>Parameters</summary>
+
+#### sendAsEmail (required)
+
+The send-as alias to be updated.
+
+**Type:** string
+
+#### userId (required)
+
+User's email address. The special value "me" can be used to indicate the authenticated user.
+
+**Type:** string
+
+#### $body
+
+Settings associated with a send-as alias, which can be either the primary login address associated with the account or a custom "from" address. Send-as aliases correspond to the "Send Mail As" feature in the web interface.
+
+**Type:** object
+
+#### alt
+
+Data format for the response.
+
+**Type:** string
+
+**Potential values:** json
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
+#### key
+
+API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+
+**Type:** string
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
+#### quotaUser
+
+An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+
+**Type:** string
+
+#### userIp
+
+Deprecated. Please use quotaUser instead.
+
+**Type:** string
 
 </details>
 
@@ -506,7 +2726,51 @@ The ID of the label to update.
 
 #### userId (required)
 
-The users email address. The special value me can be used to indicate the authenticated user.
+The user's email address. The special value me can be used to indicate the authenticated user.
+
+**Type:** string
+
+#### $body
+
+Labels are used to categorize messages and threads within the user's mailbox.
+
+**Type:** object
+
+#### alt
+
+Data format for the response.
+
+**Type:** string
+
+**Potential values:** json
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
+#### key
+
+API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+
+**Type:** string
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
+#### quotaUser
+
+An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+
+**Type:** string
+
+#### userIp
+
+Deprecated. Please use quotaUser instead.
 
 **Type:** string
 
@@ -518,11 +2782,13 @@ Sends the specified, existing draft to the recipients in the To, Cc, and Bcc hea
 
 <details><summary>Parameters</summary>
 
-#### userId (required)
+#### draftId
 
-The users email address. The special value me can be used to indicate the authenticated user.
+**Type:** STRING
 
-**Type:** string
+#### userId
+
+**Type:** STRING
 
 </details>
 
@@ -532,21 +2798,159 @@ Sends the specified message to the recipients in the To, Cc, and Bcc headers.
 
 <details><summary>Parameters</summary>
 
+#### cc
+
+**Type:** STRING
+
+#### from
+
+**Type:** STRING
+
+#### messageHtml
+
+**Type:** STRING
+
+#### subject
+
+**Type:** STRING
+
+#### threadId
+
+**Type:** STRING
+
+#### to
+
+**Type:** STRING
+
+#### userId
+
+**Type:** STRING
+
+</details>
+
+## set_default_smime_for_alias
+
+Sets the default S/MIME config for the specified send-as alias.
+
+<details><summary>Parameters</summary>
+
+#### id (required)
+
+The immutable ID for the SmimeInfo.
+
+**Type:** string
+
+#### sendAsEmail (required)
+
+The email address that appears in the "From:" header for mail sent using this alias.
+
+**Type:** string
+
 #### userId (required)
 
-The users email address. The special value me can be used to indicate the authenticated user.
+The user's email address. The special value me can be used to indicate the authenticated user.
+
+**Type:** string
+
+#### alt
+
+Data format for the response.
+
+**Type:** string
+
+**Potential values:** json
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
+#### key
+
+API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+
+**Type:** string
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
+#### quotaUser
+
+An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+
+**Type:** string
+
+#### userIp
+
+Deprecated. Please use quotaUser instead.
+
+**Type:** string
+
+</details>
+
+## set_push_notification
+
+Set up or update a push notification watch on the given user mailbox.
+
+<details><summary>Parameters</summary>
+
+#### userId (required)
+
+The user's email address. The special value me can be used to indicate the authenticated user.
 
 **Type:** string
 
 #### $body
 
-The entire email message in an RFC 2822 formatted and base64url encoded string. Returned in messages.get and drafts.get responses when the format=RAW parameter is supplied.
+Set up or update a new push notification watch on this user's mailbox.
 
 **Type:** object
 
+#### alt
+
+Data format for the response.
+
+**Type:** string
+
+**Potential values:** json
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
+#### key
+
+API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+
+**Type:** string
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
+#### quotaUser
+
+An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+
+**Type:** string
+
+#### userIp
+
+Deprecated. Please use quotaUser instead.
+
+**Type:** string
+
 </details>
 
-## stop
+## stop_push_notifications
 
 Stop receiving push notifications for the given user mailbox.
 
@@ -555,6 +2959,44 @@ Stop receiving push notifications for the given user mailbox.
 #### userId (required)
 
 The user's email address. The special value me can be used to indicate the authenticated user.
+
+**Type:** string
+
+#### alt
+
+Data format for the response.
+
+**Type:** string
+
+**Potential values:** json
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
+#### key
+
+API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+
+**Type:** string
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
+#### quotaUser
+
+An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+
+**Type:** string
+
+#### userIp
+
+Deprecated. Please use quotaUser instead.
 
 **Type:** string
 
@@ -574,7 +3016,45 @@ The ID of the message to Trash.
 
 #### userId (required)
 
-The users email address. The special value me can be used to indicate the authenticated user.
+The user's email address. The special value me can be used to indicate the authenticated user.
+
+**Type:** string
+
+#### alt
+
+Data format for the response.
+
+**Type:** string
+
+**Potential values:** json
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
+#### key
+
+API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+
+**Type:** string
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
+#### quotaUser
+
+An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+
+**Type:** string
+
+#### userIp
+
+Deprecated. Please use quotaUser instead.
 
 **Type:** string
 
@@ -594,7 +3074,45 @@ The ID of the thread to Trash.
 
 #### userId (required)
 
-The users email address. The special value me can be used to indicate the authenticated user.
+The user's email address. The special value me can be used to indicate the authenticated user.
+
+**Type:** string
+
+#### alt
+
+Data format for the response.
+
+**Type:** string
+
+**Potential values:** json
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
+#### key
+
+API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+
+**Type:** string
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
+#### quotaUser
+
+An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+
+**Type:** string
+
+#### userIp
+
+Deprecated. Please use quotaUser instead.
 
 **Type:** string
 
@@ -614,7 +3132,45 @@ The ID of the message to remove from Trash.
 
 #### userId (required)
 
-The users email address. The special value me can be used to indicate the authenticated user.
+The user's email address. The special value me can be used to indicate the authenticated user.
+
+**Type:** string
+
+#### alt
+
+Data format for the response.
+
+**Type:** string
+
+**Potential values:** json
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
+#### key
+
+API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+
+**Type:** string
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
+#### quotaUser
+
+An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+
+**Type:** string
+
+#### userIp
+
+Deprecated. Please use quotaUser instead.
 
 **Type:** string
 
@@ -634,7 +3190,171 @@ The ID of the thread to remove from Trash.
 
 #### userId (required)
 
-The users email address. The special value me can be used to indicate the authenticated user.
+The user's email address. The special value me can be used to indicate the authenticated user.
+
+**Type:** string
+
+#### alt
+
+Data format for the response.
+
+**Type:** string
+
+**Potential values:** json
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
+#### key
+
+API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+
+**Type:** string
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
+#### quotaUser
+
+An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+
+**Type:** string
+
+#### userIp
+
+Deprecated. Please use quotaUser instead.
+
+**Type:** string
+
+</details>
+
+## update_alias
+
+Updates a send-as alias. If a signature is provided, Gmail will sanitize the HTML before saving it with the alias.
+
+Addresses other than the primary address for the account can only be updated by service account clients that have been delegated domain-wide authority.
+
+<details><summary>Parameters</summary>
+
+#### sendAsEmail (required)
+
+The send-as alias to be updated.
+
+**Type:** string
+
+#### userId (required)
+
+User's email address. The special value "me" can be used to indicate the authenticated user.
+
+**Type:** string
+
+#### $body
+
+Settings associated with a send-as alias, which can be either the primary login address associated with the account or a custom "from" address. Send-as aliases correspond to the "Send Mail As" feature in the web interface.
+
+**Type:** object
+
+#### alt
+
+Data format for the response.
+
+**Type:** string
+
+**Potential values:** json
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
+#### key
+
+API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+
+**Type:** string
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
+#### quotaUser
+
+An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+
+**Type:** string
+
+#### userIp
+
+Deprecated. Please use quotaUser instead.
+
+**Type:** string
+
+</details>
+
+## update_auto_forwarding
+
+Updates the auto-forwarding setting for the specified account. A verified forwarding address must be specified when auto-forwarding is enabled.
+
+This method is only available to service account clients that have been delegated domain-wide authority.
+
+<details><summary>Parameters</summary>
+
+#### userId (required)
+
+User's email address. The special value "me" can be used to indicate the authenticated user.
+
+**Type:** string
+
+#### $body
+
+Auto-forwarding settings for an account.
+
+**Type:** object
+
+#### alt
+
+Data format for the response.
+
+**Type:** string
+
+**Potential values:** json
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
+#### key
+
+API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+
+**Type:** string
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
+#### quotaUser
+
+An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+
+**Type:** string
+
+#### userIp
+
+Deprecated. Please use quotaUser instead.
 
 **Type:** string
 
@@ -642,19 +3362,93 @@ The users email address. The special value me can be used to indicate the authen
 
 ## update_draft
 
-Replaces a drafts content.
+Replaces a draft's content.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+#### cc
 
-The ID of the draft to update.
+**Type:** STRING
 
-**Type:** string
+#### from
+
+**Type:** STRING
+
+#### messageHtml
+
+**Type:** STRING
+
+#### subject
+
+**Type:** STRING
+
+#### threadId
+
+**Type:** STRING
+
+#### to
+
+**Type:** STRING
+
+#### userId
+
+**Type:** STRING
+
+</details>
+
+## update_imap_settings
+
+Updates IMAP settings.
+
+<details><summary>Parameters</summary>
 
 #### userId (required)
 
-The users email address. The special value me can be used to indicate the authenticated user.
+User's email address. The special value "me" can be used to indicate the authenticated user.
+
+**Type:** string
+
+#### $body
+
+IMAP settings for an account.
+
+**Type:** object
+
+#### alt
+
+Data format for the response.
+
+**Type:** string
+
+**Potential values:** json
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
+#### key
+
+API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+
+**Type:** string
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
+#### quotaUser
+
+An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+
+**Type:** string
+
+#### userIp
+
+Deprecated. Please use quotaUser instead.
 
 **Type:** string
 
@@ -674,29 +3468,229 @@ The ID of the label to update.
 
 #### userId (required)
 
-The users email address. The special value me can be used to indicate the authenticated user.
-
-**Type:** string
-
-</details>
-
-## watch
-
-Set up or update a push notification watch on the given user mailbox.
-
-<details><summary>Parameters</summary>
-
-#### userId (required)
-
-The users email address. The special value me can be used to indicate the authenticated user.
+The user's email address. The special value me can be used to indicate the authenticated user.
 
 **Type:** string
 
 #### $body
 
-Set up or update a new push notification watch on this user's mailbox.
+Labels are used to categorize messages and threads within the user's mailbox.
 
 **Type:** object
+
+#### alt
+
+Data format for the response.
+
+**Type:** string
+
+**Potential values:** json
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
+#### key
+
+API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+
+**Type:** string
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
+#### quotaUser
+
+An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+
+**Type:** string
+
+#### userIp
+
+Deprecated. Please use quotaUser instead.
+
+**Type:** string
+
+</details>
+
+## update_pop_settings
+
+Updates POP settings.
+
+<details><summary>Parameters</summary>
+
+#### userId (required)
+
+User's email address. The special value "me" can be used to indicate the authenticated user.
+
+**Type:** string
+
+#### $body
+
+POP settings for an account.
+
+**Type:** object
+
+#### alt
+
+Data format for the response.
+
+**Type:** string
+
+**Potential values:** json
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
+#### key
+
+API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+
+**Type:** string
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
+#### quotaUser
+
+An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+
+**Type:** string
+
+#### userIp
+
+Deprecated. Please use quotaUser instead.
+
+**Type:** string
+
+</details>
+
+## update_vacation_settings
+
+Updates vacation responder settings.
+
+<details><summary>Parameters</summary>
+
+#### userId (required)
+
+User's email address. The special value "me" can be used to indicate the authenticated user.
+
+**Type:** string
+
+#### $body
+
+Vacation auto-reply settings for an account. These settings correspond to the "Vacation responder" feature in the web interface.
+
+**Type:** object
+
+#### alt
+
+Data format for the response.
+
+**Type:** string
+
+**Potential values:** json
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
+#### key
+
+API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+
+**Type:** string
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
+#### quotaUser
+
+An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+
+**Type:** string
+
+#### userIp
+
+Deprecated. Please use quotaUser instead.
+
+**Type:** string
+
+</details>
+
+## verify_alias
+
+Sends a verification email to the specified send-as alias address. The verification status must be pending.
+
+This method is only available to service account clients that have been delegated domain-wide authority.
+
+<details><summary>Parameters</summary>
+
+#### sendAsEmail (required)
+
+The send-as alias to be verified.
+
+**Type:** string
+
+#### userId (required)
+
+User's email address. The special value "me" can be used to indicate the authenticated user.
+
+**Type:** string
+
+#### alt
+
+Data format for the response.
+
+**Type:** string
+
+**Potential values:** json
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
+#### key
+
+API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+
+**Type:** string
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
+#### quotaUser
+
+An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+
+**Type:** string
+
+#### userIp
+
+Deprecated. Please use quotaUser instead.
+
+**Type:** string
 
 </details>
 
