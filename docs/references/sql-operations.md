@@ -1383,7 +1383,7 @@ WHERE foo=bar
 
 ### Pagination and streaming
 
-Transposit automatically paginates many APIs (see (faq)[./faq.md#automatic-pagination]). This feature is deeply integrated with our SQL engine, allowing a query to dynamically pull more results from data connectors until it has reached the desired limit.
+Transposit automatically paginates many APIs (see the [FAQ](references/faq.md#automatic-pagination)). This feature is deeply integrated with our SQL engine, allowing a query to dynamically pull more results from data connectors until it has reached the desired limit.
 
 For example, if we have the following query:
 ```sql
