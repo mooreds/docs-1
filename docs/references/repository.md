@@ -6,9 +6,23 @@ title: Application code repository
 Your application's code is stored and versioned in a git repository. You can clone the repository to view diffs or use your own editor tools to modify your application.
 
 ## File structure
-* **manifest.json**: the main configuration for your application
-* **public/index.html**: the HTML for your hosted app
-* **\*.js**: The JavaScript files for your JavaScript operations
+* Metadata files
+  * **manifest.json**: the main configuration for your application; notably, the location of your application's source code is defined in this file (e.g. `"source": "src"`)
+  * **README.md**: the optional README for your application
+  * **LICENSE**: the optional LICENSE for your application
+* Source code files
+  * **public/index.html**: the HTML for your hosted app
+  * **\*.js**: The JavaScript files for your JavaScript operations
+```
+.
+├── LICENSE
+├── README.md
+├── manifest.json
+└── src
+    ├── hello_world.js
+    └── public
+        └── index.html
+```
 
 ## Cloning Your repository
 * Go to **Settings > App Info**.
@@ -18,7 +32,7 @@ Your application's code is stored and versioned in a git repository. You can clo
 * Clone your repository using your username and your git access token. For convenience, you can also create a `.netrc` file in your home directory that stores these credentials. The file will have an entry like the following:
 
 ```
-machine api.transposit.com
+machine console.transposit.com
         login <YOUR USER NAME>
         password <YOUR GIT ACCESS TOKEN>
 ```
