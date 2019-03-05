@@ -13,7 +13,8 @@ Your application's code is stored and versioned in a git repository. You can clo
 * Source code files
   * **public/index.html**: the HTML for your hosted app
   * **\*.js**: The JavaScript files for your JavaScript operations
-```
+
+```text
 .
 ├── LICENSE
 ├── README.md
@@ -31,7 +32,7 @@ Your application's code is stored and versioned in a git repository. You can clo
 * Copy the **Git access token** from this page
 * Clone your repository using your username and your git access token. For convenience, you can also create a `.netrc` file in your home directory that stores these credentials. The file will have an entry like the following:
 
-```
+```text
 machine console.transposit.com
         login <YOUR USER NAME>
         password <YOUR GIT ACCESS TOKEN>
