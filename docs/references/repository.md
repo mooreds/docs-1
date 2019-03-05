@@ -6,11 +6,11 @@ title: Application code repository
 Your application's code is stored and versioned in a git repository. You can clone the repository to view diffs or use your own editor tools to modify your application.
 
 ## File structure
-* **Metadata** files
+* Metadata files
   * **manifest.json**: the main configuration for your application; notably, the location of your application's source code is defined in this file (e.g. `"source": "src"`)
   * **README.md**: the optional README for your application
   * **LICENSE**: the optional LICENSE for your application
-* **Source code** files
+* Source code files
   * **public/index.html**: the HTML for your hosted app
   * **\*.js**: The JavaScript files for your JavaScript operations
 ```
