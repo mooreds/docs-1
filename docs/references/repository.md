@@ -34,6 +34,6 @@ Your application's code is stored and versioned in a git repository. You can clo
 
 ```text
 machine console.transposit.com
-        login <YOUR USER NAME>
-        password <YOUR GIT ACCESS TOKEN>
+        login &lt;YOUR USER NAME&gt;
+        password &lt;YOUR GIT ACCESS TOKEN&gt;
 ```
