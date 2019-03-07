@@ -2,9 +2,9 @@
 
 .blockContent a, article a, article a:hover {color: #1A90A2;}
 
-/*li.navListItemActive a {color: #393939 !important;}*/
+.homeContainer .signup { margin-top: 1em; }
 
-/*li.navListItem a:hover, a:hover {color: #1A90A2 !important;}*/
+.homeContainer .signup a {color: #1A90A2; }
 
 .nav-site a { font-weight: 500 !important;  }
 

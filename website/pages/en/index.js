@@ -66,9 +66,9 @@ class HomeSplash extends React.Component {
           <PromoSection>
             <Button href="/introduction">Read the docs</Button>
             <Button href="https://www.transposit.com/apps">Try sample apps</Button>
-            <Button href="https://www.transposit.com">Create an account</Button>
           </PromoSection>
         </div>
+        <p className="signup">Don't have an account yet? <a href="https://www.transposit.com">Sign up here</a></p>
       </SplashContainer>
     );
   }
