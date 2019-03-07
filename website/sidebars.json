@@ -46,6 +46,7 @@
       "connectors/aws-ecs-documentation",
       "connectors/aws-lambda-documentation",
       "connectors/aws-s3-documentation",
+      "connectors/aws-ses-documentation",
       "connectors/box-documentation",
       "connectors/circleci-documentation",
       "connectors/coinbase-documentation",
