@@ -1,6 +1,6 @@
 ---
 id: aws-ec2-container-registry-documentation
-title: AWS EC2 Container Registry (version v2.*.*)
+title: AWS EC2 Container Registry (version v3.*.*)
 sidebar_label: AWS EC2 Container Registry
 ---
 
@@ -28,12 +28,6 @@ The AWS account ID associated with the registry that contains the image layers t
 
 **Type:** STRING
 
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
-
-**Type:** STRING
-
 </details>
 
 ## batch_delete_image
@@ -57,12 +51,6 @@ The repository that contains the image to delete.
 #### registryId
 
 The AWS account ID associated with the registry that contains the image to delete. If you do not specify a registry, the default registry is assumed.
-
-**Type:** STRING
-
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
 
 **Type:** STRING
 
@@ -98,12 +86,6 @@ The AWS account ID associated with the registry that contains the images to desc
 
 **Type:** STRING
 
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
-
-**Type:** STRING
-
 </details>
 
 ## complete_layer_upload
@@ -136,12 +118,6 @@ The AWS account ID associated with the registry to which to upload layers. If yo
 
 **Type:** STRING
 
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
-
-**Type:** STRING
-
 </details>
 
 ## create_repository
@@ -153,12 +129,6 @@ Creates an image repository. https://docs.aws.amazon.com/AmazonECR/latest/APIRef
 #### repositoryName (required)
 
 The name to use for the repository. The repository name may be specified on its own (such as nginx-web-app) or it can be prepended with a namespace to group the repository into a category (such as project-a/nginx-web-app).
-
-**Type:** STRING
-
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
 
 **Type:** STRING
 
@@ -179,12 +149,6 @@ The name of the repository.
 #### registryId
 
 The AWS account ID associated with the registry that contains the repository. If you do not specify a registry, the default registry is assumed.
-
-**Type:** STRING
-
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
 
 **Type:** STRING
 
@@ -214,12 +178,6 @@ The AWS account ID associated with the registry that contains the repository to 
 
 **Type:** STRING
 
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
-
-**Type:** STRING
-
 </details>
 
 ## delete_repository_policy
@@ -237,12 +195,6 @@ The name of the repository that is associated with the repository policy to dele
 #### registryId
 
 The AWS account ID associated with the registry that contains the repository policy to delete. If you do not specify a registry, the default registry is assumed.
-
-**Type:** STRING
-
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
 
 **Type:** STRING
 
@@ -272,27 +224,9 @@ The list of image IDs for the requested repository.
 
 **Type:** ARRAY
 
-#### maxResults
-
-The maximum number of repository results returned by DescribeImages in paginated output. When this parameter is used, DescribeImages only returns maxResults results in a single page along with a nextToken response element. The remaining results of the initial request can be seen by sending another DescribeImages request with the returned nextToken value. This value can be between 1 and 1000. If this parameter is not used, then DescribeImages returns up to 100 results and a nextToken value, if applicable. This option cannot be used when you specify images with imageIds.
-
-**Type:** INTEGER
-
-#### nextToken
-
-The nextToken value returned from a previous paginated DescribeImages request where maxResults was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the nextToken value. This value is null when there are no more results to return. This option cannot be used when you specify images with imageIds.
-
-**Type:** STRING
-
 #### registryId
 
 The AWS account ID associated with the registry that contains the repository in which to describe images. If you do not specify a registry, the default registry is assumed.
-
-**Type:** STRING
-
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
 
 **Type:** STRING
 
@@ -303,18 +237,6 @@ The actual name of the AWS API call. Do not replace the default value.
 Describes image repositories in a registry. https://docs.aws.amazon.com/AmazonECR/latest/APIReference/API_DescribeRepositories.html
 
 <details><summary>Parameters</summary>
-
-#### maxResults
-
-The maximum number of repository results returned by DescribeRepositories in paginated output. When this parameter is used, DescribeRepositories only returns maxResults results in a single page along with a nextToken response element. The remaining results of the initial request can be seen by sending another DescribeRepositories request with the returned nextToken value. This value can be between 1 and 1000. If this parameter is not used, then DescribeRepositories returns up to 100 results and a nextToken value, if applicable. This option cannot be used when you specify repositories with repositoryNames.
-
-**Type:** INTEGER
-
-#### nextToken
-
-The nextToken value returned from a previous paginated DescribeRepositories request where maxResults was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the nextToken value. This value is null when there are no more results to return. This option cannot be used when you specify repositories with repositoryNames. Note This token should be treated as an opaque identifier that is only used to retrieve the next items in a list and not for other programmatic purposes.
-
-**Type:** STRING
 
 #### registryId
 
@@ -327,12 +249,6 @@ The AWS account ID associated with the registry that contains the repositories t
 A list of repositories to describe. If this parameter is omitted, then all repositories in a registry are described.
 
 **Type:** ARRAY
-
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
-
-**Type:** STRING
 
 </details>
 
@@ -347,12 +263,6 @@ Retrieves a token that is valid for a specified registry for 12 hours. This comm
 A list of AWS account IDs that are associated with the registries for which to get authorization tokens. If you do not specify a registry, the default registry is assumed.
 
 **Type:** ARRAY
-
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
-
-**Type:** STRING
 
 </details>
 
@@ -380,12 +290,6 @@ The AWS account ID associated with the registry that contains the image layer to
 
 **Type:** STRING
 
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
-
-**Type:** STRING
-
 </details>
 
 ## get_lifecycle_policy
@@ -403,12 +307,6 @@ The name of the repository.
 #### registryId
 
 The AWS account ID associated with the registry that contains the repository. If you do not specify a registry, the default registry is assumed.
-
-**Type:** STRING
-
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
 
 **Type:** STRING
 
@@ -456,12 +354,6 @@ The AWS account ID associated with the registry that contains the repository. If
 
 **Type:** STRING
 
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
-
-**Type:** STRING
-
 </details>
 
 ## get_repository_policy
@@ -479,12 +371,6 @@ The name of the repository with the policy to retrieve.
 #### registryId
 
 The AWS account ID associated with the registry that contains the repository. If you do not specify a registry, the default registry is assumed.
-
-**Type:** STRING
-
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
 
 **Type:** STRING
 
@@ -508,12 +394,6 @@ The AWS account ID associated with the registry to which you intend to upload la
 
 **Type:** STRING
 
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
-
-**Type:** STRING
-
 </details>
 
 ## list_images
@@ -534,27 +414,9 @@ The filter key and value with which to filter your ListImages results.
 
 **Type:** OBJECT
 
-#### maxResults
-
-The maximum number of image results returned by ListImages in paginated output. When this parameter is used, ListImages only returns maxResults results in a single page along with a nextToken response element. The remaining results of the initial request can be seen by sending another ListImages request with the returned nextToken value. This value can be between 1 and 1000. If this parameter is not used, then ListImages returns up to 100 results and a nextToken value, if applicable.
-
-**Type:** INTEGER
-
-#### nextToken
-
-The nextToken value returned from a previous paginated ListImages request where maxResults was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the nextToken value. This value is null when there are no more results to return. Note This token should be treated as an opaque identifier that is only used to retrieve the next items in a list and not for other programmatic purposes.
-
-**Type:** STRING
-
 #### registryId
 
 The AWS account ID associated with the registry that contains the repository in which to list images. If you do not specify a registry, the default registry is assumed.
-
-**Type:** STRING
-
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
 
 **Type:** STRING
 
@@ -569,12 +431,6 @@ List the tags for an Amazon ECR resource. https://docs.aws.amazon.com/AmazonECR/
 #### resourceArn (required)
 
 The Amazon Resource Name (ARN) that identifies the resource for which to list the tags. Currently, the only supported resource is an Amazon ECR repository.
-
-**Type:** STRING
-
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
 
 **Type:** STRING
 
@@ -610,12 +466,6 @@ The AWS account ID associated with the registry that contains the repository in 
 
 **Type:** STRING
 
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
-
-**Type:** STRING
-
 </details>
 
 ## put_lifecycle_policy
@@ -639,12 +489,6 @@ The name of the repository to receive the policy.
 #### registryId
 
 not specify a registry, the default registry is assumed.
-
-**Type:** STRING
-
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
 
 **Type:** STRING
 
@@ -680,12 +524,6 @@ The AWS account ID associated with the registry that contains the repository. If
 
 **Type:** STRING
 
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
-
-**Type:** STRING
-
 </details>
 
 ## start_lifecycle_policy_preview
@@ -712,12 +550,6 @@ The AWS account ID associated with the registry that contains the repository. If
 
 **Type:** STRING
 
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
-
-**Type:** STRING
-
 </details>
 
 ## tag_resource
@@ -738,12 +570,6 @@ The tags to add to the resource. A tag is an array of key-value pairs. Tag keys 
 
 **Type:** ARRAY
 
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
-
-**Type:** STRING
-
 </details>
 
 ## untag_resource
@@ -763,12 +589,6 @@ The Amazon Resource Name (ARN) of the resource from which to remove tags. Curren
 The keys of the tags to be removed.
 
 **Type:** ARRAY
-
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
-
-**Type:** STRING
 
 </details>
 
@@ -811,12 +631,6 @@ The upload ID from a previous InitiateLayerUpload operation to associate with th
 #### registryId
 
 The AWS account ID associated with the registry to which you are uploading layer parts. If you do not specify a registry, the default registry is assumed.
-
-**Type:** STRING
-
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
 
 **Type:** STRING
 

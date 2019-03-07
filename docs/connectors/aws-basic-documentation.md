@@ -18,15 +18,15 @@ Content-Type header required by this aws endpoint. E.g 'application/x-amz-json-1
 
 **Type:** string
 
-#### X-Amz-Target (required)
-
-**Type:** string
-
 #### $body
 
 Payload containing params
 
 **Type:** object
+
+#### X-Amz-Target
+
+**Type:** string
 
 </details>
 
