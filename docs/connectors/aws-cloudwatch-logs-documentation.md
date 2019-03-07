@@ -1,6 +1,6 @@
 ---
 id: aws-cloudwatch-logs-documentation
-title: AWS Cloudwatch Logs (version v1.*.*)
+title: AWS Cloudwatch Logs (version v2.*.*)
 sidebar_label: AWS Cloudwatch Logs
 ---
 
@@ -22,12 +22,6 @@ The name of the log group.
 
 **Type:** STRING
 
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
-
-**Type:** STRING
-
 </details>
 
 ## cancel_export_task
@@ -39,12 +33,6 @@ Cancels the specified export task. https://docs.aws.amazon.com/AmazonCloudWatchL
 #### taskId (required)
 
 The ID of the export task.
-
-**Type:** STRING
-
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
 
 **Type:** STRING
 
@@ -66,7 +54,7 @@ The name of S3 bucket for the exported log data. The bucket must be in the same 
 
 The start time of the range for the request, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a timestamp earlier than this time are not exported.
 
-**Type:** OBJECT
+**Type:** INTEGER
 
 #### logGroupName (required)
 
@@ -78,7 +66,7 @@ The name of the log group.
 
 The end time of the range for the request, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a timestamp later than this time are not exported.
 
-**Type:** OBJECT
+**Type:** INTEGER
 
 #### destinationPrefix
 
@@ -89,12 +77,6 @@ The prefix used as the start of the key for every object exported. If you don't 
 #### logStreamNamePrefix
 
 Export only log streams that match the provided prefix. If you don't specify a value, no prefix filter is applied.
-
-**Type:** STRING
-
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
 
 **Type:** STRING
 
@@ -130,12 +112,6 @@ The key-value pairs to use for the tags.
 
 **Type:** STRING
 
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
-
-**Type:** STRING
-
 </details>
 
 ## create_log_stream
@@ -156,12 +132,6 @@ The name of the log stream.
 
 **Type:** STRING
 
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
-
-**Type:** STRING
-
 </details>
 
 ## delete_destination
@@ -176,12 +146,6 @@ The name of the destination.
 
 **Type:** STRING
 
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
-
-**Type:** STRING
-
 </details>
 
 ## delete_log_group
@@ -193,12 +157,6 @@ Deletes the specified log group and permanently deletes all the archived log eve
 #### logGroupName (required)
 
 The name of the log group.
-
-**Type:** STRING
-
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
 
 **Type:** STRING
 
@@ -222,12 +180,6 @@ The name of the log stream.
 
 **Type:** STRING
 
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
-
-**Type:** STRING
-
 </details>
 
 ## delete_metric_filter
@@ -248,12 +200,6 @@ The name of the log group.
 
 **Type:** STRING
 
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
-
-**Type:** STRING
-
 </details>
 
 ## delete_resource_policy
@@ -268,12 +214,6 @@ The name of the policy to be revoked. This parameter is required.
 
 **Type:** STRING
 
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
-
-**Type:** STRING
-
 </details>
 
 ## delete_retention_policy
@@ -285,12 +225,6 @@ Deletes the specified retention policy. https://docs.aws.amazon.com/AmazonCloudW
 #### logGroupName (required)
 
 The name of the log group.
-
-**Type:** STRING
-
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
 
 **Type:** STRING
 
@@ -314,316 +248,6 @@ The name of the log group.
 
 **Type:** STRING
 
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
-
-**Type:** STRING
-
-</details>
-
-## describe_destinations
-
-Lists all your destinations. The results are ASCII-sorted by destination name. https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeDestinations.html
-
-<details><summary>Parameters</summary>
-
-#### DestinationNamePrefix
-
-The prefix to match. If you don't specify a value, no prefix filter is applied.
-
-**Type:** STRING
-
-#### limit
-
-The maximum number of items returned. If you don't specify a value, the default is up to 50 items.
-
-**Type:** INTEGER
-
-#### nextToken
-
-The token for the next set of items to return. (You received this token from a previous call.)
-
-**Type:** STRING
-
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
-
-**Type:** STRING
-
-</details>
-
-## describe_export_tasks
-
-Lists the specified export tasks. You can list all your export tasks or filter the results based on task ID or task status.  https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeExportTasks.html
-
-<details><summary>Parameters</summary>
-
-#### limit
-
-The maximum number of items returned. If you don't specify a value, the default is up to 50 items.
-
-**Type:** INTEGER
-
-#### nextToken
-
-The token for the next set of items to return. (You received this token from a previous call.)
-
-**Type:** STRING
-
-#### statusCode
-
-The status code of the export task. Specifying a status code filters the results to zero or more export tasks.
-
-**Type:** STRING
-
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
-
-**Type:** STRING
-
-#### taskId
-
-The ID of the export task. Specifying a task ID filters the results to zero or one export tasks.
-
-**Type:** STRING
-
-</details>
-
-## describe_log_groups
-
-Lists the specified log groups. You can list all your log groups or filter the results by prefix. The results are ASCII-sorted by log group name.  https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeLogGroups.html
-
-<details><summary>Parameters</summary>
-
-#### limit
-
-The maximum number of items returned. If you don't specify a value, the default is up to 50 items.
-
-**Type:** INTEGER
-
-#### logGroupNamePrefix
-
-The prefix to match.
-
-**Type:** STRING
-
-#### nextToken
-
-The token for the next set of items to return. (You received this token from a previous call.)
-
-**Type:** STRING
-
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
-
-**Type:** STRING
-
-</details>
-
-## describe_log_streams
-
-Lists the log streams for the specified log group. You can list all the log streams or filter the results by prefix. You can also control how the results are ordered.  https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeLogStreams.html
-
-<details><summary>Parameters</summary>
-
-#### logGroupName (required)
-
-The name of the log group.
-
-**Type:** STRING
-
-#### descending
-
-If the value is true, results are returned in descending order.  If the value is to false, results are returned in ascending order. The default value is false.
-
-**Type:** OBJECT
-
-#### limit
-
-The maximum number of items returned. If you don't specify a value, the default is up to 50 items.
-
-**Type:** INTEGER
-
-#### logStreamNamePrefix
-
-The prefix to match. If orderBy is LastEventTime,you cannot specify this parameter.
-
-**Type:** STRING
-
-#### nextToken
-
-The token for the next set of items to return. (You received this token from a previous call.)
-
-**Type:** STRING
-
-#### orderBy
-
-If the value is LogStreamName, the results are ordered by log stream name. If the value is LastEventTime, the results are ordered by the event time.  The default value is LogStreamName. If you order the results by event time, you cannot specify the logStreamNamePrefix parameter. lastEventTimestamp represents the time of the most recent log event in the log stream in CloudWatch Logs. This number is expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. lastEventTimeStamp updates on an eventual consistency basis. It typically updates in less than an hour from ingestion, but may take longer in some rare situations.
-
-**Type:** STRING
-
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
-
-**Type:** STRING
-
-</details>
-
-## describe_metric_filters
-
-Lists the specified metric filters. You can list all the metric filters or filter the results by log name, prefix, metric name, or metric namespace. The results are ASCII-sorted by filter name.  https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeMetricFilters.html
-
-<details><summary>Parameters</summary>
-
-#### filterNamePrefix
-
-The prefix to match.
-
-**Type:** STRING
-
-#### limit
-
-The maximum number of items returned. If you don't specify a value, the default is up to 50 items.
-
-**Type:** INTEGER
-
-#### logGroupName
-
-The name of the log group.
-
-**Type:** STRING
-
-#### metricName
-
-Filters results to include only those with the specified metric name. If you include this parameter in your request, you  must also include the metricNamespace parameter.
-
-**Type:** STRING
-
-#### metricNamespace
-
-Filters results to include only those in the specified namespace. If you include this parameter in your request, you  must also include the metricName parameter.
-
-**Type:** STRING
-
-#### nextToken
-
-The token for the next set of items to return. (You received this token from a previous call.)
-
-**Type:** STRING
-
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
-
-**Type:** STRING
-
-</details>
-
-## describe_queries
-
-Returns a list of CloudWatch Logs Insights queries that are scheduled, executing, or have been executed recently in this account. You can request all queries, or limit it to queries of a specific log group or queries with a certain status.  https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeQueries.html
-
-<details><summary>Parameters</summary>
-
-#### logGroupName
-
-Limits the returned queries to only those for the specified log group.
-
-**Type:** STRING
-
-#### maxResults
-
-Limits the number of returned queries to the specified number.
-
-**Type:** INTEGER
-
-#### nextToken
-
-The token for the next set of items to return. The token expires after 24 hours.
-
-**Type:** STRING
-
-#### status
-
-Limits the returned queries to only those that have the specified status. Valid values are Cancelled,  Complete, Failed, Running, and Scheduled.
-
-**Type:** STRING
-
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
-
-**Type:** STRING
-
-</details>
-
-## describe_resource_policies
-
-Lists the resource policies in this account. https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeResourcePolicies.html
-
-<details><summary>Parameters</summary>
-
-#### limit
-
-The maximum number of resource policies to be displayed with one call of this API.
-
-**Type:** INTEGER
-
-#### nextToken
-
-The token for the next set of items to return. The token expires after 24 hours.
-
-**Type:** STRING
-
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
-
-**Type:** STRING
-
-</details>
-
-## describe_subscription_filters
-
-Lists the subscription filters for the specified log group. You can list all the subscription filters or filter the results by prefix. The results are ASCII-sorted by filter name.  https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeSubscriptionFilters.html
-
-<details><summary>Parameters</summary>
-
-#### logGroupName (required)
-
-The name of the log group.
-
-**Type:** STRING
-
-#### filterNamePrefix
-
-The prefix to match. If you don't specify a value, no prefix filter is applied.
-
-**Type:** STRING
-
-#### limit
-
-The maximum number of items returned. If you don't specify a value, the default is up to 50 items.
-
-**Type:** INTEGER
-
-#### nextToken
-
-The token for the next set of items to return. (You received this token from a previous call.)
-
-**Type:** STRING
-
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
-
-**Type:** STRING
-
 </details>
 
 ## disassociate_kms_key
@@ -635,12 +259,6 @@ Disassociates the associated AWS Key Management Service (AWS KMS) customer maste
 #### logGroupName (required)
 
 The name of the log group.
-
-**Type:** STRING
-
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
 
 **Type:** STRING
 
@@ -662,7 +280,7 @@ The name of the log group to search.
 
 The end of the time range, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a timestamp later than this time are not returned.
 
-**Type:** OBJECT
+**Type:** INTEGER
 
 #### filterPattern
 
@@ -674,7 +292,7 @@ The filter pattern to use. For more information, see Filter and Pattern Syntax. 
 
 If the value is true, the operation makes a best effort to provide responses that contain events from multiple log streams within the log group, interleaved in a single response. If the value is false, all the matched log events in the first log stream are searched first, then those in the next log stream, and so on. The default is false.
 
-**Type:** OBJECT
+**Type:** BOOLEAN
 
 #### limit
 
@@ -704,17 +322,93 @@ The token for the next set of events to return. (You received this token from a 
 
 The start of the time range, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a timestamp before this time are not returned.
 
-**Type:** OBJECT
+**Type:** INTEGER
 
-#### target
+</details>
 
-The actual name of the AWS API call. Do not replace the default value.
+## get_log_group_fields
+
+Returns a list of the fields that are included in log events in the specified log group, along with the percentage of log events that contain each field. The search is limited to a time period that you specify.  https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_GetLogGroupFields.html
+
+<details><summary>Parameters</summary>
+
+#### logGroupName (required)
+
+The name of the log group to search.
+
+**Type:** STRING
+
+#### time
+
+The time to set as the center of the query. If you specify time, the 8 minutes before and 8 minutes after this time are searched. If you omit time, the past 15 minutes are queried. The time value is specified as epoch time, the number of seconds since January 1, 1970, 00:00:00 UTC.
+
+**Type:** INTEGER
+
+</details>
+
+## get_log_record
+
+Retrieves all the fields and values of a single log event. All fields are retrieved, even if the original query that produced the logRecordPointer retrieved only a subset of fields. Fields are returned as field name/field value pairs.  https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_GetLogRecord.html
+
+<details><summary>Parameters</summary>
+
+#### logRecordPointer (required)
+
+The pointer corresponding to the log event record you want to retrieve. You get this from the response of a GetQueryResults operation. In that response, the value of the @ptr field for a log event is the value to use as logRecordPointer to retrieve that complete log event record.
 
 **Type:** STRING
 
 </details>
 
-## get_log_events
+## get_query_results
+
+Returns the results from the specified query. If the query is in progress, partial results of that current execution are returned. Only the fields requested in the query are returned.  https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_GetQueryResults.html
+
+<details><summary>Parameters</summary>
+
+#### queryId (required)
+
+The ID number of the query.
+
+**Type:** STRING
+
+</details>
+
+## list_destinations
+
+Lists all your destinations. The results are ASCII-sorted by destination name. https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeDestinations.html
+
+<details><summary>Parameters</summary>
+
+#### DestinationNamePrefix
+
+The prefix to match. If you don't specify a value, no prefix filter is applied.
+
+**Type:** STRING
+
+</details>
+
+## list_export_tasks
+
+Lists the specified export tasks. You can list all your export tasks or filter the results based on task ID or task status.  https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeExportTasks.html
+
+<details><summary>Parameters</summary>
+
+#### statusCode
+
+The status code of the export task. Specifying a status code filters the results to zero or more export tasks.
+
+**Type:** STRING
+
+#### taskId
+
+The ID of the export task. Specifying a task ID filters the results to zero or one export tasks.
+
+**Type:** STRING
+
+</details>
+
+## list_log_events
 
 Lists log events from the specified log stream. You can list all the log events or filter using a time range.  https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_GetLogEvents.html
 
@@ -736,101 +430,141 @@ The name of the log stream.
 
 The end of the time range, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a timestamp equal to or later than this time are not included.
 
-**Type:** OBJECT
-
-#### limit
-
-The maximum number of log events returned. If you don't specify a value, the maximum is as many log events as can fit in a response size of 1 MB, up to 10,000 log events.
-
 **Type:** INTEGER
-
-#### nextToken
-
-The token for the next set of items to return. (You received this token from a previous call.)
-
-**Type:** STRING
 
 #### startFromHead
 
 If the value is true, the earliest log events are returned first. If the value is false, the latest log events are returned first. The default value is false.
 
-**Type:** OBJECT
+**Type:** BOOLEAN
 
 #### startTime
 
 The start of the time range, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a timestamp equal to this time or later than this time are included. Events with a timestamp earlier than this time are not included.
 
-**Type:** OBJECT
+**Type:** INTEGER
 
-#### target
+</details>
 
-The actual name of the AWS API call. Do not replace the default value.
+## list_log_groups
+
+Lists the specified log groups. You can list all your log groups or filter the results by prefix. The results are ASCII-sorted by log group name.  https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeLogGroups.html
+
+<details><summary>Parameters</summary>
+
+#### logGroupNamePrefix
+
+The prefix to match.
 
 **Type:** STRING
 
 </details>
 
-## get_log_group_fields
+## list_log_streams
 
-Returns a list of the fields that are included in log events in the specified log group, along with the percentage of log events that contain each field. The search is limited to a time period that you specify.  https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_GetLogGroupFields.html
+Lists the log streams for the specified log group. You can list all the log streams or filter the results by prefix. You can also control how the results are ordered.  https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeLogStreams.html
 
 <details><summary>Parameters</summary>
 
 #### logGroupName (required)
 
-The name of the log group to search.
+The name of the log group.
 
 **Type:** STRING
 
-#### target
+#### descending
 
-The actual name of the AWS API call. Do not replace the default value.
+If the value is true, results are returned in descending order.  If the value is to false, results are returned in ascending order. The default value is false.
 
-**Type:** STRING
+**Type:** BOOLEAN
 
-#### time
+#### logStreamNamePrefix
 
-The time to set as the center of the query. If you specify time, the 8 minutes before and 8 minutes after this time are searched. If you omit time, the past 15 minutes are queried. The time value is specified as epoch time, the number of seconds since January 1, 1970, 00:00:00 UTC.
-
-**Type:** OBJECT
-
-</details>
-
-## get_log_record
-
-Retrieves all the fields and values of a single log event. All fields are retrieved, even if the original query that produced the logRecordPointer retrieved only a subset of fields. Fields are returned as field name/field value pairs.  https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_GetLogRecord.html
-
-<details><summary>Parameters</summary>
-
-#### logRecordPointer (required)
-
-The pointer corresponding to the log event record you want to retrieve. You get this from the response of a GetQueryResults operation. In that response, the value of the @ptr field for a log event is the value to use as logRecordPointer to retrieve that complete log event record.
+The prefix to match. If orderBy is LastEventTime,you cannot specify this parameter.
 
 **Type:** STRING
 
-#### target
+#### orderBy
 
-The actual name of the AWS API call. Do not replace the default value.
+If the value is LogStreamName, the results are ordered by log stream name. If the value is LastEventTime, the results are ordered by the event time.  The default value is LogStreamName. If you order the results by event time, you cannot specify the logStreamNamePrefix parameter. lastEventTimestamp represents the time of the most recent log event in the log stream in CloudWatch Logs. This number is expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. lastEventTimeStamp updates on an eventual consistency basis. It typically updates in less than an hour from ingestion, but may take longer in some rare situations.
 
 **Type:** STRING
 
 </details>
 
-## get_query_results
+## list_metric_filters
 
-Returns the results from the specified query. If the query is in progress, partial results of that current execution are returned. Only the fields requested in the query are returned.  https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_GetQueryResults.html
+Lists the specified metric filters. You can list all the metric filters or filter the results by log name, prefix, metric name, or metric namespace. The results are ASCII-sorted by filter name.  https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeMetricFilters.html
 
 <details><summary>Parameters</summary>
 
-#### queryId (required)
+#### filterNamePrefix
 
-The ID number of the query.
+The prefix to match.
 
 **Type:** STRING
 
-#### target
+#### logGroupName
 
-The actual name of the AWS API call. Do not replace the default value.
+The name of the log group.
+
+**Type:** STRING
+
+#### metricName
+
+Filters results to include only those with the specified metric name. If you include this parameter in your request, you  must also include the metricNamespace parameter.
+
+**Type:** STRING
+
+#### metricNamespace
+
+Filters results to include only those in the specified namespace. If you include this parameter in your request, you  must also include the metricName parameter.
+
+**Type:** STRING
+
+</details>
+
+## list_queries
+
+Returns a list of CloudWatch Logs Insights queries that are scheduled, executing, or have been executed recently in this account. You can request all queries, or limit it to queries of a specific log group or queries with a certain status.  https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeQueries.html
+
+<details><summary>Parameters</summary>
+
+#### logGroupName
+
+Limits the returned queries to only those for the specified log group.
+
+**Type:** STRING
+
+#### status
+
+Limits the returned queries to only those that have the specified status. Valid values are Cancelled,  Complete, Failed, Running, and Scheduled.
+
+**Type:** STRING
+
+</details>
+
+## list_resource_policies
+
+
+
+*This operation has no parameters*
+
+## list_subscription_filters
+
+Lists the subscription filters for the specified log group. You can list all the subscription filters or filter the results by prefix. The results are ASCII-sorted by filter name.  https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeSubscriptionFilters.html
+
+<details><summary>Parameters</summary>
+
+#### logGroupName (required)
+
+The name of the log group.
+
+**Type:** STRING
+
+#### filterNamePrefix
+
+The prefix to match. If you don't specify a value, no prefix filter is applied.
 
 **Type:** STRING
 
@@ -845,12 +579,6 @@ Lists the tags for the specified log group. https://docs.aws.amazon.com/AmazonCl
 #### logGroupName (required)
 
 The name of the log group.
-
-**Type:** STRING
-
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
 
 **Type:** STRING
 
@@ -880,12 +608,6 @@ The ARN of an Amazon Kinesis stream to which to deliver matching log events.
 
 **Type:** STRING
 
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
-
-**Type:** STRING
-
 </details>
 
 ## put_destination_policy
@@ -903,12 +625,6 @@ An IAM policy document that authorizes cross-account users to deliver their log 
 #### destinationName (required)
 
 A name for an existing destination.
-
-**Type:** STRING
-
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
 
 **Type:** STRING
 
@@ -944,12 +660,6 @@ The sequence token obtained from the response of the previous PutLogEvents call.
 
 **Type:** STRING
 
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
-
-**Type:** STRING
-
 </details>
 
 ## put_metric_filter
@@ -982,12 +692,6 @@ A collection of information that defines how metric data gets emitted.
 
 **Type:** ARRAY
 
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
-
-**Type:** STRING
-
 </details>
 
 ## put_resource_policy
@@ -1005,12 +709,6 @@ Details of the new policy, including the identity of the principal that is enabl
 #### policyName
 
 Name of the new policy. This parameter is required.
-
-**Type:** STRING
-
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
 
 **Type:** STRING
 
@@ -1033,12 +731,6 @@ The name of the log group.
 The number of days to retain the log events in the specified log group. Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1827, and 3653.
 
 **Type:** INTEGER
-
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
-
-**Type:** STRING
 
 </details>
 
@@ -1084,12 +776,6 @@ The ARN of an IAM role that grants CloudWatch Logs permissions to deliver ingest
 
 **Type:** STRING
 
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
-
-**Type:** STRING
-
 </details>
 
 ## start_query
@@ -1102,7 +788,7 @@ Schedules a query of a log group using CloudWatch Logs Insights. You specify the
 
 The end of the time range to query. The range is inclusive, so the specified end time is included in the query. Specified as epoch time, the number of seconds since January 1, 1970, 00:00:00 UTC.
 
-**Type:** OBJECT
+**Type:** INTEGER
 
 #### logGroupName (required)
 
@@ -1120,19 +806,13 @@ The query string to use. For more information, see CloudWatch Logs Insights Quer
 
 The beginning of the time range to query. The range is inclusive, so the specified start time is included in the query. Specified as epoch time, the number of seconds since January 1, 1970, 00:00:00 UTC.
 
-**Type:** OBJECT
+**Type:** INTEGER
 
 #### limit
 
 The maximum number of log events to return in the query. If the query string uses the fields command, only the specified fields and their values are returned.
 
 **Type:** INTEGER
-
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
-
-**Type:** STRING
 
 </details>
 
@@ -1145,12 +825,6 @@ Stops a CloudWatch Logs Insights query that is in progress. If the query has alr
 #### queryId (required)
 
 The ID number of the query to stop. If necessary, you can use DescribeQueries to find this ID number.
-
-**Type:** STRING
-
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
 
 **Type:** STRING
 
@@ -1174,12 +848,6 @@ The key-value pairs to use for the tags.
 
 **Type:** STRING
 
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
-
-**Type:** STRING
-
 </details>
 
 ## test_metric_filter
@@ -1200,12 +868,6 @@ The log event messages to test.
 
 **Type:** ARRAY
 
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
-
-**Type:** STRING
-
 </details>
 
 ## untag_log_group
@@ -1225,12 +887,6 @@ The name of the log group.
 The tag keys. The corresponding tags are removed from the log group.
 
 **Type:** ARRAY
-
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
-
-**Type:** STRING
 
 </details>
 

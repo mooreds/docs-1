@@ -1,6 +1,6 @@
 ---
 id: aws-dynamodb-documentation
-title: AWS DynamoDB (version v1.*.*)
+title: AWS DynamoDB (version v2.*.*)
 sidebar_label: AWS DynamoDB
 ---
 
@@ -19,12 +19,6 @@ A map of one or more table names and, for each table, a map that describes one o
 #### ReturnConsumedCapacity
 
 Determines the level of detail about provisioned throughput consumption that is returned in the response: INDEXES - The response includes the aggregate ConsumedCapacity for the operation, together with ConsumedCapacity for each table and secondary index that was accessed. Note that some operations, such as GetItem and BatchGetItem, do not access any indexes at all.  In these cases, specifying INDEXES will only return ConsumedCapacity information for table(s). TOTAL - The response includes only the aggregate ConsumedCapacity for the operation. NONE - No ConsumedCapacity details are included in the response.
-
-**Type:** STRING
-
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
 
 **Type:** STRING
 
@@ -54,12 +48,6 @@ Determines whether item collection metrics are returned.  If set to SIZE, the re
 
 **Type:** STRING
 
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
-
-**Type:** STRING
-
 </details>
 
 ## create_backup
@@ -77,12 +65,6 @@ Specified name for the backup.
 #### TableName (required)
 
 The name of the table.
-
-**Type:** STRING
-
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
 
 **Type:** STRING
 
@@ -105,12 +87,6 @@ The global table name.
 The regions where the global table needs to be created.
 
 **Type:** ARRAY
-
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
-
-**Type:** STRING
 
 </details>
 
@@ -174,12 +150,6 @@ The settings for DynamoDB Streams on the table. These settings consist of: Strea
 
 **Type:** OBJECT
 
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
-
-**Type:** STRING
-
 </details>
 
 ## delete_backup
@@ -191,12 +161,6 @@ Deletes an existing backup of a table. https://docs.aws.amazon.com/amazondynamod
 #### BackupArn (required)
 
 The ARN associated with the backup.
-
-**Type:** STRING
-
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
 
 **Type:** STRING
 
@@ -268,12 +232,6 @@ Use ReturnValues if you want to get the item attributes as they appeared before 
 
 **Type:** STRING
 
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
-
-**Type:** STRING
-
 </details>
 
 ## delete_table
@@ -285,12 +243,6 @@ The DeleteTable operation deletes a table and all of its items. After a DeleteTa
 #### TableName (required)
 
 The name of the table to delete.
-
-**Type:** STRING
-
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
 
 **Type:** STRING
 
@@ -308,12 +260,6 @@ The ARN associated with the backup.
 
 **Type:** STRING
 
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
-
-**Type:** STRING
-
 </details>
 
 ## describe_continuous_backups
@@ -328,27 +274,13 @@ Name of the table for which the customer wants to check the continuous backups a
 
 **Type:** STRING
 
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
-
-**Type:** STRING
-
 </details>
 
 ## describe_endpoints
 
-Returns the regional endpoint information. https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_DescribeEndpoints.html
 
-<details><summary>Parameters</summary>
 
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
-
-**Type:** STRING
-
-</details>
+*This operation has no parameters*
 
 ## describe_global_table
 
@@ -359,12 +291,6 @@ Returns information about the specified global table. https://docs.aws.amazon.co
 #### GlobalTableName (required)
 
 The name of the global table.
-
-**Type:** STRING
-
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
 
 **Type:** STRING
 
@@ -382,27 +308,13 @@ The name of the global table to describe.
 
 **Type:** STRING
 
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
-
-**Type:** STRING
-
 </details>
 
 ## describe_limits
 
-Returns the current provisioned-capacity limits for your AWS account in a region, both for the region as a whole and for any one DynamoDB table that you create there.  https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_DescribeLimits.html
 
-<details><summary>Parameters</summary>
 
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
-
-**Type:** STRING
-
-</details>
+*This operation has no parameters*
 
 ## describe_table
 
@@ -413,12 +325,6 @@ Returns information about the table, including the current status of the table, 
 #### TableName (required)
 
 The name of the table to describe.
-
-**Type:** STRING
-
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
 
 **Type:** STRING
 
@@ -433,12 +339,6 @@ Gives a description of the Time to Live (TTL) status on the specified table.  ht
 #### TableName (required)
 
 The name of the table to be described.
-
-**Type:** STRING
-
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
 
 **Type:** STRING
 
@@ -492,12 +392,6 @@ Determines the level of detail about provisioned throughput consumption that is 
 
 **Type:** STRING
 
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
-
-**Type:** STRING
-
 </details>
 
 ## list_backups
@@ -542,12 +436,6 @@ Only backups created before this time are listed. TimeRangeUpperBound is exclusi
 
 **Type:** OBJECT
 
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
-
-**Type:** STRING
-
 </details>
 
 ## list_global_tables
@@ -574,12 +462,6 @@ Lists the global tables in a specific region.
 
 **Type:** STRING
 
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
-
-**Type:** STRING
-
 </details>
 
 ## list_tables
@@ -600,12 +482,6 @@ A maximum number of table names to return. If this parameter is not specified, t
 
 **Type:** INTEGER
 
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
-
-**Type:** STRING
-
 </details>
 
 ## list_tags_of_resource
@@ -623,12 +499,6 @@ The Amazon DynamoDB resource with tags to be listed. This value is an Amazon Res
 #### NextToken
 
 An optional string that, if supplied, must be copied from the output of a previous call to ListTagOfResource. When provided in this manner, this API fetches the next page of results.
-
-**Type:** STRING
-
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
 
 **Type:** STRING
 
@@ -697,12 +567,6 @@ Determines whether item collection metrics are returned.  If set to SIZE, the re
 #### ReturnValues
 
 Use ReturnValues if you want to get the item attributes as they appeared before they were updated with the PutItem request. For PutItem, the valid values are: NONE - If ReturnValues is not specified, or if its value is NONE, then nothing is returned. (This setting is the default for ReturnValues.) ALL_OLD - If PutItem overwrote an attribute name-value pair, then the content of the old item is returned. Note The ReturnValues parameter is used by several DynamoDB operations; however, PutItem does not recognize any values other than NONE or ALL_OLD.
-
-**Type:** STRING
-
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
 
 **Type:** STRING
 
@@ -816,12 +680,6 @@ The attributes to be returned in the result. You can retrieve all item attribute
 
 **Type:** STRING
 
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
-
-**Type:** STRING
-
 </details>
 
 ## restore_table_from_backup
@@ -839,12 +697,6 @@ The ARN associated with the backup.
 #### TargetTableName (required)
 
 The name of the new table to which the backup must be restored.
-
-**Type:** STRING
-
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
 
 **Type:** STRING
 
@@ -879,12 +731,6 @@ Time in the past to restore the table to.
 Restore the table to the latest possible time. LatestRestorableDateTime is typically 5 minutes before the current time.
 
 **Type:** OBJECT
-
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
-
-**Type:** STRING
 
 </details>
 
@@ -990,12 +836,6 @@ For a parallel Scan request, TotalSegments represents the total number of segmen
 
 **Type:** INTEGER
 
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
-
-**Type:** STRING
-
 </details>
 
 ## tag_resource
@@ -1016,12 +856,6 @@ The tags to be assigned to the Amazon DynamoDB resource.
 
 **Type:** ARRAY
 
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
-
-**Type:** STRING
-
 </details>
 
 ## transact_get_items
@@ -1039,12 +873,6 @@ An ordered array of up to 10 TransactGetItem objects, each of which contains a G
 #### ReturnConsumedCapacity
 
 A value of TOTAL causes consumed capacity information to be returned, and a value of NONE prevents that information from being returned. No other value is valid.
-
-**Type:** STRING
-
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
 
 **Type:** STRING
 
@@ -1080,12 +908,6 @@ Determines whether item collection metrics are returned. If set to SIZE, the res
 
 **Type:** STRING
 
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
-
-**Type:** STRING
-
 </details>
 
 ## untag_resource
@@ -1106,12 +928,6 @@ A list of tag keys. Existing tags of the resource whose keys are members of this
 
 **Type:** ARRAY
 
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
-
-**Type:** STRING
-
 </details>
 
 ## update_continuous_backups
@@ -1129,12 +945,6 @@ Represents the settings used to enable point in time recovery.
 #### TableName (required)
 
 The name of the table.
-
-**Type:** STRING
-
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
 
 **Type:** STRING
 
@@ -1157,12 +967,6 @@ The global table name.
 A list of regions that should be added or removed from the global table.
 
 **Type:** ARRAY
-
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
-
-**Type:** STRING
 
 </details>
 
@@ -1207,12 +1011,6 @@ The maximum number of writes consumed per second before DynamoDB returns a Throt
 Represents the settings for a global table in a region that will be modified.
 
 **Type:** ARRAY
-
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
-
-**Type:** STRING
 
 </details>
 
@@ -1294,12 +1092,6 @@ An expression that defines one or more attributes to be updated, the action to b
 
 **Type:** STRING
 
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
-
-**Type:** STRING
-
 </details>
 
 ## update_table
@@ -1350,12 +1142,6 @@ Represents the DynamoDB Streams configuration for the table. Note You will recei
 
 **Type:** OBJECT
 
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
-
-**Type:** STRING
-
 </details>
 
 ## update_time_to_live
@@ -1375,12 +1161,6 @@ The name of the table to be configured.
 Represents the settings used to enable or disable Time to Live for the specified table.
 
 **Type:** OBJECT
-
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
-
-**Type:** STRING
 
 </details>
 

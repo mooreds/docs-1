@@ -1,6 +1,6 @@
 ---
 id: aws-ecs-documentation
-title: AWS ECS (version v2.*.*)
+title: AWS ECS (version v3.*.*)
 sidebar_label: AWS ECS
 ---
 
@@ -21,12 +21,6 @@ The name of your cluster. If you do not specify a name for your cluster, you cre
 The metadata that you apply to the cluster to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters. 
 
 **Type:** ARRAY
-
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
-
-**Type:** STRING
 
 </details>
 
@@ -156,12 +150,6 @@ The metadata that you apply to the service to help you categorize and organize t
 
 **Type:** ARRAY
 
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
-
-**Type:** STRING
-
 </details>
 
 ## delete_account_setting
@@ -179,12 +167,6 @@ The resource name for which to disable the new format. If serviceLongArnFormat i
 #### principalArn
 
 The ARN of the principal, which can be an IAM user, IAM role, or the root user. If you specify the root user, it modifies the ARN and resource ID format for all IAM users, IAM roles, and the root user of the account unless an IAM user or role explicitly overrides these settings for themselves. If this field is omitted, the setting are changed only for the authenticated user. 
-
-**Type:** STRING
-
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
 
 **Type:** STRING
 
@@ -208,12 +190,6 @@ The short name or full Amazon Resource Name (ARN) of the cluster that contains t
 
 **Type:** STRING
 
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
-
-**Type:** STRING
-
 </details>
 
 ## delete_cluster
@@ -225,12 +201,6 @@ Deletes the specified cluster. You must deregister all container instances from 
 #### cluster (required)
 
 The short name or full Amazon Resource Name (ARN) of the cluster to delete. 
-
-**Type:** STRING
-
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
 
 **Type:** STRING
 
@@ -260,12 +230,6 @@ If true, allows you to delete a service even if it has not been scaled down to z
 
 **Type:** OBJECT
 
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
-
-**Type:** STRING
-
 </details>
 
 ## deregister_container_instance
@@ -292,12 +256,6 @@ Forces the deregistration of the container instance. If you have tasks running o
 
 **Type:** OBJECT
 
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
-
-**Type:** STRING
-
 </details>
 
 ## deregister_task_definition
@@ -309,12 +267,6 @@ Deregisters the specified task definition by family and revision. Upon deregistr
 #### taskDefinition (required)
 
 The family and revision (family:revision) or full Amazon Resource Name (ARN) of the task definition to deregister. You must specify a revision. 
-
-**Type:** STRING
-
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
 
 **Type:** STRING
 
@@ -337,12 +289,6 @@ A list of up to 100 cluster names or full cluster Amazon Resource Name (ARN) ent
 Additional information about your clusters to be separated by launch type, including: runningEC2TasksCount runningFargateTasksCount pendingEC2TasksCount pendingFargateTasksCount activeEC2ServiceCount activeFargateServiceCount drainingEC2ServiceCount drainingFargateServiceCount 
 
 **Type:** ARRAY
-
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
-
-**Type:** STRING
 
 </details>
 
@@ -370,12 +316,6 @@ Specifies whether you want to see the resource tags for the container instance. 
 
 **Type:** ARRAY
 
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
-
-**Type:** STRING
-
 </details>
 
 ## describe_services
@@ -402,12 +342,6 @@ Specifies whether you want to see the resource tags for the service. If TAGS is 
 
 **Type:** ARRAY
 
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
-
-**Type:** STRING
-
 </details>
 
 ## describe_task_definition
@@ -427,12 +361,6 @@ The family for the latest ACTIVE revision, family and revision (family:revision)
 Specifies whether to see the resource tags for the task definition. If TAGS is specified, the tags are included in the response. If this field is omitted, tags are not included in the response. 
 
 **Type:** ARRAY
-
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
-
-**Type:** STRING
 
 </details>
 
@@ -460,12 +388,6 @@ Specifies whether you want to see the resource tags for the task. If TAGS is spe
 
 **Type:** ARRAY
 
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
-
-**Type:** STRING
-
 </details>
 
 ## discover_poll_endpoint
@@ -483,12 +405,6 @@ The short name or full Amazon Resource Name (ARN) of the cluster to which the co
 #### containerInstance
 
 The container instance ID or full ARN of the container instance. The ARN contains the arn:aws:ecs namespace, followed by the Region of the container instance, the AWS account ID of the container instance owner, the container-instance namespace, and then the container instance ID. For example, arn:aws:ecs:region:aws_account_id:container-instance/container_instance_ID . 
-
-**Type:** STRING
-
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
 
 **Type:** STRING
 
@@ -527,12 +443,6 @@ The nextToken value returned from a previous paginated ListAccountSettings reque
 #### principalArn
 
 The ARN of the principal, which can be an IAM user, IAM role, or the root user. If this field is omitted, the account settings are listed only for the authenticated user. 
-
-**Type:** STRING
-
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
 
 **Type:** STRING
 
@@ -586,39 +496,13 @@ The nextToken value returned from a previous paginated ListAttributes request wh
 
 **Type:** STRING
 
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
-
-**Type:** STRING
-
 </details>
 
 ## list_clusters
 
-Returns a list of existing clusters. https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListClusters.html
 
-<details><summary>Parameters</summary>
 
-#### maxResults
-
-The maximum number of cluster results returned by ListClusters in paginated output. When this parameter is used, ListClusters only returns maxResults results in a single page along with a nextToken response element. The remaining results of the initial request can be seen by sending another ListClusters request with the returned nextToken value. This value can be between 1 and 100. If this parameter is not used, then ListClusters returns up to 100 results and a nextToken value if applicable. 
-
-**Type:** INTEGER
-
-#### nextToken
-
-The nextToken value returned from a previous paginated ListClusters request where maxResults was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the nextToken value. Note This token should be treated as an opaque identifier that is only used to retrieve the next items in a list and not for other programmatic purposes. 
-
-**Type:** STRING
-
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
-
-**Type:** STRING
-
-</details>
+*This operation has no parameters*
 
 ## list_container_instances
 
@@ -656,12 +540,6 @@ Filters the container instances by status. For example, if you specify the DRAIN
 
 **Type:** STRING
 
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
-
-**Type:** STRING
-
 </details>
 
 ## list_services
@@ -682,27 +560,9 @@ The launch type for the services to list.
 
 **Type:** STRING
 
-#### maxResults
-
-The maximum number of service results returned by ListServices in paginated output. When this parameter is used, ListServices only returns maxResults results in a single page along with a nextToken response element. The remaining results of the initial request can be seen by sending another ListServices request with the returned nextToken value. This value can be between 1 and 100. If this parameter is not used, then ListServices returns up to 10 results and a nextToken value if applicable. 
-
-**Type:** INTEGER
-
-#### nextToken
-
-The nextToken value returned from a previous paginated ListServices request where maxResults was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the nextToken value. Note This token should be treated as an opaque identifier that is only used to retrieve the next items in a list and not for other programmatic purposes. 
-
-**Type:** STRING
-
 #### schedulingStrategy
 
 The scheduling strategy for services to list. 
-
-**Type:** STRING
-
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
 
 **Type:** STRING
 
@@ -717,12 +577,6 @@ List the tags for an Amazon ECS resource. https://docs.aws.amazon.com/AmazonECS/
 #### resourceArn (required)
 
 The Amazon Resource Name (ARN) that identifies the resource for which to list the tags. Currently, the supported resources are Amazon ECS tasks, services, task definitions, clusters, and container instances. 
-
-**Type:** STRING
-
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
 
 **Type:** STRING
 
@@ -758,12 +612,6 @@ The task definition family status with which to filter the ListTaskDefinitionFam
 
 **Type:** STRING
 
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
-
-**Type:** STRING
-
 </details>
 
 ## list_task_definitions
@@ -778,18 +626,6 @@ The full family name with which to filter the ListTaskDefinitions results. Speci
 
 **Type:** STRING
 
-#### maxResults
-
-The maximum number of task definition results returned by ListTaskDefinitions in paginated output. When this parameter is used, ListTaskDefinitions only returns maxResults results in a single page along with a nextToken response element. The remaining results of the initial request can be seen by sending another ListTaskDefinitions request with the returned nextToken value. This value can be between 1 and 100. If this parameter is not used, then ListTaskDefinitions returns up to 100 results and a nextToken value if applicable. 
-
-**Type:** INTEGER
-
-#### nextToken
-
-The nextToken value returned from a previous paginated ListTaskDefinitions request where maxResults was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the nextToken value. Note This token should be treated as an opaque identifier that is only used to retrieve the next items in a list and not for other programmatic purposes. 
-
-**Type:** STRING
-
 #### sort
 
 The order in which to sort the results. Valid values are ASC and DESC. By default (ASC), task definitions are listed lexicographically by family name and in ascending numerical order by revision so that the newest task definitions in a family are listed last. Setting this parameter to DESC reverses the sort order on family name and revision so that the newest task definitions in a family are listed first. 
@@ -799,12 +635,6 @@ The order in which to sort the results. Valid values are ASC and DESC. By defaul
 #### status
 
 The task definition status with which to filter the ListTaskDefinitions results. By default, only ACTIVE task definitions are listed. By setting this parameter to INACTIVE, you can view task definitions that are INACTIVE as long as an active task or service still references them. If you paginate the resulting output, be sure to keep the status value constant in each subsequent request. 
-
-**Type:** STRING
-
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
 
 **Type:** STRING
 
@@ -870,12 +700,6 @@ The startedBy value with which to filter the task results. Specifying a startedB
 
 **Type:** STRING
 
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
-
-**Type:** STRING
-
 </details>
 
 ## put_account_setting
@@ -902,12 +726,6 @@ The ARN of the principal, which can be an IAM user, IAM role, or the root user. 
 
 **Type:** STRING
 
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
-
-**Type:** STRING
-
 </details>
 
 ## put_account_setting_default
@@ -928,12 +746,6 @@ The account setting value for the specified principal ARN. Accepted values are e
 
 **Type:** STRING
 
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
-
-**Type:** STRING
-
 </details>
 
 ## put_attributes
@@ -951,12 +763,6 @@ The attributes to apply to your resource. You can specify up to 10 custom attrib
 #### cluster
 
 The short name or full Amazon Resource Name (ARN) of the cluster that contains the resource to apply attributes. If you do not specify a cluster, the default cluster is assumed. 
-
-**Type:** STRING
-
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
 
 **Type:** STRING
 
@@ -1009,12 +815,6 @@ The devices that are available on the container instance. The only supported dev
 The metadata that you apply to the container instance to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters. 
 
 **Type:** ARRAY
-
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
-
-**Type:** STRING
 
 #### totalResources
 
@@ -1101,12 +901,6 @@ The launch type required by the task. If no value is specified, it defaults to E
 The metadata that you apply to the task definition to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters. 
 
 **Type:** ARRAY
-
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
-
-**Type:** STRING
 
 #### taskRoleArn
 
@@ -1212,12 +1006,6 @@ The metadata that you apply to the task to help you categorize and organize them
 
 **Type:** ARRAY
 
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
-
-**Type:** STRING
-
 </details>
 
 ## start_task
@@ -1286,12 +1074,6 @@ The metadata that you apply to the task to help you categorize and organize them
 
 **Type:** ARRAY
 
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
-
-**Type:** STRING
-
 </details>
 
 ## stop_task
@@ -1315,12 +1097,6 @@ The short name or full Amazon Resource Name (ARN) of the cluster that hosts the 
 #### reason
 
 An optional message specified when a task is stopped. For example, if you are using a custom scheduler, you can use this parameter to specify the reason for stopping the task here, and the message appears in subsequent DescribeTasks API operations on this task. Up to 255 characters are allowed in this message. 
-
-**Type:** STRING
-
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
 
 **Type:** STRING
 
@@ -1365,12 +1141,6 @@ The reason for the state change request.
 #### status
 
 The status of the state change request. 
-
-**Type:** STRING
-
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
 
 **Type:** STRING
 
@@ -1436,12 +1206,6 @@ The status of the state change request.
 
 **Type:** STRING
 
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
-
-**Type:** STRING
-
 #### task
 
 The task ID or full ARN of the task in the state change request. 
@@ -1468,12 +1232,6 @@ The tags to add to the resource. A tag is an array of key-value pairs. Tag keys 
 
 **Type:** ARRAY
 
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
-
-**Type:** STRING
-
 </details>
 
 ## untag_resource
@@ -1494,12 +1252,6 @@ The keys of the tags to be removed.
 
 **Type:** ARRAY
 
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
-
-**Type:** STRING
-
 </details>
 
 ## update_container_agent
@@ -1517,12 +1269,6 @@ The container instance ID or full ARN entries for the container instance on whic
 #### cluster
 
 The short name or full Amazon Resource Name (ARN) of the cluster that your container instance is running on. If you do not specify a cluster, the default cluster is assumed. 
-
-**Type:** STRING
-
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
 
 **Type:** STRING
 
@@ -1549,12 +1295,6 @@ The container instance state with which to update the container instance.
 #### cluster
 
 The short name or full Amazon Resource Name (ARN) of the cluster that hosts the container instance to update. If you do not specify a cluster, the default cluster is assumed. 
-
-**Type:** STRING
-
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
 
 **Type:** STRING
 
@@ -1611,12 +1351,6 @@ The network configuration for the service. This parameter is required for task d
 #### platformVersion
 
 The platform version on which your tasks in the service are running. A platform version is only specified for tasks using the Fargate launch type. If one is not specified, the LATEST platform version is used by default. For more information, see AWS Fargate Platform Versions in the Amazon Elastic Container Service Developer Guide. 
-
-**Type:** STRING
-
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
 
 **Type:** STRING
 

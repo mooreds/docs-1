@@ -1,6 +1,6 @@
 ---
 id: google-mail-documentation
-title: Google Mail (version v2.*.*)
+title: Google Mail (version v3.*.*)
 sidebar_label: Google Mail
 ---
 
@@ -10,7 +10,23 @@ sidebar_label: Google Mail
 
 <details><summary>Parameters</summary>
 
+#### additionalHeaders
+
+Additional RFC822 headers, specified as key:value pairs.
+
+**Type:** OBJECT
+
+#### bcc
+
+**Type:** STRING
+
 #### cc
+
+**Type:** STRING
+
+#### contentType
+
+Can be either text/plain or text/html. Default is text/plain.
 
 **Type:** STRING
 
@@ -30,7 +46,7 @@ sidebar_label: Google Mail
 
 **Type:** STRING
 
-#### messageHtml
+#### message
 
 **Type:** STRING
 
@@ -192,7 +208,23 @@ Creates a new draft with the DRAFT label.
 
 <details><summary>Parameters</summary>
 
+#### additionalHeaders
+
+Additional RFC822 headers, specified as key:value pairs.
+
+**Type:** OBJECT
+
+#### bcc
+
+**Type:** STRING
+
 #### cc
+
+**Type:** STRING
+
+#### contentType
+
+Can be either text/plain or text/html. Default is text/plain.
 
 **Type:** STRING
 
@@ -200,7 +232,7 @@ Creates a new draft with the DRAFT label.
 
 **Type:** STRING
 
-#### messageHtml
+#### message
 
 **Type:** STRING
 
@@ -1888,7 +1920,23 @@ Imports a message into only this user''s mailbox, with standard email delivery s
 
 <details><summary>Parameters</summary>
 
+#### additionalHeaders
+
+Additional RFC822 headers, specified as key:value pairs.
+
+**Type:** OBJECT
+
+#### bcc
+
+**Type:** STRING
+
 #### cc
+
+**Type:** STRING
+
+#### contentType
+
+Can be either text/plain or text/html. Default is text/plain.
 
 **Type:** STRING
 
@@ -1904,7 +1952,7 @@ Imports a message into only this user''s mailbox, with standard email delivery s
 
 **Type:** STRING
 
-#### messageHtml
+#### message
 
 **Type:** STRING
 
@@ -1940,7 +1988,23 @@ Directly inserts a message into only this user''s mailbox similar to IMAP APPEND
 
 <details><summary>Parameters</summary>
 
+#### additionalHeaders
+
+Additional RFC822 headers, specified as key:value pairs.
+
+**Type:** OBJECT
+
+#### bcc
+
+**Type:** STRING
+
 #### cc
+
+**Type:** STRING
+
+#### contentType
+
+Can be either text/plain or text/html. Default is text/plain.
 
 **Type:** STRING
 
@@ -1956,7 +2020,7 @@ Directly inserts a message into only this user''s mailbox similar to IMAP APPEND
 
 **Type:** STRING
 
-#### messageHtml
+#### message
 
 **Type:** STRING
 
@@ -2798,7 +2862,23 @@ Sends the specified message to the recipients in the To, Cc, and Bcc headers.
 
 <details><summary>Parameters</summary>
 
+#### additionalHeaders
+
+Additional RFC822 headers, specified as key:value pairs.
+
+**Type:** OBJECT
+
+#### bcc
+
+**Type:** STRING
+
 #### cc
+
+**Type:** STRING
+
+#### contentType
+
+Can be either text/plain or text/html. Default is text/plain.
 
 **Type:** STRING
 
@@ -2806,7 +2886,7 @@ Sends the specified message to the recipients in the To, Cc, and Bcc headers.
 
 **Type:** STRING
 
-#### messageHtml
+#### message
 
 **Type:** STRING
 
@@ -3366,7 +3446,23 @@ Replaces a draft's content.
 
 <details><summary>Parameters</summary>
 
+#### additionalHeaders
+
+Additional RFC822 headers, specified as key:value pairs.
+
+**Type:** OBJECT
+
+#### bcc
+
+**Type:** STRING
+
 #### cc
+
+**Type:** STRING
+
+#### contentType
+
+Can be either text/plain or text/html. Default is text/plain.
 
 **Type:** STRING
 
@@ -3374,7 +3470,7 @@ Replaces a draft's content.
 
 **Type:** STRING
 
-#### messageHtml
+#### message
 
 **Type:** STRING
 
