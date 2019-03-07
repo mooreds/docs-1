@@ -22,8 +22,8 @@ const users = [
 
   const siteConfig = {
   title: 'Transposit', // Title for your website.
-  tagline: 'An end-to-end solution for building production-ready applications on top of APIs',
-  url: 'https://api-composition.transposit.com', // Your website URL
+  tagline: 'Making it radically simpler for developers to build with APIs',
+  url: 'https://docs.transposit.com', // Your website URL
   baseUrl: '/', // Base URL for your project */
   docsUrl: '', // Get rid of the `/docs/` part of the site URL
 
