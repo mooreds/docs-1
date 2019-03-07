@@ -1,6 +1,6 @@
 ---
 id: aws-cloudwatch-events-documentation
-title: AWS Cloudwatch Events (version v1.*.*)
+title: AWS Cloudwatch Events (version v2.*.*)
 sidebar_label: AWS Cloudwatch Events
 ---
 
@@ -22,27 +22,13 @@ If this is a managed rule, created by an AWS service on your behalf, you must sp
 
 **Type:** OBJECT
 
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
-
-**Type:** STRING
-
 </details>
 
 ## describe_event_bus
 
-Displays the external AWS accounts that are permitted to write events to your account using your account's event bus, and the associated policy. To enable your account to receive events from other accounts, use PutPermission.  https://docs.aws.amazon.com/AmazonCloudWatchEvents/latest/APIReference/API_DescribeEventBus.html
 
-<details><summary>Parameters</summary>
 
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
-
-**Type:** STRING
-
-</details>
+*This operation has no parameters*
 
 ## describe_rule
 
@@ -53,12 +39,6 @@ Describes the specified rule. https://docs.aws.amazon.com/AmazonCloudWatchEvents
 #### Name (required)
 
 The name of the rule.
-
-**Type:** STRING
-
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
 
 **Type:** STRING
 
@@ -76,12 +56,6 @@ The name of the rule.
 
 **Type:** STRING
 
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
-
-**Type:** STRING
-
 </details>
 
 ## enable_rule
@@ -93,12 +67,6 @@ Enables the specified rule. If the rule does not exist, the operation fails. htt
 #### Name (required)
 
 The name of the rule.
-
-**Type:** STRING
-
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
 
 **Type:** STRING
 
@@ -116,24 +84,6 @@ The Amazon Resource Name (ARN) of the target resource.
 
 **Type:** STRING
 
-#### Limit
-
-The maximum number of results to return.
-
-**Type:** INTEGER
-
-#### NextToken
-
-The token returned by a previous call to retrieve the next set of results.
-
-**Type:** STRING
-
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
-
-**Type:** STRING
-
 </details>
 
 ## list_rules
@@ -142,27 +92,9 @@ Lists your Amazon CloudWatch Events rules. You can either list all the rules or 
 
 <details><summary>Parameters</summary>
 
-#### Limit
-
-The maximum number of results to return.
-
-**Type:** INTEGER
-
 #### NamePrefix
 
 The prefix matching the rule name.
-
-**Type:** STRING
-
-#### NextToken
-
-The token returned by a previous call to retrieve the next set of results.
-
-**Type:** STRING
-
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
 
 **Type:** STRING
 
@@ -180,24 +112,6 @@ The name of the rule.
 
 **Type:** STRING
 
-#### Limit
-
-The maximum number of results to return.
-
-**Type:** INTEGER
-
-#### NextToken
-
-The token returned by a previous call to retrieve the next set of results.
-
-**Type:** STRING
-
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
-
-**Type:** STRING
-
 </details>
 
 ## put_events
@@ -211,12 +125,6 @@ Sends custom events to Amazon CloudWatch Events so that they can be matched to r
 The entry that defines an event in your system. You can specify several parameters for the entry such as the source and type of the event, resources associated with the event, and so on.
 
 **Type:** ARRAY
-
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
-
-**Type:** STRING
 
 </details>
 
@@ -249,12 +157,6 @@ An identifier string for the external account that you are granting permissions 
 This parameter enables you to limit the permission to accounts that  fulfill a certain condition, such as being a member of a certain AWS organization. For more information about AWS Organizations,  see What Is AWS Organizations in the AWS Organizations User Guide. If you specify Condition with an AWS organization ID, and specify "*" as the value for Principal, you grant permission to all the accounts in the named organization. The Condition is a JSON string which must contain Type, Key, and Value fields.
 
 **Type:** OBJECT
-
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
-
-**Type:** STRING
 
 </details>
 
@@ -300,12 +202,6 @@ Indicates whether the rule is enabled or disabled.
 
 **Type:** STRING
 
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
-
-**Type:** STRING
-
 </details>
 
 ## put_targets
@@ -326,12 +222,6 @@ The targets to update or add to the rule.
 
 **Type:** ARRAY
 
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
-
-**Type:** STRING
-
 </details>
 
 ## remove_permission
@@ -343,12 +233,6 @@ Revokes the permission of another AWS account to be able to put events to your d
 #### StatementId (required)
 
 The statement ID corresponding to the account that is no longer allowed to put events to the default event bus.
-
-**Type:** STRING
-
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
 
 **Type:** STRING
 
@@ -378,12 +262,6 @@ If this is a managed rule, created by an AWS service on your behalf, you must sp
 
 **Type:** OBJECT
 
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
-
-**Type:** STRING
-
 </details>
 
 ## test_event_pattern
@@ -401,12 +279,6 @@ The event, in JSON format, to test against the event pattern.
 #### EventPattern (required)
 
 The event pattern. For more information, see Events and Event Patterns in the Amazon CloudWatch Events User Guide.
-
-**Type:** STRING
-
-#### target
-
-The actual name of the AWS API call. Do not replace the default value.
 
 **Type:** STRING
 
