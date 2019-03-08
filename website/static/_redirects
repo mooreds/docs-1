@@ -2,3 +2,5 @@
 /connectors /references/data-connectors
 
 /references/authentication /references/connector-authentication#auth-via-aws-parameters
+
+/get-started /get-started/quickstart
