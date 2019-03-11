@@ -20,6 +20,12 @@ Additional RFC822 headers, specified as key:value pairs.
 
 **Type:** STRING
 
+#### bodyParts
+
+A map of MIME Content-Types to content.
+
+**Type:** OBJECT
+
 #### cc
 
 **Type:** STRING
@@ -233,6 +239,60 @@ Can be either text/plain or text/html. Default is text/plain.
 **Type:** STRING
 
 #### message
+
+**Type:** STRING
+
+#### subject
+
+**Type:** STRING
+
+#### threadId
+
+**Type:** STRING
+
+#### to
+
+**Type:** STRING
+
+#### userId
+
+**Type:** STRING
+
+</details>
+
+## create_draft_multipart
+
+Creates a new multipart draft with the DRAFT label.
+
+<details><summary>Parameters</summary>
+
+#### additionalHeaders
+
+Additional RFC822 headers, specified as key:value pairs.
+
+**Type:** OBJECT
+
+#### bcc
+
+**Type:** STRING
+
+#### bodyParts
+
+A map of MIME Content-Types to content. Best practices suggest ordering from simplest to fanciest format.
+
+**Type:** OBJECT
+
+#### cc
+
+**Type:** STRING
+
+#### contentType
+
+A multipart Content-Type. Default is multipart/alternative.
+
+**Type:** STRING
+
+#### from
 
 **Type:** STRING
 
@@ -1982,6 +2042,76 @@ Can be either text/plain or text/html. Default is text/plain.
 
 </details>
 
+## import_message_multipart
+
+Imports a multipart message into only this user''s mailbox, with standard email delivery scanning and classification similar to receiving via SMTP. Does not send a message.
+
+<details><summary>Parameters</summary>
+
+#### additionalHeaders
+
+Additional RFC822 headers, specified as key:value pairs.
+
+**Type:** OBJECT
+
+#### bcc
+
+**Type:** STRING
+
+#### bodyParts
+
+A map of MIME Content-Types to content. Best practices suggest ordering from simplest to fanciest format.
+
+**Type:** OBJECT
+
+#### cc
+
+**Type:** STRING
+
+#### contentType
+
+A multipart Content-Type. Default is multipart/alternative.
+
+**Type:** STRING
+
+#### deleted
+
+**Type:** BOOLEAN
+
+#### from
+
+**Type:** STRING
+
+#### internalDateSource
+
+**Type:** STRING
+
+#### neverMarkSpam
+
+**Type:** BOOLEAN
+
+#### processForCalendar
+
+**Type:** BOOLEAN
+
+#### subject
+
+**Type:** STRING
+
+#### threadId
+
+**Type:** STRING
+
+#### to
+
+**Type:** STRING
+
+#### userId
+
+**Type:** STRING
+
+</details>
+
 ## insert_message
 
 Directly inserts a message into only this user''s mailbox similar to IMAP APPEND, bypassing most scanning and classification. Does not send a message.
@@ -2021,6 +2151,68 @@ Can be either text/plain or text/html. Default is text/plain.
 **Type:** STRING
 
 #### message
+
+**Type:** STRING
+
+#### subject
+
+**Type:** STRING
+
+#### threadId
+
+**Type:** STRING
+
+#### to
+
+**Type:** STRING
+
+#### userId
+
+**Type:** STRING
+
+</details>
+
+## insert_message_multipart
+
+Directly inserts a multipart message into only this user''s mailbox similar to IMAP APPEND, bypassing most scanning and classification. Does not send a message.
+
+<details><summary>Parameters</summary>
+
+#### additionalHeaders
+
+Additional RFC822 headers, specified as key:value pairs.
+
+**Type:** OBJECT
+
+#### bcc
+
+**Type:** STRING
+
+#### bodyParts
+
+A map of MIME Content-Types to content. Best practices suggest ordering from simplest to fanciest format.
+
+**Type:** OBJECT
+
+#### cc
+
+**Type:** STRING
+
+#### contentType
+
+A multipart Content-Type. Default is multipart/alternative.
+
+**Type:** STRING
+
+#### deleted
+
+**Type:** BOOLEAN
+
+#### from
+
+**Type:** STRING
+
+#### internalDateSource
 
 **Type:** STRING
 
@@ -2908,6 +3100,60 @@ Can be either text/plain or text/html. Default is text/plain.
 
 </details>
 
+## send_message_multipart
+
+Sends the specified multipart message to the recipients in the To, Cc, and Bcc headers.
+
+<details><summary>Parameters</summary>
+
+#### additionalHeaders
+
+Additional RFC822 headers, specified as key:value pairs.
+
+**Type:** OBJECT
+
+#### bcc
+
+**Type:** STRING
+
+#### bodyParts
+
+A map of MIME Content-Types to content. Best practices suggest ordering from simplest to fanciest format.
+
+**Type:** OBJECT
+
+#### cc
+
+**Type:** STRING
+
+#### contentType
+
+A multipart Content-Type. Default is multipart/alternative.
+
+**Type:** STRING
+
+#### from
+
+**Type:** STRING
+
+#### subject
+
+**Type:** STRING
+
+#### threadId
+
+**Type:** STRING
+
+#### to
+
+**Type:** STRING
+
+#### userId
+
+**Type:** STRING
+
+</details>
+
 ## set_default_smime_for_alias
 
 Sets the default S/MIME config for the specified send-as alias.
@@ -3471,6 +3717,60 @@ Can be either text/plain or text/html. Default is text/plain.
 **Type:** STRING
 
 #### message
+
+**Type:** STRING
+
+#### subject
+
+**Type:** STRING
+
+#### threadId
+
+**Type:** STRING
+
+#### to
+
+**Type:** STRING
+
+#### userId
+
+**Type:** STRING
+
+</details>
+
+## update_draft_multipart
+
+Replaces a draft's content with a multipart message.
+
+<details><summary>Parameters</summary>
+
+#### additionalHeaders
+
+Additional RFC822 headers, specified as key:value pairs.
+
+**Type:** OBJECT
+
+#### bcc
+
+**Type:** STRING
+
+#### bodyParts
+
+A map of MIME Content-Types to content. Best practices suggest ordering from simplest to fanciest format.
+
+**Type:** OBJECT
+
+#### cc
+
+**Type:** STRING
+
+#### contentType
+
+A multipart Content-Type. Default is multipart/alternative.
+
+**Type:** STRING
+
+#### from
 
 **Type:** STRING
 
