@@ -170,7 +170,7 @@ The name of the repository to delete.
 
 If a repository contains images, forces the deletion.
 
-**Type:** OBJECT
+**Type:** BOOLEAN
 
 #### registryId
 
@@ -516,7 +516,7 @@ The name of the repository to receive the policy.
 
 If the policy you are attempting to set on a repository policy would prevent you from setting another policy in the future, you must force the SetRepositoryPolicy operation. This is intended to prevent accidental repository lock outs.
 
-**Type:** OBJECT
+**Type:** BOOLEAN
 
 #### registryId
 

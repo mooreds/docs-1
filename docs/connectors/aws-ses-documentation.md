@@ -1466,7 +1466,7 @@ Enables or disables Easy DKIM signing of email sent from an identity: https://do
 
 Sets whether DKIM signing is enabled for an identity. Set to true to enable DKIM signing for this identity; false to disable it.
 
-**Type:** OBJECT
+**Type:** BOOLEAN
 
 #### Identity (required)
 
@@ -1486,7 +1486,7 @@ Given an identity (an email address or a domain), enables or disables whether Am
 
 Sets whether Amazon SES will forward bounce and complaint notifications as email. true specifies that Amazon SES will forward bounce and complaint notifications as email, in addition to any Amazon SNS topic publishing otherwise specified. false specifies that Amazon SES will publish bounce and complaint notifications only through Amazon SNS. This value can only be set to false when Amazon SNS topics are set for both Bounce and Complaint notification types.
 
-**Type:** OBJECT
+**Type:** BOOLEAN
 
 #### Identity (required)
 
@@ -1506,7 +1506,7 @@ Given an identity (an email address or a domain), sets whether Amazon SES includ
 
 Sets whether Amazon SES includes the original email headers in Amazon SNS notifications of the specified notification type. A value of true specifies that Amazon SES will include headers in notifications, and a value of false specifies that Amazon SES will not include headers in notifications. This value can only be set when NotificationType is already set to use a particular Amazon SNS topic.
 
-**Type:** OBJECT
+**Type:** BOOLEAN
 
 #### Identity (required)
 
@@ -1630,7 +1630,7 @@ Enables or disables email sending across your entire Amazon SES account in the c
 
 Describes whether email sending is enabled or disabled for your Amazon SES account in the current AWS Region.
 
-**Type:** OBJECT
+**Type:** BOOLEAN
 
 </details>
 
@@ -1718,7 +1718,7 @@ The name of the configuration set that you want to update.
 
 Describes whether or not Amazon SES will publish reputation metrics for the configuration set, such as bounce and complaint rates, to Amazon CloudWatch.
 
-**Type:** OBJECT
+**Type:** BOOLEAN
 
 </details>
 
@@ -1738,7 +1738,7 @@ The name of the configuration set that you want to update.
 
 Describes whether email sending is enabled or disabled for the configuration set.
 
-**Type:** OBJECT
+**Type:** BOOLEAN
 
 </details>
 

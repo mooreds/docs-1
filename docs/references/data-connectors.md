@@ -21,6 +21,7 @@ Note: reference material for each data connector can additionally be viewed in t
 * [AWS Lambda](../connectors/aws-lambda-documentation.md)
 * [AWS S3](../connectors/aws-s3-documentation.md)
 * [AWS SES](../connectors/aws-ses-documentation.md)
+* [AWS SNS](../connectors/aws-sns-documentation.md)
 
 ## B
 

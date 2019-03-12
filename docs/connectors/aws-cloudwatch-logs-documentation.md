@@ -54,7 +54,7 @@ The name of S3 bucket for the exported log data. The bucket must be in the same 
 
 The start time of the range for the request, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a timestamp earlier than this time are not exported.
 
-**Type:** INTEGER
+**Type:** NUMBER
 
 #### logGroupName (required)
 
@@ -66,7 +66,7 @@ The name of the log group.
 
 The end time of the range for the request, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a timestamp later than this time are not exported.
 
-**Type:** INTEGER
+**Type:** NUMBER
 
 #### destinationPrefix
 
@@ -110,7 +110,7 @@ The Amazon Resource Name (ARN) of the CMK to use when encrypting log data.  For 
 
 The key-value pairs to use for the tags.
 
-**Type:** STRING
+**Type:** OBJECT
 
 </details>
 
@@ -280,7 +280,7 @@ The name of the log group to search.
 
 The end of the time range, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a timestamp later than this time are not returned.
 
-**Type:** INTEGER
+**Type:** NUMBER
 
 #### filterPattern
 
@@ -322,7 +322,7 @@ The token for the next set of events to return. (You received this token from a 
 
 The start of the time range, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a timestamp before this time are not returned.
 
-**Type:** INTEGER
+**Type:** NUMBER
 
 </details>
 
@@ -342,7 +342,7 @@ The name of the log group to search.
 
 The time to set as the center of the query. If you specify time, the 8 minutes before and 8 minutes after this time are searched. If you omit time, the past 15 minutes are queried. The time value is specified as epoch time, the number of seconds since January 1, 1970, 00:00:00 UTC.
 
-**Type:** INTEGER
+**Type:** NUMBER
 
 </details>
 
@@ -430,7 +430,7 @@ The name of the log stream.
 
 The end of the time range, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a timestamp equal to or later than this time are not included.
 
-**Type:** INTEGER
+**Type:** NUMBER
 
 #### startFromHead
 
@@ -442,7 +442,7 @@ If the value is true, the earliest log events are returned first. If the value i
 
 The start of the time range, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a timestamp equal to this time or later than this time are included. Events with a timestamp earlier than this time are not included.
 
-**Type:** INTEGER
+**Type:** NUMBER
 
 </details>
 
@@ -788,7 +788,7 @@ Schedules a query of a log group using CloudWatch Logs Insights. You specify the
 
 The end of the time range to query. The range is inclusive, so the specified end time is included in the query. Specified as epoch time, the number of seconds since January 1, 1970, 00:00:00 UTC.
 
-**Type:** INTEGER
+**Type:** NUMBER
 
 #### logGroupName (required)
 
@@ -806,7 +806,7 @@ The query string to use. For more information, see CloudWatch Logs Insights Quer
 
 The beginning of the time range to query. The range is inclusive, so the specified start time is included in the query. Specified as epoch time, the number of seconds since January 1, 1970, 00:00:00 UTC.
 
-**Type:** INTEGER
+**Type:** NUMBER
 
 #### limit
 
@@ -846,7 +846,7 @@ The name of the log group.
 
 The key-value pairs to use for the tags.
 
-**Type:** STRING
+**Type:** OBJECT
 
 </details>
 

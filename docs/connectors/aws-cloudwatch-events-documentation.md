@@ -20,7 +20,7 @@ The name of the rule.
 
 If this is a managed rule, created by an AWS service on your behalf, you must specify Force as True to delete the rule. This parameter is ignored for rules that are not managed rules. You can check  whether a rule is a managed rule by using DescribeRule or ListRules and checking the  ManagedBy field of the response.
 
-**Type:** OBJECT
+**Type:** BOOLEAN
 
 </details>
 
@@ -260,7 +260,7 @@ The name of the rule.
 
 If this is a managed rule, created by an AWS service on your behalf, you must specify Force as True to remove targets. This parameter is ignored for rules that are not managed rules. You can check whether a rule is a managed rule by using DescribeRule or ListRules and checking the ManagedBy field of the response.
 
-**Type:** OBJECT
+**Type:** BOOLEAN
 
 </details>
 

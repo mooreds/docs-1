@@ -1,6 +1,6 @@
 ---
 id: aws-dynamodb-documentation
-title: AWS DynamoDB (version v2.*.*)
+title: AWS DynamoDB (version v3.*.*)
 sidebar_label: AWS DynamoDB
 ---
 
@@ -14,7 +14,7 @@ The BatchGetItem operation returns the attributes of one or more items from one 
 
 A map of one or more table names and, for each table, a map that describes one or more items to retrieve from that table. Each table name can be used only once per BatchGetItem request. Each element in the map of items to retrieve consists of the following: ConsistentRead - If true, a strongly consistent read is used; if false (the default), an eventually consistent read is used. ExpressionAttributeNames - One or more substitution tokens for attribute names in the ProjectionExpression parameter. The following are some use cases for using ExpressionAttributeNames: To access an attribute whose name conflicts with a DynamoDB reserved word. To create a placeholder for repeating occurrences of an attribute name in an expression. To prevent special characters in an attribute name from being misinterpreted in an expression. Use the # character in an expression to dereference an attribute name. For example, consider the following attribute name: Percentile The name of this attribute conflicts with a reserved word, so it cannot be used directly in an expression. (For the complete list of reserved words, see Reserved Words in the Amazon DynamoDB Developer Guide). To work around this, you could specify the following for ExpressionAttributeNames: {"#P":"Percentile"} You could then use this substitution in an expression, as in this example: #P = :val Note Tokens that begin with the : character are expression attribute values, which are placeholders for the actual value at runtime. For more information on expression attribute names, see Accessing Item Attributes in the Amazon DynamoDB Developer Guide. Keys - An array of primary key attribute values that define specific items in the table. For each primary key, you must provide all of the key attributes. For example, with a simple primary key, you only need to provide the partition key value. For a composite key, you must provide both the partition key value and the sort key value. ProjectionExpression - A string that identifies one or more attributes to retrieve from the table. These attributes can include scalars, sets, or elements of a JSON document. The attributes in the expression must be separated by commas. If no attribute names are specified, then all attributes will be returned. If any of the requested attributes are not found, they will not appear in the result. For more information, see Accessing Item Attributes in the Amazon DynamoDB Developer Guide. AttributesToGet - This is a legacy parameter.  Use ProjectionExpression instead.  For more information, see AttributesToGet in the Amazon DynamoDB Developer Guide.
 
-**Type:** STRING
+**Type:** OBJECT
 
 #### ReturnConsumedCapacity
 
@@ -176,7 +176,7 @@ Deletes a single item in a table by primary key. You can perform a conditional d
 
 A map of attribute names to AttributeValue objects, representing the primary key of the item to delete. For the primary key, you must provide all of the attributes. For example, with a simple primary key, you only need to provide a value for the partition key. For a composite primary key, you must provide values for both the partition key and the sort key.
 
-**Type:** STRING
+**Type:** OBJECT
 
 #### TableName (required)
 
@@ -200,19 +200,19 @@ This is a legacy parameter.  Use ConditionExpression instead.  For more informat
 
 This is a legacy parameter.  Use ConditionExpression instead.  For more information, see Expected in the Amazon DynamoDB Developer Guide.
 
-**Type:** STRING
+**Type:** OBJECT
 
 #### ExpressionAttributeNames
 
 One or more substitution tokens for attribute names in an expression. The following are some use cases for using ExpressionAttributeNames: To access an attribute whose name conflicts with a DynamoDB reserved word. To create a placeholder for repeating occurrences of an attribute name in an expression. To prevent special characters in an attribute name from being misinterpreted in an expression. Use the # character in an expression to dereference an attribute name. For example, consider the following attribute name: Percentile The name of this attribute conflicts with a reserved word, so it cannot be used directly in an expression. (For the complete list of reserved words, see Reserved Words in the Amazon DynamoDB Developer Guide). To work around this, you could specify the following for ExpressionAttributeNames: {"#P":"Percentile"} You could then use this substitution in an expression, as in this example: #P = :val Note Tokens that begin with the : character are expression attribute values, which are placeholders for the actual value at runtime. For more information on expression attribute names, see Accessing Item Attributes in the Amazon DynamoDB Developer Guide.
 
-**Type:** STRING
+**Type:** OBJECT
 
 #### ExpressionAttributeValues
 
 One or more values that can be substituted in an expression. Use the : (colon) character in an expression to dereference an attribute value. For example, suppose that you wanted to check whether the value of the ProductStatus attribute was one of the following:  Available | Backordered | Discontinued You would first need to specify ExpressionAttributeValues as follows: { ":avail":{"S":"Available"}, ":back":{"S":"Backordered"}, ":disc":{"S":"Discontinued"} } You could then use these values in an expression, such as this: ProductStatus IN (:avail, :back, :disc) For more information on expression attribute values, see Specifying Conditions in the Amazon DynamoDB Developer Guide.
 
-**Type:** STRING
+**Type:** OBJECT
 
 #### ReturnConsumedCapacity
 
@@ -354,7 +354,7 @@ The GetItem operation returns a set of attributes for the item with the given pr
 
 A map of attribute names to AttributeValue objects, representing the primary key of the item to retrieve. For the primary key, you must provide all of the attributes. For example, with a simple primary key, you only need to provide a value for the partition key. For a composite primary key, you must provide values for both the partition key and the sort key.
 
-**Type:** STRING
+**Type:** OBJECT
 
 #### TableName (required)
 
@@ -372,13 +372,13 @@ This is a legacy parameter.  Use ProjectionExpression instead.  For more informa
 
 Determines the read consistency model:  If set to true, then the operation uses strongly consistent reads; otherwise, the operation uses eventually consistent reads.
 
-**Type:** OBJECT
+**Type:** BOOLEAN
 
 #### ExpressionAttributeNames
 
 One or more substitution tokens for attribute names in an expression. The following are some use cases for using ExpressionAttributeNames: To access an attribute whose name conflicts with a DynamoDB reserved word. To create a placeholder for repeating occurrences of an attribute name in an expression. To prevent special characters in an attribute name from being misinterpreted in an expression. Use the # character in an expression to dereference an attribute name. For example, consider the following attribute name: Percentile The name of this attribute conflicts with a reserved word, so it cannot be used directly in an expression. (For the complete list of reserved words, see Reserved Words in the Amazon DynamoDB Developer Guide). To work around this, you could specify the following for ExpressionAttributeNames: {"#P":"Percentile"} You could then use this substitution in an expression, as in this example: #P = :val Note Tokens that begin with the : character are expression attribute values, which are placeholders for the actual value at runtime. For more information on expression attribute names, see Accessing Item Attributes in the Amazon DynamoDB Developer Guide.
 
-**Type:** STRING
+**Type:** OBJECT
 
 #### ProjectionExpression
 
@@ -406,18 +406,6 @@ The backups from the table specified by BackupType are listed. Where BackupType 
 
 **Type:** STRING
 
-#### ExclusiveStartBackupArn
-
-LastEvaluatedBackupArn is the ARN of the backup last evaluated when the current page of results was returned, inclusive of the current page of results. This value may be specified as the ExclusiveStartBackupArn of a new ListBackups operation in order to fetch the next page of results.
-
-**Type:** STRING
-
-#### Limit
-
-Maximum number of backups to return at once.
-
-**Type:** INTEGER
-
 #### TableName
 
 The backups from the table specified by TableName are listed.
@@ -444,18 +432,6 @@ Lists all global tables that have a replica in the specified region. https://doc
 
 <details><summary>Parameters</summary>
 
-#### ExclusiveStartGlobalTableName
-
-The first global table name that this operation will evaluate.
-
-**Type:** STRING
-
-#### Limit
-
-The maximum number of table names to return.
-
-**Type:** INTEGER
-
 #### RegionName
 
 Lists the global tables in a specific region.
@@ -466,23 +442,9 @@ Lists the global tables in a specific region.
 
 ## list_tables
 
-Returns an array of table names associated with the current account and endpoint. The output from ListTables is paginated, with each page returning a maximum of 100 table names.  https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ListTables.html
 
-<details><summary>Parameters</summary>
 
-#### ExclusiveStartTableName
-
-The first table name that this operation will evaluate. Use the value that was returned for LastEvaluatedTableName in a previous operation, so that you can obtain the next page of results.
-
-**Type:** STRING
-
-#### Limit
-
-A maximum number of table names to return. If this parameter is not specified, the limit is 100.
-
-**Type:** INTEGER
-
-</details>
+*This operation has no parameters*
 
 ## list_tags_of_resource
 
@@ -493,12 +455,6 @@ List all tags on an Amazon DynamoDB resource. You can call ListTagsOfResource up
 #### ResourceArn (required)
 
 The Amazon DynamoDB resource with tags to be listed. This value is an Amazon Resource Name (ARN).
-
-**Type:** STRING
-
-#### NextToken
-
-An optional string that, if supplied, must be copied from the output of a previous call to ListTagOfResource. When provided in this manner, this API fetches the next page of results.
 
 **Type:** STRING
 
@@ -514,7 +470,7 @@ Creates a new item, or replaces an old item with a new item. If an item that has
 
 A map of attribute name/value pairs, one for each attribute. Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item. You must provide all of the attributes for the primary key. For example, with a simple primary key, you only need to provide a value for the partition key. For a composite primary key, you must provide both values for both the partition key and the sort key. If you specify any attributes that are part of an index key, then the data types for those attributes must match those of the schema in the table's attribute definition. For more information about primary keys, see Primary Key in the Amazon DynamoDB Developer Guide. Each element in the Item map is an AttributeValue object.
 
-**Type:** STRING
+**Type:** OBJECT
 
 #### TableName (required)
 
@@ -538,19 +494,19 @@ This is a legacy parameter.  Use ConditionExpression instead.  For more informat
 
 This is a legacy parameter.  Use ConditionExpression instead.  For more information, see Expected in the Amazon DynamoDB Developer Guide.
 
-**Type:** STRING
+**Type:** OBJECT
 
 #### ExpressionAttributeNames
 
 One or more substitution tokens for attribute names in an expression. The following are some use cases for using ExpressionAttributeNames: To access an attribute whose name conflicts with a DynamoDB reserved word. To create a placeholder for repeating occurrences of an attribute name in an expression. To prevent special characters in an attribute name from being misinterpreted in an expression. Use the # character in an expression to dereference an attribute name. For example, consider the following attribute name: Percentile The name of this attribute conflicts with a reserved word, so it cannot be used directly in an expression. (For the complete list of reserved words, see Reserved Words in the Amazon DynamoDB Developer Guide). To work around this, you could specify the following for ExpressionAttributeNames: {"#P":"Percentile"} You could then use this substitution in an expression, as in this example: #P = :val Note Tokens that begin with the : character are expression attribute values, which are placeholders for the actual value at runtime. For more information on expression attribute names, see Accessing Item Attributes in the Amazon DynamoDB Developer Guide.
 
-**Type:** STRING
+**Type:** OBJECT
 
 #### ExpressionAttributeValues
 
 One or more values that can be substituted in an expression. Use the : (colon) character in an expression to dereference an attribute value. For example, suppose that you wanted to check whether the value of the ProductStatus attribute was one of the following:  Available | Backordered | Discontinued You would first need to specify ExpressionAttributeValues as follows: { ":avail":{"S":"Available"}, ":back":{"S":"Backordered"}, ":disc":{"S":"Discontinued"} } You could then use these values in an expression, such as this: ProductStatus IN (:avail, :back, :disc) For more information on expression attribute values, see Specifying Conditions in the Amazon DynamoDB Developer Guide.
 
-**Type:** STRING
+**Type:** OBJECT
 
 #### ReturnConsumedCapacity
 
@@ -600,25 +556,25 @@ This is a legacy parameter.  Use FilterExpression instead.  For more information
 
 Determines the read consistency model:  If set to true, then the operation uses strongly consistent reads; otherwise, the operation uses eventually consistent reads. Strongly consistent reads are not supported on global secondary indexes. If you query a global secondary index with ConsistentRead set to true, you will receive a ValidationException.
 
-**Type:** OBJECT
+**Type:** BOOLEAN
 
 #### ExclusiveStartKey
 
 The primary key of the first item that this operation will evaluate. Use the value that was returned for LastEvaluatedKey in the previous operation. The data type for ExclusiveStartKey must be String, Number or Binary. No set data types are allowed.
 
-**Type:** STRING
+**Type:** OBJECT
 
 #### ExpressionAttributeNames
 
 One or more substitution tokens for attribute names in an expression. The following are some use cases for using ExpressionAttributeNames: To access an attribute whose name conflicts with a DynamoDB reserved word. To create a placeholder for repeating occurrences of an attribute name in an expression. To prevent special characters in an attribute name from being misinterpreted in an expression. Use the # character in an expression to dereference an attribute name. For example, consider the following attribute name: Percentile The name of this attribute conflicts with a reserved word, so it cannot be used directly in an expression. (For the complete list of reserved words, see Reserved Words in the Amazon DynamoDB Developer Guide). To work around this, you could specify the following for ExpressionAttributeNames: {"#P":"Percentile"} You could then use this substitution in an expression, as in this example: #P = :val Note Tokens that begin with the : character are expression attribute values, which are placeholders for the actual value at runtime. For more information on expression attribute names, see Accessing Item Attributes in the Amazon DynamoDB Developer Guide.
 
-**Type:** STRING
+**Type:** OBJECT
 
 #### ExpressionAttributeValues
 
 One or more values that can be substituted in an expression. Use the : (colon) character in an expression to dereference an attribute value. For example, suppose that you wanted to check whether the value of the ProductStatus attribute was one of the following:  Available | Backordered | Discontinued You would first need to specify ExpressionAttributeValues as follows: { ":avail":{"S":"Available"}, ":back":{"S":"Backordered"}, ":disc":{"S":"Discontinued"} } You could then use these values in an expression, such as this: ProductStatus IN (:avail, :back, :disc) For more information on expression attribute values, see Specifying Conditions in the Amazon DynamoDB Developer Guide.
 
-**Type:** STRING
+**Type:** OBJECT
 
 #### FilterExpression
 
@@ -642,7 +598,7 @@ The condition that specifies the key value(s) for items to be retrieved by the Q
 
 This is a legacy parameter.  Use KeyConditionExpression instead.   For more information, see KeyConditions in the Amazon DynamoDB Developer Guide.
 
-**Type:** STRING
+**Type:** OBJECT
 
 #### Limit
 
@@ -660,7 +616,7 @@ A string that identifies one or more attributes to retrieve from the table. Thes
 
 This is a legacy parameter.  Use FilterExpression instead.   For more information, see QueryFilter in the Amazon DynamoDB Developer Guide.
 
-**Type:** STRING
+**Type:** OBJECT
 
 #### ReturnConsumedCapacity
 
@@ -672,7 +628,7 @@ Determines the level of detail about provisioned throughput consumption that is 
 
 Specifies the order for index traversal: If true (default), the traversal is performed in ascending order; if false, the traversal is performed in descending order.  Items with the same partition key value are stored in sorted order by sort key. If the sort key data type is Number, the results are stored in numeric order. For type String, the results are stored in order of UTF-8 bytes. For type Binary, DynamoDB treats each byte of the binary data as unsigned. If ScanIndexForward is true, DynamoDB returns the results in the order in which they are stored (by sort key value). This is the default behavior. If ScanIndexForward is false, DynamoDB reads the results in reverse order by sort key value, and then returns the results to the client.
 
-**Type:** OBJECT
+**Type:** BOOLEAN
 
 #### Select
 
@@ -730,7 +686,7 @@ Time in the past to restore the table to.
 
 Restore the table to the latest possible time. LatestRestorableDateTime is typically 5 minutes before the current time.
 
-**Type:** OBJECT
+**Type:** BOOLEAN
 
 </details>
 
@@ -762,25 +718,25 @@ This is a legacy parameter.  Use FilterExpression instead.   For more informatio
 
 A Boolean value that determines the read consistency model during the scan: If ConsistentRead is false, then the data returned from Scan might not contain the results from other recently completed write operations (PutItem, UpdateItem or DeleteItem). If ConsistentRead is true, then all of the write operations that completed before the Scan began are guaranteed to be contained in the Scan response. The default setting for ConsistentRead is false. The ConsistentRead parameter is not supported on global secondary indexes. If you scan a global secondary index with ConsistentRead set to true, you will receive a ValidationException.
 
-**Type:** OBJECT
+**Type:** BOOLEAN
 
 #### ExclusiveStartKey
 
 The primary key of the first item that this operation will evaluate. Use the value that was returned for LastEvaluatedKey in the previous operation. The data type for ExclusiveStartKey must be String, Number or Binary. No set data types are allowed. In a parallel scan, a Scan request that includes ExclusiveStartKey must specify the same segment whose previous Scan returned the corresponding value of LastEvaluatedKey.
 
-**Type:** STRING
+**Type:** OBJECT
 
 #### ExpressionAttributeNames
 
 One or more substitution tokens for attribute names in an expression. The following are some use cases for using ExpressionAttributeNames: To access an attribute whose name conflicts with a DynamoDB reserved word. To create a placeholder for repeating occurrences of an attribute name in an expression. To prevent special characters in an attribute name from being misinterpreted in an expression. Use the # character in an expression to dereference an attribute name. For example, consider the following attribute name: Percentile The name of this attribute conflicts with a reserved word, so it cannot be used directly in an expression. (For the complete list of reserved words, see Reserved Words in the Amazon DynamoDB Developer Guide). To work around this, you could specify the following for ExpressionAttributeNames: {"#P":"Percentile"} You could then use this substitution in an expression, as in this example: #P = :val Note Tokens that begin with the : character are expression attribute values, which are placeholders for the actual value at runtime. For more information on expression attribute names, see Accessing Item Attributes in the Amazon DynamoDB Developer Guide.
 
-**Type:** STRING
+**Type:** OBJECT
 
 #### ExpressionAttributeValues
 
 One or more values that can be substituted in an expression. Use the : (colon) character in an expression to dereference an attribute value. For example, suppose that you wanted to check whether the value of the ProductStatus attribute was one of the following:  Available | Backordered | Discontinued You would first need to specify ExpressionAttributeValues as follows: { ":avail":{"S":"Available"}, ":back":{"S":"Backordered"}, ":disc":{"S":"Discontinued"} } You could then use these values in an expression, such as this: ProductStatus IN (:avail, :back, :disc) For more information on expression attribute values, see Specifying Conditions in the Amazon DynamoDB Developer Guide.
 
-**Type:** STRING
+**Type:** OBJECT
 
 #### FilterExpression
 
@@ -816,7 +772,7 @@ Determines the level of detail about provisioned throughput consumption that is 
 
 This is a legacy parameter.  Use FilterExpression instead.   For more information, see ScanFilter in the Amazon DynamoDB Developer Guide.
 
-**Type:** STRING
+**Type:** OBJECT
 
 #### Segment
 
@@ -1024,7 +980,7 @@ Edits an existing item's attributes, or adds a new item to the table if it does 
 
 The primary key of the item to be updated. Each element consists of an attribute name and a value for that attribute. For the primary key, you must provide all of the attributes. For example, with a simple primary key, you only need to provide a value for the partition key. For a composite primary key, you must provide values for both the partition key and the sort key.
 
-**Type:** STRING
+**Type:** OBJECT
 
 #### TableName (required)
 
@@ -1036,7 +992,7 @@ The name of the table containing the item to update.
 
 This is a legacy parameter.  Use UpdateExpression instead.   For more information, see AttributeUpdates in the Amazon DynamoDB Developer Guide.
 
-**Type:** STRING
+**Type:** OBJECT
 
 #### ConditionExpression
 
@@ -1054,19 +1010,19 @@ This is a legacy parameter.  Use ConditionExpression instead.   For more informa
 
 This is a legacy parameter.  Use ConditionExpression instead.   For more information, see Expected in the Amazon DynamoDB Developer Guide.
 
-**Type:** STRING
+**Type:** OBJECT
 
 #### ExpressionAttributeNames
 
 One or more substitution tokens for attribute names in an expression. The following are some use cases for using ExpressionAttributeNames: To access an attribute whose name conflicts with a DynamoDB reserved word. To create a placeholder for repeating occurrences of an attribute name in an expression. To prevent special characters in an attribute name from being misinterpreted in an expression. Use the # character in an expression to dereference an attribute name. For example, consider the following attribute name: Percentile The name of this attribute conflicts with a reserved word, so it cannot be used directly in an expression. (For the complete list of reserved words, see Reserved Words in the Amazon DynamoDB Developer Guide). To work around this, you could specify the following for ExpressionAttributeNames: {"#P":"Percentile"} You could then use this substitution in an expression, as in this example: #P = :val Note Tokens that begin with the : character are expression attribute values, which are placeholders for the actual value at runtime. For more information on expression attribute names, see Accessing Item Attributes in the Amazon DynamoDB Developer Guide.
 
-**Type:** STRING
+**Type:** OBJECT
 
 #### ExpressionAttributeValues
 
 One or more values that can be substituted in an expression. Use the : (colon) character in an expression to dereference an attribute value. For example, suppose that you wanted to check whether the value of the ProductStatus attribute was one of the following:  Available | Backordered | Discontinued You would first need to specify ExpressionAttributeValues as follows: { ":avail":{"S":"Available"}, ":back":{"S":"Backordered"}, ":disc":{"S":"Discontinued"} } You could then use these values in an expression, such as this: ProductStatus IN (:avail, :back, :disc) For more information on expression attribute values, see Specifying Conditions in the Amazon DynamoDB Developer Guide.
 
-**Type:** STRING
+**Type:** OBJECT
 
 #### ReturnConsumedCapacity
 
