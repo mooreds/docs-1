@@ -32,7 +32,7 @@ Transposit also provides the features you'd expect of a first-class developer to
 
 ​[Building and deploying applications](building/operations) — Learn how to connect data sources, write operations to manipulate data, and deploy to real users.
 
-[​References](references/authentication) — Dive deep into our reference documentation for SQL and JavaScript, authentication and credentials, and answers for common technical scenarios.
+[​References](references/keys-and-keychains) — Dive deep into our reference documentation for SQL and JavaScript, authentication and credentials, and answers for common technical scenarios.
 
 ## Get in touch
 
