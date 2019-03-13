@@ -3,13 +3,13 @@ id: js-sdk
 title: JavaScript SDK
 ---
 
-The Transposit JavaScript SDK makes it simple to deal with login, authentication, and running operations in your application. For instructions on implementing the SDK and basic usage, see this guide:
-
-[Building with the Javascript SDK](../building/js-sdk.md)
+The Transposit JavaScript SDK makes it simple to deal with sign-in, authentication, and running operations in your application. See also: [building with the JavaScript SDK](/building/js-sdk).
 
 ## Reference
 
-### `transposit.handleLogin([callback])`
+### Handle login
+
+`transposit.handleLogin([callback])`
 
 Reads login information from the url and stores the claims object in localStorage for use in subsequent api calls. This is used after google login redirect. This function redirects the user to authenticate if they are missing credentials.
 
@@ -32,17 +32,23 @@ try {
 }
 ```
 
-### `transposit.isLoggedIn()`
+### Check if logged in
+
+`transposit.isLoggedIn()`
 
 **Returns** (boolean): True if there exists login information (does not check if the token is expired).
 
-### `transposit.logOut()`
+### Log out
+
+`transposit.logOut()`
 
 Invalidates stored claims and clears them from localStorage.
 
 **Returns**: Promise&lt;void&gt;
 
-### `transposit.runOperation(operation, [params={}])`
+### Run operation
+
+`transposit.runOperation(operation, [params={}])`
 
 Runs an operation.
 
@@ -63,7 +69,9 @@ transposit.runOperation("source.users", { id: params.userId });
 // => { status: "ERROR", result: { exceptionLog: { message: "Failed to find user 123" } } }
 ```
 
-### `transposit.getConnectLocation([redirectUri=window.location.href])`
+### Get connect location
+
+`transposit.getConnectLocation([redirectUri=window.location.href])`
 
 | Argument                           | Type   |                                                       |
 | :--------------------------------- | :----- | :---------------------------------------------------- |
@@ -78,7 +86,9 @@ transposit.getConnectLocation("localhost");
 // => "https://api.transposit.com/app/v1/gardener/hose/connect?redirectUri=localhost"
 ```
 
-### `transposit.getGoogleLoginLocation([redirectUri=window.location.href])`
+### Get Google login location
+
+`transposit.getGoogleLoginLocation([redirectUri=window.location.href])`
 
 Runs an operation.
 
@@ -95,11 +105,13 @@ transposit.getConnectLocation("localhost");
 // => "https://api.transposit.com/app/v1/gardener/hose/login/google?redirectUri=localhost"
 ```
 
-### `transposit.getUserName()`
+### Get user name
+
+`transposit.getUserName()`
 
 Returns the full name of the logged-in user.
 
-**Returns** \(String\): The full name of the logged-in user
+**Returns** (String): The full name of the logged-in user
 
 **Example**
 
@@ -108,11 +120,13 @@ transposit.getUserName();
 // => "Pat Jones"
 ```
 
-### `transposit.getUserEmail()`
+### Get user email
+
+`transposit.getUserEmail()`
 
 Returns the email address of the signed-in user.
 
-**Returns** \(String\): The email address of the signed-in user
+**Returns** (String): The email address of the signed-in user
 
 **Example**
 

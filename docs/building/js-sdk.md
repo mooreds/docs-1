@@ -1,6 +1,6 @@
 ---
 id: js-sdk
-title: Javascript SDK
+title: JavaScript SDK
 ---
 
 Transposit's JavaScript SDK makes it simple to deal with sign-in and authentication, and to run operations in your application.
