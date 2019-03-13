@@ -8977,6 +8977,36 @@ You can check the current version of media type in responses.
 
 </details>
 
+## transfer_repo
+
+Transfer a repository. This API is currently available for developers to preview. see https://developer.github.com/changes/2017-11-09-repository-transfer-api-preview/
+
+<details><summary>Parameters</summary>
+
+#### owner (required)
+
+The original owner of the repo
+
+**Type:** string
+
+#### repo (required)
+
+The repository name
+
+**Type:** string
+
+#### $body
+
+**Type:** object
+
+#### Accept
+
+Is used to set specified media type.
+
+**Type:** string
+
+</details>
+
 ## unfollow_user
 
 Unfollow a user.
