@@ -3,7 +3,10 @@ id: js-operations
 title: JavaScript operations
 ---
 
-### `api.run(operation, [parameters={}], [options={}])`
+
+## Run
+
+`api.run(operation, [parameters={}], [options={}])`
 
 Runs an operation.
 
@@ -11,7 +14,7 @@ Runs an operation.
 | :--- | :--- | :--- |
 | operation | String | the name of the operation to be run |
 | [parameters={}] | Object | an object containing any operation-defined parameters |
-| [options={}] | Object | additional options - `limit`: limits the number of results returned. Infinity if undefined. | `asUser`: runs the operation with the credentials provided by the user with this email address. Current user if undefined. |
+| [options={}] | Object | additional options --  `limit`: limits the number of results returned. Infinity if undefined. `asUser`: runs the operation with the credentials provided by the user with this email address. Current user if undefined. |
 
 **Returns** (Array): Returns the operation results or throws any operation failure.
 
@@ -31,14 +34,16 @@ api.run("this.tickets_in_progress", {}, {"asUser": "iggy@transposit.com"})
 // => runs the operation with iggy's provided credentials
 ```
 
-### `api.runBulk(operations)`
+## Run bulk
+
+`api.runBulk(operations)`
 
 Runs any number of operations in parallel and waits for all to complete, or any to fail, before returning.
 
 | Argument | Type |  |
 | :--- | :--- | :--- |
 | operations | Array<Object> | an array of descriptor objects, each describing one of the operations to run in parallel |
-  
+
 Each descriptor object has the following properties:
 
 | Field | Type |  |
@@ -67,7 +72,9 @@ results[1] // => [{id:1234, ...}]
 results[2] // => result array of size 10
 ```
 
-### `api.runForAllUsers(operation, [parameters={}], [options={}])`
+## Run for all users
+
+`api.runForAllUsers(operation, [parameters={}], [options={}])`
 
 Runs an operation for every production user in parallel.
 
@@ -88,9 +95,11 @@ results[0] // => [{"greeting": "Hello Iggy!"}]
 results[1] // => [{"greeting": "Hello Support!"}]
 ```
 
-### `api.query(query, [parameters={}])`
+## Query
 
-Run a SQL query
+ `api.query(query, [parameters={}])`
+
+Run a SQL query.
 
 | Argument | Type |  |
 | :--- | :--- | :--- |
@@ -109,9 +118,11 @@ api.query("select * from source.users where id=@userId", {userId: params.userId}
 // => [{id:1234, ...}]
 ```
 
-### `api.user()`
+## Get user information
 
-Get the logged-in user information
+`api.user()`
+
+Get the logged-in user information.
 
 **Returns** (Object): An object that includes the user's `fullName` and `email`
 
@@ -122,7 +133,9 @@ api.user()
 // => {"fullName":"iggy","email":"iggy@transposit.com"}
 ```
 
-### `api.listUsers()`
+## List users
+
+`api.listUsers()`
 
 **Returns** \(Array\): Returns an array of all logged-in users' `fullName` and `email`. In development, it returns an array containing only the developer running the operation. In production, the array includes all production users.
 
@@ -133,7 +146,9 @@ api.listUsers()
 // => [{"fullName":"iggy","email":"iggy@transposit.com"}, {"fullName":"support","email":"support@transposit.com"}]
 ```
 
-### `api.auths(dataConnection)`
+## Auths
+
+`api.auths(dataConnection)`
 
 Returns credentials for a data connection that uses runtime authentication.
 
@@ -150,7 +165,9 @@ api.auths("myDataConnection");
 // => { "mySecret": "REVBREJFRUY="}
 ```
 
-### `api.log([objects])`
+## Log
+
+`api.log([objects])`
 
 Prints to the debug tab. `console.log()` can also be used.
 

@@ -5,9 +5,7 @@ title: JavaScript SDK
 
 The Transposit JavaScript SDK makes it simple to deal with sign-in, authentication, and running operations in your application. See also: [building with the JavaScript SDK](/building/js-sdk).
 
-## Reference
-
-### Handle login
+## Handle login
 
 `transposit.handleLogin([callback])`
 
@@ -32,13 +30,14 @@ try {
 }
 ```
 
-### Check if logged in
+## Check if logged in
 
 `transposit.isLoggedIn()`
 
 **Returns** (boolean): True if there exists login information (does not check if the token is expired).
 
-### Log out
+
+## Log out
 
 `transposit.logOut()`
 
@@ -46,7 +45,7 @@ Invalidates stored claims and clears them from localStorage.
 
 **Returns**: Promise&lt;void&gt;
 
-### Run operation
+## Run operation
 
 `transposit.runOperation(operation, [params={}])`
 
@@ -69,7 +68,7 @@ transposit.runOperation("source.users", { id: params.userId });
 // => { status: "ERROR", result: { exceptionLog: { message: "Failed to find user 123" } } }
 ```
 
-### Get connect location
+## Get connect location
 
 `transposit.getConnectLocation([redirectUri=window.location.href])`
 
@@ -86,7 +85,7 @@ transposit.getConnectLocation("localhost");
 // => "https://api.transposit.com/app/v1/gardener/hose/connect?redirectUri=localhost"
 ```
 
-### Get Google login location
+## Get Google login location
 
 `transposit.getGoogleLoginLocation([redirectUri=window.location.href])`
 
@@ -105,7 +104,7 @@ transposit.getConnectLocation("localhost");
 // => "https://api.transposit.com/app/v1/gardener/hose/login/google?redirectUri=localhost"
 ```
 
-### Get user name
+## Get user name
 
 `transposit.getUserName()`
 
@@ -120,7 +119,7 @@ transposit.getUserName();
 // => "Pat Jones"
 ```
 
-### Get user email
+## Get user email
 
 `transposit.getUserEmail()`
 
