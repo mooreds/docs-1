@@ -69,7 +69,7 @@ class HomeSplash extends React.Component {
           </PromoSection>
         </div>
         <p className="signup">Don't have an account yet? <a href="https://www.transposit.com">Sign up here</a></p>
-        <p><iframe width="560" height="315" src="https://www.youtube.com/embed/VLvjSh1fkp0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p>
+        <p><iframe width="560" height="315" src="https://www.youtube.com/embed/VLvjSh1fkp0" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe></p>
       </SplashContainer>
     );
   }
