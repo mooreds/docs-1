@@ -9,25 +9,25 @@ This walkthrough provides an introduction to the power of SQL and Transposit's r
 
 * You'll need a a Gmail account for the steps in this guide.
 * Make sure you've gone through the [Quickstart](quickstart.md).
-* Create a new application in Transposit, and add the **google\_mail** data connection.
+* Create a new application in Transposit, and add the **Google Mail** data connection.
 
 ## Understanding operations
 
-You can use the documentation tab in the bottom half of the code console. If you browse to **google_mail → get_messages**, you'll notice a few things. First, the required `userId` parameter has a special value `me`, indicating the current authenticated user. Second, next to the operation name, there is a _pagination_ flag. This flag indicates that Transposit will automatically paginate the API for you. More on this in a bit.
+You can use the documentation tab in the bottom half of the code console. If you browse to **google_mail → list_messages**, you'll notice a few things. First, the required `userId` parameter has a special value `me`, indicating the current authenticated user. Second, next to the operation name, there is a _pagination_ flag. This flag indicates that Transposit will automatically paginate the API for you. More on this in a bit.
 
 ## SELECT statements
 
 Let's query GMail for your 10 most recent messages.
 
-* Create a new SQL operation from template and select `get_messages`.
-* For the required userId, set it `me`.
+* Create a new SQL operation from template and select `list_messages`.
+* For the required userId, set it to `me`.
 * You can remove or comment out the other optional parameters. We support SQL style comments `/* */` or line comments prefixed by `--`.
 * With paginated operations, you should always specify a `LIMIT` or Transposit will continue to fetch more results until it either runs out of results or hits the [rate limit](../references/faq.md).
 
 Your SQL should look like the following:
 
 ```sql
-SELECT * FROM google_mail.get_messages
+SELECT * FROM google_mail.list_messages
   WHERE userId='me'
   LIMIT 10
 ```
@@ -53,7 +53,7 @@ Click the **Run** button to run your operation. You should see a number of resul
 In addition to passing parameters to an operation through the `WHERE` clause, you can also filter results. Try the following, but be sure to reduce the `LIMIT` or else Transposit will keep fetching until the rate limit is hit if you don't have enough messages in the given thread.
 
 ```sql
-SELECT * FROM google_mail.get_messages
+SELECT * FROM google_mail.list_messages
   WHERE userId='me' AND threadId='THREAD_ID_FROM_PREVIOUS_RUN'
   LIMIT 1
 ```
@@ -124,15 +124,15 @@ SELECT *
 
 Let's use a join to combine the two operations we've created so we can get the snippet for your first 10 messages.
 
-* Create a new blank SQL operation.
+* Create a new blank SQL operation. In the Data connection dropdown, there's an option for `None (blank, no templated code)`.
 * Use a join to combine the two operations you've created. You can reference operations in your current application using the `this` syntax.
 
 Your SQL should look like:
 
 ```sql
 SELECT *
-  FROM this.get_messages_1 AS LIST
-  JOIN this.get_message_1 AS DETAIL
+  FROM this.list_messages AS LIST
+  JOIN this.get_message AS DETAIL
   ON LIST.id = DETAIL.messageId
   LIMIT 10
 ```
