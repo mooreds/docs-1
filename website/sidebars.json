@@ -85,6 +85,7 @@
       "connectors/survey-monkey-documentation",
       "connectors/swaggerhub-documentation",
       "connectors/twilio-documentation",
+      "connectors/xkcd-documentation",
       "connectors/yelp-documentation",
       "connectors/zoom-documentation"
     ]

@@ -96,6 +96,10 @@ Note: reference material for each data connector can additionally be viewed in t
 
 * [Twilio](../connectors/twilio-documentation.md)
 
+## X
+
+* [Xkcd](../connectors/xkcd-documentation.md)
+
 ## Y
 
 * [Yelp](../connectors/yelp-documentation.md)
