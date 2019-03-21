@@ -402,7 +402,7 @@ Fetches history of messages and events from a channel.
 
 <details><summary>Parameters</summary>
 
-#### channel
+#### channel (required)
 
 Channel to fetch history for.
 

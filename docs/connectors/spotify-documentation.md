@@ -707,6 +707,31 @@ The position in milliseconds to seek to. Must be a positive number. Passing in a
 
 </details>
 
+## remove_playlist_tracks
+
+[Remove Tracks from a Playlist](https://developer.spotify.com/web-api/remove-tracks-playlist/)
+
+
+<details><summary>Parameters</summary>
+
+#### playlist_id (required)
+
+The Spotify playlist ID.
+
+**Type:** string
+
+#### user_id (required)
+
+The user's Spotify user ID.
+
+**Type:** string
+
+#### $body
+
+**Type:** object
+
+</details>
+
 ## reorder_playlist_tracks
 
 [Reorder or replace a Playlist's Tracks](https://developer.spotify.com/web-api/reorder-playlists-tracks/)
