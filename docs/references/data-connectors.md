@@ -57,6 +57,10 @@ Note: reference material for each data connector can additionally be viewed in t
 * [Google Photos](../connectors/google-photos-documentation.md)
 * [Google Sheets](../connectors/google-sheets-documentation.md)
 
+## H
+
+* [Hubspot](../connectors/hubspot-documentation.md)
+
 ## J
 
 * [Jira](../connectors/jira-documentation.md)

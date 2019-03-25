@@ -67,6 +67,7 @@
       "connectors/google-mail-documentation",
       "connectors/google-photos-documentation",
       "connectors/google-sheets-documentation",
+      "connectors/hubspot-documentation",
       "connectors/jira-documentation",
       "connectors/jsonbin-documentation",
       "connectors/lyft-documentation",
