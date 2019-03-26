@@ -39,7 +39,6 @@
       "connectors/airtable-documentation",
       "connectors/apify-crawler-documentation",
       "connectors/aws-athena-documentation",
-      "connectors/aws-basic-documentation",
       "connectors/aws-cloudwatch-events-documentation",
       "connectors/aws-cloudwatch-logs-documentation",
       "connectors/aws-dynamodb-documentation",
