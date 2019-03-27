@@ -443,7 +443,7 @@ Name of bucket to create.
 
 #### Region (required)
 
-Region in which to create bucket.
+Region in which to create bucket. This must match the region specified in the connector configuration.
 
 **Type:** STRING
 
