@@ -3,120 +3,50 @@ id: js-sdk
 title: JavaScript SDK
 ---
 
-Transposit's JavaScript SDK makes it simple to deal with sign-in and authentication, and to run operations in your application.
+Use the [Transposit JavaScript SDK](https://github.com/transposit/transposit-js-sdk) to call operations from a web app.
 
-Install with npm:
+## Configure user sign-in
 
-```text
-npm install transposit
-```
+Your web app can be shared publicly or protected by sign-in. Web apps protected by sign-in can whitelist specific Google GSuite domains or specific users.
 
-Install with yarn:
+### Enable user sign-in
 
-```text
-yarn add transposit
-```
+1. Navigate to **Authentication &gt; User Sign-in**.
+2. Check **Require users to register and sign in with Google**
+3. Specify **Successful sign-in URIs**.
+Transposit only allows redirection to these URIs during sign-in. This list should be empty if you are only using [hosted apps](/building/hosted-apps).
+4. Ensure a **Google Client ID** and **Google Client Secret** are present
+5. Save the configuration
+6. Optionally, choose to **Restrict to specific whitelisted domains and users**
 
-Add via a script tag:
+### Disable user sign-in
 
-```markup
-<script src="https://unpkg.com/transposit@0.7.2/dist/bundle.prod.js"></script>
-```
+1. Navigate to **Authentication &gt; User Sign-in**
+2. Uncheck **Require users to register and sign in with Google**
 
-## Usage
+## Deploy endpoints
 
-### Initialization
+Deploy the operations you want to call from your web app as endpoints.
 
-In order to use the SDK, you'll need to create an instance and give it information about your application.
+### Public endpoints
 
-If you're using a bundler:
+If your app is shared publicly, deploy your endpoints without authentication.
 
-esmodules:
+1. Navigate to **Deploy &gt; Endpoints**
+2. Find the operation you want to deploy
+3. Choose **Deployed** from the dropdown menu
+4. Save your changes
 
-```javascript
-import { Transposit } from "transposit";
+### Signed-in user endpoints
 
-const transposit = new Transposit(serviceMaintainer, serviceName);
-```
+If your app is protected by sign-in, deploy your endpoints with user sign-in required.
 
-commonjs modules:
+1. Navigate to **Deploy &gt; Endpoints**
+2. Find the operation you want to deploy
+3. Choose **Deployed** from the dropdown menu
+4. Check only **Require user sign-in**
+5. Save your changes
 
-```javascript
-const transposit = require("transposit");
+## Read the SDK documentation
 
-const transposit = new Transposit(serviceMaintainer, serviceName);
-```
-
-Or, if you've made the library globally available via a script tag:
-
-```javascript
-var transposit = new Transposit.Transposit(serviceMaintainer, serviceName);
-```
-
-### Login
-
-Once you've configured login for your application, add a link to start the login process:
-
-```
-<button type="button" onclick="loginWithGoogle()">Login</button>
-
-function loginWithGoogle() { 
-  window.location.href =
-  transposit.getGoogleLoginLocation(window.location.origin +
-  window.location.pathname);
-}
-```
-
-This kicks off the login flow with Transposit and Google. The provided URL tells Transposit where to send the user after a successful login. This is where the SDK comes into the picture. On the page that the user has been redirected to, simply call:
-
-```javascript
-transposit.handleLogin();
-```
-
-Under the hood, this goes through a number of steps to ensure your session is set up correctly in the browser. You are now ready to authorize and run operations!
-
-### Authorizations
-
-If your application requires user credentials for data connections, send users to the Transposit-hosted data connections page. You can get the URL for this page from the SDK:
-
-```javascript
-transposit.getConnectionLocation();
-```
-
-### Running deployed operation
-
-Use the `runOperation()` method to run a deployed operation in your application:
-
-```javascript
-transposit
-  .runOperation("myOperation")
-  .then(response => {
-    if (response.status !== "SUCCESS") {
-      throw response;
-    }
-    const results = response.result.results;
-  })
-  .catch(response => {
-    console.log(response);
-  });
-```
-
-`runOperation()` returns a promise which is fulfilled with the results of your operation. If your operation expects parameters, you can pass them in as the second argument:
-
-```javascript
-transposit.runOperation("myOperation", { param1: "hello", param2: "world" });
-```
-
-### Log out
-
-Use
-
-```javascript
-transposit.logOut();
-```
-
-to log the user out of your application.
-
-## Reference
-
-For more comprehensive information about using the JavaScript SDK, see the [JavaScript SDK reference](../references/js-sdk.md).
+Once you have configured user sign-in and deployed endpoints, use the SDK to build your web app. Follow our [SDK documentation on GitHub](https://github.com/transposit/transposit-js-sdk).
