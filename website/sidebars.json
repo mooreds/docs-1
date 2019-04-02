@@ -75,6 +75,7 @@
       "connectors/merriam-webster-medical-dictionary-documentation",
       "connectors/merriam-webster-spanish-english-dictionary-documentation",
       "connectors/opencage-geocoder-documentation",
+      "connectors/opsgenie-documentation",
       "connectors/pagerduty-documentation",
       "connectors/salesforce-documentation",
       "connectors/sendgrid-documentation",

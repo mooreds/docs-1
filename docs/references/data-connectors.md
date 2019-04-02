@@ -79,6 +79,7 @@ Note: reference material for each data connector can additionally be viewed in t
 ## O
 
 * [OpenCage Geocoder](../connectors/opencage-geocoder-documentation.md)
+* [Opsgenie](../connectors/opsgenie-documentation.md)
 
 ## P
 
