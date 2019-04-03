@@ -22,7 +22,14 @@ XXXXXXXXX
 
 #### username (required)
 
-XXXXXXXXX
+The GitHub or Bitbucket project account username for the target project
+
+
+**Type:** string
+
+#### vcstype (required)
+
+What version control system type your project uses. Current choices are ‘github’ or ‘bitbucket’.
 
 
 **Type:** string
@@ -52,7 +59,14 @@ XXXXXXXXX
 
 #### username (required)
 
-XXXXXXXXX
+The GitHub or Bitbucket project account username for the target project
+
+
+**Type:** string
+
+#### vcstype (required)
+
+What version control system type your project uses. Current choices are ‘github’ or ‘bitbucket’.
 
 
 **Type:** string
@@ -82,7 +96,14 @@ XXXXXXXXX
 
 #### username (required)
 
-XXXXXXXXX
+The GitHub or Bitbucket project account username for the target project
+
+
+**Type:** string
+
+#### vcstype (required)
+
+What version control system type your project uses. Current choices are ‘github’ or ‘bitbucket’.
 
 
 **Type:** string
@@ -118,7 +139,14 @@ XXXXXXXXX
 
 #### username (required)
 
-XXXXXXXXX
+The GitHub or Bitbucket project account username for the target project
+
+
+**Type:** string
+
+#### vcstype (required)
+
+What version control system type your project uses. Current choices are ‘github’ or ‘bitbucket’.
 
 
 **Type:** string
@@ -149,7 +177,14 @@ XXXXXXXXX
 
 #### username (required)
 
-XXXXXXXXX
+The GitHub or Bitbucket project account username for the target project
+
+
+**Type:** string
+
+#### vcstype (required)
+
+What version control system type your project uses. Current choices are ‘github’ or ‘bitbucket’.
 
 
 **Type:** string
@@ -172,7 +207,14 @@ XXXXXXXXX
 
 #### username (required)
 
-XXXXXXXXX
+The GitHub or Bitbucket project account username for the target project
+
+
+**Type:** string
+
+#### vcstype (required)
+
+What version control system type your project uses. Current choices are ‘github’ or ‘bitbucket’.
 
 
 **Type:** string
@@ -219,7 +261,14 @@ XXXXXXXXX
 
 #### username (required)
 
-XXXXXXXXX
+The GitHub or Bitbucket project account username for the target project
+
+
+**Type:** string
+
+#### vcstype (required)
+
+What version control system type your project uses. Current choices are ‘github’ or ‘bitbucket’.
 
 
 **Type:** string
@@ -249,7 +298,14 @@ XXXXXXXXX
 
 #### username (required)
 
-XXXXXXXXX
+The GitHub or Bitbucket project account username for the target project
+
+
+**Type:** string
+
+#### vcstype (required)
+
+What version control system type your project uses. Current choices are ‘github’ or ‘bitbucket’.
 
 
 **Type:** string
@@ -272,7 +328,14 @@ XXXXXXXXX
 
 #### username (required)
 
-XXXXXXXXX
+The GitHub or Bitbucket project account username for the target project
+
+
+**Type:** string
+
+#### vcstype (required)
+
+What version control system type your project uses. Current choices are ‘github’ or ‘bitbucket’.
 
 
 **Type:** string
@@ -302,7 +365,14 @@ XXXXXXXXX
 
 #### username (required)
 
-XXXXXXXXX
+The GitHub or Bitbucket project account username for the target project
+
+
+**Type:** string
+
+#### vcstype (required)
+
+What version control system type your project uses. Current choices are ‘github’ or ‘bitbucket’.
 
 
 **Type:** string
@@ -333,7 +403,14 @@ XXXXXXXXX
 
 #### username (required)
 
-XXXXXXXXX
+The GitHub or Bitbucket project account username for the target project
+
+
+**Type:** string
+
+#### vcstype (required)
+
+What version control system type your project uses. Current choices are ‘github’ or ‘bitbucket’.
 
 
 **Type:** string
@@ -369,7 +446,14 @@ XXXXXXXXX
 
 #### username (required)
 
-XXXXXXXXX
+The GitHub or Bitbucket project account username for the target project
+
+
+**Type:** string
+
+#### vcstype (required)
+
+What version control system type your project uses. Current choices are ‘github’ or ‘bitbucket’.
 
 
 **Type:** string
@@ -403,7 +487,14 @@ XXXXXXXXX
 
 #### username (required)
 
-XXXXXXXXX
+The GitHub or Bitbucket project account username for the target project
+
+
+**Type:** string
+
+#### vcstype (required)
+
+What version control system type your project uses. Current choices are ‘github’ or ‘bitbucket’.
 
 
 **Type:** string
@@ -427,7 +518,14 @@ XXXXXXXXX
 
 #### username (required)
 
-XXXXXXXXX
+The GitHub or Bitbucket project account username for the target project
+
+
+**Type:** string
+
+#### vcstype (required)
+
+What version control system type your project uses. Current choices are ‘github’ or ‘bitbucket’.
 
 
 **Type:** string
@@ -459,7 +557,14 @@ XXXXXXXXX
 
 #### username (required)
 
-XXXXXXXXX
+The GitHub or Bitbucket project account username for the target project
+
+
+**Type:** string
+
+#### vcstype (required)
+
+What version control system type your project uses. Current choices are ‘github’ or ‘bitbucket’.
 
 
 **Type:** string
@@ -489,7 +594,14 @@ XXXXXXXXX
 
 #### username (required)
 
-XXXXXXXXX
+The GitHub or Bitbucket project account username for the target project
+
+
+**Type:** string
+
+#### vcstype (required)
+
+What version control system type your project uses. Current choices are ‘github’ or ‘bitbucket’.
 
 
 **Type:** string
@@ -518,7 +630,14 @@ XXXXXXXXX
 
 #### username (required)
 
-XXXXXXXXX
+The GitHub or Bitbucket project account username for the target project
+
+
+**Type:** string
+
+#### vcstype (required)
+
+What version control system type your project uses. Current choices are ‘github’ or ‘bitbucket’.
 
 
 **Type:** string
@@ -555,7 +674,14 @@ XXXXXXXXX
 
 #### username (required)
 
-XXXXXXXXX
+The GitHub or Bitbucket project account username for the target project
+
+
+**Type:** string
+
+#### vcstype (required)
+
+What version control system type your project uses. Current choices are ‘github’ or ‘bitbucket’.
 
 
 **Type:** string
