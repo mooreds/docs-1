@@ -37,5 +37,5 @@ Requiring user sign-in allows you to identify the user calling your endpoint. Th
 
 ### Deploy as webhook
 
-Change the deployment configuration to [webhook](https://github.com/transposit/docs/tree/a08ea2ce45c6152d6b4be267b492e9ebdbb07806/building/webhook.md).
+Change the deployment configuration to [webhook](webhooks.md).
 
