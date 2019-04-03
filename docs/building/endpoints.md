@@ -33,7 +33,7 @@ https://api.transposit.com/app/{maintainer}/{serviceName}/api/v1/execute/{operat
 
 ### Require user sign-in
 
-Requiring user sign-in allows you to identify the user calling your endpoint. The best way to call an endpoint requiring sign in is to use the [JavaScript SDK](../references/js-sdk.md).
+Requiring user sign-in allows you to identify the user calling your endpoint. The best way to call an endpoint requiring sign in is to use the [JavaScript SDK](js-sdk.md).
 
 ### Deploy as webhook
 
