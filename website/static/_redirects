@@ -4,3 +4,5 @@
 /references/authentication /references/connector-authentication#auth-via-aws-parameters
 
 /get-started /get-started/quickstart
+
+https://api-composition.transposit.com/* https://docs.transposit.com/:splat 301!
