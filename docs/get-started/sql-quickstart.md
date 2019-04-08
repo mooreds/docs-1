@@ -3,18 +3,18 @@ id: sql-quickstart
 title: SQL Quickstart
 ---
 
-This walkthrough provides an introduction to the power of SQL and Transposit's relational engine. It covers a number of topics, but please see to the [SQL operation reference](../references/sql-operations.md) for a full view of how you can use SQL in Transposit.
+This walkthrough provides an introduction to the power of SQL and Transposit's relational engine. It covers a number of topics, but please see the [SQL operation reference](../references/sql-operations.md) for a full view of how you can use SQL in Transposit.
 
 ## Get set up
 
 * You'll need a Slack account for the steps in this guide.
 * Make sure you've gone through the [Quickstart](quickstart.md).
 * Create a new application in Transposit, and add the **Slack** data connection with operation `list_conversations`.
-* Click through and add Slack credentials. Note that if desired you can adjust the permissions scope by clicking on the Slack connector you just added, then clicking **Configuration > Edit** and entering `channels:history channels:read` in the Scope field. (If you change the scope after you have authorized, you'll want to delete your key and authorize again).
+* Click through and add Slack credentials. Note that if desired, you can adjust the permissions scope by clicking on the Slack connector you just added, then clicking **Configuration > Edit** and entering `channels:history channels:read` in the Scope field. (If you change the scope after you have authorized, you'll want to delete your key and authorize again).
 
 ## Understanding operations
 
-You can use the documentation tab in the bottom half of the code console. If you browse to **slack > list_conversations**, you'll see documentation for the operation and its parameters. Notice that next to the operation name, there is a _pagination_ flag. This flag indicates that Transposit will automatically paginate the API for you. More on this in a bit.
+You can use the documentation tab in the bottom half of the code console. If you browse to **Slack > list_conversations**, you'll see documentation for the operation and its parameters. Notice that next to the operation name, there is a _pagination_ flag. This flag indicates that Transposit will automatically paginate the API for you. More on this in a bit.
 
 ## SELECT statements
 
@@ -76,7 +76,7 @@ SELECT * FROM slack.list_conversations
 
 ## Parameters
 
-One of the challenges of working with APIs is that we often need to combine data across multiple APIs in order to make use of them. In this case, we need to do a separate API call to retrieve any messages for our slack channels.
+One of the challenges of working with APIs is that we often need to combine data across multiple APIs in order to make use of them. In this case, we need to do a separate API call to retrieve any messages for our Slack channels.
 
 Let's create an operation that takes a channel id and returns the details for that channel.
 
