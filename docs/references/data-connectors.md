@@ -45,6 +45,7 @@ Note: reference material for each data connector can additionally be viewed in t
 
 ## G
 
+* [GCP Cloud Storage](../connectors/gcp-cloud-storage-documentation.md)
 * [Giphy](../connectors/giphy-documentation.md)
 * [GitHub](../connectors/github-documentation.md)
 * [Google Analytics](../connectors/google-analytics-documentation.md)
@@ -52,6 +53,7 @@ Note: reference material for each data connector can additionally be viewed in t
 * [Google Directory](../connectors/google-directory-documentation.md)
 * [Google Distance](../connectors/google-distance-documentation.md)
 * [Google Drive](../connectors/google-drive-documentation.md)
+* [Google Hire](../connectors/google-hire-documentation.md)
 * [Google Mail](../connectors/google-mail-documentation.md)
 * [Google Photos](../connectors/google-photos-documentation.md)
 * [Google Sheets](../connectors/google-sheets-documentation.md)
