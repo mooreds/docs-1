@@ -47,7 +47,7 @@ The `SELECT` clause can be used for manipulating the structure and values of eac
 
 The `SELECT` clause gets as input a JSON object or JSON array from the data source and produces a JSON object or a JSON array.
 
-The `SELECT` clause supports three to ways to manipulate an item:
+The `SELECT` clause supports three ways to manipulate an item:
 
 * [Select star](sql-operations.md#select-star)
 * [Column selection](sql-operations.md#column-selection)
