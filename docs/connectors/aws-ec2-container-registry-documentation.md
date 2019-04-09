@@ -1,6 +1,6 @@
 ---
 id: aws-ec2-container-registry-documentation
-title: AWS EC2 Container Registry (version v3.*.*)
+title: AWS EC2 Container Registry (version v4.*.*)
 sidebar_label: AWS EC2 Container Registry
 ---
 
@@ -335,18 +335,6 @@ An optional parameter that filters results based on image tag status and all tag
 The list of imageIDs to be included.
 
 **Type:** ARRAY
-
-#### maxResults
-
-applicable. This option cannot be used when you specify images with imageIds.
-
-**Type:** INTEGER
-
-#### nextToken
-
-null when there are no more results to return. This option cannot be used when you specify images with imageIds.
-
-**Type:** STRING
 
 #### registryId
 

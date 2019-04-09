@@ -132,6 +132,12 @@ In order to add a repository to a team, the authenticated user must be an owner 
 
 <details><summary>Parameters</summary>
 
+#### owner (required)
+
+Name of repository owner.
+
+**Type:** string
+
 #### repo (required)
 
 Name of repository.
@@ -5447,6 +5453,14 @@ You can check the current version of media type in responses.
 
 **Type:** integer
 
+#### since
+
+The time should be passed in as UTC in the ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
+Example: "2012-10-09T23:39:01Z".
+
+
+**Type:** string
+
 </details>
 
 ## list_comments_for_issues_in_repo
@@ -7390,6 +7404,27 @@ You can check the current version of media type in responses.
 
 **Type:** integer
 
+#### affiliation
+
+Comma-separated list of values. Can include:
+* owner: Repositories that are owned by the authenticated user.
+* collaborator: Repositories that the user has been added to as a collaborator.
+* organization_member: Repositories that the user has access to through being a member of an organization. This includes every repository on every team that the user is on.
+
+**Type:** string
+
+#### direction
+
+Can be one of asc or desc. Default: when using full_name: asc; otherwise desc
+
+**Type:** string
+
+#### sort
+
+**Type:** string
+
+**Potential values:** created, updated, pushed, full_name
+
 #### type
 
 Will cause a 422 error if used in the same request as visibility or affiliation.
@@ -7397,6 +7432,12 @@ Will cause a 422 error if used in the same request as visibility or affiliation.
 **Type:** string
 
 **Potential values:** all, owner, public, private, member
+
+#### visibility
+
+**Type:** string
+
+**Potential values:** all, public, private
 
 </details>
 
@@ -7457,6 +7498,18 @@ You can check the current version of media type in responses.
 #### X-GitHub-Request-Id
 
 **Type:** integer
+
+#### direction
+
+Can be one of asc or desc. Default: when using full_name: asc, otherwise desc.
+
+**Type:** string
+
+#### sort
+
+**Type:** string
+
+**Potential values:** created, updated, pushed, full_name
 
 #### type
 

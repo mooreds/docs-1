@@ -546,7 +546,7 @@ Limits the returned queries to only those that have the specified status. Valid 
 
 ## list_resource_policies
 
-
+Lists the resource policies in this account. https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeResourcePolicies.html
 
 *This operation has no parameters*
 

@@ -442,7 +442,7 @@ Lists the global tables in a specific region.
 
 ## list_tables
 
-
+Returns an array of table names associated with the current account and endpoint. The output from ListTables is paginated, with each page returning a maximum of 100 table names.  https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ListTables.html
 
 *This operation has no parameters*
 

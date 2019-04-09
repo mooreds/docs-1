@@ -1,6 +1,6 @@
 ---
 id: aws-ecs-documentation
-title: AWS ECS (version v3.*.*)
+title: AWS ECS (version v4.*.*)
 sidebar_label: AWS ECS
 ---
 
@@ -422,21 +422,9 @@ Specifies whether to return the effective settings. If true, the account setting
 
 **Type:** BOOLEAN
 
-#### maxResults
-
-The maximum number of account setting results returned by ListAccountSettings in paginated output. When this parameter is used, ListAccountSettings only returns maxResults results in a single page along with a nextToken response element. The remaining results of the initial request can be seen by sending another ListAccountSettings request with the returned nextToken value. This value can be between 1 and 10. If this parameter is not used, then ListAccountSettings returns up to 10 results and a nextToken value if applicable. 
-
-**Type:** INTEGER
-
 #### name
 
 The resource name you want to list the account settings for. 
-
-**Type:** STRING
-
-#### nextToken
-
-The nextToken value returned from a previous paginated ListAccountSettings request where maxResults was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the nextToken value. Note This token should be treated as an opaque identifier that is only used to retrieve the next items in a list and not for other programmatic purposes. 
 
 **Type:** STRING
 
@@ -484,23 +472,11 @@ The short name or full Amazon Resource Name (ARN) of the cluster to list attribu
 
 **Type:** STRING
 
-#### maxResults
-
-The maximum number of cluster results returned by ListAttributes in paginated output. When this parameter is used, ListAttributes only returns maxResults results in a single page along with a nextToken response element. The remaining results of the initial request can be seen by sending another ListAttributes request with the returned nextToken value. This value can be between 1 and 100. If this parameter is not used, then ListAttributes returns up to 100 results and a nextToken value if applicable. 
-
-**Type:** INTEGER
-
-#### nextToken
-
-The nextToken value returned from a previous paginated ListAttributes request where maxResults was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the nextToken value. Note This token should be treated as an opaque identifier that is only used to retrieve the next items in a list and not for other programmatic purposes. 
-
-**Type:** STRING
-
 </details>
 
 ## list_clusters
 
-
+Returns a list of existing clusters. https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListClusters.html
 
 *This operation has no parameters*
 
@@ -519,18 +495,6 @@ The short name or full Amazon Resource Name (ARN) of the cluster that hosts the 
 #### filter
 
 You can filter the results of a ListContainerInstances operation with cluster query language statements. For more information, see Cluster Query Language in the Amazon Elastic Container Service Developer Guide. 
-
-**Type:** STRING
-
-#### maxResults
-
-The maximum number of container instance results returned by ListContainerInstances in paginated output. When this parameter is used, ListContainerInstances only returns maxResults results in a single page along with a nextToken response element. The remaining results of the initial request can be seen by sending another ListContainerInstances request with the returned nextToken value. This value can be between 1 and 100. If this parameter is not used, then ListContainerInstances returns up to 100 results and a nextToken value if applicable. 
-
-**Type:** INTEGER
-
-#### nextToken
-
-The nextToken value returned from a previous paginated ListContainerInstances request where maxResults was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the nextToken value. Note This token should be treated as an opaque identifier that is only used to retrieve the next items in a list and not for other programmatic purposes. 
 
 **Type:** STRING
 
@@ -591,18 +555,6 @@ Returns a list of task definition families that are registered to your account (
 #### familyPrefix
 
 The familyPrefix is a string that is used to filter the results of ListTaskDefinitionFamilies. If you specify a familyPrefix, only task definition family names that begin with the familyPrefix string are returned. 
-
-**Type:** STRING
-
-#### maxResults
-
-The maximum number of task definition family results returned by ListTaskDefinitionFamilies in paginated output. When this parameter is used, ListTaskDefinitions only returns maxResults results in a single page along with a nextToken response element. The remaining results of the initial request can be seen by sending another ListTaskDefinitionFamilies request with the returned nextToken value. This value can be between 1 and 100. If this parameter is not used, then ListTaskDefinitionFamilies returns up to 100 results and a nextToken value if applicable. 
-
-**Type:** INTEGER
-
-#### nextToken
-
-The nextToken value returned from a previous paginated ListTaskDefinitionFamilies request where maxResults was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the nextToken value. Note This token should be treated as an opaque identifier that is only used to retrieve the next items in a list and not for other programmatic purposes. 
 
 **Type:** STRING
 
@@ -673,18 +625,6 @@ The name of the family with which to filter the ListTasks results. Specifying a 
 #### launchType
 
 The launch type for services to list. 
-
-**Type:** STRING
-
-#### maxResults
-
-The maximum number of task results returned by ListTasks in paginated output. When this parameter is used, ListTasks only returns maxResults results in a single page along with a nextToken response element. The remaining results of the initial request can be seen by sending another ListTasks request with the returned nextToken value. This value can be between 1 and 100. If this parameter is not used, then ListTasks returns up to 100 results and a nextToken value if applicable. 
-
-**Type:** INTEGER
-
-#### nextToken
-
-The nextToken value returned from a previous paginated ListTasks request where maxResults was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the nextToken value. Note This token should be treated as an opaque identifier that is only used to retrieve the next items in a list and not for other programmatic purposes. 
 
 **Type:** STRING
 

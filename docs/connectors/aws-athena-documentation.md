@@ -182,18 +182,6 @@ The unique ID of the query execution.
 
 **Type:** STRING
 
-#### MaxResults
-
-The maximum number of results (rows) to return in this request.
-
-**Type:** INTEGER
-
-#### NextToken
-
-The token that specifies where to start pagination if a previous request was truncated.
-
-**Type:** STRING
-
 </details>
 
 ## get_workgroup
@@ -254,7 +242,7 @@ Lists the tags for the workgroup resource with the specified ARN.
 
 ## list_workgroups
 
-
+Lists available workgroups for the account. https://docs.aws.amazon.com/athena/latest/APIReference/API_ListWorkGroups.html
 
 *This operation has no parameters*
 
