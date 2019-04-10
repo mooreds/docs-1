@@ -98,6 +98,20 @@ The version of the bin; use 'latest' to get the last updated record
 
 </details>
 
+## list_versions_for_bin
+
+List all versions for a bin
+
+<details><summary>Parameters</summary>
+
+#### id (required)
+
+The ID of the bin
+
+**Type:** string
+
+</details>
+
 ## update_bin
 
 Update a bin by ID

@@ -1,6 +1,6 @@
 ---
 id: aws-lambda-documentation
-title: AWS Lambda (version v1.*.*)
+title: AWS Lambda (version v2.*.*)
 sidebar_label: AWS Lambda
 ---
 
@@ -458,21 +458,9 @@ Specify a function version to only list aliases that invoke that version. Length
 
 **Type:** string
 
-#### Marker
-
-Specify the pagination token returned by a previous request to retrieve the next page of results.
-
-**Type:** string
-
 #### MasterRegion
 
 For Lambda@Edge functions, the region of the master function. For example, us-east-2 or ALL. If specified, you must set FunctionVersion to ALL. Pattern: ALL|[a-z]{2}(-gov)?-[a-z]+-\d{1}
-
-**Type:** string
-
-#### MaxItems
-
-The maximum number of event source mappings to return. Valid Range: Minimum value of 1. Maximum value of 10000.
 
 **Type:** string
 

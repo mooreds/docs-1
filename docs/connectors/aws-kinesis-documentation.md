@@ -348,7 +348,7 @@ Specify this input parameter to distinguish data streams that have the same name
 
 ## list_streams
 
-
+Lists your Kinesis data streams. https://docs.aws.amazon.com/kinesis/latest/APIReference/API_ListStreams.html
 
 *This operation has no parameters*
 

@@ -657,7 +657,7 @@ The ID of the event type you want to update.
 
 ## list_all_contact_lists
 
-
+Return the contact lists for a portal. By default, you will get up to 20 lists to you at a time. You can get more lists in a single request (up to 250) using the count parameter.
 
 *This operation has no parameters*
 
@@ -695,25 +695,25 @@ Boolean 'true' or 'false' to indicate whether current list memberships should be
 
 ## list_campaigns
 
-
+For a given portal, return all campaign IDs sorted by recent activity associated with the portal. The campaign IDs are returned in descending order of most-recent activity. You can then use the IDs to look up data on the perfomance of each campaign.
 
 *This operation has no parameters*
 
 ## list_campaigns_by_id
 
-
+For a given portal, return all email campaign IDs associated with the portal. The email campaign IDs are returned in no particular order. You can then use the IDs to look up data on the performance of each marketing email campaign.
 
 *This operation has no parameters*
 
 ## list_contact_lists_dynamic
 
-
+Get dynamic lists for a portal. Dynamic lists automatically update themselves when new contacts are created or are updated, meaning that you can't manually add contacts to dynamic lists.
 
 *This operation has no parameters*
 
 ## list_contact_lists_static
 
-
+Get static contact lists in a portal. Static lists (as opposed to dynamic lists) are lists that are edited (added to or updated) manually - via the add contact to list method, or manually in HubSpot.
 
 *This operation has no parameters*
 
