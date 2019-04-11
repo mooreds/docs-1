@@ -80,12 +80,6 @@ Last Name of the recipient
 
 **Type:** string
 
-#### per_page
-
-Number of resources to return per page
-
-**Type:** string
-
 #### sort_by
 
 Field used to sort returned survey list title, date_modified, or num_responses
@@ -148,18 +142,6 @@ id of the survey you are referring to
 
 **Type:** string
 
-#### page
-
-Which page of resources to return. Defaults to 1
-
-**Type:** string
-
-#### per_page
-
-Number of resources to return per page
-
-**Type:** string
-
 </details>
 
 ## get_question_by_id
@@ -203,18 +185,6 @@ id of the page of the survey you are referring to
 #### surveyId (required)
 
 id of the survey you are referring to
-
-**Type:** string
-
-#### page
-
-Which page of resources to return. Defaults to 1
-
-**Type:** string
-
-#### per_page
-
-Number of resources to return per page
 
 **Type:** string
 
@@ -300,21 +270,9 @@ Last Name of the recipient
 
 **Type:** string
 
-#### page
-
-Which page of resources to return. Defaults to 1
-
-**Type:** string
-
 #### page_ids
 
 List of survey pages to filter on. Returns all pages if not provided
-
-**Type:** string
-
-#### per_page
-
-Number of resources to return per page
 
 **Type:** string
 
@@ -423,18 +381,6 @@ Specify the id of a folder to only return surveys in it.
 #### include
 
 shared_with, shared_by, or owned (useful for teams) or use to specify additional fields to return per survey response_count, date_created, date_modified, language, question_count, analyze_url, preview
-
-**Type:** string
-
-#### page
-
-Which page of resources to return. Defaults to 1
-
-**Type:** string
-
-#### per_page
-
-Number of resources to return per page
 
 **Type:** string
 

@@ -1,6 +1,6 @@
 ---
 id: swaggerhub-documentation
-title: Swaggerhub (version v2.*.*)
+title: Swaggerhub (version v3.*.*)
 sidebar_label: Swaggerhub
 ---
 
@@ -374,12 +374,6 @@ API owner (user or organization, case-sensitive)
 
 **Type:** string
 
-#### limit
-
-Number of results per page
-
-**Type:** integer
-
 #### order
 
 Sort order
@@ -387,12 +381,6 @@ Sort order
 **Type:** string
 
 **Potential values:** ASC, DESC
-
-#### page
-
-Page to return
-
-**Type:** integer
 
 #### sort
 
@@ -421,12 +409,6 @@ Domain owner (user or organization, case-sensitive)
 
 **Type:** string
 
-#### limit
-
-Number of results per page
-
-**Type:** integer
-
 #### order
 
 Sort order
@@ -434,12 +416,6 @@ Sort order
 **Type:** string
 
 **Potential values:** ASC, DESC
-
-#### page
-
-Page to return
-
-**Type:** integer
 
 #### sort
 
@@ -590,12 +566,6 @@ Specifies whether the domain has to be private
 
 <details><summary>Parameters</summary>
 
-#### limit
-
-Number of results per page
-
-**Type:** integer
-
 #### order
 
 Sort order
@@ -603,12 +573,6 @@ Sort order
 **Type:** string
 
 **Potential values:** ASC, DESC
-
-#### page
-
-Page to return
-
-**Type:** integer
 
 #### query
 
@@ -655,12 +619,6 @@ Matches against tags associated with an API
 
 <details><summary>Parameters</summary>
 
-#### limit
-
-Number of results per page
-
-**Type:** integer
-
 #### order
 
 Sort order
@@ -674,12 +632,6 @@ Sort order
 API or Domain owner identifier. Can be username or organization name
 
 **Type:** string
-
-#### page
-
-Page to return
-
-**Type:** integer
 
 #### query
 
@@ -744,12 +696,6 @@ The visibility of a spec in SwaggerHub:
 
 <details><summary>Parameters</summary>
 
-#### limit
-
-Number of results per page
-
-**Type:** integer
-
 #### order
 
 Sort order
@@ -757,12 +703,6 @@ Sort order
 **Type:** string
 
 **Potential values:** ASC, DESC
-
-#### page
-
-Page to return
-
-**Type:** integer
 
 #### query
 

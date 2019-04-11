@@ -2384,6 +2384,10 @@ By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by a
 
 **Potential values:** .json, .csv, .html
 
+#### $body
+
+**Type:** object
+
 </details>
 
 ## release_incoming_phone_number

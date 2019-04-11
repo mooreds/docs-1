@@ -4,6 +4,18 @@ title: Strava (version v1.*.*)
 sidebar_label: Strava
 ---
 
+## create_activity
+
+Creates a manual activity for an athlete. Requires write permissions, as requested during the authorization process.
+
+<details><summary>Parameters</summary>
+
+#### $body
+
+**Type:** object
+
+</details>
+
 ## explore_segments
 
 Returns the top 10 segments matching a specified query.
@@ -293,12 +305,6 @@ An epoch timestamp to use for filtering activities that have taken place after a
 #### before
 
 An epoch timestamp to use for filtering activities that have taken place before a certain time.
-
-**Type:** integer
-
-#### per_page
-
-Number of items per page. Defaults to 30.
 
 **Type:** integer
 

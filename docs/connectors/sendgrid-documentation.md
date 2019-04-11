@@ -1,6 +1,6 @@
 ---
 id: sendgrid-documentation
-title: Sendgrid (version v2.*.*)
+title: Sendgrid (version v3.*.*)
 sidebar_label: Sendgrid
 ---
 
@@ -2060,21 +2060,7 @@ The name of the subuser for which to retrieve monitor settings.
 
 Our partner settings allow you to integrate your SendGrid account with our partners to increase your SendGrid experience and functionality. For more information about our partners, and how you can begin integrating with them, please visit our [User Guide](https://sendgrid.com/docs/User_Guide/Settings/partners.html).
 
-<details><summary>Parameters</summary>
-
-#### limit
-
-The number of settings to return per page.
-
-**Type:** integer
-
-#### offset
-
-The paging offset.
-
-**Type:** integer
-
-</details>
+*This operation has no parameters*
 
 ## get_partner_settings_new_relic
 
@@ -2344,18 +2330,6 @@ The end date of the statistics to retrieve. Defaults to today. Must follow forma
 
 **Type:** string
 
-#### limit
-
-The number of results to return.
-
-**Type:** integer
-
-#### offset
-
-The point in the list to begin retrieving results.
-
-**Type:** integer
-
 #### on-behalf-of
 
 **Type:** string
@@ -2448,18 +2422,6 @@ The end date of the statistics to retrieve. Defaults to today.
 
 **Type:** string
 
-#### limit
-
-The number of results to include on each page.
-
-**Type:** string
-
-#### offset
-
-The number of results to exclude.
-
-**Type:** string
-
 #### on-behalf-of
 
 **Type:** string
@@ -2501,18 +2463,6 @@ How to group the statistics. Must be either "day", "week", or "month".
 The end date of the statistics to retrieve. Defaults to today. Must follow format YYYY-MM-DD.
 
 **Type:** string
-
-#### limit
-
-The number of results to include.
-
-**Type:** integer
-
-#### offset
-
-The number of results to skip.
-
-**Type:** integer
 
 #### on-behalf-of
 
@@ -2593,18 +2543,6 @@ The end date of the statistics to retrieve. Defaults to today.
 
 **Type:** string
 
-#### limit
-
-How many results to include on each page.
-
-**Type:** integer
-
-#### offset
-
-How many results to exclude.
-
-**Type:** integer
-
 #### on-behalf-of
 
 **Type:** string
@@ -2653,18 +2591,6 @@ The end date of the statistics to retrieve.
 
 **Type:** string
 
-#### limit
-
-How many results to include on each page.
-
-**Type:** integer
-
-#### offset
-
-How many results to exclude.
-
-**Type:** integer
-
 #### on-behalf-of
 
 **Type:** string
@@ -2701,23 +2627,11 @@ The end date of the statistics to retrieve. Defaults to today. Must follow forma
 
 **Type:** string
 
-#### limit
-
-The number of results to include on each page.
-
-**Type:** integer
-
 #### mailbox_providers
 
 The mail box providers to get statistics for. You can include up to 10 by including this parameter multiple times.
 
 **Type:** string
-
-#### offset
-
-The number of results to exclude.
-
-**Type:** integer
 
 #### on-behalf-of
 
@@ -2747,18 +2661,6 @@ The date of the month to retrieve statistics for. Must be formatted YYYY-MM-DD
 #### subuser_name (required)
 
 **Type:** string
-
-#### limit
-
-Optional field to limit the number of results returned.
-
-**Type:** integer
-
-#### offset
-
-Optional beginning point in the list to retrieve from.
-
-**Type:** integer
 
 #### sort_by_direction
 
@@ -2814,18 +2716,6 @@ The end date of the statistics to retrieve. Defaults to today.
 
 **Type:** string
 
-#### limit
-
-Limits the number of results returned per page.
-
-**Type:** integer
-
-#### offset
-
-The point in the list to begin retrieving results from.
-
-**Type:** integer
-
 </details>
 
 ## get_stats_for_subusers_monthly
@@ -2846,18 +2736,6 @@ For more information, see our [User Guide](https://sendgrid.com/docs/User_Guide/
 The date of the month to retrieve statistics for. Must be formatted YYYY-MM-DD
 
 **Type:** string
-
-#### limit
-
-Optional field to limit the number of results returned.
-
-**Type:** integer
-
-#### offset
-
-Optional beginning point in the list to retrieve from.
-
-**Type:** integer
 
 #### sort_by_direction
 
@@ -2910,18 +2788,6 @@ The end date of the statistics to retrieve. Defaults to today. Must follow forma
 
 **Type:** string
 
-#### limit
-
-Limits the number of results returned per page.
-
-**Type:** integer
-
-#### offset
-
-The point in the list to begin retrieving results from.
-
-**Type:** integer
-
 #### sort_by_direction
 
 The direction you want to sort. 
@@ -2967,18 +2833,6 @@ How to group the statistics. Must be either "day", "week", or "month".
 The end date of the statistics to retrieve. Defaults to today. Must follow format YYYY-MM-DD.
 
 **Type:** string
-
-#### limit
-
-Limits the number of results returned.
-
-**Type:** integer
-
-#### offset
-
-The point in the list to begin retrieving results.
-
-**Type:** integer
 
 #### on-behalf-of
 
@@ -3436,18 +3290,6 @@ The end date of the statistics you want to retrieve. Must be in the format YYYY-
 
 **Type:** string
 
-#### limit
-
-The number of statistics to return on each page.
-
-**Type:** string
-
-#### offset
-
-The number of statistics to skip.
-
-**Type:** string
-
 #### on-behalf-of
 
 **Type:** string
@@ -3500,21 +3342,7 @@ This endpoint allows you to retrieve a list of all recent access requests.
 
 link: ```<https://api.sendgrid.com/v3/scopes/requests?limit=10&offset=0>; rel="first"; title="1", <https://api.sendgrid.com/v3/scopes/requests?limit=10&offset=10>; rel="last"; title="2", <https://api.sendgrid.com/v3/scopes/requests?limit=10&offset=0>; rel="prev"; title="1"```
 
-<details><summary>Parameters</summary>
-
-#### limit
-
-Optional field to limit the number of results returned.
-
-**Type:** integer
-
-#### offset
-
-Optional beginning point in the list to retrieve from.
-
-**Type:** integer
-
-</details>
+*This operation has no parameters*
 
 ## list_alerts
 
@@ -3560,10 +3388,6 @@ The API Keys feature allows customers to be able to generate an API Key credenti
 
 <details><summary>Parameters</summary>
 
-#### limit
-
-**Type:** integer
-
 #### on-behalf-of
 
 **Type:** string
@@ -3591,18 +3415,6 @@ Search for domain whitelabels that match the given domain.
 Exclude subuser domains from the result.
 
 **Type:** boolean
-
-#### limit
-
-Number of domains to return.
-
-**Type:** integer
-
-#### offset
-
-Paging offset.
-
-**Type:** integer
 
 #### on-behalf-of
 
@@ -3652,18 +3464,6 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/User
 #### end_time
 
 Refers end of the time range in unix timestamp when a blocked email was created (inclusive).
-
-**Type:** integer
-
-#### limit
-
-Limit the number of results to be displayed per page.
-
-**Type:** integer
-
-#### offset
-
-The point in the list to begin displaying results.
 
 **Type:** integer
 
@@ -3724,12 +3524,6 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/API_
 
 <details><summary>Parameters</summary>
 
-#### limit
-
-Limits the number of results returned per page.
-
-**Type:** integer
-
 #### on-behalf-of
 
 **Type:** string
@@ -3774,21 +3568,7 @@ For more information:
 
 * [User Guide > Marketing Campaigns](https://sendgrid.com/docs/User_Guide/Marketing_Campaigns/index.html)
 
-<details><summary>Parameters</summary>
-
-#### limit
-
-The number of results you would like to receive at a time.
-
-**Type:** integer
-
-#### offset
-
-The index of the first campaign to return, where 0 is the first campaign.
-
-**Type:** integer
-
-</details>
+*This operation has no parameters*
 
 ## list_categories
 
@@ -3803,18 +3583,6 @@ Categories can help organize your email analytics by enabling you to “tag” e
 Allows you to perform a prefix search on this particular category.
 
 **Type:** string
-
-#### limit
-
-The number of categories to display per page.
-
-**Type:** integer
-
-#### offset
-
-The point in the list that you would like to begin displaying results.
-
-**Type:** integer
 
 #### on-behalf-of
 
@@ -3850,18 +3618,6 @@ Refers end of the time range in unix timestamp when an unsubscribe email was cre
 
 **Type:** integer
 
-#### limit
-
-The number of results to display on each page.
-
-**Type:** integer
-
-#### offset
-
-The point in the list of results to begin displaying global suppressions.
-
-**Type:** integer
-
 #### on-behalf-of
 
 **Type:** string
@@ -3889,18 +3645,6 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/User
 #### end_time
 
 Refers end of the time range in unix timestamp when an invalid email was created (inclusive).
-
-**Type:** integer
-
-#### limit
-
-Limit the number of results to be displayed per page.
-
-**Type:** integer
-
-#### offset
-
-Paging offset. The point in the list to begin displaying results.
 
 **Type:** integer
 
@@ -3937,18 +3681,6 @@ Should we exclude whitelabels?
 The IP address to get
 
 **Type:** string
-
-#### limit
-
-The number of IPs you want returned at the same time.
-
-**Type:** integer
-
-#### offset
-
-The offset for the number of IPs that you are requesting.
-
-**Type:** integer
 
 #### sort_by_direction
 
@@ -3992,12 +3724,6 @@ For more information, please see our [User Guide](http://sendgrid.com/docs/User_
 
 <details><summary>Parameters</summary>
 
-#### limit
-
-Limits the number of IPs to return.
-
-**Type:** integer
-
 #### on-behalf-of
 
 **Type:** string
@@ -4011,18 +3737,6 @@ Limits the number of IPs to return.
 Mail settings allow you to tell SendGrid specific things to do to every email that you send to your recipients over SendGrid’s [Web API](https://sendgrid.com/docs/API_Reference/Web_API/mail.html) or [SMTP Relay](https://sendgrid.com/docs/API_Reference/SMTP_API/index.html).
 
 <details><summary>Parameters</summary>
-
-#### limit
-
-The number of settings to return.
-
-**Type:** integer
-
-#### offset
-
-Where in the list of results to begin displaying settings.
-
-**Type:** integer
 
 #### on-behalf-of
 
@@ -4065,18 +3779,6 @@ The Contacts API helps you manage your [Marketing Campaigns](https://sendgrid.co
 
 **Type:** string
 
-#### page
-
-Page index of first recipients to return (must be a positive integer)
-
-**Type:** integer
-
-#### page_size
-
-Number of recipients to return at a time (must be a positive integer between 1 and 1000)
-
-**Type:** integer
-
 </details>
 
 ## list_recipients_for_list
@@ -4096,18 +3798,6 @@ The id of the list of recipients you want to retrieve.
 #### on-behalf-of
 
 **Type:** string
-
-#### page
-
-Page index of first recipient to return (must be a positive integer)
-
-**Type:** integer
-
-#### page_size
-
-Number of recipients to return at a time (must be a positive integer between 1 and 1000)
-
-**Type:** integer
 
 </details>
 
@@ -4130,14 +3820,6 @@ The ID of the segment from which you want to retrieve recipients.
 #### on-behalf-of
 
 **Type:** string
-
-#### page
-
-**Type:** integer
-
-#### page_size
-
-**Type:** integer
 
 </details>
 
@@ -4172,18 +3854,6 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/API_
 The IP segment that you would like to use in a prefix search.
 
 **Type:** string
-
-#### limit
-
-The number of results to retrieve.
-
-**Type:** integer
-
-#### offset
-
-The point in the list of results to begin retrieving IPs from.
-
-**Type:** integer
 
 #### on-behalf-of
 
@@ -4251,18 +3921,6 @@ Refers end of the time range in unix timestamp when a spam report was created (i
 
 **Type:** integer
 
-#### limit
-
-Limit the number of results to be displayed per page.
-
-**Type:** integer
-
-#### offset
-
-Paging offset. The point in the list to begin displaying results.
-
-**Type:** integer
-
 #### on-behalf-of
 
 **Type:** string
@@ -4286,18 +3944,6 @@ For more information about Subusers:
 
 <details><summary>Parameters</summary>
 
-#### limit
-
-The number of results you would like to get in each request.
-
-**Type:** integer
-
-#### offset
-
-The number of subusers to skip.
-
-**Type:** integer
-
 #### username
 
 The username of this subuser.
@@ -4314,21 +3960,7 @@ This endpoint allows you to retrieve a list of all current teammates.
 
 link: ```<https://api.sendgrid.com/v3/teammates?limit=10&offset=0>; rel="first"; title="1", <https://api.sendgrid.com/v3/teammates?limit=10&offset=10>; rel="last"; title="2", <https://api.sendgrid.com/v3/teammates?limit=10&offset=0>; rel="prev"; title="1"```
 
-<details><summary>Parameters</summary>
-
-#### limit
-
-Number of items to return
-
-**Type:** integer
-
-#### offset
-
-Paging offset
-
-**Type:** integer
-
-</details>
+*This operation has no parameters*
 
 ## list_teammates_pending
 
@@ -4361,18 +3993,6 @@ You can track a variety of the actions your recipients may take when interacting
 For more information about tracking, please see our [User Guide](https://sendgrid.com/docs/User_Guide/Settings/tracking.html).
 
 <details><summary>Parameters</summary>
-
-#### limit
-
-The number of settings to return.
-
-**Type:** integer
-
-#### offset
-
-Where in the list of results you want to begin retrieving settings.
-
-**Type:** integer
 
 #### on-behalf-of
 

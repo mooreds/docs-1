@@ -1,6 +1,6 @@
 ---
 id: stripe-documentation
-title: Stripe (version v1.*.*)
+title: Stripe (version v2.*.*)
 sidebar_label: Stripe
 ---
 
@@ -492,12 +492,6 @@ The identifier of the application fee to be refunded.
 
 </details>
 
-## create_tax_rate_template
-
-
-
-*This operation has no parameters*
-
 ## create_topup
 
 <p>Top up the balance of an account</p>
@@ -770,17 +764,7 @@ The identifier of the subscription item to delete.
 
 **Type:** string
 
-#### $body
-
-**Type:** object
-
 </details>
-
-## delete_tax_rate_template
-
-
-
-*This operation has no parameters*
 
 ## delete_transfer_recipient
 
@@ -2935,12 +2919,6 @@ Specifies which fields in the response should be expanded.
 **Type:** array
 
 </details>
-
-## get_tax_rate_template
-
-
-
-*This operation has no parameters*
 
 ## get_token
 

@@ -1,6 +1,6 @@
 ---
 id: circleci-documentation
-title: CircleCI (version v1.*.*)
+title: CircleCI (version v2.*.*)
 sidebar_label: CircleCI
 ---
 
@@ -228,20 +228,6 @@ Set to "completed", "successful", "failed", "running", or defaults to no filter.
 **Type:** string
 
 **Potential values:** completed, successful, failed, running
-
-#### limit
-
-The number of builds to return. Maximum 100, defaults to 30.
-
-
-**Type:** integer
-
-#### offset
-
-The API returns builds starting from this offset, defaults to 0.
-
-
-**Type:** integer
 
 </details>
 
