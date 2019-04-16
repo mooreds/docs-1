@@ -5,11 +5,11 @@ title: FAQ
 
 ## Getting Help
 
-Can't find what you're looking for in the documentation? Running into a confusing error? Email us at [support@transposit.com](mailto:support@transposit.com). You can also reach us via the little intercom bubble in the bottom right of the code screen.
+Can't find what you're looking for in the documentation? Running into a confusing error? Email us at [support@transposit.com](mailto:support@transposit.com). You can also reach us via the Intercom chat bubble in the bottom right of the console's Code view.
 
- ## Granting Support Access
+ ## Granting support access
 
-In order to diagnose your issue further, the support team at Transposit may need access to your app. You can provide Transposit support access by navigating to **Settings > App Info** and clicking the support checkbox.
+In order to help diagnose and debug issues, you can temporarily provide the Transposit support team access to an app and associated code. To do this, navigate to **Settings > App Info** and click the support checkbox.
 
 ## What applications should use Transposit?
 
