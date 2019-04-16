@@ -3,7 +3,13 @@ id: faq
 title: FAQ
 ---
 
-Below we've covered common questions and technical scenarios you might encounter while building with Transposit. If there is a question you have that isn't covered here or elsewhere in our documentation, reach out for help by emailing us at [support@transposit.com](mailto:support@transposit.com).
+## Getting Help
+
+Can't find what you're looking for in the documentation? Running into a confusing error? Email us at [support@transposit.com](mailto:support@transposit.com). You can also reach us via the little intercom bubble in the bottom right of the code screen.
+
+ ## Granting Support Access
+
+In order to diagnose your issue further, the support team at Transposit may need access to your app. You can provide Transposit support access by navigating to **Settings > App Info** and clicking the support checkbox.
 
 ## What applications should use Transposit?
 
