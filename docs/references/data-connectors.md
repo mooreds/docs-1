@@ -18,6 +18,7 @@ Note: reference material for each data connector can additionally be viewed in t
 * [AWS Cloudwatch Logs](../connectors/aws-cloudwatch-logs-documentation.md)
 * [AWS DynamoDB](../connectors/aws-dynamodb-documentation.md)
 * [AWS EC2 Container Registry](../connectors/aws-ec2-container-registry-documentation.md)
+* [AWS EC2](../connectors/aws-ec2-documentation.md)
 * [AWS ECS](../connectors/aws-ecs-documentation.md)
 * [AWS Kinesis](../connectors/aws-kinesis-documentation.md)
 * [AWS Lambda](../connectors/aws-lambda-documentation.md)
@@ -46,6 +47,7 @@ Note: reference material for each data connector can additionally be viewed in t
 
 ## G
 
+* [GCP BigQuery](../connectors/gcp-bigquery-documentation.md)
 * [GCP Cloud Storage](../connectors/gcp-cloud-storage-documentation.md)
 * [Giphy](../connectors/giphy-documentation.md)
 * [GitHub](../connectors/github-documentation.md)
