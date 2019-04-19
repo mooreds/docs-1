@@ -3,39 +3,47 @@ id: endpoints
 title: Endpoints
 ---
 
-By default, operations are private. In order to make endpoints publicly accessible via HTTP, they must be explicitly deployed.
+Deploy an operation as an endpoint to make it callable over HTTP. Optionally, configure the endpoint to require authentication or act as a [webhook](./webhooks.md).
 
-The exception to this: operations bundled as part of [hosted app templates](hosted-apps.md) are by default deployed at the time of app creation.
+## Deploy an operation
 
-Deployed Transposit operation URL:
+1. Navigate to **Deploy &gt; Endpoints**.
+2. Find the operation you want to deploy.
+3. Choose **Deployed** from the dropdown menu.
+4. Save your changes.
 
-```text
-https://api.transposit.com/app/{maintainer}/{serviceName}/api/v1/execute/{operationId}
-```
+The HTTP path, method, body, and query parameters for calling your endpoint will vary with configuration. Consult the inline documentation on the **Endpoints** page to call your endpoint.
 
-Additional parameters and headers may be required depending on how endpoints are comfigured, so the easiest way to determine how to call an endpoint is to visit **Deploy &gt; Setup** and select the operation for your endpoint.
+## Authentication
 
-## Deploying an endpoint
+An endpoint can be publicly available, protected by sign-in, or protected by an API key.
 
-1. Navigate to **Deploy &gt; Endpoints**
-2. Find the operation you want to deploy
-3. Choose **Deployed** from the dropdown menu
+### Publicly available
 
-Once you select **Deployed**, you have a few addtional options:
+Publicly available endpoints are callable without any form of authentication. They are typically called from client-side code like a web app or mobile app.
+
+To configure your endpoint as publicly available, do _not_ select **Require API key** or **Require user sign-in**.
 
 ### Require API key
 
-API keys are a simple, hard-to-guess string that can be used to protect your endpoint. You can find your application's API key by visiting **Deploy &gt; API Key**. If you have an API key enabled, you must provide it as a query parameter:
+Endpoints protected by an API key are authenticated by a query parameter `api_key`. They are typically called from server-side code.
 
-```text
-https://api.transposit.com/app/{maintainer}/{serviceName}/api/v1/execute/{operationId}?api_key={API_KEY}
-```
+To protect your endpoint with an API key, select **Require API key**.
+
+To manage your API key, navigate to **Deploy &gt; API Key**.
 
 ### Require user sign-in
 
-Requiring user sign-in allows you to identify the user calling your endpoint. The best way to call an endpoint requiring sign in is to use the [JavaScript SDK](js-sdk.md).
+Endpoints protected by user sign-in are authenticated by session cookies. They must be called from a web page where a user is signed-in.
 
-### Deploy as webhook
+To protect your endpoint with user sign-in, select **Require user sign-in**.
 
-Change the deployment configuration to [webhook](webhooks.md).
+If you are developing a [hosted app](./hosted-apps.md), configure sign-in to call these endpoints. If you are hosting your own web page, use the [JavaScript SDK](./js-sdk.md).
 
+### Webhook
+
+Some third-party services offer to send a HTTP request to a custom URL when an event occurs. This interaction is commonly referred to as a webhook.
+
+To receive these HTTP requests, select **Deploy as webhook**. The inline documentation on the **Endpoints** page will include the URL to provide to the third-party.
+
+Read more about deploying an operation as a webhook on our [webhooks documentation](./webhooks.md).
