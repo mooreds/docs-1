@@ -25,6 +25,7 @@ Note: reference material for each data connector can additionally be viewed in t
 * [AWS S3](../connectors/aws-s3-documentation.md)
 * [AWS SES](../connectors/aws-ses-documentation.md)
 * [AWS SNS](../connectors/aws-sns-documentation.md)
+* [AWS SQS](../connectors/aws-sqs-documentation.md)
 
 ## B
 
