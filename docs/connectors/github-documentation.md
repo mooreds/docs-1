@@ -1,6 +1,6 @@
 ---
 id: github-documentation
-title: GitHub (version v2.*.*)
+title: GitHub (version v3.*.*)
 sidebar_label: GitHub
 ---
 
@@ -7794,6 +7794,10 @@ Name of repository owner.
 Name of repository.
 
 **Type:** string
+
+#### X-GitHub-Request-Id
+
+**Type:** integer
 
 </details>
 

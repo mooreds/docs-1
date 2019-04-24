@@ -106,6 +106,7 @@ Note: reference material for each data connector can additionally be viewed in t
 
 ## T
 
+* [Toggl](../connectors/toggl-documentation.md)
 * [Twilio](../connectors/twilio-documentation.md)
 
 ## X

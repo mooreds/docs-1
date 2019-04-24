@@ -300,13 +300,13 @@ PlatformApplicationArn for ListEndpointsByPlatformApplicationInput action.
 
 ## list_phone_numbers_opted_out
 
-
+Returns a list of phone numbers that are opted out, meaning you cannot send SMS messages to them.  https://docs.aws.amazon.com/sns/latest/api/API_ListPhoneNumbersOptedOut.html
 
 *This operation has no parameters*
 
 ## list_platform_applications
 
-
+Lists the platform application objects for the supported push notification services, such as APNS and GCM. The results for ListPlatformApplications are paginated and return a limited list of applications, up to 100. If additional records are available after the first page results, then a NextToken string will be returned. To receive the next page, you call ListPlatformApplications using the NextToken string received from the previous call. When there are no more records to return, NextToken will be null. For more information, see Using Amazon SNS Mobile Push Notifications.  https://docs.aws.amazon.com/sns/latest/api/API_ListPlatformApplications.html
 
 *This operation has no parameters*
 
@@ -314,15 +314,7 @@ PlatformApplicationArn for ListEndpointsByPlatformApplicationInput action.
 
 Returns a list of the requester's subscriptions. Each call returns a limited list of subscriptions, up to 100. If there are more subscriptions, a NextToken is also returned. Use the NextToken parameter in a new ListSubscriptions call to get further results.  https://docs.aws.amazon.com/sns/latest/api/API_ListSubscriptions.html
 
-<details><summary>Parameters</summary>
-
-#### NextToken
-
-Token returned by the previous ListSubscriptions request.
-
-**Type:** STRING
-
-</details>
+*This operation has no parameters*
 
 ## list_subscriptions_by_topic
 
@@ -340,7 +332,7 @@ The ARN of the topic for which you wish to find subscriptions.
 
 ## list_topics
 
-
+Returns a list of the requester's topics. Each call returns a limited list of topics, up to 100. If there are more topics, a NextToken is also returned. Use the NextToken parameter in a new ListTopics call to get further results.  https://docs.aws.amazon.com/sns/latest/api/API_ListTopics.html
 
 *This operation has no parameters*
 

@@ -93,6 +93,7 @@
       "connectors/stripe-documentation",
       "connectors/survey-monkey-documentation",
       "connectors/swaggerhub-documentation",
+      "connectors/toggl-documentation",
       "connectors/twilio-documentation",
       "connectors/xkcd-documentation",
       "connectors/yelp-documentation",

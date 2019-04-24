@@ -1,6 +1,6 @@
 ---
 id: aws-ses-documentation
-title: AWS SES (version v1.*.*)
+title: AWS SES (version v2.*.*)
 sidebar_label: AWS SES
 ---
 
@@ -50,19 +50,19 @@ The name of the configuration set that the event destination should be associate
 
 **Type:** STRING
 
-#### EventDestination.CloudWatchDestination.DimensionConfigurations.member.DefaultDimensionValue
+#### EventDestination.CloudWatchDestination.DimensionConfigurations.member.N.DefaultDimensionValue
 
 An object that describes the AWS service that email sending event information will be published to. An object that contains the names, default values, and sources of the dimensions associated with an Amazon CloudWatch event destination. A list of dimensions upon which to categorize your emails when you publish email sending events to Amazon CloudWatch. The default value of the dimension that is published to Amazon CloudWatch if you do not provide#the value of the dimension when you send an email. The default value must:#This value can only contain ASCII letters (a-z, A-Z), numbers (0-9),#underscores (_), or dashes (-).#Contain less than 256 characters.
 
 **Type:** ARRAY
 
-#### EventDestination.CloudWatchDestination.DimensionConfigurations.member.DimensionName
+#### EventDestination.CloudWatchDestination.DimensionConfigurations.member.N.DimensionName
 
 An object that describes the AWS service that email sending event information will be published to. An object that contains the names, default values, and sources of the dimensions associated with an Amazon CloudWatch event destination. A list of dimensions upon which to categorize your emails when you publish email sending events to Amazon CloudWatch. The name of an Amazon CloudWatch dimension associated with an email sending metric. The name#must:#This value can only contain ASCII letters (a-z, A-Z), numbers (0-9),#underscores (_), or dashes (-).#Contain less than 256 characters.
 
 **Type:** ARRAY
 
-#### EventDestination.CloudWatchDestination.DimensionConfigurations.member.DimensionValueSource
+#### EventDestination.CloudWatchDestination.DimensionConfigurations.member.N.DimensionValueSource
 
 An object that describes the AWS service that email sending event information will be published to. An object that contains the names, default values, and sources of the dimensions associated with an Amazon CloudWatch event destination. A list of dimensions upon which to categorize your emails when you publish email sending events to Amazon CloudWatch. The place where Amazon SES finds the value of a dimension to publish to Amazon CloudWatch. If you want Amazon SES to use the message tags that you specify using an#X-SES-MESSAGE-TAGS header or a parameter to the#SendEmail/SendRawEmail API, choose#messageTag. If you want Amazon SES to use your own email headers, choose#emailHeader. Valid Values: messageTag | emailHeader | linkTag
 
@@ -214,103 +214,103 @@ The name of an existing rule after which the new rule will be placed. If this pa
 
 **Type:** STRING
 
-#### Rule.Actions.member.AddHeaderAction.HeaderName
+#### Rule.Actions.member.N.AddHeaderAction.HeaderName
 
 A data structure that contains the specified rule's name, actions, recipients, domains, enabled status, scan status, and TLS policy. An ordered list of actions to perform on messages that match at least one of the recipient email addresses or domains specified in the receipt rule. Adds a header to the received email. The name of the header to add. Must be between 1 and 50 characters, inclusive, and consist of alphanumeric (a-z, A-Z, 0-9) characters and dashes only.
 
 **Type:** ARRAY
 
-#### Rule.Actions.member.AddHeaderAction.HeaderValue
+#### Rule.Actions.member.N.AddHeaderAction.HeaderValue
 
 A data structure that contains the specified rule's name, actions, recipients, domains, enabled status, scan status, and TLS policy. An ordered list of actions to perform on messages that match at least one of the recipient email addresses or domains specified in the receipt rule. Adds a header to the received email. Must be less than 2048 characters, and must not contain newline characters ("\r" or "\n").
 
 **Type:** ARRAY
 
-#### Rule.Actions.member.BounceAction.Message
+#### Rule.Actions.member.N.BounceAction.Message
 
 A data structure that contains the specified rule's name, actions, recipients, domains, enabled status, scan status, and TLS policy. An ordered list of actions to perform on messages that match at least one of the recipient email addresses or domains specified in the receipt rule. Rejects the received email by returning a bounce response to the sender and, optionally, publishes a notification to Amazon Simple Notification Service (Amazon#SNS). Human-readable text to include in the bounce message.
 
 **Type:** ARRAY
 
-#### Rule.Actions.member.BounceAction.Sender
+#### Rule.Actions.member.N.BounceAction.Sender
 
 A data structure that contains the specified rule's name, actions, recipients, domains, enabled status, scan status, and TLS policy. An ordered list of actions to perform on messages that match at least one of the recipient email addresses or domains specified in the receipt rule. Rejects the received email by returning a bounce response to the sender and, optionally, publishes a notification to Amazon Simple Notification Service (Amazon#SNS). The email address of the sender of the bounced email. This is the address from which the bounce message will be sent.
 
 **Type:** ARRAY
 
-#### Rule.Actions.member.BounceAction.SmtpReplyCode
+#### Rule.Actions.member.N.BounceAction.SmtpReplyCode
 
 A data structure that contains the specified rule's name, actions, recipients, domains, enabled status, scan status, and TLS policy. An ordered list of actions to perform on messages that match at least one of the recipient email addresses or domains specified in the receipt rule. Rejects the received email by returning a bounce response to the sender and, optionally, publishes a notification to Amazon Simple Notification Service (Amazon#SNS). The SMTP reply code, as defined by RFC 5321.
 
 **Type:** ARRAY
 
-#### Rule.Actions.member.BounceAction.StatusCode
+#### Rule.Actions.member.N.BounceAction.StatusCode
 
 A data structure that contains the specified rule's name, actions, recipients, domains, enabled status, scan status, and TLS policy. An ordered list of actions to perform on messages that match at least one of the recipient email addresses or domains specified in the receipt rule. Rejects the received email by returning a bounce response to the sender and, optionally, publishes a notification to Amazon Simple Notification Service (Amazon#SNS). The SMTP enhanced status code, as defined by RFC 3463.
 
 **Type:** ARRAY
 
-#### Rule.Actions.member.BounceAction.TopicArn
+#### Rule.Actions.member.N.BounceAction.TopicArn
 
 A data structure that contains the specified rule's name, actions, recipients, domains, enabled status, scan status, and TLS policy. An ordered list of actions to perform on messages that match at least one of the recipient email addresses or domains specified in the receipt rule. Rejects the received email by returning a bounce response to the sender and, optionally, publishes a notification to Amazon Simple Notification Service (Amazon#SNS). The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the bounce action is#taken. An example of an Amazon SNS topic ARN is#arn:aws:sns:us-west-2:123456789012:MyTopic. For more information about#Amazon SNS topics, see the Amazon SNS Developer Guide.
 
 **Type:** ARRAY
 
-#### Rule.Actions.member.LambdaAction.FunctionArn
+#### Rule.Actions.member.N.LambdaAction.FunctionArn
 
 A data structure that contains the specified rule's name, actions, recipients, domains, enabled status, scan status, and TLS policy. An ordered list of actions to perform on messages that match at least one of the recipient email addresses or domains specified in the receipt rule. Calls an AWS Lambda function, and optionally, publishes a notification to Amazon SNS. The Amazon Resource Name (ARN) of the AWS Lambda function. An example of an AWS Lambda function ARN is arn:aws:lambda:us-west-2:account-id:function:MyFunction.#For more information about AWS Lambda, see the AWS Lambda Developer Guide.
 
 **Type:** ARRAY
 
-#### Rule.Actions.member.LambdaAction.InvocationType
+#### Rule.Actions.member.N.LambdaAction.InvocationType
 
 A data structure that contains the specified rule's name, actions, recipients, domains, enabled status, scan status, and TLS policy. An ordered list of actions to perform on messages that match at least one of the recipient email addresses or domains specified in the receipt rule. Calls an AWS Lambda function, and optionally, publishes a notification to Amazon SNS. The invocation type of the AWS Lambda function. An invocation type of RequestResponse means that the execution of the function will immediately result in a response, and a value of Event means that the#function will be invoked asynchronously. The default value is Event. For#information about AWS Lambda invocation types, see the AWS Lambda Developer Guide.#Important#There is a 30-second timeout on RequestResponse invocations. You#should use Event invocation in most cases. Use#RequestResponse only when you want to make a mail flow decision,#such as whether to stop the receipt rule or the receipt rule set. Valid Values: Event | RequestResponse
 
 **Type:** ARRAY
 
-#### Rule.Actions.member.LambdaAction.TopicArn
+#### Rule.Actions.member.N.LambdaAction.TopicArn
 
 A data structure that contains the specified rule's name, actions, recipients, domains, enabled status, scan status, and TLS policy. An ordered list of actions to perform on messages that match at least one of the recipient email addresses or domains specified in the receipt rule. Calls an AWS Lambda function, and optionally, publishes a notification to Amazon SNS. The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the Lambda action is#taken. An example of an Amazon SNS topic ARN is#arn:aws:sns:us-west-2:123456789012:MyTopic. For more information about#Amazon SNS topics, see the Amazon SNS Developer Guide.
 
 **Type:** ARRAY
 
-#### Rule.Actions.member.S3Action
+#### Rule.Actions.member.N.S3Action
 
 A data structure that contains the specified rule's name, actions, recipients, domains, enabled status, scan status, and TLS policy. An ordered list of actions to perform on messages that match at least one of the recipient email addresses or domains specified in the receipt rule. Saves the received message to an Amazon Simple Storage Service (Amazon S3) bucket and, optionally, publishes a#notification to Amazon SNS.
 
 **Type:** ARRAY
 
-#### Rule.Actions.member.SNSAction.Encoding
+#### Rule.Actions.member.N.SNSAction.Encoding
 
 A data structure that contains the specified rule's name, actions, recipients, domains, enabled status, scan status, and TLS policy. An ordered list of actions to perform on messages that match at least one of the recipient email addresses or domains specified in the receipt rule. Publishes the email content within a notification to Amazon SNS. The encoding to use for the email within the Amazon SNS notification. UTF-8 is easier to use, but may not preserve all special characters when a message was encoded with a#different encoding format. Base64 preserves all special characters. The default value#is#UTF-8. Valid Values: UTF-8 | Base64
 
 **Type:** ARRAY
 
-#### Rule.Actions.member.SNSAction.TopicArn
+#### Rule.Actions.member.N.SNSAction.TopicArn
 
 A data structure that contains the specified rule's name, actions, recipients, domains, enabled status, scan status, and TLS policy. An ordered list of actions to perform on messages that match at least one of the recipient email addresses or domains specified in the receipt rule. Publishes the email content within a notification to Amazon SNS. The Amazon Resource Name (ARN) of the Amazon SNS topic to notify. An example of an Amazon SNS#topic ARN is arn:aws:sns:us-west-2:123456789012:MyTopic. For more#information about Amazon SNS topics, see the Amazon SNS Developer Guide.
 
 **Type:** ARRAY
 
-#### Rule.Actions.member.StopAction.Scope
+#### Rule.Actions.member.N.StopAction.Scope
 
 A data structure that contains the specified rule's name, actions, recipients, domains, enabled status, scan status, and TLS policy. An ordered list of actions to perform on messages that match at least one of the recipient email addresses or domains specified in the receipt rule. Terminates the evaluation of the receipt rule set and optionally publishes a notification to Amazon SNS. The name of the RuleSet that is being stopped. Valid Values: RuleSet
 
 **Type:** ARRAY
 
-#### Rule.Actions.member.StopAction.TopicArn
+#### Rule.Actions.member.N.StopAction.TopicArn
 
 A data structure that contains the specified rule's name, actions, recipients, domains, enabled status, scan status, and TLS policy. An ordered list of actions to perform on messages that match at least one of the recipient email addresses or domains specified in the receipt rule. Terminates the evaluation of the receipt rule set and optionally publishes a notification to Amazon SNS. The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the stop action is#taken. An example of an Amazon SNS topic ARN is#arn:aws:sns:us-west-2:123456789012:MyTopic. For more information about#Amazon SNS topics, see the Amazon SNS Developer Guide.
 
 **Type:** ARRAY
 
-#### Rule.Actions.member.WorkmailAction.OrganizationArn
+#### Rule.Actions.member.N.WorkmailAction.OrganizationArn
 
 A data structure that contains the specified rule's name, actions, recipients, domains, enabled status, scan status, and TLS policy. An ordered list of actions to perform on messages that match at least one of the recipient email addresses or domains specified in the receipt rule. Calls Amazon WorkMail and, optionally, publishes a notification to Amazon Amazon SNS. The ARN of the Amazon WorkMail organization. An example of an Amazon WorkMail organization ARN is#arn:aws:workmail:us-west-2:123456789012:organization/m-68755160c4cb4e29a2b2f8fb58f359d7.#For information about Amazon WorkMail organizations, see the Amazon WorkMail#Administrator Guide.
 
 **Type:** ARRAY
 
-#### Rule.Actions.member.WorkmailAction.TopicArn
+#### Rule.Actions.member.N.WorkmailAction.TopicArn
 
 A data structure that contains the specified rule's name, actions, recipients, domains, enabled status, scan status, and TLS policy. An ordered list of actions to perform on messages that match at least one of the recipient email addresses or domains specified in the receipt rule. Calls Amazon WorkMail and, optionally, publishes a notification to Amazon Amazon SNS. The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the WorkMail action#is called. An example of an Amazon SNS topic ARN is#arn:aws:sns:us-west-2:123456789012:MyTopic. For more information about#Amazon SNS topics, see the Amazon SNS Developer Guide.
 
@@ -752,41 +752,13 @@ The name of the template you want to retrieve.
 
 Provides a list of the configuration sets associated with your Amazon SES account in the current AWS Region. For information about using configuration sets, see Monitoring Your Amazon SES Sending Activity in the Amazon SES Developer Guide.  https://docs.aws.amazon.com/ses/latest/APIReference/API_ListConfigurationSets.html
 
-<details><summary>Parameters</summary>
-
-#### MaxItems
-
-The number of configuration sets to return.
-
-**Type:** INTEGER
-
-#### NextToken
-
-A token returned from a previous call to ListConfigurationSets to indicate the position of the configuration set in the configuration set list.
-
-**Type:** STRING
-
-</details>
+*This operation has no parameters*
 
 ## list_custom_verification_email_templates
 
 Lists the existing custom verification email templates for your account in the current AWS Region.  https://docs.aws.amazon.com/ses/latest/APIReference/API_ListCustomVerificationEmailTemplates.html
 
-<details><summary>Parameters</summary>
-
-#### MaxResults
-
-The maximum number of custom verification email templates to return. This value must be at least 1 and less than or equal to 50. If you do not specify a value, or if you specify a value less than 1 or greater than 50, the operation will return up to 50 results.
-
-**Type:** INTEGER
-
-#### NextToken
-
-An array the contains the name and creation time stamp for each template in your Amazon SES account.
-
-**Type:** STRING
-
-</details>
+*This operation has no parameters*
 
 ## list_identities
 
@@ -797,18 +769,6 @@ Returns a list containing all of the identities (email addresses and domains) fo
 #### IdentityType
 
 The type of the identities to list. Possible values are "EmailAddress" and "Domain". If this parameter is omitted, then all identities will be listed.
-
-**Type:** STRING
-
-#### MaxItems
-
-The maximum number of identities per page. Possible values are 1-1000 inclusive.
-
-**Type:** INTEGER
-
-#### NextToken
-
-The token to use for pagination.
 
 **Type:** STRING
 
@@ -838,35 +798,13 @@ The identity that is associated with the policy for which the policies will be l
 
 Lists the receipt rule sets that exist under your AWS account in the current AWS Region. If there are additional receipt rule sets to be retrieved, you will receive a NextToken that you can provide to the next call to ListReceiptRuleSets to retrieve the additional entries.  https://docs.aws.amazon.com/ses/latest/APIReference/API_ListReceiptRuleSets.html
 
-<details><summary>Parameters</summary>
-
-#### NextToken
-
-A token returned from a previous call to ListReceiptRuleSets to indicate the position in the receipt rule set list.
-
-**Type:** STRING
-
-</details>
+*This operation has no parameters*
 
 ## list_templates
 
 Lists the email templates present in your Amazon SES account in the current AWS Region.  https://docs.aws.amazon.com/ses/latest/APIReference/API_ListTemplates.html
 
-<details><summary>Parameters</summary>
-
-#### MaxItems
-
-The maximum number of templates to return. This value must be at least 1 and less than or equal to 10. If you do not specify a value, or if you specify a value less than 1 or greater than 10, the operation will return up to 10 results.
-
-**Type:** INTEGER
-
-#### NextToken
-
-A token returned from a previous call to ListTemplates to indicate the position in the list of email templates.
-
-**Type:** STRING
-
-</details>
+*This operation has no parameters*
 
 ## list_verified_email_addresses
 
@@ -974,18 +912,6 @@ A list of recipients of the bounced message, including the information required 
 
 **Type:** ARRAY
 
-#### BouncedRecipientInfoList.member.N.RecipientDsnFields.ExtensionFields.member.Name
-
-A list of recipients of the bounced message, including the information required to create the Delivery Status Notifications (DSNs) for the recipients. You must specify at least one BouncedRecipientInfo in the list. Recipient-related DSN fields, most of which would normally be filled in automatically when provided with a BounceType. You must provide either this parameter or#BounceType. Additional X-headers to include in the DSN. The name of the header to add. Must be between 1 and 50 characters, inclusive, and consist of alphanumeric (a-z, A-Z, 0-9) characters and dashes only.
-
-**Type:** ARRAY
-
-#### BouncedRecipientInfoList.member.N.RecipientDsnFields.ExtensionFields.member.Value
-
-A list of recipients of the bounced message, including the information required to create the Delivery Status Notifications (DSNs) for the recipients. You must specify at least one BouncedRecipientInfo in the list. Recipient-related DSN fields, most of which would normally be filled in automatically when provided with a BounceType. You must provide either this parameter or#BounceType. Additional X-headers to include in the DSN. The value of the header to add. Must be less than 2048 characters, and must not contain newline characters ("\r" or "\n").
-
-**Type:** ARRAY
-
 #### BouncedRecipientInfoList.member.N.RecipientDsnFields.FinalRecipient
 
 A list of recipients of the bounced message, including the information required to create the Delivery Status Notifications (DSNs) for the recipients. You must specify at least one BouncedRecipientInfo in the list. Recipient-related DSN fields, most of which would normally be filled in automatically when provided with a BounceType. You must provide either this parameter or#BounceType. The email address that the message was ultimately delivered to. This corresponds to the Final-Recipient in the DSN. If not specified,#FinalRecipient will be set to the Recipient specified in#the BouncedRecipientInfo structure. Either FinalRecipient or#the recipient in BouncedRecipientInfo must be a recipient of the original#bounced message.#Note#Do not prepend the FinalRecipient email address with rfc#822;, as described in RFC 3798.
@@ -1022,13 +948,13 @@ Message-related DSN fields. If not specified, Amazon SES will choose the values.
 
 **Type:** STRING
 
-#### MessageDsn.ExtensionFields.member.Name
+#### MessageDsn.ExtensionFields.member.N.Name
 
 Message-related DSN fields. If not specified, Amazon SES will choose the values. Additional X-headers to include in the DSN. The name of the header to add. Must be between 1 and 50 characters, inclusive, and consist of alphanumeric (a-z, A-Z, 0-9) characters and dashes only.
 
 **Type:** ARRAY
 
-#### MessageDsn.ExtensionFields.member.Value
+#### MessageDsn.ExtensionFields.member.N.Value
 
 Message-related DSN fields. If not specified, Amazon SES will choose the values. Additional X-headers to include in the DSN. The value of the header to add. Must be less than 2048 characters, and must not contain newline characters ("\r" or "\n").
 
@@ -1084,39 +1010,39 @@ A list of replacement values to apply to the template when replacement data is n
 
 **Type:** STRING
 
-#### Destinations.member.N.Destination.BccAddresses.member
+#### Destinations.member.N.Destination.BccAddresses.member.1
 
-One or more Destination objects. All of the recipients in a Destination will receive the same version of the email. You can specify up to 50 Destination objects within a Destinations array. Represents the destination of the message, consisting of To:, CC:, and BCC: fields.#Note#Amazon SES does not support the SMTPUTF8 extension, as described in RFC6531. For this reason, the#local part of a destination email address (the part of the#email address that precedes the @ sign) may only contain 7-bit ASCII#characters. If the domain part of an address (the#part after the @ sign) contains non-ASCII characters, they must be encoded using#Punycode, as described in RFC3492. The BCC: field(s) of the message.
-
-**Type:** ARRAY
-
-#### Destinations.member.N.Destination.CcAddresses.member
-
-One or more Destination objects. All of the recipients in a Destination will receive the same version of the email. You can specify up to 50 Destination objects within a Destinations array. Represents the destination of the message, consisting of To:, CC:, and BCC: fields.#Note#Amazon SES does not support the SMTPUTF8 extension, as described in RFC6531. For this reason, the#local part of a destination email address (the part of the#email address that precedes the @ sign) may only contain 7-bit ASCII#characters. If the domain part of an address (the#part after the @ sign) contains non-ASCII characters, they must be encoded using#Punycode, as described in RFC3492. The CC: field(s) of the message.
+The BCC: field(s) of the message.
 
 **Type:** ARRAY
 
-#### Destinations.member.N.Destination.ToAddresses.member
+#### Destinations.member.N.Destination.CcAddresses.member.1
 
-One or more Destination objects. All of the recipients in a Destination will receive the same version of the email. You can specify up to 50 Destination objects within a Destinations array. Represents the destination of the message, consisting of To:, CC:, and BCC: fields.#Note#Amazon SES does not support the SMTPUTF8 extension, as described in RFC6531. For this reason, the#local part of a destination email address (the part of the#email address that precedes the @ sign) may only contain 7-bit ASCII#characters. If the domain part of an address (the#part after the @ sign) contains non-ASCII characters, they must be encoded using#Punycode, as described in RFC3492. The To: field(s) of the message.
-
-**Type:** ARRAY
-
-#### Destinations.member.N.ReplacementTags.member.Name
-
-One or more Destination objects. All of the recipients in a Destination will receive the same version of the email. You can specify up to 50 Destination objects within a Destinations array. A list of tags, in the form of name/value pairs, to apply to an email that you send using SendBulkTemplatedEmail. Tags correspond to characteristics of the#email that you define, so that you can publish email sending events. The name of the tag. The name must: This value can only contain ASCII letters (a-z, A-Z), numbers (0-9),#underscores (_), or dashes (-).#Contain less than 256 characters.
+The CC: field(s) of the message.
 
 **Type:** ARRAY
 
-#### Destinations.member.N.ReplacementTags.member.Value
+#### Destinations.member.N.Destination.ToAddresses.member.1
 
-One or more Destination objects. All of the recipients in a Destination will receive the same version of the email. You can specify up to 50 Destination objects within a Destinations array. A list of tags, in the form of name/value pairs, to apply to an email that you send using SendBulkTemplatedEmail. Tags correspond to characteristics of the#email that you define, so that you can publish email sending events. The value of the tag. The value must: This value can only contain ASCII letters (a-z, A-Z), numbers (0-9),#underscores (_), or dashes (-).#Contain less than 256 characters.
+The To: field(s) of the message.
+
+**Type:** ARRAY
+
+#### Destinations.member.N.ReplacementTags.member.1.Name
+
+The name of the tag. This value can only contain ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-). Contains less than 256 characters.
+
+**Type:** ARRAY
+
+#### Destinations.member.N.ReplacementTags.member.1.Value
+
+The value of the tag. This value can only contain ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-). Contains less than 256 characters.
 
 **Type:** ARRAY
 
 #### Destinations.member.N.ReplacementTemplateData
 
-One or more Destination objects. All of the recipients in a Destination will receive the same version of the email. You can specify up to 50 Destination objects within a Destinations array. A list of replacement values to apply to the template. This parameter is a JSON object, typically consisting of key-value pairs in which the keys correspond to replacement tags in the email template. Length Constraints: Maximum length of 262144.
+A list of replacement values to apply to the template. This parameter is a JSON object, typically consisting of key-value pairs in which the keys correspond to replacement tags in the email template. Length Constraints: Maximum length of 262144.
 
 **Type:** ARRAY
 
@@ -1646,19 +1572,19 @@ The name of the configuration set that contains the event destination that you w
 
 **Type:** STRING
 
-#### EventDestination.CloudWatchDestination.DimensionConfigurations.member.DefaultDimensionValue
+#### EventDestination.CloudWatchDestination.DimensionConfigurations.member.N.DefaultDimensionValue
 
 The event destination object that you want to apply to the specified configuration set. An object that contains the names, default values, and sources of the dimensions associated with an Amazon CloudWatch event destination. A list of dimensions upon which to categorize your emails when you publish email sending events to Amazon CloudWatch. The default value of the dimension that is published to Amazon CloudWatch if you do not provide#the value of the dimension when you send an email. The default value must:#This value can only contain ASCII letters (a-z, A-Z), numbers (0-9),#underscores (_), or dashes (-).#Contain less than 256 characters.
 
 **Type:** ARRAY
 
-#### EventDestination.CloudWatchDestination.DimensionConfigurations.member.DimensionName
+#### EventDestination.CloudWatchDestination.DimensionConfigurations.member.N.DimensionName
 
 The event destination object that you want to apply to the specified configuration set. An object that contains the names, default values, and sources of the dimensions associated with an Amazon CloudWatch event destination. A list of dimensions upon which to categorize your emails when you publish email sending events to Amazon CloudWatch. The name of an Amazon CloudWatch dimension associated with an email sending metric. The name#must:#This value can only contain ASCII letters (a-z, A-Z), numbers (0-9),#underscores (_), or dashes (-).#Contain less than 256 characters.
 
 **Type:** ARRAY
 
-#### EventDestination.CloudWatchDestination.DimensionConfigurations.member.DimensionValueSource
+#### EventDestination.CloudWatchDestination.DimensionConfigurations.member.N.DimensionValueSource
 
 The event destination object that you want to apply to the specified configuration set. An object that contains the names, default values, and sources of the dimensions associated with an Amazon CloudWatch event destination. A list of dimensions upon which to categorize your emails when you publish email sending events to Amazon CloudWatch. The place where Amazon SES finds the value of a dimension to publish to Amazon CloudWatch. If you want Amazon SES to use the message tags that you specify using an#X-SES-MESSAGE-TAGS header or a parameter to the#SendEmail/SendRawEmail API, choose#messageTag. If you want Amazon SES to use your own email headers, choose#emailHeader. Valid Values: messageTag | emailHeader | linkTag
 
@@ -1818,103 +1744,103 @@ The name of the receipt rule set that the receipt rule belongs to.
 
 **Type:** STRING
 
-#### Rule.Actions.member.AddHeaderAction.HeaderName
+#### Rule.Actions.member.N.AddHeaderAction.HeaderName
 
 A data structure that contains the updated receipt rule information. An ordered list of actions to perform on messages that match at least one of the recipient email addresses or domains specified in the receipt rule. Adds a header to the received email. The name of the header to add. Must be between 1 and 50 characters, inclusive, and consist of alphanumeric (a-z, A-Z, 0-9) characters and dashes only.
 
 **Type:** ARRAY
 
-#### Rule.Actions.member.AddHeaderAction.HeaderValue
+#### Rule.Actions.member.N.AddHeaderAction.HeaderValue
 
 A data structure that contains the updated receipt rule information. An ordered list of actions to perform on messages that match at least one of the recipient email addresses or domains specified in the receipt rule. Adds a header to the received email. Must be less than 2048 characters, and must not contain newline characters ("\r" or "\n").
 
 **Type:** ARRAY
 
-#### Rule.Actions.member.BounceAction.Message
+#### Rule.Actions.member.N.BounceAction.Message
 
 A data structure that contains the updated receipt rule information. An ordered list of actions to perform on messages that match at least one of the recipient email addresses or domains specified in the receipt rule. Rejects the received email by returning a bounce response to the sender and, optionally, publishes a notification to Amazon Simple Notification Service (Amazon#SNS). Human-readable text to include in the bounce message.
 
 **Type:** ARRAY
 
-#### Rule.Actions.member.BounceAction.Sender
+#### Rule.Actions.member.N.BounceAction.Sender
 
 A data structure that contains the updated receipt rule information. An ordered list of actions to perform on messages that match at least one of the recipient email addresses or domains specified in the receipt rule. Rejects the received email by returning a bounce response to the sender and, optionally, publishes a notification to Amazon Simple Notification Service (Amazon#SNS). The email address of the sender of the bounced email. This is the address from which the bounce message will be sent.
 
 **Type:** ARRAY
 
-#### Rule.Actions.member.BounceAction.SmtpReplyCode
+#### Rule.Actions.member.N.BounceAction.SmtpReplyCode
 
 A data structure that contains the updated receipt rule information. An ordered list of actions to perform on messages that match at least one of the recipient email addresses or domains specified in the receipt rule. Rejects the received email by returning a bounce response to the sender and, optionally, publishes a notification to Amazon Simple Notification Service (Amazon#SNS). The SMTP reply code, as defined by RFC 5321.
 
 **Type:** ARRAY
 
-#### Rule.Actions.member.BounceAction.StatusCode
+#### Rule.Actions.member.N.BounceAction.StatusCode
 
 A data structure that contains the updated receipt rule information. An ordered list of actions to perform on messages that match at least one of the recipient email addresses or domains specified in the receipt rule. Rejects the received email by returning a bounce response to the sender and, optionally, publishes a notification to Amazon Simple Notification Service (Amazon#SNS). The SMTP enhanced status code, as defined by RFC 3463.
 
 **Type:** ARRAY
 
-#### Rule.Actions.member.BounceAction.TopicArn
+#### Rule.Actions.member.N.BounceAction.TopicArn
 
 A data structure that contains the updated receipt rule information. An ordered list of actions to perform on messages that match at least one of the recipient email addresses or domains specified in the receipt rule. Rejects the received email by returning a bounce response to the sender and, optionally, publishes a notification to Amazon Simple Notification Service (Amazon#SNS). The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the bounce action is#taken. An example of an Amazon SNS topic ARN is#arn:aws:sns:us-west-2:123456789012:MyTopic. For more information about#Amazon SNS topics, see the Amazon SNS Developer Guide.
 
 **Type:** ARRAY
 
-#### Rule.Actions.member.LambdaAction.FunctionArn
+#### Rule.Actions.member.N.LambdaAction.FunctionArn
 
 A data structure that contains the updated receipt rule information. An ordered list of actions to perform on messages that match at least one of the recipient email addresses or domains specified in the receipt rule. Calls an AWS Lambda function, and optionally, publishes a notification to Amazon SNS. The Amazon Resource Name (ARN) of the AWS Lambda function. An example of an AWS Lambda function ARN is arn:aws:lambda:us-west-2:account-id:function:MyFunction.#For more information about AWS Lambda, see the AWS Lambda Developer Guide.
 
 **Type:** ARRAY
 
-#### Rule.Actions.member.LambdaAction.InvocationType
+#### Rule.Actions.member.N.LambdaAction.InvocationType
 
 A data structure that contains the updated receipt rule information. An ordered list of actions to perform on messages that match at least one of the recipient email addresses or domains specified in the receipt rule. Calls an AWS Lambda function, and optionally, publishes a notification to Amazon SNS. The invocation type of the AWS Lambda function. An invocation type of RequestResponse means that the execution of the function will immediately result in a response, and a value of Event means that the#function will be invoked asynchronously. The default value is Event. For#information about AWS Lambda invocation types, see the AWS Lambda Developer Guide.#Important#There is a 30-second timeout on RequestResponse invocations. You#should use Event invocation in most cases. Use#RequestResponse only when you want to make a mail flow decision,#such as whether to stop the receipt rule or the receipt rule set. Valid Values: Event | RequestResponse
 
 **Type:** ARRAY
 
-#### Rule.Actions.member.LambdaAction.TopicArn
+#### Rule.Actions.member.N.LambdaAction.TopicArn
 
 A data structure that contains the updated receipt rule information. An ordered list of actions to perform on messages that match at least one of the recipient email addresses or domains specified in the receipt rule. Calls an AWS Lambda function, and optionally, publishes a notification to Amazon SNS. The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the Lambda action is#taken. An example of an Amazon SNS topic ARN is#arn:aws:sns:us-west-2:123456789012:MyTopic. For more information about#Amazon SNS topics, see the Amazon SNS Developer Guide.
 
 **Type:** ARRAY
 
-#### Rule.Actions.member.S3Action
+#### Rule.Actions.member.N.S3Action
 
 A data structure that contains the updated receipt rule information. An ordered list of actions to perform on messages that match at least one of the recipient email addresses or domains specified in the receipt rule. Saves the received message to an Amazon Simple Storage Service (Amazon S3) bucket and, optionally, publishes a#notification to Amazon SNS.
 
 **Type:** ARRAY
 
-#### Rule.Actions.member.SNSAction.Encoding
+#### Rule.Actions.member.N.SNSAction.Encoding
 
 A data structure that contains the updated receipt rule information. An ordered list of actions to perform on messages that match at least one of the recipient email addresses or domains specified in the receipt rule. Publishes the email content within a notification to Amazon SNS. The encoding to use for the email within the Amazon SNS notification. UTF-8 is easier to use, but may not preserve all special characters when a message was encoded with a#different encoding format. Base64 preserves all special characters. The default value#is#UTF-8. Valid Values: UTF-8 | Base64
 
 **Type:** ARRAY
 
-#### Rule.Actions.member.SNSAction.TopicArn
+#### Rule.Actions.member.N.SNSAction.TopicArn
 
 A data structure that contains the updated receipt rule information. An ordered list of actions to perform on messages that match at least one of the recipient email addresses or domains specified in the receipt rule. Publishes the email content within a notification to Amazon SNS. The Amazon Resource Name (ARN) of the Amazon SNS topic to notify. An example of an Amazon SNS#topic ARN is arn:aws:sns:us-west-2:123456789012:MyTopic. For more#information about Amazon SNS topics, see the Amazon SNS Developer Guide.
 
 **Type:** ARRAY
 
-#### Rule.Actions.member.StopAction.Scope
+#### Rule.Actions.member.N.StopAction.Scope
 
 A data structure that contains the updated receipt rule information. An ordered list of actions to perform on messages that match at least one of the recipient email addresses or domains specified in the receipt rule. Terminates the evaluation of the receipt rule set and optionally publishes a notification to Amazon SNS. The name of the RuleSet that is being stopped. Valid Values: RuleSet
 
 **Type:** ARRAY
 
-#### Rule.Actions.member.StopAction.TopicArn
+#### Rule.Actions.member.N.StopAction.TopicArn
 
 A data structure that contains the updated receipt rule information. An ordered list of actions to perform on messages that match at least one of the recipient email addresses or domains specified in the receipt rule. Terminates the evaluation of the receipt rule set and optionally publishes a notification to Amazon SNS. The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the stop action is#taken. An example of an Amazon SNS topic ARN is#arn:aws:sns:us-west-2:123456789012:MyTopic. For more information about#Amazon SNS topics, see the Amazon SNS Developer Guide.
 
 **Type:** ARRAY
 
-#### Rule.Actions.member.WorkmailAction.OrganizationArn
+#### Rule.Actions.member.N.WorkmailAction.OrganizationArn
 
 A data structure that contains the updated receipt rule information. An ordered list of actions to perform on messages that match at least one of the recipient email addresses or domains specified in the receipt rule. Calls Amazon WorkMail and, optionally, publishes a notification to Amazon Amazon SNS. The ARN of the Amazon WorkMail organization. An example of an Amazon WorkMail organization ARN is#arn:aws:workmail:us-west-2:123456789012:organization/m-68755160c4cb4e29a2b2f8fb58f359d7.#For information about Amazon WorkMail organizations, see the Amazon WorkMail#Administrator Guide.
 
 **Type:** ARRAY
 
-#### Rule.Actions.member.WorkmailAction.TopicArn
+#### Rule.Actions.member.N.WorkmailAction.TopicArn
 
 A data structure that contains the updated receipt rule information. An ordered list of actions to perform on messages that match at least one of the recipient email addresses or domains specified in the receipt rule. Calls Amazon WorkMail and, optionally, publishes a notification to Amazon Amazon SNS. The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the WorkMail action#is called. An example of an Amazon SNS topic ARN is#arn:aws:sns:us-west-2:123456789012:MyTopic. For more information about#Amazon SNS topics, see the Amazon SNS Developer Guide.
 
