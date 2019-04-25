@@ -290,7 +290,7 @@ The granularity, in seconds, of the returned data points. For metrics with regul
 
 The time stamp that determines the first data point to return. Start times are  evaluated relative to the time that CloudWatch receives the request. The value specified is inclusive; results include data points with the specified time stamp.  The time stamp must be in ISO 8601 UTC format (for example, 2016-10-03T23:00:00Z). CloudWatch rounds the specified time stamp as follows: Start time less than 15 days ago - Round down to the nearest whole minute. For example, 12:32:34 is rounded down to 12:32:00. Start time between 15 and 63 days ago - Round down to the nearest 5-minute clock interval. For example, 12:32:34 is rounded down to 12:30:00. Start time greater than 63 days ago - Round down to the nearest 1-hour clock interval. For example, 12:32:34 is rounded down to 12:00:00. If you set Period to 5, 10, or 30, the start time of your request is  rounded down to the nearest time that corresponds to even 5-, 10-, or 30-second divisions of a minute. For example, if you make a query at (HH:mm:ss) 01:05:23 for the previous 10-second period, the start time of your request is rounded down and you receive data from 01:05:10 to  01:05:20. If you make a query at 15:07:17 for the previous 5 minutes of data, using a  period of 5 seconds, you receive data  timestamped between 15:02:15 and 15:07:15.
 
-**Type:** OBJECT
+**Type:** STRING
 
 #### Dimensions
 

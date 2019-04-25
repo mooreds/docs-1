@@ -56,6 +56,7 @@ Note: reference material for each data connector can additionally be viewed in t
 * [Google Calendar](../connectors/google-calendar-documentation.md)
 * [Google Directory](../connectors/google-directory-documentation.md)
 * [Google Distance](../connectors/google-distance-documentation.md)
+* [Google Docs](../connectors/google-docs-documentation.md)
 * [Google Drive](../connectors/google-drive-documentation.md)
 * [Google Hire](../connectors/google-hire-documentation.md)
 * [Google Mail](../connectors/google-mail-documentation.md)

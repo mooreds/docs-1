@@ -67,6 +67,7 @@
       "connectors/google-calendar-documentation",
       "connectors/google-directory-documentation",
       "connectors/google-distance-documentation",
+      "connectors/google-docs-documentation",
       "connectors/google-drive-documentation",
       "connectors/google-hire-documentation",
       "connectors/google-mail-documentation",
