@@ -1,13 +1,14 @@
-const activity = (function () {
+const activity = (function() {
   const URL = "https://console.transposit.com/api/v1/public/activity";
 
-  function sendEvent(category, action, label) {
+  function sendEvent(category, action, label, path) {
     const event = {
+      version: "1",
       trackerSource: "DOCS",
-      type: "event",
       category,
       action,
       label,
+      path
     };
 
     sendEventsUsingBeacon(event);
@@ -15,8 +16,10 @@ const activity = (function () {
 
   function sendPageView(path) {
     const event = {
+      version: "1",
       trackerSource: "DOCS",
-      type: "page-view",
+      category: "page",
+      action: "view",
       path
     };
 
@@ -42,9 +45,9 @@ const activity = (function () {
       method: "POST",
       credentials: "include",
       headers: {
-        "Content-Type": "text/plain; charset=utf-8",
+        "Content-Type": "text/plain; charset=utf-8"
       },
-      body: JSON.stringify(event),
+      body: JSON.stringify(event)
     });
   }
 
@@ -54,13 +57,13 @@ const activity = (function () {
   };
 })();
 
-window.addEventListener('load', function () {
+window.addEventListener("load", function() {
   function handleLinkClick(event) {
-    activity.sendEvent("link", "click", event.target.href);
+    activity.sendEvent("link", "click", undefined, event.target.href);
   }
 
-  document.querySelectorAll('a').forEach(function (linkElement) {
-    linkElement.addEventListener('click', handleLinkClick);
+  document.querySelectorAll("a").forEach(function(linkElement) {
+    linkElement.addEventListener("click", handleLinkClick);
   });
 
   activity.sendPageView(window.location.href);
