@@ -50,7 +50,7 @@ function run(params) {
   api.log("hello world");
   return {
     "mission": "complete"
-};
+  };
 }
 ```
 
@@ -83,7 +83,7 @@ Transposit enforces usage limits on your operations. This helps to protect our i
 * Each request is given a quota of 1 GB of memory allocated
 * This is not configurable by the developer
 
-### Cpu time
+### CPU time
 
 * Each request is given a quota of 1 minute of cpu time
 * This is not configurable by the developer
