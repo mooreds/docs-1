@@ -33,7 +33,7 @@ Webhook operations are pre-configured with an `http_event` parameter that contai
 
 ## 3. Add a data connection
 
-Transposit comes with a number of pre-built data connectors, including one to the dog API. To give your application access to the dog API, you first need to add a data connection.
+Transposit comes with a number of pre-built data connectors, including one to [the dog API](https://dog.ceo/dog-api/). To give your application access to the dog API, you first need to add a data connection.
 
 * Click on the plus icon next to **Data connections** to add a data connection.
 * Search for _dog_ceo_ and select it.
