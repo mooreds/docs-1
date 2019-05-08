@@ -119,6 +119,7 @@ Note: reference material for each data connector can additionally be viewed in t
 ## Y
 
 * [Yelp](../connectors/yelp-documentation.md)
+* [Youtube Data](../connectors/youtube-data-documentation.md)
 
 ## Z
 
