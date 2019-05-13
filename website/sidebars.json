@@ -86,6 +86,7 @@
       "connectors/opencage-geocoder-documentation",
       "connectors/opsgenie-documentation",
       "connectors/pagerduty-documentation",
+      "connectors/parsehub-documentation",
       "connectors/salesforce-documentation",
       "connectors/sendgrid-documentation",
       "connectors/shopify-documentation",

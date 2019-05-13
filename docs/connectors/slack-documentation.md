@@ -1868,6 +1868,18 @@ Revokes public/external sharing access for a file
 
 </details>
 
+## schedule_chat_message
+
+Sends a message to a channel.
+
+<details><summary>Parameters</summary>
+
+#### $body
+
+**Type:** object
+
+</details>
+
 ## search_all
 
 Searches for messages and files matching a query.

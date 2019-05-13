@@ -93,6 +93,7 @@ Note: reference material for each data connector can additionally be viewed in t
 ## P
 
 * [PagerDuty](../connectors/pagerduty-documentation.md)
+* [Parsehub](../connectors/parsehub-documentation.md)
 
 ## S
 
