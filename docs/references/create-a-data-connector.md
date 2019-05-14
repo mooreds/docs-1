@@ -18,7 +18,7 @@ Create a new Transposit application with a sensible name, e.g. `yourname/bare_bo
 
 Clone the application's code respository, e.g.:
 
-```shell
+```bash
   git clone https://console.transposit.com/git/yourname/bare_bones
 ```
 
