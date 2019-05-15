@@ -60,7 +60,7 @@ For data connections that implement authentication with header parameters, such 
 
 Example: [PagerDuty](https://support.pagerduty.com/docs/using-the-api#section-generating-a-general-access-rest-api-key)
 
-![](/assets/auth-exemplary-pagerduty.png)
+![](../assets/auth-exemplary-pagerduty.png)
 
 * [PagerDuty](https://support.pagerduty.com/docs/using-the-api#section-generating-a-general-access-rest-api-key)
 * [Yelp](https://www.yelp.com/developers/v3/manage_app)
@@ -71,7 +71,7 @@ For data connections that implement authentication with query parameters, such a
 
 Example: [Zoom](https://marketplace.zoom.us/develop/create)
 
-![](/assets/auth-exemplary-zoom.png)
+![](../assets/auth-exemplary-zoom.png)
 
 * [Airtable](https://airtable.com/account)
 * [Apify Crawler](https://my.apify.com/account#/api)
@@ -84,7 +84,7 @@ For AWS data connections, such as Lambda, the required combination of authentica
 
 Example: Lambda with all three parameters provided (i.e. authentication as an IAM user assuming an IAM role)
 
-![](/assets/auth-exemplary-lambda.png)
+![](../assets/auth-exemplary-lambda.png)
 
 * AWS Basic
 * Elastic
