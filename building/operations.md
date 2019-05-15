@@ -2,7 +2,6 @@
 id: operations
 title: SQL & JavaScript operations
 layout: docs.mustache
-nav-dark: true
 ---
 
 Operations are callable units of work. Operations can be written in [JavaScript](../references/js-operations.md) or [SQL](../references/sql-operations.md), and they may be private (e.g. used only for development, or called by other operations within the application), [scheduled for periodic execution](scheduled-tasks.md), or deployed as [endpoints](endpoints.md). Here's a quick look at why Transposit supports SQL, when to use JavaScript instead, and basic usage examples for each.

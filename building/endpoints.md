@@ -2,7 +2,6 @@
 id: endpoints
 title: Endpoints
 layout: docs.mustache
-nav-dark: true
 ---
 
 Deploy an operation as an endpoint to make it callable over HTTP. Optionally, configure the endpoint to require authentication or act as a [webhook](./webhooks.md).

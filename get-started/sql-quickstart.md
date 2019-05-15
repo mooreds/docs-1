@@ -2,7 +2,6 @@
 id: sql-quickstart
 title: SQL Quickstart
 layout: docs.mustache
-nav-dark: true
 ---
 
 This walkthrough provides an introduction to the power of SQL and Transposit's relational engine. It covers a number of topics, but please see the [SQL operation reference](../references/sql-operations.md) for a full view of how you can use SQL in Transposit.

@@ -2,7 +2,6 @@
 id: body-parameter
 title: $body parameter
 layout: docs.mustache
-nav-dark: true
 ---
 
 Many Transposit operations have a parameter named `$body` to represent the request body of the operation. The `$body` can be written as plain JSON in a JavaScript operation or a JSON-like object constructed through a `SELECT` statement in SQL.

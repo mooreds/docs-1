@@ -2,7 +2,6 @@
 id: hosted-apps
 title: Hosted apps
 layout: docs.mustache
-nav-dark: true
 ---
 
 Transposit offers web hosting facilities, _hosted apps_, for exposing functionality to your users. They are a simple alternative to using a third-party hosting service.

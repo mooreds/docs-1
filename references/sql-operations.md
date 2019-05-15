@@ -2,7 +2,6 @@
 id: sql-operations
 title:  SQL operations
 layout: docs.mustache
-nav-dark: true
 ---
 
 ## Terms

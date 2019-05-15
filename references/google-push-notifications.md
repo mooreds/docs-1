@@ -2,7 +2,6 @@
 id: google-push-notifications
 title: Google push notifications
 layout: docs.mustache
-nav-dark: true
 ---
 
 To use Google's push notifications, use the instructions below.

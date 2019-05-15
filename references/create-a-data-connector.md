@@ -2,7 +2,6 @@
 id: create-a-data-connector
 title: Creating a basic data connector
 layout: docs.mustache
-nav-dark: true
 ---
 
 Suppose you have a public JSON bin with data accessible at [the following URL](https://api.jsonbin.io/b/5c5cded2e9e7c118390e07d5): `https://api.jsonbin.io/b/5c5cded2e9e7c118390e07d5`.

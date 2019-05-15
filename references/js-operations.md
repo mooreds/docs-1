@@ -2,7 +2,6 @@
 id: js-operations
 title: JavaScript operations
 layout: docs.mustache
-nav-dark: true
 ---
 
 

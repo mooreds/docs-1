@@ -2,7 +2,6 @@
 id: faq
 title: FAQ
 layout: docs.mustache
-nav-dark: true
 ---
 
 ## Getting Help

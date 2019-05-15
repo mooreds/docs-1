@@ -2,7 +2,6 @@
 id: connector-authentication
 title: Authenticating with Data Connectors
 layout: docs.mustache
-nav-dark: true
 ---
 
 This page will explain how to provide authentication for Transposit's data connectors.

@@ -2,7 +2,6 @@
 id: terms
 title: Terms & basics
 layout: docs.mustache
-nav-dark: true
 ---
 
 ## Applications

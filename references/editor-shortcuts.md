@@ -2,7 +2,6 @@
 id: editor-shortcuts
 title: Editor shortcuts
 layout: docs.mustache
-nav-dark: true
 ---
 
 Note: shortcuts are very similiar to Sublime shortcuts
