@@ -15,7 +15,7 @@ Your web app can be shared publicly or protected by sign-in. Web apps protected 
 1. Navigate to **Authentication &gt; User Sign-in**.
 2. Check **Require users to register and sign in with Google**
 3. Specify **Successful sign-in URIs**.
-Transposit only allows redirection to these URIs during sign-in. This list should be empty if you are only using [hosted apps](/building/hosted-apps).
+Transposit only allows redirection to these URIs during sign-in. This list should be empty if you are only using [hosted apps](/docs/building/hosted-apps).
 4. Ensure a **Google Client ID** and **Google Client Secret** are present
 5. Save the configuration
 6. Optionally, choose to **Restrict to specific whitelisted domains and users**

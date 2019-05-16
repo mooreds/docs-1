@@ -4,12 +4,12 @@ title: SQL Quickstart
 layout: docs.mustache
 ---
 
-This walkthrough provides an introduction to the power of SQL and Transposit's relational engine. It covers a number of topics, but please see the [SQL operation reference](../references/sql-operations.md) for a full view of how you can use SQL in Transposit.
+This walkthrough provides an introduction to the power of SQL and Transposit's relational engine. It covers a number of topics, but please see the [SQL operation reference](/docs/references/sql-operations) for a full view of how you can use SQL in Transposit.
 
 ## Get set up
 
 * You'll need a Slack account for the steps in this guide.
-* Make sure you've gone through the [Quickstart](quickstart.md).
+* Make sure you've gone through the [Quickstart](/docs/get-started/quickstart).
 * Create a new application in Transposit, and add the **Slack** data connection with operation `list_conversations`.
 * Click through and add Slack credentials. Note that if desired, you can adjust the permissions scope by clicking on the Slack connector you just added, then clicking **Configuration > Edit** and entering `channels:history channels:read` in the Scope field. (If you change the scope after you have authorized, you'll want to delete your key and authorize again).
 
@@ -23,7 +23,7 @@ Let's query Slack for 10 of your channels.
 
 * Navigate to your `list_conversations` operation.
 * The parameters for this operation are optional. If you didn't want to use them, you could delete or comment them out. Transposit supports SQL style comments `/* */` or line comments prefixed by `--`.
-* With paginated operations, you should always specify a `LIMIT` or Transposit will continue to fetch more results until it either runs out of results or hits the [rate limit](../references/faq.md).
+* With paginated operations, you should always specify a `LIMIT` or Transposit will continue to fetch more results until it either runs out of results or hits the [rate limit](/docs/references/faq).
 
 Let's fetch a few public, non-archived channels. Your SQL should look like the following:
 
@@ -159,4 +159,4 @@ Your SQL should look like:
   ON LIST.id = DETAIL.channelId
 ```
 
-For a closer look at using SQL in Transposit, see the [SQL reference](../references/sql-operations.md). 
+For a closer look at using SQL in Transposit, see the [SQL reference](/docs/references/sql-operations). 

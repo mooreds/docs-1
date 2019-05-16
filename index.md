@@ -22,17 +22,17 @@ Transposit also provides the features you'd expect of a first-class developer to
 
 * **Incrementally adoptable:** Transposit is a library, not an ecosystem. You can use Transposit to build a single endpoint, or as your entire backend.
 * **Based on open standards:** Take advantage of the battle-tested tools and libraries you already know and love.
-* **Backed by git:** Your application’s code is stored and versioned in a [git repository](references/repository.md), so you can edit in the cloud or clone it locally.
+* **Backed by git:** Your application’s code is stored and versioned in a [git repository](/docs/references/repository), so you can edit in the cloud or clone it locally.
 * **Equipped with modern tooling:** Build on a standard interface with smart treatments of APIs, pagination, serverless functions, caching, and basic application hosting.
 * **Free to try:** You can start using Transposit without speaking to a single person. No need to pay until your applications or endpoints start to see a lot of traffic.
 
 ## How to use these docs
 
-* [Getting started](get-started/quickstart) — Get acquainted with Transposit by following easy guides, learning product basics, and getting answers to common questions.
+* [Getting started](/docs/get-started/quickstart) — Get acquainted with Transposit by following easy guides, learning product basics, and getting answers to common questions.
 
-* [Building and deploying applications](building/operations) — Learn how to connect data sources, write operations to manipulate data, and deploy to real users.
+* [Building and deploying applications](/docs/building/operations) — Learn how to connect data sources, write operations to manipulate data, and deploy to real users.
 
-* [References](references/keys-and-keychains) — Dive deep into our reference documentation for SQL and JavaScript, authentication and credentials, and answers for common technical scenarios.
+* [References](/docs/references/keys-and-keychains) — Dive deep into our reference documentation for SQL and JavaScript, authentication and credentials, and answers for common technical scenarios.
 
 ## Get in touch
 

@@ -6,7 +6,7 @@ layout: docs.mustache
 
 ## Terms
 
-Operation: An [operation](../building/operations.md) in a data connection. This takes the place of a "table" in SQL for relational databases.
+Operation: An [operation](/docs/building/operations) in a data connection. This takes the place of a "table" in SQL for relational databases.
 
 Data source: part of a query that generates results. This is either an operation, a subquery, or a join statement.
 
@@ -50,9 +50,9 @@ The `SELECT` clause gets as input a JSON object or JSON array from the data sour
 
 The `SELECT` clause supports three ways to manipulate an item:
 
-* [Select star](sql-operations.md#select-star)
-* [Column selection](sql-operations.md#column-selection)
-* [JSON template](sql-operations.md#json-templates)
+* [Select star](/docs/references/sql-operations#select-star)
+* [Column selection](/docs/references/sql-operations#column-selection)
+* [JSON template](/docs/references/sql-operations#json-templates)
 
 #### Select star
 
@@ -67,7 +67,7 @@ FROM connection.operation
 
 Column selection can be used to construct a JSON object with specific keys that will appear in the top level of the object.
 
-Column selection cannot construct a nested JSON object or a JSON array; to construct these items use a [JSON template](sql-operations.md#json-templates).
+Column selection cannot construct a nested JSON object or a JSON array; to construct these items use a [JSON template](/docs/references/sql-operations#json-templates).
 
 The syntax for column selection is:
 
@@ -271,7 +271,7 @@ Will generate a JSON object with the key `foo`, the value will be the value of `
 
 _Using operation aliases:_
 
-When an operation (or subquery) is named with an [alias](sql-operations.md#operation-alias), the alias can later be used as a qualifier at the beginning of the path to define exactly where to do the lookup for the path (the results of which operation or subquery to use). This is particularly useful in [join queries](sql-operations.md#join-query), where the query has more than one data source.
+When an operation (or subquery) is named with an [alias](/docs/references/sql-operations#operation-alias), the alias can later be used as a qualifier at the beginning of the path to define exactly where to do the lookup for the path (the results of which operation or subquery to use). This is particularly useful in [join queries](/docs/references/sql-operations#join-query), where the query has more than one data source.
 
 ```sql
 SELECT T.col1
@@ -406,7 +406,7 @@ SELECT [ <json-value>, ... ]
 * `<json-object>` - construct a nested object
 * `<json-array>` - construct a nested array
 
-`<path>`, `<operation-alias>.<path>`, `<literal-value>` and `<binary-expression>` are the same as in [column selection](sql-operations.md#column-selection). The only difference is that `.*` at the end of `<path>` is not allowed in JSON templates; use the [spread operator](sql-operations.md#spread-operator) instead.
+`<path>`, `<operation-alias>.<path>`, `<literal-value>` and `<binary-expression>` are the same as in [column selection](/docs/references/sql-operations#column-selection). The only difference is that `.*` at the end of `<path>` is not allowed in JSON templates; use the [spread operator](/docs/references/sql-operations#spread-operator) instead.
 
 `<json-object>` constructs a JSON object, the syntax is:
 
@@ -422,7 +422,7 @@ SELECT [ <json-value>, ... ]
 
 #### Spread operator
 
-The spread operator expands a JSON object into JSON object or JSON array into a JSON array (similar to `<path>.*` in [column selection](sql-operations.md#column-selection)).
+The spread operator expands a JSON object into JSON object or JSON array into a JSON array (similar to `<path>.*` in [column selection](/docs/references/sql-operations#column-selection)).
 
 Spread JSON object use:
 
@@ -452,7 +452,7 @@ The `<key>`s and `<json-value>`s are used in the same order as they appear in th
 
 Each `<json-value>` will be calculated and resolved. The resolved value can be a scalar value (number, string or boolean), JSON object or JSON array.
 
-`<path>`, `<operation-alias>.<path>`, `<immediate-value>` and `<binary-expression>` are resolved the same as in [column selection](sql-operations.md#columns-selection).
+`<path>`, `<operation-alias>.<path>`, `<immediate-value>` and `<binary-expression>` are resolved the same as in [column selection](/docs/references/sql-operations#columns-selection).
 
 `<json-object>` and `<json-array>` are resolved recursively.
 
@@ -581,7 +581,7 @@ Will generate
 
 _Using an operation alias:_
 
-When an operation (or subquery) is named with an [alias](sql-operations.md#operation-alias), the alias can later be used as a qualifier at the beginning of the path to define exactly where to do the lookup for the path (the results of which operation or subquery to use). This is particularly useful in [join queries](sql-operations.md#join-query), where the query has more than one data source.
+When an operation (or subquery) is named with an [alias](/docs/references/sql-operations#operation-alias), the alias can later be used as a qualifier at the beginning of the path to define exactly where to do the lookup for the path (the results of which operation or subquery to use). This is particularly useful in [join queries](/docs/references/sql-operations#join-query), where the query has more than one data source.
 
 ```sql
 SELECT { col1: T.col1 }
@@ -760,9 +760,9 @@ The `FROM` clause is the first part that runs when the query is executed.
 
 The `FROM` clause supports three types of data sources:
 
-* [Operation](sql-operations.md#operation)
-* [Subquery](sql-operations.md#subquery)
-* [Join](sql-operations.md#join)
+* [Operation](/docs/references/sql-operations#operation)
+* [Subquery](/docs/references/sql-operations#subquery)
+* [Join](/docs/references/sql-operations#join)
 
 #### Operation
 
@@ -851,7 +851,7 @@ The `<operator>` can be one of the following:
 * `<=` - less than or equal to
 * `IN` - equal to any in a list of values.
 
-The `<column-expression>` is the same as what is used in [column selection](sql-operations.md#column-selection).
+The `<column-expression>` is the same as what is used in [column selection](/docs/references/sql-operations#column-selection).
 
 If a subquery is used, the `<operator>` must be `=` or `IN`. If the operator is `=`, the subquery must return a single result.
 
@@ -918,7 +918,7 @@ The mapping is positional (first column is mapped to the first name in the tuple
 
 #### Operation aliases
 
-Like the `<path>` in [column selection](sql-operations.md#column-selection), the `<name>` in a `WHERE` condition can be prefixed with an [operation alias](sql-operations.md#operation-alias) to refer to the results of a named data source.
+Like the `<path>` in [column selection](/docs/references/sql-operations#column-selection), the `<name>` in a `WHERE` condition can be prefixed with an [operation alias](/docs/references/sql-operations#operation-alias) to refer to the results of a named data source.
 
 ### Expand by clause
 
@@ -938,7 +938,7 @@ EXPAND BY <path-1> AS <column-alias>, <path-2> AS <column-alias>, ..., <path-N> 
 
 For each result in the result set, for each `<path>` in the list of paths:
 
-1. Resolve the value at the path using the same mechanism as in [column-selection](sql-operations.md#result-construction).
+1. Resolve the value at the path using the same mechanism as in [column-selection](/docs/references/sql-operations#result-construction).
 2. Check that this value is an array of items, otherwise skip this result.
 3. Create a new result for each item in the array. If there is no `<column-alias>`, the item is placed in the same position as the array it came from (replacing the array). Otherwise, the alias is used to place the item and the original array is left intact.
 4. Replace the top-level result set with this new list of results
@@ -1384,7 +1384,7 @@ WHERE foo=bar
 
 ### Pagination and streaming
 
-Transposit automatically paginates many APIs (see the [FAQ](references/faq.md#automatic-pagination)). This feature is deeply integrated with our SQL engine, allowing a query to dynamically pull more results from data connectors until it has reached the desired limit.
+Transposit automatically paginates many APIs (see the [FAQ](/docs/references/faq#automatic-pagination)). This feature is deeply integrated with our SQL engine, allowing a query to dynamically pull more results from data connectors until it has reached the desired limit.
 
 For example, if we have the following query:
 ```sql

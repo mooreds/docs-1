@@ -4,7 +4,7 @@ title: Webhooks
 layout: docs.mustache
 ---
 
-A Transposit operation can be deployed to consumers as an [HTTP endpoint](endpoints.md) or as a webhook. The easiest way to create a webhook in Transposit is to:
+A Transposit operation can be deployed to consumers as an [HTTP endpoint](/docs/building/endpoints) or as a webhook. The easiest way to create a webhook in Transposit is to:
 
 1. Navigate to **Code**.
 2. Create a new operation using the plus icon in the operations list.

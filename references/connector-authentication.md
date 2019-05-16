@@ -25,7 +25,7 @@ To use your own client ID and secret:
 
 The following connectors require custom OAuth settings. When you add the connector to your service, you will be prompted to add these settings. Follow the links to create your own developer apps:
 * [Google Mail](#generating-a-client-id-and-secret-with-google-connectors)
-* [Jira](/references/connect-to-jira)
+* [Jira](/docs/references/connect-to-jira)
 * [Salesforce](https://na50.lightning.force.com/lightning/setup/NavigationMenus/home) 
 * [Shopify](https://partners.shopify.com/organizations) (Select an account and click on the "Apps" link in the dashboard)
 * [Survey Monkey](https://developer.surveymonkey.com/apps/) 

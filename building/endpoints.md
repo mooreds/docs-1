@@ -4,7 +4,7 @@ title: Endpoints
 layout: docs.mustache
 ---
 
-Deploy an operation as an endpoint to make it callable over HTTP. Optionally, configure the endpoint to require authentication or act as a [webhook](./webhooks.md).
+Deploy an operation as an endpoint to make it callable over HTTP. Optionally, configure the endpoint to require authentication or act as a [webhook](/docs/building/webhooks/).
 
 ## Deploy an operation
 
@@ -39,7 +39,7 @@ Endpoints protected by user sign-in are authenticated by session cookies. They m
 
 To protect your endpoint with user sign-in, select **Require user sign-in**.
 
-If you are developing a [hosted app](./hosted-apps.md), configure sign-in to call these endpoints. If you are hosting your own web page, use the [JavaScript SDK](./js-sdk.md).
+If you are developing a [hosted app](/docs/building/hosted-apps), configure sign-in to call these endpoints. If you are hosting your own web page, use the [JavaScript SDK](/docs/building/js-sdk).
 
 ### Webhook
 
@@ -47,4 +47,4 @@ Some third-party services offer to send a HTTP request to a custom URL when an e
 
 To receive these HTTP requests, select **Deploy as webhook**. The inline documentation on the **Endpoints** page will include the URL to provide to the third-party.
 
-Read more about deploying an operation as a webhook on our [webhooks documentation](./webhooks.md).
+Read more about deploying an operation as a webhook on our [webhooks documentation](/docs/building/webhooks).

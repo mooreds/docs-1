@@ -6,7 +6,7 @@ layout: docs.mustache
 
 One of Transposit’s powerful features is the way it can manage authentication for you, the app developer, and for your app's end users. Here are high-level explanations for what's meant by _managed auth_ and how it gives you freedom to develop applications without the burden of hard-coding authentication logic into every app.
 
-If you'd like to jump straight to all authentication options, see [Connector authentication page](../references/connector-authentication.md).
+If you'd like to jump straight to all authentication options, see [Connector authentication page](/docs/references/connector-authentication).
 
 ## What is managed auth in Transposit?
 
@@ -48,5 +48,5 @@ To use Transposit as an authentication provider in your app, you’d copy/paste 
 
 In Transposit, if you’re using sign-in identity management, you can manage a whitelist of app users, inspect user records, see what connections and authentications exist, and modify these as an admin.
 
-For more documentation about how to use authentication in Transposit in any of these cases, take a look at the detailed [Keychains reference](../references/keys-and-keychains.md).
+For more documentation about how to use authentication in Transposit in any of these cases, take a look at the detailed [Keychains reference](/docs/references/keys-and-keychains).
 

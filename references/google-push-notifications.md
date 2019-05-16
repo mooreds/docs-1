@@ -20,7 +20,7 @@ To use Google's push notifications, use the instructions below.
 
 You can use a Transposit operation to watch Google events and register your previously
 created webhook as the callback. However, the OAuth2 credentials must match the project
-where you registered Transposit as a domain above. This means that you cannot use the Tranpsosit-provided OAuth settings, and [must provide your own client ID and secret](../references/connector-authentication.md#generating-a-client-id-and-secret-with-google-connectors).
+where you registered Transposit as a domain above. This means that you cannot use the Tranpsosit-provided OAuth settings, and [must provide your own client ID and secret](/docs/references/connector-authentication.md#generating-a-client-id-and-secret-with-google-connectors).
 
 ## Tell Transposit to use those OAuth2 credentials
 

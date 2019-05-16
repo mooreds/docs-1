@@ -14,13 +14,13 @@ Transposit creates a unified interface for interacting with various APIs. A data
 
 The data connection encapsulates:
 
-* [Authentication](../references/connector-authentication.md) (OAuth, username/password, basic header auth, etc)
+* [Authentication](/docs/references/connector-authentication) (OAuth, username/password, basic header auth, etc)
 * API schema and delivery mechanism
 * Pagination (supported by some operations)
 
 ## Operations
 
-[Operations](../building/operations.md) are callable units of work that can be written in [JavaScript](../references/js-operations.md) or [SQL](../references/sql-operations.md). Operations inside a Transposit application can be private (e.g. used only for development, or called by other operations within the application), [scheduled for periodic execution](../building/scheduled-tasks.md), or deployed as [endpoints](../building/endpoints.md).
+[Operations](/docs/building/operations) are callable units of work that can be written in [JavaScript](/docs/references/js-operations) or [SQL](/docs/references/sql-operations). Operations inside a Transposit application can be private (e.g. used only for development, or called by other operations within the application), [scheduled for periodic execution](/docs/building/scheduled-tasks), or deployed as [endpoints](/docs/building/endpoints).
 
 ## Authentication
 
@@ -32,7 +32,7 @@ Transposit provides powerful tools to centrally manage these types of authentica
 
 ## Hosted apps
 
-To speed up the flow of application development and deploying, Transposit provides basic facilities for hosting a web page for use as access point to your application's front end. Use of this hosting is entirely optional. See also: [Hosted Apps](../building/hosted-apps.md).
+To speed up the flow of application development and deploying, Transposit provides basic facilities for hosting a web page for use as access point to your application's front end. Use of this hosting is entirely optional. See also: [Hosted Apps](/docs/building/hosted-apps).
 
 ## Users
 
@@ -41,5 +41,5 @@ In the Transposit platform, there are two types of users:
   * The Transposit user; the developer an application
   * The application user; the consumer of the application
 
-This distinction is important in that depending on the configuration of your application, credentials (keys) for accessing data connections may be supplied by you as the developer or by your end users. See also: [Managed authentication](../building/managed-authentication.md).
+This distinction is important in that depending on the configuration of your application, credentials (keys) for accessing data connections may be supplied by you as the developer or by your end users. See also: [Managed authentication](/docs/building/managed-authentication).
 

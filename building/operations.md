@@ -4,7 +4,7 @@ title: SQL & JavaScript operations
 layout: docs.mustache
 ---
 
-Operations are callable units of work. Operations can be written in [JavaScript](../references/js-operations.md) or [SQL](../references/sql-operations.md), and they may be private (e.g. used only for development, or called by other operations within the application), [scheduled for periodic execution](scheduled-tasks.md), or deployed as [endpoints](endpoints.md). Here's a quick look at why Transposit supports SQL, when to use JavaScript instead, and basic usage examples for each.
+Operations are callable units of work. Operations can be written in [JavaScript](/docs/references/js-operations) or [SQL](/docs/references/sql-operations), and they may be private (e.g. used only for development, or called by other operations within the application), [scheduled for periodic execution](/docs/building/scheduled-tasks), or deployed as [endpoints](/docs/building/endpoints). Here's a quick look at why Transposit supports SQL, when to use JavaScript instead, and basic usage examples for each.
 
 ## Why use SQL?
 
@@ -14,7 +14,7 @@ SQL is designed to easily join, filter, and organize your data in the way you ne
 
 SQL is also a standard language familiar to many developers. Its simplicity and power means it’s the best database technology a majority of the time.
 
-Additionally, you don’t need to be a SQL expert to use and take full advantage of Transposit&mdash; knowing how to write a select, join, and where clause is all you need in most cases. If you ever need to do something more advanced, just take a look in our [SQL reference](../references/sql-operations.md) or [get support from our team](mailto:support@transposit.com).
+Additionally, you don’t need to be a SQL expert to use and take full advantage of Transposit&mdash; knowing how to write a select, join, and where clause is all you need in most cases. If you ever need to do something more advanced, just take a look in our [SQL reference](/docs/references/sql-operations) or [get support from our team](mailto:support@transposit.com).
 
 ## Why use JavaScript?
 
@@ -38,7 +38,7 @@ WHERE A.lastName='smith' LIMIT 50
 
 Creating SQL operations from a template (choose **SQL from template** in the menu) starts you off with scaffolded code based on the syntax and parameters of a given data connection operation.
 
-Learn more in the [SQL operations reference](../references/sql-operations.md).
+Learn more in the [SQL operations reference](/docs/references/sql-operations).
 
 ## JavaScript Operations
 
@@ -73,7 +73,7 @@ To print to the console, use `console.log`, which accepts any number of argument
 console.log("hello world");
 ```
 
-Learn more in the [JavaScript operations reference](../references/js-operations.md).
+Learn more in the [JavaScript operations reference](/docs/references/js-operations).
 
 ## Usage limits for operations
 

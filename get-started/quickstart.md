@@ -102,5 +102,5 @@ Now go to Slack to see it in action.
 
 There's a lot more you can do with Transposit’s powerful relational engine. Please check out our docs to learn more!
 
-* [Integrating multiple data sources together](sql-quickstart.md)
-* [Data connectors currently available](../references/data-connectors.md)
+* [Integrating multiple data sources together](/docs/get-started/sql-quickstart)
+* [Data connectors currently available](/docs/references/data-connectors)
