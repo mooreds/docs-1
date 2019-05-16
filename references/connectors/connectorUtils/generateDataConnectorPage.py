@@ -25,7 +25,7 @@ NEWLINE = "\n"
 
 def bulletPointAndLink(connectorName):
     displayName = fileNameToDisplayName[connectorName]
-    fileReference = "connectors/" + connectorName
+    fileReference = "../connectors/" + connectorName
     return "* [" + displayName + "]" + "(" + fileReference + ")"
 
 # Get all the documentation files. Read each file to get its display name
