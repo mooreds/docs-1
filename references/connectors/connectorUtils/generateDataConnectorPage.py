@@ -19,12 +19,13 @@ dataConnectorsFile = "data-connectors.md"
 dataConnectorsTemplateFile = "connectorUtils/data-connectors-template.txt"
 fileNameToDisplayName = {}
 
+SIDEBAR_LABEL = "sidebar_label: "
 ID = "id: "
 NEWLINE = "\n"
 
 def bulletPointAndLink(connectorName):
     displayName = fileNameToDisplayName[connectorName]
-    fileReference = "connectors/" + connectorName + ".md"
+    fileReference = "connectors/" + connectorName
     return "* [" + displayName + "]" + "(" + fileReference + ")"
 
 # Get all the documentation files. Read each file to get its display name
@@ -44,6 +45,9 @@ for fileName in files:
                 if line.startswith(ID):
                     markdownId = line[len(ID): -1] # -1 to trim off the newline
             
+                if line.startswith(SIDEBAR_LABEL):
+                        connectorDisplayName = line[len(SIDEBAR_LABEL) : -1]  
+
             fileNameToDisplayName[name] = connectorDisplayName
 
 connectorsList.sort()
