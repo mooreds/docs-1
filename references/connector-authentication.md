@@ -18,13 +18,13 @@ To use your own client ID and secret:
 * Set up a developer app using the connector's platform. Add `https://console.transposit.com/oauthCallback` as a Redirect URI (use `/oauthV1Callback` for OAuth 1.0).
 * Go to **Code > Data Connections** in Transposit and select your data connector. 
 * Under  **Authentication > Configure**, add the client ID and secret from your created developer app.
-* If you'd like, customize the [scope](#custom-oauth-scope) under **Configuration**
+* If you'd like, customize the scope under **Configuration**
 
  You can configure your own client ID and secret under **Authentication > Configure** or customize the scope (what permissions your users will be allowing with the connector when they authenticate with your app) under **Configuration**. 
 
 
 The following connectors require custom OAuth settings. When you add the connector to your service, you will be prompted to add these settings. Follow the links to create your own developer apps:
-* [Google Mail](#generating-a-client-id-and-secret-with-google-connectors)
+* Google Mail (further down this page)
 * [Jira](/docs/references/connect-to-jira)
 * [Salesforce](https://na50.lightning.force.com/lightning/setup/NavigationMenus/home) 
 * [Shopify](https://partners.shopify.com/organizations) (Select an account and click on the "Apps" link in the dashboard)
