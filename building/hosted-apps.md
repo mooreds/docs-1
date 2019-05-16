@@ -10,45 +10,42 @@ Hosted app pages are written in HTML and JavaScript, and do not require much cod
 
 For more granular control, it is possible to host your app with a third-party and use Transposit as a backend. These apps can interface with Transposit via our [JavaScript SDK](js-sdk.md) or by directly invoking [http endpoints](endpoints.md).
 
-## Modify the page template
-
-1. Navigate to **Code &gt; Page template**.
-2. Modify the HTML and JavaScript.
-3. Click **Preview** to preview your changes in the browser.
-4. Click **Commit code** to persist your changes and deploy.
-
-### Development process
-
-Click **Preview** to preview uncommitted page changes in your browser. You will need to click **Preview** every time you make a new change; reloading an old preview will not load new changes.
-
-A preview of your hosted app interacts with committed operations; you must commit changes to operation code before these changes will be reflected in a preview. A preview obeys the same configuration as your deployment, so if your hosted app has sign-in enabled, you will need to sign in to interact with the preview.
-
-A preview only exists for one minute.
-
 ### Deployment process
 
 Click **Commit code** to persist your changes and deploy them. A hosted app always serves the most recently committed code.
 
-Sign-in and authentication for data connections can be configured under **Authentication**.
-
-A link to your hosted app is available under **Deploy &gt; Hosted Page**.
+Sign-in and authentication for data connections can be configured under **Users &gt; User Configuration**.
 
 ## Configure sign-in
 
 Hosted apps can be shared publicly or protected by sign-in. Hosted apps protected by sign-in can whitelist specific Google GSuite domains or specific users.
 
-1. Navigate to **Authentication &gt; User Sign-in**.
-2. Check the box requiring users to sign in with Google.
+1. Navigate to **Users &gt; User Configuration**.
+2. Click Restrict to specific whitelisted domains and users.
 3. Specify who is allowed to sign in.
+4. Click **Save**
 
 ## Manage keys
 
 Each data connection in your application can either reference a production key or expect signed-in users to provide their own key.
 
-1. Navigate to **Authentication &gt; Production Keys**.
-2. Add a production key for each data connection that should share a key across users.
-3. Check the box for each data connection that should expect a user to provide their own key.
+1. Navigate to **Deploy &gt; Production Keys**.
+2. Click **Add key**
 
 ## Manage users
 
-You can view and administer registered users in **Authentication &gt; Registered Users**. You can delete users or their keys as necessary.
+You can view and administer registered users in **Users &gt; Registered Users**. You can delete users or their keys as necessary.
+
+## Advanced
+
+You can customize user settings schema for your users. Users can provide their key to work with your app.
+To check the changes have been applied correctly, go back to code editor, click Development under Auth & settings.
+Under your API connector status, you should see the schema.
+If you don't see your user schema, go back to User Configuration and make sure you saved the changes.
+
+## Customize User Configuration
+
+1. Navigate to User > User Configuration.
+2. Under User settings schema, click **Add**.
+3. Fill in the information.
+4. Save your changes by clicking **Save All**.
