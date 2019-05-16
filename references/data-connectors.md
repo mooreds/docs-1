@@ -10,116 +10,117 @@ Note: reference material for each data connector can additionally be viewed in t
 
 ## A
 
-* [Airtable](../connectors/airtable-documentation.md)
-* [Apify Crawler](../connectors/apify-crawler-documentation.md)
-* [AWS Athena](../connectors/aws-athena-documentation.md)
-* [AWS Cloudwatch](../connectors/aws-cloudwatch-documentation.md)
-* [AWS Cloudwatch Events](../connectors/aws-cloudwatch-events-documentation.md)
-* [AWS Cloudwatch Logs](../connectors/aws-cloudwatch-logs-documentation.md)
-* [AWS DynamoDB](../connectors/aws-dynamodb-documentation.md)
-* [AWS EC2 Container Registry](../connectors/aws-ec2-container-registry-documentation.md)
-* [AWS EC2](../connectors/aws-ec2-documentation.md)
-* [AWS ECS](../connectors/aws-ecs-documentation.md)
-* [AWS Kinesis](../connectors/aws-kinesis-documentation.md)
-* [AWS Lambda](../connectors/aws-lambda-documentation.md)
-* [AWS S3](../connectors/aws-s3-documentation.md)
-* [AWS SES](../connectors/aws-ses-documentation.md)
-* [AWS SNS](../connectors/aws-sns-documentation.md)
-* [AWS SQS](../connectors/aws-sqs-documentation.md)
+* [Airtable](../connectors/airtable-documentation)
+* [Apify Crawler](../connectors/apify-crawler-documentation)
+* [AWS Athena](../connectors/aws-athena-documentation)
+* [AWS Cloudwatch](../connectors/aws-cloudwatch-documentation)
+* [AWS Cloudwatch Events](../connectors/aws-cloudwatch-events-documentation)
+* [AWS Cloudwatch Logs](../connectors/aws-cloudwatch-logs-documentation)
+* [AWS DynamoDB](../connectors/aws-dynamodb-documentation)
+* [AWS EC2 Container Registry](../connectors/aws-ec2-container-registry-documentation)
+* [AWS EC2](../connectors/aws-ec2-documentation)
+* [AWS ECS](../connectors/aws-ecs-documentation)
+* [AWS Kinesis](../connectors/aws-kinesis-documentation)
+* [AWS Kinesis Firehose](../connectors/aws-kinesis-firehose-documentation)
+* [AWS Lambda](../connectors/aws-lambda-documentation)
+* [AWS S3](../connectors/aws-s3-documentation)
+* [AWS SES](../connectors/aws-ses-documentation)
+* [AWS SNS](../connectors/aws-sns-documentation)
+* [AWS SQS](../connectors/aws-sqs-documentation)
 
 ## B
 
-* [Box](../connectors/box-documentation.md)
+* [Box](../connectors/box-documentation)
 
 ## C
 
-* [CircleCI](../connectors/circleci-documentation.md)
-* [Coinbase](../connectors/coinbase-honeypot.md)
+* [CircleCI](../connectors/circleci-documentation)
 
 ## D
 
-* [Dark Sky](../connectors/dark-sky-documentation.md)
-* [Datadog](../connectors/datadog-honeypot.md)
-* [Dog.ceo](../connectors/dog.ceo-documentation.md)
+* [Dark Sky](../connectors/dark-sky-documentation)
+* [Dog.ceo](../connectors/dog.ceo-documentation)
 
 ## E
 
-* [Elastic](../connectors/elastic-documentation.md)
+* [Elastic](../connectors/elastic-documentation)
 
 ## G
 
-* [GCP BigQuery](../connectors/gcp-bigquery-documentation.md)
-* [GCP Cloud Storage](../connectors/gcp-cloud-storage-documentation.md)
-* [Giphy](../connectors/giphy-documentation.md)
-* [GitHub](../connectors/github-documentation.md)
-* [Google Analytics](../connectors/google-analytics-documentation.md)
-* [Google Calendar](../connectors/google-calendar-documentation.md)
-* [Google Directory](../connectors/google-directory-documentation.md)
-* [Google Distance](../connectors/google-distance-documentation.md)
-* [Google Docs](../connectors/google-docs-documentation.md)
-* [Google Drive](../connectors/google-drive-documentation.md)
-* [Google Hire](../connectors/google-hire-documentation.md)
-* [Google Mail](../connectors/google-mail-documentation.md)
-* [Google Photos](../connectors/google-photos-documentation.md)
-* [Google Sheets](../connectors/google-sheets-documentation.md)
+* [GCP BigQuery](../connectors/gcp-bigquery-documentation)
+* [GCP Cloud Storage](../connectors/gcp-cloud-storage-documentation)
+* [Giphy](../connectors/giphy-documentation)
+* [GitHub](../connectors/github-documentation)
+* [Google Analytics](../connectors/google-analytics-documentation)
+* [Google Calendar](../connectors/google-calendar-documentation)
+* [Google Directory](../connectors/google-directory-documentation)
+* [Google Distance](../connectors/google-distance-documentation)
+* [Google Docs](../connectors/google-docs-documentation)
+* [Google Drive](../connectors/google-drive-documentation)
+* [Google Hire](../connectors/google-hire-documentation)
+* [Google Mail](../connectors/google-mail-documentation)
+* [Google Photos](../connectors/google-photos-documentation)
+* [Google Sheets](../connectors/google-sheets-documentation)
 
 ## H
 
-* [Hubspot](../connectors/hubspot-documentation.md)
+* [Hubspot](../connectors/hubspot-documentation)
 
 ## J
 
-* [Jira](../connectors/jira-documentation.md)
-* [JSONbin](../connectors/jsonbin-documentation.md)
+* [Jira](../connectors/jira-documentation)
+* [JSONbin](../connectors/jsonbin-documentation)
 
 ## L
 
-* [Lyft](../connectors/lyft-documentation.md)
+* [Lyft](../connectors/lyft-documentation)
 
 ## M
 
-* [Mailchimp](../connectors/mailchimp-documentation.md)
-* [Merriam-Webster Collegiate Dictionary](../connectors/merriam-webster-collegiate-dictionary-documentation.md)
-* [Merriam-Webster Collegiate Thesaurus](../connectors/merriam-webster-collegiate-thesaurus-documentation.md)
-* [Merriam-Webster Medical Dictionary](../connectors/merriam-webster-medical-dictionary-documentation.md)
-* [Merriam-Webster Spanish-English Dictionary](../connectors/merriam-webster-spanish-english-dictionary-documentation.md)
+* [Mailchimp](../connectors/mailchimp-documentation)
+* [Medium](../connectors/medium-documentation)
+* [Merriam-Webster Collegiate Dictionary](../connectors/merriam-webster-collegiate-dictionary-documentation)
+* [Merriam-Webster Collegiate Thesaurus](../connectors/merriam-webster-collegiate-thesaurus-documentation)
+* [Merriam-Webster Medical Dictionary](../connectors/merriam-webster-medical-dictionary-documentation)
+* [Merriam-Webster Spanish-English Dictionary](../connectors/merriam-webster-spanish-english-dictionary-documentation)
 
 ## O
 
-* [OpenCage Geocoder](../connectors/opencage-geocoder-documentation.md)
-* [Opsgenie](../connectors/opsgenie-documentation.md)
+* [OpenCage Geocoder](../connectors/opencage-geocoder-documentation)
+* [Opsgenie](../connectors/opsgenie-documentation)
 
 ## P
 
-* [PagerDuty](../connectors/pagerduty-documentation.md)
+* [PagerDuty](../connectors/pagerduty-documentation)
+* [Parsehub](../connectors/parsehub-documentation)
 
 ## S
 
-* [Salesforce](../connectors/salesforce-documentation.md)
-* [Sendgrid](../connectors/sendgrid-documentation.md)
-* [Shopify](../connectors/shopify-documentation.md)
-* [Slack](../connectors/slack-documentation.md)
-* [Spotify](../connectors/spotify-documentation.md)
-* [Square](../connectors/square-honeypot.md)
-* [Strava](../connectors/strava-documentation.md)
-* [Stripe](../connectors/stripe-documentation.md)
-* [Survey Monkey](../connectors/survey-monkey-documentation.md)
-* [Swaggerhub](../connectors/swaggerhub-documentation.md)
+* [Salesforce](../connectors/salesforce-documentation)
+* [Sendgrid](../connectors/sendgrid-documentation)
+* [Shopify](../connectors/shopify-documentation)
+* [Slack](../connectors/slack-documentation)
+* [Spotify](../connectors/spotify-documentation)
+* [Strava](../connectors/strava-documentation)
+* [Stripe](../connectors/stripe-documentation)
+* [Survey Monkey](../connectors/survey-monkey-documentation)
+* [Swaggerhub](../connectors/swaggerhub-documentation)
 
 ## T
 
-* [Toggl](../connectors/toggl-documentation.md)
-* [Twilio](../connectors/twilio-documentation.md)
+* [Toggl](../connectors/toggl-documentation)
+* [Twilio](../connectors/twilio-documentation)
 
 ## X
 
-* [Xkcd](../connectors/xkcd-documentation.md)
+* [Xkcd](../connectors/xkcd-documentation)
 
 ## Y
 
-* [Yelp](../connectors/yelp-documentation.md)
+* [Yelp](../connectors/yelp-documentation)
+* [Youtube Data](../connectors/youtube-data-documentation)
 
 ## Z
 
-* [Zoom](../connectors/zoom-documentation.md)
+* [Zoom](../connectors/zoom-documentation)
 
