@@ -79,6 +79,7 @@
       "connectors/jsonbin-documentation",
       "connectors/lyft-documentation",
       "connectors/mailchimp-documentation",
+      "connectors/medium-documentation",
       "connectors/merriam-webster-collegiate-dictionary-documentation",
       "connectors/merriam-webster-collegiate-thesaurus-documentation",
       "connectors/merriam-webster-medical-dictionary-documentation",
