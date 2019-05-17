@@ -35,7 +35,7 @@ Transposit offers web hosting facilities, _hosted apps_, for exposing functional
 
 Hosted app pages are written in HTML and JavaScript, and do not require much code to make useful. Transposit manages user sign-in and settings, provides the scaffolding for connecting to your Transposit backend, and suggests some basic interfaces for rendering operation results. Even for complex frontends, these facilities can be a great starting point when prototyping.
 
-For more granular control, it is possible to host your app with a third-party and use Transposit as a backend. These apps can interface with Transposit via our [JavaScript SDK](/docs/building/js-sdk) or by directly invoking [http endpoints](/docs/building/endpoints).
+For more granular control, it is possible to host your app with a third-party and use Transposit as a backend. These apps can interface with Transposit via our [JavaScript SDK](/docs/building/js-sdk) or by directly invoking [HTTP endpoints](/docs/building/endpoints).
 
 ## Modify the page template
 
