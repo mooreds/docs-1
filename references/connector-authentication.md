@@ -6,29 +6,28 @@ layout: docs.mustache
 
 This page will explain how to provide authentication for Transposit's data connectors.
 
-## Auth via OAuth 1.0 and 2.0
+## Auth via OAuth 2.0
 
-Given OAuth settings (i.e. client IDs and secrets), Transposit will automatically handle the OAuth 1.0 and 2.0 authentication flows to procure an access token and refresh as needed. For most data connections that require OAuth, Transposit provides these settings for limited use. For these data connections, no further setup is required for authorization after the connection is added. 
+Given OAuth settings (i.e. client IDs and secrets), Transposit will automatically handle the OAuth 2.0 authentication flow to procure an access token and refresh as needed. For most data connections that require OAuth, Transposit provides these settings for limited use. For these data connections, no further setup is required for authorization after the connection is added.
 
 ### Custom OAuth settings
 
 If you do not want to use the Transposit-provided OAuth settings, you always have the option to overwrite the configuration with your own custom OAuth settings. A small subset of data connections will require you to provide custom OAuth settings because no feasible Transposit-provided OAuth settings exist for those connections.
 
 To use your own client ID and secret:
-* Set up a developer app using the connector's platform. Add `https://console.transposit.com/oauthCallback` as a Redirect URI (use `/oauthV1Callback` for OAuth 1.0).
-* Go to **Code > Data Connections** in Transposit and select your data connector. 
+* Set up a developer app using the connector's platform. Add `https://accounts.transposit.com/oauth/v2/handle-redirect` as a Redirect URI.
+* Go to **Code > Data Connections** in Transposit and select your data connector.
 * Under  **Authentication > Configure**, add the client ID and secret from your created developer app.
 * If you'd like, customize the scope under **Configuration**
 
- You can configure your own client ID and secret under **Authentication > Configure** or customize the scope (what permissions your users will be allowing with the connector when they authenticate with your app) under **Configuration**. 
+ You can configure your own client ID and secret under **Authentication > Configure** or customize the scope (what permissions your users will be allowing with the connector when they authenticate with your app) under **Configuration**.
 
 
 The following connectors require custom OAuth settings. When you add the connector to your service, you will be prompted to add these settings. Follow the links to create your own developer apps:
 * Google Mail (further down this page)
-* [Jira](/docs/references/connect-to-jira)
-* [Salesforce](https://na50.lightning.force.com/lightning/setup/NavigationMenus/home) 
+* [Salesforce](https://na50.lightning.force.com/lightning/setup/NavigationMenus/home)
 * [Shopify](https://partners.shopify.com/organizations) (Select an account and click on the "Apps" link in the dashboard)
-* [Survey Monkey](https://developer.surveymonkey.com/apps/) 
+* [Survey Monkey](https://developer.surveymonkey.com/apps/)
 
 Below are links to create developer apps (to generate your own OAuth settings) if you do not want to use the Transposit-provided settings:
 * [Github](https://github.com/settings/developers)
@@ -37,7 +36,7 @@ Below are links to create developer apps (to generate your own OAuth settings) i
 * [Spotify](https://developer.spotify.com/dashboard/applications)
 * [Strava](https://www.strava.com/settings/api)
 
-### Generating a client ID and secret with Google connectors 
+### Generating a client ID and secret with Google connectors
 
 * Go to the [Google Cloud Platform Console](https://console.cloud.google.com/) and select a project or create a new one.
 * Select **APIs & services > Credentials**.
@@ -45,10 +44,10 @@ Below are links to create developer apps (to generate your own OAuth settings) i
 * Either configure a consent screen if this is your first time, or modify your existing consent screen to add `transposit.com` as an authorized domain.
 * Select **Web application**.
 * Note the Client ID and Client Secret to be used in the next step, and click Save.
-* Select the credential you just created and add `https://console.transposit.com/oauthCallback` as an authorized redirect URI. If you did not properly set up your authorized domain in your consent screen, you may get an `Invalid Redirect` error. If so, follow the link and add `transposit.com` to the authorized domains list.
+* Select the credential you just created and add `https://accounts.transposit.com/oauth/v2/handle-redirect` as an authorized redirect URI. If you did not properly set up your authorized domain in your consent screen, you may get an `Invalid Redirect` error. If so, follow the link and add `transposit.com` to the authorized domains list.
 * Go to **APIs & Services > Library**, search for the correct API (e.g. Google Mail, Google Calendar, or Google Drive), and enable the API.
 
-If you would like others to use your application, you may need to get it [verified by Google](https://support.google.com/cloud/answer/9110914?hl=en&ref_topic=3473162). 
+If you would like others to use your application, you may need to get it [verified by Google](https://support.google.com/cloud/answer/9110914?hl=en&ref_topic=3473162).
 
 ### Custom OAuth scope
 
