@@ -15,7 +15,7 @@ Configuration pages can be shared publicly or protected by sign-in. Configuratio
 
 ## Manage users
 
-You can view and administer registered users in **Users &gt; Registered Users**. You can delete users or their keys as necessary.
+You can view and administer registered users in **Users &gt; Registered Users**. You can delete users or remove authorizations as necessary.
 
 ## Manage keys
 
