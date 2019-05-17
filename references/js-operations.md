@@ -43,7 +43,7 @@ Runs any number of operations in parallel and waits for all to complete, or any 
 
 | Argument | Type |  |
 | :--- | :--- | :--- |
-| operations | Array<Object> | an array of descriptor objects, each describing one of the operations to run in parallel |
+| operations | Array&lt;Object&gt; | an array of descriptor objects, each describing one of the operations to run in parallel |
 
 Each descriptor object has the following properties:
 
