@@ -6,7 +6,7 @@ layout: docs.mustache
 
 ## Configure sign-in
 
-Hosted apps can be shared publicly or protected by sign-in. Hosted apps protected by sign-in can whitelist specific Google GSuite domains or specific users.
+Configuration pages can be shared publicly or protected by sign-in. Configuration pages are protected by sign-in can whitelist specific Google GSuite domains or specific users.
 
 1. Navigate to **Users &gt; User Configuration**.
 2. Click **Restrict to specific whitelisted domains and users**.
