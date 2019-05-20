@@ -62,6 +62,7 @@ Note: reference material for each data connector can additionally be viewed in t
 * [Google Maps](../connectors/google-maps-documentation)
 * [Google Photos](../connectors/google-photos-documentation)
 * [Google Sheets](../connectors/google-sheets-documentation)
+* [Google Translate](../connectors/google-translate-documentation)
 
 ## H
 
