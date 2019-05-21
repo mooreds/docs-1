@@ -42,19 +42,18 @@ Below are examples of how you would use the different types of schemas:
 3. Boolean type: Your application is the same as above, and you want the user to select whether or not their emails should contain gifs.
 4. Options type (see below): Your application posts Slack messages and you want the user to select which of their Slack channels to post to.
 
-Settings can be hidden from the user by unchecking the `Show on user settings page` box. You would do this if you want to set the setting yourself. For example, you could programmatically store the user's Slack username from their credential. You could also have a hidden setting to mark certain users as power users of your application, and use the **Registered Users** interface to manually set this setting.
+Settings can be hidden from the user by unchecking `Show on user settings page`. Some use cases for hidden settings are: programmatically storing the user's Slack username from their credential, or having a hidden setting to mark certain users as power users (and using the **Registered Users** interface to manually set the setting).
 
-You will have your development copy of these settings, identical to what your users will see, under **Code &gt; Development &gt; Auth & user settings**
-If you don't see your expected settings, go back to **User Configuration** and double check that the setting was saved and its visibility is as expected.
+Your development copy of these settings, identical to what your users will see, is under **Code &gt; Development &gt; Auth & user settings**.
 
-Visit [the JavaScript operation documentation](/docs/references/js-operations.md) on how to programmatically access a user setting.
+Visit the [JavaScript operation documentation](/docs/references/js-operations.md) on how to programmatically access a user setting.
 
 ## Operation-generated settings 
 
-Use an options type schema if you would like to limit the user's input to a set of options. The selected operation will return an array of objects, each with properties `displayName` and `value`. The set of options can be static; for example, a list of colors mapped to hex codes. They can also be dynamic; for example, generating a list of the user's slack channels mapped to channel ids. In the dynamic case, you can first check (in JavaScript) if the user is authenticated by calling `api.isAuthed(<data connection>)` and throwing an error if they are not.
+Use an options type schema to limit the user's input to a set of options. The selected operation will return an array of objects, each with properties `displayName` and `value`. The set of options can be static; for example, a list of colors mapped to hex codes. They can also be dynamic; for example, generating a list of the user's slack channels mapped to channel ids. In the dynamic case, you can check (in JavaScript) if the user is authenticated by calling `api.isAuthed("<data connection>")` and throwing an error if they are not.
 
-1. Navigate to **Code &gt; Operations** and create operation of `User Setting Options` type
+1. Navigate to **Code &gt; Operations** and create an operation with the `User Setting Options` template
 2. Commit your code
 3. Create a user setting schema of type `options`
 4. Select your newly-created operation in the dropdown
-5. Save your changes by clicking **Save All**.
+5. Save your changes
