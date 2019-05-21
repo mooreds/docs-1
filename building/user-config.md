@@ -1,6 +1,6 @@
 ---
 id: user-config
-title: User Configuration
+title: User configuration
 layout: docs.mustache
 ---
 
