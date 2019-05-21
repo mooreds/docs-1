@@ -61,7 +61,7 @@ Click the **Run** button to run your operation. You should see a number of resul
   ...
 ]
 ```
-(For some reaspon the Slack API often returns one less than the limit specified)
+(For some reason the Slack API often returns one less than the limit specified)
 
 ## Filtering results
 
