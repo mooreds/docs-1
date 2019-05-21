@@ -4,9 +4,9 @@ title: Quickstart
 layout: docs.mustache
 ---
 
-Transposit is a zero-ops platform that lets developers instantly connect to and compose with APIs.
+Transposit is an API composition platform that brings the power of a relational database to the API ecosystem.
 
-In this quickstart, we’re going to build a slash command in Slack that connects to an external data source. Slack commands trigger an app and display a custom response. Our command will display a random image of a dog&mdash;you can modify it later to work with cats, Pokemon, your calendar, updates from Github, or whatever data you want.
+In this quickstart guide, you'll use Transposit to build a custom Slack bot that provides a personalized experience with Google Calendar for your team.
 
 You can also [watch this in a short video](https://www.youtube.com/watch?v=VLvjSh1fkp0):
 
@@ -14,93 +14,144 @@ You can also [watch this in a short video](https://www.youtube.com/watch?v=VLvjS
 
 ## What you'll need
 
-You'll need a Transposit account and a Slack account for this quickstart.
+Before you get building, you'll need a Transposit account and a Slack account.
 
-## 1. Create a new application
+## Create a new application
 
-To begin a new project, [sign in to Transposit](http://console.transposit.com), and create a new _application_. A Transposit application is our unit of work&mdash;it holds the logic we'll build, connections to other APIs, authorization keys, user management, and deployment configuration.
+To begin, [visit this list of sample apps](https://www.transposit.com/apps/), choose **Slackbot helper**, fork it and name your new copy `calendar_bot`.
 
-Create your new application and name it _slack_dog_. Now you should see the Transposit code editor and tools you’ll be using to build with Transposit.
+## Add a production key
 
-## 2. Create a new webhook
+Add a credential available to all users of your app: go to **Deploy > Production Keys** and add a production key for the data connection `slack_bot`.
 
-We'll use a webhook operation to receive events from Slack. Slack will invoke this when a user types your slash command.
+## Prepare a webhook
 
-* Click on the plus icon next to **Operations** and select webhook.
+Next, go to **Deploy > Endpoints**, and copy the webhook URL for the operation `webhook`. You'll need this to configure Slack in the next step.
 
-Transposit's hosting also requires sign-in by default so that only you and the people you've authorized can view your application.
+## Set up the Slack slash command
 
-Webhook operations are pre-configured with an `http_event` parameter that contains information from the HTTP event such as body and query parameters.
+Visit [the Slack apps page](https://api.slack.com/apps), and create a new app. Give the new app a name something like **Calendar Helper**.
 
-## 3. Add a data connection
+Select **Slash Commands** from the list of features, choose **Create New Comamnd** and create a new command called `/calendar`.
 
-Transposit comes with a number of pre-built data connectors, including one to the dog API. To give your application access to the dog API, you first need to add a data connection.
+For the **Request URL**. paste in the webhook URL copied in the previous step, give the command a short description such as "List my day's events", and be sure to save.
 
-* Click on the plus icon next to **Data connections** to add a data connection.
-* Search for _dog_ceo_ and select it.
-* Select operation none since you will be using the javascript API in our webhook for this example
-* Save
+When your slash command is created, choose **Install App** and install the Slack app into your workspace.
 
-If a data connetion requires authentication, you'd be prompted to authenticate, but this one is public.
+## Test in Slack
 
-## 4. Implement your webhook
+Back in your Slack workspace, you can now type `/calendar` (or whatever you titled the command) and see that it's installed and working, and that some additional setup is needed.
 
-Next you’re going to modify your webhook operation to return a Slack message with a random dog image as an attachment. You will use the Slack `image_url` attachment type to post the image. The `api.run()` method lets you invoke operations in your own application or data connections. Here you’ll use it on dog_ceo’s operation `get_random_dog`.
+## Set up user configuration
 
-* Select your newly created webhook operation
-* Replace the JavaScript with the following code:
+Return to Transposit, and navigate to **User > User Configuration**. Here you can specify who has access to the app, and choose what data connections users must authenticate. Ensure that the `slack_identity` connection is set to require user authentication.
+
+At the top, you'll see the URL for the app's user configuration page. 
+
+## Authorize as a user
+
+Visit the app's user configuration page the URL above, sign in, and connect Slack.
+
+Return to your Slack workspace, type the slash command again, and you'll see that the app knows who you are on Transposit.
+
+## Connect your calendar
+
+Now that the Slack bot is working, get it talking to calendars.
+
+Return to the app's code in the Transposit console, and add the Google Calendar data connector, with the operation `get_calendar_events`. The new operation contains a scaffold for how to use SQL to get calendar events. Note that you need to supply the calendar ID, start time, and end time.
+
+In this app, we want the user to select which calendar to use, so add a new operation that's a **User Setting Options** type, paste in the following code, and commit to save:
 
 ```javascript
-({ http_event }) => {
-  return {
-    status_code: 200,
-    headers: { "Content-Type": "application/json" },
-    body: {
-      attachments: [{
-        image_url: api.run('dog_ceo.get_random_dog')[0].message
-      }]
-    }
-  };
+(params) => {
+  if (api.isAuthed('google_calendar')) {
+    return api.run('google_calendar.get_calendarlist').map((l) => {
+      return {value: l.id, displayName: l.summary};
+    });
+  } else {
+    return [
+      {
+        "value": "primary",
+        "displayName": "Primary"
+      }
+    ];
+  }
 }
 ```
 
-* Click the **Run** button to test your operation.
-* Click the **Commit** button to commit your code.
+Then, go to **Users > User Configuration** and check the box to require users to authenticate with Google Calendar.
 
-## 4. Deploy your operation
+At the bottom of the page in the user settings schema, add a new item of type Options, set the **Name** to `calendar_id`, and specify that it use the `options` operation just previously created.
 
-You'll need to deploy your operation so that the http endpoint is publicly available.
+To try this out, visit the user configuration page again, refresh, and if your calendar connection is authorized you'll see a list of your calendars to select.
 
-* Navigate to the **Deploy** tab.
-* Find your webhook operation and select Deploy.
-* Check the _Require API Key_ checkbox for additional security as well as _Deploy as webhook_.
-* Save your changes.
-* Copy the URL for the deployed endpoint so that we can configure it in Slack.
+## Specify start and end times
 
-## 5. Setup the Slack application
+Create a new JavaScript operation that you'll use to specify calendar start and end time. In the operation properties, name the operation `get_day_start_end`.
 
-Next, let's create a new Slack app to call our webhook.
+You can use the `api.run` command to call Google Calendar to get the calendar timezone, and you can access the configured `calendar_id` through the `user_setting` API. Paste this code into the new operation:
 
-* Go to [slack's application page](https://api.slack.com/apps).
-* Create a new slack app and name it _dog_app_.
-* Select “Slash commands” from the list of features.
-* Create a new command and name it _/dog_.
-* Where it asks for a Request URL, paste the url for our webhook from the previous step.
-* Optionally set a description such as _Give me a random dog image please!_.
-* Save your new command.
-* Install the application into your workspace.
+```javascript
+(params) => {
+  let moment = require('moment-timezone-with-data.js');  
+  let timezone = api.run('google_calendar.get_calendar',
+ {calendarId: user_setting.get('calendar_id')})[0].timeZone;
+  let today = moment().tz(timezone);
+  return {
+    start: today.startOf('day').format(),
+    end: today.endOf('day').format()    
+  }
+}
+```
 
-## 6. Putting it all together
+> **Note:** When you're in development mode, you must to provide authorizations and settings separate from those used in production. To do this, go to the **Auths and User Settings** section in the Code view. 
 
-Now go to Slack to see it in action.
+When you've added authorizations for using the data connections in development, run the operation to make sure it works.
 
-* Go to the Slack workspace where you installed your dog app.
-* Type `/dog` in any channel.
-* See a random picture of a dog!
+## Putting it all together
 
-## 7. Beyond the Quickstart
+Go back to the `get_calendar_events` operation you created earlier, add a parameter with the name `calendarId` and a default value of “primary", and then paste the following operation code:
 
-There's a lot more you can do with Transposit’s powerful relational engine. Please check out our docs to learn more!
+```sql
+SELECT summary FROM google_calendar.get_calendar_events as E
+  JOIN this.get_day_start_end AS T
+  ON E.timeMin=T.start
+  AND E.timeMax=T.end
+  AND E.singleEvents=true
+  WHERE E.calendarId=@calendarId
+  LIMIT 100
+```
+
+Next, edit the `found` operation (already in the application when you forked it) so it returns calendar events for the day, or tells you if you have no events:
+
+```javascript
+({slackBody}) => {
+  let events = api.run('this.get_calendar_events', {
+  calendarId: user_setting.get('calendar_id')
+}).map((e) => e.summary).join('\n');
+  let post = {
+    channel: slackBody.channel_id,
+    user: slackBody.user_id,
+    text: `You've run the slack command`,
+    blocks: [{
+      "type": "section",
+      "text": {
+        "type": "mrkdwn",
+        "text": events === '' ? 'You have no events today' : events
+      },
+    }]
+  }
+  return api.run('slack_bot.post_chat_ephemeral', {$body: post});
+}
+```
+
+Commit the code, return to your Slack workspace, and try it out. You should receive a list of the day's calendar events, or a message saying you don't have any events.
+
+## Beyond the Quickstart
+
+It's easy to build bots for your team, but there's a lot more you can do with Transposit’s powerful relational engine; imagine connecting in APIs from JIRA, AWS, GitHub, Airtable and more.
+
+Check out other [sample apps](https://www.transposit.com/apps/) and [documentation](https://www.transposit.com/docs/) to learn more, including:
 
 * [Integrating multiple data sources together](/docs/get-started/sql-quickstart)
 * [Data connectors currently available](/docs/references/data-connectors)
