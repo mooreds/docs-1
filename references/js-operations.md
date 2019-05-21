@@ -167,6 +167,27 @@ api.auths("myDataConnection");
 // => { "mySecret": "REVBREJFRUY="}
 ```
 
+## Is Authed
+
+`api.isAuthed(dataConnection)`
+
+Checks if a credential has been provided for a data connection that uses any type of authentication.
+
+| Argument | Type |  |
+| :--- | :--- | :--- |
+| dataConnection | String | The name of the data connection to check for credentials |
+
+**Returns** \(Boolean\): True if a credential has been provided for the data connection; false otherwise
+
+**Example**
+
+```javascript
+api.isAuthed("dataConnectionWithAuth");
+// => true
+api.isAuthed("dataConnectionWithoutAuth");
+// => false
+```
+
 ## Log
 
 `api.log([objects])`
