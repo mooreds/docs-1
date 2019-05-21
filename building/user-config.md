@@ -50,7 +50,7 @@ Visit the [JavaScript operation documentation](/docs/references/js-operations.md
 
 ## Operation-generated settings 
 
-Use an options type schema to limit the user's input to a set of options. The selected operation will return an array of objects, each with properties `displayName` and `value`. The set of options can be static; for example, a list of colors mapped to hex codes. They can also be dynamic; for example, generating a list of the user's slack channels mapped to channel ids. In the dynamic case, you can check (in JavaScript) if the user is authenticated by calling `api.isAuthed("<data connection>")` and throwing an error if they are not.
+Use an options type schema to limit the user's input to a set of options. The selected operation will return an array of objects, each with properties `displayName` and `value`. The set of options can be static; for example, a list of colors mapped to hex codes. They can also be dynamic; for example, generating a list of the user's Slack channels mapped to channel ids. In the dynamic case, you can check (in JavaScript) if the user is authenticated by calling `api.isAuthed("<data connection>")` and throwing an error if they are not.
 
 1. Navigate to **Code &gt; Operations** and create an operation with the `User Setting Options` template
 2. Commit your code
