@@ -48,6 +48,7 @@ Note: reference material for each data connector can additionally be viewed in t
 ## G
 
 * [GCP BigQuery](../connectors/gcp-bigquery-documentation)
+* [GCP Cloud Natural Language](../connectors/gcp-cloud-natural-language-documentation)
 * [GCP Cloud Storage](../connectors/gcp-cloud-storage-documentation)
 * [Giphy](../connectors/giphy-documentation)
 * [GitHub](../connectors/github-documentation)
