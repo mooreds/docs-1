@@ -207,6 +207,59 @@ api.log("logging the following greeting:", {"Hello", "World"})
 // => logging the following greeting: { Hello: World }
 ```
 
+# User Settings
+
+Transposit operations can programmatically access user settings.
+
+## get
+
+`user_setting.get(name)`
+
+Retrieves the saved user setting value for the logged in user.
+
+| Argument | Type |  |
+| :--- | :--- | :--- |
+| name | String | the name of the user setting |
+
+**Returns** (String/Number/Boolean/null): Returns a JavaScript value matching the type defined in the user setting schema. If no user value exists, returns the default value as defined in the user setting schema. If no default value exists, returns `null`.
+
+**Examples**
+
+```javascript
+user_setting.get("stringSetting");
+// => "This is some arbitrary string"
+user_setting.get("numberSetting");
+// => 12345
+user_setting.get("booleanSetting");
+// => true
+user_setting.get("unsetOrNonexistent");
+// => null
+```
+
+## put
+
+`user_setting.put(name, value)`
+
+Saves (or deletes) a user setting value for the logged in user.
+| Argument | Type |  |
+| :--- | :--- | :--- |
+| name | String | the name of the user setting |
+| value | String/Number/Boolean/null | the value of the user setting; the value type must match the type defined in the user setting schema; putting a `null` value is semantically equivalent to deleting a value |
+
+**Examples**
+
+```javascript
+// Save values
+user_setting.put("stringSetting", "This is some arbitrary string");
+user_setting.put("numberSetting", 12345);
+user_setting.put("booleanSetting", true);
+
+// Delete values
+user_setting.put("stringSetting", null);
+user_setting.put("numberSetting", null);
+user_setting.put("booleanSetting", null);
+```
+
 # Timing Events
 
 Transposit operations can leverage canonical [JavaScript Timing Events](https://www.w3schools.com/js/js_timing.asp).
