@@ -25,35 +25,35 @@ Each data connection in your application can either reference a production key t
 
 ## Custom UI for user settings
 
-An automatically generated user settings page will be sufficient for most of your Transposit use cases. If your application requires a UI, you'll want to select the **Advanced (custom page template)** option.
+An automatically generated user settings page will be sufficient for many Transposit applications. If your application requires custom UI for app settings, you have the option of selecting **Advanced (custom page template)**.
 
-With the "Advanced" user settings page, you will modify the HTML and JavaScript provided in **Code &gt; Page template** to create your own form for accepting user settings input and calling Transposit operations. For complex frontends, this mode can be a great starting point when prototyping.
+With the advanced user settings page, you can modify the HTML and JavaScript provided in **Code &gt; Page template** to create your own forms for accepting user settings input and calling Transposit operations. For complex front ends, this can be a great starting point when prototyping.
 
-For even more control, it is possible to host your app with a third-party and use Transposit as a backend. These apps can interface with Transposit via our [JavaScript SDK](/docs/building/js-sdk) or by directly invoking [HTTP endpoints](/docs/building/endpoints).
+For even more control, it is possible to host your app's frontend with a third party and use Transposit as a backend. Apps can interface with Transposit via the [JavaScript SDK](/docs/building/js-sdk) or by directly invoking [HTTP endpoints](/docs/building/endpoints).
 
 ## User settings schema
 
 For applications requiring user-specific input, you can create a user settings schema under **User &gt; User Configuration &gt; User settings schema**
 
-Below are examples of how you would use the different types of schemas:
+Below are examples of how you might use different types of inputs:
 
-1. String type: Your application modifies a Google spreadsheet and a spreadsheet id is provided by each user.
-2. Number type: Your application provides email digests to your users and you want each user to specify how many times a week to be emailed.
-3. Boolean type: Your application is the same as above, and you want the user to select whether or not their emails should contain gifs.
-4. Options type (see below): Your application posts Slack messages and you want the user to select which of their Slack channels to post to.
+* String type: Your application modifies a Google spreadsheet and a spreadsheet id is provided by each user.
+* Number type: Your application provides email digests to your users and you want each user to specify how many times a week to be emailed.
+* Boolean type: Your application is the same as above, and you want the user to select whether or not their emails should contain gifs.
+* Options type (see below): Your application posts Slack messages and you want the user to select which of their Slack channels to post to.
 
-Settings can be hidden from the user by unchecking `Show on user settings page`. Some use cases for hidden settings are: programmatically storing the user's Slack username from their credential, or having a hidden setting to mark certain users as power users (and using the **Registered Users** interface to manually set the setting).
+Settings can be hidden from the user by unchecking `Show on user settings page`. Some example use cases for hidden settings are: programmatically storing the user's Slack username from their credential, or having a hidden setting to mark certain users as power users (and using the **Registered Users** interface to manually toggle the setting).
 
-Your development copy of these settings, identical to what your users will see, is under **Code &gt; Development &gt; Auth & user settings**.
+Your development environment interface for these settings, identical to what your users will see, is found under **Code &gt; Development &gt; Auth & user settings**.
 
-Visit the [JavaScript operation documentation](/docs/references/js-operations.md) on how to programmatically access a user setting.
+Visit the [JavaScript operation documentation](/docs/references/js-operations) for info on programmatically accessing user settings.
 
 ## Operation-generated settings 
 
-Use an options type schema to limit the user's input to a set of options. The selected operation will return an array of objects, each with properties `displayName` and `value`. The set of options can be static; for example, a list of colors mapped to hex codes. They can also be dynamic; for example, generating a list of the user's Slack channels mapped to channel ids. In the dynamic case, you can check (in JavaScript) if the user is authenticated by calling `api.isAuthed("<data connection>")` and throwing an error if they are not.
+Use an `options` type to limit the user's input to a set of options. The selected operation will return an array of objects, each with properties `displayName` and `value`. The set of options can be static — a list of colors mapped to hex codes, for example. They can also be dynamic — generating a list of the user's Slack channels mapped to channel IDs, for example. In the dynamic case, you can check (in JavaScript) if the user is authenticated by calling `api.isAuthed("<data connection>")` and throwing an error if they are not.
 
 1. Navigate to **Code &gt; Operations** and create an operation with the `User Setting Options` template
 2. Commit your code
-3. Create a user setting schema of type `options`
+3. Create a user setting of type `options`
 4. Select your newly-created operation in the dropdown
 5. Save your changes
