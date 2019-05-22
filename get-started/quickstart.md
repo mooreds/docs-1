@@ -8,10 +8,6 @@ Transposit is an API composition platform that brings the power of a relational 
 
 In this quickstart guide, you'll use Transposit to build a custom Slack bot that provides a personalized experience with Google Calendar for your team.
 
-You can also [watch this in a short video](https://www.youtube.com/watch?v=VLvjSh1fkp0):
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/VLvjSh1fkp0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
 ## What you'll need
 
 Before you get building, you'll need a Transposit account and a Slack account.
