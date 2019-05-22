@@ -50,6 +50,7 @@ Note: reference material for each data connector can additionally be viewed in t
 * [GCP BigQuery](../connectors/gcp-bigquery-documentation)
 * [GCP Cloud Natural Language](../connectors/gcp-cloud-natural-language-documentation)
 * [GCP Cloud Storage](../connectors/gcp-cloud-storage-documentation)
+* [GCP Cloud Vision](../connectors/gcp-cloud-vision-documentation)
 * [Giphy](../connectors/giphy-documentation)
 * [GitHub](../connectors/github-documentation)
 * [Google Analytics](../connectors/google-analytics-documentation)
