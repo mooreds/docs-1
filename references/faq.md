@@ -2,6 +2,7 @@
 id: faq
 title: FAQ
 layout: docs.mustache
+tags: doc
 ---
 
 ## Getting Help

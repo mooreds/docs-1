@@ -1,16 +1,12 @@
 ---
 id: editor-shortcuts
-title: Editor shortcuts
-layout: docs.mustache
+title: Editor Shortcuts
 tags: doc
 ---
 
-Note: shortcuts are very similiar to Sublime shortcuts
-
-#### Common issues
-- Scroll down full length of code inside editor before using browser's Cmd-F/Ctrl-F search
-- Keybinds may conflict with other existing shortcuts (operating system, browser, etc..)
-	- Unbind other shortcuts to use these
+`These may appear suspiciously similiar to sublime key bindings...`
+`Scroll down full length of code inside editor before using browser's Cmd-F/Ctrl-F search`
+`Keybinds may conflict with operating system shortcuts, unbind system's keypresses to use these`
 
 ## Mac
 
@@ -36,6 +32,11 @@ Note: shortcuts are very similiar to Sublime shortcuts
 | Cmd-/ | Comment out lines |
 | Cmd-J | Join with next line |
 | Shift-Cmd-D | Duplicate line |
+| F5 | Sort lines |
+| Cmd-F5 | Sort lines insensitively |
+| F2 | Next bookmark |
+| Shift-F2 | Previous bookmark |
+| Cmd-F2 | Toggle bookmark |
 | Shift-Cmd-F2 | Clear bookmarks |
 | Alt-F2 | Select bookmarks |
 | Backspace | Smart backspace |
@@ -44,9 +45,6 @@ Note: shortcuts are very similiar to Sublime shortcuts
 | Cmd-K --> Cmd-U | Uppercase at cursor |
 | Cmd-K --> Cmd-L | Lowercase at cursor |
 | Cmd-K --> Cmd-Space | Set bookmark  |
-| F2 | Next bookmark |
-| Shift-F2 | Previous bookmark |
-| Cmd-F2 | Toggle bookmark |
 | Cmd-K --> Cmd-A | Go to bookmark  |
 | Cmd-K --> Cmd-W | Delete bookmark |
 | Cmd-K --> Cmd-X | Swap bookmark |
@@ -93,32 +91,34 @@ Note: shortcuts are very similiar to Sublime shortcuts
 | Ctrl-/ | Comment out lines |
 | Ctrl-J | Join lines |
 | Shift-Ctrl-D | Duplicate line |
+| F9 | Sort lines |
+| Ctrl-F9 | Sort lines insensitive |
 | F2 | Next bookmark |
 | Shift-F2 | Previous bookmark |
 | Ctrl-F2 | Toggleb bookmark |
 | Shift-Ctrl-F2 | Clear bookmarks |
 | Alt-F2 | Select bookmarks |
 | Backspace | Smart Backspace |
-| Ctrl-K --> Ctrl-K | Delete line right |
-| Ctrl-K --> Ctrl-Backspace | Delete line left |
-| Ctrl-K --> Ctrl-U | Upppercase at cursor |
-| Ctrl-K --> Ctrl-L | Lowercase at cursor |
-| Ctrl-K --> Ctrl-Space | Set bookmark |
-| Ctrl-K --> Ctrl-A | Go to bookmark |
-| Ctrl-K --> Ctrl-W | Delete bookmark |
-| Ctrl-K --> Ctrl-X | Swap bookmark |
-| Ctrl-K --> Ctrl-Y | Yank |
-| Ctrl-K --> Ctrl-C | Show in center |
-| Ctrl-K --> Ctrl-G | Clear bookmarks |
-| Ctrl-K --> Ctrl-0 | Unfold all |
-| Ctrl-K --> Ctrl-J | Unfold all |
+| Ctrl-K Ctrl-K | Delete line right |
+| Ctrl-K Ctrl-Backspace | Delete line left |
+| Ctrl-K Ctrl-U | Upppercase at cursor |
+| Ctrl-K Ctrl-L | Lowercase at cursor |
+| Ctrl-K Ctrl-Space | Set bookmark |
+| Ctrl-K Ctrl-A | Go to bookmark |
+| Ctrl-K Ctrl-W | Delete bookmark |
+| Ctrl-K Ctrl-X | Swap bookmark |
+| Ctrl-K Ctrl-Y | Yank sublimeYank |
+| Ctrl-K Ctrl-C | Show in center |
+| Ctrl-K Ctrl-G | Clear bookmarks |
+| Ctrl-K Ctrl-0 | Unfold all |
+| Ctrl-K Ctrl-J | Unfold all |
 | Ctrl-Alt-Up | Put cursor on previous line |
 | Ctrl-Alt-Down | Put cursor on next line |
 | Ctrl-F3 | Find under |
 | Shift-Ctrl-F3 | Find under previous |
 | Alt-F3 | Find under all |
-| Shift-Ctrl-[ | Fold |
-| Shift-Ctrl-] | Unfold |
+| Shift-Ctrl-[ | Fold fold |
+| Shift-Ctrl-] | Unfold unfold |
 | Ctrl-I | Find incremental |
 | Shift-Ctrl-I | Find incremental reverse |
 | Ctrl-H | Replace replace |

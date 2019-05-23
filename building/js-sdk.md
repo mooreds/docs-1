@@ -2,6 +2,7 @@
 id: js-sdk
 title: JavaScript SDK
 layout: docs.mustache
+tags: doc
 ---
 
 Use the [Transposit JavaScript SDK](https://github.com/transposit/transposit-js-sdk) to call operations from a web app.

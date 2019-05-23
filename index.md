@@ -2,6 +2,7 @@
 id: introduction
 title: Introduction
 layout: docs.mustache
+tags: doc
 ---
 
 Transposit is an end-to-end solution for building production-ready applications on top of APIs. With Transposit's relational engine, you can use SQL and JavaScript to join, filter and transform your data, wherever it lives, in an interactive interface. Transposit will handle for you the complexities of authentication, retries, caching, and optimized execution. Your client application can interact with Transposit through a JavaScript client or plain HTTP.

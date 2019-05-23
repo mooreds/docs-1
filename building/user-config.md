@@ -2,6 +2,7 @@
 id: user-config
 title: User configuration
 layout: docs.mustache
+tags: doc
 ---
 
 On the User Configuration page, you can specify how users will interact with your app.

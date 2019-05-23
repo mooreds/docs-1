@@ -2,6 +2,7 @@
 id: google-push-notifications
 title: Google push notifications
 layout: docs.mustache
+tags: doc
 ---
 
 To use Google's push notifications, use the instructions below.

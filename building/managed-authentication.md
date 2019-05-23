@@ -2,6 +2,7 @@
 id: managed-authentication
 title: Managed authentication
 layout: docs.mustache
+tags: doc
 ---
 
 One of Transposit’s powerful features is the way it can manage authentication for you, the app developer, and for your app's end users. Here are high-level explanations for what's meant by _managed auth_ and how it gives you freedom to develop applications without the burden of hard-coding authentication logic into every app.

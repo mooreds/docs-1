@@ -2,6 +2,7 @@
 id: connect-to-jira
 title:  Connect a Transposit application to Jira
 layout: docs.mustache
+tags: doc
 ---
 
 You will need to register your Transposit application as an OAuth consumer to connect it to Jira. After, you can authenticate with your Jira account and interact with the Jira API.

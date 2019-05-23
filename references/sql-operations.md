@@ -2,6 +2,7 @@
 id: sql-operations
 title:  SQL operations
 layout: docs.mustache
+tags: doc
 ---
 
 ## Terms
