@@ -1416,3 +1416,12 @@ SELECT * FROM
 LIMIT 10
 ```
 In this case, the limit passed to `connection.operation`'s `pageSize` parameter is 8.
+
+## INSERT, UPDATE and DELETE Statements
+
+In Transposit when you use SQL to execute operations we use SELECT for all queries. This can be a little confusing when the underlying operation modifies or deletes data. Rather than trying to guess the most natural command, we picked SELECT — but provide a helpful conversion from other commands if you happen to try one. SQL is a powerful language for working with APIs, but the concepts don’t always mesh cleanly. SELECT provides a simple mapping on APIs and allows for powerful use of JOIN syntax, not typically available for other SQL commands.
+
+Additional notes:
+
+* What about mapping HTTP methods to SQL commands? When you think about SQL and APIs it’s tempting to draw a relationship between SQL commands and API HTTP methods: GET is a natural match for SELECT; DELETE for DELETE. POST is probably closest to INSERT and PATCH and PUT map to UPDATE. This demonstrates the first obvious problem: HTTP methods are not always used consistently and what makes sense to the API vendor might surprise the API consumer (and us too!). We might reasonably expect to see a PUT as an INSERT or a POST as an UPDATE. Some APIs use POST to fetch data, a situation where you might expect to use SELECT. There’s no translation that’s obviously right for all APIs and in all circumstances.
+* In the same way that you execute API requests from SQL operations, you can also execute other Transposit operations, and these other operations can execute different APIs based on custom logic — for example, an operation can create or update an item based on an input parameter or based on another API call — and therefore Transposit operations are not mapped to individual HTTP methods.
