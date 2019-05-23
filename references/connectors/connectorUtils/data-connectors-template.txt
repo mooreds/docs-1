@@ -1,6 +1,7 @@
 ---
 id: data-connectors
 title: Connector documentation
+tags: doc
 layout: docs.mustache
 ---
 
