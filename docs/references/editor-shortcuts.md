@@ -1,6 +1,7 @@
 ---
 id: editor-shortcuts
 title: Editor Shortcuts
+tags: doc
 ---
 
 `These may appear suspiciously similiar to sublime key bindings...`

@@ -2,6 +2,7 @@
 id: terms
 title: Terms & basics
 layout: docs.mustache
+tags: doc
 ---
 
 ## Applications

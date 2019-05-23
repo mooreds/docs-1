@@ -2,6 +2,7 @@
 id: keys-and-keychains
 title: Keys and Keychains
 layout: docs.mustache
+tags: doc
 ---
 
 Transposit stores authentication in the form of Keys and Keychains. For a high-level explanation, read about how we've designed [managed authentication in Transposit](/docs/building/managed-authentication).

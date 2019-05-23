@@ -2,6 +2,7 @@
 id: js-operations
 title: JavaScript operations
 layout: docs.mustache
+tags: doc
 ---
 
 # API Object

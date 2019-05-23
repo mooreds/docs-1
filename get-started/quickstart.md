@@ -2,6 +2,7 @@
 id: quickstart
 title: Quickstart
 layout: docs.mustache
+tags: doc
 ---
 
 Transposit is an API composition platform that brings the power of a relational database to the API ecosystem.

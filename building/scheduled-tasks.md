@@ -2,6 +2,7 @@
 id: scheduled-tasks
 title: Scheduled tasks
 layout: docs.mustache
+tags: doc
 ---
 
 In Transposit, you can schedule an operation to run once or on a schedule.

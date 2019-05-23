@@ -2,6 +2,7 @@
 id: repository
 title: Application code repository
 layout: docs.mustache
+tags: doc
 ---
 
 Your application's code is stored and versioned in a git repository. You can clone the repository to view diffs or use your own editor tools to modify your application.

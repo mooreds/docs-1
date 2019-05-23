@@ -2,6 +2,7 @@
 id: editor-shortcuts
 title: Editor shortcuts
 layout: docs.mustache
+tags: doc
 ---
 
 Note: shortcuts are very similiar to Sublime shortcuts
