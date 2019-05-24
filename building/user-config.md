@@ -9,12 +9,12 @@ On the User Configuration page, you can specify how users will interact with you
 
 ## Configure sign-in
 
-Your application can be shared publicly or protected by sign-in. Applications protected by sign-in can whitelist specific Google GSuite domains or specific users.
+Your application is protected by sign-in. You can restrict sign-in to specific Google GSuite domains or users.
 
-1. Navigate to **Users &gt; User Configuration &gt; Registration and Login**.
-2. Click **Restrict to specific whitelisted domains and users**.
-3. Specify who is allowed to sign in.
-4. Click **Save**.
+1. Navigate to **Users &gt; User Configuration &gt; Registration and Login**
+2. Click **Restrict to specific whitelisted domains and users**
+3. Specify who is allowed to sign in
+4. Click **Save**
 
 ## Manage users
 
@@ -22,7 +22,7 @@ You can view and administer registered users in **Users &gt; Registered Users**.
 
 ## Manage keys
 
-Each data connection in your application can either reference a production key that you have provided or expect signed-in users to provide their own key. Check the appropriate boxes under **Require users to authenticate with these data connections**. For the rest, navigate to **Deploy &gt; Production Keys** and click **Add key**. 
+Each data connection in your application can either reference a production key that you have provided or expect signed-in users to provide their own key. Check the appropriate boxes under **Require users to authenticate with these data connections**. For the rest, navigate to **Deploy &gt; Production Keys** and click **Add key**.
 
 ## Custom UI for user settings
 
@@ -49,7 +49,7 @@ Your development environment interface for these settings, identical to what you
 
 Visit the [JavaScript operation documentation](/docs/references/js-operations) for info on programmatically accessing user settings.
 
-## Operation-generated settings 
+## Operation-generated settings
 
 Use an `options` type to limit the user's input to a set of options. The selected operation will return an array of objects, each with properties `displayName` and `value`. The set of options can be static — a list of colors mapped to hex codes, for example. They can also be dynamic — generating a list of the user's Slack channels mapped to channel IDs, for example. In the dynamic case, you can check (in JavaScript) if the user is authenticated by calling `api.isAuthed("<data connection>")` and throwing an error if they are not.
 
