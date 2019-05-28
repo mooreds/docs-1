@@ -40,7 +40,7 @@ Endpoints protected by user sign-in are authenticated by session cookies. They m
 
 To protect your endpoint with user sign-in, select **Require user sign-in**.
 
-If you are developing a [hosted app](/docs/building/hosted-apps), configure sign-in to call these endpoints. If you are hosting your own web page, use the [JavaScript SDK](/docs/building/js-sdk).
+If you are developing a [user configuration page](/docs/building/user-config), configure sign-in to call these endpoints. If you are hosting your own web page, use the [JavaScript SDK](/docs/building/js-sdk).
 
 ### Webhook
 
