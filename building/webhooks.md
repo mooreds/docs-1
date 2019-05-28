@@ -18,7 +18,7 @@ Once a Transposit operation is deployed as a webhook, it can be executed at the 
 Deployed webhook Transposit operation URL:
 
 ```text
-https://api.transposit.com/app/{maintainer}/{serviceName}/api/v1/execute-http/{operationId}
+https://{app}.transposit.io/api/v1/execute-http/{operationId}
 ```
 
 ## HTTP Event Information
@@ -67,7 +67,7 @@ function run(params) {
 The return value of the Transposit operation will be repackaged as a standard HTTP response to the HTTP request that executed the webhook:
 
 ```text
-$ curl -i -X POST https://api.transposit.com/app/{maintainer}/{serviceName}/api/v1/execute-http/{operationId}?api_key=abc123xyz -H "Content-Type: text/plain" -d "Hello World"
+$ curl -i -X POST https://{app}.transposit.io/api/v1/execute-http/{operationId}?api_key=abc123xyz -H "Content-Type: text/plain" -d "Hello World"
 ```
 
 ```text
