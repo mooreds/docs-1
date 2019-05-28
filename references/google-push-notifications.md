@@ -15,7 +15,7 @@ To use Google's push notifications, use the instructions below.
 ## Register your Transposit application domain with Google
 
 * Follow the instructions at **Deploy > Site Verification**.
-* Add your newly verified domain: Use the same app url (e.g. `https://console.transposit.com/app/org/app/`) from the previous step and add it [here](https://console.cloud.google.com/apis/credentials/domainverification).
+* Add the newly verified domain to your [Google project](https://console.cloud.google.com/apis/credentials/domainverification).
 
 ## Set up your OAuth2 credentials and enable the service API
 
@@ -26,8 +26,8 @@ where you registered Transposit as a domain above. This means that you cannot us
 ## Tell Transposit to use those OAuth2 credentials
 
 * In your Transposit application, add the data connector for the desired Google service.
-* If not prompted with a button to configure Authentication, click `Cancel` and go to **Code > Data Connections** and find your data connector. 
-* Click **Authentication > Configure**, replace the Client ID and Client secret with the values from the previous step. 
+* If not prompted with a button to configure Authentication, click `Cancel` and go to **Code > Data Connections** and find your data connector.
+* Click **Authentication > Configure**, replace the Client ID and Client secret with the values from the previous step.
 * Save your changes.
 * Click `Add Key` for your connector. You should now see your Google project's consent screen.
 
@@ -47,12 +47,12 @@ Google Calendar example. The `@id` parameter should be a UUID or similar unique 
 SELECT * FROM google_calendar.watch_calendar_events
   WHERE calendarId='primary'
   AND $body=(SELECT {
-    "address" : "https://api.transposit.com/app/name/app_name/api/v1/execute-http/webhook?api_key=XXX",
+    "address" : "https://{app}.transposit.io/api/v1/execute-http/webhook?api_key={key}",
     "type" : "web_hook",
     "token" : "test-token"
   })
   AND $body.id = @id
-  AND $body.params.ttl = "86400" 
+  AND $body.params.ttl = "86400"
 ```
 
 ## Schedule a task to refresh the watch
