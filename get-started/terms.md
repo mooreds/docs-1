@@ -31,9 +31,9 @@ Separately, there is the "front door" to your application, which can have its ow
 
 Transposit provides powerful tools to centrally manage these types of authentication and user management issues, making apps easier to build and faster to deploy.
 
-## Hosted apps
+## User configuration page
 
-To speed up the flow of application development and deploying, Transposit provides basic facilities for hosting a web page for use as access point to your application's front end. Use of this hosting is entirely optional. See also: [Hosted Apps](/docs/building/hosted-apps).
+To speed up the flow of application development and deploying, Transposit provides basic facilities for hosting a web page for use as access point to your application's front end. Use of this hosting is entirely optional. See also: [User configuration](/docs/building/user-config).
 
 ## Users
 
