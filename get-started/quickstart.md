@@ -45,7 +45,7 @@ Back in your Slack workspace, you can now type `/calendar` (or whatever you titl
 
 ## Set up user configuration
 
-Return to Transposit, and navigate to **User > User Configuration**. Here you can specify who has access to the app, and choose what data connections users must authenticate. Ensure that the `slack_identity` connection is set to require user authentication.
+Return to Transposit, and navigate to **User > User Configuration**. Here you can specify who has access to the app, and choose what data connections users must authenticate. Ensure that the `slack_identify` connection is set to require user authentication.
 
 At the top, you'll see the URL for the app's user configuration page. 
 
