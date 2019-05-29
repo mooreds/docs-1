@@ -27,7 +27,7 @@ When deployed as a webhook, the HTTP event information corresponding to the inco
 
 The incoming HTTP event information includes the method type, header parameters, query parameters, and body parameter:
 
-```text
+```json
 {
   "http_method": "POST",
   "body": "Hello World",
@@ -37,6 +37,29 @@ The incoming HTTP event information includes the method type, header parameters,
   },
   "headers": {
     "Content-Type": "text/plain",
+    ...
+  }
+}
+```
+
+If the Content-Type is application/xml, application/x-www-form-urlencoded, or text/xml, the event will
+also include a key called `parsed_body`, which will contain a JSON representation of the query's body:
+
+```json
+{
+  "http_method": "POST",
+  "body": "key1=value1&key2=value2&key3=value%24",
+  "parsed_body": {
+    "key1": "value1",
+    "key2": "value2",
+    "key3": "value&",
+  }
+  "query_parameters": {
+    "api_key": "abc123xyz",
+    ...
+  },
+  "headers": {
+    "Content-Type": "application/x-www-form-urlencoded",
     ...
   }
 }
