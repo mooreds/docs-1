@@ -9,12 +9,10 @@ Use the [Transposit JavaScript SDK](https://github.com/transposit/transposit-js-
 
 ## Configure user sign-in
 
-1. Navigate to **Users &gt; User Configuration &gt; User settings page**
-2. Select **Advanced (custom page template)**
-3. Specify **Successful sign-in URIs**.
-Transposit allows redirection only to these URIs during sign-in. Leave this list empty to redirect users to the  [user settings page](/docs/building/user-config) after signing in.
-4. Optionally, provide a custom **Google Client ID** and **Google Client Secret** pair
-5. Save the configuration
+1. Navigate to **Users &gt; User Configuration**
+2. Specify **Successful sign-in URIs**. Transposit allows redirection only to these URIs during sign-in. Leave this list empty to redirect users to the  [user settings page](/docs/building/user-config) after signing in.
+3. Optionally, provide a custom **Google Client ID** and **Google Client Secret** pair
+4. Save the configuration
 
 # Restrict sign-in
 

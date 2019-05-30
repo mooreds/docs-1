@@ -24,17 +24,9 @@ You can view and administer registered users in **Users &gt; Registered Users**.
 
 Each data connection in your application can either reference a production key that you have provided or expect signed-in users to provide their own key. Check the appropriate boxes under **Require users to authenticate with these data connections**. For the rest, navigate to **Deploy &gt; Production Keys** and click **Add key**.
 
-## Custom UI for user settings
-
-An automatically generated user settings page will be sufficient for many Transposit applications. If your application requires custom UI for app settings, you have the option of selecting **Advanced (custom page template)**.
-
-With the advanced user settings page, you can modify the HTML and JavaScript provided in **Code &gt; Page template** to create your own forms for accepting user settings input and calling Transposit operations. For complex front ends, this can be a great starting point when prototyping.
-
-For even more control, it is possible to host your app's frontend with a third party and use Transposit as a backend. Apps can interface with Transposit via the [JavaScript SDK](/docs/building/js-sdk) or by directly invoking [HTTP endpoints](/docs/building/endpoints).
-
 ## User settings schema
 
-For applications requiring user-specific input, you can create a user settings schema under **User &gt; User Configuration &gt; User settings schema**
+For applications requiring user-specific configuration, you can define a user settings schema at **Users &gt; User Configuration &gt; User settings schema**. Settings marked with `Show on user settings page` will be displayed on the app's user settings page, along with any required data connector authentication.
 
 Below are examples of how you might use different types of inputs:
 
@@ -58,3 +50,11 @@ Use an `options` type to limit the user's input to a set of options. The selecte
 3. Create a user setting of type `options`
 4. Select your newly-created operation in the dropdown
 5. Save your changes
+
+## Custom display of operation results
+
+If your application requires more customization than the automatically-generated user settings page provides, you can select `Use a custom page template (advanced)`.
+
+With a custom page template, you can supply HTML and JavaScript in **Code &gt; Page template** to invoke operations and display results. This can be a great starting point for prototyping application UI.
+
+For even more control, it is possible to host your app's frontend with a third party and use Transposit as a backend. Apps can interface with Transposit via the [JavaScript SDK](/docs/building/js-sdk) or by directly invoking [HTTP endpoints](/docs/building/endpoints).
