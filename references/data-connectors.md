@@ -13,6 +13,7 @@ Note: reference material for each data connector can additionally be viewed in t
 
 * [Airtable](../connectors/airtable-documentation)
 * [Apify Crawler](../connectors/apify-crawler-documentation)
+* [Apify v2](../connectors/apify-v2-documentation)
 * [AWS Athena](../connectors/aws-athena-documentation)
 * [AWS Cloudwatch](../connectors/aws-cloudwatch-documentation)
 * [AWS Cloudwatch Events](../connectors/aws-cloudwatch-events-documentation)

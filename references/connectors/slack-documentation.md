@@ -621,7 +621,7 @@ Start of time range of messages to include in results.
 
 Unique identifier of a thread's parent message.
 
-**Type:** number
+**Type:** string
 
 </details>
 
