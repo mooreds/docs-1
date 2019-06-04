@@ -26,13 +26,14 @@ To use your own client ID and secret:
 
 The following connectors require custom OAuth settings. When you add the connector to your service, you will be prompted to add these settings. Follow the links to create your own developer apps:
 * Google Mail (further down this page)
+* [Lyft](https://www.lyft.com/developers/apps)
+* [Medium](https://help.medium.com/hc/en-us/articles/213480228-Get-integration-token)
 * [Salesforce](https://na50.lightning.force.com/lightning/setup/NavigationMenus/home)
 * [Shopify](https://partners.shopify.com/organizations) (Select an account and click on the "Apps" link in the dashboard)
 * [Survey Monkey](https://developer.surveymonkey.com/apps/)
 
 Below are links to create developer apps (to generate your own OAuth settings) if you do not want to use the Transposit-provided settings:
 * [Github](https://github.com/settings/developers)
-* [Lyft](https://www.lyft.com/developers/apps)
 * [Slack](https://api.slack.com/apps)
 * [Spotify](https://developer.spotify.com/dashboard/applications)
 * [Strava](https://www.strava.com/settings/api)
