@@ -5,11 +5,11 @@ layout: docs.mustache
 tags: doc
 ---
 
-Suppose you have a public JSON bin with data accessible at [the following URL](https://api.jsonbin.io/b/5c5cded2e9e7c118390e07d5): `https://api.jsonbin.io/b/5c5cded2e9e7c118390e07d5`.
+Suppose you have a public API with JSON data accessible at [a URL like this](https://api.jsonbin.io/b/5c5cded2e9e7c118390e07d5): `https://api.jsonbin.io/b/5c5cded2e9e7c118390e07d5`.
 
-Using SwaggerHub or similar editor, you can implement a Swagger file representing this single API endpoint.
+Using SwaggerHub or similar editor, you can implement an OpenAPI (f.k.a. Swagger) file representing this single API endpoint.
 
-To turn a Swagger file into a basic data connector in Transposit:
+To turn an OpenAPI file into a basic data connector in Transposit:
 
 ## 1. Create an application
 
