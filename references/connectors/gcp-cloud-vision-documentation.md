@@ -81,6 +81,14 @@ call.
 
 **Type:** object
 
+#### alt
+
+Data format for response.
+
+**Type:** string
+
+**Potential values:** json, media, proto
+
 #### callback
 
 JSONP
@@ -136,6 +144,14 @@ Multiple async image annotation requests are batched into a single service
 call.
 
 **Type:** object
+
+#### alt
+
+Data format for response.
+
+**Type:** string
+
+**Potential values:** json, media, proto
 
 #### callback
 

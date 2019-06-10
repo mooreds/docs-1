@@ -25,6 +25,20 @@ The metadata for a file.
 
 **Type:** object
 
+#### alt
+
+Data format for the response.
+
+**Type:** string
+
+**Potential values:** json
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
 #### ignoreDefaultVisibility
 
 Whether to ignore the domain's default visibility settings for the created file. Domain administrators can choose to make all uploaded files visible to the domain by default; this parameter bypasses that behavior for the request. Permissions are still inherited from parent folders.
@@ -43,6 +57,12 @@ A language hint for OCR processing during image import (ISO 639-1 code).
 
 **Type:** string
 
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
 #### quotaUser
 
 Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
@@ -54,6 +74,12 @@ Available to use for quota purposes for server-side applications. Can be any arb
 Whether the requesting application supports Team Drives.
 
 **Type:** boolean
+
+#### userIp
+
+IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+**Type:** string
 
 </details>
 
@@ -107,15 +133,35 @@ A reply to a comment on a file.
 
 **Type:** object
 
+#### alt
+
+Data format for the response.
+
+**Type:** string
+
+**Potential values:** json
+
 #### fields
 
 Selector specifying which fields to include in a partial response.
 
 **Type:** string
 
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
 #### quotaUser
 
 Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+
+**Type:** string
+
+#### userIp
+
+IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 **Type:** string
 
@@ -189,9 +235,35 @@ Representation of a Team Drive.
 
 **Type:** object
 
+#### alt
+
+Data format for the response.
+
+**Type:** string
+
+**Potential values:** json
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
 #### quotaUser
 
 Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+
+**Type:** string
+
+#### userIp
+
+IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 **Type:** string
 
@@ -215,9 +287,35 @@ The ID of the file.
 
 **Type:** string
 
+#### alt
+
+Data format for the response.
+
+**Type:** string
+
+**Potential values:** json
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
 #### quotaUser
 
 Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+
+**Type:** string
+
+#### userIp
+
+IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 **Type:** string
 
@@ -247,9 +345,35 @@ The ID of the reply.
 
 **Type:** string
 
+#### alt
+
+Data format for the response.
+
+**Type:** string
+
+**Potential values:** json
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
 #### quotaUser
 
 Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+
+**Type:** string
+
+#### userIp
+
+IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 **Type:** string
 
@@ -267,6 +391,26 @@ The ID of the file.
 
 **Type:** string
 
+#### alt
+
+Data format for the response.
+
+**Type:** string
+
+**Potential values:** json
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
 #### quotaUser
 
 Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
@@ -278,6 +422,12 @@ Available to use for quota purposes for server-side applications. Can be any arb
 Whether the requesting application supports Team Drives.
 
 **Type:** boolean
+
+#### userIp
+
+IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+**Type:** string
 
 </details>
 
@@ -299,6 +449,26 @@ The ID of the permission.
 
 **Type:** string
 
+#### alt
+
+Data format for the response.
+
+**Type:** string
+
+**Potential values:** json
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
 #### quotaUser
 
 Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
@@ -316,6 +486,12 @@ Whether the requesting application supports Team Drives.
 Whether the request should be treated as if it was issued by a domain administrator; if set to true, then the requester will be granted access if they are an administrator of the domain to which the item belongs.
 
 **Type:** boolean
+
+#### userIp
+
+IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+**Type:** string
 
 </details>
 
@@ -337,9 +513,35 @@ The ID of the revision.
 
 **Type:** string
 
+#### alt
+
+Data format for the response.
+
+**Type:** string
+
+**Potential values:** json
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
 #### quotaUser
 
 Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+
+**Type:** string
+
+#### userIp
+
+IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 **Type:** string
 
@@ -357,9 +559,35 @@ The ID of the Team Drive
 
 **Type:** string
 
+#### alt
+
+Data format for the response.
+
+**Type:** string
+
+**Potential values:** json
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
 #### quotaUser
 
 Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+
+**Type:** string
+
+#### userIp
+
+IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 **Type:** string
 
@@ -371,9 +599,35 @@ Permanently deletes all of the user's trashed files.
 
 <details><summary>Parameters</summary>
 
+#### alt
+
+Data format for the response.
+
+**Type:** string
+
+**Potential values:** json
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
 #### quotaUser
 
 Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+
+**Type:** string
+
+#### userIp
+
+IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 **Type:** string
 
@@ -405,11 +659,31 @@ Generates a set of file IDs which can be provided in create requests.
 
 <details><summary>Parameters</summary>
 
+#### alt
+
+Data format for the response.
+
+**Type:** string
+
+**Potential values:** json
+
 #### count
 
 The number of IDs to return.
 
 **Type:** integer
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
 
 #### quotaUser
 
@@ -423,6 +697,12 @@ The space in which the IDs can be used to create new files. Supported values are
 
 **Type:** string
 
+#### userIp
+
+IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+**Type:** string
+
 </details>
 
 ## get_about_drive
@@ -431,15 +711,35 @@ Gets information about the user, the user's Drive, and system capabilities.
 
 <details><summary>Parameters</summary>
 
+#### alt
+
+Data format for the response.
+
+**Type:** string
+
+**Potential values:** json
+
 #### fields
 
 Selector specifying which fields to include in a partial response.
 
 **Type:** string
 
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
 #### quotaUser
 
 Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+
+**Type:** string
+
+#### userIp
+
+IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 **Type:** string
 
@@ -463,15 +763,41 @@ The ID of the file.
 
 **Type:** string
 
+#### alt
+
+Data format for the response.
+
+**Type:** string
+
+**Potential values:** json
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
 #### includeDeleted
 
 Whether to return deleted comments. Deleted comments will not include their original content.
 
 **Type:** boolean
 
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
 #### quotaUser
 
 Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+
+**Type:** string
+
+#### userIp
+
+IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 **Type:** string
 
@@ -501,15 +827,41 @@ The ID of the reply.
 
 **Type:** string
 
+#### alt
+
+Data format for the response.
+
+**Type:** string
+
+**Potential values:** json
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
 #### includeDeleted
 
 Whether to return deleted replies. Deleted replies will not include their original content.
 
 **Type:** boolean
 
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
 #### quotaUser
 
 Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+
+**Type:** string
+
+#### userIp
+
+IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 **Type:** string
 
@@ -533,6 +885,26 @@ Whether the user is acknowledging the risk of downloading known malware or other
 
 **Type:** boolean
 
+#### alt
+
+Data format for the response.
+
+**Type:** string
+
+**Potential values:** json
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
 #### quotaUser
 
 Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
@@ -544,6 +916,12 @@ Available to use for quota purposes for server-side applications. Can be any arb
 Whether the requesting application supports Team Drives.
 
 **Type:** boolean
+
+#### userIp
+
+IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+**Type:** string
 
 </details>
 
@@ -565,6 +943,26 @@ The ID of the permission.
 
 **Type:** string
 
+#### alt
+
+Data format for the response.
+
+**Type:** string
+
+**Potential values:** json
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
 #### quotaUser
 
 Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
@@ -582,6 +980,12 @@ Whether the requesting application supports Team Drives.
 Whether the request should be treated as if it was issued by a domain administrator; if set to true, then the requester will be granted access if they are an administrator of the domain to which the item belongs.
 
 **Type:** boolean
+
+#### userIp
+
+IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+**Type:** string
 
 </details>
 
@@ -609,9 +1013,35 @@ Whether the user is acknowledging the risk of downloading known malware or other
 
 **Type:** boolean
 
+#### alt
+
+Data format for the response.
+
+**Type:** string
+
+**Potential values:** json
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
 #### quotaUser
 
 Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+
+**Type:** string
+
+#### userIp
+
+IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 **Type:** string
 
@@ -622,6 +1052,26 @@ Available to use for quota purposes for server-side applications. Can be any arb
 Gets the starting pageToken for listing future changes.
 
 <details><summary>Parameters</summary>
+
+#### alt
+
+Data format for the response.
+
+**Type:** string
+
+**Potential values:** json
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
 
 #### quotaUser
 
@@ -641,6 +1091,12 @@ The ID of the Team Drive for which the starting pageToken for listing future cha
 
 **Type:** string
 
+#### userIp
+
+IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+**Type:** string
+
 </details>
 
 ## get_team_drive
@@ -655,6 +1111,26 @@ The ID of the Team Drive
 
 **Type:** string
 
+#### alt
+
+Data format for the response.
+
+**Type:** string
+
+**Potential values:** json
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
 #### quotaUser
 
 Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
@@ -667,6 +1143,12 @@ Whether the request should be treated as if it was issued by a domain administra
 
 **Type:** boolean
 
+#### userIp
+
+IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+**Type:** string
+
 </details>
 
 ## list_changes
@@ -674,6 +1156,20 @@ Whether the request should be treated as if it was issued by a domain administra
 Lists the changes for a user or Team Drive.
 
 <details><summary>Parameters</summary>
+
+#### alt
+
+Data format for the response.
+
+**Type:** string
+
+**Potential values:** json
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
 
 #### includeCorpusRemovals
 
@@ -690,6 +1186,12 @@ Whether to include changes indicating that items have been removed from the list
 #### includeTeamDriveItems
 
 Whether Team Drive files or changes should be included in results.
+
+**Type:** boolean
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
 
 **Type:** boolean
 
@@ -723,6 +1225,12 @@ The Team Drive from which changes will be returned. If specified the change IDs 
 
 **Type:** string
 
+#### userIp
+
+IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+**Type:** string
+
 </details>
 
 ## list_comment_replies
@@ -743,6 +1251,14 @@ The ID of the file.
 
 **Type:** string
 
+#### alt
+
+Data format for the response.
+
+**Type:** string
+
+**Potential values:** json
+
 #### fields
 
 Selector specifying which fields to include in a partial response.
@@ -755,9 +1271,21 @@ Whether to include deleted replies. Deleted replies will not include their origi
 
 **Type:** boolean
 
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
 #### quotaUser
 
 Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+
+**Type:** string
+
+#### userIp
+
+IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 **Type:** string
 
@@ -801,6 +1329,14 @@ Lists or searches files.
 
 <details><summary>Parameters</summary>
 
+#### alt
+
+Data format for the response.
+
+**Type:** string
+
+**Potential values:** json
+
 #### corpora
 
 Comma-separated list of bodies of items (files/documents) to which the query applies. Supported bodies are 'user', 'domain', 'teamDrive' and 'allTeamDrives'. 'allTeamDrives' must be combined with 'user'; all other values must be used in isolation. Prefer 'user' or 'teamDrive' to 'allTeamDrives' for efficiency.
@@ -833,6 +1369,12 @@ A comma-separated list of sort keys. Valid keys are 'createdTime', 'folder', 'mo
 
 **Type:** string
 
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
 #### q
 
 A query for filtering the file results. See the "Search for Files" guide for supported syntax.
@@ -860,6 +1402,12 @@ Whether the requesting application supports Team Drives.
 #### teamDriveId
 
 ID of Team Drive to search.
+
+**Type:** string
+
+#### userIp
+
+IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 **Type:** string
 
@@ -903,15 +1451,35 @@ The ID of the file.
 
 **Type:** string
 
+#### alt
+
+Data format for the response.
+
+**Type:** string
+
+**Potential values:** json
+
 #### fields
 
 Selector specifying which fields to include in a partial response.
 
 **Type:** string
 
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
 #### quotaUser
 
 Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+
+**Type:** string
+
+#### userIp
+
+IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 **Type:** string
 
@@ -923,11 +1491,25 @@ Lists the user's Team Drives.
 
 <details><summary>Parameters</summary>
 
+#### alt
+
+Data format for the response.
+
+**Type:** string
+
+**Potential values:** json
+
 #### fields
 
 Selector specifying which fields to include in a partial response.
 
 **Type:** string
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
 
 #### q
 
@@ -947,6 +1529,12 @@ Whether the request should be treated as if it was issued by a domain administra
 
 **Type:** boolean
 
+#### userIp
+
+IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+**Type:** string
+
 </details>
 
 ## stop_channels
@@ -961,9 +1549,35 @@ An notification channel used to watch for resource changes.
 
 **Type:** object
 
+#### alt
+
+Data format for the response.
+
+**Type:** string
+
+**Potential values:** json
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
 #### quotaUser
 
 Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+
+**Type:** string
+
+#### userIp
+
+IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 **Type:** string
 
@@ -993,15 +1607,35 @@ A comment on a file.
 
 **Type:** object
 
+#### alt
+
+Data format for the response.
+
+**Type:** string
+
+**Potential values:** json
+
 #### fields
 
 Selector specifying which fields to include in a partial response.
 
 **Type:** string
 
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
 #### quotaUser
 
 Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+
+**Type:** string
+
+#### userIp
+
+IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 **Type:** string
 
@@ -1037,15 +1671,35 @@ A reply to a comment on a file.
 
 **Type:** object
 
+#### alt
+
+Data format for the response.
+
+**Type:** string
+
+**Potential values:** json
+
 #### fields
 
 Selector specifying which fields to include in a partial response.
 
 **Type:** string
 
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
 #### quotaUser
 
 Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+
+**Type:** string
+
+#### userIp
+
+IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 **Type:** string
 
@@ -1074,6 +1728,26 @@ The ID of the permission.
 A permission for a file. A permission grants a user, group, domain or the world access to a file or a folder hierarchy.
 
 **Type:** object
+
+#### alt
+
+Data format for the response.
+
+**Type:** string
+
+**Potential values:** json
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
 
 #### quotaUser
 
@@ -1105,6 +1779,12 @@ Whether the request should be treated as if it was issued by a domain administra
 
 **Type:** boolean
 
+#### userIp
+
+IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+**Type:** string
+
 </details>
 
 ## update_revision
@@ -1131,9 +1811,35 @@ The metadata for a revision to a file.
 
 **Type:** object
 
+#### alt
+
+Data format for the response.
+
+**Type:** string
+
+**Potential values:** json
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
 #### quotaUser
 
 Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+
+**Type:** string
+
+#### userIp
+
+IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 **Type:** string
 
@@ -1157,9 +1863,35 @@ Representation of a Team Drive.
 
 **Type:** object
 
+#### alt
+
+Data format for the response.
+
+**Type:** string
+
+**Potential values:** json
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
 #### quotaUser
 
 Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+
+**Type:** string
+
+#### userIp
+
+IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 **Type:** string
 
@@ -1182,6 +1914,20 @@ The token for continuing a previous list request on the next page. This should b
 An notification channel used to watch for resource changes.
 
 **Type:** object
+
+#### alt
+
+Data format for the response.
+
+**Type:** string
+
+**Potential values:** json
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
 
 #### includeCorpusRemovals
 
@@ -1206,6 +1952,12 @@ Whether Team Drive files or changes should be included in results.
 The maximum number of changes to return per page.
 
 **Type:** integer
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
 
 #### quotaUser
 
@@ -1237,6 +1989,12 @@ The Team Drive from which changes will be returned. If specified the change IDs 
 
 **Type:** string
 
+#### userIp
+
+IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+**Type:** string
+
 </details>
 
 ## watch_drive_files
@@ -1263,6 +2021,26 @@ Whether the user is acknowledging the risk of downloading known malware or other
 
 **Type:** boolean
 
+#### alt
+
+Data format for the response.
+
+**Type:** string
+
+**Potential values:** json
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
 #### quotaUser
 
 Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
@@ -1274,6 +2052,12 @@ Available to use for quota purposes for server-side applications. Can be any arb
 Whether the requesting application supports Team Drives.
 
 **Type:** boolean
+
+#### userIp
+
+IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+**Type:** string
 
 </details>
 

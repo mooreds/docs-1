@@ -37,21 +37,9 @@ Selector specifying which fields to include in a partial response.
 
 **Type:** string
 
-#### key
-
-API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-
-**Type:** string
-
 #### location
 
 The geographic location of the job. Required except for US and EU. See details at https://cloud.google.com/bigquery/docs/locations#specifying_your_location.
-
-**Type:** string
-
-#### oauth_token
-
-OAuth 2.0 token for the current user.
 
 **Type:** string
 
@@ -102,18 +90,6 @@ Data format for the response.
 #### fields
 
 Selector specifying which fields to include in a partial response.
-
-**Type:** string
-
-#### key
-
-API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-
-**Type:** string
-
-#### oauth_token
-
-OAuth 2.0 token for the current user.
 
 **Type:** string
 
@@ -170,18 +146,6 @@ Data format for the response.
 #### fields
 
 Selector specifying which fields to include in a partial response.
-
-**Type:** string
-
-#### key
-
-API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-
-**Type:** string
-
-#### oauth_token
-
-OAuth 2.0 token for the current user.
 
 **Type:** string
 
@@ -243,18 +207,6 @@ Selector specifying which fields to include in a partial response.
 
 **Type:** string
 
-#### key
-
-API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-
-**Type:** string
-
-#### oauth_token
-
-OAuth 2.0 token for the current user.
-
-**Type:** string
-
 #### prettyPrint
 
 Returns response with indentations and line breaks.
@@ -313,18 +265,6 @@ Selector specifying which fields to include in a partial response.
 
 **Type:** string
 
-#### key
-
-API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-
-**Type:** string
-
-#### oauth_token
-
-OAuth 2.0 token for the current user.
-
-**Type:** string
-
 #### prettyPrint
 
 Returns response with indentations and line breaks.
@@ -372,18 +312,6 @@ Data format for the response.
 #### fields
 
 Selector specifying which fields to include in a partial response.
-
-**Type:** string
-
-#### key
-
-API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-
-**Type:** string
-
-#### oauth_token
-
-OAuth 2.0 token for the current user.
 
 **Type:** string
 
@@ -439,18 +367,6 @@ Selector specifying which fields to include in a partial response.
 
 **Type:** string
 
-#### key
-
-API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-
-**Type:** string
-
-#### oauth_token
-
-OAuth 2.0 token for the current user.
-
-**Type:** string
-
 #### prettyPrint
 
 Returns response with indentations and line breaks.
@@ -503,21 +419,9 @@ Selector specifying which fields to include in a partial response.
 
 **Type:** string
 
-#### key
-
-API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-
-**Type:** string
-
 #### location
 
 The geographic location of the job. Required except for US and EU. See details at https://cloud.google.com/bigquery/docs/locations#specifying_your_location.
-
-**Type:** string
-
-#### oauth_token
-
-OAuth 2.0 token for the current user.
 
 **Type:** string
 
@@ -573,21 +477,9 @@ Selector specifying which fields to include in a partial response.
 
 **Type:** string
 
-#### key
-
-API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-
-**Type:** string
-
 #### location
 
 The geographic location where the job should run. Required except for US and EU. See details at https://cloud.google.com/bigquery/docs/locations#specifying_your_location.
-
-**Type:** string
-
-#### oauth_token
-
-OAuth 2.0 token for the current user.
 
 **Type:** string
 
@@ -649,18 +541,6 @@ Selector specifying which fields to include in a partial response.
 
 **Type:** string
 
-#### key
-
-API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-
-**Type:** string
-
-#### oauth_token
-
-OAuth 2.0 token for the current user.
-
-**Type:** string
-
 #### prettyPrint
 
 Returns response with indentations and line breaks.
@@ -716,18 +596,6 @@ Data format for the response.
 #### fields
 
 Selector specifying which fields to include in a partial response.
-
-**Type:** string
-
-#### key
-
-API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-
-**Type:** string
-
-#### oauth_token
-
-OAuth 2.0 token for the current user.
 
 **Type:** string
 
@@ -795,18 +663,6 @@ An expression for filtering the results of the request by label. The syntax is "
 
 **Type:** string
 
-#### key
-
-API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-
-**Type:** string
-
-#### oauth_token
-
-OAuth 2.0 token for the current user.
-
-**Type:** string
-
 #### prettyPrint
 
 Returns response with indentations and line breaks.
@@ -859,12 +715,6 @@ Selector specifying which fields to include in a partial response.
 
 **Type:** string
 
-#### key
-
-API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-
-**Type:** string
-
 #### maxCreationTime
 
 Max value for job creation time, in milliseconds since the POSIX epoch. If set, only jobs created before or at this timestamp are returned
@@ -874,12 +724,6 @@ Max value for job creation time, in milliseconds since the POSIX epoch. If set, 
 #### minCreationTime
 
 Min value for job creation time, in milliseconds since the POSIX epoch. If set, only jobs created after or at this timestamp are returned
-
-**Type:** string
-
-#### oauth_token
-
-OAuth 2.0 token for the current user.
 
 **Type:** string
 
@@ -937,18 +781,6 @@ Selector specifying which fields to include in a partial response.
 
 **Type:** string
 
-#### key
-
-API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-
-**Type:** string
-
-#### oauth_token
-
-OAuth 2.0 token for the current user.
-
-**Type:** string
-
 #### prettyPrint
 
 Returns response with indentations and line breaks.
@@ -998,18 +830,6 @@ Data format for the response.
 #### fields
 
 Selector specifying which fields to include in a partial response.
-
-**Type:** string
-
-#### key
-
-API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-
-**Type:** string
-
-#### oauth_token
-
-OAuth 2.0 token for the current user.
 
 **Type:** string
 
@@ -1066,18 +886,6 @@ Data format for the response.
 #### fields
 
 Selector specifying which fields to include in a partial response.
-
-**Type:** string
-
-#### key
-
-API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-
-**Type:** string
-
-#### oauth_token
-
-OAuth 2.0 token for the current user.
 
 **Type:** string
 
@@ -1140,18 +948,6 @@ Data format for the response.
 #### fields
 
 Selector specifying which fields to include in a partial response.
-
-**Type:** string
-
-#### key
-
-API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-
-**Type:** string
-
-#### oauth_token
-
-OAuth 2.0 token for the current user.
 
 **Type:** string
 
@@ -1223,18 +1019,6 @@ Selector specifying which fields to include in a partial response.
 
 **Type:** string
 
-#### key
-
-API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-
-**Type:** string
-
-#### oauth_token
-
-OAuth 2.0 token for the current user.
-
-**Type:** string
-
 #### prettyPrint
 
 Returns response with indentations and line breaks.
@@ -1290,18 +1074,6 @@ Data format for the response.
 #### fields
 
 Selector specifying which fields to include in a partial response.
-
-**Type:** string
-
-#### key
-
-API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-
-**Type:** string
-
-#### oauth_token
-
-OAuth 2.0 token for the current user.
 
 **Type:** string
 
@@ -1373,18 +1145,6 @@ Selector specifying which fields to include in a partial response.
 
 **Type:** string
 
-#### key
-
-API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-
-**Type:** string
-
-#### oauth_token
-
-OAuth 2.0 token for the current user.
-
-**Type:** string
-
 #### prettyPrint
 
 Returns response with indentations and line breaks.
@@ -1444,18 +1204,6 @@ Data format for the response.
 #### fields
 
 Selector specifying which fields to include in a partial response.
-
-**Type:** string
-
-#### key
-
-API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-
-**Type:** string
-
-#### oauth_token
-
-OAuth 2.0 token for the current user.
 
 **Type:** string
 

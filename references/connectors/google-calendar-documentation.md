@@ -17,9 +17,35 @@ Calendar identifier. To retrieve calendar IDs call the get_calendarlist method. 
 
 **Type:** string
 
+#### alt
+
+Data format for the response.
+
+**Type:** string
+
+**Potential values:** json
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
 #### quotaUser
 
 An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+
+**Type:** string
+
+#### userIp
+
+Deprecated. Please use quotaUser instead.
 
 **Type:** string
 
@@ -41,6 +67,26 @@ Calendar identifier. To retrieve calendar IDs call the get_calendarlist method. 
 
 **Type:** object
 
+#### alt
+
+Data format for the response.
+
+**Type:** string
+
+**Potential values:** json
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
 #### quotaUser
 
 An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
@@ -52,6 +98,12 @@ An opaque string that represents a user for quota purposes. Must not exceed 40 c
 Deprecated. Use sendUpdates instead
 
 **Type:** boolean
+
+#### userIp
+
+Deprecated. Please use quotaUser instead.
+
+**Type:** string
 
 </details>
 
@@ -65,9 +117,35 @@ Creates a secondary calendar.
 
 **Type:** object
 
+#### alt
+
+Data format for the response.
+
+**Type:** string
+
+**Potential values:** json
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
 #### quotaUser
 
 An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+
+**Type:** string
+
+#### userIp
+
+Deprecated. Please use quotaUser instead.
 
 **Type:** string
 
@@ -89,17 +167,37 @@ Calendar identifier. To retrieve calendar IDs call the get_calendarlist method. 
 
 **Type:** object
 
+#### alt
+
+Data format for the response.
+
+**Type:** string
+
+**Potential values:** json
+
 #### conferenceDataVersion
 
 Version number of conference data supported by the API client. Version 0 assumes no conference data support and ignores conference data in the event's body. Version 1 enables support for copying of ConferenceData as well as for creating new conferences using the createRequest field of conferenceData. The default is 0.
 
 **Type:** integer
 
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
 #### maxAttendees
 
 The maximum number of attendees to include in the response. If there are more than the specified number of attendees, only the participant is returned. Optional.
 
 **Type:** integer
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
 
 #### quotaUser
 
@@ -119,6 +217,12 @@ Whether API client performing operation supports event attachments. Optional. Th
 
 **Type:** boolean
 
+#### userIp
+
+Deprecated. Please use quotaUser instead.
+
+**Type:** string
+
 </details>
 
 ## create_calendarlist_entry
@@ -131,15 +235,41 @@ Adds an entry to the user's calendar list.
 
 **Type:** object
 
+#### alt
+
+Data format for the response.
+
+**Type:** string
+
+**Potential values:** json
+
 #### colorRgbFormat
 
 Whether to use the foregroundColor and backgroundColor fields to write the calendar colors (RGB). If this feature is used, the index-based colorId field will be set to the best matching option automatically. Optional. The default is False.
 
 **Type:** boolean
 
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
 #### quotaUser
 
 An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+
+**Type:** string
+
+#### userIp
+
+Deprecated. Please use quotaUser instead.
 
 **Type:** string
 
@@ -163,9 +293,35 @@ ACL rule identifier.
 
 **Type:** string
 
+#### alt
+
+Data format for the response.
+
+**Type:** string
+
+**Potential values:** json
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
 #### quotaUser
 
 An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+
+**Type:** string
+
+#### userIp
+
+Deprecated. Please use quotaUser instead.
 
 **Type:** string
 
@@ -183,9 +339,35 @@ Calendar identifier. To retrieve calendar IDs call the get_calendarlist method. 
 
 **Type:** string
 
+#### alt
+
+Data format for the response.
+
+**Type:** string
+
+**Potential values:** json
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
 #### quotaUser
 
 An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+
+**Type:** string
+
+#### userIp
+
+Deprecated. Please use quotaUser instead.
 
 **Type:** string
 
@@ -209,6 +391,26 @@ Event identifier.
 
 **Type:** string
 
+#### alt
+
+Data format for the response.
+
+**Type:** string
+
+**Potential values:** json
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
 #### quotaUser
 
 An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
@@ -220,6 +422,12 @@ An opaque string that represents a user for quota purposes. Must not exceed 40 c
 Deprecated. Use sendUpdates instead
 
 **Type:** boolean
+
+#### userIp
+
+Deprecated. Please use quotaUser instead.
+
+**Type:** string
 
 </details>
 
@@ -235,9 +443,35 @@ Calendar identifier. To retrieve calendar IDs call the get_calendarlist method. 
 
 **Type:** string
 
+#### alt
+
+Data format for the response.
+
+**Type:** string
+
+**Potential values:** json
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
 #### quotaUser
 
 An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+
+**Type:** string
+
+#### userIp
+
+Deprecated. Please use quotaUser instead.
 
 **Type:** string
 
@@ -261,9 +495,35 @@ ACL rule identifier.
 
 **Type:** string
 
+#### alt
+
+Data format for the response.
+
+**Type:** string
+
+**Potential values:** json
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
 #### quotaUser
 
 An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+
+**Type:** string
+
+#### userIp
+
+Deprecated. Please use quotaUser instead.
 
 **Type:** string
 
@@ -280,6 +540,26 @@ Returns the rules in the access control list for the calendar.
 Calendar identifier. To retrieve calendar IDs call the get_calendarlist method. If you want to access the primary calendar of the currently logged in user, use the "primary" keyword.
 
 **Type:** string
+
+#### alt
+
+Data format for the response.
+
+**Type:** string
+
+**Potential values:** json
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
 
 #### quotaUser
 
@@ -302,6 +582,12 @@ Optional. The default is to return all entries.
 
 **Type:** string
 
+#### userIp
+
+Deprecated. Please use quotaUser instead.
+
+**Type:** string
+
 </details>
 
 ## get_calendar
@@ -316,9 +602,35 @@ Calendar identifier. To retrieve calendar IDs call the get_calendarlist method. 
 
 **Type:** string
 
+#### alt
+
+Data format for the response.
+
+**Type:** string
+
+**Potential values:** json
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
 #### quotaUser
 
 An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+
+**Type:** string
+
+#### userIp
+
+Deprecated. Please use quotaUser instead.
 
 **Type:** string
 
@@ -330,9 +642,35 @@ Returns the color definitions for calendars and events.
 
 <details><summary>Parameters</summary>
 
+#### alt
+
+Data format for the response.
+
+**Type:** string
+
+**Potential values:** json
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
 #### quotaUser
 
 An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+
+**Type:** string
+
+#### userIp
+
+Deprecated. Please use quotaUser instead.
 
 **Type:** string
 
@@ -356,17 +694,37 @@ Event identifier.
 
 **Type:** string
 
+#### alt
+
+Data format for the response.
+
+**Type:** string
+
+**Potential values:** json
+
 #### alwaysIncludeEmail
 
 Whether to always include a value in the email field for the organizer, creator and attendees, even if no real email is available (i.e. a generated, non-working value will be provided). The use of this option is discouraged and should only be used by clients which cannot handle the absence of an email address value in the mentioned places. Optional. The default is False.
 
 **Type:** boolean
 
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
 #### maxAttendees
 
 The maximum number of attendees to include in the response. If there are more than the specified number of attendees, only the participant is returned. Optional.
 
 **Type:** integer
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
 
 #### quotaUser
 
@@ -377,6 +735,12 @@ An opaque string that represents a user for quota purposes. Must not exceed 40 c
 #### timeZone
 
 Time zone used in the response. Optional. The default is the time zone of the calendar.
+
+**Type:** string
+
+#### userIp
+
+Deprecated. Please use quotaUser instead.
 
 **Type:** string
 
@@ -400,11 +764,25 @@ Recurring event identifier.
 
 **Type:** string
 
+#### alt
+
+Data format for the response.
+
+**Type:** string
+
+**Potential values:** json
+
 #### alwaysIncludeEmail
 
 Whether to always include a value in the email field for the organizer, creator and attendees, even if no real email is available (i.e. a generated, non-working value will be provided). The use of this option is discouraged and should only be used by clients which cannot handle the absence of an email address value in the mentioned places. Optional. The default is False.
 
 **Type:** boolean
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
 
 #### maxAttendees
 
@@ -417,6 +795,12 @@ The maximum number of attendees to include in the response. If there are more th
 The original start time of the instance in the result. Optional.
 
 **Type:** string
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
 
 #### quotaUser
 
@@ -448,6 +832,12 @@ Time zone used in the response. Optional. The default is the time zone of the ca
 
 **Type:** string
 
+#### userIp
+
+Deprecated. Please use quotaUser instead.
+
+**Type:** string
+
 </details>
 
 ## get_calendar_events
@@ -462,11 +852,25 @@ Calendar identifier. To retrieve calendar IDs call the get_calendarlist method. 
 
 **Type:** string
 
+#### alt
+
+Data format for the response.
+
+**Type:** string
+
+**Potential values:** json
+
 #### alwaysIncludeEmail
 
 Whether to always include a value in the email field for the organizer, creator and attendees, even if no real email is available (i.e. a generated, non-working value will be provided). The use of this option is discouraged and should only be used by clients which cannot handle the absence of an email address value in the mentioned places. Optional. The default is False.
 
 **Type:** boolean
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
 
 #### iCalUID
 
@@ -487,6 +891,12 @@ The order of the events returned in the result. Optional. The default is an unsp
 **Type:** string
 
 **Potential values:** startTime, updated
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
 
 #### privateExtendedProperty
 
@@ -573,6 +983,12 @@ Lower bound for an event's last modification time (as a RFC3339 timestamp) to fi
 
 **Type:** string
 
+#### userIp
+
+Deprecated. Please use quotaUser instead.
+
+**Type:** string
+
 </details>
 
 ## get_calendarlist
@@ -581,6 +997,20 @@ Returns entries on the user's calendar list. The CalendarList is a collection of
 
 <details><summary>Parameters</summary>
 
+#### alt
+
+Data format for the response.
+
+**Type:** string
+
+**Potential values:** json
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
 #### minAccessRole
 
 The minimum access role for the user in the returned entries. Optional. The default is no restriction.
@@ -588,6 +1018,12 @@ The minimum access role for the user in the returned entries. Optional. The defa
 **Type:** string
 
 **Potential values:** freeBusyReader, owner, reader, writer
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
 
 #### quotaUser
 
@@ -617,6 +1053,12 @@ Optional. The default is to return all entries.
 
 **Type:** string
 
+#### userIp
+
+Deprecated. Please use quotaUser instead.
+
+**Type:** string
+
 </details>
 
 ## get_calendarlist_entry
@@ -631,9 +1073,35 @@ Calendar identifier. To retrieve calendar IDs call the get_calendarlist method. 
 
 **Type:** string
 
+#### alt
+
+Data format for the response.
+
+**Type:** string
+
+**Potential values:** json
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
 #### quotaUser
 
 An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+
+**Type:** string
+
+#### userIp
+
+Deprecated. Please use quotaUser instead.
 
 **Type:** string
 
@@ -649,9 +1117,35 @@ Returns free/busy information for a set of calendars.
 
 **Type:** object
 
+#### alt
+
+Data format for the response.
+
+**Type:** string
+
+**Potential values:** json
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
 #### quotaUser
 
 An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+
+**Type:** string
+
+#### userIp
+
+Deprecated. Please use quotaUser instead.
 
 **Type:** string
 
@@ -662,6 +1156,26 @@ An opaque string that represents a user for quota purposes. Must not exceed 40 c
 Returns all user settings for the authenticated user.
 
 <details><summary>Parameters</summary>
+
+#### alt
+
+Data format for the response.
+
+**Type:** string
+
+**Potential values:** json
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
 
 #### quotaUser
 
@@ -675,6 +1189,12 @@ Token obtained from the nextSyncToken field returned on the last page of results
 If the syncToken expires, the server will respond with a 410 GONE response code and the client should clear its storage and perform a full synchronization without any syncToken.
 Learn more about incremental synchronization.
 Optional. The default is to return all entries.
+
+**Type:** string
+
+#### userIp
+
+Deprecated. Please use quotaUser instead.
 
 **Type:** string
 
@@ -692,9 +1212,35 @@ The id of the user setting.
 
 **Type:** string
 
+#### alt
+
+Data format for the response.
+
+**Type:** string
+
+**Potential values:** json
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
 #### quotaUser
 
 An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+
+**Type:** string
+
+#### userIp
+
+Deprecated. Please use quotaUser instead.
 
 **Type:** string
 
@@ -716,11 +1262,31 @@ Calendar identifier. To retrieve calendar IDs call the get_calendarlist method. 
 
 **Type:** object
 
+#### alt
+
+Data format for the response.
+
+**Type:** string
+
+**Potential values:** json
+
 #### conferenceDataVersion
 
 Version number of conference data supported by the API client. Version 0 assumes no conference data support and ignores conference data in the event's body. Version 1 enables support for copying of ConferenceData as well as for creating new conferences using the createRequest field of conferenceData. The default is 0.
 
 **Type:** integer
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
 
 #### quotaUser
 
@@ -733,6 +1299,12 @@ An opaque string that represents a user for quota purposes. Must not exceed 40 c
 Whether API client performing operation supports event attachments. Optional. The default is False.
 
 **Type:** boolean
+
+#### userIp
+
+Deprecated. Please use quotaUser instead.
+
+**Type:** string
 
 </details>
 
@@ -760,6 +1332,26 @@ Event identifier.
 
 **Type:** string
 
+#### alt
+
+Data format for the response.
+
+**Type:** string
+
+**Potential values:** json
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
 #### quotaUser
 
 An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
@@ -771,6 +1363,12 @@ An opaque string that represents a user for quota purposes. Must not exceed 40 c
 Deprecated. Use sendUpdates instead
 
 **Type:** boolean
+
+#### userIp
+
+Deprecated. Please use quotaUser instead.
+
+**Type:** string
 
 </details>
 
@@ -792,6 +1390,26 @@ The text describing the event to be created.
 
 **Type:** string
 
+#### alt
+
+Data format for the response.
+
+**Type:** string
+
+**Potential values:** json
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
 #### quotaUser
 
 An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
@@ -803,6 +1421,12 @@ An opaque string that represents a user for quota purposes. Must not exceed 40 c
 Deprecated. Use sendUpdates instead
 
 **Type:** boolean
+
+#### userIp
+
+Deprecated. Please use quotaUser instead.
+
+**Type:** string
 
 </details>
 
@@ -816,9 +1440,35 @@ Stop watching resources through this channel
 
 **Type:** object
 
+#### alt
+
+Data format for the response.
+
+**Type:** string
+
+**Potential values:** json
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
 #### quotaUser
 
 An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+
+**Type:** string
+
+#### userIp
+
+Deprecated. Please use quotaUser instead.
 
 **Type:** string
 
@@ -846,6 +1496,26 @@ ACL rule identifier.
 
 **Type:** object
 
+#### alt
+
+Data format for the response.
+
+**Type:** string
+
+**Potential values:** json
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
 #### quotaUser
 
 An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
@@ -857,6 +1527,12 @@ An opaque string that represents a user for quota purposes. Must not exceed 40 c
 Deprecated. Use sendUpdates instead
 
 **Type:** boolean
+
+#### userIp
+
+Deprecated. Please use quotaUser instead.
+
+**Type:** string
 
 </details>
 
@@ -876,9 +1552,35 @@ Calendar identifier. To retrieve calendar IDs call the get_calendarlist method. 
 
 **Type:** object
 
+#### alt
+
+Data format for the response.
+
+**Type:** string
+
+**Potential values:** json
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
 #### quotaUser
 
 An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+
+**Type:** string
+
+#### userIp
+
+Deprecated. Please use quotaUser instead.
 
 **Type:** string
 
@@ -906,6 +1608,14 @@ Event identifier.
 
 **Type:** object
 
+#### alt
+
+Data format for the response.
+
+**Type:** string
+
+**Potential values:** json
+
 #### alwaysIncludeEmail
 
 Whether to always include a value in the email field for the organizer, creator and attendees, even if no real email is available (i.e. a generated, non-working value will be provided). The use of this option is discouraged and should only be used by clients which cannot handle the absence of an email address value in the mentioned places. Optional. The default is False.
@@ -918,11 +1628,23 @@ Version number of conference data supported by the API client. Version 0 assumes
 
 **Type:** integer
 
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
 #### maxAttendees
 
 The maximum number of attendees to include in the response. If there are more than the specified number of attendees, only the participant is returned. Optional.
 
 **Type:** integer
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
 
 #### quotaUser
 
@@ -942,6 +1664,12 @@ Whether API client performing operation supports event attachments. Optional. Th
 
 **Type:** boolean
 
+#### userIp
+
+Deprecated. Please use quotaUser instead.
+
+**Type:** string
+
 </details>
 
 ## update_calendarlist_entry
@@ -960,15 +1688,41 @@ Calendar identifier. To retrieve calendar IDs call the get_calendarlist method. 
 
 **Type:** object
 
+#### alt
+
+Data format for the response.
+
+**Type:** string
+
+**Potential values:** json
+
 #### colorRgbFormat
 
 Whether to use the foregroundColor and backgroundColor fields to write the calendar colors (RGB). If this feature is used, the index-based colorId field will be set to the best matching option automatically. Optional. The default is False.
 
 **Type:** boolean
 
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
 #### quotaUser
 
 An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+
+**Type:** string
+
+#### userIp
+
+Deprecated. Please use quotaUser instead.
 
 **Type:** string
 
@@ -989,6 +1743,26 @@ Calendar identifier. To retrieve calendar IDs call the get_calendarlist method. 
 #### $body
 
 **Type:** object
+
+#### alt
+
+Data format for the response.
+
+**Type:** string
+
+**Potential values:** json
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
 
 #### quotaUser
 
@@ -1011,6 +1785,12 @@ Optional. The default is to return all entries.
 
 **Type:** string
 
+#### userIp
+
+Deprecated. Please use quotaUser instead.
+
+**Type:** string
+
 </details>
 
 ## watch_calendar_events
@@ -1029,11 +1809,25 @@ Calendar identifier. To retrieve calendar IDs call the get_calendarlist method. 
 
 **Type:** object
 
+#### alt
+
+Data format for the response.
+
+**Type:** string
+
+**Potential values:** json
+
 #### alwaysIncludeEmail
 
 Whether to always include a value in the email field for the organizer, creator and attendees, even if no real email is available (i.e. a generated, non-working value will be provided). The use of this option is discouraged and should only be used by clients which cannot handle the absence of an email address value in the mentioned places. Optional. The default is False.
 
 **Type:** boolean
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
 
 #### iCalUID
 
@@ -1054,6 +1848,12 @@ The order of the events returned in the result. Optional. The default is an unsp
 **Type:** string
 
 **Potential values:** startTime, updated
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
 
 #### privateExtendedProperty
 
@@ -1140,6 +1940,12 @@ Lower bound for an event's last modification time (as a RFC3339 timestamp) to fi
 
 **Type:** string
 
+#### userIp
+
+Deprecated. Please use quotaUser instead.
+
+**Type:** string
+
 </details>
 
 ## watch_calendarlist
@@ -1152,6 +1958,20 @@ Watch for changes to CalendarList resources.
 
 **Type:** object
 
+#### alt
+
+Data format for the response.
+
+**Type:** string
+
+**Potential values:** json
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
 #### minAccessRole
 
 The minimum access role for the user in the returned entries. Optional. The default is no restriction.
@@ -1159,6 +1979,12 @@ The minimum access role for the user in the returned entries. Optional. The defa
 **Type:** string
 
 **Potential values:** freeBusyReader, owner, reader, writer
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
 
 #### quotaUser
 
@@ -1188,6 +2014,12 @@ Optional. The default is to return all entries.
 
 **Type:** string
 
+#### userIp
+
+Deprecated. Please use quotaUser instead.
+
+**Type:** string
+
 </details>
 
 ## watch_settings
@@ -1199,6 +2031,26 @@ Watch for changes to Settings resources.
 #### $body
 
 **Type:** object
+
+#### alt
+
+Data format for the response.
+
+**Type:** string
+
+**Potential values:** json
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
 
 #### quotaUser
 
@@ -1212,6 +2064,12 @@ Token obtained from the nextSyncToken field returned on the last page of results
 If the syncToken expires, the server will respond with a 410 GONE response code and the client should clear its storage and perform a full synchronization without any syncToken.
 Learn more about incremental synchronization.
 Optional. The default is to return all entries.
+
+**Type:** string
+
+#### userIp
+
+Deprecated. Please use quotaUser instead.
 
 **Type:** string
 

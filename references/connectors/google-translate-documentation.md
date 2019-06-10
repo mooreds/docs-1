@@ -37,6 +37,12 @@ Selector specifying which fields to include in a partial response.
 
 **Type:** string
 
+#### pp
+
+Pretty-print response.
+
+**Type:** boolean
+
 #### prettyPrint
 
 Returns response with indentations and line breaks.
@@ -94,6 +100,12 @@ Selector specifying which fields to include in a partial response.
 The model type for which supported languages should be returned.
 
 **Type:** string
+
+#### pp
+
+Pretty-print response.
+
+**Type:** boolean
 
 #### prettyPrint
 
@@ -159,6 +171,12 @@ JSONP
 Selector specifying which fields to include in a partial response.
 
 **Type:** string
+
+#### pp
+
+Pretty-print response.
+
+**Type:** boolean
 
 #### prettyPrint
 

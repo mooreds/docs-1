@@ -497,7 +497,7 @@ Channel to fetch thread from
 
 Unique identifier of a thread's parent message
 
-**Type:** number
+**Type:** string
 
 </details>
 
@@ -751,7 +751,7 @@ Private channel to fetch thread from
 
 Unique identifier of a thread's parent message
 
-**Type:** number
+**Type:** string
 
 </details>
 
@@ -815,7 +815,7 @@ Direct message channel to fetch thread from
 
 Unique identifier of a thread's parent message
 
-**Type:** number
+**Type:** string
 
 </details>
 
@@ -835,7 +835,7 @@ Multiparty direct message channel to fetch thread from.
 
 Unique identifier of a thread's parent message.
 
-**Type:** number
+**Type:** string
 
 </details>
 
@@ -1625,21 +1625,7 @@ Opens or resumes a direct message or multi-person direct message.
 
 Open a dialog with a user
 
-<details><summary>Parameters</summary>
-
-#### dialog
-
-The dialog definition. This must be a JSON-encoded string.
-
-**Type:** string
-
-#### trigger_id
-
-Exchange a trigger to post to the user.
-
-**Type:** string
-
-</details>
+*This operation has no parameters*
 
 ## open_groups
 

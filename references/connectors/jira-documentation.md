@@ -4170,6 +4170,20 @@ Returns all share permissions of the given filter.
 
 </details>
 
+## get_sprints
+
+Returns a list of all the sprints for a board
+
+<details><summary>Parameters</summary>
+
+#### boardId (required)
+
+- id of board.
+
+**Type:** string
+
+</details>
+
 ## get_state
 
 

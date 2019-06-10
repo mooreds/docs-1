@@ -51,6 +51,26 @@ Data within a range of the spreadsheet.
 
 **Type:** object
 
+#### alt
+
+Data format for response.
+
+**Type:** string
+
+**Potential values:** json, media, proto
+
+#### callback
+
+JSONP
+
+**Type:** string
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
 #### includeValuesInResponse
 
 Determines if the update response should include the values
@@ -66,6 +86,12 @@ How the input data should be inserted.
 **Type:** string
 
 **Potential values:** OVERWRITE, INSERT_ROWS
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
 
 #### quotaUser
 
@@ -92,6 +118,18 @@ The default render option is ValueRenderOption.FORMATTED_VALUE.
 **Type:** string
 
 **Potential values:** FORMATTED_VALUE, UNFORMATTED_VALUE, FORMULA
+
+#### uploadType
+
+Legacy upload protocol for media (e.g. "media", "multipart").
+
+**Type:** string
+
+#### upload_protocol
+
+Upload protocol for media (e.g. "raw", "multipart").
+
+**Type:** string
 
 </details>
 
@@ -122,9 +160,47 @@ The request for clearing a range of values in a spreadsheet.
 
 **Type:** object
 
+#### alt
+
+Data format for response.
+
+**Type:** string
+
+**Potential values:** json, media, proto
+
+#### callback
+
+JSONP
+
+**Type:** string
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
 #### quotaUser
 
 Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+
+**Type:** string
+
+#### uploadType
+
+Legacy upload protocol for media (e.g. "media", "multipart").
+
+**Type:** string
+
+#### upload_protocol
+
+Upload protocol for media (e.g. "raw", "multipart").
 
 **Type:** string
 
@@ -153,9 +229,47 @@ DataFilter in a spreadsheet.
 
 **Type:** object
 
+#### alt
+
+Data format for response.
+
+**Type:** string
+
+**Potential values:** json, media, proto
+
+#### callback
+
+JSONP
+
+**Type:** string
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
 #### quotaUser
 
 Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+
+**Type:** string
+
+#### uploadType
+
+Legacy upload protocol for media (e.g. "media", "multipart").
+
+**Type:** string
+
+#### upload_protocol
+
+Upload protocol for media (e.g. "raw", "multipart").
 
 **Type:** string
 
@@ -182,9 +296,47 @@ The request for clearing more than one range of values in a spreadsheet.
 
 **Type:** object
 
+#### alt
+
+Data format for response.
+
+**Type:** string
+
+**Potential values:** json, media, proto
+
+#### callback
+
+JSONP
+
+**Type:** string
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
 #### quotaUser
 
 Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+
+**Type:** string
+
+#### uploadType
+
+Legacy upload protocol for media (e.g. "media", "multipart").
+
+**Type:** string
+
+#### upload_protocol
+
+Upload protocol for media (e.g. "raw", "multipart").
 
 **Type:** string
 
@@ -215,9 +367,47 @@ The request to copy a sheet across spreadsheets.
 
 **Type:** object
 
+#### alt
+
+Data format for response.
+
+**Type:** string
+
+**Potential values:** json, media, proto
+
+#### callback
+
+JSONP
+
+**Type:** string
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
 #### quotaUser
 
 Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+
+**Type:** string
+
+#### uploadType
+
+Legacy upload protocol for media (e.g. "media", "multipart").
+
+**Type:** string
+
+#### upload_protocol
+
+Upload protocol for media (e.g. "raw", "multipart").
 
 **Type:** string
 
@@ -235,9 +425,47 @@ Resource that represents a spreadsheet.
 
 **Type:** object
 
+#### alt
+
+Data format for response.
+
+**Type:** string
+
+**Potential values:** json, media, proto
+
+#### callback
+
+JSONP
+
+**Type:** string
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
 #### quotaUser
 
 Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+
+**Type:** string
+
+#### uploadType
+
+Legacy upload protocol for media (e.g. "media", "multipart").
+
+**Type:** string
+
+#### upload_protocol
+
+Upload protocol for media (e.g. "raw", "multipart").
 
 **Type:** string
 
@@ -275,10 +503,36 @@ The spreadsheet to request.
 
 **Type:** string
 
+#### alt
+
+Data format for response.
+
+**Type:** string
+
+**Potential values:** json, media, proto
+
+#### callback
+
+JSONP
+
+**Type:** string
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
 #### includeGridData
 
 True if grid data should be returned.
 This parameter is ignored if a field mask was set in the request.
+
+**Type:** boolean
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
 
 **Type:** boolean
 
@@ -293,6 +547,18 @@ Available to use for quota purposes for server-side applications. Can be any arb
 The ranges to retrieve from the spreadsheet.
 
 **Type:** array
+
+#### uploadType
+
+Legacy upload protocol for media (e.g. "media", "multipart").
+
+**Type:** string
+
+#### upload_protocol
+
+Upload protocol for media (e.g. "raw", "multipart").
+
+**Type:** string
 
 </details>
 
@@ -335,15 +601,47 @@ The request for retrieving a Spreadsheet.
 
 **Type:** object
 
+#### alt
+
+Data format for response.
+
+**Type:** string
+
+**Potential values:** json, media, proto
+
+#### callback
+
+JSONP
+
+**Type:** string
+
 #### fields
 
 Selector specifying which fields to include in a partial response.
 
 **Type:** string
 
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
 #### quotaUser
 
 Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+
+**Type:** string
+
+#### uploadType
+
+Legacy upload protocol for media (e.g. "media", "multipart").
+
+**Type:** string
+
+#### upload_protocol
+
+Upload protocol for media (e.g. "raw", "multipart").
 
 **Type:** string
 
@@ -369,9 +667,47 @@ The ID of the spreadsheet to retrieve metadata from.
 
 **Type:** string
 
+#### alt
+
+Data format for response.
+
+**Type:** string
+
+**Potential values:** json, media, proto
+
+#### callback
+
+JSONP
+
+**Type:** string
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
 #### quotaUser
 
 Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+
+**Type:** string
+
+#### uploadType
+
+Legacy upload protocol for media (e.g. "media", "multipart").
+
+**Type:** string
+
+#### upload_protocol
+
+Upload protocol for media (e.g. "raw", "multipart").
 
 **Type:** string
 
@@ -396,6 +732,20 @@ The ID of the spreadsheet to retrieve data from.
 
 **Type:** string
 
+#### alt
+
+Data format for response.
+
+**Type:** string
+
+**Potential values:** json, media, proto
+
+#### callback
+
+JSONP
+
+**Type:** string
+
 #### dateTimeRenderOption
 
 How dates, times, and durations should be represented in the output.
@@ -406,6 +756,12 @@ The default dateTime render option is [DateTimeRenderOption.SERIAL_NUMBER].
 **Type:** string
 
 **Potential values:** SERIAL_NUMBER, FORMATTED_STRING
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
 
 #### majorDimension
 
@@ -421,9 +777,27 @@ whereas requesting `range=A1:B2,majorDimension=COLUMNS` will return
 
 **Potential values:** DIMENSION_UNSPECIFIED, ROWS, COLUMNS
 
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
 #### quotaUser
 
 Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+
+**Type:** string
+
+#### uploadType
+
+Legacy upload protocol for media (e.g. "media", "multipart").
+
+**Type:** string
+
+#### upload_protocol
+
+Upload protocol for media (e.g. "raw", "multipart").
 
 **Type:** string
 
@@ -460,9 +834,47 @@ set of DataFilters.
 
 **Type:** object
 
+#### alt
+
+Data format for response.
+
+**Type:** string
+
+**Potential values:** json, media, proto
+
+#### callback
+
+JSONP
+
+**Type:** string
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
 #### quotaUser
 
 Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+
+**Type:** string
+
+#### uploadType
+
+Legacy upload protocol for media (e.g. "media", "multipart").
+
+**Type:** string
+
+#### upload_protocol
+
+Upload protocol for media (e.g. "raw", "multipart").
 
 **Type:** string
 
@@ -481,6 +893,20 @@ The ID of the spreadsheet to retrieve data from.
 
 **Type:** string
 
+#### alt
+
+Data format for response.
+
+**Type:** string
+
+**Potential values:** json, media, proto
+
+#### callback
+
+JSONP
+
+**Type:** string
+
 #### dateTimeRenderOption
 
 How dates, times, and durations should be represented in the output.
@@ -491,6 +917,12 @@ The default dateTime render option is [DateTimeRenderOption.SERIAL_NUMBER].
 **Type:** string
 
 **Potential values:** SERIAL_NUMBER, FORMATTED_STRING
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
 
 #### majorDimension
 
@@ -506,6 +938,12 @@ whereas requesting `range=A1:B2,majorDimension=COLUMNS` will return
 
 **Potential values:** DIMENSION_UNSPECIFIED, ROWS, COLUMNS
 
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
 #### quotaUser
 
 Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
@@ -517,6 +955,18 @@ Available to use for quota purposes for server-side applications. Can be any arb
 The A1 notation of the values to retrieve.
 
 **Type:** array
+
+#### uploadType
+
+Legacy upload protocol for media (e.g. "media", "multipart").
+
+**Type:** string
+
+#### upload_protocol
+
+Upload protocol for media (e.g. "raw", "multipart").
+
+**Type:** string
 
 #### valueRenderOption
 
@@ -552,9 +1002,47 @@ criteria.
 
 **Type:** object
 
+#### alt
+
+Data format for response.
+
+**Type:** string
+
+**Potential values:** json, media, proto
+
+#### callback
+
+JSONP
+
+**Type:** string
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
 #### quotaUser
 
 Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+
+**Type:** string
+
+#### uploadType
+
+Legacy upload protocol for media (e.g. "media", "multipart").
+
+**Type:** string
+
+#### upload_protocol
+
+Upload protocol for media (e.g. "raw", "multipart").
 
 **Type:** string
 
@@ -596,9 +1084,47 @@ The request for updating any aspect of a spreadsheet.
 
 **Type:** object
 
+#### alt
+
+Data format for response.
+
+**Type:** string
+
+**Potential values:** json, media, proto
+
+#### callback
+
+JSONP
+
+**Type:** string
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
 #### quotaUser
 
 Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+
+**Type:** string
+
+#### uploadType
+
+Legacy upload protocol for media (e.g. "media", "multipart").
+
+**Type:** string
+
+#### upload_protocol
+
+Upload protocol for media (e.g. "raw", "multipart").
 
 **Type:** string
 
@@ -630,6 +1156,26 @@ Data within a range of the spreadsheet.
 
 **Type:** object
 
+#### alt
+
+Data format for response.
+
+**Type:** string
+
+**Potential values:** json, media, proto
+
+#### callback
+
+JSONP
+
+**Type:** string
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
 #### includeValuesInResponse
 
 Determines if the update response should include the values
@@ -638,6 +1184,12 @@ do not include the updated values.
 If the range to write was larger than than the range actually written,
 the response will include all values in the requested range (excluding
 trailing empty rows and columns).
+
+**Type:** boolean
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
 
 **Type:** boolean
 
@@ -666,6 +1218,18 @@ The default render option is ValueRenderOption.FORMATTED_VALUE.
 **Type:** string
 
 **Potential values:** FORMATTED_VALUE, UNFORMATTED_VALUE, FORMULA
+
+#### uploadType
+
+Legacy upload protocol for media (e.g. "media", "multipart").
+
+**Type:** string
+
+#### upload_protocol
+
+Upload protocol for media (e.g. "raw", "multipart").
+
+**Type:** string
 
 #### valueInputOption
 
@@ -698,9 +1262,47 @@ The request for updating more than one range of values in a spreadsheet.
 
 **Type:** object
 
+#### alt
+
+Data format for response.
+
+**Type:** string
+
+**Potential values:** json, media, proto
+
+#### callback
+
+JSONP
+
+**Type:** string
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
 #### quotaUser
 
 Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+
+**Type:** string
+
+#### uploadType
+
+Legacy upload protocol for media (e.g. "media", "multipart").
+
+**Type:** string
+
+#### upload_protocol
+
+Upload protocol for media (e.g. "raw", "multipart").
 
 **Type:** string
 
@@ -727,9 +1329,47 @@ The request for updating more than one range of values in a spreadsheet.
 
 **Type:** object
 
+#### alt
+
+Data format for response.
+
+**Type:** string
+
+**Potential values:** json, media, proto
+
+#### callback
+
+JSONP
+
+**Type:** string
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
 #### quotaUser
 
 Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+
+**Type:** string
+
+#### uploadType
+
+Legacy upload protocol for media (e.g. "media", "multipart").
+
+**Type:** string
+
+#### upload_protocol
+
+Upload protocol for media (e.g. "raw", "multipart").
 
 **Type:** string
 

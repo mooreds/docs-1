@@ -23,6 +23,50 @@ The album to be created.
 
 **Type:** object
 
+#### alt
+
+Data format for response.
+
+**Type:** string
+
+**Potential values:** json, media, proto
+
+#### callback
+
+JSONP
+
+**Type:** string
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
+#### quotaUser
+
+Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+
+**Type:** string
+
+#### uploadType
+
+Legacy upload protocol for media (e.g. "media", "multipart").
+
+**Type:** string
+
+#### upload_protocol
+
+Upload protocol for media (e.g. "raw", "multipart").
+
+**Type:** string
+
 </details>
 
 ## create_album
@@ -51,6 +95,50 @@ Identifier of the album to be requested.
 
 **Type:** string
 
+#### alt
+
+Data format for response.
+
+**Type:** string
+
+**Potential values:** json, media, proto
+
+#### callback
+
+JSONP
+
+**Type:** string
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
+#### quotaUser
+
+Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+
+**Type:** string
+
+#### uploadType
+
+Legacy upload protocol for media (e.g. "media", "multipart").
+
+**Type:** string
+
+#### upload_protocol
+
+Upload protocol for media (e.g. "raw", "multipart").
+
+**Type:** string
+
 </details>
 
 ## get_media_item
@@ -65,6 +153,50 @@ Identifier of media item to be requested.
 
 **Type:** string
 
+#### alt
+
+Data format for response.
+
+**Type:** string
+
+**Potential values:** json, media, proto
+
+#### callback
+
+JSONP
+
+**Type:** string
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
+#### quotaUser
+
+Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+
+**Type:** string
+
+#### uploadType
+
+Legacy upload protocol for media (e.g. "media", "multipart").
+
+**Type:** string
+
+#### upload_protocol
+
+Upload protocol for media (e.g. "raw", "multipart").
+
+**Type:** string
+
 </details>
 
 ## get_shared_album
@@ -76,6 +208,50 @@ Returns the album based on the specified shareToken.
 #### shareToken (required)
 
 Share token of the album to be request.
+
+**Type:** string
+
+#### alt
+
+Data format for response.
+
+**Type:** string
+
+**Potential values:** json, media, proto
+
+#### callback
+
+JSONP
+
+**Type:** string
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
+#### quotaUser
+
+Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+
+**Type:** string
+
+#### uploadType
+
+Legacy upload protocol for media (e.g. "media", "multipart").
+
+**Type:** string
+
+#### upload_protocol
+
+Upload protocol for media (e.g. "raw", "multipart").
 
 **Type:** string
 
@@ -99,11 +275,55 @@ Lists all albums shown to a user in the Albums tab of the Google Photos app.
 
 <details><summary>Parameters</summary>
 
+#### alt
+
+Data format for response.
+
+**Type:** string
+
+**Potential values:** json, media, proto
+
+#### callback
+
+JSONP
+
+**Type:** string
+
 #### excludeNonAppCreatedData
 
 If set, the results exclude media items that were not created by this app. Defaults to false (all albums are returned). This field is ignored if the photoslibrary.readonly.appcreateddata scope is used.
 
 **Type:** boolean
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
+#### quotaUser
+
+Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+
+**Type:** string
+
+#### uploadType
+
+Legacy upload protocol for media (e.g. "media", "multipart").
+
+**Type:** string
+
+#### upload_protocol
+
+Upload protocol for media (e.g. "raw", "multipart").
+
+**Type:** string
 
 </details>
 
@@ -113,11 +333,55 @@ List all media items from a user's Google Photos library.
 
 <details><summary>Parameters</summary>
 
+#### alt
+
+Data format for response.
+
+**Type:** string
+
+**Potential values:** json, media, proto
+
+#### callback
+
+JSONP
+
+**Type:** string
+
 #### excludeNonAppCreatedData
 
 If set, the results exclude media items that were not created by this app. Defaults to false (all albums are returned). This field is ignored if the photoslibrary.readonly.appcreateddata scope is used.
 
 **Type:** boolean
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
+#### quotaUser
+
+Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+
+**Type:** string
+
+#### uploadType
+
+Legacy upload protocol for media (e.g. "media", "multipart").
+
+**Type:** string
+
+#### upload_protocol
+
+Upload protocol for media (e.g. "raw", "multipart").
+
+**Type:** string
 
 </details>
 
@@ -127,11 +391,55 @@ Lists all shared albums available in the Sharing tab of the user's Google Photos
 
 <details><summary>Parameters</summary>
 
+#### alt
+
+Data format for response.
+
+**Type:** string
+
+**Potential values:** json, media, proto
+
+#### callback
+
+JSONP
+
+**Type:** string
+
 #### excludeNonAppCreatedData
 
 If set, the results exclude media items that were not created by this app. Defaults to false (all albums are returned). This field is ignored if the photoslibrary.readonly.appcreateddata scope is used.
 
 **Type:** boolean
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
+#### quotaUser
+
+Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+
+**Type:** string
+
+#### uploadType
+
+Legacy upload protocol for media (e.g. "media", "multipart").
+
+**Type:** string
+
+#### upload_protocol
+
+Upload protocol for media (e.g. "raw", "multipart").
+
+**Type:** string
 
 </details>
 
@@ -170,6 +478,50 @@ Identifier of the album to be requested.
 Options to be set when converting the album to a shared album.
 
 **Type:** object
+
+#### alt
+
+Data format for response.
+
+**Type:** string
+
+**Potential values:** json, media, proto
+
+#### callback
+
+JSONP
+
+**Type:** string
+
+#### fields
+
+Selector specifying which fields to include in a partial response.
+
+**Type:** string
+
+#### prettyPrint
+
+Returns response with indentations and line breaks.
+
+**Type:** boolean
+
+#### quotaUser
+
+Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+
+**Type:** string
+
+#### uploadType
+
+Legacy upload protocol for media (e.g. "media", "multipart").
+
+**Type:** string
+
+#### upload_protocol
+
+Upload protocol for media (e.g. "raw", "multipart").
+
+**Type:** string
 
 </details>
 
