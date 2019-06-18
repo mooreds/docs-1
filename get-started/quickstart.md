@@ -11,7 +11,9 @@ In this quickstart guide, you'll use Transposit to build a custom Slack bot that
 
 You can also [watch this in a short video](https://youtu.be/98yMQpSjQIc):
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/98yMQpSjQIc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<div class="iframe-container">
+<iframe src="https://www.youtube.com/embed/98yMQpSjQIc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
 
 ## What you'll need
 
