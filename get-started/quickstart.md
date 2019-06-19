@@ -63,7 +63,7 @@ Now that the Slack bot is working, get it talking to calendars.
 
 Return to the app's code in the Transposit console, and add the Google Calendar data connector, with the operation `get_calendar_events`. The new operation contains a scaffold for how to use SQL to get calendar events. Note that you need to supply the calendar ID, start time, and end time.
 
-In this app, we want the user to select which calendar to use, so add a new operation that's a **User Setting Options** type, paste in the following code, and commit to save:
+In this app, we want the user to choose which calendar to use, so let's add a new operation that's a **User Setting Options** type. Next, paste in the following code (replacing everything that was there by default), and commit to save:
 
 ```javascript
 (params) => {
@@ -82,9 +82,11 @@ In this app, we want the user to select which calendar to use, so add a new oper
 }
 ```
 
+Test that that operation is working properly by hitting the **Run** button. In the tab below titled "Results" you should see information about your various Google Calendars.
+
 Then, go to **Users > User Configuration** and check the box to require users to authenticate with Google Calendar.
 
-At the bottom of the page in the user settings schema, add a new item of type Options, set the **Name** to `calendar_id`, and specify that it use the `options` operation just previously created.
+At the bottom of the page in the user settings schema, add a new item of type Options, set the **Name** to `calendar_id`, and specify that it use the `options` operation we just created.
 
 To try this out, visit the user configuration page again, refresh, and if your calendar connection is authorized you'll see a list of your calendars to select.
 
@@ -92,7 +94,7 @@ To try this out, visit the user configuration page again, refresh, and if your c
 
 Create a new JavaScript operation that you'll use to specify calendar start and end time. In the operation properties, name the operation `get_day_start_end`.
 
-You can use the `api.run` command to call Google Calendar to get the calendar timezone, and you can access the configured `calendar_id` through the `user_setting` API. Paste this code into the new operation:
+You can use the `api.run` command to call Google Calendar to get the calendar timezone, and you can access the configured `calendar_id` using`user_setting.get('calendar_id')`. Paste this code into the new operation:
 
 ```javascript
 (params) => {
@@ -109,11 +111,11 @@ You can use the `api.run` command to call Google Calendar to get the calendar ti
 
 > **Note:** When you're in development mode, you must to provide authorizations and settings separate from those used in production. To do this, go to the **Auths and User Settings** section in the Code view. 
 
-When you've added authorizations for using the data connections in development, run the operation to make sure it works.
+After you've added authorizations for using the data connections in development, try the **Run** button to make user the operation correctly reports the start and end times for the current day.
 
 ## Putting it all together
 
-Go back to the `get_calendar_events` operation you created earlier, add a parameter with the name `calendarId` and a default value of “primary", and then paste the following operation code:
+Go back to the `get_calendar_events` operation you created earlier, add a parameter with the name `calendarId` and a default value of “primary", and then paste the following operation code that lists the day's events.
 
 ```sql
 SELECT summary FROM google_calendar.get_calendar_events as E
