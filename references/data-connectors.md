@@ -12,6 +12,7 @@ Note: reference material for each data connector can additionally be viewed in t
 ## A
 
 * [Airtable](../connectors/airtable-documentation)
+* [Algorithmia](../connectors/algorithmia-documentation)
 * [Apify Crawler](../connectors/apify-crawler-documentation)
 * [Apify v2](../connectors/apify-v2-documentation)
 * [AWS Athena](../connectors/aws-athena-documentation)
