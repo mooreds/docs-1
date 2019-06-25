@@ -73,6 +73,10 @@ Note: reference material for each data connector can additionally be viewed in t
 
 * [Hubspot](../connectors/hubspot-documentation)
 
+## I
+
+* [Intercom](../connectors/intercom-documentation)
+
 ## J
 
 * [Jira](../connectors/jira-documentation)
