@@ -208,6 +208,67 @@ api.log("logging the following greeting:", {"Hello", "World"})
 // => logging the following greeting: { Hello: World }
 ```
 
+# Stash
+
+Transposit operations can programmatically save and retrieve data from a stash.
+
+## get
+
+`stash.get(key)`
+
+Retrieves the saved stash value.
+
+| Argument | Type |  |
+| :--- | :--- | :--- |
+| key | String | the key name of the stashed value |
+
+**Returns** (any/null): Returns a JavaScript value matching the value that was previously saved; only JSON-serializable JavaScript values can be saved. If no saved value exists, returns `null`.
+
+**Examples**
+
+```javascript
+stash.get("stringType");
+// => "This could be any JSON-serializable string, number, boolean, object, array, etc"
+stash.get("numberType");
+// => 12345
+stash.get("booleanType");
+// => true
+stash.get("objectType");
+// => {"firstName":"Iggy","lastName":"Transposit"}
+stash.get("arrayType");
+// => ["abc",123,true,["u","n","me"]]
+stash.get("nonexistent");
+// => null
+```
+
+## put
+
+`stash.put(key, value)`
+
+Saves (or deletes) a stash value.
+| Argument | Type |  |
+| :--- | :--- | :--- |
+| key | String | the key name of the stashed value |
+| value | any/null | a JSON-serializable JavaScript value; putting a `null` value is semantically equivalent to deleting a value |
+
+**Examples**
+
+```javascript
+// Save values
+stash.put("stringType", "This could be any JSON-serializable string, number, boolean, object, array, etc");
+stash.put("numberType", 12345);
+stash.put("booleanType", true);
+stash.put("objectType", {firstName: "Iggy", lastName: "Transposit"});
+stash.put("arrayType", ["abc", 123, true, ["u", "n", "me"]]);
+
+// Delete values
+stash.put("stringType", null);
+stash.put("numberType", null);
+stash.put("booleanType", null);
+stash.put("objectType", null);
+stash.put("arrayType", null);
+```
+
 # User Settings
 
 Transposit operations can programmatically access user settings.
