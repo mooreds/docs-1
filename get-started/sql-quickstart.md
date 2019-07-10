@@ -154,7 +154,7 @@ Let's use a join to combine the two operations we've created so we can get the l
 Your SQL should look like:
 
 ```sql
- SELECT name, last_message
+SELECT name, last_message
   FROM this.list_conversations AS LIST
   JOIN this.get_channels_history AS DETAIL
   ON LIST.id = DETAIL.channelId
