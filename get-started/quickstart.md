@@ -35,9 +35,9 @@ Next, go to **Deploy > Endpoints**, and copy the webhook URL for the operation `
 
 Visit [the Slack apps page](https://api.slack.com/apps), and create a new app. Give the new app a name something like **Calendar Helper**.
 
-Select **Slash Commands** from the list of features, choose **Create New Comamnd** and create a new command called `/calendar`.
+Select **Slash Commands** from the list of features, choose **Create New Command** and create a new command called `/calendar`.
 
-For the **Request URL**. paste in the webhook URL copied in the previous step, give the command a short description such as "List my day's events", and be sure to save.
+For the **Request URL**, paste in the webhook URL copied in the previous step, give the command a short description such as "List my day's events", and be sure to save.
 
 When your slash command is created, choose **Install App** and install the Slack app into your workspace.
 
