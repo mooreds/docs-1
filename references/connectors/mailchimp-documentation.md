@@ -249,7 +249,7 @@ Information about a specific product.
 
 ## add_subscriber_to_email_workflow
 
-Manually add a subscriber to a workflow, bypassing the default trigger settings. You can also use this endpoint to trigger a series of automated emails in an [API 3.0 workflow type](http://kb.mailchimp.com/automation/about-automation-workflow-types?utm_source=mc-api&utm_medium=docs&utm_campaign=apidocs#Using-the-API) or add subscribers to an automated email queue that uses the [API request delay type](http://kb.mailchimp.com/automation/about-automation-workflow-types?utm_source=mc-api&utm_medium=docs&utm_campaign=apidocs#Using-the-API).
+Manually add a subscriber to a workflow, bypassing the default trigger settings. You can also use this endpoint to trigger a series of automated emails in an [API 3.0 workflow type](http://kb.mailchimp.com/automation/about-automation-workflow-types?utm_source=mc-api&amp;utm_medium=docs&amp;utm_campaign=apidocs#Using-the-API) or add subscribers to an automated email queue that uses the [API request delay type](http://kb.mailchimp.com/automation/about-automation-workflow-types?utm_source=mc-api&amp;utm_medium=docs&amp;utm_campaign=apidocs#Using-the-API).
 
 <details><summary>Parameters</summary>
 
@@ -347,7 +347,7 @@ Members to add/remove to/from a static segment
 
 ## cancel_campaign
 
-Cancel a Regular or Plain-Text Campaign after you send, before all of your recipients receive it. This feature is included with [MailChimp Pro](http://mailchimp.com/pro?utm_source=mc-api&utm_medium=docs&utm_campaign=apidocs).
+Cancel a Regular or Plain-Text Campaign after you send, before all of your recipients receive it. This feature is included with [MailChimp Pro](http://mailchimp.com/pro?utm_source=mc-api&amp;utm_medium=docs&amp;utm_campaign=apidocs).
 
 <details><summary>Parameters</summary>
 
@@ -483,7 +483,7 @@ An individual store in an account.
 
 ## create_template
 
-Create a new template for the account. Only [Classic templates](http://kb.mailchimp.com/templates/basic-and-themes/types-of-templates?utm_source=mc-api&utm_medium=docs&utm_campaign=apidocs) are supported.
+Create a new template for the account. Only [Classic templates](http://kb.mailchimp.com/templates/basic-and-themes/types-of-templates?utm_source=mc-api&amp;utm_medium=docs&amp;utm_campaign=apidocs) are supported.
 
 <details><summary>Parameters</summary>
 
@@ -799,7 +799,7 @@ The store id.
 
 ## delete_list
 
-Delete a list from your MailChimp account. If you delete a list, you'll lose the list history—including subscriber activity, unsubscribes, complaints, and bounces. You’ll also lose subscribers’ email addresses, unless you [exported and backed up your list](http://kb.mailchimp.com/lists/managing-subscribers/view-or-export-a-list?utm_source=mc-api&utm_medium=docs&utm_campaign=apidocs#View-or-Export-a-List).
+Delete a list from your MailChimp account. If you delete a list, you'll lose the list history—including subscriber activity, unsubscribes, complaints, and bounces. You’ll also lose subscribers’ email addresses, unless you [exported and backed up your list](http://kb.mailchimp.com/lists/managing-subscribers/view-or-export-a-list?utm_source=mc-api&amp;utm_medium=docs&amp;utm_campaign=apidocs#View-or-Export-a-List).
 
 <details><summary>Parameters</summary>
 
@@ -979,7 +979,7 @@ The store id.
 
 ## delete_subscriber_from_workflow
 
-[Remove a subscriber](http://kb.mailchimp.com/automation/add-or-remove-subscribers-from-automation-workflow?utm_source=mc-api&utm_medium=docs&utm_campaign=apidocs) from a specific Automation workflow. You can remove a subscriber at any point in an Automation workflow, regardless of how many emails they've been sent from that workflow. Once they're removed, they can never be added back to the same workflow.
+[Remove a subscriber](http://kb.mailchimp.com/automation/add-or-remove-subscribers-from-automation-workflow?utm_source=mc-api&amp;utm_medium=docs&amp;utm_campaign=apidocs) from a specific Automation workflow. You can remove a subscriber at any point in an Automation workflow, regardless of how many emails they've been sent from that workflow. Once they're removed, they can never be added back to the same workflow.
 
 <details><summary>Parameters</summary>
 
@@ -1293,7 +1293,7 @@ A comma-separated list of fields to return. Reference parameters of sub-objects 
 
 ## get_click_details_for_campaign
 
-Get information about [clicks](http://kb.mailchimp.com/reports/about-click-tracking?utm_source=mc-api&utm_medium=docs&utm_campaign=apidocs) on specific links in your MailChimp campaigns.
+Get information about [clicks](http://kb.mailchimp.com/reports/about-click-tracking?utm_source=mc-api&amp;utm_medium=docs&amp;utm_campaign=apidocs) on specific links in your MailChimp campaigns.
 
 <details><summary>Parameters</summary>
 
@@ -1931,7 +1931,7 @@ A comma-separated list of fields to return. Reference parameters of sub-objects 
 
 ## get_list
 
-Get information about a specific list in your MailChimp account. Results include list members who have signed up but haven't confirmed their subscription yet and [unsubscribed or cleaned](http://kb.mailchimp.com/lists/managing-subscribers/view-unsubscribed-and-cleaned-addresses?utm_source=mc-api&utm_medium=docs&utm_campaign=apidocs).
+Get information about a specific list in your MailChimp account. Results include list members who have signed up but haven't confirmed their subscription yet and [unsubscribed or cleaned](http://kb.mailchimp.com/lists/managing-subscribers/view-unsubscribed-and-cleaned-addresses?utm_source=mc-api&amp;utm_medium=docs&amp;utm_campaign=apidocs).
 
 <details><summary>Parameters</summary>
 
@@ -2289,7 +2289,7 @@ A comma-separated list of fields to return. Reference parameters of sub-objects 
 
 ## get_removed_subscriber_from_workflow
 
-Get information about a specific subscriber who was [removed from an Automation workflow](http://kb.mailchimp.com/automation/add-or-remove-subscribers-from-automation-workflow?utm_source=mc-api&utm_medium=docs&utm_campaign=apidocs).
+Get information about a specific subscriber who was [removed from an Automation workflow](http://kb.mailchimp.com/automation/add-or-remove-subscribers-from-automation-workflow?utm_source=mc-api&amp;utm_medium=docs&amp;utm_campaign=apidocs).
 
 <details><summary>Parameters</summary>
 
@@ -2635,7 +2635,7 @@ Use this endpoint to link your application and retrieve OAuth2-based credentials
 
 ## list_abuse_reports_for_campaign
 
-Get a list of [abuse complaints](http://kb.mailchimp.com/accounts/compliance-tips/about-abuse-complaints?utm_source=mc-api&utm_medium=docs&utm_campaign=apidocs) for a specific campaign.
+Get a list of [abuse complaints](http://kb.mailchimp.com/accounts/compliance-tips/about-abuse-complaints?utm_source=mc-api&amp;utm_medium=docs&amp;utm_campaign=apidocs) for a specific campaign.
 
 <details><summary>Parameters</summary>
 
@@ -3107,7 +3107,7 @@ The unique id for the Automation workflow.
 
 ## list_feedback_for_campaign
 
-Get team feedback while you're [working together on a MailChimp campaign](http://kb.mailchimp.com/campaigns/design/collaborate-on-campaigns?utm_source=mc-api&utm_medium=docs&utm_campaign=apidocs).
+Get team feedback while you're [working together on a MailChimp campaign](http://kb.mailchimp.com/campaigns/design/collaborate-on-campaigns?utm_source=mc-api&amp;utm_medium=docs&amp;utm_campaign=apidocs).
 
 <details><summary>Parameters</summary>
 
@@ -3521,7 +3521,7 @@ The subscriber's status.
 
 #### unique_email_id
 
-A unique identifier for the email address across all MailChimp lists. This parameter can be found in any links with [Ecommerce Tracking](http://kb.mailchimp.com/integrations/e-commerce/how-to-use-mailchimp-for-e-commerce?utm_source=mc-api&utm_medium=docs&utm_campaign=apidocs) enabled.
+A unique identifier for the email address across all MailChimp lists. This parameter can be found in any links with [Ecommerce Tracking](http://kb.mailchimp.com/integrations/e-commerce/how-to-use-mailchimp-for-e-commerce?utm_source=mc-api&amp;utm_medium=docs&amp;utm_campaign=apidocs) enabled.
 
 **Type:** string
 
@@ -3535,7 +3535,7 @@ A filter to return only the list's VIP members. Passing `true` will restrict res
 
 ## list_members_in_segment_of_list
 
-Get information about members in a [saved segment](http://kb.mailchimp.com/segments/how-to-use-saved-segments?utm_source=mc-api&utm_medium=docs&utm_campaign=apidocs).
+Get information about members in a [saved segment](http://kb.mailchimp.com/segments/how-to-use-saved-segments?utm_source=mc-api&amp;utm_medium=docs&amp;utm_campaign=apidocs).
 
 <details><summary>Parameters</summary>
 
@@ -3793,7 +3793,7 @@ A comma-separated list of fields to return. Reference parameters of sub-objects 
 
 ## list_removed_subscribers_from_workflow
 
-Get information about subscribers who were [removed from an Automation workflow](http://kb.mailchimp.com/automation/add-or-remove-subscribers-from-automation-workflow?utm_source=mc-api&utm_medium=docs&utm_campaign=apidocs).
+Get information about subscribers who were [removed from an Automation workflow](http://kb.mailchimp.com/automation/add-or-remove-subscribers-from-automation-workflow?utm_source=mc-api&amp;utm_medium=docs&amp;utm_campaign=apidocs).
 
 <details><summary>Parameters</summary>
 
@@ -4289,7 +4289,7 @@ The unique id for the Automation workflow.
 
 ## post_campaigns_id_actions_resume
 
-[Resume an RSS-Driven campaign](http://kb.mailchimp.com/campaigns/rss-in-campaigns/pause-or-reactivate-an-rss-driven-campaign?utm_source=mc-api&utm_medium=docs&utm_campaign=apidocs).
+[Resume an RSS-Driven campaign](http://kb.mailchimp.com/campaigns/rss-in-campaigns/pause-or-reactivate-an-rss-driven-campaign?utm_source=mc-api&amp;utm_medium=docs&amp;utm_campaign=apidocs).
 
 <details><summary>Parameters</summary>
 
@@ -4337,7 +4337,7 @@ An individual message in a conversation. Conversation tracking is a feature avai
 
 ## puase_campaign
 
-[Pause an RSS-Driven campaign](http://kb.mailchimp.com/campaigns/rss-in-campaigns/pause-or-reactivate-an-rss-driven-campaign?utm_source=mc-api&utm_medium=docs&utm_campaign=apidocs).
+[Pause an RSS-Driven campaign](http://kb.mailchimp.com/campaigns/rss-in-campaigns/pause-or-reactivate-an-rss-driven-campaign?utm_source=mc-api&amp;utm_medium=docs&amp;utm_campaign=apidocs).
 
 <details><summary>Parameters</summary>
 
@@ -4351,7 +4351,7 @@ The unique id for the campaign.
 
 ## replicate_campaign
 
-[Replicate a campaign](http://kb.mailchimp.com/campaigns/ways-to-build/replicate-a-campaign-or-automation-workflow?utm_source=mc-api&utm_medium=docs&utm_campaign=apidocs) in saved or send status.
+[Replicate a campaign](http://kb.mailchimp.com/campaigns/ways-to-build/replicate-a-campaign-or-automation-workflow?utm_source=mc-api&amp;utm_medium=docs&amp;utm_campaign=apidocs) in saved or send status.
 
 <details><summary>Parameters</summary>
 
@@ -4365,7 +4365,7 @@ The unique id for the campaign.
 
 ## schedule_campaign
 
-[Schedule a campaign](http://kb.mailchimp.com/campaigns/confirmation-and-sending/schedule-pause-or-send-a-campaign?utm_source=mc-api&utm_medium=docs&utm_campaign=apidocs) for delivery. If you're using [Multivariate Campaigns](http://kb.mailchimp.com/campaigns/multivariate/about-multivariate-campaigns?utm_source=mc-api&utm_medium=docs&utm_campaign=apidocs) to test send times or sending [RSS Campaigns](http://kb.mailchimp.com/campaigns/rss-in-campaigns/create-an-rss-campaign?utm_source=mc-api&utm_medium=docs&utm_campaign=apidocs), use the [send](http://developer.mailchimp.com/documentation/mailchimp/reference/campaigns/#action-post_campaigns_campaign_id_actions_send) action instead.
+[Schedule a campaign](http://kb.mailchimp.com/campaigns/confirmation-and-sending/schedule-pause-or-send-a-campaign?utm_source=mc-api&amp;utm_medium=docs&amp;utm_campaign=apidocs) for delivery. If you're using [Multivariate Campaigns](http://kb.mailchimp.com/campaigns/multivariate/about-multivariate-campaigns?utm_source=mc-api&amp;utm_medium=docs&amp;utm_campaign=apidocs) to test send times or sending [RSS Campaigns](http://kb.mailchimp.com/campaigns/rss-in-campaigns/create-an-rss-campaign?utm_source=mc-api&amp;utm_medium=docs&amp;utm_campaign=apidocs), use the [send](http://developer.mailchimp.com/documentation/mailchimp/reference/campaigns/#action-post_campaigns_campaign_id_actions_send) action instead.
 
 <details><summary>Parameters</summary>
 
@@ -4441,7 +4441,7 @@ The unique id for the list.
 
 ## send_campaign
 
-Send a MailChimp campaign. For [RSS Campaigns](http://kb.mailchimp.com/campaigns/rss-in-campaigns/create-an-rss-campaign?utm_source=mc-api&utm_medium=docs&utm_campaign=apidocs), the campaign will send according to its schedule. All other campaigns will send immediately.
+Send a MailChimp campaign. For [RSS Campaigns](http://kb.mailchimp.com/campaigns/rss-in-campaigns/create-an-rss-campaign?utm_source=mc-api&amp;utm_medium=docs&amp;utm_campaign=apidocs), the campaign will send according to its schedule. All other campaigns will send immediately.
 
 <details><summary>Parameters</summary>
 
@@ -4455,7 +4455,7 @@ The unique id for the campaign.
 
 ## send_test_email_for_campaign
 
-Send a [test email](http://kb.mailchimp.com/campaigns/previews-and-tests/preview-and-test-your-campaign?utm_source=mc-api&utm_medium=docs&utm_campaign=apidocs).
+Send a [test email](http://kb.mailchimp.com/campaigns/previews-and-tests/preview-and-test-your-campaign?utm_source=mc-api&amp;utm_medium=docs&amp;utm_campaign=apidocs).
 
 <details><summary>Parameters</summary>
 
@@ -4539,7 +4539,7 @@ The unique id for the Automation workflow.
 
 ## unschedule_campaign
 
-[Unschedule](http://kb.mailchimp.com/campaigns/confirmation-and-sending/schedule-pause-or-send-a-campaign?utm_source=mc-api&utm_medium=docs&utm_campaign=apidocs#Pause-a-Scheduled-Campaign) a scheduled campaign that hasn't started sending.
+[Unschedule](http://kb.mailchimp.com/campaigns/confirmation-and-sending/schedule-pause-or-send-a-campaign?utm_source=mc-api&amp;utm_medium=docs&amp;utm_campaign=apidocs#Pause-a-Scheduled-Campaign) a scheduled campaign that hasn't started sending.
 
 <details><summary>Parameters</summary>
 
@@ -5133,7 +5133,7 @@ Configure a webhook for the given list.
 
 ## upload_file_to_file_manager
 
- Upload a new image or file to the File Manager.
+Upload a new image or file to the File Manager.
 
 <details><summary>Parameters</summary>
 

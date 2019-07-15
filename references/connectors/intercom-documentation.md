@@ -25,7 +25,7 @@ Conversation ID
 
 ## archive_user
 
-Archive a user.  The archive action will not perform a 'hard' delete. If you want to permanently delete your user then you will need to use the [**permanent delete API**](https://developers.intercom.com/v2.0/reference#delete-users).
+Archive a user. The archive action will not perform a 'hard' delete. If you want to permanently delete your user then you will need to use the [**permanent delete API**](https://developers.intercom.com/v2.0/reference#delete-users).
 
 <details><summary>Parameters</summary>
 
@@ -117,17 +117,7 @@ Create a note.
 
 ## create_tag
 
-Create a tag by sending a tag object with a name. The tag name may contain whitespace and punctuation.
-If the same tag name is sent multiple times, only one tag will be created for that name - this lets you avoid checking if a tag exists first.
-Tag names are case insensitive - 'MyTag' and 'mytag' will result in a single tag being created.
-Update a tag by submitting a tag object with the id of the tag to update and a new name for the tag. A successful request will update the name value for that tag and return the updated tag in the response.
-Users can be tagged by supplying a users array. The array contains objects identifying users by their id, email or user_id fields.
-Companies can be tagged by sending a companies array. The array contains objects identifying companies by their id or company_id fields.
-Contacts/Leads can be tagged by supplying a users array. The array contains objects identifying leads by their id fields.
-Companies and user tag directives cannot be mixed in the same request - a request will not process both company and user arrays.
-We recommend tagging no more than 50 users at a time as larger amounts could result in a timeout.
-To untag a company or user, each user or company object sent in the tagging request can be submitted with an untag field whose value is set to true.
-Objects submitted with an untag field can be mixed with other objects being tagged. This allows tag and untag operations to be performed in a single request.      
+Create a tag by sending a tag object with a name. The tag name may contain whitespace and punctuation. If the same tag name is sent multiple times, only one tag will be created for that name - this lets you avoid checking if a tag exists first. Tag names are case insensitive - 'MyTag' and 'mytag' will result in a single tag being created. Update a tag by submitting a tag object with the id of the tag to update and a new name for the tag. A successful request will update the name value for that tag and return the updated tag in the response. Users can be tagged by supplying a users array. The array contains objects identifying users by their id, email or user_id fields. Companies can be tagged by sending a companies array. The array contains objects identifying companies by their id or company_id fields. Contacts/Leads can be tagged by supplying a users array. The array contains objects identifying leads by their id fields. Companies and user tag directives cannot be mixed in the same request - a request will not process both company and user arrays. We recommend tagging no more than 50 users at a time as larger amounts could result in a timeout. To untag a company or user, each user or company object sent in the tagging request can be submitted with an untag field whose value is set to true. Objects submitted with an untag field can be mixed with other objects being tagged. This allows tag and untag operations to be performed in a single request.
 
 <details><summary>Parameters</summary>
 
@@ -877,19 +867,7 @@ Conversation ID
 
 ## scroll_companies
 
-Scroll over all companies. The List Companies
-functionality does not work well for huge datasets, and can result in errors
-and performance problems when paging deeply. The Scroll API provides an efficient
-mechanism for iterating over all users in a dataset. Each app can only
-have 1 scroll open at a time. You''ll get an error message if you try to have
-more than one open per app. If the scroll isn''t used for 1 minute, it
-expires and calls with that scroll param will fail. If the end of the scroll
-is reached, \"companies\" will be empty and the scroll parameter will expire. Since scroll is often used on large datasets network errors such as
-  timeouts can be encountered. When this occurs you will need to restart your
-  scroll query as it is not possible to continue from a specific point when
-  using scroll.When this occurs you will see a HTTP 500 error with the following
-  message: “Request failed due to an internal network error. Please restart
-  the scroll operation.”
+Scroll over all companies. The List Companies functionality does not work well for huge datasets, and can result in errors and performance problems when paging deeply. The Scroll API provides an efficient mechanism for iterating over all users in a dataset. Each app can only have 1 scroll open at a time. You''ll get an error message if you try to have more than one open per app. If the scroll isn''t used for 1 minute, it expires and calls with that scroll param will fail. If the end of the scroll is reached, \"companies\" will be empty and the scroll parameter will expire. Since scroll is often used on large datasets network errors such as timeouts can be encountered. When this occurs you will need to restart your scroll query as it is not possible to continue from a specific point when using scroll.When this occurs you will see a HTTP 500 error with the following message: “Request failed due to an internal network error. Please restart the scroll operation.”
 
 <details><summary>Parameters</summary>
 
@@ -903,19 +881,7 @@ scroll parameter
 
 ## scroll_leads
 
-Scroll over all leads. The List Leads
-functionality does not work well for huge datasets, and can result in errors
-and performance problems when paging deeply. The Scroll API provides an efficient
-mechanism for iterating over all users in a dataset. Each app can only
-have 1 scroll open at a time. You''ll get an error message if you try to have
-more than one open per app. If the scroll isn''t used for 1 minute, it
-expires and calls with that scroll param will fail. If the end of the scroll
-is reached, \"leads\" will be empty and the scroll parameter will expire. Since scroll is often used on large datasets network errors such as
-  timeouts can be encountered. When this occurs you will need to restart your
-  scroll query as it is not possible to continue from a specific point when
-  using scroll.When this occurs you will see a HTTP 500 error with the following
-  message: “Request failed due to an internal network error. Please restart
-  the scroll operation.”
+Scroll over all leads. The List Leads functionality does not work well for huge datasets, and can result in errors and performance problems when paging deeply. The Scroll API provides an efficient mechanism for iterating over all users in a dataset. Each app can only have 1 scroll open at a time. You''ll get an error message if you try to have more than one open per app. If the scroll isn''t used for 1 minute, it expires and calls with that scroll param will fail. If the end of the scroll is reached, \"leads\" will be empty and the scroll parameter will expire. Since scroll is often used on large datasets network errors such as timeouts can be encountered. When this occurs you will need to restart your scroll query as it is not possible to continue from a specific point when using scroll.When this occurs you will see a HTTP 500 error with the following message: “Request failed due to an internal network error. Please restart the scroll operation.”
 
 <details><summary>Parameters</summary>
 
@@ -929,19 +895,7 @@ scroll parameter
 
 ## scroll_users
 
-Scroll over all users. The List Users
-functionality does not work well for huge datasets, and can result in errors
-and performance problems when paging deeply. The Scroll API provides an efficient
-mechanism for iterating over all users in a dataset. Each app can only
-have 1 scroll open at a time. You''ll get an error message if you try to have
-more than one open per app. If the scroll isn''t used for 1 minute, it
-expires and calls with that scroll param will fail. If the end of the scroll
-is reached, \"users\" will be empty and the scroll parameter will expire. Since scroll is often used on large datasets network errors such as
-  timeouts can be encountered. When this occurs you will need to restart your
-  scroll query as it is not possible to continue from a specific point when
-  using scroll.When this occurs you will see a HTTP 500 error with the following
-  message: “Request failed due to an internal network error. Please restart
-  the scroll operation.”
+Scroll over all users. The List Users functionality does not work well for huge datasets, and can result in errors and performance problems when paging deeply. The Scroll API provides an efficient mechanism for iterating over all users in a dataset. Each app can only have 1 scroll open at a time. You''ll get an error message if you try to have more than one open per app. If the scroll isn''t used for 1 minute, it expires and calls with that scroll param will fail. If the end of the scroll is reached, \"users\" will be empty and the scroll parameter will expire. Since scroll is often used on large datasets network errors such as timeouts can be encountered. When this occurs you will need to restart your scroll query as it is not possible to continue from a specific point when using scroll.When this occurs you will see a HTTP 500 error with the following message: “Request failed due to an internal network error. Please restart the scroll operation.”
 
 <details><summary>Parameters</summary>
 
@@ -1005,17 +959,7 @@ Create or update a lead
 
 ## update_tag
 
-Create a tag by sending a tag object with a name. The tag name may contain whitespace and punctuation.
-If the same tag name is sent multiple times, only one tag will be created for that name - this lets you avoid checking if a tag exists first.
-Tag names are case insensitive - 'MyTag' and 'mytag' will result in a single tag being created.
-Update a tag by submitting a tag object with the id of the tag to update and a new name for the tag. A successful request will update the name value for that tag and return the updated tag in the response.
-Users can be tagged by supplying a users array. The array contains objects identifying users by their id, email or user_id fields.
-Companies can be tagged by sending a companies array. The array contains objects identifying companies by their id or company_id fields.
-Contacts/Leads can be tagged by supplying a users array. The array contains objects identifying leads by their id fields.
-Companies and user tag directives cannot be mixed in the same request - a request will not process both company and user arrays.
-We recommend tagging no more than 50 users at a time as larger amounts could result in a timeout.
-To untag a company or user, each user or company object sent in the tagging request can be submitted with an untag field whose value is set to true.
-Objects submitted with an untag field can be mixed with other objects being tagged. This allows tag and untag operations to be performed in a single request.      
+Create a tag by sending a tag object with a name. The tag name may contain whitespace and punctuation. If the same tag name is sent multiple times, only one tag will be created for that name - this lets you avoid checking if a tag exists first. Tag names are case insensitive - 'MyTag' and 'mytag' will result in a single tag being created. Update a tag by submitting a tag object with the id of the tag to update and a new name for the tag. A successful request will update the name value for that tag and return the updated tag in the response. Users can be tagged by supplying a users array. The array contains objects identifying users by their id, email or user_id fields. Companies can be tagged by sending a companies array. The array contains objects identifying companies by their id or company_id fields. Contacts/Leads can be tagged by supplying a users array. The array contains objects identifying leads by their id fields. Companies and user tag directives cannot be mixed in the same request - a request will not process both company and user arrays. We recommend tagging no more than 50 users at a time as larger amounts could result in a timeout. To untag a company or user, each user or company object sent in the tagging request can be submitted with an untag field whose value is set to true. Objects submitted with an untag field can be mixed with other objects being tagged. This allows tag and untag operations to be performed in a single request.
 
 <details><summary>Parameters</summary>
 

@@ -7,9 +7,7 @@ layout: docs.mustache
 
 ## analyze_entities
 
-Finds named entities (currently proper names and common nouns) in the text
-along with entity types, salience, mentions for each entity, and
-other properties.
+Finds named entities (currently proper names and common nouns) in the text along with entity types, salience, mentions for each entity, and other properties.
 
 <details><summary>Parameters</summary>
 
@@ -67,8 +65,7 @@ Upload protocol for media (e.g. "raw", "multipart").
 
 ## analyze_entity_sentiment
 
-Finds entities, similar to AnalyzeEntities in the text and analyzes
-sentiment associated with each entity and its mentions.
+Finds entities, similar to AnalyzeEntities in the text and analyzes sentiment associated with each entity and its mentions.
 
 <details><summary>Parameters</summary>
 
@@ -184,9 +181,7 @@ Upload protocol for media (e.g. "raw", "multipart").
 
 ## analyze_syntax
 
-Analyzes the syntax of the text and provides sentence boundaries and
-tokenization along with part of speech tags, dependency trees, and other
-properties.
+Analyzes the syntax of the text and provides sentence boundaries and tokenization along with part of speech tags, dependency trees, and other properties.
 
 <details><summary>Parameters</summary>
 
@@ -244,15 +239,13 @@ Upload protocol for media (e.g. "raw", "multipart").
 
 ## annotate_text
 
-A convenience method that provides all the features that analyzeSentiment,
-analyzeEntities, and analyzeSyntax provide in one call.
+A convenience method that provides all the features that analyzeSentiment, analyzeEntities, and analyzeSyntax provide in one call.
 
 <details><summary>Parameters</summary>
 
 #### $body
 
-The request message for the text annotation API, which can perform multiple
-analysis types (sentiment, entities, and syntax) in one call.
+The request message for the text annotation API, which can perform multiple analysis types (sentiment, entities, and syntax) in one call.
 
 **Type:** object
 

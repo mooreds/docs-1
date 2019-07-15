@@ -7,7 +7,7 @@ layout: docs.mustache
 
 ## add_policy_to_function
 
-Grants an AWS service or another account permission to use a function. You can apply the policy at the function level, or specify a qualifier to restrict access to a single version or alias. If you use a qualifier, the invoker must use the full Amazon Resource Name (ARN) of that version or alias to invoke the function. 
+Grants an AWS service or another account permission to use a function. You can apply the policy at the function level, or specify a qualifier to restrict access to a single version or alias. If you use a qualifier, the invoker must use the full Amazon Resource Name (ARN) of that version or alias to invoke the function.
 
 <details><summary>Parameters</summary>
 
@@ -25,7 +25,7 @@ The name of the Lambda function or version. Name formats Function name - my-func
 
 ## add_policy_to_layer
 
-Adds permissions to the resource-based policy of a version of an AWS Lambda layer. Use this action to grant layer usage permission to other accounts. You can grant permission to a single account, all AWS accounts, or all accounts in an organization. 
+Adds permissions to the resource-based policy of a version of an AWS Lambda layer. Use this action to grant layer usage permission to other accounts. You can grant permission to a single account, all AWS accounts, or all accounts in an organization.
 
 <details><summary>Parameters</summary>
 
@@ -49,7 +49,7 @@ The version number.
 
 ## add_tag_to_function
 
-Adds tags to a function. 
+Adds tags to a function.
 
 <details><summary>Parameters</summary>
 
@@ -67,7 +67,7 @@ The function's Amazon Resource Name (ARN). Pattern: arn:(aws[a-zA-Z-]*)?:lambda:
 
 ## create_alias_for_function
 
-Creates an alias for a Lambda function version. Use aliases to provide clients with a function identifier that you can update to invoke a different version. 
+Creates an alias for a Lambda function version. Use aliases to provide clients with a function identifier that you can update to invoke a different version.
 
 <details><summary>Parameters</summary>
 
@@ -91,7 +91,7 @@ The name of the Lambda function or version. Name formats Function name - my-func
 
 ## create_lambda_from_zip
 
-Creates an AWS Lambda layer from a ZIP archive. Each time you call PublishLayerVersion with the same version name, a new version is created. 
+Creates an AWS Lambda layer from a ZIP archive. Each time you call PublishLayerVersion with the same version name, a new version is created.
 
 <details><summary>Parameters</summary>
 
@@ -109,7 +109,7 @@ The name or Amazon Resource Name (ARN) of the layer. Length Constraints: Minimum
 
 ## create_version_of_function
 
-Creates a version from the current code and configuration of a function. Use versions to create a snapshot of your function code and configuration that doesn't change. 
+Creates a version from the current code and configuration of a function. Use versions to create a snapshot of your function code and configuration that doesn't change.
 
 <details><summary>Parameters</summary>
 
@@ -127,7 +127,7 @@ The name of the Lambda function or version. Name formats Function name - my-func
 
 ## delete_alias_for_function
 
-Deletes a Lambda function alias. 
+Deletes a Lambda function alias.
 
 <details><summary>Parameters</summary>
 
@@ -147,7 +147,7 @@ The name of the alias. Length Constraints: Minimum length of 1. Maximum length o
 
 ## delete_event_source_mapping
 
-Deletes an event source mapping. You can get the identifier of a mapping from the output of ListEventSourceMappings. 
+Deletes an event source mapping. You can get the identifier of a mapping from the output of ListEventSourceMappings.
 
 <details><summary>Parameters</summary>
 
@@ -161,7 +161,7 @@ The identifier of the event source mapping.
 
 ## delete_function
 
-Deletes a Lambda function. To delete a specific function version, use the Qualifier parameter. Otherwise, all versions and aliases are deleted. 
+Deletes a Lambda function. To delete a specific function version, use the Qualifier parameter. Otherwise, all versions and aliases are deleted.
 
 <details><summary>Parameters</summary>
 
@@ -175,7 +175,7 @@ The name of the Lambda function or version. Name formats Function name - my-func
 
 ## delete_statement_from_policy
 
-Removes a statement from the permissions policy for a version of an AWS Lambda layer. For more information, see AddLayerVersionPermission. 
+Removes a statement from the permissions policy for a version of an AWS Lambda layer. For more information, see AddLayerVersionPermission.
 
 <details><summary>Parameters</summary>
 
@@ -201,7 +201,7 @@ The version number.
 
 ## delete_tags
 
-Removes tags from a function. 
+Removes tags from a function.
 
 <details><summary>Parameters</summary>
 
@@ -215,7 +215,7 @@ The function's Amazon Resource Name (ARN). Pattern: arn:(aws[a-zA-Z-]*)?:lambda:
 
 ## delete_version_of_layer
 
-Deletes a version of an AWS Lambda layer. Deleted versions can no longer be viewed or added to functions. To avoid breaking functions, a copy of the version remains in Lambda until no functions refer to it. 
+Deletes a version of an AWS Lambda layer. Deleted versions can no longer be viewed or added to functions. To avoid breaking functions, a copy of the version remains in Lambda until no functions refer to it.
 
 <details><summary>Parameters</summary>
 
@@ -241,7 +241,7 @@ The version number.
 
 ## get_alias_details
 
-Returns details about a Lambda function alias. 
+Returns details about a Lambda function alias.
 
 <details><summary>Parameters</summary>
 
@@ -261,7 +261,7 @@ The name of the alias. Length Constraints: Minimum length of 1. Maximum length o
 
 ## get_event_source_mapping
 
-Returns details about an event source mapping. You can get the identifier of a mapping from the output of ListEventSourceMappings. 
+Returns details about an event source mapping. You can get the identifier of a mapping from the output of ListEventSourceMappings.
 
 <details><summary>Parameters</summary>
 
@@ -275,7 +275,7 @@ The identifier of the event source mapping.
 
 ## get_function
 
-Returns information about function or function version, with a link to download the deployment package that's valid for 10 minutes. If you specify a function version, only details specific to that version are returned. 
+Returns information about function or function version, with a link to download the deployment package that's valid for 10 minutes. If you specify a function version, only details specific to that version are returned.
 
 <details><summary>Parameters</summary>
 
@@ -289,7 +289,7 @@ The name of the Lambda function or version. Name formats Function name - my-func
 
 ## get_policy_for_function
 
-Returns the resource-based IAM policy for a function, version, or alias. 
+Returns the resource-based IAM policy for a function, version, or alias.
 
 <details><summary>Parameters</summary>
 
@@ -303,7 +303,7 @@ The name of the Lambda function or version. Name formats Function name - my-func
 
 ## get_policy_for_version_of_layer
 
-Returns the permission policy for a version of an AWS Lambda layer. For more information, see AddLayerVersionPermission. 
+Returns the permission policy for a version of an AWS Lambda layer. For more information, see AddLayerVersionPermission.
 
 <details><summary>Parameters</summary>
 
@@ -323,7 +323,7 @@ The version number.
 
 ## get_settings_for_function
 
-Returns a the version-specific settings of a Lambda function or version. The output includes only options that can vary between versions of a function. To modify these settings, use UpdateFunctionConfiguration. 
+Returns a the version-specific settings of a Lambda function or version. The output includes only options that can vary between versions of a function. To modify these settings, use UpdateFunctionConfiguration.
 
 <details><summary>Parameters</summary>
 
@@ -337,7 +337,7 @@ The name of the Lambda function or version. Name formats Function name - my-func
 
 ## get_tags_for_function
 
-Returns a function's tags. You can also view tags with GetFunction. 
+Returns a function's tags. You can also view tags with GetFunction.
 
 <details><summary>Parameters</summary>
 
@@ -351,7 +351,7 @@ The function's Amazon Resource Name (ARN). Pattern: arn:(aws[a-zA-Z-]*)?:lambda:
 
 ## get_version_of_layer
 
-Returns information about a version of an AWS Lambda layer, with a link to download the layer archive that's valid for 10 minutes. 
+Returns information about a version of an AWS Lambda layer, with a link to download the layer archive that's valid for 10 minutes.
 
 <details><summary>Parameters</summary>
 
@@ -371,7 +371,7 @@ The version number.
 
 ## invoke_function
 
-Invokes a Lambda function. You can invoke a function synchronously and wait for the response, or asynchronously. To invoke a function asynchronously, set InvocationType to Event. 
+Invokes a Lambda function. You can invoke a function synchronously and wait for the response, or asynchronously. To invoke a function asynchronously, set InvocationType to Event.
 
 <details><summary>Parameters</summary>
 
@@ -393,16 +393,7 @@ Up to 3583 bytes of base64-encoded data about the invoking client to pass to the
 
 #### X-Amz-Invocation-Type
 
-Choose from the following options.
-RequestResponse (default) - Invoke the function synchronously. Keep the connection open until
-the function returns a response or times out. The API response includes the function
-response and additional
-data.
-Event - Invoke the function asynchronously. Send events that fail multiple times to the
-function's dead-letter queue (if configured). The API response only includes a status
-code.
-DryRun - Validate parameter values and verify that the user or role has permission to invoke
-the function.
+Choose from the following options. RequestResponse (default) - Invoke the function synchronously. Keep the connection open until the function returns a response or times out. The API response includes the function response and additional data. Event - Invoke the function asynchronously. Send events that fail multiple times to the function's dead-letter queue (if configured). The API response only includes a status code. DryRun - Validate parameter values and verify that the user or role has permission to invoke the function.
 
 **Type:** string
 
@@ -410,8 +401,7 @@ the function.
 
 #### X-Amz-Log-Type
 
-Set to Tail to include the execution log in the response.
-Valid Values: None | Tail
+Set to Tail to include the execution log in the response. Valid Values: None | Tail
 
 **Type:** string
 
@@ -421,7 +411,7 @@ Valid Values: None | Tail
 
 ## list_aliases_for_function
 
-Returns a list of aliases for a Lambda function. 
+Returns a list of aliases for a Lambda function.
 
 <details><summary>Parameters</summary>
 
@@ -435,7 +425,7 @@ The name of the Lambda function or version. Name formats Function name - my-func
 
 ## list_event_source_mappings
 
-Lists event source mappings. Specify an EventSourceArn to only show event source mappings for a single event source. 
+Lists event source mappings. Specify an EventSourceArn to only show event source mappings for a single event source.
 
 <details><summary>Parameters</summary>
 
@@ -469,13 +459,13 @@ For Lambda@Edge functions, the region of the master function. For example, us-ea
 
 ## list_layers
 
-Lists AWS Lambda layers and shows information about the latest version of each. Specify a runtime identifier to list only layers that indicate that they're compatible with that runtime. 
+Lists AWS Lambda layers and shows information about the latest version of each. Specify a runtime identifier to list only layers that indicate that they're compatible with that runtime.
 
 *This operation has no parameters*
 
 ## list_versions_of_function
 
-Returns a list of versions, with the version-specific configuration of each. 
+Returns a list of versions, with the version-specific configuration of each.
 
 <details><summary>Parameters</summary>
 
@@ -489,7 +479,7 @@ The name of the Lambda function or version. Name formats Function name - my-func
 
 ## list_versions_of_layer
 
-Lists the versions of an AWS Lambda layer. Versions that have been deleted aren't listed. Specify a runtime identifier to list only versions that indicate that they're compatible with that runtime. 
+Lists the versions of an AWS Lambda layer. Versions that have been deleted aren't listed. Specify a runtime identifier to list only versions that indicate that they're compatible with that runtime.
 
 <details><summary>Parameters</summary>
 
@@ -523,7 +513,7 @@ The name of the Lambda function or version. Name formats Function name - my-func
 
 ## revoke_permission_for_function
 
-Revokes function use permission from an AWS service or another account. You can get the ID of the statement from the output of GetPolicy. 
+Revokes function use permission from an AWS service or another account. You can get the ID of the statement from the output of GetPolicy.
 
 <details><summary>Parameters</summary>
 
@@ -543,7 +533,7 @@ The identifier that was specified when the statement was added. Length Constrain
 
 ## set_concurrent_limit
 
-Sets the maximum number of simultaneous executions for a function, and reserves capacity for that concurrency level. 
+Sets the maximum number of simultaneous executions for a function, and reserves capacity for that concurrency level.
 
 <details><summary>Parameters</summary>
 
@@ -561,7 +551,7 @@ The name of the Lambda function or version. Name formats Function name - my-func
 
 ## update_alias_for_function
 
-Updates the configuration of a Lambda function alias. 
+Updates the configuration of a Lambda function alias.
 
 <details><summary>Parameters</summary>
 
@@ -603,7 +593,7 @@ The name of the Lambda function or version. Name formats Function name - my-func
 
 ## update_event_source_mapping
 
-Updates an event source mapping. You can change the function that AWS Lambda invokes, or pause invocation and resume later from the same location. 
+Updates an event source mapping. You can change the function that AWS Lambda invokes, or pause invocation and resume later from the same location.
 
 <details><summary>Parameters</summary>
 

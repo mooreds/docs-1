@@ -7,7 +7,7 @@ layout: docs.mustache
 
 ## account
 
-Retrieve a sub account under the master account. <aside>Your account must be a master account and have this privilege to read sub accounts. Zoom only assigns this privilege to trusted partners</aside>.
+Retrieve a sub account under the master account. Your account must be a master account and have this privilege to read sub accounts. Zoom only assigns this privilege to trusted partners.
 
 <details><summary>Parameters</summary>
 
@@ -35,7 +35,7 @@ The account ID
 
 ## account_billing_update
 
-Update billing information for a sub account under the master account <aside>Only for the sub account which is a paid account and paid by master account</aside>
+Update billing information for a sub account under the master account Only for the sub account which is a paid account and paid by master account
 
 <details><summary>Parameters</summary>
 
@@ -55,7 +55,7 @@ Billing Contact object
 
 ## account_create
 
-Create a sub account under the master account. <aside>Your account must be a master account and have this privilege to create sub account. Zoom only assigns this privilege to trusted partners. The created user will not receive a confirmation email.</aside>.
+Create a sub account under the master account. Your account must be a master account and have this privilege to create sub account. Zoom only assigns this privilege to trusted partners. The created user will not receive a confirmation email..
 
 <details><summary>Parameters</summary>
 
@@ -103,7 +103,7 @@ Account options object
 
 ## account_plan_addon_create
 
-Add an additional plan for sub account <aside>Can only add an Additional plan for the sub account which is a paid account and paid by master account</aside>
+Add an additional plan for sub account Can only add an Additional plan for the sub account which is a paid account and paid by master account
 
 <details><summary>Parameters</summary>
 
@@ -123,7 +123,7 @@ Account plan object
 
 ## account_plan_addon_update
 
-Update an additional plan for sub account<aside>Can only update an Additional plan for the sub account which is a paid account and paid by master account</aside>
+Update an additional plan for sub accountCan only update an Additional plan for the sub account which is a paid account and paid by master account
 
 <details><summary>Parameters</summary>
 
@@ -143,7 +143,7 @@ Account plan object
 
 ## account_plan_base_update
 
-Update a base plan for a sub account <aside>Can only update a base plan for the sub account which is a paid account and paid by master account</aside>
+Update a base plan for a sub account Can only update a base plan for the sub account which is a paid account and paid by master account
 
 <details><summary>Parameters</summary>
 
@@ -163,7 +163,7 @@ Account base plan object
 
 ## account_plan_create
 
-Subscribe plans for a sub account of the master account <aside>Can only subscribe plans for the sub account which is a free account and paid by master account</aside>
+Subscribe plans for a sub account of the master account Can only subscribe plans for the sub account which is a free account and paid by master account
 
 <details><summary>Parameters</summary>
 
@@ -181,7 +181,7 @@ The account ID
 
 ## account_plans
 
-Retrieve plan information for a sub account under the master account  <aside>Only for the sub account which is paid by master account</aside>
+Retrieve plan information for a sub account under the master account Only for the sub account which is paid by master account
 
 <details><summary>Parameters</summary>
 
@@ -233,7 +233,7 @@ List all the sub accounts under the master account
 
 ## dashboard_crc
 
-Get CRC Port usage hour by hour for a specified time period <aside class='notice'>We will report a maximum of one month. For example, if "from" is set to "2017-08-05" and "to" is "2017-10-10" we will adjust "from" to "2017-09-10"</aside>.
+Get CRC Port usage hour by hour for a specified time period We will report a maximum of one month. For example, if "from" is set to "2017-08-05" and "to" is "2017-10-10" we will adjust "from" to "2017-09-10".
 
 <details><summary>Parameters</summary>
 
@@ -417,7 +417,7 @@ The meeting type
 
 ## dashboard_webinar_detail
 
-Retrieve live  or past webinars detail
+Retrieve live or past webinars detail
 
 <details><summary>Parameters</summary>
 
@@ -905,7 +905,7 @@ The meeting ID
 
 ## meeting_create
 
-Create a meeting for a user <aside>The expiration time of start_url is two hours. But for API users, the expiration time is 90 days.</aside>
+Create a meeting for a user The expiration time of start_url is two hours. But for API users, the expiration time is 90 days.
 
 <details><summary>Parameters</summary>
 
@@ -1255,13 +1255,13 @@ The user ID or email address
 
 #### mc
 
-Query mc 
+Query mc
 
 **Type:** string
 
 #### trash
 
-Query trash 
+Query trash
 
 **Type:** boolean
 
@@ -1357,7 +1357,7 @@ The user ID or email address
 
 ## report_telephone
 
-Retrieve telephone report for a specified period <aside>Toll Report option would be removed.</aside>.
+Retrieve telephone report for a specified period Toll Report option would be removed..
 
 <details><summary>Parameters</summary>
 
@@ -1455,7 +1455,7 @@ The webinar ID or webinar UUID. If given webinar ID, will take the last webinar 
 
 ## report_webinar_qa
 
-Retrieve ended webinar Q&A report
+Retrieve ended webinar Q&amp;A report
 
 <details><summary>Parameters</summary>
 
@@ -2105,7 +2105,7 @@ The webinar ID
 
 ## webinar_create
 
-Create a webinar for a user <aside>The expiration time of start_url is two hours. But for API users, the expiration time is 90 days.</aside>
+Create a webinar for a user The expiration time of start_url is two hours. But for API users, the expiration time is 90 days.
 
 <details><summary>Parameters</summary>
 

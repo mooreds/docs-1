@@ -81,7 +81,7 @@ This endpoint lets you match business data from other sources against businesses
 
 #### address1 (required)
 
-The first line of the business’s address. Maximum length is 64; only digits, letters, spaces, and ­’/#&,.: are allowed. The empty string '' is allowed; this will specifically match certain service businesses that have no street address.
+The first line of the business’s address. Maximum length is 64; only digits, letters, spaces, and ­’/#&amp;,.: are allowed. The empty string '' is allowed; this will specifically match certain service businesses that have no street address.
 
 **Type:** string
 
@@ -99,7 +99,7 @@ The ISO 3166-1 alpha-2 country code of this business. Maximum length is 2.
 
 #### name (required)
 
-The name of the business. Maximum length is 64; only digits, letters, spaces, and !#$%&+,­./:?@'are allowed.
+The name of the business. Maximum length is 64; only digits, letters, spaces, and !#$%&amp;+,­./:?@'are allowed.
 
 **Type:** string
 
@@ -111,13 +111,13 @@ The ISO 3166-2 (with a few exceptions) state code of this business. Maximum leng
 
 #### address2
 
-The second line of the business’s address. Maximum length is 64; only digits, letters, spaces, and ­’/#&,.: are allowed
+The second line of the business’s address. Maximum length is 64; only digits, letters, spaces, and ­’/#&amp;,.: are allowed
 
 **Type:** string
 
 #### address3
 
-The third line of the business’s address. Maximum length is 64; only digits, letters, spaces, and ­’/#&,.: are allowed
+The third line of the business’s address. Maximum length is 64; only digits, letters, spaces, and ­’/#&amp;,.: are allowed
 
 **Type:** string
 

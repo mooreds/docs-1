@@ -437,8 +437,7 @@ Boolean "true" or "false" to indicate whether current list memberships should be
 
 ## get_contact_by_utk
 
-For a given account, return information about a single contact by its user token, stored in the hubspotutk cookie. This cookie is created automatically by the HubSpot tracking code.
-This method will also return you much of the HubSpot lead "intelligence" for each requested contact record. The endpoint accepts many query parameters that allow for customization based on a variety of integration use cases.
+For a given account, return information about a single contact by its user token, stored in the hubspotutk cookie. This cookie is created automatically by the HubSpot tracking code. This method will also return you much of the HubSpot lead "intelligence" for each requested contact record. The endpoint accepts many query parameters that allow for customization based on a variety of integration use cases.
 
 <details><summary>Parameters</summary>
 
@@ -782,7 +781,7 @@ Only return events which occurred at or before the given timestamp (in milliseco
 
 #### eventType
 
-Only return events of the specified type (case-sensitive). The possible types are described in the <a href="/docs/methods/email/email_events_overview">Email Events Bible .
+Only return events of the specified type (case-sensitive). The possible types are described in the Email Events Bible .
 
 **Type:** string
 
@@ -956,7 +955,7 @@ For a given portal, return a time-ordered list of subscription changes.
 
 #### changeType
 
-Only return timeline changes of the specified type (case-sensitive). The possible types are described in the <a href="/docs/methods/email/email_subscriptions_overview">Email Subscriptions Bible .
+Only return timeline changes of the specified type (case-sensitive). The possible types are described in the Email Subscriptions Bible .
 
 **Type:** string
 
@@ -968,7 +967,7 @@ Only return timeline items which occurred at or before the given timestamp (in m
 
 #### includeSnapshots
 
-Include the user's full subscription snapshot with each timeline item. This snapshot is equivalent to what <a href="/docs/methods/email/get_status">this endpoint would have returned at that time.
+Include the user's full subscription snapshot with each timeline item. This snapshot is equivalent to what this endpoint would have returned at that time.
 
 **Type:** string
 
@@ -1158,7 +1157,7 @@ See format details at https://developers.hubspot.com/docs/methods/email/update_s
 
 ## update_timeline_event_type_property
 
-Update an existing property for a specified timeline event type. The id passed in the JSON body needs to match the id of an existing property or this will return a 404 error.  Properties cannot be moved from one event type to another, so the eventTypeId included in the JSON body must match the event-type-id in the URL. Please note that the name cannot be updated.
+Update an existing property for a specified timeline event type. The id passed in the JSON body needs to match the id of an existing property or this will return a 404 error. Properties cannot be moved from one event type to another, so the eventTypeId included in the JSON body must match the event-type-id in the URL. Please note that the name cannot be updated.
 
 <details><summary>Parameters</summary>
 

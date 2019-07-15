@@ -67,14 +67,7 @@ Run ID.
 
 ## add_record_to_actor_last_run_store
 
-Stores a value under a specific key to the actor's last run's key-value store.
-The value is passed as the PUT payload and it is stored with a MIME content type defined by the `Content-Type` request header.
-
-**IMPORTANT:** The limit of the request payload is 9 MB. If you want to upload a larger record
-or speed up your upload, use the [Direct upload URL](#reference/key-value-stores/direct-upload-url) endpoint instead.
-
-To save bandwidth and speed up your upload, send the request payload compressed with Gzip compression and
-add the `Content-Encoding: gzip` header.
+Stores a value under a specific key to the actor's last run's key-value store. The value is passed as the PUT payload and it is stored with a MIME content type defined by the `Content-Type` request header. **IMPORTANT:** The limit of the request payload is 9 MB. If you want to upload a larger record or speed up your upload, use the [Direct upload URL](#reference/key-value-stores/direct-upload-url) endpoint instead. To save bandwidth and speed up your upload, send the request payload compressed with Gzip compression and add the `Content-Encoding: gzip` header.
 
 <details><summary>Parameters</summary>
 
@@ -104,14 +97,7 @@ Filter for the run status.
 
 ## add_record_to_store
 
-Stores a value under a specific key to the key-value store.
-The value is passed as the PUT payload and it is stored with a MIME content type defined by the `Content-Type` request header.
-
-**IMPORTANT:** The limit of the request payload is 9 MB. If you want to upload a larger record
-or speed up your upload, use the [Direct upload URL](#reference/key-value-stores/direct-upload-url) endpoint instead.
-
-To save bandwidth and speed up your upload, send the request payload compressed with Gzip compression and
-add the `Content-Encoding: gzip` header.
+Stores a value under a specific key to the key-value store. The value is passed as the PUT payload and it is stored with a MIME content type defined by the `Content-Type` request header. **IMPORTANT:** The limit of the request payload is 9 MB. If you want to upload a larger record or speed up your upload, use the [Direct upload URL](#reference/key-value-stores/direct-upload-url) endpoint instead. To save bandwidth and speed up your upload, send the request payload compressed with Gzip compression and add the `Content-Encoding: gzip` header.
 
 <details><summary>Parameters</summary>
 
@@ -135,14 +121,7 @@ Key-value store ID or `username~store-name`.
 
 ## add_record_to_task_last_run_store
 
-Stores a value under a specific key to the task's last run's key-value store.
-The value is passed as the PUT payload and it is stored with a MIME content type defined by the `Content-Type` request header.
-
-**IMPORTANT:** The limit of the request payload is 9 MB. If you want to upload a larger record
-or speed up your upload, use the [Direct upload URL](#reference/key-value-stores/direct-upload-url) endpoint instead.
-
-To save bandwidth and speed up your upload, send the request payload compressed with Gzip compression and
-add the `Content-Encoding: gzip` header.
+Stores a value under a specific key to the task's last run's key-value store. The value is passed as the PUT payload and it is stored with a MIME content type defined by the `Content-Type` request header. **IMPORTANT:** The limit of the request payload is 9 MB. If you want to upload a larger record or speed up your upload, use the [Direct upload URL](#reference/key-value-stores/direct-upload-url) endpoint instead. To save bandwidth and speed up your upload, send the request payload compressed with Gzip compression and add the `Content-Encoding: gzip` header.
 
 <details><summary>Parameters</summary>
 
@@ -344,10 +323,7 @@ Custom unique name to easily identify the store in the future.
 
 ## create_key_value_store
 
-Creates a key-value store with a specific name. The response is the same object
-as returned by the [Get store](#reference/key-value-stores/store-object/get-store) endpoint.
-
-If there is another store with the same name, the endpoint does not create a new one and returns the existing object instead.
+Creates a key-value store with a specific name. The response is the same object as returned by the [Get store](#reference/key-value-stores/store-object/get-store) endpoint. If there is another store with the same name, the endpoint does not create a new one and returns the existing object instead.
 
 <details><summary>Parameters</summary>
 
@@ -405,13 +381,7 @@ Actor ID or a tilde-separated owner's username and actor name.
 
 ## create_webhook
 
-Creates a new webhook with settings provided by the webhook object passed as JSON in the payload.
-The response is the created webhook object.
-
-To make sure that the same webhook is not created twice, use the `idempotencyKey` parameter.
-Multiple calls to create webhook with the same idempotency key will only create the webhook
-with the first call and return the existing webhook on subsequent calls. Idempotency keys
-must be unique, so use a UUID or another random string with enough entropy.
+Creates a new webhook with settings provided by the webhook object passed as JSON in the payload. The response is the created webhook object. To make sure that the same webhook is not created twice, use the `idempotencyKey` parameter. Multiple calls to create webhook with the same idempotency key will only create the webhook with the first call and return the existing webhook on subsequent calls. Idempotency keys must be unique, so use a UUID or another random string with enough entropy.
 
 <details><summary>Parameters</summary>
 
@@ -751,17 +721,7 @@ Actor ID or a tilde-separated owner's username and actor name.
 
 ## get_actor_last_run_direct_upload_url
 
-Generates a unique URL that can be used to upload a record under a specific key to the actor's last run's key-value store.
-The record must be uploaded to the resulting URL using a PUT request.
-
-This endpoint is useful if your record is larger than the limit
-imposed by the [Put record](#reference/key-value-stores/record/put-record) endpoint
-(i.e. 9 MB) or if you want to get the maximum speed for your upload.
-
-To save bandwidth and speed up your upload, send the request payload compressed with Gzip compression and
-add the `Content-Encoding: gzip` header to your request.
-
-**IMPORTANT:** The `Content-Type` and `Content-Encoding` headers sent in both requests must match!
+Generates a unique URL that can be used to upload a record under a specific key to the actor's last run's key-value store. The record must be uploaded to the resulting URL using a PUT request. This endpoint is useful if your record is larger than the limit imposed by the [Put record](#reference/key-value-stores/record/put-record) endpoint (i.e. 9 MB) or if you want to get the maximum speed for your upload. To save bandwidth and speed up your upload, send the request payload compressed with Gzip compression and add the `Content-Encoding: gzip` header to your request. **IMPORTANT:** The `Content-Type` and `Content-Encoding` headers sent in both requests must match!
 
 <details><summary>Parameters</summary>
 
@@ -811,10 +771,7 @@ Filter for the run status.
 
 ## get_build_for_actor
 
-Gets an object that contains all the details about a specific build of an actor.
-
-By passing the optional `waitForFinish=1` parameter the API endpoint will synchronously wait for the build to finish.
-This is useful to avoid periodic polling when waiting for an actor build to finish.
+Gets an object that contains all the details about a specific build of an actor. By passing the optional `waitForFinish=1` parameter the API endpoint will synchronously wait for the build to finish. This is useful to avoid periodic polling when waiting for an actor build to finish.
 
 <details><summary>Parameters</summary>
 
@@ -900,17 +857,7 @@ Filter for the run status.
 
 ## get_direct_upload_url
 
-Generates a unique URL that can be used to upload a record under a specific key to the key-value store.
-The record must be uploaded to the resulting URL using a PUT request.
-
-This endpoint is useful if your record is larger than the limit
-imposed by the [Put record](#reference/key-value-stores/record/put-record) endpoint
-(i.e. 9 MB) or if you want to get the maximum speed for your upload.
-
-To save bandwidth and speed up your upload, send the request payload compressed with Gzip compression and
-add the `Content-Encoding: gzip` header to your request.
-
-**IMPORTANT:** The `Content-Type` and `Content-Encoding` headers sent in both requests must match!
+Generates a unique URL that can be used to upload a record under a specific key to the key-value store. The record must be uploaded to the resulting URL using a PUT request. This endpoint is useful if your record is larger than the limit imposed by the [Put record](#reference/key-value-stores/record/put-record) endpoint (i.e. 9 MB) or if you want to get the maximum speed for your upload. To save bandwidth and speed up your upload, send the request payload compressed with Gzip compression and add the `Content-Encoding: gzip` header to your request. **IMPORTANT:** The `Content-Type` and `Content-Encoding` headers sent in both requests must match!
 
 <details><summary>Parameters</summary>
 
@@ -1278,10 +1225,7 @@ Key-value store ID or `username~store-name`.
 
 ## get_last_run_for_actor
 
-Gets an object that contains all the details about the actor's last run.
-
-By passing the optional `waitForFinish=1` parameter the API endpoint will synchronously wait for the build to finish.
-This is useful to avoid periodic polling when waiting for actor build to complete.
+Gets an object that contains all the details about the actor's last run. By passing the optional `waitForFinish=1` parameter the API endpoint will synchronously wait for the build to finish. This is useful to avoid periodic polling when waiting for actor build to complete.
 
 <details><summary>Parameters</summary>
 
@@ -1301,10 +1245,7 @@ Filter for the run status.
 
 ## get_last_run_for_task
 
-Gets an object that contains all the details about the task's last run.
-
-By passing the optional `waitForFinish=1` parameter the API endpoint will synchronously wait for the build to finish.
-This is useful to avoid periodic polling when waiting for actor build to complete.
+Gets an object that contains all the details about the task's last run. By passing the optional `waitForFinish=1` parameter the API endpoint will synchronously wait for the build to finish. This is useful to avoid periodic polling when waiting for actor build to complete.
 
 <details><summary>Parameters</summary>
 
@@ -1644,10 +1585,7 @@ Filter for the run status.
 
 ## get_run_for_actor
 
-Gets an object that contains all the details about a specific run of an actor.
-
-By passing the optional `waitForFinish=1` parameter the API endpoint will synchronously wait for the build to finish.
-This is useful to avoid periodic polling when waiting for actor build to complete.
+Gets an object that contains all the details about a specific run of an actor. By passing the optional `waitForFinish=1` parameter the API endpoint will synchronously wait for the build to finish. This is useful to avoid periodic polling when waiting for actor build to complete.
 
 <details><summary>Parameters</summary>
 
@@ -1687,17 +1625,7 @@ Task ID or a tilde-separated owner's username and task's name.
 
 ## get_task_last_run_direct_upload_url
 
-Generates a unique URL that can be used to upload a record under a specific key to the task's last run's key-value store.
-The record must be uploaded to the resulting URL using a PUT request.
-
-This endpoint is useful if your record is larger than the limit
-imposed by the [Put record](#reference/key-value-stores/record/put-record) endpoint
-(i.e. 9 MB) or if you want to get the maximum speed for your upload.
-
-To save bandwidth and speed up your upload, send the request payload compressed with Gzip compression and
-add the `Content-Encoding: gzip` header to your request.
-
-**IMPORTANT:** The `Content-Type` and `Content-Encoding` headers sent in both requests must match!
+Generates a unique URL that can be used to upload a record under a specific key to the task's last run's key-value store. The record must be uploaded to the resulting URL using a PUT request. This endpoint is useful if your record is larger than the limit imposed by the [Put record](#reference/key-value-stores/record/put-record) endpoint (i.e. 9 MB) or if you want to get the maximum speed for your upload. To save bandwidth and speed up your upload, send the request payload compressed with Gzip compression and add the `Content-Encoding: gzip` header to your request. **IMPORTANT:** The `Content-Type` and `Content-Encoding` headers sent in both requests must match!
 
 <details><summary>Parameters</summary>
 
@@ -1815,13 +1743,7 @@ Filter for the run status.
 
 ## list_actors
 
-Gets the list of all actors that the user created or used. The response is a list of objects where each object
-contains a basic information about a single actor.
-To only get actors created by the user, add the `my=1` query parameter. 
-The endpoint supports pagination using the `limit` and `offset` parameters and it will not return more than 1000 records.
-By default, the records are sorted by the `createdAt` field in ascending order,
-therefore you can use pagination to incrementally fetch all actors while new
-ones are still being created. To sort the records in descending order, use the `desc=1` parameter.
+Gets the list of all actors that the user created or used. The response is a list of objects where each object contains a basic information about a single actor. To only get actors created by the user, add the `my=1` query parameter. The endpoint supports pagination using the `limit` and `offset` parameters and it will not return more than 1000 records. By default, the records are sorted by the `createdAt` field in ascending order, therefore you can use pagination to incrementally fetch all actors while new ones are still being created. To sort the records in descending order, use the `desc=1` parameter.
 
 <details><summary>Parameters</summary>
 
@@ -1855,15 +1777,7 @@ If `true` or `1` then the items are sorted by the `createdAt` field in descendin
 
 ## list_builds_for_actor
 
-Gets the list of builds of a specific actor. The response is a JSON with the list of objects where each object
-contains basic information about a single build.
-
-The endpoint supports pagination using the `limit` and `offset` parameters and it will not return more than 1000 records.
-
-By default, the records are sorted by the `startedAt` field in ascending order,
-therefore you can use pagination to incrementally fetch all builds while new
-ones are still being started. To sort the records in descending order, use the `desc=1`
-parameter.
+Gets the list of builds of a specific actor. The response is a JSON with the list of objects where each object contains basic information about a single build. The endpoint supports pagination using the `limit` and `offset` parameters and it will not return more than 1000 records. By default, the records are sorted by the `startedAt` field in ascending order, therefore you can use pagination to incrementally fetch all builds while new ones are still being started. To sort the records in descending order, use the `desc=1` parameter.
 
 <details><summary>Parameters</summary>
 
@@ -1883,14 +1797,7 @@ If `true` or `1` then the items are sorted by the `createdAt` field in descendin
 
 ## list_datasets
 
-Lists datasets of user. Response is a JSON array of objects where each object
-contains basic information about one dataset.
-
-By default, the objects are sorted by the `createdAt` field in ascending order,
-therefore you can use pagination to incrementally fetch all datasets while new
-ones are still being created. To sort them in descending order, use `desc=1`
-parameter. The endpoint supports pagination using `limit` and `offset` parameters and it will not return more than 1000
-array elements.
+Lists datasets of user. Response is a JSON array of objects where each object contains basic information about one dataset. By default, the objects are sorted by the `createdAt` field in ascending order, therefore you can use pagination to incrementally fetch all datasets while new ones are still being created. To sort them in descending order, use `desc=1` parameter. The endpoint supports pagination using `limit` and `offset` parameters and it will not return more than 1000 array elements.
 
 <details><summary>Parameters</summary>
 
@@ -1924,16 +1831,7 @@ Webhook ID.
 
 ## list_key_value_stores
 
-Gets the list of key-value stores owned by the user.
-The response is a list of objects where each objects contains a basic information about a single key-value store.
-
-The endpoint supports pagination using the `limit` and `offset` parameters and it will not return more than 1000
-array elements.
-
-By default, the records are sorted by the `createdAt` field in ascending order,
-therefore you can use pagination to incrementally fetch all key-value stores while new
-ones are still being created. To sort the records in descending order, use the `desc=1`
-parameter.
+Gets the list of key-value stores owned by the user. The response is a list of objects where each objects contains a basic information about a single key-value store. The endpoint supports pagination using the `limit` and `offset` parameters and it will not return more than 1000 array elements. By default, the records are sorted by the `createdAt` field in ascending order, therefore you can use pagination to incrementally fetch all key-value stores while new ones are still being created. To sort the records in descending order, use the `desc=1` parameter.
 
 <details><summary>Parameters</summary>
 
@@ -1967,14 +1865,7 @@ Key-value store ID or `username~store-name`.
 
 ## list_request_queues
 
-Lists request queues of user. Response is a JSON array of objects where each object
-contains basic information about one queue.
-
-By default, the objects are sorted by the `createdAt` field in ascending order,
-therefore you can use pagination to incrementally fetch all queues while new
-ones are still being created. To sort them in descending order, use `desc=1`
-parameter. The endpoint supports pagination using `limit` and `offset` parameters and it will not return more than 1000
-array elements.
+Lists request queues of user. Response is a JSON array of objects where each object contains basic information about one queue. By default, the objects are sorted by the `createdAt` field in ascending order, therefore you can use pagination to incrementally fetch all queues while new ones are still being created. To sort them in descending order, use `desc=1` parameter. The endpoint supports pagination using `limit` and `offset` parameters and it will not return more than 1000 array elements.
 
 <details><summary>Parameters</summary>
 
@@ -2054,15 +1945,7 @@ Filter for the run status.
 
 ## list_tasks
 
-Gets the list of all tasks that the user created or used. The response is a list of objects where each object
-contains essential information about a single task.
-
-The endpoint supports pagination using the `limit` and `offset` parameters, and it does not return more than a 1000 records.
-
-By default, the records are sorted by the `createdAt` field in ascending order;
-therefore you can use pagination to incrementally fetch all tasks while new
-ones are still being created. To sort the records in descending order, use the `desc=1`
-parameter.
+Gets the list of all tasks that the user created or used. The response is a list of objects where each object contains essential information about a single task. The endpoint supports pagination using the `limit` and `offset` parameters, and it does not return more than a 1000 records. By default, the records are sorted by the `createdAt` field in ascending order; therefore you can use pagination to incrementally fetch all tasks while new ones are still being created. To sort the records in descending order, use the `desc=1` parameter.
 
 <details><summary>Parameters</summary>
 
@@ -2104,13 +1987,7 @@ If `true` or `1` then the items are sorted by the `createdAt` field in descendin
 
 ## list_webhooks_for_actor
 
-Gets the list of webhooks of a specific actor. The response is a JSON with the list of objects where each object
-contains basic information about a single webhook.
-
-The endpoint supports pagination using the `limit` and `offset` parameters and it will not return more than 1000 records.
-
-By default, the records are sorted by the `createdAt` field in ascending order,
-to sort the records in descending order, use the `desc=1` parameter.
+Gets the list of webhooks of a specific actor. The response is a JSON with the list of objects where each object contains basic information about a single webhook. The endpoint supports pagination using the `limit` and `offset` parameters and it will not return more than 1000 records. By default, the records are sorted by the `createdAt` field in ascending order, to sort the records in descending order, use the `desc=1` parameter.
 
 <details><summary>Parameters</summary>
 
@@ -2150,14 +2027,7 @@ If `true` or `1` then the items are sorted by the `createdAt` field in descendin
 
 ## metamorph_last_run
 
-Transforms the actor's last run into a run of another actor with a new input.
-This is useful if you want to use another actor to finish the work
-of your current actor run, without the need to create a completely new run and waiting for its finish.
-For the users of your actors, the metamorph operation is transparent, they will just see your actor got the work done.
-
-Internally, the system stops the Docker container corresponding to the actor run
-and starts a new container using a different Docker image.
-All the default storages are preserved and the new input is stored under the `INPUT-METAMORPH-1` key in the same default key-value store.
+Transforms the actor's last run into a run of another actor with a new input. This is useful if you want to use another actor to finish the work of your current actor run, without the need to create a completely new run and waiting for its finish. For the users of your actors, the metamorph operation is transparent, they will just see your actor got the work done. Internally, the system stops the Docker container corresponding to the actor run and starts a new container using a different Docker image. All the default storages are preserved and the new input is stored under the `INPUT-METAMORPH-1` key in the same default key-value store.
 
 <details><summary>Parameters</summary>
 
@@ -2189,14 +2059,7 @@ Filter for the run status.
 
 ## metamorph_run
 
-Transforms an actor run into a run of another actor with a new input.
-This is useful if you want to use another actor to finish the work
-of your current actor run, without the need to create a completely new run and waiting for its finish.
-For the users of your actors, the metamorph operation is transparent, they will just see your actor got the work done.
-
-Internally, the system stops the Docker container corresponding to the actor run
-and starts a new container using a different Docker image.
-All the default storages are preserved and the new input is stored under the `INPUT-METAMORPH-1` key in the same default key-value store.
+Transforms an actor run into a run of another actor with a new input. This is useful if you want to use another actor to finish the work of your current actor run, without the need to create a completely new run and waiting for its finish. For the users of your actors, the metamorph operation is transparent, they will just see your actor got the work done. Internally, the system stops the Docker container corresponding to the actor run and starts a new container using a different Docker image. All the default storages are preserved and the new input is stored under the `INPUT-METAMORPH-1` key in the same default key-value store.
 
 <details><summary>Parameters</summary>
 
@@ -2366,12 +2229,7 @@ Filter for the run status.
 
 ## run_actor
 
-Runs an actor and immediately returns without waiting for the run to finish.
-The POST payload including its `Content-Type` header is passed as `INPUT` to the actor (usually <code>application/json</code>).
-The actor is started with the default options; you can override them using various URL query parameters.
-The response is the Run object as returned by the [Get run](#reference/actors/run-object/get-run) API endpoint.
-If you want to wait for the run to finish and receive the actual output of the actor as the response,
-please use one of the [Run actor synchronously](#reference/actors/run-actor-synchronously) API endpoints instead.
+Runs an actor and immediately returns without waiting for the run to finish. The POST payload including its `Content-Type` header is passed as `INPUT` to the actor (usually application/json). The actor is started with the default options; you can override them using various URL query parameters. The response is the Run object as returned by the [Get run](#reference/actors/run-object/get-run) API endpoint. If you want to wait for the run to finish and receive the actual output of the actor as the response, please use one of the [Run actor synchronously](#reference/actors/run-actor-synchronously) API endpoints instead.
 
 <details><summary>Parameters</summary>
 
@@ -2419,16 +2277,7 @@ Specifies optional webhooks associated with the actor run, which can be used to 
 
 ## run_task
 
-Runs an actor task and immediately returns without waiting for the run to finish.
-
-Optionally, you can override the actor input configuration by passing a JSON object as the POST payload
-and setting the `Content-Type: application/json` HTTP header.
-Note that if the object in the POST payload does not define a particular input property,
-the actor run uses the default value defined by the task (or actor's input schema if not defined by the task).
-
-The response is the actor Run object as returned by the [Get run](#reference/actors/run-object/get-run) endpoint.
-If you want to wait for the run to finish and receive the actual output of the actor run as the response,
-use one of the [Run task synchronously](#/reference/actor-tasks/run-task-synchronously) API endpoints instead.
+Runs an actor task and immediately returns without waiting for the run to finish. Optionally, you can override the actor input configuration by passing a JSON object as the POST payload and setting the `Content-Type: application/json` HTTP header. Note that if the object in the POST payload does not define a particular input property, the actor run uses the default value defined by the task (or actor's input schema if not defined by the task). The response is the actor Run object as returned by the [Get run](#reference/actors/run-object/get-run) endpoint. If you want to wait for the run to finish and receive the actual output of the actor run as the response, use one of the [Run task synchronously](#/reference/actor-tasks/run-task-synchronously) API endpoints instead.
 
 <details><summary>Parameters</summary>
 
@@ -2458,20 +2307,7 @@ Specifies optional webhooks associated with the actor run, which can be used to 
 
 ## sync_run_actor_with_input
 
-Runs a specific actor and returns its output.
-
-The POST payload including its `Content-Type` header is passed as `INPUT` to the actor (usually <code>application/json</code>).
-The HTTP response contains actor's `OUTPUT` record from its default key-value store.
-
-The actor is started with the default options; you can override them using various URL query parameters.
-If the actor run exceeds 300 seconds,
-the HTTP response will have status 408 (Request Timeout).
-
-Beware that it might be impossible to maintain an idle HTTP connection for a long period of time,
-due to client timeout or network conditions. Make sure your HTTP client is configured to have a long enough connection timeout.
-If the connection breaks, you will not receive any information about the run and its status.
-
-To run the actor asynchronously, use the [Run actor](#reference/actors/run-collection/run-actor) API endpoint instead.
+Runs a specific actor and returns its output. The POST payload including its `Content-Type` header is passed as `INPUT` to the actor (usually application/json). The HTTP response contains actor's `OUTPUT` record from its default key-value store. The actor is started with the default options; you can override them using various URL query parameters. If the actor run exceeds 300 seconds, the HTTP response will have status 408 (Request Timeout). Beware that it might be impossible to maintain an idle HTTP connection for a long period of time, due to client timeout or network conditions. Make sure your HTTP client is configured to have a long enough connection timeout. If the connection breaks, you will not receive any information about the run and its status. To run the actor asynchronously, use the [Run actor](#reference/actors/run-collection/run-actor) API endpoint instead.
 
 <details><summary>Parameters</summary>
 
@@ -2519,15 +2355,7 @@ Specifies optional webhooks associated with the actor run, which can be used to 
 
 ## sync_run_actor_without_input
 
-Runs a specific actor and returns its output.
-The run must finish in 300<!-- MAX_ACTOR_JOB_SYNC_WAIT_SECS --> seconds otherwise the API endpoint returns a timeout error.
-The actor is not passed any input.
-
-Beware that it might be impossible to maintain an idle HTTP connection for a long period of time,
-due to client timeout or network conditions. Make sure your HTTP client is configured to have a long enough connection timeout.
-If the connection breaks, you will not receive any information about the run and its status.
-
-To run the actor asynchronously, use the [Run actor](#reference/actors/run-collection/run-actor) API endpoint instead.
+Runs a specific actor and returns its output. The run must finish in 300 seconds otherwise the API endpoint returns a timeout error. The actor is not passed any input. Beware that it might be impossible to maintain an idle HTTP connection for a long period of time, due to client timeout or network conditions. Make sure your HTTP client is configured to have a long enough connection timeout. If the connection breaks, you will not receive any information about the run and its status. To run the actor asynchronously, use the [Run actor](#reference/actors/run-collection/run-actor) API endpoint instead.
 
 <details><summary>Parameters</summary>
 
@@ -2571,14 +2399,7 @@ Specifies optional webhooks associated with the actor run, which can be used to 
 
 ## sync_run_task_no_input
 
-Run a specific task and return its output.
-The run must finish in 300<!-- MAX_ACTOR_JOB_SYNC_WAIT_SECS --> seconds otherwise the API endpoint returns a timeout error.
-
-Beware that it might be impossible to maintain an idle HTTP connection for an extended period,
-due to client timeout or network conditions. Make sure your HTTP client is configured to have a long enough connection timeout.
-If the connection breaks, you will not receive any information about the run and its status.
-
-To run the Task asynchronously, use the [Run task asynchronously](#reference/actor-tasks/run-collection/run-task) endpoint instead.
+Run a specific task and return its output. The run must finish in 300 seconds otherwise the API endpoint returns a timeout error. Beware that it might be impossible to maintain an idle HTTP connection for an extended period, due to client timeout or network conditions. Make sure your HTTP client is configured to have a long enough connection timeout. If the connection breaks, you will not receive any information about the run and its status. To run the Task asynchronously, use the [Run task asynchronously](#reference/actor-tasks/run-collection/run-task) endpoint instead.
 
 <details><summary>Parameters</summary>
 
@@ -2604,22 +2425,7 @@ Specifies optional webhooks associated with the actor run, which can be used to 
 
 ## sync_run_task_with_input
 
-Runs an actor task and synchronously returns its output.
-The run must finish in 300 seconds otherwise the API endpoint returns a timeout error.
-
-Optionally, you can override the actor input configuration by passing a JSON object as the POST payload
-and setting the `Content-Type: application/json` HTTP header.
-Note that if the object in the POST payload does not define a particular input property,
-the actor run uses the default value defined by the task (or actor's input schema if not defined by the task).
-
-Beware that it might be impossible to maintain an idle HTTP connection for an extended period,
-due to client timeout or network conditions. Make sure your HTTP client is configured to have a long enough connection timeout.
-If the connection breaks, you will not receive any information about the run and its status.
-
-Input fields from actor task configuration can be overloaded with values passed as the POST payload.
-Just make sure to specify `Content-Type` header to be `application/json` and input to be an object.
-
-To run the task asynchronously, use the [Run task](#/reference/actor-tasks/run-collection/run-task) API endpoint instead.
+Runs an actor task and synchronously returns its output. The run must finish in 300 seconds otherwise the API endpoint returns a timeout error. Optionally, you can override the actor input configuration by passing a JSON object as the POST payload and setting the `Content-Type: application/json` HTTP header. Note that if the object in the POST payload does not define a particular input property, the actor run uses the default value defined by the task (or actor's input schema if not defined by the task). Beware that it might be impossible to maintain an idle HTTP connection for an extended period, due to client timeout or network conditions. Make sure your HTTP client is configured to have a long enough connection timeout. If the connection breaks, you will not receive any information about the run and its status. Input fields from actor task configuration can be overloaded with values passed as the POST payload. Just make sure to specify `Content-Type` header to be `application/json` and input to be an object. To run the task asynchronously, use the [Run task](#/reference/actor-tasks/run-collection/run-task) API endpoint instead.
 
 <details><summary>Parameters</summary>
 

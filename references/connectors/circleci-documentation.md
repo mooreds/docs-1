@@ -11,13 +11,11 @@ Circle CI integration
 
 Clears the cache for a project.
 
-
 <details><summary>Parameters</summary>
 
 #### project (required)
 
 XXXXXXXXX
-
 
 **Type:** string
 
@@ -25,13 +23,11 @@ XXXXXXXXX
 
 The GitHub or Bitbucket project account username for the target project
 
-
 **Type:** string
 
 #### vcstype (required)
 
 What version control system type your project uses. Current choices are ‘github’ or ‘bitbucket’.
-
 
 **Type:** string
 
@@ -41,13 +37,11 @@ What version control system type your project uses. Current choices are ‘githu
 
 Delete a checkout key.
 
-
 <details><summary>Parameters</summary>
 
 #### fingerprint (required)
 
 XXXXXXXXXX
-
 
 **Type:** string
 
@@ -55,20 +49,17 @@ XXXXXXXXXX
 
 XXXXXXXXX
 
-
 **Type:** string
 
 #### username (required)
 
 The GitHub or Bitbucket project account username for the target project
 
-
 **Type:** string
 
 #### vcstype (required)
 
 What version control system type your project uses. Current choices are ‘github’ or ‘bitbucket’.
-
 
 **Type:** string
 
@@ -78,13 +69,11 @@ What version control system type your project uses. Current choices are ‘githu
 
 Deletes the environment variable named ':name'
 
-
 <details><summary>Parameters</summary>
 
 #### name (required)
 
 XXXXXXXXXX
-
 
 **Type:** string
 
@@ -92,20 +81,17 @@ XXXXXXXXXX
 
 XXXXXXXXX
 
-
 **Type:** string
 
 #### username (required)
 
 The GitHub or Bitbucket project account username for the target project
 
-
 **Type:** string
 
 #### vcstype (required)
 
 What version control system type your project uses. Current choices are ‘github’ or ‘bitbucket’.
-
 
 **Type:** string
 
@@ -121,13 +107,11 @@ What version control system type your project uses. Current choices are ‘githu
 
 List the artifacts produced by a given build.
 
-
 <details><summary>Parameters</summary>
 
 #### build_num (required)
 
 XXXXXXXXXX
-
 
 **Type:** integer
 
@@ -135,20 +119,17 @@ XXXXXXXXXX
 
 XXXXXXXXX
 
-
 **Type:** string
 
 #### username (required)
 
 The GitHub or Bitbucket project account username for the target project
 
-
 **Type:** string
 
 #### vcstype (required)
 
 What version control system type your project uses. Current choices are ‘github’ or ‘bitbucket’.
-
 
 **Type:** string
 
@@ -156,9 +137,7 @@ What version control system type your project uses. Current choices are ‘githu
 
 ## get_project_by_build_num
 
-Full details for a single build. The response includes all of the fields from the build summary.
-This is also the payload for the [notification webhooks](/docs/configuration/#notify), in which case this object is the value to a key named 'payload'.
-
+Full details for a single build. The response includes all of the fields from the build summary. This is also the payload for the [notification webhooks](/docs/configuration/#notify), in which case this object is the value to a key named 'payload'.
 
 <details><summary>Parameters</summary>
 
@@ -166,13 +145,11 @@ This is also the payload for the [notification webhooks](/docs/configuration/#no
 
 XXXXXXXXXX
 
-
 **Type:** integer
 
 #### project (required)
 
 XXXXXXXXX
-
 
 **Type:** string
 
@@ -180,13 +157,11 @@ XXXXXXXXX
 
 The GitHub or Bitbucket project account username for the target project
 
-
 **Type:** string
 
 #### vcstype (required)
 
 What version control system type your project uses. Current choices are ‘github’ or ‘bitbucket’.
-
 
 **Type:** string
 
@@ -196,13 +171,11 @@ What version control system type your project uses. Current choices are ‘githu
 
 Build summary for each of the last 30 builds for a single git repo.
 
-
 <details><summary>Parameters</summary>
 
 #### project (required)
 
 XXXXXXXXX
-
 
 **Type:** string
 
@@ -210,21 +183,17 @@ XXXXXXXXX
 
 The GitHub or Bitbucket project account username for the target project
 
-
 **Type:** string
 
 #### vcstype (required)
 
 What version control system type your project uses. Current choices are ‘github’ or ‘bitbucket’.
 
-
 **Type:** string
 
 #### filter
 
-Restricts which builds are returned.
-Set to "completed", "successful", "failed", "running", or defaults to no filter.
-
+Restricts which builds are returned. Set to "completed", "successful", "failed", "running", or defaults to no filter.
 
 **Type:** string
 
@@ -236,13 +205,11 @@ Set to "completed", "successful", "failed", "running", or defaults to no filter.
 
 Lists checkout keys.
 
-
 <details><summary>Parameters</summary>
 
 #### project (required)
 
 XXXXXXXXX
-
 
 **Type:** string
 
@@ -250,13 +217,11 @@ XXXXXXXXX
 
 The GitHub or Bitbucket project account username for the target project
 
-
 **Type:** string
 
 #### vcstype (required)
 
 What version control system type your project uses. Current choices are ‘github’ or ‘bitbucket’.
-
 
 **Type:** string
 
@@ -266,13 +231,11 @@ What version control system type your project uses. Current choices are ‘githu
 
 Get a checkout key.
 
-
 <details><summary>Parameters</summary>
 
 #### fingerprint (required)
 
 XXXXXXXXXX
-
 
 **Type:** string
 
@@ -280,20 +243,17 @@ XXXXXXXXXX
 
 XXXXXXXXX
 
-
 **Type:** string
 
 #### username (required)
 
 The GitHub or Bitbucket project account username for the target project
 
-
 **Type:** string
 
 #### vcstype (required)
 
 What version control system type your project uses. Current choices are ‘github’ or ‘bitbucket’.
-
 
 **Type:** string
 
@@ -303,13 +263,11 @@ What version control system type your project uses. Current choices are ‘githu
 
 Lists the environment variables for :project
 
-
 <details><summary>Parameters</summary>
 
 #### project (required)
 
 XXXXXXXXX
-
 
 **Type:** string
 
@@ -317,13 +275,11 @@ XXXXXXXXX
 
 The GitHub or Bitbucket project account username for the target project
 
-
 **Type:** string
 
 #### vcstype (required)
 
 What version control system type your project uses. Current choices are ‘github’ or ‘bitbucket’.
-
 
 **Type:** string
 
@@ -333,13 +289,11 @@ What version control system type your project uses. Current choices are ‘githu
 
 Gets the hidden value of environment variable :name
 
-
 <details><summary>Parameters</summary>
 
 #### name (required)
 
 XXXXXXXXXX
-
 
 **Type:** string
 
@@ -347,20 +301,17 @@ XXXXXXXXXX
 
 XXXXXXXXX
 
-
 **Type:** string
 
 #### username (required)
 
 The GitHub or Bitbucket project account username for the target project
 
-
 **Type:** string
 
 #### vcstype (required)
 
 What version control system type your project uses. Current choices are ‘github’ or ‘bitbucket’.
-
 
 **Type:** string
 
@@ -368,9 +319,7 @@ What version control system type your project uses. Current choices are ‘githu
 
 ## get_project_tests
 
-Provides test metadata for a build
-Note: [Learn how to set up your builds to collect test metadata](https://circleci.com/docs/test-metadata/)
-
+Provides test metadata for a build Note: [Learn how to set up your builds to collect test metadata](https://circleci.com/docs/test-metadata/)
 
 <details><summary>Parameters</summary>
 
@@ -378,13 +327,11 @@ Note: [Learn how to set up your builds to collect test metadata](https://circlec
 
 XXXXXXXXXX
 
-
 **Type:** integer
 
 #### project (required)
 
 XXXXXXXXX
-
 
 **Type:** string
 
@@ -392,13 +339,11 @@ XXXXXXXXX
 
 The GitHub or Bitbucket project account username for the target project
 
-
 **Type:** string
 
 #### vcstype (required)
 
 What version control system type your project uses. Current choices are ‘github’ or ‘bitbucket’.
-
 
 **Type:** string
 
@@ -414,13 +359,11 @@ What version control system type your project uses. Current choices are ‘githu
 
 Build summary for each of the last 30 recent builds, ordered by build_num.
 
-
 *This operation has no parameters*
 
 ## post_project_by_project
 
 Triggers a new build, returns a summary of the build.
-
 
 <details><summary>Parameters</summary>
 
@@ -428,20 +371,17 @@ Triggers a new build, returns a summary of the build.
 
 XXXXXXXXX
 
-
 **Type:** string
 
 #### username (required)
 
 The GitHub or Bitbucket project account username for the target project
 
-
 **Type:** string
 
 #### vcstype (required)
 
 What version control system type your project uses. Current choices are ‘github’ or ‘bitbucket’.
-
 
 **Type:** string
 
@@ -455,13 +395,11 @@ What version control system type your project uses. Current choices are ‘githu
 
 Cancels the build, returns a summary of the build.
 
-
 <details><summary>Parameters</summary>
 
 #### build_num (required)
 
 XXXXXXXXXX
-
 
 **Type:** integer
 
@@ -469,20 +407,17 @@ XXXXXXXXXX
 
 XXXXXXXXX
 
-
 **Type:** string
 
 #### username (required)
 
 The GitHub or Bitbucket project account username for the target project
 
-
 **Type:** string
 
 #### vcstype (required)
 
 What version control system type your project uses. Current choices are ‘github’ or ‘bitbucket’.
-
 
 **Type:** string
 
@@ -490,9 +425,7 @@ What version control system type your project uses. Current choices are ‘githu
 
 ## post_project_checkout_key
 
-Creates a new checkout key.
-Only usable with a user API token.
-
+Creates a new checkout key. Only usable with a user API token.
 
 <details><summary>Parameters</summary>
 
@@ -500,13 +433,11 @@ Only usable with a user API token.
 
 XXXXXXXXX
 
-
 **Type:** string
 
 #### username (required)
 
 The GitHub or Bitbucket project account username for the target project
-
 
 **Type:** string
 
@@ -514,13 +445,11 @@ The GitHub or Bitbucket project account username for the target project
 
 What version control system type your project uses. Current choices are ‘github’ or ‘bitbucket’.
 
-
 **Type:** string
 
 #### $body
 
 The type of key to create. Can be 'deploy-key' or 'github-user-key'.
-
 
 **Type:** string
 
@@ -532,13 +461,11 @@ The type of key to create. Can be 'deploy-key' or 'github-user-key'.
 
 Creates a new environment variable
 
-
 <details><summary>Parameters</summary>
 
 #### project (required)
 
 XXXXXXXXX
-
 
 **Type:** string
 
@@ -546,13 +473,11 @@ XXXXXXXXX
 
 The GitHub or Bitbucket project account username for the target project
 
-
 **Type:** string
 
 #### vcstype (required)
 
 What version control system type your project uses. Current choices are ‘github’ or ‘bitbucket’.
-
 
 **Type:** string
 
@@ -562,13 +487,11 @@ What version control system type your project uses. Current choices are ‘githu
 
 Retries the build, returns a summary of the new build.
 
-
 <details><summary>Parameters</summary>
 
 #### build_num (required)
 
 XXXXXXXXXX
-
 
 **Type:** integer
 
@@ -576,20 +499,17 @@ XXXXXXXXXX
 
 XXXXXXXXX
 
-
 **Type:** string
 
 #### username (required)
 
 The GitHub or Bitbucket project account username for the target project
 
-
 **Type:** string
 
 #### vcstype (required)
 
 What version control system type your project uses. Current choices are ‘github’ or ‘bitbucket’.
-
 
 **Type:** string
 
@@ -598,7 +518,6 @@ What version control system type your project uses. Current choices are ‘githu
 ## post_project_ssh_key
 
 Create an ssh key used to access external systems that require SSH key-based authentication
-
 
 <details><summary>Parameters</summary>
 
@@ -612,20 +531,17 @@ Create an ssh key used to access external systems that require SSH key-based aut
 
 XXXXXXXXX
 
-
 **Type:** string
 
 #### username (required)
 
 The GitHub or Bitbucket project account username for the target project
 
-
 **Type:** string
 
 #### vcstype (required)
 
 What version control system type your project uses. Current choices are ‘github’ or ‘bitbucket’.
-
 
 **Type:** string
 
@@ -637,11 +553,7 @@ What version control system type your project uses. Current choices are ‘githu
 
 ## post_project_tree_by_branch
 
-Triggers a new build, returns a summary of the build.
-Optional build parameters can be set using an experimental API.
-
-Note: For more about build parameters, read about [using parameterized builds](https://circleci.com/docs/parameterized-builds/)
-
+Triggers a new build, returns a summary of the build. Optional build parameters can be set using an experimental API. Note: For more about build parameters, read about [using parameterized builds](https://circleci.com/docs/parameterized-builds/)
 
 <details><summary>Parameters</summary>
 
@@ -649,13 +561,11 @@ Note: For more about build parameters, read about [using parameterized builds](h
 
 The branch name should be url-encoded.
 
-
 **Type:** string
 
 #### project (required)
 
 XXXXXXXXX
-
 
 **Type:** string
 
@@ -663,13 +573,11 @@ XXXXXXXXX
 
 The GitHub or Bitbucket project account username for the target project
 
-
 **Type:** string
 
 #### vcstype (required)
 
 What version control system type your project uses. Current choices are ‘github’ or ‘bitbucket’.
-
 
 **Type:** string
 

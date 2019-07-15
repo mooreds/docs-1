@@ -495,13 +495,13 @@ Filter by article handle
 
 #### limit
 
-Amount of results  (default: 50)  (maximum: 250)
+Amount of results (default: 50) (maximum: 250)
 
 **Type:** string
 
 #### page
 
-Page to show  (default: 1)
+Page to show (default: 1)
 
 **Type:** string
 
@@ -519,7 +519,7 @@ Show articles published after date (format: 2014-04-25T16:15:47-04:00)
 
 #### published_status
 
-published - Show only published articles    unpublished - Show only unpublished articles    any - Show all articles (default)
+published - Show only published articles unpublished - Show only unpublished articles any - Show all articles (default)
 
 **Type:** string
 
@@ -579,7 +579,7 @@ Count articles published after date (format: 2014-04-25T16:15:47-04:00)
 
 #### published_status
 
-published - Count only published articles    unpublished - Count only unpublished articles    any - Count all articles (default)
+published - Count only published articles unpublished - Count only unpublished articles any - Count all articles (default)
 
 **Type:** string
 
@@ -657,13 +657,13 @@ Show checkouts created after date (format: 2014-04-25T16:15:47-04:00)
 
 #### limit
 
-Amount of results  (default: 50)  (maximum: 250)
+Amount of results (default: 50) (maximum: 250)
 
 **Type:** string
 
 #### page
 
-Page to show  (default: 1)
+Page to show (default: 1)
 
 **Type:** string
 
@@ -675,7 +675,7 @@ Restrict results to after the specified ID
 
 #### status
 
-open - All open abandoned checkouts (default)    closed - Show only closed abandoned checkouts
+open - All open abandoned checkouts (default) closed - Show only closed abandoned checkouts
 
 **Type:** string
 
@@ -719,7 +719,7 @@ Restrict results to after the specified ID
 
 #### status
 
-open - All open abandoned checkouts (default)    closed - Show only closed abandoned checkouts
+open - All open abandoned checkouts (default) closed - Show only closed abandoned checkouts
 
 **Type:** string
 
@@ -751,13 +751,13 @@ comma-separated list of fields to include in the response
 
 #### limit
 
-Collects per page  (default: 50)  (maximum: 250)
+Collects per page (default: 50) (maximum: 250)
 
 **Type:** string
 
 #### page
 
-Page to show  (default: 1)
+Page to show (default: 1)
 
 **Type:** string
 
@@ -813,13 +813,13 @@ comma-separated list of fields to include in the response
 
 #### limit
 
-Amount of results  (default: 50)  (maximum: 250)
+Amount of results (default: 50) (maximum: 250)
 
 **Type:** string
 
 #### page
 
-Page to show  (default: 1)
+Page to show (default: 1)
 
 **Type:** string
 
@@ -837,7 +837,7 @@ Show comments published after date (format: 2014-04-25T16:15:47-04:00)
 
 #### published_status
 
-published - Show only published comments    unpublished - Show only unpublished comments    any - Show all comments (default)
+published - Show only published comments unpublished - Show only unpublished comments any - Show all comments (default)
 
 **Type:** string
 
@@ -849,7 +849,7 @@ Restrict results to after the specified ID
 
 #### status
 
-pending - All pending comments    published - Show only published comments    unapproved - Show only unapproved comments
+pending - All pending comments published - Show only published comments unapproved - Show only unapproved comments
 
 **Type:** string
 
@@ -899,13 +899,13 @@ Count comments published after date (format: 2014-04-25T16:15:47-04:00)
 
 #### published_status
 
-published - Count only published comments    unpublished - Count only unpublished comments    any - Count all comments (default)
+published - Count only published comments unpublished - Count only unpublished comments any - Count all comments (default)
 
 **Type:** string
 
 #### status
 
-pending - All pending comments    published - Count only published comments    unapproved - Count only unapproved comments
+pending - All pending comments published - Count only published comments unapproved - Count only unapproved comments
 
 **Type:** string
 
@@ -1075,13 +1075,13 @@ A comma-separated list of collection ids
 
 #### limit
 
-Amount of results  (default: 50)  (maximum: 250)
+Amount of results (default: 50) (maximum: 250)
 
 **Type:** string
 
 #### page
 
-Page to show  (default: 1)
+Page to show (default: 1)
 
 **Type:** string
 
@@ -1105,7 +1105,7 @@ Show custom collections published after date (format: 2014-04-25T16:15:47-04:00)
 
 #### published_status
 
-published - Show only published custom collections    unpublished - Show only unpublished custom collections    any - Show all custom collections (default)
+published - Show only published custom collections unpublished - Show only unpublished custom collections any - Show all custom collections (default)
 
 **Type:** string
 
@@ -1161,7 +1161,7 @@ Show custom collections published after date (format: 2014-04-25T16:15:47-04:00)
 
 #### published_status
 
-published - Show only published custom collections    unpublished - Show only unpublished custom collections    any - Show all custom collections (default)
+published - Show only published custom collections unpublished - Show only unpublished custom collections any - Show all custom collections (default)
 
 **Type:** string
 
@@ -1217,13 +1217,13 @@ comma-separated list of fields to include in the response
 
 #### limit
 
-Amount of results  (default: 50)  (maximum: 250)
+Amount of results (default: 50) (maximum: 250)
 
 **Type:** string
 
 #### page
 
-Page to show  (default: 1)
+Page to show (default: 1)
 
 **Type:** string
 
@@ -1299,13 +1299,13 @@ A comma-separated list of customer ids
 
 #### limit
 
-Amount of results  (default: 50)  (maximum: 250)
+Amount of results (default: 50) (maximum: 250)
 
 **Type:** string
 
 #### page
 
-Page to show  (default: 1)
+Page to show (default: 1)
 
 **Type:** string
 
@@ -1395,19 +1395,19 @@ comma-separated list of fields to include in the response
 
 #### limit
 
-Amount of results  (default: 50)  (maximum: 250)
+Amount of results (default: 50) (maximum: 250)
 
 **Type:** string
 
 #### order
 
-Field and direction to order results by  (default: last_order_date DESC)
+Field and direction to order results by (default: last_order_date DESC)
 
 **Type:** string
 
 #### page
 
-Page to show  (default: 1)
+Page to show (default: 1)
 
 **Type:** string
 
@@ -1427,13 +1427,13 @@ Text to search customers
 
 #### limit
 
-Number of results per page  (default: 15)  (maximum: 200)
+Number of results per page (default: 15) (maximum: 200)
 
 **Type:** string
 
 #### page
 
-Page to show  (default: 1)
+Page to show (default: 1)
 
 **Type:** string
 
@@ -1483,13 +1483,13 @@ Only show events specified in filter
 
 #### limit
 
-Amount of results  (default: 50)  (maximum: 250)
+Amount of results (default: 50) (maximum: 250)
 
 **Type:** string
 
 #### page
 
-Page to show  (default: 1)
+Page to show (default: 1)
 
 **Type:** string
 
@@ -1559,19 +1559,19 @@ comma-separated list of fields to include in the response
 
 #### limit
 
-Amount of results  (default: 50)  (maximum: 250)
+Amount of results (default: 50) (maximum: 250)
 
 **Type:** string
 
 #### page
 
-Page to show  (default: 1)
+Page to show (default: 1)
 
 **Type:** string
 
 #### status
 
-enabled - Restrict results to only enabled gift cards    disabled - Restrict results to only disabled gift cards
+enabled - Restrict results to only enabled gift cards disabled - Restrict results to only disabled gift cards
 
 **Type:** string
 
@@ -1585,7 +1585,7 @@ enabled - Restrict results to only enabled gift cards    disabled - Restrict res
 
 #### status
 
-enabled - Count only enabled gift cards    disabled - Count only disabled gift cards
+enabled - Count only enabled gift cards disabled - Count only disabled gift cards
 
 **Type:** string
 
@@ -1617,19 +1617,19 @@ comma-separated list of fields to include in the response
 
 #### limit
 
-Amount of results  (default: 50)  (maximum: 250)
+Amount of results (default: 50) (maximum: 250)
 
 **Type:** string
 
 #### order
 
-Field and direction to order results by  (default: disabled_at DESC)
+Field and direction to order results by (default: disabled_at DESC)
 
 **Type:** string
 
 #### page
 
-Page to show  (default: 1)
+Page to show (default: 1)
 
 **Type:** string
 
@@ -1731,13 +1731,13 @@ comma-separated list of fields to include in the response
 
 #### limit
 
-Amount of results  (default: 50)  (maximum: 250)
+Amount of results (default: 50) (maximum: 250)
 
 **Type:** string
 
 #### page
 
-Page to show  (default: 1)
+Page to show (default: 1)
 
 **Type:** string
 
@@ -1971,13 +1971,13 @@ comma-separated list of fields to include in the response
 
 #### financial_status
 
-authorized - Show only authorized orders    pending - Show only pending orders    paid - Show only paid orders    partially_paid - Show only partially paid orders    refunded - Show only refunded orders    voided - Show only voided orders    partially_refunded - Show only partially_refunded orders    any - Show all authorized, pending, and paid orders (default). This is a filter, not a value.    unpaid - Show all authorized, or partially_paid orders. This is a filter, not a value.
+authorized - Show only authorized orders pending - Show only pending orders paid - Show only paid orders partially_paid - Show only partially paid orders refunded - Show only refunded orders voided - Show only voided orders partially_refunded - Show only partially_refunded orders any - Show all authorized, pending, and paid orders (default). This is a filter, not a value. unpaid - Show all authorized, or partially_paid orders. This is a filter, not a value.
 
 **Type:** string
 
 #### fulfillment_status
 
-shipped - Show orders that have been shipped    partial - Show partially shipped orders    unshipped - Show orders that have not yet been shipped    any - Show orders with any fulfillment_status. (default)
+shipped - Show orders that have been shipped partial - Show partially shipped orders unshipped - Show orders that have not yet been shipped any - Show orders with any fulfillment_status. (default)
 
 **Type:** string
 
@@ -1989,13 +1989,13 @@ A comma-separated list of order ids
 
 #### limit
 
-Amount of results  (default: 50)  (maximum: 250)
+Amount of results (default: 50) (maximum: 250)
 
 **Type:** string
 
 #### page
 
-Page to show  (default: 1)
+Page to show (default: 1)
 
 **Type:** string
 
@@ -2019,7 +2019,7 @@ Restrict results to after the specified ID
 
 #### status
 
-open - All open orders (default)    closed - Show only closed orders    cancelled - Show only cancelled orders    any - Any order status
+open - All open orders (default) closed - Show only closed orders cancelled - Show only cancelled orders any - Any order status
 
 **Type:** string
 
@@ -2057,19 +2057,19 @@ Count orders created after date (format: 2014-04-25T16:15:47-04:00)
 
 #### financial_status
 
-authorized - Only authorized orders    pending - Only pending orders    paid - Only paid orders    refunded - Show only refunded orders    voided - Show only voided orders    any - All authorized, pending, and paid orders (default)
+authorized - Only authorized orders pending - Only pending orders paid - Only paid orders refunded - Show only refunded orders voided - Show only voided orders any - All authorized, pending, and paid orders (default)
 
 **Type:** string
 
 #### fulfillment_status
 
-shipped - Orders that have been shipped    partial - Partially shipped orders    unshipped - Orders that have not yet been shipped    any - Orders with any fulfillment_status. (default)
+shipped - Orders that have been shipped partial - Partially shipped orders unshipped - Orders that have not yet been shipped any - Orders with any fulfillment_status. (default)
 
 **Type:** string
 
 #### status
 
-open - Open orders (default)    closed - Only closed orders    any - Any order status
+open - Open orders (default) closed - Only closed orders any - Any order status
 
 **Type:** string
 
@@ -2137,13 +2137,13 @@ Filter by Page handle
 
 #### limit
 
-Amount of results  (default: 50)  (maximum: 250)
+Amount of results (default: 50) (maximum: 250)
 
 **Type:** string
 
 #### page
 
-Page to show  (default: 1)
+Page to show (default: 1)
 
 **Type:** string
 
@@ -2161,7 +2161,7 @@ Show pages published after date (format: 2014-04-25T16:15:47-04:00)
 
 #### published_status
 
-published - Show only published pages    unpublished - Show only unpublished pages    any - Show all pages (default)
+published - Show only published pages unpublished - Show only unpublished pages any - Show all pages (default)
 
 **Type:** string
 
@@ -2223,7 +2223,7 @@ Show pages published after date (format: 2014-04-25T16:15:47-04:00)
 
 #### published_status
 
-published - Only published pages    unpublished - Only unpublished pages    any - All pages (default)
+published - Only published pages unpublished - Only unpublished pages any - All pages (default)
 
 **Type:** string
 
@@ -2315,13 +2315,13 @@ A comma-separated list of product ids
 
 #### limit
 
-Amount of results  (default: 50)  (maximum: 250)
+Amount of results (default: 50) (maximum: 250)
 
 **Type:** string
 
 #### page
 
-Page to show  (default: 1)
+Page to show (default: 1)
 
 **Type:** string
 
@@ -2345,7 +2345,7 @@ Show products published after date (format: 2014-04-25T16:15:47-04:00)
 
 #### published_status
 
-published - Show only published products    unpublished - Show only unpublished products    any - Show all products (default)
+published - Show only published products unpublished - Show only unpublished products any - Show all products (default)
 
 **Type:** string
 
@@ -2425,7 +2425,7 @@ Show products published after date (format: 2014-04-25T16:15:47-04:00)
 
 #### published_status
 
-published - Show only published products    unpublished - Show only unpublished products    any - Show all products (default)
+published - Show only published products unpublished - Show only unpublished products any - Show all products (default)
 
 **Type:** string
 
@@ -2597,13 +2597,13 @@ comma-separated list of fields to include in the response
 
 #### limit
 
-Amount of results  (default: 50)  (maximum: 250)
+Amount of results (default: 50) (maximum: 250)
 
 **Type:** string
 
 #### page
 
-Page to show  (default: 1)
+Page to show (default: 1)
 
 **Type:** string
 
@@ -2735,13 +2735,13 @@ comma-separated list of fields to include in the response
 
 #### limit
 
-Amount of results  (default: 50)  (maximum: 250)
+Amount of results (default: 50) (maximum: 250)
 
 **Type:** string
 
 #### page
 
-Page to show  (default: 1)
+Page to show (default: 1)
 
 **Type:** string
 
@@ -2829,13 +2829,13 @@ comma-separated list of fields to include in the response
 
 #### limit
 
-Amount of results  (default: 50)  (maximum: 250)
+Amount of results (default: 50) (maximum: 250)
 
 **Type:** string
 
 #### page
 
-Page to show  (default: 1)
+Page to show (default: 1)
 
 **Type:** string
 
@@ -2951,13 +2951,13 @@ A comma-separated list of collection ids
 
 #### limit
 
-Amount of results  (default: 50)  (maximum: 250)
+Amount of results (default: 50) (maximum: 250)
 
 **Type:** string
 
 #### page
 
-Page to show  (default: 1)
+Page to show (default: 1)
 
 **Type:** string
 
@@ -2981,7 +2981,7 @@ Show smart collections published after date (format: 2014-04-25T16:15:47-04:00)
 
 #### published_status
 
-published - Show only published smart collections    unpublished - Show only unpublished smart collections    any - Show all smart collections (default)
+published - Show only published smart collections unpublished - Show only unpublished smart collections any - Show all smart collections (default)
 
 **Type:** string
 
@@ -3037,7 +3037,7 @@ Show smart collections published after date (format: 2014-04-25T16:15:47-04:00)
 
 #### published_status
 
-published - Show only published smart collections    unpublished - Show only unpublished smart collections    any - Show all smart collections (default)
+published - Show only published smart collections unpublished - Show only unpublished smart collections any - Show all smart collections (default)
 
 **Type:** string
 
@@ -3167,13 +3167,13 @@ A comma-separated list of the properties you want returned for each item in the 
 
 #### limit
 
-The maximum number of webhooks that should be returned. Setting this parameter outside the maximum range will result in an error.  (default: 50)  (maximum: 250)
+The maximum number of webhooks that should be returned. Setting this parameter outside the maximum range will result in an error. (default: 50) (maximum: 250)
 
 **Type:** string
 
 #### page
 
-The page number of the result list to retrieve. Use this in tandem with limit to page through the webhooks in a shop.  (default: 1)
+The page number of the result list to retrieve. Use this in tandem with limit to page through the webhooks in a shop. (default: 1)
 
 **Type:** string
 
@@ -3185,7 +3185,7 @@ Use this parameter to restrict the returned list to only webhooks whose id is gr
 
 #### topic
 
-Show webhooks with a given topic. Valid topics are:           carts/create, carts/update, checkouts/create, checkouts/delete, checkouts/update, collections/create, collections/delete, collections/update, customer_groups/create, customer_groups/delete, customer_groups/update, customers/create, customers/delete, customers/disable, customers/enable, customers/update, disputes/create, disputes/update, fulfillment_events/create, fulfillment_events/delete, fulfillments/create, fulfillments/update, order_transactions/create, orders/cancelled, orders/create, orders/delete, orders/fulfilled, orders/paid, orders/partially_fulfilled, orders/updated, products/create, products/delete, products/update, refunds/create, shop/update, themes/create, themes/delete, themes/publish, themes/update
+Show webhooks with a given topic. Valid topics are: carts/create, carts/update, checkouts/create, checkouts/delete, checkouts/update, collections/create, collections/delete, collections/update, customer_groups/create, customer_groups/delete, customer_groups/update, customers/create, customers/delete, customers/disable, customers/enable, customers/update, disputes/create, disputes/update, fulfillment_events/create, fulfillment_events/delete, fulfillments/create, fulfillments/update, order_transactions/create, orders/cancelled, orders/create, orders/delete, orders/fulfilled, orders/paid, orders/partially_fulfilled, orders/updated, products/create, products/delete, products/update, refunds/create, shop/update, themes/create, themes/delete, themes/publish, themes/update
 
 **Type:** string
 
@@ -3217,7 +3217,7 @@ Use this parameter to retrieve only webhooks that possess the URI where the webh
 
 #### topic
 
-Show webhooks with a given topic. Valid topics are:           carts/create, carts/update, checkouts/create, checkouts/delete, checkouts/update, collections/create, collections/delete, collections/update, customer_groups/create, customer_groups/delete, customer_groups/update, customers/create, customers/delete, customers/disable, customers/enable, customers/update, disputes/create, disputes/update, fulfillment_events/create, fulfillment_events/delete, fulfillments/create, fulfillments/update, order_transactions/create, orders/cancelled, orders/create, orders/delete, orders/fulfilled, orders/paid, orders/partially_fulfilled, orders/updated, products/create, products/delete, products/update, refunds/create, shop/update, themes/create, themes/delete, themes/publish, themes/update
+Show webhooks with a given topic. Valid topics are: carts/create, carts/update, checkouts/create, checkouts/delete, checkouts/update, collections/create, collections/delete, collections/update, customer_groups/create, customer_groups/delete, customer_groups/update, customers/create, customers/delete, customers/disable, customers/enable, customers/update, disputes/create, disputes/update, fulfillment_events/create, fulfillment_events/delete, fulfillments/create, fulfillments/update, order_transactions/create, orders/cancelled, orders/create, orders/delete, orders/fulfilled, orders/paid, orders/partially_fulfilled, orders/updated, products/create, products/delete, products/update, refunds/create, shop/update, themes/create, themes/delete, themes/publish, themes/update
 
 **Type:** string
 
@@ -3521,7 +3521,7 @@ Boolean, whether or not to add the line items back to the store inventory.
 
 #### shipping
 
-Object to specify how much shipping to refund    full_refund - Boolean, set to true to refund all remaining shipping    amount - Set specific amount of shipping to refund. Takes precedence over full_refund .
+Object to specify how much shipping to refund full_refund - Boolean, set to true to refund all remaining shipping amount - Set specific amount of shipping to refund. Takes precedence over full_refund .
 
 **Type:** string
 
@@ -3551,7 +3551,7 @@ Array of line item IDs and quantities to refund
 
 #### shipping
 
-Object to specify how much shipping to refund    full_refund - Boolean, set to true to refund all remaining shipping    amount - Set specific amount of shipping to refund. Takes precedence over full_refund .
+Object to specify how much shipping to refund full_refund - Boolean, set to true to refund all remaining shipping amount - Set specific amount of shipping to refund. Takes precedence over full_refund .
 
 **Type:** string
 
@@ -3589,7 +3589,7 @@ Object to specify how much shipping to refund    full_refund - Boolean, set to t
 
 #### order
 
-In addition to the properties defined earlier, you can use the following flags    send_receipt - Determines whether an order confirmation will be sent to the customer.  Default: false.    send_fulfillment_receipt - Determines whether a fulfillment confirmation will be sent to the customer.  Default: false.    inventory_behaviour -             Determines which inventory updating behaviour is used. The following values are available:   bypass (default) : Do not claim inventory.   decrement_ignoring_policy : Ignore the product's inventory policy and claim amounts no matter what.   decrement_obeying_policy : Obey the product's inventory policy.
+In addition to the properties defined earlier, you can use the following flags send_receipt - Determines whether an order confirmation will be sent to the customer. Default: false. send_fulfillment_receipt - Determines whether a fulfillment confirmation will be sent to the customer. Default: false. inventory_behaviour - Determines which inventory updating behaviour is used. The following values are available: bypass (default) : Do not claim inventory. decrement_ignoring_policy : Ignore the product's inventory policy and claim amounts no matter what. decrement_obeying_policy : Obey the product's inventory policy.
 
 **Type:** string
 
@@ -3705,7 +3705,7 @@ In addition to the properties defined earlier, you can use the following flags  
 
 #### format
 
-Use this parameter to select the format to receive the data in. Valid values are json and xml.  (default: json)
+Use this parameter to select the format to receive the data in. Valid values are json and xml. (default: json)
 
 **Type:** string
 
@@ -3915,9 +3915,7 @@ Use this parameter to select the format to receive the data in. Valid values are
 
 #### order
 
-Change an order’s attributes such as note, email, buyer-accepts-marketing,
-        or remove the customer association.  You can also send the shipping_address object as part of an order
-         to update any shipping_address parameter.    shipping_address - Enables you to update shipping address parameters
+Change an order’s attributes such as note, email, buyer-accepts-marketing, or remove the customer association. You can also send the shipping_address object as part of an order to update any shipping_address parameter. shipping_address - Enables you to update shipping address parameters
 
 **Type:** string
 

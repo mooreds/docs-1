@@ -109,15 +109,7 @@ Used to create the metadata template instance for a corresponding Box file. When
 
 #### $body
 
-Metadata can be used for many purposes. Enterprises may want to have a better way to organize their digital assets for their marketing teams or developers may want to provide advanced content functionality such as facilitating workflows or approvals. Metadata is also visible in the Box Web Application. To learn more, please visit the help documentation.
-Templates
-Metadata that belongs to a file/folder is grouped by templates. Templates allow the metadata service to provide a multitude of services, such as pre-defining sets of key:value pairs or schema enforcement on specific fields. For example, a marketingCollateral template may define where and when specific marketing content should be used. You can also see the representation of the template in the Box web application while navigating to a file preview. Currently, metadata associated with folders does not show in the web application.
-Each file/folder can have multiple distinct template instances associated with it, such as a marketingCollateral and retentionPolicy template instances. Template instances are also grouped by scopes. Currently, the only scopes support are enterprise and global. Enterprise scopes are defined on a per enterprises basis, whereas global scopes are Box application-wide. Attribute order within template instances is not guaranteed.
-Currently, there are four attributes supported by templates: string, enum, float, and  date (RFC 3339).
-
-Global Properties Template
-In addition to enterprise scoped templates, every file on Box has access to the global properties template. The Properties template is a bucket of free form key:value string pairs, with no additional schema associated with it. Properties are ideal for scenarios where applications want to write metadata to file objects in a flexible way, without pre-defined template structure.
-Properties follow all the conventions of standard templates, except for being located at a different endpoint. All requests made to the properties template must be made to /files/{file_id}/metadata/global/properties.
+Metadata can be used for many purposes. Enterprises may want to have a better way to organize their digital assets for their marketing teams or developers may want to provide advanced content functionality such as facilitating workflows or approvals. Metadata is also visible in the Box Web Application. To learn more, please visit the help documentation. Templates Metadata that belongs to a file/folder is grouped by templates. Templates allow the metadata service to provide a multitude of services, such as pre-defining sets of key:value pairs or schema enforcement on specific fields. For example, a marketingCollateral template may define where and when specific marketing content should be used. You can also see the representation of the template in the Box web application while navigating to a file preview. Currently, metadata associated with folders does not show in the web application. Each file/folder can have multiple distinct template instances associated with it, such as a marketingCollateral and retentionPolicy template instances. Template instances are also grouped by scopes. Currently, the only scopes support are enterprise and global. Enterprise scopes are defined on a per enterprises basis, whereas global scopes are Box application-wide. Attribute order within template instances is not guaranteed. Currently, there are four attributes supported by templates: string, enum, float, and date (RFC 3339). Global Properties Template In addition to enterprise scoped templates, every file on Box has access to the global properties template. The Properties template is a bucket of free form key:value string pairs, with no additional schema associated with it. Properties are ideal for scenarios where applications want to write metadata to file objects in a flexible way, without pre-defined template structure. Properties follow all the conventions of standard templates, except for being located at a different endpoint. All requests made to the properties template must be made to /files/{file_id}/metadata/global/properties.
 
 **Type:** object
 
@@ -161,15 +153,7 @@ Used to create the metadata template instance for a corresponding Box folder. Wh
 
 #### $body
 
-Metadata can be used for many purposes. Enterprises may want to have a better way to organize their digital assets for their marketing teams or developers may want to provide advanced content functionality such as facilitating workflows or approvals. Metadata is also visible in the Box Web Application. To learn more, please visit the help documentation.
-Templates
-Metadata that belongs to a file/folder is grouped by templates. Templates allow the metadata service to provide a multitude of services, such as pre-defining sets of key:value pairs or schema enforcement on specific fields. For example, a marketingCollateral template may define where and when specific marketing content should be used. You can also see the representation of the template in the Box web application while navigating to a file preview. Currently, metadata associated with folders does not show in the web application.
-Each file/folder can have multiple distinct template instances associated with it, such as a marketingCollateral and retentionPolicy template instances. Template instances are also grouped by scopes. Currently, the only scopes support are enterprise and global. Enterprise scopes are defined on a per enterprises basis, whereas global scopes are Box application-wide. Attribute order within template instances is not guaranteed.
-Currently, there are four attributes supported by templates: string, enum, float, and  date (RFC 3339).
-
-Global Properties Template
-In addition to enterprise scoped templates, every file on Box has access to the global properties template. The Properties template is a bucket of free form key:value string pairs, with no additional schema associated with it. Properties are ideal for scenarios where applications want to write metadata to file objects in a flexible way, without pre-defined template structure.
-Properties follow all the conventions of standard templates, except for being located at a different endpoint. All requests made to the properties template must be made to /files/{file_id}/metadata/global/properties.
+Metadata can be used for many purposes. Enterprises may want to have a better way to organize their digital assets for their marketing teams or developers may want to provide advanced content functionality such as facilitating workflows or approvals. Metadata is also visible in the Box Web Application. To learn more, please visit the help documentation. Templates Metadata that belongs to a file/folder is grouped by templates. Templates allow the metadata service to provide a multitude of services, such as pre-defining sets of key:value pairs or schema enforcement on specific fields. For example, a marketingCollateral template may define where and when specific marketing content should be used. You can also see the representation of the template in the Box web application while navigating to a file preview. Currently, metadata associated with folders does not show in the web application. Each file/folder can have multiple distinct template instances associated with it, such as a marketingCollateral and retentionPolicy template instances. Template instances are also grouped by scopes. Currently, the only scopes support are enterprise and global. Enterprise scopes are defined on a per enterprises basis, whereas global scopes are Box application-wide. Attribute order within template instances is not guaranteed. Currently, there are four attributes supported by templates: string, enum, float, and date (RFC 3339). Global Properties Template In addition to enterprise scoped templates, every file on Box has access to the global properties template. The Properties template is a bucket of free form key:value string pairs, with no additional schema associated with it. Properties are ideal for scenarios where applications want to write metadata to file objects in a flexible way, without pre-defined template structure. Properties follow all the conventions of standard templates, except for being located at a different endpoint. All requests made to the properties template must be made to /files/{file_id}/metadata/global/properties.
 
 **Type:** object
 
@@ -731,9 +715,7 @@ Can only be pending
 
 ## get_collection_items
 
-Retrieves the files and/or folders contained within this collection. Collection item lists behave a lot like getting a folder’s items.
-Paginated results can be retrieved using the limit and offset parameters.
-Sub-object fields can be requested via the ?fields parameter
+Retrieves the files and/or folders contained within this collection. Collection item lists behave a lot like getting a folder’s items. Paginated results can be retrieved using the limit and offset parameters. Sub-object fields can be requested via the ?fields parameter
 
 <details><summary>Parameters</summary>
 
@@ -923,7 +905,7 @@ The record at which to start. The default is 0.
 
 #### user_type
 
-The type of user to search for. Valid values are all, external or managed.  If nothing is provided, the default behavior will be managed only
+The type of user to search for. Valid values are all, external or managed. If nothing is provided, the default behavior will be managed only
 
 **Type:** string
 
@@ -1629,14 +1611,13 @@ The type of the retention policy assignment to retrieve. Can either be folder or
 
 ## get_shared_items
 
-Shared items are any files or folders that are represented by a shared link. Shared items are different from other API resources in that a shared resource doesn’t necessarily have to be in the account of the user accessing it. The actual shared link itself is used along with a normal access token.
-Used to retrieve the metadata about a shared item when only given a shared link. Because of varying permission for shared links, a password may be required to retrieve the shared item. Once the item has been retrieved, you can make API requests against the actual resource /files/{id} or /folders/{id} as long as the shared link and optional password are in the header.
+Shared items are any files or folders that are represented by a shared link. Shared items are different from other API resources in that a shared resource doesn’t necessarily have to be in the account of the user accessing it. The actual shared link itself is used along with a normal access token. Used to retrieve the metadata about a shared item when only given a shared link. Because of varying permission for shared links, a password may be required to retrieve the shared item. Once the item has been retrieved, you can make API requests against the actual resource /files/{id} or /folders/{id} as long as the shared link and optional password are in the header.
 
 <details><summary>Parameters</summary>
 
 #### BoxApi (required)
 
-The usage is 'BoxApi: shared_link=SHARED_LINK&shared_link_password=SHARED_LINK_PASSWORD'
+The usage is 'BoxApi: shared_link=SHARED_LINK&amp;shared_link_password=SHARED_LINK_PASSWORD'
 
 **Type:** string
 
@@ -1774,9 +1755,7 @@ Attribute(s) to include in the response
 
 ## get_user_events
 
-Use this to get events for a given user. A chunk of event objects is returned for the user based on the parameters passed in. Parameters indicating how many chunks are left as well as the next stream_position are also returned.
-
-To retrieve Enterprise Events specify 'stream_type=admin_logs'. Retrieves up to a year' events for all users in an enterprise. Upper and lower bounds as well as filters can be applied to the results.
+Use this to get events for a given user. A chunk of event objects is returned for the user based on the parameters passed in. Parameters indicating how many chunks are left as well as the next stream_position are also returned. To retrieve Enterprise Events specify 'stream_type=admin_logs'. Retrieves up to a year' events for all users in an enterprise. Upper and lower bounds as well as filters can be applied to the results.
 
 <details><summary>Parameters</summary>
 
@@ -1882,10 +1861,7 @@ Get a Webhook
 
 ## get_webhooks
 
-Returns all defined webhooks for the requesting application and user, up to the limit. If no limit is supplied then Box uses the default limit of 100.
-If more than limit webhooks are defined then Box returns the webhooks in batches. When the results are batched, Box sends limit webhooks along with a next_marker field in the response object. The value of the next_marker field is a marker string that you can use in later requests to tell Box which batch to send next.
-When you send a request that includes a marker string, Box sends the next batch of webhooks, beginning after the last webhook of the previous batch. When the response contains the last of the defined webhooks, Box omits the next_marker field from its response.
-You can use limit and marker together with the marker string returned in the next_marker field to paginate lists of webhooks.
+Returns all defined webhooks for the requesting application and user, up to the limit. If no limit is supplied then Box uses the default limit of 100. If more than limit webhooks are defined then Box returns the webhooks in batches. When the results are batched, Box sends limit webhooks along with a next_marker field in the response object. The value of the next_marker field is a marker string that you can use in later requests to tell Box which batch to send next. When you send a request that includes a marker string, Box sends the next batch of webhooks, beginning after the last webhook of the previous batch. When the response contains the last of the defined webhooks, Box omits the next_marker field from its response. You can use limit and marker together with the marker string returned in the next_marker field to paginate lists of webhooks.
 
 <details><summary>Parameters</summary>
 
@@ -2091,11 +2067,7 @@ Attribute(s) to include in the response.
 
 ## update_file_info
 
-Used to update individual or multiple fields in the file object, including renaming the file, changing its description, and creating a shared link for the file. To move a file, change the ID of its parent folder. An optional If-Match header can be included to prevent race conditions.
-
-To lock and unlock files, you execute a PUT operation on the /files/{file id} endpoint and set or clear the lock properties on the file.
-
-Used to create a shared link for this particular file. Please see here for more information on the permissions available for shared links. In order to get default shared link status, set it to an empty access level, i.e. {"shared_link": {}}. In order to disable a shared link, send this same type of PUT request with the value of shared_link set to null, i.e. {"shared_link": null}
+Used to update individual or multiple fields in the file object, including renaming the file, changing its description, and creating a shared link for the file. To move a file, change the ID of its parent folder. An optional If-Match header can be included to prevent race conditions. To lock and unlock files, you execute a PUT operation on the /files/{file id} endpoint and set or clear the lock properties on the file. Used to create a shared link for this particular file. Please see here for more information on the permissions available for shared links. In order to get default shared link status, set it to an empty access level, i.e. {"shared_link": {}}. In order to disable a shared link, send this same type of PUT request with the value of shared_link set to null, i.e. {"shared_link": null}
 
 <details><summary>Parameters</summary>
 
@@ -2117,8 +2089,7 @@ The etag of the file can be included as an ‘If-Match’ header to prevent race
 
 ## update_file_metadata
 
-Used to update the template instance. The request body must follow the JSON-Patch specification, which is represented as a JSON array of operation objects (see examples for more details). Updates can be either add, replace, remove , test, move, or copy. The template instance can only be updated if the template instance already exists. When editing metadata, only values that adhere to the metadata template schema will be accepted.
-The update is applied atomically. If any errors occur during the application of the update operations, the metadata instance remains unchanged.
+Used to update the template instance. The request body must follow the JSON-Patch specification, which is represented as a JSON array of operation objects (see examples for more details). Updates can be either add, replace, remove , test, move, or copy. The template instance can only be updated if the template instance already exists. When editing metadata, only values that adhere to the metadata template schema will be accepted. The update is applied atomically. If any errors occur during the application of the update operations, the metadata instance remains unchanged.
 
 <details><summary>Parameters</summary>
 
@@ -2158,12 +2129,7 @@ Used to apply or update the watermark for a corresponding Box file. The endpoint
 
 ## update_folder
 
-Used to update information about the folder. To move a folder, update the ID of its parent. To enable an email address that can be used to upload files to this folder, update the folder_upload_email attribute. An optional If-Match header can be included to ensure that client only updates the folder if it knows about the latest version.
-
-Used to create a shared link for this particular folder. Please see here for more information on the permissions available for shared links. In order to get default shared link status, set it to an empty access level, i.e. {"shared_link": {}}. In order to disable a shared link, send this same type of PUT request with the value of shared_link set to null, i.e. {"shared_link": null}
-
-To add or remove an item from a collection, you do a PUT on that item and change the list of collections it belongs to. Philosophically, this is similar to the way “move” operations work on files and folders: you do a PUT on the item and change its parent. It’s the same idea with collections, except you’re changing which collection(s) the item belongs to instead of the folder it belongs to. Currently the only collection available is the favorites collection, and you’ll need to know it’s ID for the user that is making the API call, since every user has a different favorites collection_id.
-The Add/Remove API handling will check all ids passed in before performing any add/removal operations. If any collection ids are malformed or do not exist in the user’s account, the API call will throw a 400. Only if all of the collection ids are valid will the adds and removals be carried out.
+Used to update information about the folder. To move a folder, update the ID of its parent. To enable an email address that can be used to upload files to this folder, update the folder_upload_email attribute. An optional If-Match header can be included to ensure that client only updates the folder if it knows about the latest version. Used to create a shared link for this particular folder. Please see here for more information on the permissions available for shared links. In order to get default shared link status, set it to an empty access level, i.e. {"shared_link": {}}. In order to disable a shared link, send this same type of PUT request with the value of shared_link set to null, i.e. {"shared_link": null} To add or remove an item from a collection, you do a PUT on that item and change the list of collections it belongs to. Philosophically, this is similar to the way “move” operations work on files and folders: you do a PUT on the item and change its parent. It’s the same idea with collections, except you’re changing which collection(s) the item belongs to instead of the folder it belongs to. Currently the only collection available is the favorites collection, and you’ll need to know it’s ID for the user that is making the API call, since every user has a different favorites collection_id. The Add/Remove API handling will check all ids passed in before performing any add/removal operations. If any collection ids are malformed or do not exist in the user’s account, the API call will throw a 400. Only if all of the collection ids are valid will the adds and removals be carried out.
 
 <details><summary>Parameters</summary>
 
@@ -2365,9 +2331,7 @@ Used to update a task assignment.
 
 ## update_user
 
-Used to edit the settings and information about a user. This method only works for enterprise admins. To roll a user out of the enterprise (and convert them to a standalone free user), update the special enterprise attribute to be null.
-
-Used to convert one of the user’s confirmed email aliases into the user’s primary login.
+Used to edit the settings and information about a user. This method only works for enterprise admins. To roll a user out of the enterprise (and convert them to a standalone free user), update the special enterprise attribute to be null. Used to convert one of the user’s confirmed email aliases into the user’s primary login.
 
 <details><summary>Parameters</summary>
 

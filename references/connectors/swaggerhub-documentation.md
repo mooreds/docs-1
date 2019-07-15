@@ -157,7 +157,6 @@ API owner (user or organization, case-sensitive)
 
 Returns all the comments and replies added by collaborators in the specified API version.
 
-
 <details><summary>Parameters</summary>
 
 #### api (required)
@@ -183,7 +182,6 @@ Version identifier (case-sensitive)
 ## get_comments_for_domain
 
 Returns all the comments and replies added by collaborators in the specified domain version.
-
 
 <details><summary>Parameters</summary>
 
@@ -385,12 +383,7 @@ Sort order
 
 #### sort
 
-Sort criteria or result set:
-* NAME
-* UPATED
-* CREATED
-* OWNER
-
+Sort criteria or result set: * NAME * UPATED * CREATED * OWNER
 
 **Type:** string
 
@@ -420,12 +413,7 @@ Sort order
 
 #### sort
 
-Sort criteria or result set:
-* NAME
-* UPATED
-* CREATED
-* OWNER
-
+Sort criteria or result set: * NAME * UPATED * CREATED * OWNER
 
 **Type:** string
 
@@ -583,12 +571,7 @@ Free text query to match
 
 #### sort
 
-Sort criteria or result set:
-* NAME
-* UPATED
-* CREATED
-* OWNER
-
+Sort criteria or result set: * NAME * UPATED * CREATED * OWNER
 
 **Type:** string
 
@@ -596,11 +579,7 @@ Sort criteria or result set:
 
 #### state
 
-Matches against published state of the spec:
-* UNPUBLISHED - spec is a draft, a work in progress
-* PUBLISHED - spec is a stable version ready for consuming from client applications
-* ANY - either PUBLISHED or UNPUBLISHED
-
+Matches against published state of the spec: * UNPUBLISHED - spec is a draft, a work in progress * PUBLISHED - spec is a stable version ready for consuming from client applications * ANY - either PUBLISHED or UNPUBLISHED
 
 **Type:** string
 
@@ -642,12 +621,7 @@ Free text query to match
 
 #### sort
 
-Sort criteria or result set:
-* NAME
-* UPATED
-* CREATED
-* OWNER
-
+Sort criteria or result set: * NAME * UPATED * CREATED * OWNER
 
 **Type:** string
 
@@ -655,11 +629,7 @@ Sort criteria or result set:
 
 #### specType
 
-Type of Swagger specs to search:
-* API - APIs only
-* DOMAIN - Domains only
-* ANY - Both APIs and Domains
-
+Type of Swagger specs to search: * API - APIs only * DOMAIN - Domains only * ANY - Both APIs and Domains
 
 **Type:** string
 
@@ -667,11 +637,7 @@ Type of Swagger specs to search:
 
 #### state
 
-Matches against published state of the spec:
-* UNPUBLISHED - spec is a draft, a work in progress
-* PUBLISHED - spec is a stable version ready for consuming from client applications
-* ANY - either PUBLISHED or UNPUBLISHED
-
+Matches against published state of the spec: * UNPUBLISHED - spec is a draft, a work in progress * PUBLISHED - spec is a stable version ready for consuming from client applications * ANY - either PUBLISHED or UNPUBLISHED
 
 **Type:** string
 
@@ -679,11 +645,7 @@ Matches against published state of the spec:
 
 #### visibility
 
-The visibility of a spec in SwaggerHub:
-* PUBLIC - can be viewed by anyone
-* PRIVATE - can only be viewed by you or your Org and those that you are collaborating with or have shared it with
-* ANY - either PUBLIC or PRIVATE
-
+The visibility of a spec in SwaggerHub: * PUBLIC - can be viewed by anyone * PRIVATE - can only be viewed by you or your Org and those that you are collaborating with or have shared it with * ANY - either PUBLIC or PRIVATE
 
 **Type:** string
 
@@ -713,12 +675,7 @@ Free text query to match
 
 #### sort
 
-Sort criteria or result set:
-* NAME
-* UPATED
-* CREATED
-* OWNER
-
+Sort criteria or result set: * NAME * UPATED * CREATED * OWNER
 
 **Type:** string
 
@@ -726,11 +683,7 @@ Sort criteria or result set:
 
 #### state
 
-Matches against published state of the spec:
-* UNPUBLISHED - spec is a draft, a work in progress
-* PUBLISHED - spec is a stable version ready for consuming from client applications
-* ANY - either PUBLISHED or UNPUBLISHED
-
+Matches against published state of the spec: * UNPUBLISHED - spec is a draft, a work in progress * PUBLISHED - spec is a stable version ready for consuming from client applications * ANY - either PUBLISHED or UNPUBLISHED
 
 **Type:** string
 

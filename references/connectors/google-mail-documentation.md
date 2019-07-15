@@ -85,9 +85,7 @@ Can be either text/plain or text/html. Default is text/plain.
 
 ## create_alias
 
-Creates a custom "from" send-as alias. If an SMTP MSA is specified, Gmail will attempt to connect to the SMTP service to validate the configuration before creating the alias. If ownership verification is required for the alias, a message will be sent to the email address and the resource's verification status will be set to pending; otherwise, the resource will be created with verification status set to accepted. If a signature is provided, Gmail will sanitize the HTML before saving it with the alias.
-
-This method is only available to service account clients that have been delegated domain-wide authority.
+Creates a custom "from" send-as alias. If an SMTP MSA is specified, Gmail will attempt to connect to the SMTP service to validate the configuration before creating the alias. If ownership verification is required for the alias, a message will be sent to the email address and the resource's verification status will be set to pending; otherwise, the resource will be created with verification status set to accepted. If a signature is provided, Gmail will sanitize the HTML before saving it with the alias. This method is only available to service account clients that have been delegated domain-wide authority.
 
 <details><summary>Parameters</summary>
 
@@ -139,15 +137,7 @@ Deprecated. Please use quotaUser instead.
 
 ## create_delegate
 
-Adds a delegate with its verification status set directly to accepted, without sending any verification email. The delegate user must be a member of the same G Suite organization as the delegator user.
-
-Gmail imposes limtations on the number of delegates and delegators each user in a G Suite organization can have. These limits depend on your organization, but in general each user can have up to 25 delegates and up to 10 delegators.
-
-Note that a delegate user must be referred to by their primary email address, and not an email alias.
-
-Also note that when a new delegate is created, there may be up to a one minute delay before the new delegate is available for use.
-
-This method is only available to service account clients that have been delegated domain-wide authority.
+Adds a delegate with its verification status set directly to accepted, without sending any verification email. The delegate user must be a member of the same G Suite organization as the delegator user. Gmail imposes limtations on the number of delegates and delegators each user in a G Suite organization can have. These limits depend on your organization, but in general each user can have up to 25 delegates and up to 10 delegators. Note that a delegate user must be referred to by their primary email address, and not an email alias. Also note that when a new delegate is created, there may be up to a one minute delay before the new delegate is available for use. This method is only available to service account clients that have been delegated domain-wide authority.
 
 <details><summary>Parameters</summary>
 
@@ -357,9 +347,7 @@ Deprecated. Please use quotaUser instead.
 
 ## create_forwarding_address
 
-Creates a forwarding address. If ownership verification is required, a message will be sent to the recipient and the resource's verification status will be set to pending; otherwise, the resource will be created with verification status set to accepted.
-
-This method is only available to service account clients that have been delegated domain-wide authority.
+Creates a forwarding address. If ownership verification is required, a message will be sent to the recipient and the resource's verification status will be set to pending; otherwise, the resource will be created with verification status set to accepted. This method is only available to service account clients that have been delegated domain-wide authority.
 
 <details><summary>Parameters</summary>
 
@@ -463,9 +451,7 @@ Deprecated. Please use quotaUser instead.
 
 ## delete_alias
 
-Deletes the specified send-as alias. Revokes any verification that may have been required for using it.
-
-This method is only available to service account clients that have been delegated domain-wide authority.
+Deletes the specified send-as alias. Revokes any verification that may have been required for using it. This method is only available to service account clients that have been delegated domain-wide authority.
 
 <details><summary>Parameters</summary>
 
@@ -517,11 +503,7 @@ Deprecated. Please use quotaUser instead.
 
 ## delete_delegate
 
-Removes the specified delegate (which can be of any verification status), and revokes any verification that may have been required for using it.
-
-Note that a delegate user must be referred to by their primary email address, and not an email alias.
-
-This method is only available to service account clients that have been delegated domain-wide authority.
+Removes the specified delegate (which can be of any verification status), and revokes any verification that may have been required for using it. Note that a delegate user must be referred to by their primary email address, and not an email alias. This method is only available to service account clients that have been delegated domain-wide authority.
 
 <details><summary>Parameters</summary>
 
@@ -677,9 +659,7 @@ Deprecated. Please use quotaUser instead.
 
 ## delete_forwarding_address
 
-Deletes the specified forwarding address and revokes any verification that may have been required.
-
-This method is only available to service account clients that have been delegated domain-wide authority.
+Deletes the specified forwarding address and revokes any verification that may have been required. This method is only available to service account clients that have been delegated domain-wide authority.
 
 <details><summary>Parameters</summary>
 
@@ -1151,11 +1131,7 @@ Deprecated. Please use quotaUser instead.
 
 ## get_delegate
 
-Gets the specified delegate.
-
-Note that a delegate user must be referred to by their primary email address, and not an email alias.
-
-This method is only available to service account clients that have been delegated domain-wide authority.
+Gets the specified delegate. Note that a delegate user must be referred to by their primary email address, and not an email alias. This method is only available to service account clients that have been delegated domain-wide authority.
 
 <details><summary>Parameters</summary>
 
@@ -2161,9 +2137,7 @@ Deprecated. Please use quotaUser instead.
 
 ## list_delegates
 
-Lists the delegates for the specified account.
-
-This method is only available to service account clients that have been delegated domain-wide authority.
+Lists the delegates for the specified account. This method is only available to service account clients that have been delegated domain-wide authority.
 
 <details><summary>Parameters</summary>
 
@@ -2513,7 +2487,7 @@ Returns response with indentations and line breaks.
 
 #### q
 
-Only return messages matching the specified query. Supports the same query format as the Gmail search box. For example, "from:someuser@example.com rfc822msgid:<somemsgid@example.com> is:unread". Parameter cannot be used when accessing the api using the gmail.metadata scope.
+Only return messages matching the specified query. Supports the same query format as the Gmail search box. For example, "from:someuser@example.com rfc822msgid: is:unread". Parameter cannot be used when accessing the api using the gmail.metadata scope.
 
 **Type:** string
 
@@ -2811,9 +2785,7 @@ Deprecated. Please use quotaUser instead.
 
 ## patch_alias
 
-Updates a send-as alias. If a signature is provided, Gmail will sanitize the HTML before saving it with the alias.
-
-Addresses other than the primary address for the account can only be updated by service account clients that have been delegated domain-wide authority. This method supports patch semantics.
+Updates a send-as alias. If a signature is provided, Gmail will sanitize the HTML before saving it with the alias. Addresses other than the primary address for the account can only be updated by service account clients that have been delegated domain-wide authority. This method supports patch semantics.
 
 <details><summary>Parameters</summary>
 
@@ -3415,9 +3387,7 @@ Deprecated. Please use quotaUser instead.
 
 ## update_alias
 
-Updates a send-as alias. If a signature is provided, Gmail will sanitize the HTML before saving it with the alias.
-
-Addresses other than the primary address for the account can only be updated by service account clients that have been delegated domain-wide authority.
+Updates a send-as alias. If a signature is provided, Gmail will sanitize the HTML before saving it with the alias. Addresses other than the primary address for the account can only be updated by service account clients that have been delegated domain-wide authority.
 
 <details><summary>Parameters</summary>
 
@@ -3475,9 +3445,7 @@ Deprecated. Please use quotaUser instead.
 
 ## update_auto_forwarding
 
-Updates the auto-forwarding setting for the specified account. A verified forwarding address must be specified when auto-forwarding is enabled.
-
-This method is only available to service account clients that have been delegated domain-wide authority.
+Updates the auto-forwarding setting for the specified account. A verified forwarding address must be specified when auto-forwarding is enabled. This method is only available to service account clients that have been delegated domain-wide authority.
 
 <details><summary>Parameters</summary>
 
@@ -3849,9 +3817,7 @@ Deprecated. Please use quotaUser instead.
 
 ## verify_alias
 
-Sends a verification email to the specified send-as alias address. The verification status must be pending.
-
-This method is only available to service account clients that have been delegated domain-wide authority.
+Sends a verification email to the specified send-as alias address. The verification status must be pending. This method is only available to service account clients that have been delegated domain-wide authority.
 
 <details><summary>Parameters</summary>
 

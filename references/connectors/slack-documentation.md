@@ -1,6 +1,6 @@
 ---
 id: slack-documentation
-title: Slack (version v1.*.*)
+title: Slack (version v3.*.*)
 sidebar_label: Slack
 layout: docs.mustache
 ---
@@ -105,21 +105,7 @@ Archives a private channel.
 
 Checks API calling code.
 
-<details><summary>Parameters</summary>
-
-#### error
-
-Error response to return
-
-**Type:** string
-
-#### foo
-
-example property to return
-
-**Type:** string
-
-</details>
+*This operation has no parameters*
 
 ## close_conversations
 
@@ -1275,7 +1261,7 @@ Lists custom emoji for a team.
 
 ## list_files
 
-Lists & filters team files.
+Lists &amp; filters team files.
 
 <details><summary>Parameters</summary>
 
@@ -1303,17 +1289,7 @@ Filter files created before this timestamp (inclusive).
 
 #### types
 
-Filter files by type:
-
-* `all` - All files
-* `spaces` - Posts
-* `snippets` - Snippets
-* `images` - Image files
-* `gdocs` - Google docs
-* `zips` - Zip files
-* `pdfs` - PDF files
-
-You can pass multiple values in the types argument, like `types=spaces,snippets`.The default value is `all`, which does not filter the list.
+Filter files by type: * `all` - All files * `spaces` - Posts * `snippets` - Snippets * `images` - Image files * `gdocs` - Google docs * `zips` - Zip files * `pdfs` - PDF files You can pass multiple values in the types argument, like `types=spaces,snippets`.The default value is `all`, which does not filter the list.
 
 **Type:** string
 
@@ -1716,38 +1692,6 @@ Sends a message to a channel.
 #### $body
 
 **Type:** object
-
-</details>
-
-## post_to_response_url
-
-Posts to the slack-provided response_url. 
-
-<details><summary>Parameters</summary>
-
-#### response_url (required)
-
-The response_url to post to, given by Slack. This will look something like https://hooks.slack.com/...
-
-**Type:** STRING
-
-#### attachments
-
-A JSON-based array of structured attachments.
-
-**Type:** ARRAY
-
-#### post_body
-
-Optional. Message arguments in JSON object form as defined here (except for token and channel): https://api.slack.com/methods/chat.postMessage#formatting. The "text" and "attachments" parameters will be appended to this object and sent.
-
-**Type:** OBJECT
-
-#### text
-
-Text of the message to send. This field is usually required, unless you're providing only attachments.
-
-**Type:** STRING
 
 </details>
 
@@ -2169,7 +2113,7 @@ Return timestamp only for latest message object of each channel (improves perfor
 
 ## test_auth
 
-Checks authentication & identity.
+Checks authentication &amp; identity.
 
 *This operation has no parameters*
 
@@ -2261,11 +2205,5 @@ Update the list of users for a User Group
 
 Delete the user profile photo
 
-<details><summary>Parameters</summary>
-
-#### $body
-
-**Type:** object
-
-</details>
+*This operation has no parameters*
 

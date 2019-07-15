@@ -76,6 +76,7 @@ Note: reference material for each data connector can additionally be viewed in t
 ## I
 
 * [Intercom](../connectors/intercom-documentation)
+* [ITIS (Integrated Taxonomic Information System)](../connectors/itis-(integrated-taxonomic-information-system)-documentation)
 
 ## J
 
@@ -111,6 +112,7 @@ Note: reference material for each data connector can additionally be viewed in t
 * [Sendgrid](../connectors/sendgrid-documentation)
 * [Shopify](../connectors/shopify-documentation)
 * [Slack](../connectors/slack-documentation)
+* [Slack Webhook](../connectors/slack-webhook-documentation)
 * [Spotify](../connectors/spotify-documentation)
 * [Strava](../connectors/strava-documentation)
 * [Stripe](../connectors/stripe-documentation)
