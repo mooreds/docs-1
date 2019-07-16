@@ -92,7 +92,7 @@ Runs an operation for every production user in parallel.
 **Example**
 
 ```javascript
-var results = api.runForAllUsers("this.say_hello", {}, {"users": ["iggy@transposit", "support@transposit"]});
+var results = api.runForAllUsers("this.say_hello", {}, {"users": ["N8gwVQnJ", "fvYLBnLC"]});
 
 results[0] // => [{"greeting": "Hello Iggy!"}]
 results[1] // => [{"greeting": "Hello Support!"}]
@@ -125,35 +125,103 @@ api.query("select * from source.users where id=@userId", {userId: params.userId}
 
 `api.user()`
 
-Get the logged-in user information.
+Get the logged-in user's information.
 
-**Returns** (Object): An object that includes the user's `fullName` and `email`
+**Returns** (Object | null): An object that includes the user's `fullName`, `email`, and sign-in data; or null if run from scheduled task or webhook
 
 **Example**
 
 ```javascript
+// Google authenticated user
 api.user()
-// => {"fullName":"iggy","email":"iggy@transposit.com"}
+// => { 
+//      "id":"N8gwVQnJ",
+//      "fullName":"iggy",
+//      "email":"iggy@transposit.com",
+//      "google": {
+//        "prettyName":"iggy",
+//        "email":"iggy@transposit.com"
+//      }
+//    }
+
+// Slack authenticated user
+api.user()
+// => { 
+//      "id":"N8gwVQnJ",
+//      "fullName":"iggy",
+//      "email":"iggy@transposit.com",
+//      "slack": {
+//        "userId":"U5678EFGH",
+//        "userName":"iggy",
+//        "workspaceId":"T2615V5UK",
+//        "workspaceName":"Transposit",
+//        "email":"iggy@transposit.com"
+//      }
+//    }
+```
+
+## Find user without identifier
+`api.user(parameters={type, ...})`
+
+Find any user without their identifier
+
+| Argument | Type |  |
+| :--- | :--- | :--- |
+| parameters={} | Object | an object containing authenticator-defined parameters |
+
+**Returns** (Object | null): An object that includes the user's `fullName`, `email`, and sign-in data; or null if user not found
+
+**Example**
+```javascript
+// Google authenticated user
+api.user({type: "google", email: "iggy@transposit.com"})
+// => { 
+//      "id":"N8gwVQnJ",
+//      "fullName":"iggy",
+//      "email":"iggy@transposit.com",
+//      "google": {
+//        "prettyName":"iggy",
+//        "email":"iggy@transposit.com"
+//      }
+//    }
+
+// Slack authenticated user
+api.user({type: "slack", workspaceId: "T1234ABCD", userId: "U5678EFGH"})
+// => { 
+//      "id":"N8gwVQnJ",
+//      "fullName":"iggy",
+//      "email":"iggy@transposit.com",
+//      "slack": {
+//        "userId":"U5678EFGH",
+//        "userName":"iggy",
+//        "workspaceId":"T2615V5UK",
+//        "workspaceName":"Transposit",
+//        "email":"iggy@transposit.com"
+//      }
+//    }
 ```
 
 ## List users
 
 `api.listUsers()`
 
-**Returns** \(Array\): Returns an array of all logged-in users' `fullName` and `email`. In development, it returns an array containing only the developer running the operation. In production, the array includes all production users.
+**Returns** \(Array\): Returns an array of all logged-in users' `fullName`, `email`, and sign-in data. In development, it returns an array containing only the developer running the operation. In production, the array includes all production users.
 
 **Example**
 
 ```javascript
 api.listUsers()
-// => [{"fullName":"iggy","email":"iggy@transposit.com"}, {"fullName":"support","email":"support@transposit.com"}]
+// => [
+//     {"id":"N8gwVQnJ","fullName":"iggy","email":"iggy@transposit.com","google":{...}}, 
+//     {"id":"fvYLBnLC","fullName":"support","email":"support@transposit.com","google":{...}}
+//    ]
 ```
 
 ## Auths
 
 `api.auths(dataConnection)`
 
-Returns credentials for a data connection that uses runtime authentication.
+**Returns** credentials for a data connection that uses runtime authentication
 
 | Argument | Type |  |
 | :--- | :--- | :--- |
@@ -518,4 +586,3 @@ var wordArray = CryptoJS.enc.Utf8.parse(params.text);
 var base64 = CryptoJS.enc.Base64.stringify(wordArray);
 return base64;
 ```
-
