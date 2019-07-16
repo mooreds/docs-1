@@ -7,14 +7,22 @@ tags: doc
 
 On the User Configuration page, you can specify how users will interact with your app.
 
-## Configure sign-in
+## Configure user sign-in
 
-Your application is protected by sign-in. You can restrict sign-in to specific Google GSuite domains or users.
+Your application is protected by sign-in. You can restrict sign-in to specific Google GSuite domains and users, or Slack workspaces.
 
 1. Navigate to **Users &gt; User Configuration &gt; Registration and Login**
-2. Click **Restrict to specific whitelisted domains and users**
-3. Specify who is allowed to sign in
-4. Click **Save**
+2. Specify who is allowed to sign in
+3. Click **Save**
+
+## Select a sign-in provider
+
+Choose whether users authenticate through Google or Slack when signing in to your app. Choose carefully: you can change your sign-in provider later, but all user data will be deleted.
+
+1. Navigate to **Users &gt; User Configuration &gt; Registration and Login**
+2. Click **Change** found at the end of "Users authenticate with their Google/Slack account" 
+3. Select a provider from the pop-up form
+4. Click **Change**
 
 ## Manage users
 

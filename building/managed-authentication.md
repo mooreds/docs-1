@@ -13,7 +13,7 @@ If you'd like to jump straight to all authentication options, see [Connector aut
 
 Transposit gives you tooling to centrally manage all the aspects of authentication you might require while building a data-driven application with a "front door" for user sign-in.
 
-Imagine the following scenario: You are building an application that allows users to sign in (via Google) and connect their own data from other services your app integrates with (e.g. GMail, Slack, Salesforce). You also want to connect your application to data sources needed by _all_ app users&mdash;but requiring your own credentials (e.g. APIs, databases, spreadsheets, etc).
+Imagine the following scenario: You are building an application that allows users to sign in and connect their own data from other services your app integrates with (e.g. GMail, Slack, Salesforce). You also want to connect your application to data sources needed by _all_ app users&mdash;but requiring your own credentials (e.g. APIs, databases, spreadsheets, etc).
 
 Here's what this process looks like when building with Transposit:
 
@@ -50,4 +50,3 @@ To use Transposit as an authentication provider in your app, you’d copy/paste 
 In Transposit, if you’re using sign-in identity management, you can manage a whitelist of app users, inspect user records, see what connections and authentications exist, and modify these as an admin.
 
 For more documentation about how to use authentication in Transposit in any of these cases, take a look at the detailed [Keychains reference](/docs/references/keys-and-keychains).
-
