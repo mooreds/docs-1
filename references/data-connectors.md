@@ -113,6 +113,7 @@ Note: reference material for each data connector can additionally be viewed in t
 * [Shopify](../connectors/shopify-documentation)
 * [Slack](../connectors/slack-documentation)
 * [Slack Webhook](../connectors/slack-webhook-documentation)
+* [Smartsheet](../connectors/smartsheet-documentation)
 * [Spotify](../connectors/spotify-documentation)
 * [Strava](../connectors/strava-documentation)
 * [Stripe](../connectors/stripe-documentation)
