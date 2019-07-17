@@ -11,16 +11,23 @@ Use the [Transposit JavaScript SDK](https://github.com/transposit/transposit-js-
 
 1. Navigate to **Users &gt; User Configuration**
 2. Specify **Successful sign-in URIs**. Transposit allows redirection only to these URIs during sign-in. Leave this list empty to redirect users to the  [user settings page](/docs/building/user-config) after signing in.
-3. Optionally, provide a custom **Google Client ID** and **Google Client Secret** pair
+3. Optionally, provide a custom **Client ID** and **Client Secret** pair
 4. Save the configuration
 
 # Restrict sign-in
 
-You can restrict sign-in to specific Google GSuite domains or users.
+You can restrict sign-in to specific users or criteria. For Google, restrict based on GSuite domain or email address. For Slack, restrict based on workspace.
 
 1. Navigate to **Users &gt; User Configuration &gt; Registration and Login**
-2. Select **Restrict to specific whitelisted domains and users**
-3. Specify your restrictions
+2. Specify your restrictions
+
+## Slack workspace id restrictions
+
+You can restrict Slack sign-in by workspace id. To easily find a workspace's id, sign in to your app.
+
+1. Sign in to your app using Slack
+2. Navigate to **Users &gt; Registered Users**
+3. Find your workspace id. It is formatted T1234ABCD.
 
 ## Deploy endpoints
 

@@ -13,7 +13,7 @@ layout: docs.mustache
 
 #### baseId (required)
 
-The Airtable base ID. This can be found as part of the API documentation URL. Go to https://airtable.com/api and select the base you're interested in, then find the base ID in the resulting URL: https://airtable.com//api/docs.
+The Airtable base ID. This can be found as part of the API documentation URL. Go to https://airtable.com/api and select the base you're interested in, then find the base ID in the resulting URL: https://airtable.com/[baseId]/api/docs.
 
 **Type:** string
 
@@ -39,7 +39,7 @@ New record to add
 
 #### baseId (required)
 
-The Airtable base ID. This can be found as part of the API documentation URL. Go to https://airtable.com/api and select the base you're interested in, then find the base ID in the resulting URL: https://airtable.com//api/docs.
+The Airtable base ID. This can be found as part of the API documentation URL. Go to https://airtable.com/api and select the base you're interested in, then find the base ID in the resulting URL: https://airtable.com/[baseId]/api/docs.
 
 **Type:** string
 
@@ -65,7 +65,7 @@ The name of the table being referenced within the base. This table must already 
 
 #### baseId (required)
 
-The Airtable base ID. This can be found as part of the API documentation URL. Go to https://airtable.com/api and select the base you're interested in, then find the base ID in the resulting URL: https://airtable.com//api/docs.
+The Airtable base ID. This can be found as part of the API documentation URL. Go to https://airtable.com/api and select the base you're interested in, then find the base ID in the resulting URL: https://airtable.com/[baseId]/api/docs.
 
 **Type:** string
 
@@ -91,7 +91,7 @@ The name of the table being referenced within the base. This table must already 
 
 #### baseId (required)
 
-The Airtable base ID. This can be found as part of the API documentation URL. Go to https://airtable.com/api and select the base you're interested in, then find the base ID in the resulting URL: https://airtable.com//api/docs.
+The Airtable base ID. This can be found as part of the API documentation URL. Go to https://airtable.com/api and select the base you're interested in, then find the base ID in the resulting URL: https://airtable.com/[baseId]/api/docs.
 
 **Type:** string
 
@@ -149,7 +149,7 @@ To update all fields of a endpoints record. Any fields that are not included wil
 
 #### baseId (required)
 
-The Airtable base ID. This can be found as part of the API documentation URL. Go to https://airtable.com/api and select the base you're interested in, then find the base ID in the resulting URL: https://airtable.com//api/docs.
+The Airtable base ID. This can be found as part of the API documentation URL. Go to https://airtable.com/api and select the base you're interested in, then find the base ID in the resulting URL: https://airtable.com/[baseId]/api/docs.
 
 **Type:** string
 
@@ -181,7 +181,7 @@ To update some (but not all) fields of a endpoints record. Any fields that are n
 
 #### baseId (required)
 
-The Airtable base ID. This can be found as part of the API documentation URL. Go to https://airtable.com/api and select the base you're interested in, then find the base ID in the resulting URL: https://airtable.com//api/docs.
+The Airtable base ID. This can be found as part of the API documentation URL. Go to https://airtable.com/api and select the base you're interested in, then find the base ID in the resulting URL: https://airtable.com/[baseId]/api/docs.
 
 **Type:** string
 
