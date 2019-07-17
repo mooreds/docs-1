@@ -7,12 +7,6 @@ tags: doc
 
 In this short guide, you'll build a custom Slack command that let's anyone in your workspace list their day's events.
 
-You can also [watch this in a short video](https://youtu.be/D-yfw057uGk):
-
-<div class="video-container">
-<iframe src="https://www.youtube.com/embed/D-yfw057uGk"  frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</div>
-
 ## Create a new Transposit application
 - [Sign in to Transposit](https://console.transposit.com/)
 - Click **New Slack app** and give it a name such as `calendar_bot`.
@@ -22,8 +16,9 @@ You can also [watch this in a short video](https://youtu.be/D-yfw057uGk):
 - Go to [your Slack apps](https://api.slack.com/apps) and create a new app.
 - Select **Slash Commands** from the list of Slack features, and create a new command named `/calendar`.
 - Go back to Transposit to get the Request URL. Go to **Deploy &gt; Endpoints**, and copy the webhook URL. Paste this into the Slack command's **Request URL** field. Give it a short description and usage hint if desired.
+- Save your command
 - Click **Install App** to install it into your workspace.
-- Test the app in Slack by typing `/calendar`. You should receive the "Hello World!" message.
+- Test the app in Slack by typing `/calendar`. You should receive the "Please configure your user" message.
 
 ## Connect to Google Calendar
 - Go to your Transposit app's Code section
