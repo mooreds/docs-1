@@ -9,10 +9,8 @@ In this short guide, you'll build a custom Slack command that let's anyone in yo
 
 You can also [watch this in a short video](https://youtu.be/D-yfw057uGk):
 
-<div>
-<iframe id="ytplayer" type="text/html" width="500" height="281.25"
-src="https://www.youtube.com/embed/D-yfw057uGk"
-frameborder="0" allowfullscreen></iframe>
+<div class="video-container">
+<iframe src="https://www.youtube.com/embed/D-yfw057uGk"  frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 
 ## Create a new Transposit application
