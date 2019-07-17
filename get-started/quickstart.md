@@ -5,117 +5,52 @@ layout: docs.mustache
 tags: doc
 ---
 
-Transposit is an API composition platform that brings the power of a relational database to the API ecosystem.
+In this short guide, you'll build a custom Slack command that let's anyone in your workspace list their day's events.
 
-In this quickstart guide, you'll use Transposit to build a custom Slack bot that provides a personalized experience with Google Calendar for your team.
+You can also [watch this in a short video](https://youtu.be/D-yfw057uGk):
 
-You can also [watch this in a short video](https://youtu.be/98yMQpSjQIc):
-
-<div class="iframe-container">
-<iframe src="https://www.youtube.com/embed/98yMQpSjQIc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<div class="video-container">
+<iframe src="https://www.youtube.com/embed/D-yfw057uGk"  frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 
-## What you'll need
+## Create a new Transposit application
+- [Sign in to Transposit](https://console.transposit.com/)
+- Click **New Slack app** and give it a name such as `calendar_bot`.
+- *Optional*: If you want to use other Slack APIs such as post message for testing, then click `Connect` to authorize the Slack data connection.
 
-Before you get building, you'll need a Transposit account and a Slack account.
+## Set up Slack
+- Go to [your Slack apps](https://api.slack.com/apps) and create a new app.
+- Select **Slash Commands** from the list of Slack features, and create a new command named `/calendar`.
+- Go back to Transposit to get the Request URL. Go to **Deploy &gt; Endpoints**, and copy the webhook URL. Paste this into the Slack command's **Request URL** field. Give it a short description and usage hint if desired.
+- Click **Install App** to install it into your workspace.
+- Test the app in Slack by typing `/calendar`. You should receive the "Hello World!" message.
 
-## Create a new application
+## Connect to Google Calendar
+- Go to your Transposit app's Code section
+- Click the plus icon next to **Data Connections** and add `transposit/google_calendar`.
+- Choose the `get_calendar_events` operation as the code template.
+- Click **Save** and authorize Google Calendar.
 
-To begin, [visit this list of sample apps](https://www.transposit.com/apps/), choose **Slackbot helper**, fork it and name your new copy `calendar_bot`.
-
-## Add a production key
-
-Add a credential available to all users of your app: go to **Deploy > Production Keys** and add a production key for the data connection `slack_bot`.
-
-## Prepare a webhook
-
-Next, go to **Deploy > Endpoints**, and copy the webhook URL for the operation `webhook`. You'll need this to configure Slack in the next step.
-
-## Set up the Slack slash command
-
-Visit [the Slack apps page](https://api.slack.com/apps), and create a new app. Give the new app a name something like **Calendar Helper**.
-
-Select **Slash Commands** from the list of features, choose **Create New Command** and create a new command called `/calendar`.
-
-For the **Request URL**, paste in the webhook URL copied in the previous step, give the command a short description such as "List my day's events", and be sure to save.
-
-When your slash command is created, choose **Install App** and install the Slack app into your workspace.
-
-## Test in Slack
-
-Back in your Slack workspace, you can now type `/calendar` (or whatever you titled the command) and see that it's installed and working, and that some additional setup is needed.
-
-## Set up user configuration
-
-Return to Transposit, and navigate to **User > User Configuration**. Here you can specify who has access to the app, and choose what data connections users must authenticate. Ensure that the `slack_identify` connection is set to require user authentication.
-
-At the top, you'll see the URL for the app's user configuration page. 
-
-## Authorize as a user
-
-Visit the app's user configuration page the URL above, sign in, and connect Slack.
-
-Return to your Slack workspace, type the slash command again, and you'll see that the app knows who you are on Transposit.
-
-## Connect your calendar
-
-Now that the Slack bot is working, get it talking to calendars.
-
-Return to the app's code in the Transposit console, and add the Google Calendar data connector, with the operation `get_calendar_events`. The new operation contains a scaffold for how to use SQL to get calendar events. Note that you need to supply the calendar ID, start time, and end time.
-
-In this app, we want the user to choose which calendar to use, so let's add a new operation that's a **User Setting Options** type. Next, paste in the following code (replacing everything that was there by default), and commit to save:
+## Get the day's start and end time
+- Create a new JavaScript operation and name it `get_day_start_end`
+- Replace the code with the following to use the `moment.js` library to get the day's start and end time
 
 ```javascript
 (params) => {
-  if (api.isAuthed('google_calendar')) {
-    return api.run('google_calendar.get_calendarlist').map((l) => {
-      return {value: l.id, displayName: l.summary};
-    });
-  } else {
-    return [
-      {
-        "value": "primary",
-        "displayName": "Primary"
-      }
-    ];
-  }
-}
-```
-
-Test that that operation is working properly by hitting the **Run** button. In the tab below titled "Results" you should see information about your various Google Calendars.
-
-Then, go to **Users > User Configuration** and check the box to require users to authenticate with Google Calendar.
-
-At the bottom of the page in the user settings schema, add a new item of type Options, set the **Name** to `calendar_id`, and specify that it use the `options` operation we just created.
-
-To try this out, visit the user configuration page again, refresh, and if your calendar connection is authorized you'll see a list of your calendars to select.
-
-## Specify start and end times
-
-Create a new JavaScript operation that you'll use to specify calendar start and end time. In the operation properties, name the operation `get_day_start_end`.
-
-You can use the `api.run` command to call Google Calendar to get the calendar timezone, and you can access the configured `calendar_id` using`user_setting.get('calendar_id')`. Paste this code into the new operation:
-
-```javascript
-(params) => {
-  let moment = require('moment-timezone-with-data.js');  
-  let timezone = api.run('google_calendar.get_calendar',
- {calendarId: user_setting.get('calendar_id')})[0].timeZone;
-  let today = moment().tz(timezone);
+  let moment = require('moment-timezone-with-data.js');
+  let today = moment().tz('America/Los_Angeles');
   return {
     start: today.startOf('day').format(),
-    end: today.endOf('day').format()    
-  }
-}
-```
+    end: today.endOf('day').format()
+  }}
+  ```
+- Click the **Run** button to make sure it works
 
-> **Note:** When you're in development mode, you must to provide authorizations and settings separate from those used in production. To do this, go to the **Auths and User Settings** section in the Code view. 
+## Set up the user configuration page
+- Go to **Users &gt; User Configuration** and check the box next to `google_calendar` to allow users to connect their Google Calendar to their slack account.
 
-After you've added authorizations for using the data connections in development, try the **Run** button to make user the operation correctly reports the start and end times for the current day.
-
-## Putting it all together
-
-Go back to the `get_calendar_events` operation you created earlier, add a parameter with the name `calendarId` and a default value of “primary", and then paste the following operation code that lists the day's events.
+## Get your slack command to return calendar events
+- Go to your operation `get_calendar_events` and replace the SQL with the following to join together the start and end time from `get_day_start_end` with the Google Calendar call.
 
 ```sql
 SELECT summary FROM google_calendar.get_calendar_events as E
@@ -123,38 +58,44 @@ SELECT summary FROM google_calendar.get_calendar_events as E
   ON E.timeMin=T.start
   AND E.timeMax=T.end
   AND E.singleEvents=true
-  WHERE E.calendarId=@calendarId
+  WHERE E.calendarId='primary'
   LIMIT 100
 ```
 
-Next, edit the `found` operation (already in the application when you forked it) so it returns calendar events for the day, or tells you if you have no events:
+- Edit the `get_slack_message` operation so it returns calendar events for the day.
 
 ```javascript
-({slackBody}) => {
-  let events = api.run('this.get_calendar_events', {
-  calendarId: user_setting.get('calendar_id')
-}).map((e) => e.summary).join('\n');
-  let post = {
-    channel: slackBody.channel_id,
-    user: slackBody.user_id,
-    text: `You've run the slack command`,
+({user}) => {
+  let events =
+      api.run('this.get_calendar_events').map((e) => e.summary).join('\n');
+  return {
+    // Blocks get displayed in the actual message. 
+    // You can play with block kit here: https://api.slack.com/tools/block-kit-builder
     blocks: [{
       "type": "section",
       "text": {
-        "type": "mrkdwn",
-        "text": events === '' ? 'You have no events today' : events
-      },
-    }]
-  }
-  return api.run('slack_bot.post_chat_ephemeral', {$body: post});
+          "type": "mrkdwn",
+          "text": events === '' ? 'You have no events today' : events
+      }
+    }],
+    // The text content gets displayed in the notification
+    text: 'A message from Transposit!'
+  };
 }
 ```
 
-Commit the code, return to your Slack workspace, and try it out. You should receive a list of the day's calendar events, or a message saying you don't have any events.
+- Click the **Commit** button to commit the code
 
-## Beyond the Quickstart
+## Configuring your production user
+- Go to **Users &gt; User Configuration** to get the URL for your hosted user configuration page (e.g. https://calendar_bot-a1vud.transposit.io). Anyone in your Slack workspace can visit this page to configure their slack user to use this slash command.
+- Login with your slack account
+- Connect your Google Calendar
 
-It's easy to build bots for your team, but there's a lot more you can do with Transposit’s powerful relational engine; imagine connecting in APIs from JIRA, AWS, GitHub, Airtable and more.
+## Use it in Slack
+- Go to Slack and run `/calendar`. You should now see a list of your day's events
+
+## What's next
+There's a lot you can do with Transposit’s powerful relational engine; imagine connecting in APIs from JIRA, AWS, GitHub, Airtable and more.
 
 Check out other [sample apps](https://www.transposit.com/apps/) and [documentation](https://www.transposit.com/docs/) to learn more, including:
 
