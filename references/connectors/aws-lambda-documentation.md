@@ -393,7 +393,16 @@ Up to 3583 bytes of base64-encoded data about the invoking client to pass to the
 
 #### X-Amz-Invocation-Type
 
-Choose from the following options. RequestResponse (default) - Invoke the function synchronously. Keep the connection open until the function returns a response or times out. The API response includes the function response and additional data. Event - Invoke the function asynchronously. Send events that fail multiple times to the function's dead-letter queue (if configured). The API response only includes a status code. DryRun - Validate parameter values and verify that the user or role has permission to invoke the function.
+Choose from the following options.
+RequestResponse (default) - Invoke the function synchronously. Keep the connection open until
+the function returns a response or times out. The API response includes the function
+response and additional
+data.
+Event - Invoke the function asynchronously. Send events that fail multiple times to the
+function's dead-letter queue (if configured). The API response only includes a status
+code.
+DryRun - Validate parameter values and verify that the user or role has permission to invoke
+the function.
 
 **Type:** string
 
@@ -401,7 +410,8 @@ Choose from the following options. RequestResponse (default) - Invoke the functi
 
 #### X-Amz-Log-Type
 
-Set to Tail to include the execution log in the response. Valid Values: None | Tail
+Set to Tail to include the execution log in the response.
+Valid Values: None | Tail
 
 **Type:** string
 

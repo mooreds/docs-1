@@ -3915,7 +3915,9 @@ Use this parameter to select the format to receive the data in. Valid values are
 
 #### order
 
-Change an order’s attributes such as note, email, buyer-accepts-marketing, or remove the customer association. You can also send the shipping_address object as part of an order to update any shipping_address parameter. shipping_address - Enables you to update shipping address parameters
+Change an order’s attributes such as note, email, buyer-accepts-marketing,
+        or remove the customer association.  You can also send the shipping_address object as part of an order
+         to update any shipping_address parameter.    shipping_address - Enables you to update shipping address parameters
 
 **Type:** string
 

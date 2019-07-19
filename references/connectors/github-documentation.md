@@ -7,7 +7,9 @@ layout: docs.mustache
 
 ## add_email_to_user
 
-Add email address(es). You can post a single email address or an array of addresses.
+Add email address(es).
+You can post a single email address or an array of addresses.
+
 
 <details><summary>Parameters</summary>
 
@@ -379,7 +381,18 @@ You can check the current version of media type in responses.
 
 ## create_comment_for_pull_request
 
-Create a comment. #TODO Alternative input ( http://developer.github.com/v3/pulls/comments/ ) description: | Alternative Input. Instead of passing commit_id, path, and position you can reply to an existing Pull Request Comment like this: body Required string in_reply_to Required number - Comment id to reply to.
+Create a comment.
+  #TODO Alternative input ( http://developer.github.com/v3/pulls/comments/ )
+  description: |
+    Alternative Input.
+    Instead of passing commit_id, path, and position you can reply to an
+    existing Pull Request Comment like this:
+
+        body
+           Required string
+        in_reply_to
+           Required number - Comment id to reply to.
+
 
 <details><summary>Parameters</summary>
 
@@ -465,7 +478,11 @@ You can check the current version of media type in responses.
 
 ## create_fork
 
-Create a fork. Forking a Repository happens asynchronously. Therefore, you may have to wai a short period before accessing the git objects. If this takes longer than 5 minutes, be sure to contact Support.
+Create a fork.
+Forking a Repository happens asynchronously. Therefore, you may have to wai
+a short period before accessing the git objects. If this takes longer than 5
+minutes, be sure to contact Support.
+
 
 <details><summary>Parameters</summary>
 
@@ -613,7 +630,13 @@ You can check the current version of media type in responses.
 
 ## create_git_tag
 
-Create a Tag Object. Note that creating a tag object does not create the reference that makes a tag in Git. If you want to create an annotated tag in Git, you have to do this call to create the tag object, and then create the refs/tags/[tag] reference. If you want to create a lightweight tag, you only have to create the tag reference - this call would be unnecessary.
+Create a Tag Object.
+Note that creating a tag object does not create the reference that makes a
+tag in Git. If you want to create an annotated tag in Git, you have to do
+this call to create the tag object, and then create the refs/tags/[tag]
+reference. If you want to create a lightweight tag, you only have to create
+the tag reference - this call would be unnecessary.
+
 
 <details><summary>Parameters</summary>
 
@@ -653,7 +676,11 @@ You can check the current version of media type in responses.
 
 ## create_git_tree
 
-Create a Tree. The tree creation API will take nested entries as well. If both a tree and a nested path modifying that tree are specified, it will overwrite the contents of that tree with the new path contents and write a new tree out.
+Create a Tree.
+The tree creation API will take nested entries as well. If both a tree and
+a nested path modifying that tree are specified, it will overwrite the
+contents of that tree with the new path contents and write a new tree out.
+
 
 <details><summary>Parameters</summary>
 
@@ -733,7 +760,9 @@ You can check the current version of media type in responses.
 
 ## create_issue
 
-Create an issue. Any user with pull access to a repository can create an issue.
+Create an issue.
+Any user with pull access to a repository can create an issue.
+
 
 <details><summary>Parameters</summary>
 
@@ -961,7 +990,9 @@ You can check the current version of media type in responses.
 
 ## create_release
 
-Create a release Users with push access to the repository can create a release.
+Create a release
+Users with push access to the repository can create a release.
+
 
 <details><summary>Parameters</summary>
 
@@ -1001,7 +1032,9 @@ You can check the current version of media type in responses.
 
 ## create_repo_for_user
 
-Create a new repository for the authenticated user. OAuth users must supply repo scope.
+Create a new repository for the authenticated user. OAuth users must supply
+repo scope.
+
 
 <details><summary>Parameters</summary>
 
@@ -1029,7 +1062,9 @@ You can check the current version of media type in responses.
 
 ## create_repo_in_org
 
-Create a new repository for the authenticated user. OAuth users must supply repo scope.
+Create a new repository for the authenticated user. OAuth users must supply
+repo scope.
+
 
 <details><summary>Parameters</summary>
 
@@ -1063,7 +1098,9 @@ You can check the current version of media type in responses.
 
 ## create_status_for_deployment
 
-Create a Deployment Status Users with push access can create deployment statuses for a given deployment:
+Create a Deployment Status
+Users with push access can create deployment statuses for a given deployment:
+
 
 <details><summary>Parameters</summary>
 
@@ -1155,7 +1192,9 @@ You can check the current version of media type in responses.
 
 ## create_team_in_org
 
-Create team. In order to create a team, the authenticated user must be an owner of organization.
+Create team.
+In order to create a team, the authenticated user must be an owner of organization.
+
 
 <details><summary>Parameters</summary>
 
@@ -1189,7 +1228,13 @@ You can check the current version of media type in responses.
 
 ## create_test_for_hook
 
-Test a push hook. This will trigger the hook with the latest push to the current repository if the hook is subscribed to push events. If the hook is not subscribed to push events, the server will respond with 204 but no test POST will be generated. Note: Previously /repos/:owner/:repo/hooks/:id/tes
+Test a push hook.
+This will trigger the hook with the latest push to the current repository
+if the hook is subscribed to push events. If the hook is not subscribed
+to push events, the server will respond with 204 but no test POST will
+be generated.
+Note: Previously /repos/:owner/:repo/hooks/:id/tes
+
 
 <details><summary>Parameters</summary>
 
@@ -1475,7 +1520,9 @@ You can check the current version of media type in responses.
 
 ## delete_file_in_repo
 
-Delete a file. This method deletes a file in a repository.
+Delete a file.
+This method deletes a file in a repository.
+
 
 <details><summary>Parameters</summary>
 
@@ -1547,7 +1594,10 @@ You can check the current version of media type in responses.
 
 ## delete_git_ref
 
-Delete a Reference Example: Deleting a branch: DELETE /repos/octocat/Hello-World/git/refs/heads/feature-a Example: Deleting a tag: DELETE /repos/octocat/Hello-World/git/refs/tags/v1.0
+Delete a Reference
+Example: Deleting a branch: DELETE /repos/octocat/Hello-World/git/refs/heads/feature-a 
+Example: Deleting a tag:        DELETE /repos/octocat/Hello-World/git/refs/tags/v1.0
+
 
 <details><summary>Parameters</summary>
 
@@ -1787,7 +1837,10 @@ You can check the current version of media type in responses.
 
 ## delete_member_of_org
 
-Remove a member. Removing a user from this list will remove them from all teams and they will no longer have any access to the organization's repositories.
+Remove a member.
+Removing a user from this list will remove them from all teams and they
+will no longer have any access to the organization's repositories.
+
 
 <details><summary>Parameters</summary>
 
@@ -1941,7 +1994,10 @@ You can check the current version of media type in responses.
 
 ## delete_repo
 
-Delete a Repository. Deleting a repository requires admin access. If OAuth is used, the delete_repo scope is required.
+Delete a Repository.
+Deleting a repository requires admin access. If OAuth is used, the delete_repo
+scope is required.
+
 
 <details><summary>Parameters</summary>
 
@@ -2013,7 +2069,10 @@ You can check the current version of media type in responses.
 
 ## delete_team
 
-Delete team. In order to delete a team, the authenticated user must be an owner of the org that the team is associated with.
+Delete team.
+In order to delete a team, the authenticated user must be an owner of the
+org that the team is associated with.
+
 
 <details><summary>Parameters</summary>
 
@@ -2043,7 +2102,9 @@ You can check the current version of media type in responses.
 
 ## edit_asset_for_release
 
-Edit a release asset Users with push access to the repository can edit a release asset.
+Edit a release asset
+Users with push access to the repository can edit a release asset.
+
 
 <details><summary>Parameters</summary>
 
@@ -2479,7 +2540,9 @@ You can check the current version of media type in responses.
 
 ## edit_issue
 
-Edit an issue. Issue owners and users with push access can edit an issue.
+Edit an issue.
+Issue owners and users with push access can edit an issue.
+
 
 <details><summary>Parameters</summary>
 
@@ -2571,7 +2634,9 @@ You can check the current version of media type in responses.
 
 ## edit_labels_for_issue
 
-Replace all labels for an issue. Sending an empty array ([]) will remove all Labels from the Issue.
+Replace all labels for an issue.
+Sending an empty array ([]) will remove all Labels from the Issue.
+
 
 <details><summary>Parameters</summary>
 
@@ -2617,7 +2682,13 @@ You can check the current version of media type in responses.
 
 ## edit_membership_for_user_on_team
 
-Add team membership. In order to add a membership between a user and a team, the authenticated user must have 'admin' permissions to the team or be an owner of the organization that the team is associated with. If the user is already a part of the team's organization (meaning they're on at least one other team in the organization), this endpoint will add the user to the team. If the user is completely unaffiliated with the team's organization (meaning they're on none of the organization's teams), this endpoint will send an invitation to the user via email. This newly-created membership will be in the 'pending' state until the user accepts the invitation, at which point the membership will transition to the 'active' state and the user will be added as a member of the team.
+Add team membership.
+In order to add a membership between a user and a team, the authenticated user must have 'admin' permissions to the team or be an owner of the organization that the team is associated with.
+
+If the user is already a part of the team's organization (meaning they're on at least one other team in the organization), this endpoint will add the user to the team.
+
+If the user is completely unaffiliated with the team's organization (meaning they're on none of the organization's teams), this endpoint will send an invitation to the user via email. This newly-created membership will be in the 'pending' state until the user accepts the invitation, at which point the membership will transition to the 'active' state and the user will be added as a member of the team.
+
 
 <details><summary>Parameters</summary>
 
@@ -2699,7 +2770,11 @@ You can check the current version of media type in responses.
 
 ## edit_notification_thread_subscription
 
-Set a Thread Subscription. This lets you subscribe to a thread, or ignore it. Subscribing to a thread is unnecessary if the user is already subscribed to the repository. Ignoring a thread will mute all future notifications (until you comment or get @mentioned).
+Set a Thread Subscription.
+This lets you subscribe to a thread, or ignore it. Subscribing to a thread
+is unnecessary if the user is already subscribed to the repository. Ignoring
+a thread will mute all future notifications (until you comment or get @mentioned).
+
 
 <details><summary>Parameters</summary>
 
@@ -2973,7 +3048,10 @@ You can check the current version of media type in responses.
 
 ## edit_team
 
-Edit team. In order to edit a team, the authenticated user must be an owner of the org that the team is associated with.
+Edit team.
+In order to edit a team, the authenticated user must be an owner of the org
+that the team is associated with.
+
 
 <details><summary>Parameters</summary>
 
@@ -3035,7 +3113,10 @@ You can check the current version of media type in responses.
 
 ## follow_user
 
-Follow a user. Following a user requires the user to be logged in and authenticated with basic auth or OAuth with the user:follow scope.
+Follow a user.
+Following a user requires the user to be logged in and authenticated with
+basic auth or OAuth with the user:follow scope.
+
 
 <details><summary>Parameters</summary>
 
@@ -3135,7 +3216,12 @@ You can check the current version of media type in responses.
 
 ## get_blob
 
-Get a Blob. Since blobs can be any arbitrary binary data, the input and responses for the blob API takes an encoding parameter that can be either utf-8 or base64. If your data cannot be losslessly sent as a UTF-8 string, you can base64 encode it.
+Get a Blob.
+Since blobs can be any arbitrary binary data, the input and responses for
+the blob API takes an encoding parameter that can be either utf-8 or
+base64. If your data cannot be losslessly sent as a UTF-8 string, you can
+base64 encode it.
+
 
 <details><summary>Parameters</summary>
 
@@ -3555,7 +3641,10 @@ You can check the current version of media type in responses.
 
 ## get_feeds
 
-List Feeds. GitHub provides several timeline resources in Atom format. The Feeds API lists all the feeds available to the authenticating user.
+List Feeds.
+GitHub provides several timeline resources in Atom format. The Feeds API
+ lists all the feeds available to the authenticating user.
+
 
 <details><summary>Parameters</summary>
 
@@ -3579,7 +3668,13 @@ You can check the current version of media type in responses.
 
 ## get_files_in_repo
 
-Get contents. This method returns the contents of a file or directory in a repository. Files and symlinks support a custom media type for getting the raw content. Directories and submodules do not support custom media types. Note: This API supports files up to 1 megabyte in size. Here can be many outcomes. For details see "http://developer.github.com/v3/repos/contents/"
+Get contents.
+This method returns the contents of a file or directory in a repository.
+Files and symlinks support a custom media type for getting the raw content.
+Directories and submodules do not support custom media types.
+Note: This API supports files up to 1 megabyte in size.
+Here can be many outcomes. For details see "http://developer.github.com/v3/repos/contents/"
+
 
 <details><summary>Parameters</summary>
 
@@ -4053,7 +4148,10 @@ You can check the current version of media type in responses.
 
 ## get_members_of_team
 
-List team members. In order to list members in a team, the authenticated user must be a member of the team.
+List team members.
+In order to list members in a team, the authenticated user must be a member
+of the team.
+
 
 <details><summary>Parameters</summary>
 
@@ -4083,7 +4181,9 @@ You can check the current version of media type in responses.
 
 ## get_membership_for_user_on_team
 
-Get team membership. In order to get a user's membership with a team, the authenticated user must be a member of the team or an owner of the team's organization.
+Get team membership.
+In order to get a user's membership with a team, the authenticated user must be a member of the team or an owner of the team's organization.
+
 
 <details><summary>Parameters</summary>
 
@@ -4263,7 +4363,9 @@ You can check the current version of media type in responses.
 
 ## get_rate_limit
 
-Get your current rate limit status Note: Accessing this endpoint does not count against your rate limit.
+Get your current rate limit status
+Note: Accessing this endpoint does not count against your rate limit.
+
 
 <details><summary>Parameters</summary>
 
@@ -4287,7 +4389,9 @@ You can check the current version of media type in responses.
 
 ## get_readme
 
-Get the README. This method returns the preferred README for a repository.
+Get the README.
+This method returns the preferred README for a repository.
+
 
 <details><summary>Parameters</summary>
 
@@ -4883,7 +4987,9 @@ You can check the current version of media type in responses.
 
 ## is_user_assigned_to_repo
 
-Check assignee. You may also check to see if a particular user is an assignee for a repository.
+Check assignee.
+You may also check to see if a particular user is an assignee for a repository.
+
 
 <details><summary>Parameters</summary>
 
@@ -4961,7 +5067,9 @@ You can check the current version of media type in responses.
 
 ## list_all_notifications
 
-List your notifications. List all notifications for the current user, grouped by repository.
+List your notifications.
+List all notifications for the current user, grouped by repository.
+
 
 <details><summary>Parameters</summary>
 
@@ -4989,13 +5097,17 @@ True to show notifications marked as read.
 
 #### participating
 
-True to show only notifications in which the user is directly participating or mentioned.
+True to show only notifications in which the user is directly participating
+or mentioned.
+
 
 **Type:** boolean
 
 #### since
 
-The time should be passed in as UTC in the ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ. Example: "2012-10-09T23:39:01Z".
+The time should be passed in as UTC in the ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
+Example: "2012-10-09T23:39:01Z".
+
 
 **Type:** string
 
@@ -5003,7 +5115,12 @@ The time should be passed in as UTC in the ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
 
 ## list_all_repos
 
-List all public repositories. This provides a dump of every public repository, in the order that they were created. Note: Pagination is powered exclusively by the since parameter. is the Link header to get the URL for the next page of repositories.
+List all public repositories.
+This provides a dump of every public repository, in the order that they
+were created.
+Note: Pagination is powered exclusively by the since parameter. is the
+Link header to get the URL for the next page of repositories.
+
 
 <details><summary>Parameters</summary>
 
@@ -5073,7 +5190,10 @@ You can check the current version of media type in responses.
 
 ## list_assignees_for_repo
 
-List assignees. This call lists all the available assignees (owner + collaborators) to which issues may be assigned.
+List assignees.
+This call lists all the available assignees (owner + collaborators) to which
+issues may be assigned.
+
 
 <details><summary>Parameters</summary>
 
@@ -5145,7 +5265,12 @@ You can check the current version of media type in responses.
 
 ## list_collaborators_for_repo
 
-List. When authenticating as an organization owner of an organization-owned repository, all organization owners are included in the list of collaborators. Otherwise, only users with access to the repository are returned in the collaborators list.
+List.
+When authenticating as an organization owner of an organization-owned
+repository, all organization owners are included in the list of
+collaborators. Otherwise, only users with access to the repository are
+returned in the collaborators list.
+
 
 <details><summary>Parameters</summary>
 
@@ -5223,7 +5348,9 @@ You can check the current version of media type in responses.
 
 ## list_comments_for_commits_in_repo
 
-List commit comments for a repository. Comments are ordered by ascending ID.
+List commit comments for a repository.
+Comments are ordered by ascending ID.
+
 
 <details><summary>Parameters</summary>
 
@@ -5329,7 +5456,9 @@ You can check the current version of media type in responses.
 
 #### since
 
-The time should be passed in as UTC in the ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ. Example: "2012-10-09T23:39:01Z".
+The time should be passed in as UTC in the ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
+Example: "2012-10-09T23:39:01Z".
+
 
 **Type:** string
 
@@ -5377,7 +5506,9 @@ Ignored without 'sort' parameter.
 
 #### since
 
-The time should be passed in as UTC in the ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ. Example: "2012-10-09T23:39:01Z".
+The time should be passed in as UTC in the ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
+Example: "2012-10-09T23:39:01Z".
+
 
 **Type:** string
 
@@ -5433,7 +5564,9 @@ You can check the current version of media type in responses.
 
 ## list_comments_for_pull_requests
 
-List comments in a repository. By default, Review Comments are ordered by ascending ID.
+List comments in a repository.
+By default, Review Comments are ordered by ascending ID.
+
 
 <details><summary>Parameters</summary>
 
@@ -5473,7 +5606,9 @@ Ignored without 'sort' parameter.
 
 #### since
 
-The time should be passed in as UTC in the ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ. Example: "2012-10-09T23:39:01Z".
+The time should be passed in as UTC in the ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
+Example: "2012-10-09T23:39:01Z".
+
 
 **Type:** string
 
@@ -5539,7 +5674,9 @@ Sha or branch to start listing commits from.
 
 #### since
 
-The time should be passed in as UTC in the ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ. Example: "2012-10-09T23:39:01Z".
+The time should be passed in as UTC in the ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
+Example: "2012-10-09T23:39:01Z".
+
 
 **Type:** string
 
@@ -5673,7 +5810,13 @@ You can check the current version of media type in responses.
 
 ## list_emails_for_user
 
-List email addresses for a user. In the final version of the API, this method will return an array of hashes with extended information for each email address indicating if the address has been verified and if it's primary email address for GitHub. Until API v3 is finalized, use the application/vnd.github.v3 media type to get other response format.
+List email addresses for a user.
+In the final version of the API, this method will return an array of hashes
+with extended information for each email address indicating if the address
+has been verified and if it's primary email address for GitHub.
+Until API v3 is finalized, use the application/vnd.github.v3 media type to
+get other response format.
+
 
 <details><summary>Parameters</summary>
 
@@ -6159,7 +6302,9 @@ You can check the current version of media type in responses.
 
 ## list_gists
 
-List the authenticated user's gists or if called anonymously, this will return all public gists.
+List the authenticated user's gists or if called anonymously, this will
+return all public gists.
+
 
 <details><summary>Parameters</summary>
 
@@ -6181,7 +6326,9 @@ You can check the current version of media type in responses.
 
 #### since
 
-Timestamp in ISO 8601 format YYYY-MM-DDTHH:MM:SSZ. Only gists updated at or after this time are returned.
+Timestamp in ISO 8601 format YYYY-MM-DDTHH:MM:SSZ.
+Only gists updated at or after this time are returned.
+
 
 **Type:** string
 
@@ -6217,7 +6364,9 @@ You can check the current version of media type in responses.
 
 #### since
 
-The time should be passed in as UTC in the ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ. Example: "2012-10-09T23:39:01Z".
+The time should be passed in as UTC in the ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
+Example: "2012-10-09T23:39:01Z".
+
 
 **Type:** string
 
@@ -6247,7 +6396,9 @@ You can check the current version of media type in responses.
 
 #### since
 
-Timestamp in ISO 8601 format YYYY-MM-DDTHH:MM:SSZ. Only gists updated at or after this time are returned.
+Timestamp in ISO 8601 format YYYY-MM-DDTHH:MM:SSZ.
+Only gists updated at or after this time are returned.
+
 
 **Type:** string
 
@@ -6277,7 +6428,9 @@ You can check the current version of media type in responses.
 
 #### since
 
-Timestamp in ISO 8601 format YYYY-MM-DDTHH:MM:SSZ. Only gists updated at or after this time are returned.
+Timestamp in ISO 8601 format YYYY-MM-DDTHH:MM:SSZ.
+Only gists updated at or after this time are returned.
+
 
 **Type:** string
 
@@ -6399,7 +6552,9 @@ You can check the current version of media type in responses.
 
 ## list_issues
 
-List issues. List all issues across all the authenticated user's visible repositories.
+List issues.
+List all issues across all the authenticated user's visible repositories.
+
 
 <details><summary>Parameters</summary>
 
@@ -6427,7 +6582,9 @@ You can check the current version of media type in responses.
 
 #### filter
 
-Issues assigned to you / created by you / mentioning you / you're subscribed to updates for / All issues the authenticated user can see
+Issues assigned to you / created by you / mentioning you / you're
+subscribed to updates for / All issues the authenticated user can see
+
 
 **Type:** string
 
@@ -6441,7 +6598,9 @@ String list of comma separated Label names. Example - bug,ui,@high.
 
 #### since
 
-Optional string of a timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ. Only issues updated at or after this time are returned.
+Optional string of a timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
+Only issues updated at or after this time are returned.
+
 
 **Type:** string
 
@@ -6461,7 +6620,9 @@ Optional string of a timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ. Only is
 
 ## list_issues_for_org
 
-List issues. List all issues for a given organization for the authenticated user.
+List issues.
+List all issues for a given organization for the authenticated user.
+
 
 <details><summary>Parameters</summary>
 
@@ -6495,7 +6656,9 @@ You can check the current version of media type in responses.
 
 #### filter
 
-Issues assigned to you / created by you / mentioning you / you're subscribed to updates for / All issues the authenticated user can see
+Issues assigned to you / created by you / mentioning you / you're
+subscribed to updates for / All issues the authenticated user can see
+
 
 **Type:** string
 
@@ -6509,7 +6672,9 @@ String list of comma separated Label names. Example - bug,ui,@high.
 
 #### since
 
-Optional string of a timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ. Only issues updated at or after this time are returned.
+Optional string of a timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
+Only issues updated at or after this time are returned.
+
 
 **Type:** string
 
@@ -6569,7 +6734,9 @@ You can check the current version of media type in responses.
 
 #### filter
 
-Issues assigned to you / created by you / mentioning you / you're subscribed to updates for / All issues the authenticated user can see
+Issues assigned to you / created by you / mentioning you / you're
+subscribed to updates for / All issues the authenticated user can see
+
 
 **Type:** string
 
@@ -6583,7 +6750,9 @@ String list of comma separated Label names. Example - bug,ui,@high.
 
 #### since
 
-Optional string of a timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ. Only issues updated at or after this time are returned.
+Optional string of a timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
+Only issues updated at or after this time are returned.
+
 
 **Type:** string
 
@@ -6603,7 +6772,10 @@ Optional string of a timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ. Only is
 
 ## list_issues_for_user
 
-List issues. List all issues across owned and member repositories for the authenticated user.
+List issues.
+List all issues across owned and member repositories for the authenticated
+user.
+
 
 <details><summary>Parameters</summary>
 
@@ -6631,7 +6803,9 @@ You can check the current version of media type in responses.
 
 #### filter
 
-Issues assigned to you / created by you / mentioning you / you're subscribed to updates for / All issues the authenticated user can see
+Issues assigned to you / created by you / mentioning you / you're
+subscribed to updates for / All issues the authenticated user can see
+
 
 **Type:** string
 
@@ -6645,7 +6819,9 @@ String list of comma separated Label names. Example - bug,ui,@high.
 
 #### since
 
-Optional string of a timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ. Only issues updated at or after this time are returned.
+Optional string of a timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
+Only issues updated at or after this time are returned.
+
 
 **Type:** string
 
@@ -6665,7 +6841,10 @@ Optional string of a timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ. Only is
 
 ## list_keys
 
-List your public keys. Lists the current user's keys. Management of public keys via the API requires that you are authenticated through basic auth, or OAuth with the 'user', 'write:public_key' scopes.
+List your public keys.
+Lists the current user's keys. Management of public keys via the API requires
+that you are authenticated through basic auth, or OAuth with the 'user', 'write:public_key' scopes.
+
 
 <details><summary>Parameters</summary>
 
@@ -6725,7 +6904,9 @@ You can check the current version of media type in responses.
 
 ## list_keys_for_user
 
-List public keys for a user. Lists the verified public keys for a user. This is accessible by anyone.
+List public keys for a user.
+Lists the verified public keys for a user. This is accessible by anyone.
+
 
 <details><summary>Parameters</summary>
 
@@ -6833,7 +7014,10 @@ You can check the current version of media type in responses.
 
 ## list_languages
 
-List languages. List languages for the specified repository. The value on the right of a language is the number of bytes of code written in that language.
+List languages.
+List languages for the specified repository. The value on the right of a
+language is the number of bytes of code written in that language.
+
 
 <details><summary>Parameters</summary>
 
@@ -6869,7 +7053,9 @@ You can check the current version of media type in responses.
 
 ## list_members_for_org
 
-Members list. List all users who are members of an organization. A member is a user that belongs to at least 1 team in the organization. If the authenticated user is also an owner of this organization then both concealed and public members will be returned. If the requester is not an owner of the organization the query will be redirected to the public members list.
+Members list.
+List all users who are members of an organization. A member is a user that belongs to at least 1 team in the organization. If the authenticated user is also an owner of this organization then both concealed and public members will be returned. If the requester is not an owner of the organization the query will be redirected to the public members list.
+
 
 <details><summary>Parameters</summary>
 
@@ -6955,7 +7141,9 @@ String to filter by state.
 
 ## list_notifications_for_repo
 
-List your notifications in a repository List all notifications for the current user.
+List your notifications in a repository
+List all notifications for the current user.
+
 
 <details><summary>Parameters</summary>
 
@@ -6995,13 +7183,17 @@ True to show notifications marked as read.
 
 #### participating
 
-True to show only notifications in which the user is directly participating or mentioned.
+True to show only notifications in which the user is directly participating
+or mentioned.
+
 
 **Type:** boolean
 
 #### since
 
-The time should be passed in as UTC in the ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ. Example: "2012-10-09T23:39:01Z".
+The time should be passed in as UTC in the ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
+Example: "2012-10-09T23:39:01Z".
+
 
 **Type:** string
 
@@ -7063,7 +7255,10 @@ You can check the current version of media type in responses.
 
 ## list_public_members_of_org
 
-Public members list. Members of an organization can choose to have their membership publicized or not.
+Public members list.
+Members of an organization can choose to have their membership publicized
+or not.
+
 
 <details><summary>Parameters</summary>
 
@@ -7133,7 +7328,9 @@ Filter pulls by base branch name. Example - gh-pages.
 
 #### head
 
-Filter pulls by head user and branch name in the format of 'user:ref-name'. Example: github:new-script-format.
+Filter pulls by head user and branch name in the format of 'user:ref-name'.
+Example: github:new-script-format.
+
 
 **Type:** string
 
@@ -7185,7 +7382,10 @@ You can check the current version of media type in responses.
 
 ## list_repos
 
-List repositories for the authenticated user. Note that this does not include repositories owned by organizations which the user can access. You can lis user organizations and list organization repositories separately.
+List repositories for the authenticated user. Note that this does not include
+repositories owned by organizations which the user can access. You can lis
+user organizations and list organization repositories separately.
+
 
 <details><summary>Parameters</summary>
 
@@ -7207,7 +7407,10 @@ You can check the current version of media type in responses.
 
 #### affiliation
 
-Comma-separated list of values. Can include: * owner: Repositories that are owned by the authenticated user. * collaborator: Repositories that the user has been added to as a collaborator. * organization_member: Repositories that the user has access to through being a member of an organization. This includes every repository on every team that the user is on.
+Comma-separated list of values. Can include:
+* owner: Repositories that are owned by the authenticated user.
+* collaborator: Repositories that the user has been added to as a collaborator.
+* organization_member: Repositories that the user has access to through being a member of an organization. This includes every repository on every team that the user is on.
 
 **Type:** string
 
@@ -7691,7 +7894,9 @@ You can check the current version of media type in responses.
 
 ## list_templates
 
-Listing available templates. List all templates available to pass as an option when creating a repository.
+Listing available templates.
+List all templates available to pass as an option when creating a repository.
+
 
 <details><summary>Parameters</summary>
 
@@ -7715,7 +7920,11 @@ You can check the current version of media type in responses.
 
 ## list_users
 
-Get all users. This provides a dump of every user, in the order that they signed up for GitHub. Note: Pagination is powered exclusively by the since parameter. Use the Link header to get the URL for the next page of users.
+Get all users.
+This provides a dump of every user, in the order that they signed up for GitHub.
+Note: Pagination is powered exclusively by the since parameter. Use the Link
+header to get the URL for the next page of users.
+
 
 <details><summary>Parameters</summary>
 
@@ -7835,7 +8044,9 @@ You can check the current version of media type in responses.
 
 ## mark_notification_as_read
 
-Mark as read. Marking a notification as "read" removes it from the default view on GitHub.com.
+Mark as read.
+Marking a notification as "read" removes it from the default view on GitHub.com.
+
 
 <details><summary>Parameters</summary>
 
@@ -7863,7 +8074,10 @@ You can check the current version of media type in responses.
 
 ## mark_notification_in_repo_as_read
 
-Mark notifications as read in a repository. Marking all notifications in a repository as "read" removes them from the default view on GitHub.com.
+Mark notifications as read in a repository.
+Marking all notifications in a repository as "read" removes them from the
+default view on GitHub.com.
+
 
 <details><summary>Parameters</summary>
 
@@ -8101,7 +8315,9 @@ You can check the current version of media type in responses.
 
 ## remove_email_from_user
 
-Delete email address(es). You can include a single email address or an array of addresses.
+Delete email address(es).
+You can include a single email address or an array of addresses.
+
 
 <details><summary>Parameters</summary>
 
@@ -8173,7 +8389,9 @@ You can check the current version of media type in responses.
 
 ## remove_membership_for_user_on_team
 
-Remove team membership. In order to remove a membership between a user and a team, the authenticated user must have 'admin' permissions to the team or be an owner of the organization that the team is associated with. NOTE: This does not delete the user, it just removes their membership from the team.
+Remove team membership.
+In order to remove a membership between a user and a team, the authenticated user must have 'admin' permissions to the team or be an owner of the organization that the team is associated with. NOTE: This does not delete the user, it just removes their membership from the team.
+
 
 <details><summary>Parameters</summary>
 
@@ -8251,7 +8469,10 @@ You can check the current version of media type in responses.
 
 ## report_code_frequency_for_repo
 
-Get the number of additions and deletions per week. Returns a weekly aggregate of the number of additions and deletions pushed to a repository.
+Get the number of additions and deletions per week.
+Returns a weekly aggregate of the number of additions and deletions pushed
+to a repository.
+
 
 <details><summary>Parameters</summary>
 
@@ -8287,7 +8508,10 @@ You can check the current version of media type in responses.
 
 ## report_commit_activity_for_repo
 
-Get the last year of commit activity data. Returns the last year of commit activity grouped by week. The days array is a group of commits per day, starting on Sunday.
+Get the last year of commit activity data.
+Returns the last year of commit activity grouped by week. The days array
+is a group of commits per day, starting on Sunday.
+
 
 <details><summary>Parameters</summary>
 
@@ -8431,7 +8655,16 @@ You can check the current version of media type in responses.
 
 ## report_punch_card_for_repo
 
-Get the number of commits per hour in each day. Each array contains the day number, hour number, and number of commits 0-6 Sunday - Saturday 0-23 Hour of day Number of commits For example, [2, 14, 25] indicates that there were 25 total commits, during the 2.00pm hour on Tuesdays. All times are based on the time zone of individual commits.
+Get the number of commits per hour in each day.
+Each array contains the day number, hour number, and number of commits
+0-6 Sunday - Saturday
+0-23 Hour of day
+Number of commits
+
+For example, [2, 14, 25] indicates that there were 25 total commits, during
+the 2.00pm hour on Tuesdays. All times are based on the time zone of
+individual commits.
+
 
 <details><summary>Parameters</summary>
 
@@ -8467,7 +8700,11 @@ You can check the current version of media type in responses.
 
 ## report_status_combined_for_ref
 
-Get the combined Status for a specific Ref The Combined status endpoint is currently available for developers to preview. During the preview period, the API may change without advance notice. Please see the blog post for full details. To access this endpoint during the preview period, you must provide a custom media type in the Accept header: application/vnd.github.she-hulk-preview+json
+Get the combined Status for a specific Ref
+The Combined status endpoint is currently available for developers to preview. During the preview period, the API may change without advance notice. Please see the blog post for full details.
+To access this endpoint during the preview period, you must provide a custom media type in the Accept header:
+application/vnd.github.she-hulk-preview+json
+
 
 <details><summary>Parameters</summary>
 
@@ -8515,7 +8752,20 @@ Search code.
 
 #### q (required)
 
-The search terms. This can be any combination of the supported code search parameters: 'Search In' Qualifies which fields are searched. With this qualifier you can restrict the search to just the file contents, the file path, or both. 'Languages' Searches code based on the language it's written in. 'Forks' Filters repositories based on the number of forks, and/or whether code from forked repositories should be included in the results at all. 'Size' Finds files that match a certain size (in bytes). 'Path' Specifies the path that the resulting file must be at. 'Extension' Matches files with a certain extension. 'Users' or 'Repositories' Limits searches to a specific user or repository.
+The search terms. This can be any combination of the supported code
+search parameters:
+'Search In' Qualifies which fields are searched. With this qualifier
+you can restrict the search to just the file contents, the file path,
+or both.
+'Languages' Searches code based on the language it's written in.
+'Forks' Filters repositories based on the number of forks, and/or
+whether code from forked repositories should be included in the results
+at all.
+'Size' Finds files that match a certain size (in bytes).
+'Path' Specifies the path that the resulting file must be at.
+'Extension' Matches files with a certain extension.
+'Users' or 'Repositories' Limits searches to a specific user or repository.
+
 
 **Type:** string
 
@@ -8545,7 +8795,10 @@ The sort field. if sort param is provided. Can be either asc or desc.
 
 #### sort
 
-Can only be 'indexed', which indicates how recently a file has been indexed by the GitHub search infrastructure. If not provided, results are sorted by best match.
+Can only be 'indexed', which indicates how recently a file has been indexed
+by the GitHub search infrastructure. If not provided, results are sorted
+by best match.
+
 
 **Type:** string
 
@@ -8607,7 +8860,20 @@ Search repositories.
 
 #### q (required)
 
-The search terms. This can be any combination of the supported repository search parameters: 'Search In' Qualifies which fields are searched. With this qualifier you can restrict the search to just the repository name, description, readme, or any combination of these. 'Size' Finds repositories that match a certain size (in kilobytes). 'Forks' Filters repositories based on the number of forks, and/or whether forked repositories should be included in the results at all. 'Created' and 'Last Updated' Filters repositories based on times of creation, or when they were last updated. 'Users or Repositories' Limits searches to a specific user or repository. 'Languages' Searches repositories based on the language they are written in. 'Stars' Searches repositories based on the number of stars.
+The search terms. This can be any combination of the supported repository
+search parameters:
+'Search In' Qualifies which fields are searched. With this qualifier you
+can restrict the search to just the repository name, description, readme,
+or any combination of these.
+'Size' Finds repositories that match a certain size (in kilobytes).
+'Forks' Filters repositories based on the number of forks, and/or whether
+forked repositories should be included in the results at all.
+'Created' and 'Last Updated' Filters repositories based on times of
+creation, or when they were last updated.
+'Users or Repositories' Limits searches to a specific user or repository.
+'Languages' Searches repositories based on the language they are written in.
+'Stars' Searches repositories based on the number of stars.
+
 
 **Type:** string
 
@@ -8653,7 +8919,19 @@ Search users.
 
 #### q (required)
 
-The search terms. This can be any combination of the supported user search parameters: 'Search In' Qualifies which fields are searched. With this qualifier you can restrict the search to just the username, public email, full name, location, or any combination of these. 'Repository count' Filters users based on the number of repositories they have. 'Location' Filter users by the location indicated in their profile. 'Language' Search for users that have repositories that match a certain language. 'Created' Filter users based on when they joined. 'Followers' Filter users based on the number of followers they have.
+The search terms. This can be any combination of the supported user
+search parameters:
+'Search In' Qualifies which fields are searched. With this qualifier you
+can restrict the search to just the username, public email, full name,
+location, or any combination of these.
+'Repository count' Filters users based on the number of repositories they
+have.
+'Location' Filter users by the location indicated in their profile.
+'Language' Search for users that have repositories that match a certain
+language.
+'Created' Filter users based on when they joined.
+'Followers' Filter users based on the number of followers they have.
+
 
 **Type:** string
 
@@ -8789,7 +9067,10 @@ Is used to set specified media type.
 
 ## unfollow_user
 
-Unfollow a user. Unfollowing a user requires the user to be logged in and authenticated with basic auth or OAuth with the user:follow scope.
+Unfollow a user.
+Unfollowing a user requires the user to be logged in and authenticated with
+basic auth or OAuth with the user:follow scope.
+
 
 <details><summary>Parameters</summary>
 

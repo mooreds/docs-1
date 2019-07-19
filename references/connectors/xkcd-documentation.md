@@ -7,7 +7,8 @@ layout: docs.mustache
 
 ## get_comic_by_id
 
-Fetch comics and metadata by comic id.
+Fetch comics and metadata  by comic id.
+
 
 <details><summary>Parameters</summary>
 

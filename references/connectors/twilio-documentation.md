@@ -7,7 +7,10 @@ layout: docs.mustache
 
 ## add_credential_to_list
 
-Add a Credential to the CredentialList. When creating a Credential, you will POST both a username and password, but only receive the username back in the response. The password is intentionally not returned so as to protect it.
+Add a Credential to the CredentialList.
+
+When creating a Credential, you will POST both a username and password, but only receive the username back in the response. The password is intentionally not returned so as to protect it.
+
 
 <details><summary>Parameters</summary>
 
@@ -22,6 +25,7 @@ Add a Credential to the CredentialList. When creating a Credential, you will POS
 #### mediaTypeExtension (required)
 
 By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending ".csv", ".json", or ".html".
+
 
 **Type:** string
 
@@ -95,6 +99,7 @@ Add an IP Address to the list with a description.
 
 By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending ".csv", ".json", or ".html".
 
+
 **Type:** string
 
 **Potential values:** .json, .csv, .html
@@ -115,6 +120,7 @@ Adds a new CallerID to your account.
 
 By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending ".csv", ".json", or ".html".
 
+
 **Type:** string
 
 **Potential values:** .json, .csv, .html
@@ -123,7 +129,10 @@ By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by a
 
 ## change_password_for_credential
 
-Change the password of a Credential record. If the change is successful, Twilio will respond with the Credential record but will not include the password in the response.
+Change the password of a Credential record.
+
+If the change is successful, Twilio will respond with the Credential record but will not include the password in the response.
+
 
 <details><summary>Parameters</summary>
 
@@ -143,6 +152,7 @@ Change the password of a Credential record. If the change is successful, Twilio 
 
 By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending ".csv", ".json", or ".html".
 
+
 **Type:** string
 
 **Potential values:** .json, .csv, .html
@@ -151,13 +161,16 @@ By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by a
 
 ## create_account
 
-Create a new Account instance resource as a subaccount of the one used to make the request. See Creating Subaccounts for more information.
+Create a new Account instance resource as a subaccount of the one used to make the request. See
+Creating Subaccounts for more information.
+
 
 <details><summary>Parameters</summary>
 
 #### mediaTypeExtension (required)
 
 By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending ".csv", ".json", or ".html".
+
 
 **Type:** string
 
@@ -179,6 +192,7 @@ Creates a new application within your account.
 
 By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending ".csv", ".json", or ".html".
 
+
 **Type:** string
 
 **Potential values:** .json, .csv, .html
@@ -198,6 +212,7 @@ Create a new Credential List.
 #### mediaTypeExtension (required)
 
 By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending ".csv", ".json", or ".html".
+
 
 **Type:** string
 
@@ -223,6 +238,7 @@ Map a CredentialList to the domain.
 
 By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending ".csv", ".json", or ".html".
 
+
 **Type:** string
 
 **Potential values:** .json, .csv, .html
@@ -231,7 +247,9 @@ By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by a
 
 ## create_domain
 
-Creates a new Domain and returns its instance resource. You must pick a unique domain name that ends in ".sip.twilio.com". After creating a Domain, you must map it to an authentication method before the domain is ready to receive traffic.
+Creates a new Domain and returns its instance resource. You must pick a unique domain name that ends in ".sip.twilio.com".
+After creating a Domain, you must map it to an authentication method before the domain is ready to receive traffic.
+
 
 <details><summary>Parameters</summary>
 
@@ -242,6 +260,7 @@ Creates a new Domain and returns its instance resource. You must pick a unique d
 #### mediaTypeExtension (required)
 
 By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending ".csv", ".json", or ".html".
+
 
 **Type:** string
 
@@ -251,7 +270,12 @@ By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by a
 
 ## create_incoming_phone_number
 
-Purchases a new phone number for your account. If a phone number is found for your request, Twilio will add it to your account and bill you for the first month's cost of the phone number. To find an available phone number to POST, use the subresources of the AvailablePhoneNumbers list resource.
+Purchases a new phone number for your account. If a phone number is found
+for your request, Twilio will add it to your account and bill you for the
+first month's cost of the phone number.
+To find an available phone number to POST, use the subresources of the
+AvailablePhoneNumbers list resource.
+
 
 <details><summary>Parameters</summary>
 
@@ -263,6 +287,7 @@ Purchases a new phone number for your account. If a phone number is found for yo
 
 By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending ".csv", ".json", or ".html".
 
+
 **Type:** string
 
 **Potential values:** .json, .csv, .html
@@ -271,7 +296,10 @@ By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by a
 
 ## create_ip_access_control_list
 
-Create a new IpAccessControlList resource. When created, the list will contain no IP addresses. You will need to add IP addresses to the list for it to be active. To add IP addresses, you will need to POST to the IpAddresses List subresource.
+Create a new IpAccessControlList resource.
+
+When created, the list will contain no IP addresses. You will need to add IP addresses to the list for it to be active. To add IP addresses, you will need to POST to the IpAddresses List subresource.
+
 
 <details><summary>Parameters</summary>
 
@@ -309,6 +337,7 @@ Map an IpAccessControlList to this domain.
 
 Create a new Queue resource.
 
+
 <details><summary>Parameters</summary>
 
 #### AccountSid (required)
@@ -318,6 +347,7 @@ Create a new Queue resource.
 #### mediaTypeExtension (required)
 
 By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending ".csv", ".json", or ".html".
+
 
 **Type:** string
 
@@ -327,7 +357,10 @@ By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by a
 
 ## create_usage_trigger
 
-Creates a new UsageTrigger. Each account can create up to 1,000 UsageTriggers. Currently, UsageTriggers that are no longer active are not deleted automatically. Use DELETE to delete triggers you no longer need.
+Creates a new UsageTrigger. Each account can create up to 1,000 UsageTriggers.
+Currently, UsageTriggers that are no longer active are not deleted automatically.
+Use DELETE to delete triggers you no longer need.
+
 
 <details><summary>Parameters</summary>
 
@@ -338,6 +371,7 @@ Creates a new UsageTrigger. Each account can create up to 1,000 UsageTriggers. C
 #### mediaTypeExtension (required)
 
 By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending ".csv", ".json", or ".html".
+
 
 **Type:** string
 
@@ -362,6 +396,7 @@ Delete this application.
 #### mediaTypeExtension (required)
 
 By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending ".csv", ".json", or ".html".
+
 
 **Type:** string
 
@@ -391,6 +426,7 @@ Remove a Credential from a CredentialList.
 
 By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending ".csv", ".json", or ".html".
 
+
 **Type:** string
 
 **Potential values:** .json, .csv, .html
@@ -414,6 +450,7 @@ Delete a CredentialList from your account. It can only be deleted if no domains 
 #### mediaTypeExtension (required)
 
 By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending ".csv", ".json", or ".html".
+
 
 **Type:** string
 
@@ -443,6 +480,7 @@ Remove a CredentialListMapping from a domain
 
 By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending ".csv", ".json", or ".html".
 
+
 **Type:** string
 
 **Potential values:** .json, .csv, .html
@@ -467,6 +505,7 @@ Delete a domain. If you have created subdomains of a domain, you will not be abl
 
 By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending ".csv", ".json", or ".html".
 
+
 **Type:** string
 
 **Potential values:** .json, .csv, .html
@@ -490,6 +529,7 @@ Delete an IpAccessControlList from your account. It can only be deleted if no do
 #### mediaTypeExtension (required)
 
 By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending ".csv", ".json", or ".html".
+
 
 **Type:** string
 
@@ -519,6 +559,7 @@ Remove a mapping from this domain.
 
 By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending ".csv", ".json", or ".html".
 
+
 **Type:** string
 
 **Potential values:** .json, .csv, .html
@@ -547,6 +588,7 @@ Deletes an IP address entry from the list.
 
 By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending ".csv", ".json", or ".html".
 
+
 **Type:** string
 
 **Potential values:** .json, .csv, .html
@@ -556,6 +598,7 @@ By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by a
 ## delete_notification
 
 Deletes the notification identified by {NotificationSid} from an account's log.
+
 
 <details><summary>Parameters</summary>
 
@@ -571,6 +614,7 @@ Deletes the notification identified by {NotificationSid} from an account's log.
 
 By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending ".csv", ".json", or ".html".
 
+
 **Type:** string
 
 **Potential values:** .json, .csv, .html
@@ -579,7 +623,9 @@ By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by a
 
 ## delete_outgoing_caller_id
 
-Deletes the caller ID from the account. Returns an HTTP 204 response if successful, with no body.
+Deletes the caller ID from the account. Returns an HTTP 204 response if
+successful, with no body.
+
 
 <details><summary>Parameters</summary>
 
@@ -595,6 +641,7 @@ Deletes the caller ID from the account. Returns an HTTP 204 response if successf
 
 By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending ".csv", ".json", or ".html".
 
+
 **Type:** string
 
 **Potential values:** .json, .csv, .html
@@ -603,7 +650,9 @@ By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by a
 
 ## delete_queue
 
-The DELETE method allows you to remove a Queue. Only empty queues are deletable.
+The DELETE method allows you to remove a Queue. Only empty queues are
+deletable.
+
 
 <details><summary>Parameters</summary>
 
@@ -618,6 +667,7 @@ The DELETE method allows you to remove a Queue. Only empty queues are deletable.
 #### mediaTypeExtension (required)
 
 By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending ".csv", ".json", or ".html".
+
 
 **Type:** string
 
@@ -665,6 +715,7 @@ Deletes a transcription from your account.
 
 By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending ".csv", ".json", or ".html".
 
+
 **Type:** string
 
 **Potential values:** .json, .csv, .html, .txt, .xml
@@ -689,6 +740,7 @@ Delete this UsageTrigger.
 
 By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending ".csv", ".json", or ".html".
 
+
 **Type:** string
 
 **Potential values:** .json, .csv, .html
@@ -697,7 +749,10 @@ By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by a
 
 ## dequeue_front_member_of_queue
 
-Posting a URL and Method to a Queue instance will dequeue a member from a queue and have the member's call begin executing the TwiML document at that URL When dequeuing the 'Front' of the queue, the next call in the queue will be redirected.
+Posting a URL and Method to a Queue instance will dequeue a member from a
+queue and have the member's call begin executing the TwiML document at that URL
+When dequeuing the 'Front' of the queue, the next call in the queue will be redirected.
+
 
 <details><summary>Parameters</summary>
 
@@ -713,6 +768,7 @@ Posting a URL and Method to a Queue instance will dequeue a member from a queue 
 
 By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending ".csv", ".json", or ".html".
 
+
 **Type:** string
 
 **Potential values:** .json, .csv, .html
@@ -721,7 +777,12 @@ By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by a
 
 ## dequeue_member_of_queue
 
-Posting a URL and Method to a Queue instance will dequeue a member from a queue and have the member's call begin executing the TwiML document at that URL When redirecting a member of a queue addressed by CallSid, only the first request will succeed and return a 200 response code. A second request will fail and return an appropriate 400 response code.
+Posting a URL and Method to a Queue instance will dequeue a member from a
+queue and have the member's call begin executing the TwiML document at that URL
+When redirecting a member of a queue addressed by CallSid, only the first request
+will succeed and return a 200 response code. A second request will fail and
+return an appropriate 400 response code.
+
 
 <details><summary>Parameters</summary>
 
@@ -740,6 +801,7 @@ Posting a URL and Method to a Queue instance will dequeue a member from a queue 
 #### mediaTypeExtension (required)
 
 By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending ".csv", ".json", or ".html".
+
 
 **Type:** string
 
@@ -762,6 +824,7 @@ A 34 character string that uniquely identifies this account.
 #### mediaTypeExtension (required)
 
 By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending ".csv", ".json", or ".html".
+
 
 **Type:** string
 
@@ -787,6 +850,7 @@ Get the properties of the authorized application.
 
 By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending ".csv", ".json", or ".html".
 
+
 **Type:** string
 
 **Potential values:** .json, .csv, .html
@@ -810,6 +874,7 @@ Get application instance resource.
 #### mediaTypeExtension (required)
 
 By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending ".csv", ".json", or ".html".
+
 
 **Type:** string
 
@@ -835,6 +900,7 @@ Returns the single Call resource identified by {CallSid}.
 
 By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending ".csv", ".json", or ".html".
 
+
 **Type:** string
 
 **Potential values:** .json, .csv, .html
@@ -844,6 +910,7 @@ By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by a
 ## get_conference
 
 Returns a representation of the conference identified by {ConferenceSid}.
+
 
 <details><summary>Parameters</summary>
 
@@ -858,6 +925,7 @@ Returns a representation of the conference identified by {ConferenceSid}.
 #### mediaTypeExtension (required)
 
 By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending ".csv", ".json", or ".html".
+
 
 **Type:** string
 
@@ -882,6 +950,7 @@ Get the properties of a Connect App.
 #### mediaTypeExtension (required)
 
 By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending ".csv", ".json", or ".html".
+
 
 **Type:** string
 
@@ -911,6 +980,7 @@ Get a specific Credential in a list. Though a password is stored for each userna
 
 By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending ".csv", ".json", or ".html".
 
+
 **Type:** string
 
 **Potential values:** .json, .csv, .html
@@ -934,6 +1004,7 @@ Get a credential list instance resource
 #### mediaTypeExtension (required)
 
 By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending ".csv", ".json", or ".html".
+
 
 **Type:** string
 
@@ -959,6 +1030,7 @@ Return a specific instance by Sid.
 
 By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending ".csv", ".json", or ".html".
 
+
 **Type:** string
 
 **Potential values:** .json, .csv, .html
@@ -982,6 +1054,7 @@ Get a front member.
 #### mediaTypeExtension (required)
 
 By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending ".csv", ".json", or ".html".
+
 
 **Type:** string
 
@@ -1007,6 +1080,7 @@ Get info about incoming call's phone number.
 
 By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending ".csv", ".json", or ".html".
 
+
 **Type:** string
 
 **Potential values:** .json, .csv, .html
@@ -1030,6 +1104,7 @@ Return a specific IpAccessControlList resource.
 #### mediaTypeExtension (required)
 
 By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending ".csv", ".json", or ".html".
+
 
 **Type:** string
 
@@ -1059,6 +1134,7 @@ Return a specific IpAccessControlListMapping instance by Sid.
 
 By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending ".csv", ".json", or ".html".
 
+
 **Type:** string
 
 **Potential values:** .json, .csv, .html
@@ -1086,6 +1162,7 @@ Return a single IP Address resource.
 #### mediaTypeExtension (required)
 
 By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending ".csv", ".json", or ".html".
+
 
 **Type:** string
 
@@ -1115,6 +1192,7 @@ Without an extension, the media is returned using the mime-type provided when th
 
 By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending ".csv", ".json", or ".html".
 
+
 **Type:** string
 
 **Potential values:** .json, .csv, .html
@@ -1143,6 +1221,7 @@ Get a specific member.
 
 By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending ".csv", ".json", or ".html".
 
+
 **Type:** string
 
 **Potential values:** .json, .csv, .html
@@ -1152,6 +1231,7 @@ By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by a
 ## get_message
 
 Returns a single message specified by the provided {MessageSid}.
+
 
 <details><summary>Parameters</summary>
 
@@ -1166,6 +1246,7 @@ Returns a single message specified by the provided {MessageSid}.
 #### mediaTypeExtension (required)
 
 By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending ".csv", ".json", or ".html".
+
 
 **Type:** string
 
@@ -1191,6 +1272,7 @@ Get a notification entry.
 
 By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending ".csv", ".json", or ".html".
 
+
 **Type:** string
 
 **Potential values:** .json, .csv, .html
@@ -1214,6 +1296,7 @@ Get Outgoing Caller ID Details
 #### mediaTypeExtension (required)
 
 By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending ".csv", ".json", or ".html".
+
 
 **Type:** string
 
@@ -1243,6 +1326,7 @@ Returns a representation of this participant.
 
 By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending ".csv", ".json", or ".html".
 
+
 **Type:** string
 
 **Potential values:** .json, .csv, .html
@@ -1252,6 +1336,7 @@ By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by a
 ## get_queue
 
 Get resource's individual Queue instance.
+
 
 <details><summary>Parameters</summary>
 
@@ -1267,6 +1352,7 @@ Get resource's individual Queue instance.
 
 By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending ".csv", ".json", or ".html".
 
+
 **Type:** string
 
 **Potential values:** .json, .csv, .html
@@ -1275,7 +1361,13 @@ By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by a
 
 ## get_recording
 
-Returns one of several representations: Without an extension, or with a ".wav", a binary WAV audio file is returned with mime-type "audio/x-wav". Appending ".mp3" to the URI returns a binary MP3 audio file with mime-type type "audio/mpeg". Appending ".xml" to the URI returns a XML representation.
+Returns one of several representations:
+Without an extension, or with a ".wav", a binary WAV audio file is returned
+with mime-type "audio/x-wav".
+Appending ".mp3" to the URI returns a binary MP3 audio file with mime-type
+type "audio/mpeg".
+Appending ".xml" to the URI returns a XML representation.
+
 
 <details><summary>Parameters</summary>
 
@@ -1313,6 +1405,7 @@ Get a single shortcode.
 
 By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending ".csv", ".json", or ".html".
 
+
 **Type:** string
 
 **Potential values:** .json, .csv, .html
@@ -1321,7 +1414,9 @@ By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by a
 
 ## get_transcription
 
-Returns a single Transcription resource representation identified by the given {TranscriptionSid}. By default Twilio will respond with the XML metadata for the Transcription. If you append ".txt" to the end of the Transcription resource's URI Twilio will just return you the transcription tex.
+Returns a single Transcription resource representation identified by the
+given {TranscriptionSid}. By default Twilio will respond with the XML metadata for the Transcription. If you append ".txt" to the end of the Transcription resource's URI Twilio will just return you the transcription tex.
+
 
 <details><summary>Parameters</summary>
 
@@ -1336,6 +1431,7 @@ Returns a single Transcription resource representation identified by the given {
 #### mediaTypeExtension (required)
 
 By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending ".csv", ".json", or ".html".
+
 
 **Type:** string
 
@@ -1361,6 +1457,7 @@ Returns a repesentation of the UsageTrigger.
 
 By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending ".csv", ".json", or ".html".
 
+
 **Type:** string
 
 **Potential values:** .json, .csv, .html
@@ -1369,13 +1466,16 @@ By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by a
 
 ## list_accounts
 
-Retrieve a list of the Account resources belonging to the account used to make the API request. This list will include that Account as well.
+Retrieve a list of the Account resources belonging to the account used to make the
+API request. This list will include that Account as well.
+
 
 <details><summary>Parameters</summary>
 
 #### mediaTypeExtension (required)
 
 By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending ".csv", ".json", or ".html".
+
 
 **Type:** string
 
@@ -1385,7 +1485,13 @@ By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by a
 
 ## list_all_usage_records
 
-Returns UsageRecords for all usage categories. The list includes paging information. By default, the UsageRecords resource will return one UsageRecord for each Category, representing all usage accrued all-time for the account. You can filter the usage Category or change the date-range over which usage is counted using optional GET query parameters.
+Returns UsageRecords for all usage categories. The list includes paging
+information.
+By default, the UsageRecords resource will return one UsageRecord for
+each Category, representing all usage accrued all-time for the account.
+You can filter the usage Category or change the date-range over which usage
+is counted using optional GET query parameters.
+
 
 <details><summary>Parameters</summary>
 
@@ -1396,6 +1502,7 @@ Returns UsageRecords for all usage categories. The list includes paging informat
 #### mediaTypeExtension (required)
 
 By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending ".csv", ".json", or ".html".
+
 
 **Type:** string
 
@@ -1405,7 +1512,9 @@ By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by a
 
 ## list_app_resources
 
-Returns a list of Application resource representations, each representing an application within your account. The list includes paging information.
+Returns a list of Application resource representations, each representing
+an application within your account. The list includes paging information.
+
 
 <details><summary>Parameters</summary>
 
@@ -1416,6 +1525,7 @@ Returns a list of Application resource representations, each representing an app
 #### mediaTypeExtension (required)
 
 By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending ".csv", ".json", or ".html".
+
 
 **Type:** string
 
@@ -1437,6 +1547,7 @@ Returns a list of all AvailablePhoneNumber subresources for your account by ISO 
 
 By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending ".csv", ".json", or ".html".
 
+
 **Type:** string
 
 **Potential values:** .json, .csv, .html
@@ -1445,7 +1556,10 @@ By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by a
 
 ## list_available_phone_numbers_local
 
-Returns a list of local AvailablePhoneNumber resource representations that match the specified filters, each representing a phone number tha is currently available for provisioning within your account.
+Returns a list of local AvailablePhoneNumber resource representations
+that match the specified filters, each representing a phone number tha
+is currently available for provisioning within your account.
+
 
 <details><summary>Parameters</summary>
 
@@ -1462,6 +1576,7 @@ ISO 3166-1 alpha-2.
 #### mediaTypeExtension (required)
 
 By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending ".csv", ".json", or ".html".
+
 
 **Type:** string
 
@@ -1489,6 +1604,7 @@ ISO 3166-1 alpha-2.
 
 By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending ".csv", ".json", or ".html".
 
+
 **Type:** string
 
 **Potential values:** .json, .csv, .html
@@ -1497,7 +1613,11 @@ By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by a
 
 ## list_available_phone_numbers_tollfree
 
-Returns a list of toll-free AvailablePhoneNumber elements that match the specified filters, each representing a phone number that is currently available for provisioning within your account. To provision an available phone number, POST the number to the IncomingPhoneNumbers resource.
+Returns a list of toll-free AvailablePhoneNumber elements that match the
+specified filters, each representing a phone number that is currently
+available for provisioning within your account. To provision an available
+phone number, POST the number to the IncomingPhoneNumbers resource.
+
 
 <details><summary>Parameters</summary>
 
@@ -1515,6 +1635,7 @@ ISO 3166-1 alpha-2.
 
 By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending ".csv", ".json", or ".html".
 
+
 **Type:** string
 
 **Potential values:** .json, .csv, .html
@@ -1523,7 +1644,9 @@ By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by a
 
 ## list_call_notifications
 
-Returns a list of notifications generated for an account. The list includes paging information.
+Returns a list of notifications generated for an account. The list includes
+paging information.
+
 
 <details><summary>Parameters</summary>
 
@@ -1538,6 +1661,7 @@ Returns a list of notifications generated for an account. The list includes pagi
 #### mediaTypeExtension (required)
 
 By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending ".csv", ".json", or ".html".
+
 
 **Type:** string
 
@@ -1547,7 +1671,9 @@ By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by a
 
 ## list_call_recordings
 
-Returns a list of Recording resource representations, each representing a recording generated during the course of a phone call.
+Returns a list of Recording resource representations, each representing a
+recording generated during the course of a phone call.
+
 
 <details><summary>Parameters</summary>
 
@@ -1562,6 +1688,7 @@ Returns a list of Recording resource representations, each representing a record
 #### mediaTypeExtension (required)
 
 By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending ".csv", ".json", or ".html".
+
 
 **Type:** string
 
@@ -1583,6 +1710,7 @@ Returns a list of phone calls made to and from the account identified by {Accoun
 
 By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending ".csv", ".json", or ".html".
 
+
 **Type:** string
 
 **Potential values:** .json, .csv, .html
@@ -1591,7 +1719,9 @@ By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by a
 
 ## list_conferences
 
-Returns a list of conferences within an account. The list includes paging information.
+Returns a list of conferences within an account. The list includes paging
+information.
+
 
 <details><summary>Parameters</summary>
 
@@ -1602,6 +1732,7 @@ Returns a list of conferences within an account. The list includes paging inform
 #### mediaTypeExtension (required)
 
 By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending ".csv", ".json", or ".html".
+
 
 **Type:** string
 
@@ -1611,7 +1742,10 @@ By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by a
 
 ## list_connect_app_resources
 
-Returns a list of Connect App resource representations, each representing a Connect App you've authorized to access your account. The list includes paging information.
+Returns a list of Connect App resource representations, each representing a
+Connect App you've authorized to access your account. The list includes
+paging information.
+
 
 <details><summary>Parameters</summary>
 
@@ -1622,6 +1756,7 @@ Returns a list of Connect App resource representations, each representing a Conn
 #### mediaTypeExtension (required)
 
 By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending ".csv", ".json", or ".html".
+
 
 **Type:** string
 
@@ -1631,7 +1766,9 @@ By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by a
 
 ## list_connect_apps
 
-Returns a list of Connect App resource representations, each representing a Connect App in your account. The list includes paging information.
+Returns a list of Connect App resource representations, each representing
+a Connect App in your account. The list includes paging information.
+
 
 <details><summary>Parameters</summary>
 
@@ -1642,6 +1779,7 @@ Returns a list of Connect App resource representations, each representing a Conn
 #### mediaTypeExtension (required)
 
 By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending ".csv", ".json", or ".html".
+
 
 **Type:** string
 
@@ -1667,6 +1805,7 @@ Get the user lists mapped to this domain.
 
 By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending ".csv", ".json", or ".html".
 
+
 **Type:** string
 
 **Potential values:** .json, .csv, .html
@@ -1686,6 +1825,7 @@ Gets a list of Credential Lists for an account
 #### mediaTypeExtension (required)
 
 By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending ".csv", ".json", or ".html".
+
 
 **Type:** string
 
@@ -1711,6 +1851,7 @@ Get the list of Credentials in a CredentialList. The passwords for the Credentia
 
 By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending ".csv", ".json", or ".html".
 
+
 **Type:** string
 
 **Potential values:** .json, .csv, .html
@@ -1731,6 +1872,7 @@ Returns a paged list of the domains for an account.
 
 By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending ".csv", ".json", or ".html".
 
+
 **Type:** string
 
 **Potential values:** .json, .csv, .html
@@ -1739,7 +1881,10 @@ By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by a
 
 ## list_incoming_phone_numbers
 
-Returns a list of IncomingPhoneNumber resource representations, each representing a phone number given to your account. The list includes paging information.
+Returns a list of IncomingPhoneNumber resource representations, each
+representing a phone number given to your account. The list includes paging
+information.
+
 
 <details><summary>Parameters</summary>
 
@@ -1750,6 +1895,7 @@ Returns a list of IncomingPhoneNumber resource representations, each representin
 #### mediaTypeExtension (required)
 
 By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending ".csv", ".json", or ".html".
+
 
 **Type:** string
 
@@ -1859,6 +2005,7 @@ List the IP Addresses contained in this list.
 
 By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending ".csv", ".json", or ".html".
 
+
 **Type:** string
 
 **Potential values:** .json, .csv, .html
@@ -1882,6 +2029,7 @@ Returns a list of media associated with your message.
 #### mediaTypeExtension (required)
 
 By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending ".csv", ".json", or ".html".
+
 
 **Type:** string
 
@@ -1907,6 +2055,7 @@ Returns the list of members in the queue identified by {QueueSid}.
 
 By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending ".csv", ".json", or ".html".
 
+
 **Type:** string
 
 **Potential values:** .json, .csv, .html
@@ -1927,6 +2076,7 @@ Returns a list of messages associated with your account. The list includes pagin
 
 By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending ".csv", ".json", or ".html".
 
+
 **Type:** string
 
 **Potential values:** .json, .csv, .html
@@ -1935,7 +2085,9 @@ By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by a
 
 ## list_notifications
 
-Returns a list of notifications generated for an account. The list includes paging information.
+Returns a list of notifications generated for an account. The list includes
+paging information.
+
 
 <details><summary>Parameters</summary>
 
@@ -1946,6 +2098,7 @@ Returns a list of notifications generated for an account. The list includes pagi
 #### mediaTypeExtension (required)
 
 By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending ".csv", ".json", or ".html".
+
 
 **Type:** string
 
@@ -1955,7 +2108,9 @@ By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by a
 
 ## list_outgoing_caller_ids
 
-Returns a list of OutgoingCallerId resource representations, each representing a Caller ID number valid for an account. The list includes paging information.
+Returns a list of OutgoingCallerId resource representations, each representing
+a Caller ID number valid for an account. The list includes paging information.
+
 
 <details><summary>Parameters</summary>
 
@@ -1967,6 +2122,7 @@ Returns a list of OutgoingCallerId resource representations, each representing a
 
 By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending ".csv", ".json", or ".html".
 
+
 **Type:** string
 
 **Potential values:** .json, .csv, .html
@@ -1975,7 +2131,9 @@ By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by a
 
 ## list_participants
 
-Returns the list of participants in the conference identified by {ConferenceSid}.
+Returns the list of participants in the conference identified by
+{ConferenceSid}.
+
 
 <details><summary>Parameters</summary>
 
@@ -1991,6 +2149,7 @@ Returns the list of participants in the conference identified by {ConferenceSid}
 
 By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending ".csv", ".json", or ".html".
 
+
 **Type:** string
 
 **Potential values:** .json, .csv, .html
@@ -1999,7 +2158,9 @@ By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by a
 
 ## list_queues
 
-Returns a list of queues within an account. The list includes paging information.
+Returns a list of queues within an account. The list includes paging
+information.
+
 
 <details><summary>Parameters</summary>
 
@@ -2011,6 +2172,7 @@ Returns a list of queues within an account. The list includes paging information
 
 By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending ".csv", ".json", or ".html".
 
+
 **Type:** string
 
 **Potential values:** .json, .csv, .html
@@ -2019,7 +2181,9 @@ By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by a
 
 ## list_recording_transcriptions
 
-Returns a set of Transcription resource representations that includes paging information.
+Returns a set of Transcription resource representations that includes paging
+information.
+
 
 <details><summary>Parameters</summary>
 
@@ -2035,6 +2199,7 @@ Returns a set of Transcription resource representations that includes paging inf
 
 By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending ".csv", ".json", or ".html".
 
+
 **Type:** string
 
 **Potential values:** .json, .csv, .html
@@ -2043,7 +2208,9 @@ By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by a
 
 ## list_recordings
 
-Returns a list of Recording resource representations, each representing a recording generated during the course of a phone call.
+Returns a list of Recording resource representations, each representing a
+recording generated during the course of a phone call.
+
 
 <details><summary>Parameters</summary>
 
@@ -2054,6 +2221,7 @@ Returns a list of Recording resource representations, each representing a record
 #### mediaTypeExtension (required)
 
 By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending ".csv", ".json", or ".html".
+
 
 **Type:** string
 
@@ -2063,7 +2231,9 @@ By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by a
 
 ## list_shortcodes
 
-Returns a list of ShortCode resource representations, each representing a short code within your account. The list includes paging information.
+Returns a list of ShortCode resource representations, each representing a
+short code within your account. The list includes paging information.
+
 
 <details><summary>Parameters</summary>
 
@@ -2074,6 +2244,7 @@ Returns a list of ShortCode resource representations, each representing a short 
 #### mediaTypeExtension (required)
 
 By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending ".csv", ".json", or ".html".
+
 
 **Type:** string
 
@@ -2083,7 +2254,9 @@ By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by a
 
 ## list_transcriptions
 
-Returns a set of Transcription resource representations that includes paging information.
+Returns a set of Transcription resource representations that includes paging
+information.
+
 
 <details><summary>Parameters</summary>
 
@@ -2094,6 +2267,7 @@ Returns a set of Transcription resource representations that includes paging inf
 #### mediaTypeExtension (required)
 
 By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending ".csv", ".json", or ".html".
+
 
 **Type:** string
 
@@ -2105,6 +2279,7 @@ By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by a
 
 Returns UsageRecords for all usage categories for a specified subresource.
 
+
 <details><summary>Parameters</summary>
 
 #### AccountSid (required)
@@ -2113,7 +2288,17 @@ Returns UsageRecords for all usage categories for a specified subresource.
 
 #### Subresource (required)
 
-|Subresource|Description| |---|---| |Daily|Return multiple UsageRecords for each usage category, each representing usage over a daily time-interval.| |Monthly|Return multiple UsageRecords for each usage category, each representing usage over a monthly time-interval.| |Yearly|Return multple UsageRecords for each usage category, each representing usage over a yearly time-interval.| |AllTime| Return a single UsageRecord for each usage category, each representing usage over the date-range specified. This is the same as the root /Usage/Records.| |Today|Return a single UsageRecord per usage category, for today's usage only.| ||Yesterday|Return a single UsageRecord per usage category, for yesterday's usage only.| |ThisMonth|Return a single UsageRecord per usage category, for this month's usage only.| |LastMonth|Return a single UsageRecord per usage category, for last month's usage only.|
+|Subresource|Description|
+|---|---|
+|Daily|Return multiple UsageRecords for each usage category, each representing usage over a daily time-interval.|
+|Monthly|Return multiple UsageRecords for each usage category, each representing usage over a monthly time-interval.|
+|Yearly|Return multple UsageRecords for each usage category, each representing usage over a yearly time-interval.|
+|AllTime|  Return a single UsageRecord for each usage category, each representing usage over the date-range specified. This is the same as the root /Usage/Records.|
+|Today|Return a single UsageRecord per usage category, for today's usage only.|
+||Yesterday|Return a single UsageRecord per usage category, for yesterday's usage only.|
+|ThisMonth|Return a single UsageRecord per usage category, for this month's usage only.|
+|LastMonth|Return a single UsageRecord per usage category, for last month's usage only.|
+
 
 **Type:** string
 
@@ -2123,6 +2308,7 @@ Returns UsageRecords for all usage categories for a specified subresource.
 
 By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending ".csv", ".json", or ".html".
 
+
 **Type:** string
 
 **Potential values:** .json, .csv, .html
@@ -2131,7 +2317,12 @@ By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by a
 
 ## list_usage_triggers
 
-Returns a list of UsageTrigger resource representations. The list includes paging information. By default, all UsageTriggers are returned. You can filter the list by specifying one or more query parameters. Note that the query parameters are case-sensitive
+Returns a list of UsageTrigger resource representations. The list includes
+paging information.
+By default, all UsageTriggers are returned. You can filter the list by
+specifying one or more query parameters. Note that the query parameters are
+case-sensitive
+
 
 <details><summary>Parameters</summary>
 
@@ -2142,6 +2333,7 @@ Returns a list of UsageTrigger resource representations. The list includes pagin
 #### mediaTypeExtension (required)
 
 By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending ".csv", ".json", or ".html".
+
 
 **Type:** string
 
@@ -2167,6 +2359,7 @@ Modify a phone call.
 
 By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending ".csv", ".json", or ".html".
 
+
 **Type:** string
 
 **Potential values:** .json, .csv, .html
@@ -2187,6 +2380,7 @@ To make a call, make an HTTP POST request. Initiate a new phone call.
 
 By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending ".csv", ".json", or ".html".
 
+
 **Type:** string
 
 **Potential values:** .json, .csv, .html
@@ -2199,7 +2393,12 @@ By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by a
 
 ## release_incoming_phone_number
 
-Release this phone number from your account. Twilio will no longer answer calls to this number, and you will stop being billed the monthly phone number fee. The phone number will eventually be recycled and potentially given to another customer, so use with care. If you make a mistake, contac us. We may be able to give you the number back.
+Release this phone number from your account. Twilio will no longer answer
+calls to this number, and you will stop being billed the monthly phone
+number fee. The phone number will eventually be recycled and potentially
+given to another customer, so use with care. If you make a mistake, contac
+us. We may be able to give you the number back.
+
 
 <details><summary>Parameters</summary>
 
@@ -2214,6 +2413,7 @@ Release this phone number from your account. Twilio will no longer answer calls 
 #### mediaTypeExtension (required)
 
 By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending ".csv", ".json", or ".html".
+
 
 **Type:** string
 
@@ -2243,6 +2443,7 @@ Kick this participant from the conference.
 
 By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending ".csv", ".json", or ".html".
 
+
 **Type:** string
 
 **Potential values:** .json, .csv, .html
@@ -2267,6 +2468,7 @@ Rename an IpAccessControlList.
 
 By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending ".csv", ".json", or ".html".
 
+
 **Type:** string
 
 **Potential values:** .json, .csv, .html
@@ -2286,6 +2488,7 @@ To send a new outgoing message, make an HTTP POST to your Messages list resource
 #### mediaTypeExtension (required)
 
 By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending ".csv", ".json", or ".html".
+
 
 **Type:** string
 
@@ -2313,6 +2516,7 @@ A 34 character string that uniquely identifies this account.
 
 By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending ".csv", ".json", or ".html".
 
+
 **Type:** string
 
 **Potential values:** .json, .csv, .html
@@ -2321,7 +2525,10 @@ By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by a
 
 ## update_app_properties
 
-Tries to update the application's properties, and returns the updated resource representation if successful. The returned response is identical to that returned above when making a GET request.
+Tries to update the application's properties, and returns the updated
+resource representation if successful. The returned response is identical
+to that returned above when making a GET request.
+
 
 <details><summary>Parameters</summary>
 
@@ -2337,6 +2544,7 @@ Tries to update the application's properties, and returns the updated resource r
 
 By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending ".csv", ".json", or ".html".
 
+
 **Type:** string
 
 **Potential values:** .json, .csv, .html
@@ -2345,7 +2553,10 @@ By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by a
 
 ## update_connect_app_properties
 
-Tries to update the Connect App's properties, and returns the updated resource representation if successful. The returned response is identical to that returned above when making a GET request.
+Tries to update the Connect App's properties, and returns the updated
+resource representation if successful. The returned response is identical
+to that returned above when making a GET request.
+
 
 <details><summary>Parameters</summary>
 
@@ -2360,6 +2571,7 @@ Tries to update the Connect App's properties, and returns the updated resource r
 #### mediaTypeExtension (required)
 
 By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending ".csv", ".json", or ".html".
+
 
 **Type:** string
 
@@ -2385,6 +2597,7 @@ Change the FriendlyName of the list
 
 By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending ".csv", ".json", or ".html".
 
+
 **Type:** string
 
 **Potential values:** .json, .csv, .html
@@ -2409,6 +2622,7 @@ Update the attributes of a domain.
 
 By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending ".csv", ".json", or ".html".
 
+
 **Type:** string
 
 **Potential values:** .json, .csv, .html
@@ -2417,7 +2631,10 @@ By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by a
 
 ## update_incoming_phone_number
 
-Tries to update the incoming phone number's properties, and returns the updated resource representation if successful. The returned response is identical to that returned above when making a GET request.
+Tries to update the incoming phone number's properties, and returns the
+updated resource representation if successful. The returned response is
+identical to that returned above when making a GET request.
+
 
 <details><summary>Parameters</summary>
 
@@ -2432,6 +2649,7 @@ Tries to update the incoming phone number's properties, and returns the updated 
 #### mediaTypeExtension (required)
 
 By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending ".csv", ".json", or ".html".
+
 
 **Type:** string
 
@@ -2461,6 +2679,7 @@ Change the description or IP address of a given IpAddress instance resource
 
 By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending ".csv", ".json", or ".html".
 
+
 **Type:** string
 
 **Potential values:** .json, .csv, .html
@@ -2484,6 +2703,7 @@ Updates the caller id, and returns the updated resource if successful.
 #### mediaTypeExtension (required)
 
 By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending ".csv", ".json", or ".html".
+
 
 **Type:** string
 
@@ -2513,6 +2733,7 @@ Updates the status of a participant.
 
 By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending ".csv", ".json", or ".html".
 
+
 **Type:** string
 
 **Potential values:** .json, .csv, .html
@@ -2522,6 +2743,7 @@ By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by a
 ## update_queue
 
 This POST request allows you to change the FriendlyName or MaxSize.
+
 
 <details><summary>Parameters</summary>
 
@@ -2537,6 +2759,7 @@ This POST request allows you to change the FriendlyName or MaxSize.
 
 By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending ".csv", ".json", or ".html".
 
+
 **Type:** string
 
 **Potential values:** .json, .csv, .html
@@ -2545,7 +2768,9 @@ By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by a
 
 ## update_shortcode
 
-Tries to update the shortcode's properties, and returns the updated resource representation if successful.
+Tries to update the shortcode's properties, and returns the updated
+resource representation if successful.
+
 
 <details><summary>Parameters</summary>
 
@@ -2561,6 +2786,7 @@ Tries to update the shortcode's properties, and returns the updated resource rep
 
 By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending ".csv", ".json", or ".html".
 
+
 **Type:** string
 
 **Potential values:** .json, .csv, .html
@@ -2569,7 +2795,9 @@ By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by a
 
 ## update_usage_trigger
 
-Tries to update the UsageTrigger's properties, and returns the updated resource representation if successful.
+Tries to update the UsageTrigger's properties, and returns the updated
+resource representation if successful.
+
 
 <details><summary>Parameters</summary>
 
@@ -2584,6 +2812,7 @@ Tries to update the UsageTrigger's properties, and returns the updated resource 
 #### mediaTypeExtension (required)
 
 By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending ".csv", ".json", or ".html".
+
 
 **Type:** string
 

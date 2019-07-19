@@ -7,7 +7,8 @@ layout: docs.mustache
 
 ## cancel_payment_intent
 
-A PaymentIntent object can be canceled when it is in one of these statues: requires_source, requires_capture, requires_confirmation, or requires_source_action. Once canceled, no additional charges will be made by the PaymentIntent and any operations on the PaymentIntent will fail with an error. For PaymentIntents with status='requires_capture', the remaining amount_capturable will automatically be refunded.
+A PaymentIntent object can be canceled when it is in one of these statues: requires_source, requires_capture, requires_confirmation, or requires_source_action. 
+Once canceled, no additional charges will be made by the PaymentIntent and any operations on the PaymentIntent will fail with an error. For PaymentIntents with status='requires_capture', the remaining amount_capturable will automatically be refunded.
 
 <details><summary>Parameters</summary>
 
@@ -59,7 +60,8 @@ The ID of the top-up to cancel.
 
 ## charge_capture
 
-Capture the payment of an existing, uncaptured, charge. This is the second half of the two-step payment flow, where first you created a charge with the capture option set to false.Uncaptured payments expire exactly seven days after they are created. If they are not captured by that point in time, they will be marked as refunded and will no longer be capturable.
+Capture the payment of an existing, uncaptured, charge. This is the second half of the two-step payment flow, where first you created a charge with the capture option set to false.
+Uncaptured payments expire exactly seven days after they are created. If they are not captured by that point in time, they will be marked as refunded and will no longer be capturable.
 
 <details><summary>Parameters</summary>
 
@@ -75,7 +77,8 @@ Capture the payment of an existing, uncaptured, charge. This is the second half 
 
 ## close_dispute
 
-Closing the dispute for a charge indicates that you do not have any evidence to submit and are essentially dismissing the dispute, acknowledging it as lost.The status of the dispute will change from needs_response to lost. Closing a dispute is irreversible.
+Closing the dispute for a charge indicates that you do not have any evidence to submit and are essentially dismissing the dispute, acknowledging it as lost.
+The status of the dispute will change from needs_response to lost. Closing a dispute is irreversible.
 
 <details><summary>Parameters</summary>
 
@@ -93,7 +96,8 @@ ID of the dispute to close.
 
 ## create_account
 
-With Connect, you can create Stripe accounts for your users.To do this, you’ll first need to register your platform.For Standard accounts, parameters other than country, email, and typeare used to prefill the account application that we ask the account holder to complete.
+With Connect, you can create Stripe accounts for your users.To do this, you’ll first need to register your platform.
+For Standard accounts, parameters other than country, email, and typeare used to prefill the account application that we ask the account holder to complete.
 
 <details><summary>Parameters</summary>
 
@@ -145,7 +149,8 @@ To charge a credit card or other payment source, you create a Charge object. If 
 
 ## create_coupon
 
-You can create coupons easily via the coupon management page of the Stripe dashboard. Coupon creation is also accessible via the API if you need to create coupons on the fly.A coupon has either a percent_off or an amount_off and currency. If you set an amount_off, that amount will be subtracted from any invoice’s subtotal. For example, an invoice with a subtotal of 100 will have a final total of 0 if a coupon with an amount_off of 200 is applied to it and an invoice with a subtotal of 300 will have a final total of 100 if a coupon with an amount_off of 200 is applied to it.
+You can create coupons easily via the coupon management page of the Stripe dashboard. Coupon creation is also accessible via the API if you need to create coupons on the fly.
+A coupon has either a percent_off or an amount_off and currency. If you set an amount_off, that amount will be subtracted from any invoice’s subtotal. For example, an invoice with a subtotal of 100 will have a final total of 0 if a coupon with an amount_off of 200 is applied to it and an invoice with a subtotal of 300 will have a final total of 100 if a coupon with an amount_off of 200 is applied to it.
 
 <details><summary>Parameters</summary>
 
@@ -169,7 +174,8 @@ Creates a new customer object.
 
 ## create_customer_source
 
-When you create a new credit card, you must specify a customer or recipient on which to create it.If the card’s owner has no default card, then the new card will become the default.However, if the owner already has a default, then it will not change.To change the default, you should either update the customer to have a new default_source,or update the recipient to have a new default_card.
+When you create a new credit card, you must specify a customer or recipient on which to create it.
+If the card’s owner has no default card, then the new card will become the default.However, if the owner already has a default, then it will not change.To change the default, you should either update the customer to have a new default_source,or update the recipient to have a new default_card.
 
 <details><summary>Parameters</summary>
 
@@ -215,7 +221,8 @@ Creates a new file link object.
 
 ## create_invoice
 
-If you need to invoice your customer outside the regular billing cycle, you can create an invoice that pulls in all pending invoice items, including prorations. The customer’s billing cycle and regular subscription won’t be affected.Once you create the invoice, Stripe will attempt to collect payment according to your subscriptions settings, though you can choose to pay it right away.
+If you need to invoice your customer outside the regular billing cycle, you can create an invoice that pulls in all pending invoice items, including prorations. The customer’s billing cycle and regular subscription won’t be affected.
+Once you create the invoice, Stripe will attempt to collect payment according to your subscriptions settings, though you can choose to pay it right away.
 
 <details><summary>Parameters</summary>
 
@@ -275,7 +282,8 @@ Creates an Issuing Dispute object.
 
 ## create_login_link
 
-Creates a single-use login link for an Express account to access their Stripe dashboard.You may only create login links for Express accounts connected to your platform.
+Creates a single-use login link for an Express account to access their Stripe dashboard.
+You may only create login links for Express accounts connected to your platform.
 
 <details><summary>Parameters</summary>
 
@@ -345,7 +353,9 @@ Creates a PaymentIntent object.
 
 ## create_payout
 
-To send funds to your own bank account, you create a new payout object. Your Stripe balance must be able to cover the payout amount, or you’ll receive an “Insufficient Funds” error.If your API key is in test mode, money won’t actually be sent, though everything else will occur as if in live mode.If you are creating a manual payout on a Stripe account that uses multiple payment source types, you’ll need to specify the source type balance that the payout should draw from. The balance object details available and pending amounts by source type.
+To send funds to your own bank account, you create a new payout object. Your Stripe balance must be able to cover the payout amount, or you’ll receive an “Insufficient Funds” error.
+If your API key is in test mode, money won’t actually be sent, though everything else will occur as if in live mode.
+If you are creating a manual payout on a Stripe account that uses multiple payment source types, you’ll need to specify the source type balance that the payout should draw from. The balance object details available and pending amounts by source type.
 
 <details><summary>Parameters</summary>
 
@@ -369,7 +379,9 @@ You can create plans using the API, or in the Stripe Dashboard.
 
 ## create_platform_earning_refund
 
-Refunds an application fee that has previously been collected but not yet refunded.Funds will be refunded to the Stripe account from which the fee was originally collected.You can optionally refund only part of an application fee.You can do so multiple times, until the entire fee has been refunded.Once entirely refunded, an application fee can’t be refunded again.This method will raise an error when called on an already-refunded application fee,or when trying to refund more money than is left on an application fee.
+Refunds an application fee that has previously been collected but not yet refunded.Funds will be refunded to the Stripe account from which the fee was originally collected.
+You can optionally refund only part of an application fee.You can do so multiple times, until the entire fee has been refunded.
+Once entirely refunded, an application fee can’t be refunded again.This method will raise an error when called on an already-refunded application fee,or when trying to refund more money than is left on an application fee.
 
 <details><summary>Parameters</summary>
 
@@ -531,7 +543,9 @@ Creates a new Recipient object and verifies the recipient’s identity.Also veri
 
 ## create_transfer_reversal
 
-When you create a new reversal, you must specify a transfer to create it on.When reversing transfers, you can optionally reverse part of the transfer. You can do so as many times as you wish until the entire transfer has been reversed.Once entirely reversed, a transfer can’t be reversed again. This method will return an error when called on an already-reversed transfer, or when trying to reverse more money than is left on a transfer.
+When you create a new reversal, you must specify a transfer to create it on.
+When reversing transfers, you can optionally reverse part of the transfer. You can do so as many times as you wish until the entire transfer has been reversed.
+Once entirely reversed, a transfer can’t be reversed again. This method will return an error when called on an already-reversed transfer, or when trying to reverse more money than is left on a transfer.
 
 <details><summary>Parameters</summary>
 
@@ -585,7 +599,9 @@ The identifier of the issuing authorization to decline.
 
 ## delete_account
 
-With Connect, you may delete Custom accounts you manage.Custom accounts created using test-mode keys can be deleted at any time. Custom accounts created using live-mode keys may only be deleted once all balances are zero.If you are looking to close your own account, use the data tab in your account settings instead.
+With Connect, you may delete Custom accounts you manage.
+Custom accounts created using test-mode keys can be deleted at any time. Custom accounts created using live-mode keys may only be deleted once all balances are zero.
+If you are looking to close your own account, use the data tab in your account settings instead.
 
 <details><summary>Parameters</summary>
 
@@ -731,7 +747,9 @@ The identifier of the SKU to be deleted.
 
 ## delete_subscription
 
-Cancels a customer’s subscription immediately. The customer will not be charged again for the subscription.Note, however, that any pending invoice items that you’ve created will still be charged for at the end of the period, unless manually deleted. If you’ve set the subscription to cancel at the end of the period, any pending prorations will also be left in place and collected at the end of the period. But if the subscription is set to cancel immediately, pending prorations will be removed.By default, upon subscription cancellation, Stripe will close all unpaid invoices for the customer. This is designed to prevent unexpected payment attempts after the customer has canceled a subscription. However, you can reopen the invoices manually after subscription cancellation to have us proceed with payment collection. Or, you could even re-attempt payment yourself on all unpaid invoices before allowing the customer to cancel the subscription at all.
+Cancels a customer’s subscription immediately. The customer will not be charged again for the subscription.
+Note, however, that any pending invoice items that you’ve created will still be charged for at the end of the period, unless manually deleted. If you’ve set the subscription to cancel at the end of the period, any pending prorations will also be left in place and collected at the end of the period. But if the subscription is set to cancel immediately, pending prorations will be removed.
+By default, upon subscription cancellation, Stripe will close all unpaid invoices for the customer. This is designed to prevent unexpected payment attempts after the customer has canceled a subscription. However, you can reopen the invoices manually after subscription cancellation to have us proceed with payment collection. Or, you could even re-attempt payment yourself on all unpaid invoices before allowing the customer to cancel the subscription at all.
 
 <details><summary>Parameters</summary>
 
@@ -2617,7 +2635,9 @@ Specifies which fields in the response should be expanded.
 
 ## get_payment_intent
 
-Retrieves the details of a PaymentIntent that has previously been created. Client-side retrieval using a publishable key is allowed when the client_secret is provided in the query string. When retrieved with a publishable key, only a subset of properties will be returned. Please refer to the payment intent object reference for more details.
+Retrieves the details of a PaymentIntent that has previously been created. 
+Client-side retrieval using a publishable key is allowed when the client_secret is provided in the query string. 
+When retrieved with a publishable key, only a subset of properties will be returned. Please refer to the payment intent object reference for more details.
 
 <details><summary>Parameters</summary>
 
@@ -3029,7 +3049,9 @@ Specifies which fields in the response should be expanded.
 
 ## get_upcoming_invoice
 
-At any time, you can preview the upcoming invoice for a customer. This will show you all the charges that are pending, including subscription renewal charges, invoice item charges, etc. It will also show you any discount that is applicable to the customer.Note that when you are viewing an upcoming invoice, you are simply viewing a preview – the invoice has not yet been created. As such, the upcoming invoice will not show up in invoice listing calls, and you cannot use the API to pay or edit the invoice. If you want to change the amount that your customer will be billed, you can add, remove, or update pending invoice items, or update the customer’s discount.You can preview the effects of updating a subscription, including a preview of what proration will take place. To ensure that the actual proration is calculated exactly the same as the previewed proration, you should pass a proration_date parameter when doing the actual subscription update. The value passed in should be the same as the subscription_proration_date returned on the upcoming invoice resource. The recommended way to get only the prorations being previewed is to consider only proration line items where period[start] is equal to the subscription_proration_date on the upcoming invoice resource.
+At any time, you can preview the upcoming invoice for a customer. This will show you all the charges that are pending, including subscription renewal charges, invoice item charges, etc. It will also show you any discount that is applicable to the customer.
+Note that when you are viewing an upcoming invoice, you are simply viewing a preview – the invoice has not yet been created. As such, the upcoming invoice will not show up in invoice listing calls, and you cannot use the API to pay or edit the invoice. If you want to change the amount that your customer will be billed, you can add, remove, or update pending invoice items, or update the customer’s discount.
+You can preview the effects of updating a subscription, including a preview of what proration will take place. To ensure that the actual proration is calculated exactly the same as the previewed proration, you should pass a proration_date parameter when doing the actual subscription update. The value passed in should be the same as the subscription_proration_date returned on the upcoming invoice resource. The recommended way to get only the prorations being previewed is to consider only proration line items where period[start] is equal to the subscription_proration_date on the upcoming invoice resource.
 
 <details><summary>Parameters</summary>
 
@@ -3167,7 +3189,8 @@ ID of invoice to pay.
 
 ## payment_intent_capture
 
-Capture the funds of an existing uncaptured PaymentIntent where required_action="requires_capture".Uncaptured PaymentIntents will be canceled exactly seven days after they are created.
+Capture the funds of an existing uncaptured PaymentIntent where required_action="requires_capture".
+Uncaptured PaymentIntents will be canceled exactly seven days after they are created.
 
 <details><summary>Parameters</summary>
 
@@ -3183,7 +3206,9 @@ Capture the funds of an existing uncaptured PaymentIntent where required_action=
 
 ## payment_intent_confirm
 
-Confirm that your customer intends to pay with current or providedsource. Upon confirmation, the PaymentIntent will attempt to initiatea payment.If the selected source requires additional authentication steps, thePaymentIntent will transition to the requires_source_action status andsuggest additional actions via next_source_action. If payment fails,the PaymentIntent will transition to the requires_source status. Ifpayment succeeds, the PaymentIntent will transition to the succeededstatus (or requires_capture, if capture_method is set to manual).When using a publishable key, theclient_secret must be providedto confirm the PaymentIntent.
+Confirm that your customer intends to pay with current or providedsource. Upon confirmation, the PaymentIntent will attempt to initiatea payment.
+If the selected source requires additional authentication steps, thePaymentIntent will transition to the requires_source_action status andsuggest additional actions via next_source_action. If payment fails,the PaymentIntent will transition to the requires_source status. Ifpayment succeeds, the PaymentIntent will transition to the succeededstatus (or requires_capture, if capture_method is set to manual).
+When using a publishable key, theclient_secret must be providedto confirm the PaymentIntent.
 
 <details><summary>Parameters</summary>
 
@@ -3199,7 +3224,8 @@ Confirm that your customer intends to pay with current or providedsource. Upon c
 
 ## reject_account
 
-With Connect, you may flag accounts as suspicious.Test-mode Custom and Express accounts can be rejected at any time. Accounts created using live-mode keys may only be rejected once all balances are zero.
+With Connect, you may flag accounts as suspicious.
+Test-mode Custom and Express accounts can be rejected at any time. Accounts created using live-mode keys may only be rejected once all balances are zero.
 
 <details><summary>Parameters</summary>
 
@@ -3233,7 +3259,8 @@ Resend an event. This only works in testmode
 
 ## update_account
 
-Updates a connected Express or Custom account by setting the values of the parameters passed. Any parameters not provided are left unchanged. Most parameters can be changed only for Custom accounts. (These are marked Custom Only below.) Parameters marked Custom and Express are supported by both account types.To update your own account, use the Dashboard. Refer to our Connect documentation to learn more about updating accounts.
+Updates a connected Express or Custom account by setting the values of the parameters passed. Any parameters not provided are left unchanged. Most parameters can be changed only for Custom accounts. (These are marked Custom Only below.) Parameters marked Custom and Express are supported by both account types.
+To update your own account, use the Dashboard. Refer to our Connect documentation to learn more about updating accounts.
 
 <details><summary>Parameters</summary>
 
@@ -3249,7 +3276,8 @@ Updates a connected Express or Custom account by setting the values of the param
 
 ## update_bank_account
 
-Updates the metadata, account holder name, and account holder type of a bank account belonging to a Custom account, and optionally sets it as the default for its currency. Other bank account details are not editable by design.You can re-enable a disabled bank account by performing an update call without providing any arguments or changes.
+Updates the metadata, account holder name, and account holder type of a bank account belonging to a Custom account, and optionally sets it as the default for its currency. Other bank account details are not editable by design.
+You can re-enable a disabled bank account by performing an update call without providing any arguments or changes.
 
 <details><summary>Parameters</summary>
 
@@ -3345,7 +3373,8 @@ The ID of the card to be updated.
 
 ## update_dispute
 
-When you get a dispute, contacting your customer is always the best first step. If that doesn’t work, you can submit evidence to help us resolve the dispute in your favor. You can do this in your dashboard, but if you prefer, you can use the API to submit evidence programmatically.Depending on your dispute type, different evidence fields will give you a better chance of winning your dispute. To figure out which evidence fields to provide, see our guide to dispute types.
+When you get a dispute, contacting your customer is always the best first step. If that doesn’t work, you can submit evidence to help us resolve the dispute in your favor. You can do this in your dashboard, but if you prefer, you can use the API to submit evidence programmatically.
+Depending on your dispute type, different evidence fields will give you a better chance of winning your dispute. To figure out which evidence fields to provide, see our guide to dispute types.
 
 <details><summary>Parameters</summary>
 
@@ -3571,7 +3600,8 @@ The identifier of the plan to be updated.
 
 ## update_platform_earning_refund
 
-Updates the specified application fee refund by setting the values of the parameters passed. Any parameters not provided will be left unchanged.This request only accepts metadata as an argument.
+Updates the specified application fee refund by setting the values of the parameters passed. Any parameters not provided will be left unchanged.
+This request only accepts metadata as an argument.
 
 <details><summary>Parameters</summary>
 
@@ -3631,7 +3661,8 @@ The identifier of the reader to be updated.
 
 ## update_product
 
-Updates the specific product by setting the values of the parameters passed. Any parameters not provided will be left unchanged.Note that a product’s attributes are not editable. Instead, you would need to deactivate the existing product and create a new one with the new attribute values.
+Updates the specific product by setting the values of the parameters passed. Any parameters not provided will be left unchanged.
+Note that a product’s attributes are not editable. Instead, you would need to deactivate the existing product and create a new one with the new attribute values.
 
 <details><summary>Parameters</summary>
 
@@ -3647,7 +3678,8 @@ Updates the specific product by setting the values of the parameters passed. Any
 
 ## update_refund
 
-Updates the specified refund by setting the values of the parameters passed. Any parameters not provided will be left unchanged.This request only accepts metadata as an argument.
+Updates the specified refund by setting the values of the parameters passed. Any parameters not provided will be left unchanged.
+This request only accepts metadata as an argument.
 
 <details><summary>Parameters</summary>
 
@@ -3663,7 +3695,8 @@ Updates the specified refund by setting the values of the parameters passed. Any
 
 ## update_sku
 
-Updates the specific SKU by setting the values of the parameters passed. Any parameters not provided will be left unchanged.Note that a SKU’s attributes are not editable. Instead, you would need to deactivate the existing SKU and create a new one with the new attribute values.
+Updates the specific SKU by setting the values of the parameters passed. Any parameters not provided will be left unchanged.
+Note that a SKU’s attributes are not editable. Instead, you would need to deactivate the existing SKU and create a new one with the new attribute values.
 
 <details><summary>Parameters</summary>
 
@@ -3679,7 +3712,8 @@ Updates the specific SKU by setting the values of the parameters passed. Any par
 
 ## update_source
 
-Updates the specified source by setting the values of the parameters passed. Any parameters not provided will be left unchanged.This request accepts the metadata and owner as arguments. It is also possible to update type specific information for selected payment methods. Please refer to our payment method guides for more detail.
+Updates the specified source by setting the values of the parameters passed. Any parameters not provided will be left unchanged.
+This request accepts the metadata and owner as arguments. It is also possible to update type specific information for selected payment methods. Please refer to our payment method guides for more detail.
 
 <details><summary>Parameters</summary>
 
@@ -3749,7 +3783,8 @@ The ID of the top-up to retrieve.
 
 ## update_transfer
 
-Updates the specified transfer by setting the values of the parameters passed. Any parameters not provided will be left unchanged.This request accepts only metadata as an argument.
+Updates the specified transfer by setting the values of the parameters passed. Any parameters not provided will be left unchanged.
+This request accepts only metadata as an argument.
 
 <details><summary>Parameters</summary>
 
@@ -3767,7 +3802,8 @@ The ID of the transfer to be updated.
 
 ## update_transfer_recipient
 
-Updates the specified recipient by setting the values of the parameters passed.Any parameters not provided will be left unchanged.If you update the name or tax ID, the identity verification will automatically be rerun.If you update the bank account, the bank account validation will automatically be rerun.
+Updates the specified recipient by setting the values of the parameters passed.Any parameters not provided will be left unchanged.
+If you update the name or tax ID, the identity verification will automatically be rerun.If you update the bank account, the bank account validation will automatically be rerun.
 
 <details><summary>Parameters</summary>
 
@@ -3783,7 +3819,8 @@ Updates the specified recipient by setting the values of the parameters passed.A
 
 ## update_transfer_reversal
 
-Updates the specified reversal by setting the values of the parameters passed. Any parameters not provided will be left unchanged.This request only accepts metadata and description as arguments.
+Updates the specified reversal by setting the values of the parameters passed. Any parameters not provided will be left unchanged.
+This request only accepts metadata and description as arguments.
 
 <details><summary>Parameters</summary>
 

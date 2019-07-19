@@ -35,7 +35,18 @@ Inserts one or more columns into the sheet specified in the URL. This operation 
 
 #### $body
 
-Column object or an array of Column objects, with the following attributes:titletypeindex (zero-based)autoNumberFormat (optional)description (optional)locked (optional)options (optional)symbol (optional)systemColumnType (optional)validation (optional)width (optional)
+Column object or an array of Column objects, with the following attributes:
+title
+type
+index (zero-based)
+autoNumberFormat (optional)
+description (optional)
+locked (optional)
+options (optional)
+symbol (optional)
+systemColumnType (optional)
+validation (optional)
+width (optional)
 
 **Type:** object
 
@@ -43,7 +54,9 @@ Column object or an array of Column objects, with the following attributes:title
 
 ## add_comment
 
-Adds a comment to a discussion. Creating a Comment without an Attachment Creating a Comment with an Attachment
+Adds a comment to a discussion. 
+Creating a Comment without an Attachment 
+Creating a Comment with an Attachment
 
 <details><summary>Parameters</summary>
 
@@ -57,7 +70,10 @@ Adds a comment to a discussion. Creating a Comment without an Attachment Creatin
 
 #### $body
 
-Comment object with the following attribute:text,Request body should contain parts with the following names:comment: JSON Comment object with the following attribute:textfile: (optional) file to attach to the new commentSee Multipart Uploads for more information on parts.
+Comment object with the following attribute:
+text,Request body should contain parts with the following names:
+comment: JSON Comment object with the following attribute:text
+file: (optional) file to attach to the new commentSee Multipart Uploads for more information on parts.
 
 **Type:** object
 
@@ -71,7 +87,9 @@ Adds one or more items to the user's list of favorite items. This operation supp
 
 #### $body
 
-Favorite object or an array of Favorite objects, with the following attributes:objectIdtype
+Favorite object or an array of Favorite objects, with the following attributes:
+objectId
+type
 
 **Type:** object
 
@@ -85,7 +103,8 @@ If true, allows bulk operations to process even if one or more operations are in
 
 ## add_group_members
 
-Adds one or more members to a group. If called with a single GroupMember object, and that group member already exists, error code 1129 is returned. If called with an array of GroupMember objects, any users specified in the array that are already group members are ignored and omitted from the response.
+Adds one or more members to a group. If called with a single GroupMember object, and that group member already exists, error code 1129 is returned. If called with an array
+of GroupMember objects, any users specified in the array that are already group members are ignored and omitted from the response.
 
 <details><summary>Parameters</summary>
 
@@ -95,7 +114,8 @@ Adds one or more members to a group. If called with a single GroupMember object,
 
 #### $body
 
-A single GroupMember object or an array of GroupMember objects, limited to the following attribute:email
+A single GroupMember object or an array of GroupMember objects, limited to the following attribute:
+email
 
 **Type:** object
 
@@ -149,7 +169,38 @@ Inserts one or more rows into the sheet specified in the URL. If you want to ins
 
 #### $body
 
-Row object or an array of Row objects, with the following attributes:One or more location-specifier attributes (optional)expanded (optional)format (optional)cells (optional) -- if specified, must be an array of Cell objects, where each object is limited to the following attributes:columnId (required)One of the following (required):formula: for cross-sheet formulas, you must first define a cross-sheet referencevalueWhen value is specifiedhyperlink (optional) with exactly one of the following attributes set:reportIdsheetIdurllinkInFromCell (optional) with all of the following attributes set:columnIdrowIdsheetIdstrict (optional)format (optional)image (optional) -- if specified, use to update alternate text where altText = string.overrideValidation (optional)locked (optional) - true to lock the row or false to unlock the row.See Column Types for more information.NOTE:Column Ids must be valid for the sheet to which the row belongs, and must only be used once for each row in the operation.Cells of a project sheet in the "Finish Date" column cannot be updated via API.Cells of a project sheet in the "Start Date" column cannot be updated via API for rows that contain a value in the "Predecessor" column.Max length for a cell value is 4000 characters after which truncation occurs without warning. Empty string values are converted to null.Calculation errors or problems with a formula do not cause the API call to return an error code. Instead, the response contains the same value as in the UI, such as cell.value = "#CIRCULAR REFERENCE".
+Row object or an array of Row objects, with the following attributes:
+
+One or more location-specifier attributes (optional)
+expanded (optional)
+format (optional)
+cells (optional) -- if specified, must be an array of Cell objects, where each object is limited to the following attributes:
+columnId (required)
+One of the following (required):
+formula: for cross-sheet formulas, you must first define a cross-sheet reference
+value
+When value is specified
+hyperlink (optional) with exactly one of the following attributes set:
+reportId
+sheetId
+url
+linkInFromCell (optional) with all of the following attributes set:
+columnId
+rowId
+sheetId
+strict (optional)
+format (optional)
+image (optional) -- if specified, use to update alternate text where altText = string.
+overrideValidation (optional)
+locked (optional) - true to lock the row or false to unlock the row.See Column Types for more information.
+
+NOTE:
+Column Ids must be valid for the sheet to which the row belongs, and must only be used once for each row in the operation.
+Cells of a project sheet in the "Finish Date" column cannot be updated via API.
+Cells of a project sheet in the "Start Date" column cannot be updated via API for rows that contain a value in the "Predecessor" column.
+Max length for a cell value is 4000 characters after which truncation occurs without warning. Empty string values are converted to null.
+Calculation errors or problems with a formula do not cause the API call to return an error code. Instead, the response contains the same value as in the UI, such as cell.value = "#CIRCULAR REFERENCE". 
+
 
 **Type:** object
 
@@ -169,7 +220,14 @@ Adds a user to the organization account.
 
 #### $body
 
-User object with the following attributes:admin (required)email (required)licensedSheetCreator (required)firstName (optional)lastName (optional)groupAdmin (optional)resourceViewer (optional)
+User object with the following attributes:
+admin (required)
+email (required)
+licensedSheetCreator (required)
+firstName (optional)
+lastName (optional)
+groupAdmin (optional)
+resourceViewer (optional)
 
 **Type:** object
 
@@ -217,7 +275,12 @@ Attaches a URL to the comment. The URL can be any of the following:
 
 #### $body
 
-Attachment object limited to the following attributes:attachmentSubTypeattachmentTypedescription (applicable when attaching to sheet or row only)nameurl
+Attachment object limited to the following attributes:
+attachmentSubType
+attachmentType
+description (applicable when attaching to sheet or row only)
+name
+url
 
 **Type:** object
 
@@ -239,7 +302,12 @@ Attaches a URL to the row. The URL can be any of the following:
 
 #### $body
 
-Attachment object limited to the following attributes:attachmentSubTypeattachmentTypedescription (applicable when attaching to sheet or row only)nameurl
+Attachment object limited to the following attributes:
+attachmentSubType
+attachmentType
+description (applicable when attaching to sheet or row only)
+name
+url
 
 **Type:** object
 
@@ -257,7 +325,12 @@ Attaches a URL to the sheet. The URL can be any of the following:
 
 #### $body
 
-Attachment object limited to the following attributes:attachmentSubTypeattachmentTypedescription (applicable when attaching to sheet or row only)nameurl
+Attachment object limited to the following attributes:
+attachmentSubType
+attachmentType
+description (applicable when attaching to sheet or row only)
+name
+url
 
 **Type:** object
 
@@ -279,7 +352,17 @@ Changes the specified update request for the sheet.
 
 #### $body
 
-UpdateRequest object.The UpdateRequest object in the request body must specify one or more of the following attributes:ccMe: BooleancolumnIds: number[]includeAttachments: BooleanincludeDiscussions: Booleanmessage: stringschedule: Schedule objectsendTo: Recipient[]subject: string
+UpdateRequest object.
+
+The UpdateRequest object in the request body must specify one or more of the following attributes:
+ccMe: Boolean
+columnIds: number[]
+includeAttachments: Boolean
+includeDiscussions: Boolean
+message: string
+schedule: Schedule object
+sendTo: Recipient[]
+subject: string
 
 **Type:** object
 
@@ -405,7 +488,8 @@ Creates a copy of the specified workspace.
 
 #### $body
 
-ContainerDestination object, limited to the following attribute:newName (string) - required
+ContainerDestination object, limited to the following attribute:
+newName (string) - required
 
 **Type:** object
 
@@ -435,7 +519,10 @@ Adds a cross-sheet reference between two sheets and defines the data range for f
 
 #### $body
 
-CrossSheetReference object with the following attributes:sourceSheetId: sheetId for data sourceEither two or all of the following:endColumnId: Defines ending edge of range when specifying one or more columns. Must be used with startColumnId.endRowId: Defines ending edge of range when specifying one or more rows. Must be used with startRowId.startColumnId: Defines beginning edge of range when specifying one or more columns. Must be used with endColumnId.startRowId: Defines beginning edge of range when specifying one or more rows. Must be used with endRowId.name (optional): unique name for reference. If you omit this parameter, Smartsheet will autogenerate a name.
+CrossSheetReference object with the following attributes:
+sourceSheetId: sheetId for data source
+Either two or all of the following:endColumnId: Defines ending edge of range when specifying one or more columns. Must be used with startColumnId.endRowId: Defines ending edge of range when specifying one or more rows. Must be used with startRowId.startColumnId: Defines beginning edge of range when specifying one or more columns. Must be used with endColumnId.startRowId: Defines beginning edge of range when specifying one or more rows. Must be used with endRowId.
+name (optional): unique name for reference. If you omit this parameter, Smartsheet will autogenerate a name.
 
 **Type:** object
 
@@ -443,7 +530,9 @@ CrossSheetReference object with the following attributes:sourceSheetId: sheetId 
 
 ## create_discussion_on_row
 
-Creates a new discussion on a row. Creating a Discussion without an Attachment Creating a Discussion with an Attachment
+Creates a new discussion on a row. 
+Creating a Discussion without an Attachment 
+Creating a Discussion with an Attachment
 
 <details><summary>Parameters</summary>
 
@@ -457,7 +546,10 @@ Creates a new discussion on a row. Creating a Discussion without an Attachment C
 
 #### $body
 
-Discussion object with the following attribute:comment (Comment object),Request body should contain parts with the following names:discussion: JSON Discussion object with the following attributes:title (string), must be 100 characters in length or lesscomment (Comment object)file: (optional) file to attach to the new commentSee Multipart Uploads for more information on parts.
+Discussion object with the following attribute:
+comment (Comment object),Request body should contain parts with the following names:
+discussion: JSON Discussion object with the following attributes:title (string), must be 100 characters in length or lesscomment (Comment object)
+file: (optional) file to attach to the new commentSee Multipart Uploads for more information on parts.
 
 **Type:** object
 
@@ -465,7 +557,9 @@ Discussion object with the following attribute:comment (Comment object),Request 
 
 ## create_discussion_on_sheet
 
-Creates a new discussion on a sheet. Creating a Discussion without an Attachment Creating a Discussion with an Attachment
+Creates a new discussion on a sheet. 
+Creating a Discussion without an Attachment 
+Creating a Discussion with an Attachment
 
 <details><summary>Parameters</summary>
 
@@ -475,7 +569,10 @@ Creates a new discussion on a sheet. Creating a Discussion without an Attachment
 
 #### $body
 
-Discussion object with the following attribute:comment (Comment object),Request body should contain parts with the following names:discussion: JSON Discussion object with the following attributes:title (string), must be 100 characters in length or lesscomment (Comment object)file: (optional) file to attach to the new commentSee Multipart Uploads for more information on parts.
+Discussion object with the following attribute:
+comment (Comment object),Request body should contain parts with the following names:
+discussion: JSON Discussion object with the following attributes:title (string), must be 100 characters in length or lesscomment (Comment object)
+file: (optional) file to attach to the new commentSee Multipart Uploads for more information on parts.
 
 **Type:** object
 
@@ -489,7 +586,8 @@ Creates a folder in the user's Sheets folder (Home).
 
 #### $body
 
-Folder object, limited to the following attribute:name (string) - required, does not have to be unique
+Folder object, limited to the following attribute:
+name (string) - required, does not have to be unique
 
 **Type:** object
 
@@ -507,7 +605,8 @@ Creates a folder in the specified folder.
 
 #### $body
 
-Folder object, limited to the following attribute:name (string) - required, does not have to be unique
+Folder object, limited to the following attribute:
+name (string) - required, does not have to be unique
 
 **Type:** object
 
@@ -525,7 +624,8 @@ Creates a folder in the specified workspace.
 
 #### $body
 
-Folder object, limited to the following attribute:name (string) - required, does not have to be unique
+Folder object, limited to the following attribute:
+name (string) - required, does not have to be unique
 
 **Type:** object
 
@@ -539,7 +639,10 @@ Creates a new group.
 
 #### $body
 
-Group object, limited to the following attributes:name (required) -- must be unique within the organization accountdescription (optional)members (optional) -- array of GroupMember objects, each limited to the following attribute:email
+Group object, limited to the following attributes:
+name (required) -- must be unique within the organization account
+description (optional)
+members (optional) -- array of GroupMember objects, each limited to the following attribute:email
 
 **Type:** object
 
@@ -557,7 +660,9 @@ Creates a sheet in the specified folder, from the specified template.
 
 #### $body
 
-Sheet object, limited to the following attributes:fromId (required) - the Id of the template from which to create the sheetname (required) - does not have to be unique
+Sheet object, limited to the following attributes:
+fromId (required) - the Id of the template from which to create the sheet
+name (required) - does not have to be unique
 
 **Type:** object
 
@@ -577,7 +682,9 @@ Creates a sheet in the user's Sheets folder (Home), from the specified template.
 
 #### $body
 
-Sheet object, limited to the following attributes:fromId (required) - the Id of the template from which to create the sheetname (required) - does not have to be unique
+Sheet object, limited to the following attributes:
+fromId (required) - the Id of the template from which to create the sheet
+name (required) - does not have to be unique
 
 **Type:** object
 
@@ -601,7 +708,9 @@ Creates a sheet at the top-level of the specified workspace, from the specified 
 
 #### $body
 
-Sheet object, limited to the following attributes:fromId (required) - the Id of the template from which to create the sheetname (required) - does not have to be unique
+Sheet object, limited to the following attributes:
+fromId (required) - the Id of the template from which to create the sheet
+name (required) - does not have to be unique
 
 **Type:** object
 
@@ -625,7 +734,15 @@ Creates an update request for the specified rows within the sheet. An email noti
 
 #### $body
 
-UpdateRequest object.The UpdateRequest object in the request body must specify one or more of the following attributes:rowIds: number[]sendTo: Recipient[]One or more of the followings:columnIds: number[]includeAttachments: trueincludeDiscussions: trueThe following attributes have the following values when not specified:ccMe: falsemessage: Please update the following rows in my online sheet.subject: Update Request: {Sheet Name}When the Schedule object is not specified, the request is sent to the recipients immediately.
+UpdateRequest object.
+
+The UpdateRequest object in the request body must specify one or more of the following attributes:
+rowIds: number[]
+sendTo: Recipient[]
+One or more of the followings:columnIds: number[]includeAttachments: trueincludeDiscussions: trueThe following attributes have the following values when not specified:
+ccMe: false
+message: Please update the following rows in my online sheet.
+subject: Update Request: {Sheet Name}When the Schedule object is not specified, the request is sent to the recipients immediately.
 
 **Type:** object
 
@@ -645,7 +762,13 @@ Creates a new webhook.
 
 #### $body
 
-Webhook object, limited to the following attributes:callbackUrl (required)events (required)name (required)scope (required)scopeObjectId (required)version (required)
+Webhook object, limited to the following attributes:
+callbackUrl (required)
+events (required)
+name (required)
+scope (required)
+scopeObjectId (required)
+version (required)
 
 **Type:** object
 
@@ -659,7 +782,8 @@ Creates a workspace.
 
 #### $body
 
-Workspace object, limited to the following attribute:name (string) - required
+Workspace object, limited to the following attribute:
+name (string) - required
 
 **Type:** object
 
@@ -977,7 +1101,8 @@ Updates the text of a comment. NOTE: Only the user that created the comment is p
 
 #### $body
 
-Comment object with the following attribute:text
+Comment object with the following attribute:
+text
 
 **Type:** object
 
@@ -1981,7 +2106,15 @@ Gets a list of URLs that can be used to retrieve the specified cell images. To r
 
 #### $body
 
-Array of ImageUrl objects, with the following attributes:imageId (required)height (optional)width (optional)Each image in the response is sized according to which dimensions were specified by the request:If neither height nor width is specified, the image is returned in its original size.If both height and width are specified, image is sized using those measurements.If either height or width is specified (that is, one or the other -- not both), the image is automatically scaled using that measurement.Additionally, the following rules apply:If the requested image size is less than or equal to the actual image size, the returned image size matches the requested size.If the requested image size is larger than the actual image size, the returned image size matches the actual image size.
+Array of ImageUrl objects, with the following attributes:
+imageId (required)
+height (optional)
+width (optional)Each image in the response is sized according to which dimensions were specified by the request:
+If neither height nor width is specified, the image is returned in its original size.
+If both height and width are specified, image is sized using those measurements.
+If either height or width is specified (that is, one or the other -- not both), the image is automatically scaled using that measurement.Additionally, the following rules apply:
+If the requested image size is less than or equal to the actual image size, the returned image size matches the requested size.
+If the requested image size is larger than the actual image size, the returned image size matches the actual image size.
 
 **Type:** object
 
@@ -2287,7 +2420,9 @@ If true, includes all results.
 
 ## list_webhooks
 
-Gets the list of all webhooks that the user owns (if a user-generated token was used to make the request) or the list of all webhooks associated with the third-party app (if a third-party app made the request). Items in the response are ordered by API cient name &gt; webhook name &gt; creation date.
+Gets the list of all webhooks that the user owns (if a user-generated token was used to make the request) 
+or the list of all webhooks associated with the third-party app (if a third-party app made the request). 
+Items in the response are ordered by API cient name &gt; webhook name &gt; creation date.
 
 <details><summary>Parameters</summary>
 
@@ -2365,7 +2500,9 @@ Moves the specified folder to another location.
 
 #### $body
 
-ContainerDestination object, limited to the following required attributes:destinationIddestinationType
+ContainerDestination object, limited to the following required attributes:
+destinationId
+destinationType
 
 **Type:** object
 
@@ -2413,7 +2550,9 @@ Moves the specified sheet to a new location.
 
 #### $body
 
-ContainerDestination object, limited to the following required attributes:destinationIddestinationType
+ContainerDestination object, limited to the following required attributes:
+destinationId
+destinationType
 
 **Type:** object
 
@@ -2431,7 +2570,9 @@ Moves the specified Sight to a new location.
 
 #### $body
 
-ContainerDestination object, limited to the following required attributes:destinationIddestinationType
+ContainerDestination object, limited to the following required attributes:
+destinationId
+destinationType
 
 **Type:** object
 
@@ -2781,7 +2922,12 @@ Sends one or more rows via email.
 
 #### $body
 
-MultiRowEmail object. The columns included for each row in the email are populated according to the following rules:If the columnIds attribute of the MultiRowEmail object is specified as an array of column Ids, those specific columns are included.If the columnIds attribute of the MultiRowEmail object is omitted, all columns except hidden columns shall be included.If the columnIds attribute of the MultiRowEmail object is specified as empty, no columns shall be included. (NOTE: In this case, either includeAttachments=true or includeDiscussions=true must be specified.)
+MultiRowEmail object. 
+
+The columns included for each row in the email are populated according to the following rules:
+If the columnIds attribute of the MultiRowEmail object is specified as an array of column Ids, those specific columns are included.
+If the columnIds attribute of the MultiRowEmail object is omitted, all columns except hidden columns shall be included.
+If the columnIds attribute of the MultiRowEmail object is specified as empty, no columns shall be included. (NOTE: In this case, either includeAttachments=true or includeDiscussions=true must be specified.)
 
 **Type:** object
 
@@ -2853,7 +2999,9 @@ Publishes or unpublishes a Sight.
 
 #### $body
 
-SightPublish object limited to the following attributes:readOnlyFullEnabled (required)readOnlyFullAccessibleBy (optional) - set to either ALL or ORG, when readOnlyFullEnabled=true.To publish the Sight, set readOnlyFullEnabled to true. To unpublish the Sight, set readOnlyFullEnabled to false.
+SightPublish object limited to the following attributes:
+readOnlyFullEnabled (required)
+readOnlyFullAccessibleBy (optional) - set to either ALL or ORG, when readOnlyFullEnabled=true.To publish the Sight, set readOnlyFullEnabled to true. To unpublish the Sight, set readOnlyFullEnabled to false.
 
 **Type:** object
 
@@ -2871,7 +3019,13 @@ Shares a report with the specified users and groups. If called with a single Sha
 
 #### $body
 
-Share object or an array of Share objects, with the following attributes:accessLevel (required)ccMe (optional): Boolean flag to indicate whether or not to CC the user sharing the sheet.email (optional): the individual share recipient's email addressgroupId (optional): the group share recipient's group Idmessage (optional): The message in the body of the email that is optionally sent to the recipient.subject (optional): The subject of the email that is optionally sent to notify the recipient.NOTE: One of email or groupId must be specified, but not both.
+Share object or an array of Share objects, with the following attributes:
+accessLevel (required)
+ccMe (optional): Boolean flag to indicate whether or not to CC the user sharing the sheet.
+email (optional): the individual share recipient's email address
+groupId (optional): the group share recipient's group Id
+message (optional): The message in the body of the email that is optionally sent to the recipient.
+subject (optional): The subject of the email that is optionally sent to notify the recipient.NOTE: One of email or groupId must be specified, but not both.
 
 **Type:** object
 
@@ -2895,7 +3049,13 @@ Shares a sheet with the specified users and groups. If called with a single Shar
 
 #### $body
 
-Share object or an array of Share objects, with the following attributes:accessLevel (required)ccMe (optional): Boolean flag to indicate whether or not to CC the user sharing the sheet.email (optional): the individual share recipient's email addressgroupId (optional): the group share recipient's group Idmessage (optional): The message in the body of the email that is optionally sent to the recipient.subject (optional): The subject of the email that is optionally sent to notify the recipient.NOTE: One of email or groupId must be specified, but not both.
+Share object or an array of Share objects, with the following attributes:
+accessLevel (required)
+ccMe (optional): Boolean flag to indicate whether or not to CC the user sharing the sheet.
+email (optional): the individual share recipient's email address
+groupId (optional): the group share recipient's group Id
+message (optional): The message in the body of the email that is optionally sent to the recipient.
+subject (optional): The subject of the email that is optionally sent to notify the recipient.NOTE: One of email or groupId must be specified, but not both.
 
 **Type:** object
 
@@ -2919,7 +3079,13 @@ Shares a Sight with the specified users and groups. If called with a single Shar
 
 #### $body
 
-Share object or an array of Share objects, with the following attributes:accessLevel (required)ccMe (optional): Boolean flag to indicate whether to CC the user sharing the sheet.email (optional): the individual share recipient's email addressgroupId (optional): the group share recipient's group Idmessage (optional): The message in the body of the email that is optionally sent to the recipient.subject (optional): The subject of the email that is optionally sent to notify the recipient.NOTE: One of email or groupId must be specified, but not both.
+Share object or an array of Share objects, with the following attributes:
+accessLevel (required)
+ccMe (optional): Boolean flag to indicate whether to CC the user sharing the sheet.
+email (optional): the individual share recipient's email address
+groupId (optional): the group share recipient's group Id
+message (optional): The message in the body of the email that is optionally sent to the recipient.
+subject (optional): The subject of the email that is optionally sent to notify the recipient.NOTE: One of email or groupId must be specified, but not both.
 
 **Type:** object
 
@@ -2943,7 +3109,13 @@ Shares a workspace with the specified users and groups. If called with a single 
 
 #### $body
 
-Share object or an array of Share objects, with the following attributes:accessLevel (required)ccMe (optional): Boolean that indicates whether to CC the user sharing the sheet.email (optional): the individual share recipient's email addressgroupId (optional): the group share recipient's group Idmessage (optional): The message in the body of the email that is optionally sent to the recipient.subject (optional): The subject of the email that is optionally sent to notify the recipient.NOTE: One of email or groupId must be specified, but not both.
+Share object or an array of Share objects, with the following attributes:
+accessLevel (required)
+ccMe (optional): Boolean that indicates whether to CC the user sharing the sheet.
+email (optional): the individual share recipient's email address
+groupId (optional): the group share recipient's group Id
+message (optional): The message in the body of the email that is optionally sent to the recipient.
+subject (optional): The subject of the email that is optionally sent to notify the recipient.NOTE: One of email or groupId must be specified, but not both.
 
 **Type:** object
 
@@ -2967,7 +3139,8 @@ Sorts the rows of a sheet, either in ascending or descending order.
 
 #### $body
 
-SortSpecifier with the following attribute:sortCriteria -- SortCriterion array in priority order. Specifies sort order.
+SortSpecifier with the following attribute:
+sortCriteria -- SortCriterion array in priority order. Specifies sort order.
 
 **Type:** object
 
@@ -3071,7 +3244,8 @@ Updates the folder specified in the URL.
 
 #### $body
 
-Folder object, limited to the following required attribute:name (string)Name does not have to be unique.
+Folder object, limited to the following required attribute:
+name (string)Name does not have to be unique.
 
 **Type:** object
 
@@ -3089,7 +3263,10 @@ Updates the Group specified in the URL.
 
 #### $body
 
-Group object, limited to the following attributes:description (optional)name (optional) -- must be unique within the organization accountownerId (optional): Id of an admin user to whom the group ownership is transferred
+Group object, limited to the following attributes:
+description (optional)
+name (optional) -- must be unique within the organization account
+ownerId (optional): Id of an admin user to whom the group ownership is transferred
 
 **Type:** object
 
@@ -3111,7 +3288,8 @@ Updates the access level of a user or group for the specified report.
 
 #### $body
 
-Share object limited to the following attribute:accessLevel (string)
+Share object limited to the following attribute:
+accessLevel (string)
 
 **Type:** object
 
@@ -3129,7 +3307,39 @@ Updates cell values in the specified rows, expands/collapses the specified rows,
 
 #### $body
 
-Row object or an array of Row objects, with the following attributes:id (required)One or more location-specifier attributes (optional)expanded (optional)format (optional)cells (optional) -- if specified, must be an array of Cell objects, where each object is limited to the following attributes:columnId (required)One of the following (required):formula: for cross-sheet formulas, you must first define a cross-sheet referencevalueWhen value is specifiedhyperlink (optional) with exactly one of the following attributes set:reportIdsheetIdurllinkInFromCell (optional) with all of the following attributes set:columnIdrowIdsheetIdstrict (optional)format (optional)image (optional) -- if specified, use to update alternate text where altText = string.overrideValidation (optional)locked (optional) - true to lock the row or false to unlock the row.See Column Types for more information.NOTE:Column Ids must be valid for the sheet to which the row belongs, and must only be used once for each row in the operation.Cells of a project sheet in the "Finish Date" column cannot be updated via API.Cells of a project sheet in the "Start Date" column cannot be updated via API for rows that contain a value in the "Predecessor" column.Max length for a cell value is 4000 characters after which truncation occurs without warning. Empty string values are converted to null.Calculation errors or problems with a formula do not cause the API call to return an error code. Instead, the response contains the same value as in the UI, such as cell.value = "#CIRCULAR REFERENCE".
+Row object or an array of Row objects, with the following attributes:
+id (required)
+
+One or more location-specifier attributes (optional)
+expanded (optional)
+format (optional)
+cells (optional) -- if specified, must be an array of Cell objects, where each object is limited to the following attributes:
+columnId (required)
+One of the following (required):
+formula: for cross-sheet formulas, you must first define a cross-sheet reference
+value
+When value is specified
+hyperlink (optional) with exactly one of the following attributes set:
+reportId
+sheetId
+url
+linkInFromCell (optional) with all of the following attributes set:
+columnId
+rowId
+sheetId
+strict (optional)
+format (optional)
+image (optional) -- if specified, use to update alternate text where altText = string.
+overrideValidation (optional)
+locked (optional) - true to lock the row or false to unlock the row.See Column Types for more information.
+
+NOTE:
+Column Ids must be valid for the sheet to which the row belongs, and must only be used once for each row in the operation.
+Cells of a project sheet in the "Finish Date" column cannot be updated via API.
+Cells of a project sheet in the "Start Date" column cannot be updated via API for rows that contain a value in the "Predecessor" column.
+Max length for a cell value is 4000 characters after which truncation occurs without warning. Empty string values are converted to null.
+Calculation errors or problems with a formula do not cause the API call to return an error code. Instead, the response contains the same value as in the UI, such as cell.value = "#CIRCULAR REFERENCE". 
+
 
 **Type:** object
 
@@ -3149,7 +3359,8 @@ You may use the query string parameter overrideValidation with a value of true t
 
 ## update_sheet
 
-Updates the sheet specified in the URL. To modify sheet contents, see Add Rows, Update Rows, Add Columns, and Update Column. This operation can be used to update an individual user's sheet settings. If the request body contains only the userSettings attribute, this operation may be performed even if the user only has read-only access to the sheet (for example, the user has viewer permissions or the sheet is read-only).
+Updates the sheet specified in the URL. To modify sheet contents, see Add Rows, Update Rows, Add Columns, and Update Column. This operation can be used to update an individual user's sheet settings.  If the request body contains only the userSettings attribute, this operation may be performed even if the user
+only has read-only access to the sheet (for example, the user has viewer permissions or the sheet is read-only).
 
 <details><summary>Parameters</summary>
 
@@ -3159,7 +3370,12 @@ Updates the sheet specified in the URL. To modify sheet contents, see Add Rows, 
 
 #### $body
 
-Sheet object limited to the following attributes:name (optional)projectSettings (optional): ProjectSettings object, containing at least one of the projectSettings attributes, for updating this sheet's project settings and dependencies.userSettings (optional): SheetUserSettings object for updating these user's settings for the sheetNOTE:Attributes not specified in projectSettings are not updated.If projectSettings.nonWorkingDays is specified as an empty array, all non-working days are removed from the project sheet.
+Sheet object limited to the following attributes:
+name (optional)
+projectSettings (optional): ProjectSettings object, containing at least one of the projectSettings attributes, for updating this sheet's project settings and dependencies.
+userSettings (optional): SheetUserSettings object for updating these user's settings for the sheetNOTE:
+Attributes not specified in projectSettings are not updated.
+If projectSettings.nonWorkingDays is specified as an empty array, all non-working days are removed from the project sheet.
 
 **Type:** object
 
@@ -3181,7 +3397,8 @@ Updates the access level of a user or group for the specified sheet.
 
 #### $body
 
-Share object limited to the following attribute:accessLevel (string)
+Share object limited to the following attribute:
+accessLevel (string)
 
 **Type:** object
 
@@ -3199,7 +3416,8 @@ Updates (renames) the specified Sight.
 
 #### $body
 
-Sight object limited to the following attribute:name (string)
+Sight object limited to the following attribute:
+name (string)
 
 **Type:** object
 
@@ -3221,7 +3439,8 @@ Updates the access level of a user or group for the specified Sight.
 
 #### $body
 
-Share object limited to the following attribute:accessLevel (string)
+Share object limited to the following attribute:
+accessLevel (string)
 
 **Type:** object
 
@@ -3239,7 +3458,13 @@ Updates the user specified in the URL.
 
 #### $body
 
-User object containing at least one of the following attributes:admin (required)licensedSheetCreator (required)firstName (optional)groupAdmin (optional)lastName (optional)resourceViewer (optional)
+User object containing at least one of the following attributes:
+admin (required)
+licensedSheetCreator (required)
+firstName (optional)
+groupAdmin (optional)
+lastName (optional)
+resourceViewer (optional)
 
 **Type:** object
 
@@ -3273,7 +3498,12 @@ Updates the webhook specified in the URL.
 
 #### $body
 
-Webhook object, limited to the following attributes:callbackUrl (optional)enabled (optional)events (optional)name (optional)version (optional)
+Webhook object, limited to the following attributes:
+callbackUrl (optional)
+enabled (optional)
+events (optional)
+name (optional)
+version (optional)
 
 **Type:** object
 
@@ -3291,7 +3521,8 @@ Updates the workspace specified in the URL.
 
 #### $body
 
-Workspace object limited to the following attribute:name (string)
+Workspace object limited to the following attribute:
+name (string)
 
 **Type:** object
 
@@ -3313,7 +3544,8 @@ Updates the access level of a user or group for the specified workspace.
 
 #### $body
 
-Share object limited to the following attribute:accessLevel (string)
+Share object limited to the following attribute:
+accessLevel (string)
 
 **Type:** object
 

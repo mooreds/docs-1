@@ -121,7 +121,8 @@ Available to use for quota purposes for server-side applications. Can be any arb
 
 #### target
 
-The language to use to return localized, human readable names of supported languages.
+The language to use to return localized, human readable names of supported
+languages.
 
 **Type:** string
 

@@ -1289,7 +1289,17 @@ Filter files created before this timestamp (inclusive).
 
 #### types
 
-Filter files by type: * `all` - All files * `spaces` - Posts * `snippets` - Snippets * `images` - Image files * `gdocs` - Google docs * `zips` - Zip files * `pdfs` - PDF files You can pass multiple values in the types argument, like `types=spaces,snippets`.The default value is `all`, which does not filter the list.
+Filter files by type:
+
+* `all` - All files
+* `spaces` - Posts
+* `snippets` - Snippets
+* `images` - Image files
+* `gdocs` - Google docs
+* `zips` - Zip files
+* `pdfs` - PDF files
+
+You can pass multiple values in the types argument, like `types=spaces,snippets`.The default value is `all`, which does not filter the list.
 
 **Type:** string
 

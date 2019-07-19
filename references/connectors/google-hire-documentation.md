@@ -195,7 +195,11 @@ The name of the tenant. If there is only one tenant, the value "my_tenant" can b
 
 #### filter
 
-Optional filter on applications fields. Attempts to query with an unrecognized filter dimension will result in an INVALID_ARGUMENT error. Supported querying are as follows: status.state=[Application.Status.State] status.update_time&gt;=[RFS 3339 formatted Timestamp] For filtering on multiple fields, we only support AND operations. Sample Query: status.state=ACTIVE AND status.update_time&gt;="2018-01-02T06:23:10.843Z"
+Optional filter on applications fields. Attempts to query with an unrecognized filter dimension will result in an INVALID_ARGUMENT error. Supported querying are as follows:
+  status.state=[Application.Status.State]
+  status.update_time&gt;=[RFS 3339 formatted Timestamp]
+For filtering on multiple fields, we only support AND operations. Sample Query:
+  status.state=ACTIVE AND status.update_time&gt;="2018-01-02T06:23:10.843Z"
 
 **Type:** string
 
@@ -215,7 +219,10 @@ The name of the tenant. If there is only one tenant, the value "my_tenant" can b
 
 #### filter
 
-Optional filter on candidate fields. Supported dimensions for querying are as follows: applications.status.state=[Application.Status.State] Attempts to query with an unrecognized filter dimension will result in an INVALID_ARGUMENT error. Sample Query: applications.status.state=ACCEPTED
+Optional filter on candidate fields. Supported dimensions for querying are as follows:
+  applications.status.state=[Application.Status.State]
+Attempts to query with an unrecognized filter dimension will result in an INVALID_ARGUMENT error. Sample Query:
+  applications.status.state=ACCEPTED
 
 **Type:** string
 
@@ -235,7 +242,10 @@ The name of the tenant. If there is only one tenant, the value "my_tenant" can b
 
 #### filter
 
-Optional filter on custom field spec. Attempts to query with an unrecognized filter dimension will result in an INVALID_ARGUMENT error. Supported querying are as follows: objectTypes[]=[CustomFieldSpec.ObjectType] Sample Query: objectTypes[]=JOB
+Optional filter on custom field spec. Attempts to query with an unrecognized filter dimension will result in an INVALID_ARGUMENT error. Supported querying are as follows:
+  objectTypes[]=[CustomFieldSpec.ObjectType]
+Sample Query:
+  objectTypes[]=JOB
 
 **Type:** string
 
@@ -255,7 +265,10 @@ The name of the tenant. If there is only one tenant, the value "my_tenant" can b
 
 #### filter
 
-Optional.Supported dimensions for querying are as follows: state=[Job.State] Attempts to query with an unrecognized filter dimension will result in an INVALID_ARGUMENT error. Sample Query: state=OPEN
+Optional.Supported dimensions for querying are as follows:
+  state=[Job.State]
+Attempts to query with an unrecognized filter dimension will result in an INVALID_ARGUMENT error. Sample Query:
+  state=OPEN
 
 **Type:** string
 

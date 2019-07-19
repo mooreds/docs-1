@@ -65,13 +65,19 @@ Upload protocol for media (e.g. "raw", "multipart").
 
 ## async_batch_annotate_files
 
-Run asynchronous image detection and annotation for a list of generic files, such as PDF files, which may contain multiple pages and multiple images per page. Progress and results can be retrieved through the `google.longrunning.Operations` interface. `Operation.metadata` contains `OperationMetadata` (metadata). `Operation.response` contains `AsyncBatchAnnotateFilesResponse` (results).
+Run asynchronous image detection and annotation for a list of generic
+files, such as PDF files, which may contain multiple pages and multiple
+images per page. Progress and results can be retrieved through the
+`google.longrunning.Operations` interface.
+`Operation.metadata` contains `OperationMetadata` (metadata).
+`Operation.response` contains `AsyncBatchAnnotateFilesResponse` (results).
 
 <details><summary>Parameters</summary>
 
 #### $body
 
-Multiple async file annotation requests are batched into a single service call.
+Multiple async file annotation requests are batched into a single service
+call.
 
 **Type:** object
 
@@ -123,13 +129,19 @@ Upload protocol for media (e.g. "raw", "multipart").
 
 ## async_batch_annotate_images
 
-Run asynchronous image detection and annotation for a list of generic files, such as PDF files, which may contain multiple pages and multiple images per page. Progress and results can be retrieved through the `google.longrunning.Operations` interface. `Operation.metadata` contains `OperationMetadata` (metadata). `Operation.response` contains `AsyncBatchAnnotateImagesResponse` (results).
+Run asynchronous image detection and annotation for a list of generic
+files, such as PDF files, which may contain multiple pages and multiple
+images per page. Progress and results can be retrieved through the
+`google.longrunning.Operations` interface.
+`Operation.metadata` contains `OperationMetadata` (metadata).
+`Operation.response` contains `AsyncBatchAnnotateImagesResponse` (results).
 
 <details><summary>Parameters</summary>
 
 #### $body
 
-Multiple async image annotation requests are batched into a single service call.
+Multiple async image annotation requests are batched into a single service
+call.
 
 **Type:** object
 
@@ -181,7 +193,16 @@ Upload protocol for media (e.g. "raw", "multipart").
 
 ## cancel_operation
 
-Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
+Starts asynchronous cancellation on a long-running operation.  The server
+makes a best effort to cancel the operation, but success is not
+guaranteed.  If the server doesn't support this method, it returns
+`google.rpc.Code.UNIMPLEMENTED`.  Clients can use
+Operations.GetOperation or
+other methods to check whether the cancellation succeeded or whether the
+operation completed despite cancellation. On successful cancellation,
+the operation is not deleted; instead, it becomes an operation with
+an Operation.error value with a google.rpc.Status.code of 1,
+corresponding to `Code.CANCELLED`.
 
 <details><summary>Parameters</summary>
 
@@ -251,7 +272,10 @@ Upload protocol for media (e.g. "raw", "multipart").
 
 ## delete_operation
 
-Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
+Deletes a long-running operation. This method indicates that the client is
+no longer interested in the operation result. It does not cancel the
+operation. If the server doesn't support this method, it returns
+`google.rpc.Code.UNIMPLEMENTED`.
 
 <details><summary>Parameters</summary>
 
@@ -309,7 +333,9 @@ Upload protocol for media (e.g. "raw", "multipart").
 
 ## get_operation
 
-Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.
+Gets the latest state of a long-running operation.  Clients can use this
+method to poll the operation result at intervals as recommended by the API
+service.
 
 <details><summary>Parameters</summary>
 

@@ -437,7 +437,8 @@ Boolean "true" or "false" to indicate whether current list memberships should be
 
 ## get_contact_by_utk
 
-For a given account, return information about a single contact by its user token, stored in the hubspotutk cookie. This cookie is created automatically by the HubSpot tracking code. This method will also return you much of the HubSpot lead "intelligence" for each requested contact record. The endpoint accepts many query parameters that allow for customization based on a variety of integration use cases.
+For a given account, return information about a single contact by its user token, stored in the hubspotutk cookie. This cookie is created automatically by the HubSpot tracking code.
+This method will also return you much of the HubSpot lead "intelligence" for each requested contact record. The endpoint accepts many query parameters that allow for customization based on a variety of integration use cases.
 
 <details><summary>Parameters</summary>
 

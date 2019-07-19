@@ -27,7 +27,13 @@ Creates a post for user.
 
 ## create_publication_post
 
-creating a post and associating it with a publication on Medium. The request also shows this association, considering posts a collection of resources under a publication There are additional rules around publishing that each request to this API must respect: - If the authenticated user is an 'editor' for the publication, they can create posts with any publish status. Posts published as 'public' or 'unlisted' will appear in collection immediately, while posts created as 'draft' will remain in pending state under publication. - If the authenticated user is a 'writer' for the chosen publication, they can only create a post as a 'draft'. That post will remain in pending state under publication until an editor for the publication approves it. - If the authenticated user is neither a 'writer' nor an 'editor', they are not allowed to create any posts in a publication.
+creating a post and associating it with a publication on Medium. The request also shows this association, considering posts a collection of resources under a publication
+
+There are additional rules around publishing that each request to this API must respect:
+  - If the authenticated user is an 'editor' for the publication, they can create posts with any publish status. Posts published as 'public' or 'unlisted' will appear in collection immediately, while posts created as 'draft' will remain in pending state under publication.
+  - If the authenticated user is a 'writer' for the chosen publication, they can only create a post as a 'draft'. That post will remain in pending state under publication until an editor for the publication approves it.
+  - If the authenticated user is neither a 'writer' nor an 'editor', they are not allowed to create any posts in a publication.
+
 
 <details><summary>Parameters</summary>
 

@@ -73,7 +73,11 @@ The longitude of a location (in decimal degrees). Positive is east, negative is 
 
 #### time (required)
 
-Either be a UNIX time (that is, seconds since midnight GMT on 1 Jan 1970) or a string formatted as [YYYY]-[MM]-[DD]T[HH]:[MM]:[SS][timezone]. timezone should either be omitted (to refer to local time for the location being requested), Z (referring to GMT time), or +[HH][MM] or -[HH][MM] for an offset from GMT in hours and minutes. The timezone is only used for determining the time of the request; the response will always be relative to the local time zone.
+Either be a UNIX time (that is, seconds since midnight GMT on 1 Jan 1970) or a string formatted as  
+[YYYY]-[MM]-[DD]T[HH]:[MM]:[SS][timezone]. timezone should either be omitted (to refer to local time for the location being requested), 
+Z (referring to GMT time), or +[HH][MM] or -[HH][MM] for an offset from GMT in hours and minutes. 
+The timezone is only used for determining the time of the request; the response will always be relative to the local time zone.
+
 
 **Type:** string
 
