@@ -5,7 +5,7 @@ layout: docs.mustache
 tags: doc
 ---
 
-In this short guide, you'll build a custom Slack command that lets anyone in your workspace list their day's events.
+In this short guide, you'll build a custom Slack command that helps anyone in your workspace list their day's events.
 
 ## Create a new Transposit application
 
@@ -49,7 +49,7 @@ params => {
 
 ## Set up the user configuration page
 
-- Go to **Users &gt; User Configuration** (the badge icon) and check the box next to `google_calendar` to allow users to connect their Google Calendar to their slack account.
+- Go to **Users &gt; User Configuration** (the shield icon) and check the box next to `google_calendar` to allow users to connect their Google Calendar to their slack account.
 
 ## Get your slack command to return calendar events
 
@@ -95,7 +95,7 @@ SELECT summary FROM google_calendar.get_calendar_events as E
 
 ## Configuring your production user
 
-- Go to **Users &gt; User Configuration** to get the URL for your hosted user configuration page (e.g. https://calendar-bot-a1vud.transposit.io). Anyone in your Slack workspace can visit this page to configure their slack user to use this slash command.
+- Go to **Users &gt; User Configuration** to get the URL for your hosted user configuration page (e.g. https://calendar-bot-XXXXX.transposit.io). Anyone in your Slack workspace can visit this page to configure their slack user to use this slash command.
 - Login with your Slack account.
 - Connect your Google Calendar.
 
