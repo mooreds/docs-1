@@ -17,7 +17,7 @@ In this short guide, you'll build a custom Slack command that helps anyone in yo
 
 - Go to [your Slack apps](https://api.slack.com/apps) and create a new app.
 - Select **Slash Commands** from the list of Slack features. Create a new command named `/calendar`.
-- Go back to Transposit to get the Request URL. Go to **Deploy &gt; Endpoints** (the rocket icon) and copy the webhook URL. Paste this into the Slack command's **Request URL** field. Give it a short description and usage hint if desired.
+- Go back to Transposit to get the Request URL. Go to **Deploy &gt; Endpoints** and copy the webhook URL. Paste this into the Slack command's **Request URL** field. Give it a short description and usage hint if desired.
 - Save your command.
 - Click **Install App** in the sidebar to install it into your workspace.
 - Test the app in Slack by typing `/calendar`. You should receive the "Please configure your user" message.
@@ -25,13 +25,13 @@ In this short guide, you'll build a custom Slack command that helps anyone in yo
 ## Connect to Google Calendar
 
 - Go to your Transposit app's Code section.
-- Click the plus icon next to **Data Connections** and add `transposit/google_calendar`.
+- Add a new Data Connection and select `transposit/google_calendar`.
 - Choose the `get_calendar_events` operation as the code template.
 - Click **Save** and authorize Google Calendar.
 
 ## Get the day's start and end time
 
-- Create a new JavaScript operation by clicking the plus icon next to **Operations**, and name it `get_day_start_end` in the **Properties** tab.
+- Create a new JavaScript operation and name it `get_day_start_end`.
 - Replace the code with the following to use the `moment.js` library to get the day's start and end time:
 
 ```javascript
@@ -49,7 +49,7 @@ params => {
 
 ## Set up the user configuration page
 
-- Go to **Users &gt; User Configuration** (the shield icon) and check the box next to `google_calendar` to allow users to connect their Google Calendar to their slack account.
+- Go to **Users &gt; User Configuration** and check the box next to `google_calendar` to allow users to connect their Google Calendar to their slack account.
 
 ## Get your slack command to return calendar events
 
