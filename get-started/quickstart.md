@@ -1,6 +1,8 @@
 ---
 id: quickstart
 title: Quickstart
+layout: docs.mustache
+tags: doc
 ---
 
 Transposit is a zero-ops platform that lets developers instantly connect to and compose with APIs.
