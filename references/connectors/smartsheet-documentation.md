@@ -1432,6 +1432,18 @@ specifies whether multi-contact data is returned in a backwards-compatible, text
 
 **Type:** number
 
+#### page
+
+Specifies which page to return, for example, page=4.
+
+**Type:** number
+
+#### pageSize
+
+Specifies the maximum number of items to return per page, for example, pageSize=25.
+
+**Type:** number
+
 </details>
 
 ## get_report_publish_status
@@ -1563,6 +1575,18 @@ a comma-separated list of elements to include in the response.
 #### level
 
 specifies whether multi-contact data is returned in a backwards-compatible, text format (level=0, default) or as multi-contact data (level=1).
+
+**Type:** number
+
+#### page
+
+Specifies which page to return, for example, page=4.
+
+**Type:** number
+
+#### pageSize
+
+Specifies the maximum number of items to return per page, for example, pageSize=25.
 
 **Type:** number
 
