@@ -10,7 +10,7 @@ In this short guide, you'll build a custom Slack command that helps anyone in yo
 ## Create a new Transposit application
 
 - [Sign in to Transposit](https://console.transposit.com/).
-- Click **New Slack app** and give it a name, such as `calendar_bot`.
+- Click **New app** and give it a name, such as `calendar_bot`.
 - _Optional_: If you want to use other Slack APIs, such as post message for testing, then click `Connect` to authorize the Slack data connection.
 
 ## Set up Slack
