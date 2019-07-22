@@ -116,6 +116,7 @@ The maximum number of seconds the server waits for the execution to finish. By d
 
 Gets full details and settings of a specific crawler.
 The response is a **Crawler settings** object - see [main documentation](https://www.apify.com/docs/crawler#basic-settings) for a detailed description of the settings.
+To get crawler settings used for a specific crawler execution, use the `executionId` query parameter.
 
 <details><summary>Parameters</summary>
 
