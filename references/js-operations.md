@@ -276,6 +276,37 @@ api.log("logging the following greeting:", {"Hello", "World"})
 // => logging the following greeting: { Hello: World }
 ```
 
+# Environment Variables
+
+Environment Variables may be set through the UI, and accessed programmatically.
+
+## get
+
+`env.get(key)`
+
+Retrieves the value set for the specified Environment Variable.
+
+| Argument | Type |  |
+| :--- | :--- | :--- |
+| key | String | the key of the Environment Variable. |
+
+**Returns** (String/Number/Boolean/null): Returns a JavaScript value matching the value that was set in the UI. If the key does not match a value defined in the schema, an exception is thrown. If no saved value exists, and no default value is defined, returns `null`.
+
+**Examples**
+
+```javascript
+env.get("stringKey");
+// => "stringValue"
+env.get("numberKey");
+// => 88888
+env.get("booleanKey");
+// => true
+env.get("unsetKey");
+// => null
+env.get("undefinedKey");
+// => exception
+```
+
 # Stash
 
 Transposit operations can programmatically save and retrieve data from a stash.
