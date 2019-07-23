@@ -128,3 +128,17 @@ function run(params) {
 }
 ```
 
+## Dynamic Challenges
+
+Some applications that send HTTP events to a webhook require you to validate ownership of the webhook first before being able to use it in production. This is often done by returning a string that is passed in through a test HTTP event to be verified. A common example of this is [Slack's Events API](https://api.slack.com/events/url_verification) requiring a challenge to be passed before it will send true events to the webhook URL. One can write a statement into a webhook operation that will detect if the event is a challenge, and react accordingly. e.g.
+
+```javascript
+let body = JSON.parse(http_event.body);
+if (body.challenge) {
+  return {
+    status_code: 200,
+    headers: { "Content-Type": "text/plain" },
+    body: body.challenge
+  };
+}
+```
