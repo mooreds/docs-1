@@ -278,17 +278,17 @@ api.log("logging the following greeting:", {"Hello", "World"})
 
 # Environment Variables
 
-Environment Variables may be set through the UI, and accessed programmatically.
+Transposit operations can programmatically access [environment variables](/docs/building/environment-variables/).
 
 ## get
 
 `env.get(key)`
 
-Retrieves the value set for the specified Environment Variable.
+Retrieves the value set for the specified environment variable.
 
 | Argument | Type |  |
 | :--- | :--- | :--- |
-| key | String | the key of the Environment Variable. |
+| key | String | the key of the environment variable. |
 
 **Returns** (String/Number/Boolean/null): Returns a JavaScript value matching the value that was set in the UI. If the key does not match a value defined in the schema, an exception is thrown. If no saved value exists, and no default value is defined, returns `null`.
 
@@ -307,9 +307,25 @@ env.get("undefinedKey");
 // => exception
 ```
 
+## getBuiltin
+
+`env.getBuiltin()`
+
+**Returns** (Object): Returns a JavaScript object containing builtin environment variables.
+
+**Examples**
+
+```javascript
+env.getBuiltin();
+// => {
+//      "appUrl": "https://example-hd39c.transposit.io",
+//      "requestId": "bcbfa9b1-f9a9-45c7-aeaa-6e903153cd9e"
+//    }
+```
+
 # Stash
 
-Transposit operations can programmatically save and retrieve data from a stash.
+Transposit operations can programmatically save and retrieve data from a [stash](/docs/building/app-stash/).
 
 ## get
 
@@ -370,7 +386,7 @@ stash.put("arrayType", null);
 
 # User Settings
 
-Transposit operations can programmatically access user settings.
+Transposit operations can programmatically access [user settings](/docs/building/user-config/#user-settings-schema).
 
 ## get
 
