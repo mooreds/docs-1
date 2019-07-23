@@ -9,6 +9,8 @@ Application-specific settings can be stored in environment variables. Environmen
 
 Environment variables are stored encrypted-at-rest.
 
+You can define an environment variable schema at **Settings &gt; App Info &gt; Environment variables schema**.
+
 ## Programmatic interface
 
 Please see the [JavaScript operation documentation](/docs/references/js-operations#environment-variables) for information on programmatically accessing environment variables.
