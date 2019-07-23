@@ -98,6 +98,7 @@ Note: reference material for each data connector can additionally be viewed in t
 
 ## O
 
+* [Okta](../connectors/okta-documentation)
 * [OpenCage Geocoder](../connectors/opencage-geocoder-documentation)
 * [Opsgenie](../connectors/opsgenie-documentation)
 

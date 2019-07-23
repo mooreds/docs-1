@@ -1,301 +1,165 @@
 ---
 id: aws-kinesis-firehose-documentation
-title: AWS Kinesis Firehose (version v1.*.*)
+title: AWS Kinesis Firehose (version v2.*.*)
 sidebar_label: AWS Kinesis Firehose
 layout: docs.mustache
 ---
 
 ## create_delivery_stream
 
-Creates a Kinesis Data Firehose delivery stream. https://docs.aws.amazon.com/firehose/latest/APIReference/API_CreateDeliveryStream.html
+Creates a Kinesis Data Firehose delivery stream. 
+By default, you can create up to 50 delivery streams per AWS Region. 
+This is an asynchronous operation that immediately returns. The initial status of the delivery stream is CREATING. After the delivery stream is created, its status is ACTIVE and it now accepts data. Attempts to send data to a delivery stream that is not in the ACTIVE state cause an exception. To check the state of a delivery stream, use DescribeDeliveryStream. 
+A Kinesis Data Firehose delivery stream can be configured to receive records directly from providers using PutRecord or PutRecordBatch, or it can be configured to use an existing Kinesis stream as its source. To specify a Kinesis data stream as input, set the DeliveryStreamType parameter to KinesisStreamAsSource, and provide the Kinesis stream Amazon Resource Name (ARN) and role ARN in the KinesisStreamSourceConfiguration parameter. 
+A delivery stream is configured with a single destination: Amazon S3, Amazon ES, Amazon Redshift, or Splunk. You must specify only one of the following destination configuration parameters: ExtendedS3DestinationConfiguration, S3DestinationConfiguration, ElasticsearchDestinationConfiguration, RedshiftDestinationConfiguration, or SplunkDestinationConfiguration. 
+When you specify S3DestinationConfiguration, you can also provide the following optional values: BufferingHints, EncryptionConfiguration, and CompressionFormat. By default, if no BufferingHints value is provided, Kinesis Data Firehose buffers data up to 5 MB or for 5 minutes, whichever condition is satisfied first. BufferingHints is a hint, so there are some cases where the service cannot adhere to these conditions strictly. For example, record boundaries might be such that the size is a little over or under the configured buffering size. By default, no encryption is performed. We strongly recommend that you enable encryption to ensure secure data storage in Amazon S3. 
+A few notes about Amazon Redshift as a destination:  
+ An Amazon Redshift destination requires an S3 bucket as intermediate location. Kinesis Data Firehose first delivers data to Amazon S3 and then uses COPY syntax to load data into an Amazon Redshift table. This is specified in the RedshiftDestinationConfiguration.S3Configuration parameter.  
+ The compression formats SNAPPY or ZIP cannot be specified in RedshiftDestinationConfiguration.S3Configuration because the Amazon Redshift COPY operation that reads from the S3 bucket doesn't support these compression formats.  
+ We strongly recommend that you use the user name and password you provide exclusively with Kinesis Data Firehose, and that the permissions for the account are restricted for Amazon Redshift INSERT permissions.   
+Kinesis Data Firehose assumes the IAM role that is configured as part of the destination. The role should allow the Kinesis Data Firehose principal to assume the role, and the role should have permissions that allow the service to deliver the data. For more information, see Grant Kinesis Data Firehose Access to an Amazon S3 Destination in the Amazon Kinesis Data Firehose Developer Guide.
 
 <details><summary>Parameters</summary>
 
-#### DeliveryStreamName (required)
+#### $body
 
-The name of the delivery stream. This name must be unique per AWS account in the same AWS Region. If the delivery streams are in different accounts or different Regions, you can have multiple delivery streams with the same name.
-
-**Type:** STRING
-
-#### DeliveryStreamType
-
-The delivery stream type. This parameter can be one of the following values: DirectPut: Provider applications access the delivery stream directly. KinesisStreamAsSource: The delivery stream uses a Kinesis data stream as a source.
-
-**Type:** STRING
-
-#### ElasticsearchDestinationConfiguration
-
-The destination in Amazon ES. You can specify only one destination.
-
-**Type:** OBJECT
-
-#### ExtendedS3DestinationConfiguration
-
-The destination in Amazon S3. You can specify only one destination.
-
-**Type:** OBJECT
-
-#### KinesisStreamSourceConfiguration
-
-When a Kinesis data stream is used as the source for the delivery stream, a  KinesisStreamSourceConfiguration containing the Kinesis data stream Amazon Resource Name (ARN) and the role ARN for the source stream.
-
-**Type:** OBJECT
-
-#### RedshiftDestinationConfiguration
-
-The destination in Amazon Redshift. You can specify only one destination.
-
-**Type:** OBJECT
-
-#### S3DestinationConfiguration
-
-[Deprecated] The destination in Amazon S3. You can specify only one destination.
-
-**Type:** OBJECT
-
-#### SplunkDestinationConfiguration
-
-The destination in Splunk. You can specify only one destination.
-
-**Type:** OBJECT
-
-#### Tags
-
-A set of tags to assign to the delivery stream. A tag is a key-value pair that you can define and assign to AWS resources. Tags are metadata. For example, you can add friendly names and descriptions or other types of information that can help you distinguish the delivery stream. For more information about tags, see Using Cost Allocation Tags in the AWS Billing and Cost Management User Guide. You can specify up to 50 tags when creating a delivery stream.
-
-**Type:** ARRAY
+**Type:** object
 
 </details>
 
 ## delete_delivery_stream
 
-Deletes a delivery stream and its data. https://docs.aws.amazon.com/firehose/latest/APIReference/API_DeleteDeliveryStream.html
+Deletes a delivery stream and its data. 
+You can delete a delivery stream only if it is in ACTIVE or DELETING state, and not in the CREATING state. While the deletion request is in process, the delivery stream is in the DELETING state. 
+To check the state of a delivery stream, use DescribeDeliveryStream. 
+While the delivery stream is DELETING state, the service might continue to accept the records, but it doesn't make any guarantees with respect to delivering the data. Therefore, as a best practice, you should first stop any applications that are sending records before deleting a delivery stream.
 
 <details><summary>Parameters</summary>
 
-#### DeliveryStreamName (required)
+#### $body
 
-The name of the delivery stream.
-
-**Type:** STRING
+**Type:** object
 
 </details>
 
 ## describe_delivery_stream
 
-Describes the specified delivery stream and gets the status. For example, after your delivery stream is created, call DescribeDeliveryStream to see whether the delivery stream is ACTIVE and therefore ready for data to be sent to it.  https://docs.aws.amazon.com/firehose/latest/APIReference/API_DescribeDeliveryStream.html
+Describes the specified delivery stream and gets the status. For example, after your delivery stream is created, call DescribeDeliveryStream to see whether the delivery stream is ACTIVE and therefore ready for data to be sent to it.
 
 <details><summary>Parameters</summary>
 
-#### DeliveryStreamName (required)
+#### $body
 
-The name of the delivery stream.
-
-**Type:** STRING
-
-#### ExclusiveStartDestinationId
-
-The ID of the destination to start returning the destination information.  Kinesis Data Firehose supports one destination per delivery stream.
-
-**Type:** STRING
-
-#### Limit
-
-The limit on the number of destinations to return. You can have one destination per delivery stream.
-
-**Type:** INTEGER
+**Type:** object
 
 </details>
 
 ## list_delivery_streams
 
-Lists your delivery streams in alphabetical order of their names. https://docs.aws.amazon.com/firehose/latest/APIReference/API_ListDeliveryStreams.html
+Lists your delivery streams. 
+The number of delivery streams might be too large to return using a single call to ListDeliveryStreams. You can limit the number of delivery streams returned, using the Limit parameter. To determine whether there are more delivery streams to list, check the value of HasMoreDeliveryStreams in the output. If there are more delivery streams to list, you can request them by specifying the name of the last delivery stream returned in the call in the ExclusiveStartDeliveryStreamName parameter of a subsequent call.
 
 <details><summary>Parameters</summary>
 
-#### DeliveryStreamType
+#### $body
 
-The delivery stream type. This can be one of the following values: DirectPut: Provider applications access the delivery stream directly. KinesisStreamAsSource: The delivery stream uses a Kinesis data stream as a source. This parameter is optional. If this parameter is omitted, delivery streams of all types are returned.
-
-**Type:** STRING
+**Type:** object
 
 </details>
 
 ## list_tags_for_delivery_stream
 
-Lists the tags for the specified delivery stream. This operation has a limit of five transactions per second per account.  https://docs.aws.amazon.com/firehose/latest/APIReference/API_ListTagsForDeliveryStream.html
+Lists the tags for the specified delivery stream. This operation has a limit of five transactions per second per account. 
 
 <details><summary>Parameters</summary>
 
-#### DeliveryStreamName (required)
+#### $body
 
-The name of the delivery stream whose tags you want to list.
-
-**Type:** STRING
+**Type:** object
 
 </details>
 
 ## put_record
 
-Writes a single data record into an Amazon Kinesis Data Firehose delivery stream. To write multiple data records into a delivery stream, use PutRecordBatch. Applications using these operations are referred to as producers.  https://docs.aws.amazon.com/firehose/latest/APIReference/API_PutRecord.html
+Writes a single data record into an Amazon Kinesis Data Firehose delivery stream. To write multiple data records into a delivery stream, use PutRecordBatch. Applications using these operations are referred to as producers. 
+By default, each delivery stream can take in up to 2,000 transactions per second, 5,000 records per second, or 5 MB per second. If you use PutRecord and PutRecordBatch, the limits are an aggregate across these two operations for each delivery stream. For more information about limits and how to request an increase, see Amazon Kinesis Data Firehose Limits.  
+You must specify the name of the delivery stream and the data record when using PutRecord. The data record consists of a data blob that can be up to 1,000 KB in size, and any kind of data. For example, it can be a segment from a log file, geographic location data, website clickstream data, and so on. 
+Kinesis Data Firehose buffers records before delivering them to the destination. To disambiguate the data blobs at the destination, a common solution is to use delimiters in the data, such as a newline (\n) or some other character unique within the data. This allows the consumer application to parse individual data items when reading the data from the destination. 
+The PutRecord operation returns a RecordId, which is a unique string assigned to each record. Producer applications can use this ID for purposes such as auditability and investigation. 
+If the PutRecord operation throws a ServiceUnavailableException, back off and retry. If the exception persists, it is possible that the throughput limits have been exceeded for the delivery stream.  
+Data records sent to Kinesis Data Firehose are stored for 24 hours from the time they are added to a delivery stream as it tries to send the records to the destination. If the destination is unreachable for more than 24 hours, the data is no longer available.
 
 <details><summary>Parameters</summary>
 
-#### DeliveryStreamName (required)
+#### $body
 
-The name of the delivery stream.
-
-**Type:** STRING
-
-#### Record (required)
-
-The record.
-
-**Type:** OBJECT
+**Type:** object
 
 </details>
 
 ## put_record_batch
 
-Writes multiple data records into a delivery stream in a single call, which can achieve higher throughput per producer than when writing single records. To write single data records into a delivery stream, use PutRecord. Applications using these operations are referred to as producers.  https://docs.aws.amazon.com/firehose/latest/APIReference/API_PutRecordBatch.html
+Writes multiple data records into a delivery stream in a single call, which can achieve higher throughput per producer than when writing single records. To write single data records into a delivery stream, use PutRecord. Applications using these operations are referred to as producers. 
+By default, each delivery stream can take in up to 2,000 transactions per second, 5,000 records per second, or 5 MB per second. If you use PutRecord and PutRecordBatch, the limits are an aggregate across these two operations for each delivery stream. For more information about limits, see Amazon Kinesis Data Firehose Limits. 
+Each PutRecordBatch request supports up to 500 records. Each record in the request can be as large as 1,000 KB (before 64-bit encoding), up to a limit of 4 MB for the entire request. These limits cannot be changed. 
+You must specify the name of the delivery stream and the data record when using PutRecord. The data record consists of a data blob that can be up to 1,000 KB in size, and any kind of data. For example, it could be a segment from a log file, geographic location data, website clickstream data, and so on. 
+Kinesis Data Firehose buffers records before delivering them to the destination. To disambiguate the data blobs at the destination, a common solution is to use delimiters in the data, such as a newline (\n) or some other character unique within the data. This allows the consumer application to parse individual data items when reading the data from the destination. 
+The PutRecordBatch response includes a count of failed records, FailedPutCount, and an array of responses, RequestResponses. Each entry in the RequestResponses array provides additional information about the processed record. It directly correlates with a record in the request array using the same ordering, from the top to the bottom. The response array always includes the same number of records as the request array. RequestResponses includes both successfully and unsuccessfully processed records. Kinesis Data Firehose tries to process all records in each PutRecordBatch request. A single record failure does not stop the processing of subsequent records. 
+A successfully processed record includes a RecordId value, which is unique for the record. An unsuccessfully processed record includes ErrorCode and ErrorMessage values. ErrorCode reflects the type of error, and is one of the following values: ServiceUnavailable or InternalFailure. ErrorMessage provides more detailed information about the error. 
+If there is an internal server error or a timeout, the write might have completed or it might have failed. If FailedPutCount is greater than 0, retry the request, resending only those records that might have failed processing. This minimizes the possible duplicate records and also reduces the total bytes sent (and corresponding charges). We recommend that you handle any duplicates at the destination. 
+If PutRecordBatch throws ServiceUnavailableException, back off and retry. If the exception persists, it is possible that the throughput limits have been exceeded for the delivery stream. 
+Data records sent to Kinesis Data Firehose are stored for 24 hours from the time they are added to a delivery stream as it attempts to send the records to the destination. If the destination is unreachable for more than 24 hours, the data is no longer available.
 
 <details><summary>Parameters</summary>
 
-#### DeliveryStreamName (required)
+#### $body
 
-The name of the delivery stream.
-
-**Type:** STRING
-
-#### Records (required)
-
-One or more records.
-
-**Type:** ARRAY
-
-</details>
-
-## start_delivery_stream_encryption
-
-Enables server-side encryption (SSE) for the delivery stream.  https://docs.aws.amazon.com/firehose/latest/APIReference/API_StartDeliveryStreamEncryption.html
-
-<details><summary>Parameters</summary>
-
-#### DeliveryStreamName (required)
-
-The name of the delivery stream for which you want to enable server-side encryption (SSE).
-
-**Type:** STRING
-
-</details>
-
-## stop_delivery_stream_encryption
-
-Disables server-side encryption (SSE) for the delivery stream.  https://docs.aws.amazon.com/firehose/latest/APIReference/API_StopDeliveryStreamEncryption.html
-
-<details><summary>Parameters</summary>
-
-#### DeliveryStreamName (required)
-
-The name of the delivery stream for which you want to disable server-side encryption (SSE).
-
-**Type:** STRING
+**Type:** object
 
 </details>
 
 ## tag_delivery_stream
 
-Adds or updates tags for the specified delivery stream. A tag is a key-value pair that you can define and assign to AWS resources. If you specify a tag that already exists, the tag value is replaced with the value that you specify in the request. Tags are metadata. For example, you can add friendly names and descriptions or other types of information that can help you distinguish the delivery stream. For more information about tags, see Using Cost Allocation Tags in the AWS Billing and Cost Management User Guide.  https://docs.aws.amazon.com/firehose/latest/APIReference/API_TagDeliveryStream.html
+Adds or updates tags for the specified delivery stream. A tag is a key-value pair (the value is optional) that you can define and assign to AWS resources. If you specify a tag that already exists, the tag value is replaced with the value that you specify in the request. Tags are metadata. For example, you can add friendly names and descriptions or other types of information that can help you distinguish the delivery stream. For more information about tags, see Using Cost Allocation Tags in the AWS Billing and Cost Management User Guide.  
+ Each delivery stream can have up to 50 tags.  
+ This operation has a limit of five transactions per second per account. 
 
 <details><summary>Parameters</summary>
 
-#### DeliveryStreamName (required)
+#### $body
 
-The name of the delivery stream to which you want to add the tags.
-
-**Type:** STRING
-
-#### Tags (required)
-
-A set of key-value pairs to use to create the tags.
-
-**Type:** ARRAY
+**Type:** object
 
 </details>
 
 ## untag_delivery_stream
 
-Removes tags from the specified delivery stream. Removed tags are deleted, and you can't recover them after this operation successfully completes.  https://docs.aws.amazon.com/firehose/latest/APIReference/API_UntagDeliveryStream.html
+Removes tags from the specified delivery stream. Removed tags are deleted, and you can't recover them after this operation successfully completes. 
+If you specify a tag that doesn't exist, the operation ignores it. 
+This operation has a limit of five transactions per second per account. 
 
 <details><summary>Parameters</summary>
 
-#### DeliveryStreamName (required)
+#### $body
 
-The name of the delivery stream.
-
-**Type:** STRING
-
-#### TagKeys (required)
-
-A list of tag keys. Each corresponding tag is removed from the delivery stream.
-
-**Type:** ARRAY
+**Type:** object
 
 </details>
 
 ## update_destination
 
-Updates the specified destination of the specified delivery stream. https://docs.aws.amazon.com/firehose/latest/APIReference/API_UpdateDestination.html
+Updates the specified destination of the specified delivery stream. 
+Use this operation to change the destination type (for example, to replace the Amazon S3 destination with Amazon Redshift) or change the parameters associated with a destination (for example, to change the bucket name of the Amazon S3 destination). The update might not occur immediately. The target delivery stream remains active while the configurations are updated, so data writes to the delivery stream can continue during this process. The updated configurations are usually effective within a few minutes. 
+Switching between Amazon ES and other services is not supported. For an Amazon ES destination, you can only update to another Amazon ES destination. 
+If the destination type is the same, Kinesis Data Firehose merges the configuration parameters specified with the destination configuration that already exists on the delivery stream. If any of the parameters are not specified in the call, the existing values are retained. For example, in the Amazon S3 destination, if EncryptionConfiguration is not specified, then the existing EncryptionConfiguration is maintained on the destination. 
+If the destination type is not the same, for example, changing the destination from Amazon S3 to Amazon Redshift, Kinesis Data Firehose does not merge any parameters. In this case, all parameters must be specified. 
+Kinesis Data Firehose uses CurrentDeliveryStreamVersionId to avoid race conditions and conflicting merges. This is a required field, and the service updates the configuration only if the existing configuration has a version ID that matches. After the update is applied successfully, the version ID is updated, and can be retrieved using DescribeDeliveryStream. Use the new version ID to set CurrentDeliveryStreamVersionId in the next call.
 
 <details><summary>Parameters</summary>
 
-#### CurrentDeliveryStreamVersionId (required)
+#### $body
 
-Obtain this value from the VersionId result of DeliveryStreamDescription. This value is required, and helps the service perform conditional operations. For example, if there is an interleaving update and this value is null, then the update destination fails. After the update is successful, the VersionId value is updated. The service then performs a merge of the old configuration with the new configuration.
-
-**Type:** STRING
-
-#### DeliveryStreamName (required)
-
-The name of the delivery stream.
-
-**Type:** STRING
-
-#### DestinationId (required)
-
-The ID of the destination.
-
-**Type:** STRING
-
-#### ElasticsearchDestinationUpdate
-
-Describes an update for a destination in Amazon ES.
-
-**Type:** OBJECT
-
-#### ExtendedS3DestinationUpdate
-
-Describes an update for a destination in Amazon S3.
-
-**Type:** OBJECT
-
-#### RedshiftDestinationUpdate
-
-Describes an update for a destination in Amazon Redshift.
-
-**Type:** OBJECT
-
-#### S3DestinationUpdate
-
-[Deprecated] Describes an update for a destination in Amazon S3.
-
-**Type:** OBJECT
-
-#### SplunkDestinationUpdate
-
-Describes an update for a destination in Splunk.
-
-**Type:** OBJECT
+**Type:** object
 
 </details>
 
