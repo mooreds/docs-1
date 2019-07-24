@@ -34,6 +34,8 @@ To protect your endpoint with an API key, select **Require API key**.
 
 To manage your API key, navigate to **Deploy &gt; API Key**.
 
+> An API key can be specified in a query parameter `api_key` or a HTTP header `X-API-KEY`.
+
 ### Require user sign-in
 
 Endpoints protected by user sign-in are authenticated by session cookies. They must be called from a web page where a user is signed-in.
