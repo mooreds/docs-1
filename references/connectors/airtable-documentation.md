@@ -11,23 +11,29 @@ layout: docs.mustache
 
 <details><summary>Parameters</summary>
 
-#### baseId (required)
+### baseId (required)
 
 The Airtable base ID. This can be found as part of the API documentation URL. Go to https://airtable.com/api and select the base you're interested in, then find the base ID in the resulting URL: https://airtable.com/[baseId]/api/docs.
 
 **Type:** string
 
-#### table (required)
+### table (required)
 
 The name of the table being referenced within the base. This table must already exist.
 
 **Type:** string
 
-#### $body
+### $body
 
 New record to add
 
 **Type:** object
+
+```json
+{
+  "fields" : { }
+}
+```
 
 </details>
 
@@ -37,19 +43,19 @@ New record to add
 
 <details><summary>Parameters</summary>
 
-#### baseId (required)
+### baseId (required)
 
 The Airtable base ID. This can be found as part of the API documentation URL. Go to https://airtable.com/api and select the base you're interested in, then find the base ID in the resulting URL: https://airtable.com/[baseId]/api/docs.
 
 **Type:** string
 
-#### recordId (required)
+### recordId (required)
 
 The record being referenced. Find the record through a get_records call, then find its recordId there.
 
 **Type:** string
 
-#### table (required)
+### table (required)
 
 The name of the table being referenced within the base. This table must already exist.
 
@@ -63,19 +69,19 @@ The name of the table being referenced within the base. This table must already 
 
 <details><summary>Parameters</summary>
 
-#### baseId (required)
+### baseId (required)
 
 The Airtable base ID. This can be found as part of the API documentation URL. Go to https://airtable.com/api and select the base you're interested in, then find the base ID in the resulting URL: https://airtable.com/[baseId]/api/docs.
 
 **Type:** string
 
-#### recordId (required)
+### recordId (required)
 
 The record being referenced. Find the record through a get_records call, then find its recordId there.
 
 **Type:** string
 
-#### table (required)
+### table (required)
 
 The name of the table being referenced within the base. This table must already exist.
 
@@ -89,51 +95,58 @@ The name of the table being referenced within the base. This table must already 
 
 <details><summary>Parameters</summary>
 
-#### baseId (required)
+### baseId (required)
 
 The Airtable base ID. This can be found as part of the API documentation URL. Go to https://airtable.com/api and select the base you're interested in, then find the base ID in the resulting URL: https://airtable.com/[baseId]/api/docs.
 
 **Type:** string
 
-#### table (required)
+### table (required)
 
 The name of the table being referenced within the base. This table must already exist.
 
 **Type:** string
 
-#### cellFormat
+### cellFormat
 
 The format that should be used for cell values. Supported values are: "json": cells will be formatted as JSON, depending on the field type. "string": cells will be formatted as user-facing strings, regardless of the field type. Note: You should not rely on the format of these strings, as it is subject to change. The default is "json".
 
 **Type:** string
 
-#### filterByFormula
+### filterByFormula
 
 **Type:** string
 
-#### maxRecords
+### maxRecords
 
 The maximum total number of records that will be returned in your requests. If this value is larger than pageSize (which is 100 by default), you may have to load multiple pages to reach this total.
 
 **Type:** integer
 
-#### sort
+### sort
 
 **Type:** array
 
-#### timeZone
+```json
+[ {
+  "field" : "string",
+  "direction" : "string. Possible values: asc | desc"
+} ]
+```
+
+### timeZone
 
 The time zone that should be used to format dates when using "string" as the cellFormat. This parameter is required when using "string" as the cellFormat.
 
 **Type:** string
 
-#### userLocale
+### userLocale
 
 The user locale that should be used to format dates when using "string" as the cellFormat. This parameter is required when using "string" as the cellFormat.
 
 **Type:** string
 
-#### view
+### view
 
 The name or ID of a view in the endpoints table. If set, only the records in that view will be returned. The records will be sorted according to the order of the view.
 
@@ -147,29 +160,35 @@ To update all fields of a endpoints record. Any fields that are not included wil
 
 <details><summary>Parameters</summary>
 
-#### baseId (required)
+### baseId (required)
 
 The Airtable base ID. This can be found as part of the API documentation URL. Go to https://airtable.com/api and select the base you're interested in, then find the base ID in the resulting URL: https://airtable.com/[baseId]/api/docs.
 
 **Type:** string
 
-#### recordId (required)
+### recordId (required)
 
 The record being referenced. Find the record through a get_records call, then find its recordId there.
 
 **Type:** string
 
-#### table (required)
+### table (required)
 
 The name of the table being referenced within the base. This table must already exist.
 
 **Type:** string
 
-#### $body
+### $body
 
 Record to update
 
 **Type:** object
+
+```json
+{
+  "fields" : { }
+}
+```
 
 </details>
 
@@ -179,29 +198,35 @@ To update some (but not all) fields of a endpoints record. Any fields that are n
 
 <details><summary>Parameters</summary>
 
-#### baseId (required)
+### baseId (required)
 
 The Airtable base ID. This can be found as part of the API documentation URL. Go to https://airtable.com/api and select the base you're interested in, then find the base ID in the resulting URL: https://airtable.com/[baseId]/api/docs.
 
 **Type:** string
 
-#### recordId (required)
+### recordId (required)
 
 The record being referenced. Find the record through a get_records call, then find its recordId there.
 
 **Type:** string
 
-#### table (required)
+### table (required)
 
 The name of the table being referenced within the base. This table must already exist.
 
 **Type:** string
 
-#### $body
+### $body
 
 Record to update
 
 **Type:** object
+
+```json
+{
+  "fields" : { }
+}
+```
 
 </details>
 

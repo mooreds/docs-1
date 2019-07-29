@@ -11,25 +11,29 @@ returns the current weather forecast for the next week
 
 <details><summary>Parameters</summary>
 
-#### latitude (required)
+### latitude (required)
 
 The latitude of a location (in decimal degrees). Positive is north, negative is south.
 
 **Type:** string
 
-#### longitude (required)
+### longitude (required)
 
 The longitude of a location (in decimal degrees). Positive is east, negative is west.
 
 **Type:** string
 
-#### exclude
+### exclude
 
 Exclude some number of data blocks from the API response. This is useful for reducing latency and saving cache space.
 
 **Type:** array
 
-#### extend
+```json
+[ "string. Possible values: currently | minutely | hourly | daily | alerts | flags" ]
+```
+
+### extend
 
 When present, return hour-by-hour data for the next 168 hours, instead of the next 48. When using this option, we strongly recommend enabling HTTP compression.
 
@@ -37,13 +41,13 @@ When present, return hour-by-hour data for the next 168 hours, instead of the ne
 
 **Potential values:** hourly
 
-#### lang
+### lang
 
 Return summary properties in the desired language.
 
 **Type:** string
 
-#### units
+### units
 
 Return weather conditions in the requested units.
 
@@ -59,19 +63,19 @@ returns the observed or forecast weather conditions for a date in the past or fu
 
 <details><summary>Parameters</summary>
 
-#### latitude (required)
+### latitude (required)
 
 The latitude of a location (in decimal degrees). Positive is north, negative is south.
 
 **Type:** string
 
-#### longitude (required)
+### longitude (required)
 
 The longitude of a location (in decimal degrees). Positive is east, negative is west.
 
 **Type:** string
 
-#### time (required)
+### time (required)
 
 Either be a UNIX time (that is, seconds since midnight GMT on 1 Jan 1970) or a string formatted as  
 [YYYY]-[MM]-[DD]T[HH]:[MM]:[SS][timezone]. timezone should either be omitted (to refer to local time for the location being requested), 
@@ -81,19 +85,23 @@ The timezone is only used for determining the time of the request; the response 
 
 **Type:** string
 
-#### exclude
+### exclude
 
 Exclude some number of data blocks from the API response. This is useful for reducing latency and saving cache space.
 
 **Type:** array
 
-#### lang
+```json
+[ "string. Possible values: currently | minutely | hourly | daily | alerts | flags" ]
+```
+
+### lang
 
 Return summary properties in the desired language.
 
 **Type:** string
 
-#### units
+### units
 
 Return weather conditions in the requested units.
 

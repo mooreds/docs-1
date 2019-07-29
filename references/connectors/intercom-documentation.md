@@ -11,15 +11,29 @@ layout: docs.mustache
 
 <details><summary>Parameters</summary>
 
-#### conversation_id (required)
+### conversation_id (required)
 
 Conversation ID
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "user_id" : "string",
+  "admin_id" : "string",
+  "intercom_user_id" : "string",
+  "email" : "string",
+  "customer" : {
+    "user_id" : "string",
+    "intercom_user_id" : "string",
+    "email" : "string"
+  }
+}
+```
 
 </details>
 
@@ -29,13 +43,13 @@ Archive a user. The archive action will not perform a 'hard' delete. If you want
 
 <details><summary>Parameters</summary>
 
-#### email
+### email
 
 The email you have defined for the user
 
 **Type:** string
 
-#### user_id
+### user_id
 
 The user id you have defined for the user
 
@@ -49,9 +63,160 @@ Leads can be converted to Users. This is done by passing both Lead and User iden
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "contact" : {
+    "last_request_at" : "The time the Lead last recorded making a request",
+    "utm_campaign" : "Identifies a specific product promotion or strategic campaign",
+    "utm_medium" : "Identifies what type of link was used",
+    "created_at" : "The time the Lead was added to Intercom",
+    "avatar" : { },
+    "type" : "string",
+    "custom_attributes" : { },
+    "segments" : [ {
+      "updated_at" : "The time the segment was updated",
+      "person_type" : "Type of the record: user or lead.",
+      "name" : "The name of the segment",
+      "count" : "The number of items in the user segment. It's returned when `include_count=true` is included in the request.",
+      "created_at" : "The time the segment was created",
+      "id" : "The id representing the segment",
+      "type" : "string"
+    } ],
+    "tags" : [ {
+      "name" : "The name of the tag",
+      "id" : "The id of the tag",
+      "type" : "string"
+    } ],
+    "utm_term" : "Identifies search terms",
+    "referrer" : "The URL of the page the lead was last on",
+    "companies" : [ {
+      "website" : "The URL for the company website",
+      "company_id" : "The company id you have defined for the company",
+      "last_request_at" : "The time the company last recorded making a request",
+      "created_at" : "The time the company was added to Intercom",
+      "industry" : "The industry that the company operates in",
+      "type" : "string",
+      "custom_attributes" : { },
+      "monthly_spend" : "How much revenue the company generates for your business",
+      "updated_at" : "The last time the company was updated",
+      "user_count" : "The number of users in the company",
+      "size" : "The number of employees in the company",
+      "session_count" : "How many sessions the company has recorded",
+      "name" : "The name of the company",
+      "id" : "The Intercom defined id representing the company",
+      "remote_created_at" : "The time the company was created by you",
+      "plan*" : "The name of the plan you have associated with the company."
+    } ],
+    "social_profiles" : [ {
+      "name" : "The name of the service (e.g., twitter, facebook)",
+      "id" : "Optional. User ID on the service",
+      "type" : "string",
+      "url" : "The user homepage on the service",
+      "username" : "User name or handle on the service"
+    } ],
+    "unsubscribed_from_emails" : "Whether the Lead is unsubscribed from emails",
+    "updated_at" : "The last time the Lead was updated",
+    "user_id" : "Automatically generated identifier for the Lead",
+    "phone" : "The phone number you have defined for the lead",
+    "location_data" : {
+      "country_code" : "Optional. An ISO 3166 country code",
+      "city_name" : "Optional. A city name",
+      "timezone" : "Optional. An ISO 8601 timezone",
+      "latitude" : "Optional. The latitude",
+      "country_name" : "Optional. The country name",
+      "continent_code" : "Optional. A continent code",
+      "region_name" : "Optional. A region name",
+      "type" : "string",
+      "postal_code" : "Optional. A postal code",
+      "longitude" : "Optional. The longitude"
+    },
+    "name" : "The name of the Lead",
+    "id" : "The Intercom defined id representing the Lead",
+    "email" : "The email you have defined for the Lead",
+    "utm_source" : "Identifies which site sent the traffic",
+    "utm_content" : "Identifies what specifically was clicked to bring the user to the site"
+  },
+  "user" : {
+    "utm_medium" : "Identifies what type of link was used",
+    "created_at" : "The time (in seconds) the user was added to Intercom",
+    "type" : "Value is 'user' or 'contact'",
+    "pseudonym" : "The pseudonym used if this user was previously a Lead (http://docs.intercom.io/Intercom-for-customer-communication/the-intercom-messenger)",
+    "custom_attributes" : { },
+    "segments" : [ {
+      "updated_at" : "The time the segment was updated",
+      "person_type" : "Type of the record: user or lead.",
+      "name" : "The name of the segment",
+      "count" : "The number of items in the user segment. It's returned when `include_count=true` is included in the request.",
+      "created_at" : "The time the segment was created",
+      "id" : "The id representing the segment",
+      "type" : "string"
+    } ],
+    "companies" : [ {
+      "website" : "The URL for the company website",
+      "company_id" : "The company id you have defined for the company",
+      "last_request_at" : "The time the company last recorded making a request",
+      "created_at" : "The time the company was added to Intercom",
+      "industry" : "The industry that the company operates in",
+      "type" : "string",
+      "custom_attributes" : { },
+      "monthly_spend" : "How much revenue the company generates for your business",
+      "updated_at" : "The last time the company was updated",
+      "user_count" : "The number of users in the company",
+      "size" : "The number of employees in the company",
+      "session_count" : "How many sessions the company has recorded",
+      "name" : "The name of the company",
+      "id" : "The Intercom defined id representing the company",
+      "remote_created_at" : "The time the company was created by you",
+      "plan*" : "The name of the plan you have associated with the company."
+    } ],
+    "unsubscribed_from_emails" : "Whether the user is unsubscribed from emails",
+    "updated_at" : "The last time the user was updated",
+    "location_data" : {
+      "country_code" : "Optional. An ISO 3166 country code",
+      "city_name" : "Optional. A city name",
+      "timezone" : "Optional. An ISO 8601 timezone",
+      "latitude" : "Optional. The latitude",
+      "country_name" : "Optional. The country name",
+      "continent_code" : "Optional. A continent code",
+      "region_name" : "Optional. A region name",
+      "type" : "string",
+      "postal_code" : "Optional. A postal code",
+      "longitude" : "Optional. The longitude"
+    },
+    "id" : "The Intercom defined id representing the user",
+    "email" : "The email you have defined for the user. (Max limit of 255 UTF-8 characters, and should not have trailing or leading spaces)",
+    "utm_content" : "Identifies what specifically was clicked to bring the user to the site",
+    "signed_up_at" : "The time (in seconds) the user signed up",
+    "last_request_at" : "The time the user last recorded making a request",
+    "utm_campaign" : "Identifies a specific product promotion or strategic campaign",
+    "avatar" : { },
+    "tags" : [ {
+      "name" : "The name of the tag",
+      "id" : "The id of the tag",
+      "type" : "string"
+    } ],
+    "utm_term" : "Identifies search terms",
+    "referrer" : "The URL of the page the user was last on",
+    "social_profiles" : [ {
+      "name" : "The name of the service (e.g., twitter, facebook)",
+      "id" : "Optional. User ID on the service",
+      "type" : "string",
+      "url" : "The user homepage on the service",
+      "username" : "User name or handle on the service"
+    } ],
+    "user_id" : "The user id you have defined for the user. (Max limit of 255 UTF-8 characters, and should not have trailing or leading spaces)",
+    "phone" : "The phone number of the user",
+    "session_count" : "How many sessions the user has recorded",
+    "name" : "The full name of the user",
+    "anonymous" : "Whether or not this is a Lead. Always false",
+    "utm_source" : "Identifies which site sent the traffic"
+  }
+}
+```
 
 </details>
 
@@ -61,9 +226,130 @@ Visitors can be converted to Users. This is done by passing both Visitor and Use
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "visitor" : {
+    "last_request_at" : "The time the Lead last recorded making a request",
+    "created_at" : "The time the Visitor was added to Intercom",
+    "avatar" : {
+      "image_url" : "An avatar image URL. note: the image url needs to be https.",
+      "type" : "string"
+    },
+    "type" : "string",
+    "custom_attributes" : { },
+    "segments" : [ {
+      "updated_at" : "The time the segment was updated",
+      "person_type" : "Type of the record: user or lead.",
+      "name" : "The name of the segment",
+      "count" : "The number of items in the user segment. It's returned when `include_count=true` is included in the request.",
+      "created_at" : "The time the segment was created",
+      "id" : "The id representing the segment",
+      "type" : "string"
+    } ],
+    "tags" : [ {
+      "name" : "The name of the tag",
+      "id" : "The id of the tag",
+      "type" : "string"
+    } ],
+    "social_profiles" : [ {
+      "name" : "The name of the service (e.g., twitter, facebook)",
+      "id" : "Optional. User ID on the service",
+      "type" : "string",
+      "url" : "The user homepage on the service",
+      "username" : "User name or handle on the service"
+    } ],
+    "unsubscribed_from_emails" : "Whether the Visitor is unsubscribed from emails",
+    "updated_at" : "The last time the Visitor was updated",
+    "user_id" : "Automatically generated identifier for the Visitor",
+    "location_data" : {
+      "image_url" : "An avatar image URL. note: the image url needs to be https.",
+      "type" : "string"
+    },
+    "name" : "The name of the Visitor",
+    "id" : "The Intercom defined id representing the Visitor"
+  },
+  "type" : "string. Possible values: user | lead",
+  "user" : {
+    "utm_medium" : "Identifies what type of link was used",
+    "created_at" : "The time (in seconds) the user was added to Intercom",
+    "type" : "Value is 'user' or 'contact'",
+    "pseudonym" : "The pseudonym used if this user was previously a Lead (http://docs.intercom.io/Intercom-for-customer-communication/the-intercom-messenger)",
+    "custom_attributes" : { },
+    "segments" : [ {
+      "updated_at" : "The time the segment was updated",
+      "person_type" : "Type of the record: user or lead.",
+      "name" : "The name of the segment",
+      "count" : "The number of items in the user segment. It's returned when `include_count=true` is included in the request.",
+      "created_at" : "The time the segment was created",
+      "id" : "The id representing the segment",
+      "type" : "string"
+    } ],
+    "companies" : [ {
+      "website" : "The URL for the company website",
+      "company_id" : "The company id you have defined for the company",
+      "last_request_at" : "The time the company last recorded making a request",
+      "created_at" : "The time the company was added to Intercom",
+      "industry" : "The industry that the company operates in",
+      "type" : "string",
+      "custom_attributes" : { },
+      "monthly_spend" : "How much revenue the company generates for your business",
+      "updated_at" : "The last time the company was updated",
+      "user_count" : "The number of users in the company",
+      "size" : "The number of employees in the company",
+      "session_count" : "How many sessions the company has recorded",
+      "name" : "The name of the company",
+      "id" : "The Intercom defined id representing the company",
+      "remote_created_at" : "The time the company was created by you",
+      "plan*" : "The name of the plan you have associated with the company."
+    } ],
+    "unsubscribed_from_emails" : "Whether the user is unsubscribed from emails",
+    "updated_at" : "The last time the user was updated",
+    "location_data" : {
+      "country_code" : "Optional. An ISO 3166 country code",
+      "city_name" : "Optional. A city name",
+      "timezone" : "Optional. An ISO 8601 timezone",
+      "latitude" : "Optional. The latitude",
+      "country_name" : "Optional. The country name",
+      "continent_code" : "Optional. A continent code",
+      "region_name" : "Optional. A region name",
+      "type" : "string",
+      "postal_code" : "Optional. A postal code",
+      "longitude" : "Optional. The longitude"
+    },
+    "id" : "The Intercom defined id representing the user",
+    "email" : "The email you have defined for the user. (Max limit of 255 UTF-8 characters, and should not have trailing or leading spaces)",
+    "utm_content" : "Identifies what specifically was clicked to bring the user to the site",
+    "signed_up_at" : "The time (in seconds) the user signed up",
+    "last_request_at" : "The time the user last recorded making a request",
+    "utm_campaign" : "Identifies a specific product promotion or strategic campaign",
+    "avatar" : { },
+    "tags" : [ {
+      "name" : "The name of the tag",
+      "id" : "The id of the tag",
+      "type" : "string"
+    } ],
+    "utm_term" : "Identifies search terms",
+    "referrer" : "The URL of the page the user was last on",
+    "social_profiles" : [ {
+      "name" : "The name of the service (e.g., twitter, facebook)",
+      "id" : "Optional. User ID on the service",
+      "type" : "string",
+      "url" : "The user homepage on the service",
+      "username" : "User name or handle on the service"
+    } ],
+    "user_id" : "The user id you have defined for the user. (Max limit of 255 UTF-8 characters, and should not have trailing or leading spaces)",
+    "phone" : "The phone number of the user",
+    "session_count" : "How many sessions the user has recorded",
+    "name" : "The full name of the user",
+    "anonymous" : "Whether or not this is a Lead. Always false",
+    "utm_source" : "Identifies which site sent the traffic"
+  }
+}
+```
 
 </details>
 
@@ -73,9 +359,30 @@ Create or update a company. Companies are looked up via company_id. If not found
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "website" : "The URL for the company website",
+  "company_id" : "The company id you have defined for the company",
+  "last_request_at" : "The time the company last recorded making a request",
+  "created_at" : "The time the company was added to Intercom",
+  "industry" : "The industry that the company operates in",
+  "type" : "string",
+  "custom_attributes" : { },
+  "monthly_spend" : "How much revenue the company generates for your business",
+  "updated_at" : "The last time the company was updated",
+  "user_count" : "The number of users in the company",
+  "size" : "The number of employees in the company",
+  "session_count" : "How many sessions the company has recorded",
+  "name" : "The name of the company",
+  "id" : "The Intercom defined id representing the company",
+  "remote_created_at" : "The time the company was created by you",
+  "plan*" : "The name of the plan you have associated with the company."
+}
+```
 
 </details>
 
@@ -85,9 +392,20 @@ Create an event.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "metadata" : "optional metadata about the event.",
+  "user_id" : "Your identifier for the user.",
+  "event_name" : "The name of the event that occurred. This is presented to your App's admins when filtering and creating segments - a good event name is typically a past tense 'verb-noun' combination, to improve readability, for example `updated-plan`.",
+  "created_at" : "The time the event occurred as a UTC Unix timestamp",
+  "id" : "Your identifier for a lead or a user.",
+  "email" : "An email address for your user. An email should only be used where your application uses email to uniquely identify users"
+}
+```
 
 </details>
 
@@ -97,9 +415,83 @@ Create or update a lead
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "last_request_at" : "The time the Lead last recorded making a request",
+  "utm_campaign" : "Identifies a specific product promotion or strategic campaign",
+  "utm_medium" : "Identifies what type of link was used",
+  "created_at" : "The time the Lead was added to Intercom",
+  "avatar" : { },
+  "type" : "string",
+  "custom_attributes" : { },
+  "segments" : [ {
+    "updated_at" : "The time the segment was updated",
+    "person_type" : "Type of the record: user or lead.",
+    "name" : "The name of the segment",
+    "count" : "The number of items in the user segment. It's returned when `include_count=true` is included in the request.",
+    "created_at" : "The time the segment was created",
+    "id" : "The id representing the segment",
+    "type" : "string"
+  } ],
+  "tags" : [ {
+    "name" : "The name of the tag",
+    "id" : "The id of the tag",
+    "type" : "string"
+  } ],
+  "utm_term" : "Identifies search terms",
+  "referrer" : "The URL of the page the lead was last on",
+  "companies" : [ {
+    "website" : "The URL for the company website",
+    "company_id" : "The company id you have defined for the company",
+    "last_request_at" : "The time the company last recorded making a request",
+    "created_at" : "The time the company was added to Intercom",
+    "industry" : "The industry that the company operates in",
+    "type" : "string",
+    "custom_attributes" : { },
+    "monthly_spend" : "How much revenue the company generates for your business",
+    "updated_at" : "The last time the company was updated",
+    "user_count" : "The number of users in the company",
+    "size" : "The number of employees in the company",
+    "session_count" : "How many sessions the company has recorded",
+    "name" : "The name of the company",
+    "id" : "The Intercom defined id representing the company",
+    "remote_created_at" : "The time the company was created by you",
+    "plan*" : "The name of the plan you have associated with the company."
+  } ],
+  "social_profiles" : [ {
+    "name" : "The name of the service (e.g., twitter, facebook)",
+    "id" : "Optional. User ID on the service",
+    "type" : "string",
+    "url" : "The user homepage on the service",
+    "username" : "User name or handle on the service"
+  } ],
+  "unsubscribed_from_emails" : "Whether the Lead is unsubscribed from emails",
+  "updated_at" : "The last time the Lead was updated",
+  "user_id" : "Automatically generated identifier for the Lead",
+  "phone" : "The phone number you have defined for the lead",
+  "location_data" : {
+    "country_code" : "Optional. An ISO 3166 country code",
+    "city_name" : "Optional. A city name",
+    "timezone" : "Optional. An ISO 8601 timezone",
+    "latitude" : "Optional. The latitude",
+    "country_name" : "Optional. The country name",
+    "continent_code" : "Optional. A continent code",
+    "region_name" : "Optional. A region name",
+    "type" : "string",
+    "postal_code" : "Optional. A postal code",
+    "longitude" : "Optional. The longitude"
+  },
+  "name" : "The name of the Lead",
+  "id" : "The Intercom defined id representing the Lead",
+  "email" : "The email you have defined for the Lead",
+  "utm_source" : "Identifies which site sent the traffic",
+  "utm_content" : "Identifies what specifically was clicked to bring the user to the site"
+}
+```
 
 </details>
 
@@ -109,9 +501,105 @@ Create a note.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "author" : {
+    "team_ids" : [ "string" ],
+    "name" : "The name of the admin",
+    "away_mode_enabled" : "Identifies if this admin is currently set in away mode.",
+    "away_mode_reassign" : "Identifies if this admin is set to automatically reassign new conversations to the apps default inbox.",
+    "id" : "The id of the admin",
+    "avatar" : "Image for the associated team or teammate",
+    "type" : "string",
+    "has_inbox_seat" : "Identifies if a teammate has a paid inbox seat to restrict/allow features that require them",
+    "job_title" : "The job title of the admin",
+    "email" : "The email address of the admin"
+  },
+  "created_at" : "The time the note was created",
+  "id" : "The id representing the note",
+  "type" : "string",
+  "body" : "The body text of the note.",
+  "user" : {
+    "utm_medium" : "Identifies what type of link was used",
+    "created_at" : "The time (in seconds) the user was added to Intercom",
+    "type" : "Value is 'user' or 'contact'",
+    "pseudonym" : "The pseudonym used if this user was previously a Lead (http://docs.intercom.io/Intercom-for-customer-communication/the-intercom-messenger)",
+    "custom_attributes" : { },
+    "segments" : [ {
+      "updated_at" : "The time the segment was updated",
+      "person_type" : "Type of the record: user or lead.",
+      "name" : "The name of the segment",
+      "count" : "The number of items in the user segment. It's returned when `include_count=true` is included in the request.",
+      "created_at" : "The time the segment was created",
+      "id" : "The id representing the segment",
+      "type" : "string"
+    } ],
+    "companies" : [ {
+      "website" : "The URL for the company website",
+      "company_id" : "The company id you have defined for the company",
+      "last_request_at" : "The time the company last recorded making a request",
+      "created_at" : "The time the company was added to Intercom",
+      "industry" : "The industry that the company operates in",
+      "type" : "string",
+      "custom_attributes" : { },
+      "monthly_spend" : "How much revenue the company generates for your business",
+      "updated_at" : "The last time the company was updated",
+      "user_count" : "The number of users in the company",
+      "size" : "The number of employees in the company",
+      "session_count" : "How many sessions the company has recorded",
+      "name" : "The name of the company",
+      "id" : "The Intercom defined id representing the company",
+      "remote_created_at" : "The time the company was created by you",
+      "plan*" : "The name of the plan you have associated with the company."
+    } ],
+    "unsubscribed_from_emails" : "Whether the user is unsubscribed from emails",
+    "updated_at" : "The last time the user was updated",
+    "location_data" : {
+      "country_code" : "Optional. An ISO 3166 country code",
+      "city_name" : "Optional. A city name",
+      "timezone" : "Optional. An ISO 8601 timezone",
+      "latitude" : "Optional. The latitude",
+      "country_name" : "Optional. The country name",
+      "continent_code" : "Optional. A continent code",
+      "region_name" : "Optional. A region name",
+      "type" : "string",
+      "postal_code" : "Optional. A postal code",
+      "longitude" : "Optional. The longitude"
+    },
+    "id" : "The Intercom defined id representing the user",
+    "email" : "The email you have defined for the user. (Max limit of 255 UTF-8 characters, and should not have trailing or leading spaces)",
+    "utm_content" : "Identifies what specifically was clicked to bring the user to the site",
+    "signed_up_at" : "The time (in seconds) the user signed up",
+    "last_request_at" : "The time the user last recorded making a request",
+    "utm_campaign" : "Identifies a specific product promotion or strategic campaign",
+    "avatar" : { },
+    "tags" : [ {
+      "name" : "The name of the tag",
+      "id" : "The id of the tag",
+      "type" : "string"
+    } ],
+    "utm_term" : "Identifies search terms",
+    "referrer" : "The URL of the page the user was last on",
+    "social_profiles" : [ {
+      "name" : "The name of the service (e.g., twitter, facebook)",
+      "id" : "Optional. User ID on the service",
+      "type" : "string",
+      "url" : "The user homepage on the service",
+      "username" : "User name or handle on the service"
+    } ],
+    "user_id" : "The user id you have defined for the user. (Max limit of 255 UTF-8 characters, and should not have trailing or leading spaces)",
+    "phone" : "The phone number of the user",
+    "session_count" : "How many sessions the user has recorded",
+    "name" : "The full name of the user",
+    "anonymous" : "Whether or not this is a Lead. Always false",
+    "utm_source" : "Identifies which site sent the traffic"
+  }
+}
+```
 
 </details>
 
@@ -131,9 +619,17 @@ Objects submitted with an untag field can be mixed with other objects being tagg
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "name" : "The name of the tag",
+  "id" : "The id of the tag",
+  "type" : "string"
+}
+```
 
 </details>
 
@@ -143,9 +639,87 @@ Create a new user or update an existing user.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "utm_medium" : "Identifies what type of link was used",
+  "created_at" : "The time (in seconds) the user was added to Intercom",
+  "type" : "Value is 'user' or 'contact'",
+  "pseudonym" : "The pseudonym used if this user was previously a Lead (http://docs.intercom.io/Intercom-for-customer-communication/the-intercom-messenger)",
+  "custom_attributes" : { },
+  "segments" : [ {
+    "updated_at" : "The time the segment was updated",
+    "person_type" : "Type of the record: user or lead.",
+    "name" : "The name of the segment",
+    "count" : "The number of items in the user segment. It's returned when `include_count=true` is included in the request.",
+    "created_at" : "The time the segment was created",
+    "id" : "The id representing the segment",
+    "type" : "string"
+  } ],
+  "companies" : [ {
+    "website" : "The URL for the company website",
+    "company_id" : "The company id you have defined for the company",
+    "last_request_at" : "The time the company last recorded making a request",
+    "created_at" : "The time the company was added to Intercom",
+    "industry" : "The industry that the company operates in",
+    "type" : "string",
+    "custom_attributes" : { },
+    "monthly_spend" : "How much revenue the company generates for your business",
+    "updated_at" : "The last time the company was updated",
+    "user_count" : "The number of users in the company",
+    "size" : "The number of employees in the company",
+    "session_count" : "How many sessions the company has recorded",
+    "name" : "The name of the company",
+    "id" : "The Intercom defined id representing the company",
+    "remote_created_at" : "The time the company was created by you",
+    "plan*" : "The name of the plan you have associated with the company."
+  } ],
+  "unsubscribed_from_emails" : "Whether the user is unsubscribed from emails",
+  "updated_at" : "The last time the user was updated",
+  "location_data" : {
+    "country_code" : "Optional. An ISO 3166 country code",
+    "city_name" : "Optional. A city name",
+    "timezone" : "Optional. An ISO 8601 timezone",
+    "latitude" : "Optional. The latitude",
+    "country_name" : "Optional. The country name",
+    "continent_code" : "Optional. A continent code",
+    "region_name" : "Optional. A region name",
+    "type" : "string",
+    "postal_code" : "Optional. A postal code",
+    "longitude" : "Optional. The longitude"
+  },
+  "id" : "The Intercom defined id representing the user",
+  "email" : "The email you have defined for the user. (Max limit of 255 UTF-8 characters, and should not have trailing or leading spaces)",
+  "utm_content" : "Identifies what specifically was clicked to bring the user to the site",
+  "signed_up_at" : "The time (in seconds) the user signed up",
+  "last_request_at" : "The time the user last recorded making a request",
+  "utm_campaign" : "Identifies a specific product promotion or strategic campaign",
+  "avatar" : { },
+  "tags" : [ {
+    "name" : "The name of the tag",
+    "id" : "The id of the tag",
+    "type" : "string"
+  } ],
+  "utm_term" : "Identifies search terms",
+  "referrer" : "The URL of the page the user was last on",
+  "social_profiles" : [ {
+    "name" : "The name of the service (e.g., twitter, facebook)",
+    "id" : "Optional. User ID on the service",
+    "type" : "string",
+    "url" : "The user homepage on the service",
+    "username" : "User name or handle on the service"
+  } ],
+  "user_id" : "The user id you have defined for the user. (Max limit of 255 UTF-8 characters, and should not have trailing or leading spaces)",
+  "phone" : "The phone number of the user",
+  "session_count" : "How many sessions the user has recorded",
+  "name" : "The full name of the user",
+  "anonymous" : "Whether or not this is a Lead. Always false",
+  "utm_source" : "Identifies which site sent the traffic"
+}
+```
 
 </details>
 
@@ -155,9 +729,87 @@ Create a new user or update an existing user.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "utm_medium" : "Identifies what type of link was used",
+  "created_at" : "The time (in seconds) the user was added to Intercom",
+  "type" : "Value is 'user' or 'contact'",
+  "pseudonym" : "The pseudonym used if this user was previously a Lead (http://docs.intercom.io/Intercom-for-customer-communication/the-intercom-messenger)",
+  "custom_attributes" : { },
+  "segments" : [ {
+    "updated_at" : "The time the segment was updated",
+    "person_type" : "Type of the record: user or lead.",
+    "name" : "The name of the segment",
+    "count" : "The number of items in the user segment. It's returned when `include_count=true` is included in the request.",
+    "created_at" : "The time the segment was created",
+    "id" : "The id representing the segment",
+    "type" : "string"
+  } ],
+  "companies" : [ {
+    "website" : "The URL for the company website",
+    "company_id" : "The company id you have defined for the company",
+    "last_request_at" : "The time the company last recorded making a request",
+    "created_at" : "The time the company was added to Intercom",
+    "industry" : "The industry that the company operates in",
+    "type" : "string",
+    "custom_attributes" : { },
+    "monthly_spend" : "How much revenue the company generates for your business",
+    "updated_at" : "The last time the company was updated",
+    "user_count" : "The number of users in the company",
+    "size" : "The number of employees in the company",
+    "session_count" : "How many sessions the company has recorded",
+    "name" : "The name of the company",
+    "id" : "The Intercom defined id representing the company",
+    "remote_created_at" : "The time the company was created by you",
+    "plan*" : "The name of the plan you have associated with the company."
+  } ],
+  "unsubscribed_from_emails" : "Whether the user is unsubscribed from emails",
+  "updated_at" : "The last time the user was updated",
+  "location_data" : {
+    "country_code" : "Optional. An ISO 3166 country code",
+    "city_name" : "Optional. A city name",
+    "timezone" : "Optional. An ISO 8601 timezone",
+    "latitude" : "Optional. The latitude",
+    "country_name" : "Optional. The country name",
+    "continent_code" : "Optional. A continent code",
+    "region_name" : "Optional. A region name",
+    "type" : "string",
+    "postal_code" : "Optional. A postal code",
+    "longitude" : "Optional. The longitude"
+  },
+  "id" : "The Intercom defined id representing the user",
+  "email" : "The email you have defined for the user. (Max limit of 255 UTF-8 characters, and should not have trailing or leading spaces)",
+  "utm_content" : "Identifies what specifically was clicked to bring the user to the site",
+  "signed_up_at" : "The time (in seconds) the user signed up",
+  "last_request_at" : "The time the user last recorded making a request",
+  "utm_campaign" : "Identifies a specific product promotion or strategic campaign",
+  "avatar" : { },
+  "tags" : [ {
+    "name" : "The name of the tag",
+    "id" : "The id of the tag",
+    "type" : "string"
+  } ],
+  "utm_term" : "Identifies search terms",
+  "referrer" : "The URL of the page the user was last on",
+  "social_profiles" : [ {
+    "name" : "The name of the service (e.g., twitter, facebook)",
+    "id" : "Optional. User ID on the service",
+    "type" : "string",
+    "url" : "The user homepage on the service",
+    "username" : "User name or handle on the service"
+  } ],
+  "user_id" : "The user id you have defined for the user. (Max limit of 255 UTF-8 characters, and should not have trailing or leading spaces)",
+  "phone" : "The phone number of the user",
+  "session_count" : "How many sessions the user has recorded",
+  "name" : "The full name of the user",
+  "anonymous" : "Whether or not this is a Lead. Always false",
+  "utm_source" : "Identifies which site sent the traffic"
+}
+```
 
 </details>
 
@@ -167,7 +819,7 @@ Delete a company
 
 <details><summary>Parameters</summary>
 
-#### user_id
+### user_id
 
 User ID
 
@@ -181,7 +833,7 @@ Delete a company
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 Company ID
 
@@ -195,13 +847,13 @@ Company ID
 
 <details><summary>Parameters</summary>
 
-#### conversation_id (required)
+### conversation_id (required)
 
 Conversation ID
 
 **Type:** string
 
-#### id (required)
+### id (required)
 
 Customer ID
 
@@ -215,7 +867,7 @@ Delete a lead
 
 <details><summary>Parameters</summary>
 
-#### user_id
+### user_id
 
 User ID
 
@@ -229,7 +881,7 @@ Delete a lead
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 Lead ID
 
@@ -243,7 +895,7 @@ Delete a tag
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 Tag ID
 
@@ -257,7 +909,7 @@ Delete a visitor
 
 <details><summary>Parameters</summary>
 
-#### user_id
+### user_id
 
 User ID
 
@@ -271,7 +923,7 @@ Delete a visitor
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 Visitor ID
 
@@ -285,13 +937,13 @@ Find an individual user or many users.
 
 <details><summary>Parameters</summary>
 
-#### email
+### email
 
 The email you have defined for the user
 
 **Type:** string
 
-#### user_id
+### user_id
 
 The user id you have defined for the user
 
@@ -305,7 +957,7 @@ Get a particular admin
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 Admin ID
 
@@ -319,7 +971,7 @@ Get a company
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 Company ID
 
@@ -333,13 +985,13 @@ Get a single conversation.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 Conversation ID
 
 **Type:** string
 
-#### display_as
+### display_as
 
 Set to plaintext to retrieve conversation messages in plain text
 
@@ -353,11 +1005,11 @@ Set to plaintext to retrieve conversation messages in plain text
 
 <details><summary>Parameters</summary>
 
-#### count
+### count
 
 **Type:** number
 
-#### type
+### type
 
 **Type:** string
 
@@ -375,7 +1027,7 @@ Get a lead
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 Lead ID
 
@@ -389,7 +1041,7 @@ Get a note.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 Note ID
 
@@ -403,13 +1055,13 @@ Get a segment for an App.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 Segment ID
 
 **Type:** string
 
-#### include_count
+### include_count
 
 include counts in your segment model in the response
 
@@ -423,7 +1075,7 @@ Get a particular team
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 Team ID
 
@@ -437,7 +1089,7 @@ Get a user
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 System-assigned user ID
 
@@ -451,7 +1103,7 @@ Get a visitor
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 Visitor ID
 
@@ -465,19 +1117,19 @@ Get a log of activities by all admins in an app.
 
 <details><summary>Parameters</summary>
 
-#### created_at_after (required)
+### created_at_after (required)
 
 The start date that you request data for. It must be formatted as a UNIX timestamp.
 
 **Type:** string
 
-#### created_at_before
+### created_at_before
 
 The end date that you request data for. It must be formatted as a UNIX timestamp.
 
 **Type:** string
 
-#### resultsPath
+### resultsPath
 
 **Type:** STRING
 
@@ -489,7 +1141,7 @@ List an App's admins.
 
 <details><summary>Parameters</summary>
 
-#### resultsPath
+### resultsPath
 
 **Type:** STRING
 
@@ -501,37 +1153,37 @@ List Companies (or list users for company)
 
 <details><summary>Parameters</summary>
 
-#### company_id
+### company_id
 
 Company ID
 
 **Type:** string
 
-#### name
+### name
 
 Company name
 
 **Type:** string
 
-#### order
+### order
 
 **Type:** string
 
 **Potential values:** asc, desc
 
-#### resultsPath
+### resultsPath
 
 **Type:** STRING
 
-#### segment_id
+### segment_id
 
 **Type:** number
 
-#### tag_id
+### tag_id
 
 **Type:** number
 
-#### type
+### type
 
 **Type:** string
 
@@ -543,49 +1195,49 @@ List conversations
 
 <details><summary>Parameters</summary>
 
-#### admin_id
+### admin_id
 
 The id for the Admin whose conversations to retrieve. To retrieve all unassigned conversations, set the id to be 'nobody'.
 
 **Type:** string
 
-#### display_as
+### display_as
 
 Set to plaintext to retrieve conversation messages in plain text
 
 **Type:** string
 
-#### email
+### email
 
 **Type:** string
 
-#### intercom_user_id
+### intercom_user_id
 
 **Type:** string
 
-#### open
+### open
 
 when true fetches just open conversations, when false just closed conversations
 
 **Type:** boolean
 
-#### order
+### order
 
 **Type:** string
 
 **Potential values:** asc, desc
 
-#### resultsPath
+### resultsPath
 
 **Type:** STRING
 
-#### sort
+### sort
 
 **Type:** string
 
 **Potential values:** created_at, updated_at, waiting_since
 
-#### type
+### type
 
 The type of entity to query for.
 
@@ -593,13 +1245,13 @@ The type of entity to query for.
 
 **Potential values:** admin, user
 
-#### unread
+### unread
 
 when true fetches just unread conversations
 
 **Type:** boolean
 
-#### user_id
+### user_id
 
 **Type:** string
 
@@ -611,7 +1263,7 @@ List all the company data attributes for your app.
 
 <details><summary>Parameters</summary>
 
-#### include_archived
+### include_archived
 
 Include archived attributes in the list. By default only non-archived data attributes are returned.
 
@@ -625,7 +1277,7 @@ List all data attributes for customers. Customer attributes describe attributes 
 
 <details><summary>Parameters</summary>
 
-#### include_archived
+### include_archived
 
 Include archived attributes in the list. By default only non-archived data attributes are returned.
 
@@ -639,29 +1291,29 @@ List events for a user
 
 <details><summary>Parameters</summary>
 
-#### type (required)
+### type (required)
 
 **Type:** string
 
-#### email
+### email
 
 **Type:** string
 
-#### intercom_user_id
+### intercom_user_id
 
 **Type:** string
 
-#### resultsPath
+### resultsPath
 
 **Type:** STRING
 
-#### summary
+### summary
 
 When set to true, event counts are returned grouped by event name.
 
 **Type:** boolean
 
-#### user_id
+### user_id
 
 **Type:** string
 
@@ -673,23 +1325,23 @@ List Leads
 
 <details><summary>Parameters</summary>
 
-#### email
+### email
 
 Email address
 
 **Type:** string
 
-#### phone
+### phone
 
 Phone number
 
 **Type:** string
 
-#### resultsPath
+### resultsPath
 
 **Type:** STRING
 
-#### user_id
+### user_id
 
 User ID
 
@@ -703,19 +1355,19 @@ List notes for a user
 
 <details><summary>Parameters</summary>
 
-#### email
+### email
 
 **Type:** string
 
-#### id
+### id
 
 **Type:** string
 
-#### resultsPath
+### resultsPath
 
 **Type:** STRING
 
-#### user_id
+### user_id
 
 **Type:** string
 
@@ -727,17 +1379,17 @@ Get a list of segments for an App.
 
 <details><summary>Parameters</summary>
 
-#### include_count
+### include_count
 
 include counts in your segment model in the response
 
 **Type:** boolean
 
-#### resultsPath
+### resultsPath
 
 **Type:** STRING
 
-#### type
+### type
 
 if "company", list company segments, otherwise list user segments.
 
@@ -757,7 +1409,7 @@ Get a list of teams for an App.
 
 <details><summary>Parameters</summary>
 
-#### resultsPath
+### resultsPath
 
 **Type:** STRING
 
@@ -769,13 +1421,13 @@ Find an individual user or many users.
 
 <details><summary>Parameters</summary>
 
-#### created_since
+### created_since
 
 Limits results to users that were created in that last number of days.
 
 **Type:** number
 
-#### order
+### order
 
 Returns the users in ascending or descending order.
 
@@ -783,11 +1435,11 @@ Returns the users in ascending or descending order.
 
 **Potential values:** asc, desc
 
-#### resultsPath
+### resultsPath
 
 **Type:** STRING
 
-#### sort
+### sort
 
 What field to sort the results by.
 
@@ -803,13 +1455,13 @@ List users for a company
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 Company ID
 
 **Type:** string
 
-#### resultsPath
+### resultsPath
 
 **Type:** STRING
 
@@ -821,15 +1473,21 @@ Mark a conversation within Intercom as read.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 Conversation ID
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "read" : "boolean"
+}
+```
 
 </details>
 
@@ -839,9 +1497,105 @@ Conversation ID
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "template" : "The style of the outgoing message. Only valid for email messages. Possible values plain or personal.",
+  "subject" : "Optional unless message_type is email. The title of the email.",
+  "message_type" : "The kind of message being created.",
+  "from" : {
+    "team_ids" : [ "string" ],
+    "name" : "The name of the admin",
+    "away_mode_enabled" : "Identifies if this admin is currently set in away mode.",
+    "away_mode_reassign" : "Identifies if this admin is set to automatically reassign new conversations to the apps default inbox.",
+    "id" : "The id of the admin",
+    "avatar" : "Image for the associated team or teammate",
+    "type" : "string",
+    "has_inbox_seat" : "Identifies if a teammate has a paid inbox seat to restrict/allow features that require them",
+    "job_title" : "The job title of the admin",
+    "email" : "The email address of the admin"
+  },
+  "to" : {
+    "utm_medium" : "Identifies what type of link was used",
+    "created_at" : "The time (in seconds) the user was added to Intercom",
+    "type" : "Value is 'user' or 'contact'",
+    "pseudonym" : "The pseudonym used if this user was previously a Lead (http://docs.intercom.io/Intercom-for-customer-communication/the-intercom-messenger)",
+    "custom_attributes" : { },
+    "segments" : [ {
+      "updated_at" : "The time the segment was updated",
+      "person_type" : "Type of the record: user or lead.",
+      "name" : "The name of the segment",
+      "count" : "The number of items in the user segment. It's returned when `include_count=true` is included in the request.",
+      "created_at" : "The time the segment was created",
+      "id" : "The id representing the segment",
+      "type" : "string"
+    } ],
+    "companies" : [ {
+      "website" : "The URL for the company website",
+      "company_id" : "The company id you have defined for the company",
+      "last_request_at" : "The time the company last recorded making a request",
+      "created_at" : "The time the company was added to Intercom",
+      "industry" : "The industry that the company operates in",
+      "type" : "string",
+      "custom_attributes" : { },
+      "monthly_spend" : "How much revenue the company generates for your business",
+      "updated_at" : "The last time the company was updated",
+      "user_count" : "The number of users in the company",
+      "size" : "The number of employees in the company",
+      "session_count" : "How many sessions the company has recorded",
+      "name" : "The name of the company",
+      "id" : "The Intercom defined id representing the company",
+      "remote_created_at" : "The time the company was created by you",
+      "plan*" : "The name of the plan you have associated with the company."
+    } ],
+    "unsubscribed_from_emails" : "Whether the user is unsubscribed from emails",
+    "updated_at" : "The last time the user was updated",
+    "location_data" : {
+      "country_code" : "Optional. An ISO 3166 country code",
+      "city_name" : "Optional. A city name",
+      "timezone" : "Optional. An ISO 8601 timezone",
+      "latitude" : "Optional. The latitude",
+      "country_name" : "Optional. The country name",
+      "continent_code" : "Optional. A continent code",
+      "region_name" : "Optional. A region name",
+      "type" : "string",
+      "postal_code" : "Optional. A postal code",
+      "longitude" : "Optional. The longitude"
+    },
+    "id" : "The Intercom defined id representing the user",
+    "email" : "The email you have defined for the user. (Max limit of 255 UTF-8 characters, and should not have trailing or leading spaces)",
+    "utm_content" : "Identifies what specifically was clicked to bring the user to the site",
+    "signed_up_at" : "The time (in seconds) the user signed up",
+    "last_request_at" : "The time the user last recorded making a request",
+    "utm_campaign" : "Identifies a specific product promotion or strategic campaign",
+    "avatar" : { },
+    "tags" : [ {
+      "name" : "The name of the tag",
+      "id" : "The id of the tag",
+      "type" : "string"
+    } ],
+    "utm_term" : "Identifies search terms",
+    "referrer" : "The URL of the page the user was last on",
+    "social_profiles" : [ {
+      "name" : "The name of the service (e.g., twitter, facebook)",
+      "id" : "Optional. User ID on the service",
+      "type" : "string",
+      "url" : "The user homepage on the service",
+      "username" : "User name or handle on the service"
+    } ],
+    "user_id" : "The user id you have defined for the user. (Max limit of 255 UTF-8 characters, and should not have trailing or leading spaces)",
+    "phone" : "The phone number of the user",
+    "session_count" : "How many sessions the user has recorded",
+    "name" : "The full name of the user",
+    "anonymous" : "Whether or not this is a Lead. Always false",
+    "utm_source" : "Identifies which site sent the traffic"
+  },
+  "body" : "The content of the message. HTML or plaintext."
+}
+```
 
 </details>
 
@@ -851,15 +1605,30 @@ Conversation ID
 
 <details><summary>Parameters</summary>
 
-#### conversation_id (required)
+### conversation_id (required)
 
 Conversation ID
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "attachment_urls" : [ "string" ],
+  "user_id" : "string",
+  "admin_id" : "string",
+  "message_type" : "string. Possible values: comment | assignment | open | close | note",
+  "intercom_user_id" : "string",
+  "type" : "string. Possible values: user | admin",
+  "body" : "The text body of the comment",
+  "email" : "string",
+  "snooze_until" : "The time in Unix time (i.e. seconds) you want the conversation to reopen",
+  "assignee_id" : "string"
+}
+```
 
 </details>
 
@@ -869,9 +1638,24 @@ Conversation ID
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "attachment_urls" : [ "string" ],
+  "user_id" : "string",
+  "admin_id" : "string",
+  "message_type" : "string. Possible values: comment | assignment | open | close | note",
+  "intercom_user_id" : "string",
+  "type" : "string. Possible values: user | admin",
+  "body" : "The text body of the comment",
+  "email" : "string",
+  "snooze_until" : "The time in Unix time (i.e. seconds) you want the conversation to reopen",
+  "assignee_id" : "string"
+}
+```
 
 </details>
 
@@ -893,7 +1677,7 @@ is reached, \"companies\" will be empty and the scroll parameter will expire. Si
 
 <details><summary>Parameters</summary>
 
-#### scroll
+### scroll
 
 scroll parameter
 
@@ -919,7 +1703,7 @@ is reached, \"leads\" will be empty and the scroll parameter will expire. Since 
 
 <details><summary>Parameters</summary>
 
-#### scroll
+### scroll
 
 scroll parameter
 
@@ -945,7 +1729,7 @@ is reached, \"users\" will be empty and the scroll parameter will expire. Since 
 
 <details><summary>Parameters</summary>
 
-#### scroll
+### scroll
 
 scroll parameter
 
@@ -959,19 +1743,19 @@ If you want to set an admin in away mode you can do this via a PUT request. You 
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 Admin ID
 
 **Type:** string
 
-#### away_mode_enabled
+### away_mode_enabled
 
 Set to 'true' to change the status of the admin to away.
 
 **Type:** boolean
 
-#### away_mode_reassign
+### away_mode_reassign
 
 Set to 'true' to assign any new conversation replies to your default inbox.
 
@@ -985,9 +1769,30 @@ Create or update a company. Companies are looked up via company_id. If not found
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "website" : "The URL for the company website",
+  "company_id" : "The company id you have defined for the company",
+  "last_request_at" : "The time the company last recorded making a request",
+  "created_at" : "The time the company was added to Intercom",
+  "industry" : "The industry that the company operates in",
+  "type" : "string",
+  "custom_attributes" : { },
+  "monthly_spend" : "How much revenue the company generates for your business",
+  "updated_at" : "The last time the company was updated",
+  "user_count" : "The number of users in the company",
+  "size" : "The number of employees in the company",
+  "session_count" : "How many sessions the company has recorded",
+  "name" : "The name of the company",
+  "id" : "The Intercom defined id representing the company",
+  "remote_created_at" : "The time the company was created by you",
+  "plan*" : "The name of the plan you have associated with the company."
+}
+```
 
 </details>
 
@@ -997,9 +1802,83 @@ Create or update a lead
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "last_request_at" : "The time the Lead last recorded making a request",
+  "utm_campaign" : "Identifies a specific product promotion or strategic campaign",
+  "utm_medium" : "Identifies what type of link was used",
+  "created_at" : "The time the Lead was added to Intercom",
+  "avatar" : { },
+  "type" : "string",
+  "custom_attributes" : { },
+  "segments" : [ {
+    "updated_at" : "The time the segment was updated",
+    "person_type" : "Type of the record: user or lead.",
+    "name" : "The name of the segment",
+    "count" : "The number of items in the user segment. It's returned when `include_count=true` is included in the request.",
+    "created_at" : "The time the segment was created",
+    "id" : "The id representing the segment",
+    "type" : "string"
+  } ],
+  "tags" : [ {
+    "name" : "The name of the tag",
+    "id" : "The id of the tag",
+    "type" : "string"
+  } ],
+  "utm_term" : "Identifies search terms",
+  "referrer" : "The URL of the page the lead was last on",
+  "companies" : [ {
+    "website" : "The URL for the company website",
+    "company_id" : "The company id you have defined for the company",
+    "last_request_at" : "The time the company last recorded making a request",
+    "created_at" : "The time the company was added to Intercom",
+    "industry" : "The industry that the company operates in",
+    "type" : "string",
+    "custom_attributes" : { },
+    "monthly_spend" : "How much revenue the company generates for your business",
+    "updated_at" : "The last time the company was updated",
+    "user_count" : "The number of users in the company",
+    "size" : "The number of employees in the company",
+    "session_count" : "How many sessions the company has recorded",
+    "name" : "The name of the company",
+    "id" : "The Intercom defined id representing the company",
+    "remote_created_at" : "The time the company was created by you",
+    "plan*" : "The name of the plan you have associated with the company."
+  } ],
+  "social_profiles" : [ {
+    "name" : "The name of the service (e.g., twitter, facebook)",
+    "id" : "Optional. User ID on the service",
+    "type" : "string",
+    "url" : "The user homepage on the service",
+    "username" : "User name or handle on the service"
+  } ],
+  "unsubscribed_from_emails" : "Whether the Lead is unsubscribed from emails",
+  "updated_at" : "The last time the Lead was updated",
+  "user_id" : "Automatically generated identifier for the Lead",
+  "phone" : "The phone number you have defined for the lead",
+  "location_data" : {
+    "country_code" : "Optional. An ISO 3166 country code",
+    "city_name" : "Optional. A city name",
+    "timezone" : "Optional. An ISO 8601 timezone",
+    "latitude" : "Optional. The latitude",
+    "country_name" : "Optional. The country name",
+    "continent_code" : "Optional. A continent code",
+    "region_name" : "Optional. A region name",
+    "type" : "string",
+    "postal_code" : "Optional. A postal code",
+    "longitude" : "Optional. The longitude"
+  },
+  "name" : "The name of the Lead",
+  "id" : "The Intercom defined id representing the Lead",
+  "email" : "The email you have defined for the Lead",
+  "utm_source" : "Identifies which site sent the traffic",
+  "utm_content" : "Identifies what specifically was clicked to bring the user to the site"
+}
+```
 
 </details>
 
@@ -1019,9 +1898,17 @@ Objects submitted with an untag field can be mixed with other objects being tagg
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "name" : "The name of the tag",
+  "id" : "The id of the tag",
+  "type" : "string"
+}
+```
 
 </details>
 
@@ -1031,9 +1918,52 @@ Update a visitor. Passing identifiers (user_id or id) in the body will result in
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "last_request_at" : "The time the Lead last recorded making a request",
+  "created_at" : "The time the Visitor was added to Intercom",
+  "avatar" : {
+    "image_url" : "An avatar image URL. note: the image url needs to be https.",
+    "type" : "string"
+  },
+  "type" : "string",
+  "custom_attributes" : { },
+  "segments" : [ {
+    "updated_at" : "The time the segment was updated",
+    "person_type" : "Type of the record: user or lead.",
+    "name" : "The name of the segment",
+    "count" : "The number of items in the user segment. It's returned when `include_count=true` is included in the request.",
+    "created_at" : "The time the segment was created",
+    "id" : "The id representing the segment",
+    "type" : "string"
+  } ],
+  "tags" : [ {
+    "name" : "The name of the tag",
+    "id" : "The id of the tag",
+    "type" : "string"
+  } ],
+  "social_profiles" : [ {
+    "name" : "The name of the service (e.g., twitter, facebook)",
+    "id" : "Optional. User ID on the service",
+    "type" : "string",
+    "url" : "The user homepage on the service",
+    "username" : "User name or handle on the service"
+  } ],
+  "unsubscribed_from_emails" : "Whether the Visitor is unsubscribed from emails",
+  "updated_at" : "The last time the Visitor was updated",
+  "user_id" : "Automatically generated identifier for the Visitor",
+  "location_data" : {
+    "image_url" : "An avatar image URL. note: the image url needs to be https.",
+    "type" : "string"
+  },
+  "name" : "The name of the Visitor",
+  "id" : "The Intercom defined id representing the Visitor"
+}
+```
 
 </details>
 

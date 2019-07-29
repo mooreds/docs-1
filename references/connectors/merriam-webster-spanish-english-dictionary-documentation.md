@@ -11,7 +11,7 @@ This bilingual, bidirectional guide is designed to help users communicate effect
 
 <details><summary>Parameters</summary>
 
-#### headword (required)
+### headword (required)
 
 **Type:** string
 
@@ -23,7 +23,7 @@ This bilingual, bidirectional guide is designed to help users communicate effect
 
 <details><summary>Parameters</summary>
 
-#### headword (required)
+### headword (required)
 
 **Type:** STRING
 

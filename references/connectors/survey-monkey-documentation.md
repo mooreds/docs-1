@@ -13,7 +13,7 @@ Deletes a survey. Public App users need access to the Create/Modify Surveys scop
 
 <details><summary>Parameters</summary>
 
-#### surveyId (required)
+### surveyId (required)
 
 id of the survey you are referring to
 
@@ -27,103 +27,103 @@ Returns a list of responses. Public App users need access to the View Responses 
 
 <details><summary>Parameters</summary>
 
-#### collectorId (required)
+### collectorId (required)
 
 id of the survey you are referring to
 
 **Type:** string
 
-#### surveyId (required)
+### surveyId (required)
 
 id of the survey you are referring to
 
 **Type:** string
 
-#### custom
+### custom
 
 The custom value associated with the response
 
 **Type:** string
 
-#### email
+### email
 
 Email of the recipient
 
 **Type:** string
 
-#### end_created_at
+### end_created_at
 
 Responses started before this date
 
 **Type:** string
 
-#### end_modified_at
+### end_modified_at
 
 Surveys must be last modified before this date.
 
 **Type:** string
 
-#### first_name
+### first_name
 
 First Name of the recipient
 
 **Type:** string
 
-#### ip
+### ip
 
 The IP the response was taken from
 
 **Type:** string
 
-#### last_name
+### last_name
 
 Last Name of the recipient
 
 **Type:** string
 
-#### sort_by
+### sort_by
 
 Field used to sort returned survey list title, date_modified, or num_responses
 
 **Type:** string
 
-#### sort_order
+### sort_order
 
 ASC or DESC
 
 **Type:** string
 
-#### start_created_at
+### start_created_at
 
 Responses started after this date
 
 **Type:** string
 
-#### start_modified_at
+### start_modified_at
 
 Surveys must be last modified after this date.
 
 **Type:** string
 
-#### status
+### status
 
 completed, partial, overquota, disqualified
 
 **Type:** string
 
-#### total_time_max
+### total_time_max
 
 The maximum amount of time spent on the response
 
 **Type:** string
 
-#### total_time_min
+### total_time_min
 
 The minimum amount of time spent on the response
 
 **Type:** string
 
-#### total_time_units
+### total_time_units
 
 Unit of time for total_time_min and total_time_max second, minute, hour
 
@@ -137,7 +137,7 @@ Returns a page’s details. Public App users need access to the View Surveys sco
 
 <details><summary>Parameters</summary>
 
-#### surveyId (required)
+### surveyId (required)
 
 id of the survey you are referring to
 
@@ -151,19 +151,19 @@ Returns a question. Requires View Surveys scope
 
 <details><summary>Parameters</summary>
 
-#### pageId (required)
+### pageId (required)
 
 id of the page of the survey you are referring to
 
 **Type:** string
 
-#### questionId (required)
+### questionId (required)
 
 id of the survey question
 
 **Type:** string
 
-#### surveyId (required)
+### surveyId (required)
 
 id of the survey you are referring to
 
@@ -177,13 +177,13 @@ Returns a list of questions on a survey page. Public App users need access to th
 
 <details><summary>Parameters</summary>
 
-#### pageId (required)
+### pageId (required)
 
 id of the page of the survey you are referring to
 
 **Type:** string
 
-#### surveyId (required)
+### surveyId (required)
 
 id of the survey you are referring to
 
@@ -197,25 +197,25 @@ Retrieve a full expanded response, including answers to all questions. Public Ap
 
 <details><summary>Parameters</summary>
 
-#### responseId (required)
+### responseId (required)
 
 response identified by ID
 
 **Type:** string
 
-#### surveyId (required)
+### surveyId (required)
 
 id of the survey you are referring to
 
 **Type:** string
 
-#### page_ids
+### page_ids
 
 List of survey pages to filter on. Returns all pages if not provided. Comma Separated
 
 **Type:** string
 
-#### question_ids
+### question_ids
 
 List of survey questions to filter on. Returns all questions if not provided. Comma Separated
 
@@ -229,103 +229,103 @@ List of survey questions to filter on. Returns all questions if not provided. Co
 
 <details><summary>Parameters</summary>
 
-#### surveyId (required)
+### surveyId (required)
 
 id of the survey you are referring to
 
 **Type:** string
 
-#### email
+### email
 
 Email of the recipient
 
 **Type:** string
 
-#### end_created_at
+### end_created_at
 
 Responses started before this date
 
 **Type:** string
 
-#### end_modified_at
+### end_modified_at
 
 Surveys must be last modified before this date.
 
 **Type:** string
 
-#### first_name
+### first_name
 
 First Name of the recipient
 
 **Type:** string
 
-#### ip
+### ip
 
 The IP the response was taken from
 
 **Type:** string
 
-#### last_name
+### last_name
 
 Last Name of the recipient
 
 **Type:** string
 
-#### page_ids
+### page_ids
 
 List of survey pages to filter on. Returns all pages if not provided
 
 **Type:** string
 
-#### question_ids
+### question_ids
 
 List of survey questions to filter on. Returns all questions if not provided
 
 **Type:** string
 
-#### sort_by
+### sort_by
 
 Field used to sort returned survey list title, date_modified, or num_responses
 
 **Type:** string
 
-#### sort_order
+### sort_order
 
 ASC or DESC
 
 **Type:** string
 
-#### start_created_at
+### start_created_at
 
 Responses started after this date
 
 **Type:** string
 
-#### start_modified_at
+### start_modified_at
 
 Surveys must be last modified after this date.
 
 **Type:** string
 
-#### status
+### status
 
 completed, partial, overquota, disqualified
 
 **Type:** string
 
-#### total_time_max
+### total_time_max
 
 The maximum amount of time spent on the response
 
 **Type:** string
 
-#### total_time_min
+### total_time_min
 
 The minimum amount of time spent on the response
 
 **Type:** string
 
-#### total_time_units
+### total_time_units
 
 second, minute, or hour
 
@@ -339,7 +339,7 @@ Returns a survey’s details. To get an expanded version showing all pages and q
 
 <details><summary>Parameters</summary>
 
-#### surveyId (required)
+### surveyId (required)
 
 id of the survey you are referring to
 
@@ -353,7 +353,7 @@ Returns an expanded survey resource with a pages element containing a list of al
 
 <details><summary>Parameters</summary>
 
-#### surveyId (required)
+### surveyId (required)
 
 id of the survey you are referring to
 
@@ -367,43 +367,43 @@ Returns a list of surveys owned or shared with the authenticated user. Public Ap
 
 <details><summary>Parameters</summary>
 
-#### end_modified_at
+### end_modified_at
 
 Surveys must be last modified before this date.
 
 **Type:** string
 
-#### folder_id
+### folder_id
 
 Specify the id of a folder to only return surveys in it.
 
 **Type:** string
 
-#### include
+### include
 
 shared_with, shared_by, or owned (useful for teams) or use to specify additional fields to return per survey response_count, date_created, date_modified, language, question_count, analyze_url, preview
 
 **Type:** string
 
-#### sort_by
+### sort_by
 
 Field used to sort returned survey list title, date_modified, or num_responses
 
 **Type:** string
 
-#### sort_order
+### sort_order
 
 ASC or DESC
 
 **Type:** string
 
-#### start_modified_at
+### start_modified_at
 
 Surveys must be last modified after this date.
 
 **Type:** string
 
-#### title
+### title
 
 Search survey list by survey title
 

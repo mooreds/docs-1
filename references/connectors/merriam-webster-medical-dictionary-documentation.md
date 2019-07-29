@@ -11,7 +11,7 @@ This up-to-date dictionary of medical terms and definitions is designed for heal
 
 <details><summary>Parameters</summary>
 
-#### headword (required)
+### headword (required)
 
 **Type:** string
 
@@ -23,7 +23,7 @@ This up-to-date dictionary of medical terms and definitions is designed for heal
 
 <details><summary>Parameters</summary>
 
-#### headword (required)
+### headword (required)
 
 **Type:** STRING
 
@@ -35,7 +35,7 @@ This up-to-date dictionary of medical terms and definitions is designed for heal
 
 <details><summary>Parameters</summary>
 
-#### headword (required)
+### headword (required)
 
 **Type:** STRING
 

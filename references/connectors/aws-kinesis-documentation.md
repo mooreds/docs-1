@@ -13,11 +13,18 @@ If tags have already been assigned to the stream, AddTagsToStream overwrites any
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Represents the input for AddTagsToStream.
 
 **Type:** object
+
+```json
+{
+  "StreamName" : "The name of the stream.",
+  "Tags" : "A set of up to 10 key-value pairs to use to create the tags."
+}
+```
 
 </details>
 
@@ -36,11 +43,18 @@ You can use DescribeStream to check the stream status, which is returned in Stre
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Represents the input for CreateStream.
 
 **Type:** object
+
+```json
+{
+  "StreamName" : "A name to identify the stream. The stream name is scoped to the AWS account used by the application that creates the stream. It is also scoped by AWS Region. That is, two streams in two different AWS accounts can have the same name. Two streams in the same AWS account but in two different Regions can also have the same name.",
+  "ShardCount" : "The number of shards that the stream will use. The throughput of the stream is a function of the number of shards; more shards are required for greater provisioned throughput. \nDefaultShardLimit;"
+}
+```
 
 </details>
 
@@ -51,11 +65,18 @@ This operation may result in lost data. For example, if the stream's retention p
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Represents the input for DecreaseStreamRetentionPeriod.
 
 **Type:** object
+
+```json
+{
+  "StreamName" : "The name of the stream to modify.",
+  "RetentionPeriodHours" : "The new retention period of the stream, in hours. Must be less than the current retention period."
+}
+```
 
 </details>
 
@@ -70,11 +91,18 @@ You can use the DescribeStream operation to check the state of the stream, which
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Represents the input for DeleteStream.
 
 **Type:** object
+
+```json
+{
+  "StreamName" : "The name of the stream to delete.",
+  "EnforceConsumerDeletion" : "If this parameter is unset (null) or if you set it to false, and the stream has registered consumers, the call to DeleteStream fails with a ResourceInUseException. "
+}
+```
 
 </details>
 
@@ -85,9 +113,17 @@ This operation has a limit of five transactions per second per account.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "ConsumerName" : "The name that you gave to the consumer.",
+  "ConsumerARN" : "The ARN returned by Kinesis Data Streams when you registered the consumer. If you don't know the ARN of the consumer that you want to deregister, you can use the ListStreamConsumers operation to get a list of the descriptions of all the consumers that are currently registered with a given data stream. The description of a consumer contains its ARN.",
+  "StreamARN" : "The ARN of the Kinesis data stream that the consumer is registered with. For more information, see Amazon Resource Names (ARNs) and AWS Service Namespaces."
+}
+```
 
 </details>
 
@@ -99,9 +135,13 @@ This operation has a limit of one transaction per second per account.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{ }
+```
 
 </details>
 
@@ -115,11 +155,17 @@ This operation has a limit of 10 transactions per second per account.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Represents the input for DescribeStream.
 
 **Type:** object
+
+```json
+{
+  "StreamName" : "The name of the stream to describe."
+}
+```
 
 </details>
 
@@ -130,9 +176,17 @@ This operation has a limit of 20 transactions per second per account.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "ConsumerName" : "The name that you gave to the consumer.",
+  "ConsumerARN" : "The ARN returned by Kinesis Data Streams when you registered the consumer.",
+  "StreamARN" : "The ARN of the Kinesis data stream that the consumer is registered with. For more information, see Amazon Resource Names (ARNs) and AWS Service Namespaces."
+}
+```
 
 </details>
 
@@ -143,9 +197,15 @@ The information returned includes the stream name, Amazon Resource Name (ARN), s
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "StreamName" : "The name of the stream to describe."
+}
+```
 
 </details>
 
@@ -155,11 +215,18 @@ Disables enhanced monitoring.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Represents the input for DisableEnhancedMonitoring.
 
 **Type:** object
+
+```json
+{
+  "ShardLevelMetrics" : [ "string. Possible values: IncomingBytes | IncomingRecords | OutgoingBytes | OutgoingRecords | WriteProvisionedThroughputExceeded | ReadProvisionedThroughputExceeded | IteratorAgeMilliseconds | ALL" ],
+  "StreamName" : "The name of the Kinesis data stream for which to disable enhanced monitoring."
+}
+```
 
 </details>
 
@@ -169,11 +236,18 @@ Enables enhanced Kinesis data stream monitoring for shard-level metrics.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Represents the input for EnableEnhancedMonitoring.
 
 **Type:** object
+
+```json
+{
+  "ShardLevelMetrics" : [ "string. Possible values: IncomingBytes | IncomingRecords | OutgoingBytes | OutgoingRecords | WriteProvisionedThroughputExceeded | ReadProvisionedThroughputExceeded | IteratorAgeMilliseconds | ALL" ],
+  "StreamName" : "The name of the stream for which to enable enhanced monitoring."
+}
+```
 
 </details>
 
@@ -190,11 +264,18 @@ This operation has a limit of five transactions per second per account.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Represents the input for GetRecords.
 
 **Type:** object
+
+```json
+{
+  "ShardIterator" : "The position in the shard from which you want to start sequentially reading data records. A shard iterator specifies this position using the sequence number of a data record in the shard.",
+  "Limit" : "The maximum number of records to return. Specify a value of up to 10,000. If you specify a value that is greater than 10,000, GetRecords throws InvalidArgumentException."
+}
+```
 
 </details>
 
@@ -210,11 +291,21 @@ If the shard is closed, GetShardIterator returns a valid iterator for the last s
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Represents the input for GetShardIterator.
 
 **Type:** object
+
+```json
+{
+  "ShardId" : "The shard ID of the Kinesis Data Streams shard to get the iterator for.",
+  "StartingSequenceNumber" : "The sequence number of the data record in the shard from which to start reading. Used with shard iterator type AT_SEQUENCE_NUMBER and AFTER_SEQUENCE_NUMBER.",
+  "ShardIteratorType" : "Determines how the shard iterator is used to start reading data records from the shard. \nThe following are the valid Amazon Kinesis shard iterator types:  \n AT_SEQUENCE_NUMBER - Start reading from the position denoted by a specific sequence number, provided in the value StartingSequenceNumber.  \n AFTER_SEQUENCE_NUMBER - Start reading right after the position denoted by a specific sequence number, provided in the value StartingSequenceNumber.  \n AT_TIMESTAMP - Start reading from the position denoted by a specific time stamp, provided in the value Timestamp.  \n TRIM_HORIZON - Start reading at the last untrimmed record in the shard in the system, which is the oldest data record in the shard.  \n LATEST - Start reading just after the most recent record in the shard, so that you always read the most recent data in the shard. ",
+  "StreamName" : "The name of the Amazon Kinesis data stream.",
+  "Timestamp" : "The time stamp of the data record from which to start reading. Used with shard iterator type AT_TIMESTAMP. A time stamp is the Unix epoch date with precision in milliseconds. For example, 2016-04-04T19:58:46.480-00:00 or 1459799926.480. If a record with this exact time stamp does not exist, the iterator returned is for the next (later) record. If the time stamp is older than the current trim horizon, the iterator returned is for the oldest untrimmed data record (TRIM_HORIZON)."
+}
+```
 
 </details>
 
@@ -225,11 +316,18 @@ If you choose a longer stream retention period, this operation increases the tim
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Represents the input for IncreaseStreamRetentionPeriod.
 
 **Type:** object
+
+```json
+{
+  "StreamName" : "The name of the stream to modify.",
+  "RetentionPeriodHours" : "The new retention period of the stream, in hours. Must be more than the current retention period."
+}
+```
 
 </details>
 
@@ -240,9 +338,19 @@ This API is a new operation that is used by the Amazon Kinesis Client Library (K
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "StreamName" : "The name of the data stream whose shards you want to list.  \nYou cannot specify this parameter if you specify the NextToken parameter.",
+  "NextToken" : "When the number of shards in the data stream is greater than the default value for the MaxResults parameter, or if you explicitly specify a value for MaxResults that is less than the number of shards in the data stream, the response includes a pagination token named NextToken. You can specify this NextToken value in a subsequent call to ListShards to list the next set of shards. \nDon't specify StreamName or StreamCreationTimestamp if you specify NextToken because the latter unambiguously identifies the stream. \nYou can optionally specify a value for the MaxResults parameter when you specify NextToken. If you specify a MaxResults value that is less than the number of shards that the operation returns if you don't specify MaxResults, the response will contain a new NextToken value. You can use the new NextToken value in a subsequent call to the ListShards operation.  \nTokens expire after 300 seconds. When you obtain a value for NextToken in the response to a call to ListShards, you have 300 seconds to use that value. If you specify an expired token in a call to ListShards, you get ExpiredNextTokenException.",
+  "StreamCreationTimestamp" : "Specify this input parameter to distinguish data streams that have the same name. For example, if you create a data stream and then delete it, and you later create another data stream with the same name, you can use this input parameter to specify which of the two streams you want to list the shards for. \nYou cannot specify this parameter if you specify the NextToken parameter.",
+  "ExclusiveStartShardId" : "Specify this parameter to indicate that you want to list the shards starting with the shard whose ID immediately follows ExclusiveStartShardId. \nIf you don't specify this parameter, the default behavior is for ListShards to list the shards starting with the first one in the stream. \nYou cannot specify this parameter if you specify NextToken.",
+  "MaxResults" : "The maximum number of shards to return in a single call to ListShards. The minimum value you can specify for this parameter is 1, and the maximum is 1,000, which is also the default. \nWhen the number of shards to be listed is greater than the value of MaxResults, the response contains a NextToken value that you can use in a subsequent call to ListShards to list the next set of shards."
+}
+```
 
 </details>
 
@@ -253,9 +361,18 @@ This operation has a limit of 10 transactions per second per account.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "NextToken" : "When the number of consumers that are registered with the data stream is greater than the default value for the MaxResults parameter, or if you explicitly specify a value for MaxResults that is less than the number of consumers that are registered with the data stream, the response includes a pagination token named NextToken. You can specify this NextToken value in a subsequent call to ListStreamConsumers to list the next set of registered consumers. \nDon't specify StreamName or StreamCreationTimestamp if you specify NextToken because the latter unambiguously identifies the stream. \nYou can optionally specify a value for the MaxResults parameter when you specify NextToken. If you specify a MaxResults value that is less than the number of consumers that the operation returns if you don't specify MaxResults, the response will contain a new NextToken value. You can use the new NextToken value in a subsequent call to the ListStreamConsumers operation to list the next set of consumers.  \nTokens expire after 300 seconds. When you obtain a value for NextToken in the response to a call to ListStreamConsumers, you have 300 seconds to use that value. If you specify an expired token in a call to ListStreamConsumers, you get ExpiredNextTokenException.",
+  "StreamCreationTimestamp" : "Specify this input parameter to distinguish data streams that have the same name. For example, if you create a data stream and then delete it, and you later create another data stream with the same name, you can use this input parameter to specify which of the two streams you want to list the consumers for.  \nYou can't specify this parameter if you specify the NextToken parameter. ",
+  "MaxResults" : "The maximum number of consumers that you want a single call of ListStreamConsumers to return.",
+  "StreamARN" : "The ARN of the Kinesis data stream for which you want to list the registered consumers. For more information, see Amazon Resource Names (ARNs) and AWS Service Namespaces."
+}
+```
 
 </details>
 
@@ -274,11 +391,19 @@ Lists the tags for the specified Kinesis data stream. This operation has a limit
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Represents the input for ListTagsForStream.
 
 **Type:** object
+
+```json
+{
+  "StreamName" : "The name of the stream.",
+  "ExclusiveStartTagKey" : "The key to use as the starting point for the list of tags. If this parameter is set, ListTagsForStream gets all tags that occur after ExclusiveStartTagKey. ",
+  "Limit" : "The number of tags to return. If this number is less than the total number of tags associated with the stream, HasMoreTags is set to true. To list additional tags, set ExclusiveStartTagKey to the last key in the response."
+}
+```
 
 </details>
 
@@ -295,11 +420,19 @@ If you try to operate on too many streams in parallel using CreateStream, Delete
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Represents the input for MergeShards.
 
 **Type:** object
+
+```json
+{
+  "StreamName" : "The name of the stream for the merge.",
+  "AdjacentShardToMerge" : "The shard ID of the adjacent shard for the merge.",
+  "ShardToMerge" : "The shard ID of the shard to combine with the adjacent shard for the merge."
+}
+```
 
 </details>
 
@@ -317,11 +450,21 @@ By default, data records are accessible for 24 hours from the time that they are
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Represents the input for PutRecord.
 
 **Type:** object
+
+```json
+{
+  "SequenceNumberForOrdering" : "Guarantees strictly increasing sequence numbers, for puts from the same client and to the same partition key. Usage: set the SequenceNumberForOrdering of record n to the sequence number of record n-1 (as returned in the result when putting record n-1). If this parameter is not set, records are coarsely ordered based on arrival time.",
+  "StreamName" : "The name of the stream to put the data record into.",
+  "ExplicitHashKey" : "The hash value used to explicitly determine the shard the data record is assigned to by overriding the partition key hash.",
+  "PartitionKey" : "Determines which shard in the stream the data record is assigned to. Partition keys are Unicode strings with a maximum length limit of 256 characters for each key. Amazon Kinesis Data Streams uses the partition key as input to a hash function that maps the partition key and associated data to a specific shard. Specifically, an MD5 hash function is used to map partition keys to 128-bit integer values and to map associated data records to shards. As a result of this hashing mechanism, all data records with the same partition key map to the same shard within the stream.",
+  "Data" : "The data blob to put into the record, which is base64-encoded when the blob is serialized. When the data blob (the payload before base64-encoding) is added to the partition key size, the total size must not exceed the maximum record size (1 MB)."
+}
+```
 
 </details>
 
@@ -341,11 +484,22 @@ By default, data records are accessible for 24 hours from the time that they are
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 A PutRecords request.
 
 **Type:** object
+
+```json
+{
+  "StreamName" : "The stream name associated with the request.",
+  "Records" : [ {
+    "ExplicitHashKey" : "The hash value used to determine explicitly the shard that the data record is assigned to by overriding the partition key hash.",
+    "PartitionKey" : "Determines which shard in the stream the data record is assigned to. Partition keys are Unicode strings with a maximum length limit of 256 characters for each key. Amazon Kinesis Data Streams uses the partition key as input to a hash function that maps the partition key and associated data to a specific shard. Specifically, an MD5 hash function is used to map partition keys to 128-bit integer values and to map associated data records to shards. As a result of this hashing mechanism, all data records with the same partition key map to the same shard within the stream.",
+    "Data" : "The data blob to put into the record, which is base64-encoded when the blob is serialized. When the data blob (the payload before base64-encoding) is added to the partition key size, the total size must not exceed the maximum record size (1 MB)."
+  } ]
+}
+```
 
 </details>
 
@@ -357,9 +511,16 @@ This operation has a limit of five transactions per second per account.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "ConsumerName" : "For a given Kinesis data stream, each consumer must have a unique name. However, consumer names don't have to be unique across data streams.",
+  "StreamARN" : "The ARN of the Kinesis data stream that you want to register the consumer with. For more info, see Amazon Resource Names (ARNs) and AWS Service Namespaces."
+}
+```
 
 </details>
 
@@ -371,11 +532,18 @@ If you specify a tag that does not exist, it is ignored.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Represents the input for RemoveTagsFromStream.
 
 **Type:** object
+
+```json
+{
+  "StreamName" : "The name of the stream.",
+  "TagKeys" : [ "string" ]
+}
+```
 
 </details>
 
@@ -394,11 +562,19 @@ If you try to operate on too many streams simultaneously using CreateStream, Del
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Represents the input for SplitShard.
 
 **Type:** object
+
+```json
+{
+  "StreamName" : "The name of the stream for the shard split.",
+  "NewStartingHashKey" : "A hash key value for the starting hash key of one of the child shards created by the split. The hash key range for a given shard constitutes a set of ordered contiguous positive integers. The value for NewStartingHashKey must be in the range of hash keys being mapped into the shard. The NewStartingHashKey hash key value and all higher hash key values in hash key range are distributed to one of the child shards. All the lower hash key values in the range are distributed to the other child shard.",
+  "ShardToSplit" : "The shard ID of the shard to split."
+}
+```
 
 </details>
 
@@ -411,9 +587,17 @@ Note: It can take up to 5 seconds after the stream is in an ACTIVE status before
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "EncryptionType" : "The encryption type to use. The only valid value is KMS.",
+  "StreamName" : "The name of the stream for which to start encrypting records.",
+  "KeyId" : "The GUID for the customer-managed AWS KMS key to use for encryption. This value can be a globally unique identifier, a fully specified Amazon Resource Name (ARN) to either an alias or a key, or an alias name prefixed by \"alias/\".You can also use a master key owned by Kinesis Data Streams by specifying the alias aws/kinesis.  \n Key ARN example: arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012   \n Alias ARN example: arn:aws:kms:us-east-1:123456789012:alias/MyAliasName   \n Globally unique key ID example: 12345678-1234-1234-1234-123456789012   \n Alias name example: alias/MyAliasName   \n Master key owned by Kinesis Data Streams: alias/aws/kinesis  "
+}
+```
 
 </details>
 
@@ -426,9 +610,17 @@ Note: It can take up to 5 seconds after the stream is in an ACTIVE status before
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "EncryptionType" : "The encryption type. The only valid value is KMS.",
+  "StreamName" : "The name of the stream on which to stop encrypting records.",
+  "KeyId" : "The GUID for the customer-managed AWS KMS key to use for encryption. This value can be a globally unique identifier, a fully specified Amazon Resource Name (ARN) to either an alias or a key, or an alias name prefixed by \"alias/\".You can also use a master key owned by Kinesis Data Streams by specifying the alias aws/kinesis.  \n Key ARN example: arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012   \n Alias ARN example: arn:aws:kms:us-east-1:123456789012:alias/MyAliasName   \n Globally unique key ID example: 12345678-1234-1234-1234-123456789012   \n Alias name example: alias/MyAliasName   \n Master key owned by Kinesis Data Streams: alias/aws/kinesis  "
+}
+```
 
 </details>
 
@@ -439,9 +631,21 @@ You can make one call to SubscribeToShard per second per ConsumerARN. If your ca
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "ShardId" : "The ID of the shard you want to subscribe to. To see a list of all the shards for a given stream, use ListShards.",
+  "StartingPosition" : {
+    "Type" : "Required string. Possible values: AT_SEQUENCE_NUMBER | AFTER_SEQUENCE_NUMBER | TRIM_HORIZON | LATEST | AT_TIMESTAMP",
+    "SequenceNumber" : "string",
+    "Timestamp" : "timestamp"
+  },
+  "ConsumerARN" : "For this parameter, use the value you obtained when you called RegisterStreamConsumer."
+}
+```
 
 </details>
 
@@ -461,9 +665,17 @@ For the default limits for an AWS account, see Streams Limits in the Amazon Kine
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "ScalingType" : "The scaling type. Uniform scaling creates shards of equal size.",
+  "TargetShardCount" : "The new number of shards.",
+  "StreamName" : "The name of the stream."
+}
+```
 
 </details>
 

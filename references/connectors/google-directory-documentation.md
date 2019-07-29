@@ -11,13 +11,13 @@ layout: docs.mustache
 
 <details><summary>Parameters</summary>
 
-#### calendarResourceId (required)
+### calendarResourceId (required)
 
 The unique ID of the calendar resource to delete.
 
 **Type:** string
 
-#### customer (required)
+### customer (required)
 
 The unique ID for the customer's Google account. As an account administrator, you can also use the my_customer alias to represent your account's customer ID.
 
@@ -31,13 +31,13 @@ The unique ID for the customer's Google account. As an account administrator, yo
 
 <details><summary>Parameters</summary>
 
-#### calendarResourceId (required)
+### calendarResourceId (required)
 
 The unique ID of the calendar resource to retrieve.
 
 **Type:** string
 
-#### customer (required)
+### customer (required)
 
 The unique ID for the customer's Google account. As an account administrator, you can also use the my_customer alias to represent your account's customer ID.
 
@@ -51,15 +51,24 @@ The unique ID for the customer's Google account. As an account administrator, yo
 
 <details><summary>Parameters</summary>
 
-#### customer (required)
+### customer (required)
 
 The unique ID for the customer's Google account. As an account administrator, you can also use the my_customer alias to represent your account's customer ID.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "resourceId" : "The unique ID for the calendar resource.",
+  "resourceDescription" : "The brief description of the calendar resource.",
+  "resourceName" : "The name of the calendar resource. For example, Training Room 1A",
+  "resourceType" : "The type of the calendar resource. Used for grouping resources in the calendar user interface."
+}
+```
 
 </details>
 
@@ -69,19 +78,19 @@ The unique ID for the customer's Google account. As an account administrator, yo
 
 <details><summary>Parameters</summary>
 
-#### customer (required)
+### customer (required)
 
 The unique ID for the customer's Google account. As an account administrator, you can also use the my_customer alias to represent your account's customer ID.
 
 **Type:** string
 
-#### maxResults
+### maxResults
 
 Maximum number of results to return. Acceptable values are 1 to 500, inclusive.
 
 **Type:** integer
 
-#### pageToken
+### pageToken
 
 Token to specify the next page in the list.
 
@@ -95,21 +104,29 @@ Token to specify the next page in the list.
 
 <details><summary>Parameters</summary>
 
-#### calendarResourceId (required)
+### calendarResourceId (required)
 
 The unique ID of the calendar resource to update.
 
 **Type:** string
 
-#### customer (required)
+### customer (required)
 
 The unique ID for the customer's Google account. As an account administrator, you can also use the my_customer alias to represent your account's customer ID.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "resourceDescription" : "The brief description of the calendar resource.",
+  "resourceName" : "The name of the calendar resource. For example, Training Room 1A",
+  "resourceType" : "The type of the calendar resource. Used for grouping resources in the calendar user interface."
+}
+```
 
 </details>
 

@@ -11,7 +11,7 @@ Remove an existing add-on.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 **Type:** string
 
@@ -23,7 +23,7 @@ Deletes an existing escalation policy and rules. The escalation policy must not 
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 **Type:** string
 
@@ -35,7 +35,7 @@ Delete an existing extension. Once the extension is deleted, it will not be acce
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 **Type:** string
 
@@ -47,7 +47,7 @@ Delete an existing maintenance window if it's in the future, or end it if it's c
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 **Type:** string
 
@@ -59,7 +59,7 @@ Delete an on-call schedule.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 **Type:** string
 
@@ -71,11 +71,11 @@ Remove an override. You cannot remove a past override. If the override start tim
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 **Type:** string
 
-#### override_id (required)
+### override_id (required)
 
 The override ID on the schedule.
 
@@ -89,7 +89,7 @@ Delete an existing service. Once the service is deleted, it will not be accessib
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 **Type:** string
 
@@ -101,7 +101,7 @@ Remove an existing team.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 **Type:** string
 
@@ -113,13 +113,13 @@ Remove an escalation policy from a team.
 
 <details><summary>Parameters</summary>
 
-#### escalation_policy_id (required)
+### escalation_policy_id (required)
 
 The escalation policy ID on the team.
 
 **Type:** string
 
-#### id (required)
+### id (required)
 
 **Type:** string
 
@@ -131,11 +131,11 @@ Remove a user from a team.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 **Type:** string
 
-#### user_id (required)
+### user_id (required)
 
 The user ID on the team.
 
@@ -149,7 +149,7 @@ Remove an existing user.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 **Type:** string
 
@@ -161,13 +161,13 @@ Remove a user's contact method.
 
 <details><summary>Parameters</summary>
 
-#### contact_method_id (required)
+### contact_method_id (required)
 
 The contact method ID on the user.
 
 **Type:** string
 
-#### id (required)
+### id (required)
 
 **Type:** string
 
@@ -179,11 +179,11 @@ Remove a user's notification rule.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 **Type:** string
 
-#### notification_rule_id (required)
+### notification_rule_id (required)
 
 The notification rule ID on the user.
 
@@ -203,7 +203,7 @@ Test whether your account has a given ability.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 **Type:** string
 
@@ -215,7 +215,7 @@ List all of the add-ons installed on your account.
 
 <details><summary>Parameters</summary>
 
-#### filter
+### filter
 
 Filters the results, showing only add-ons of the given type
 
@@ -223,17 +223,25 @@ Filters the results, showing only add-ons of the given type
 
 **Potential values:** full_page_addon, incident_show_addon
 
-#### include[]
+### include[]
 
 Array of additional details to include.
 
 **Type:** array
 
-#### service_ids[]
+```json
+[ "string" ]
+```
+
+### service_ids[]
 
 Filters the results, showing only add-ons for the given services
 
 **Type:** array
+
+```json
+[ "string" ]
+```
 
 </details>
 
@@ -243,7 +251,7 @@ Get details about an existing add-on.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 **Type:** string
 
@@ -261,19 +269,23 @@ List all of the existing escalation policies.
 
 <details><summary>Parameters</summary>
 
-#### include[]
+### include[]
 
 Array of additional details to include.
 
 **Type:** array
 
-#### query
+```json
+[ "string" ]
+```
+
+### query
 
 Filters the results, showing only the escalation policies whose names contain the query.
 
 **Type:** string
 
-#### sort_by
+### sort_by
 
 Used to specify the field you wish to sort the results on.
 
@@ -281,17 +293,25 @@ Used to specify the field you wish to sort the results on.
 
 **Potential values:** name, name:asc, name:desc
 
-#### team_ids[]
+### team_ids[]
 
 An array of team IDs. Only results related to these teams will be returned. Account must have the `teams` ability to use this parameter.
 
 **Type:** array
 
-#### user_ids[]
+```json
+[ "string" ]
+```
+
+### user_ids[]
 
 Filters the results, showing only escalation policies on which any of the users is a target.
 
 **Type:** array
+
+```json
+[ "string" ]
+```
 
 </details>
 
@@ -301,15 +321,19 @@ Get information about an existing escalation policy and its rules.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 **Type:** string
 
-#### include[]
+### include[]
 
 Array of additional details to include.
 
 **Type:** array
+
+```json
+[ "string" ]
+```
 
 </details>
 
@@ -325,7 +349,7 @@ Get details about one specific extension vendor.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 **Type:** string
 
@@ -337,25 +361,29 @@ List existing extensions.
 
 <details><summary>Parameters</summary>
 
-#### extension_object_id
+### extension_object_id
 
 The id of the extension object you want to filter by.
 
 **Type:** string
 
-#### extension_schema_id
+### extension_schema_id
 
 Filter the extensions by extension vendor id.
 
 **Type:** string
 
-#### include[]
+### include[]
 
 Array of additional details to include.
 
 **Type:** array
 
-#### query
+```json
+[ "string" ]
+```
+
+### query
 
 Filters the result, showing only the extensions whose name matches the query.
 
@@ -369,15 +397,19 @@ Get details about an existing extension.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 **Type:** string
 
-#### include[]
+### include[]
 
 Array of additional details to include.
 
 **Type:** array
+
+```json
+[ "string" ]
+```
 
 </details>
 
@@ -387,7 +419,7 @@ List existing incidents.
 
 <details><summary>Parameters</summary>
 
-#### date_range
+### date_range
 
 When set to all, the since and until parameters and defaults are ignored.
 
@@ -395,71 +427,99 @@ When set to all, the since and until parameters and defaults are ignored.
 
 **Potential values:** all
 
-#### incident_key
+### incident_key
 
 Incident de-duplication key. Incidents with child alerts do not have an incident key; querying by incident key will return incidents whose alerts have alert_key matching the given incident key.
 
 **Type:** string
 
-#### include[]
+### include[]
 
 Array of additional details to include.
 
 **Type:** array
 
-#### service_ids[]
+```json
+[ "string" ]
+```
+
+### service_ids[]
 
 Returns only the incidents associated with the passed service(s). This expects one or more service IDs.
 
 **Type:** array
 
-#### since
+```json
+[ "string" ]
+```
+
+### since
 
 The start of the date range over which you want to search.
 
 **Type:** date-time
 
-#### sort_by
+### sort_by
 
 Used to specify both the field you wish to sort the results on (incident_number/created_at/resolved_at/urgency), as well as the direction (asc/desc) of the results. The sort_by field and direction should be separated by a colon. A maximum of two fields can be included, separated by a comma. Sort direction defaults to ascending. The account must have the `urgencies` ability to sort by the urgency.
 
 **Type:** array
 
-#### statuses[]
+```json
+[ "string" ]
+```
+
+### statuses[]
 
 Return only incidents with the given statuses. (More status codes may be introduced in the future.)
 
 **Type:** array
 
-#### team_ids[]
+```json
+[ "string" ]
+```
+
+### team_ids[]
 
 An array of team IDs. Only results related to these teams will be returned. Account must have the `teams` ability to use this parameter.
 
 **Type:** array
 
-#### time_zone
+```json
+[ "string" ]
+```
+
+### time_zone
 
 Time zone in which dates in the result will be rendered.
 
 **Type:** tzinfo
 
-#### until
+### until
 
 The end of the date range over which you want to search.
 
 **Type:** date-time
 
-#### urgencies[]
+### urgencies[]
 
 Array of the urgencies of the incidents to be returned. Defaults to all urgencies. Account must have the `urgencies` ability to do this.
 
 **Type:** array
 
-#### user_ids[]
+```json
+[ "string" ]
+```
+
+### user_ids[]
 
 Returns only the incidents currently assigned to the passed user(s). This expects one or more user IDs. Note: When using the assigned_to_user filter, you will only receive incidents with statuses of triggered or acknowledged. This is because resolved incidents are not assigned to any user.
 
 **Type:** array
+
+```json
+[ "string" ]
+```
 
 </details>
 
@@ -469,7 +529,7 @@ Show detailed information about an incident. Accepts either an incident id, or a
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 **Type:** string
 
@@ -481,33 +541,45 @@ List alerts for the specified incident.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 **Type:** string
 
-#### alert_key
+### alert_key
 
 Alert de-duplication key.
 
 **Type:** string
 
-#### include[]
+### include[]
 
 Array of additional details to include.
 
 **Type:** array
 
-#### sort_by
+```json
+[ "string. Possible values: services | first_trigger_log_entries | incidents" ]
+```
+
+### sort_by
 
 Used to specify both the field you wish to sort the results on (created_at/resolved_at), as well as the direction (asc/desc) of the results. The sort_by field and direction should be separated by a colon. A maximum of two fields can be included, separated by a comma. Sort direction defaults to ascending.
 
 **Type:** array
 
-#### statuses[]
+```json
+[ "string. Possible values: created_at | resolved_at | created_at:asc | created_at:desc | resolved_at:asc | resolved_at:desc" ]
+```
+
+### statuses[]
 
 Return only alerts with the given statuses. (More status codes may be introduced in the future.)
 
 **Type:** array
+
+```json
+[ "string" ]
+```
 
 </details>
 
@@ -517,13 +589,13 @@ Show detailed information about an alert. Accepts an alert id.
 
 <details><summary>Parameters</summary>
 
-#### alert_id (required)
+### alert_id (required)
 
 The id of the alert to retrieve.
 
 **Type:** string
 
-#### id (required)
+### id (required)
 
 **Type:** string
 
@@ -535,23 +607,27 @@ List log entries for the specified incident.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 **Type:** string
 
-#### include[]
+### include[]
 
 Array of additional details to include.
 
 **Type:** array
 
-#### is_overview
+```json
+[ "string" ]
+```
+
+### is_overview
 
 If `true`, will return a subset of log entries that show only the most important changes to the incident.
 
 **Type:** boolean
 
-#### time_zone
+### time_zone
 
 Time zone in which dates in the result will be rendered.
 
@@ -565,7 +641,7 @@ List existing notes for the specified incident.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 **Type:** string
 
@@ -577,31 +653,35 @@ List all of the incident log entries across the entire account.
 
 <details><summary>Parameters</summary>
 
-#### include[]
+### include[]
 
 Array of additional details to include.
 
 **Type:** array
 
-#### is_overview
+```json
+[ "string" ]
+```
+
+### is_overview
 
 If `true`, will return a subset of log entries that show only the most important changes to the incident.
 
 **Type:** boolean
 
-#### since
+### since
 
 The start of the date range over which you want to search.
 
 **Type:** date-time
 
-#### time_zone
+### time_zone
 
 Time zone in which dates in the result will be rendered.
 
 **Type:** tzinfo
 
-#### until
+### until
 
 The end of the date range over which you want to search.
 
@@ -615,17 +695,21 @@ Get details for a specific incident log entry. This method provides additional i
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 **Type:** string
 
-#### include[]
+### include[]
 
 Array of additional details to include.
 
 **Type:** array
 
-#### time_zone
+```json
+[ "string" ]
+```
+
+### time_zone
 
 Time zone in which dates in the result will be rendered.
 
@@ -639,7 +723,7 @@ List existing maintenance windows, optionally filtered by service and/or team, o
 
 <details><summary>Parameters</summary>
 
-#### filter
+### filter
 
 Only return maintenance windows in a given state.
 
@@ -647,29 +731,41 @@ Only return maintenance windows in a given state.
 
 **Potential values:** past, future, ongoing, open, all
 
-#### include[]
+### include[]
 
 Array of additional details to include.
 
 **Type:** array
 
-#### query
+```json
+[ "string" ]
+```
+
+### query
 
 Filters the results, showing only the maintenance windows whose descriptions contain the query.
 
 **Type:** string
 
-#### service_ids[]
+### service_ids[]
 
 An array of service IDs. Only results related to these services will be returned.
 
 **Type:** array
 
-#### team_ids[]
+```json
+[ "string" ]
+```
+
+### team_ids[]
 
 An array of team IDs. Only results related to these teams will be returned. Account must have the `teams` ability to use this parameter.
 
 **Type:** array
+
+```json
+[ "string" ]
+```
 
 </details>
 
@@ -679,15 +775,19 @@ Get an existing maintenance window.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 **Type:** string
 
-#### include[]
+### include[]
 
 Array of additional details to include.
 
 **Type:** array
+
+```json
+[ "string" ]
+```
 
 </details>
 
@@ -697,19 +797,19 @@ List notifications for a given time range, optionally filtered by type (sms_noti
 
 <details><summary>Parameters</summary>
 
-#### since (required)
+### since (required)
 
 The start of the date range over which you want to search. The time element is optional.
 
 **Type:** date-time
 
-#### until (required)
+### until (required)
 
 The end of the date range over which you want to search. This should be in the same format as since. The size of the date range must be less than 3 months.
 
 **Type:** date-time
 
-#### filter
+### filter
 
 Return notification of this type only.
 
@@ -717,13 +817,17 @@ Return notification of this type only.
 
 **Potential values:** sms_notification, email_notification, phone_notification, push_notification
 
-#### include[]
+### include[]
 
 Array of additional details to include.
 
 **Type:** array
 
-#### time_zone
+```json
+[ "string" ]
+```
+
+### time_zone
 
 Time zone in which dates in the result will be rendered.
 
@@ -737,53 +841,69 @@ List the on-call entries during a given time range.
 
 <details><summary>Parameters</summary>
 
-#### earliest
+### earliest
 
 This will filter on-calls such that only the earliest on-call for each combination of escalation policy, escalation level, and user is returned. This is useful for determining when the "next" on-calls are for a given set of filters.
 
 **Type:** boolean
 
-#### escalation_policy_ids[]
+### escalation_policy_ids[]
 
 Filters the results, showing only on-calls for the specified escalation policy IDs.
 
 **Type:** array
 
-#### include[]
+```json
+[ "string" ]
+```
+
+### include[]
 
 Array of additional details to include.
 
 **Type:** array
 
-#### schedule_ids[]
+```json
+[ "string" ]
+```
+
+### schedule_ids[]
 
 Filters the results, showing only on-calls for the specified schedule IDs. If `null` is provided in the array, it includes permanent on-calls due to direct user escalation targets.
 
 **Type:** array
 
-#### since
+```json
+[ "string" ]
+```
+
+### since
 
 The start of the time range over which you want to search. If an on-call period overlaps with the range, it will be included in the result. Defaults to current time. The search range cannot exceed 3 months.
 
 **Type:** date-time
 
-#### time_zone
+### time_zone
 
 Time zone in which dates in the result will be rendered.
 
 **Type:** tzinfo
 
-#### until
+### until
 
 The end of the time range over which you want to search. If an on-call period overlaps with the range, it will be included in the result. Defaults to current time. The search range cannot exceed 3 months, and the `until` time cannot be before the `since` time.
 
 **Type:** date-time
 
-#### user_ids[]
+### user_ids[]
 
 Filters the results, showing only on-calls for the specified user IDs.
 
 **Type:** array
+
+```json
+[ "string" ]
+```
 
 </details>
 
@@ -799,7 +919,7 @@ List the on-call schedules.
 
 <details><summary>Parameters</summary>
 
-#### query
+### query
 
 Filters the result, showing only the schedules whose name matches the query.
 
@@ -813,23 +933,23 @@ Show detailed information about a schedule, including entries for each layer and
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 **Type:** string
 
-#### since
+### since
 
 The start of the date range over which you want to search.
 
 **Type:** date-time
 
-#### time_zone
+### time_zone
 
 Time zone in which dates in the result will be rendered.
 
 **Type:** tzinfo
 
-#### until
+### until
 
 The end of the date range over which you want to search.
 
@@ -843,29 +963,29 @@ List overrides for a given time range.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 **Type:** string
 
-#### since (required)
+### since (required)
 
 The start of the date range over which you want to search.
 
 **Type:** date-time
 
-#### until (required)
+### until (required)
 
 The end of the date range over which you want to search.
 
 **Type:** date-time
 
-#### editable
+### editable
 
 When this parameter is present, only editable overrides will be returned. The result will only include the id of the override if this parameter is present. Only future overrides are editable.
 
 **Type:** boolean
 
-#### overflow
+### overflow
 
 Any on-call schedule entries that pass the date range bounds will be truncated at the bounds, unless the parameter overflow=true is passed. This parameter defaults to false.
 
@@ -879,17 +999,17 @@ List all of the users on call in a given schedule for a given time range.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 **Type:** string
 
-#### since
+### since
 
 The start of the date range over which you want to search.
 
 **Type:** date-time
 
-#### until
+### until
 
 The end of the date range over which you want to search.
 
@@ -903,19 +1023,23 @@ List existing services.
 
 <details><summary>Parameters</summary>
 
-#### include[]
+### include[]
 
 Array of additional details to include.
 
 **Type:** array
 
-#### query
+```json
+[ "string" ]
+```
+
+### query
 
 Filters the result, showing only the services whose name or service_key matches the query.
 
 **Type:** string
 
-#### sort_by
+### sort_by
 
 Used to specify the field you wish to sort the results on.
 
@@ -923,13 +1047,17 @@ Used to specify the field you wish to sort the results on.
 
 **Potential values:** name, name:asc, name:desc
 
-#### team_ids[]
+### team_ids[]
 
 An array of team IDs. Only results related to these teams will be returned. Account must have the `teams` ability to use this parameter.
 
 **Type:** array
 
-#### time_zone
+```json
+[ "string" ]
+```
+
+### time_zone
 
 Time zone in which dates in the result will be rendered.
 
@@ -943,15 +1071,19 @@ Get details about an existing service.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 **Type:** string
 
-#### include[]
+### include[]
 
 Array of additional details to include.
 
 **Type:** array
+
+```json
+[ "string" ]
+```
 
 </details>
 
@@ -961,21 +1093,25 @@ Get details about an integration belonging to a service.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 **Type:** string
 
-#### integration_id (required)
+### integration_id (required)
 
 The integration ID on the service.
 
 **Type:** string
 
-#### include[]
+### include[]
 
 Array of additional details to include.
 
 **Type:** array
+
+```json
+[ "string" ]
+```
 
 </details>
 
@@ -985,7 +1121,7 @@ List teams of your PagerDuty account, optionally filtered by a search query.
 
 <details><summary>Parameters</summary>
 
-#### query
+### query
 
 Filters the result, showing only the teams whose names or email addresses match the query.
 
@@ -999,7 +1135,7 @@ Get details about an existing team.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 **Type:** string
 
@@ -1011,23 +1147,31 @@ List users of your PagerDuty account, optionally filtered by a search query.
 
 <details><summary>Parameters</summary>
 
-#### include[]
+### include[]
 
 Array of additional details to include.
 
 **Type:** array
 
-#### query
+```json
+[ "string" ]
+```
+
+### query
 
 Filters the result, showing only the users whose names or email addresses match the query.
 
 **Type:** string
 
-#### team_ids[]
+### team_ids[]
 
 An array of team IDs. Only results related to these teams will be returned. Account must have the `teams` ability to use this parameter.
 
 **Type:** array
+
+```json
+[ "string" ]
+```
 
 </details>
 
@@ -1037,15 +1181,19 @@ Get details about an existing user.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 **Type:** string
 
-#### include[]
+### include[]
 
 Array of additional details to include.
 
 **Type:** array
+
+```json
+[ "string" ]
+```
 
 </details>
 
@@ -1055,7 +1203,7 @@ List contact methods of your PagerDuty user.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 **Type:** string
 
@@ -1067,13 +1215,13 @@ Get details about a user's contact method.
 
 <details><summary>Parameters</summary>
 
-#### contact_method_id (required)
+### contact_method_id (required)
 
 The contact method ID on the user.
 
 **Type:** string
 
-#### id (required)
+### id (required)
 
 **Type:** string
 
@@ -1085,15 +1233,19 @@ List notification rules of your PagerDuty user.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 **Type:** string
 
-#### include[]
+### include[]
 
 Array of additional details to include.
 
 **Type:** array
+
+```json
+[ "string" ]
+```
 
 </details>
 
@@ -1103,21 +1255,25 @@ Get details about a user's notification rule.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 **Type:** string
 
-#### notification_rule_id (required)
+### notification_rule_id (required)
 
 The notification rule ID on the user.
 
 **Type:** string
 
-#### include[]
+### include[]
 
 Array of additional details to include.
 
 **Type:** array
+
+```json
+[ "string" ]
+```
 
 </details>
 
@@ -1133,7 +1289,7 @@ Get details about one specific vendor.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 **Type:** string
 
@@ -1145,11 +1301,25 @@ Install an add-on for your account.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 The add-on to be installed.
 
 **Type:** object
+
+```json
+{
+  "addon" : {
+    "summary" : "A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.",
+    "html_url" : "a URL at which the entity is uniquely displayed in the Web app",
+    "self" : "the API show URL at which the object is accessible",
+    "id" : "string",
+    "type" : "string. Possible values: full_page_addon | full_page_addon_reference | incident_show_addon | incident_show_addon_reference",
+    "src" : "The source URL to display in a frame in the PagerDuty UI. HTTPS is required.",
+    "name" : "The name of the add-on."
+  }
+}
+```
 
 </details>
 
@@ -1159,13 +1329,54 @@ Creates a new escalation policy. There must be at least one existing escalation 
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 The escalation policy to be created.
 
 **Type:** object
 
-#### From
+```json
+{
+  "escalation_policy" : {
+    "summary" : "A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.",
+    "html_url" : "a URL at which the entity is uniquely displayed in the Web app",
+    "self" : "the API show URL at which the object is accessible",
+    "id" : "string",
+    "type" : "string. Possible values: escalation_policy | escalation_policy_reference",
+    "repeat_enabled" : "Whether or not to allow this policy to repeat its escalation rules after the last rule is finished.",
+    "teams" : [ {
+      "summary" : "A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.",
+      "html_url" : "a URL at which the entity is uniquely displayed in the Web app",
+      "self" : "the API show URL at which the object is accessible",
+      "id" : "string",
+      "type" : "string. Possible values: team | team_reference"
+    } ],
+    "name" : "The name of the escalation policy.",
+    "description" : "Escalation policy description.",
+    "services" : [ {
+      "summary" : "A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.",
+      "html_url" : "a URL at which the entity is uniquely displayed in the Web app",
+      "self" : "the API show URL at which the object is accessible",
+      "id" : "string",
+      "type" : "string. Possible values: service | service_reference"
+    } ],
+    "num_loops" : "The number of times the escalation policy will repeat after reaching the end of its escalation.",
+    "escalation_rules" : [ {
+      "escalation_delay_in_minutes" : "The number of minutes before an unacknowledged incident escalates away from this rule.",
+      "id" : "string",
+      "targets" : [ {
+        "summary" : "A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.",
+        "html_url" : "a URL at which the entity is uniquely displayed in the Web app",
+        "self" : "the API show URL at which the object is accessible",
+        "id" : "string",
+        "type" : "string. Possible values: user | schedule | user_reference | schedule_reference"
+      } ]
+    } ]
+  }
+}
+```
+
+### From
 
 The email address of a valid user associated with the account making the request. This is optional, and is only used for change tracking.
 
@@ -1179,11 +1390,39 @@ Create a new extension.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 The extension to be created
 
 **Type:** object
+
+```json
+{
+  "extension" : {
+    "summary" : "A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.",
+    "html_url" : "a URL at which the entity is uniquely displayed in the Web app",
+    "self" : "the API show URL at which the object is accessible",
+    "id" : "string",
+    "type" : "string. Possible values: extension | extension_reference",
+    "endpoint_url" : "The url of the extension.",
+    "extension_schema" : {
+      "summary" : "A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.",
+      "html_url" : "a URL at which the entity is uniquely displayed in the Web app",
+      "self" : "the API show URL at which the object is accessible",
+      "id" : "string",
+      "type" : "string. Possible values: extension_schema | extension_schema_reference"
+    },
+    "name" : "The name of the extension.",
+    "extension_objects" : [ {
+      "summary" : "A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.",
+      "html_url" : "a URL at which the entity is uniquely displayed in the Web app",
+      "self" : "the API show URL at which the object is accessible",
+      "id" : "string",
+      "type" : "string. Possible values: service | service_reference"
+    } ]
+  }
+}
+```
 
 </details>
 
@@ -1193,15 +1432,60 @@ Create an incident synchronously without a corresponding event from a monitoring
 
 <details><summary>Parameters</summary>
 
-#### From (required)
+### From (required)
 
 The email address of a valid user associated with the account making the request.
 
 **Type:** email
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "incident" : {
+    "assignments" : [ {
+      "assignee" : {
+        "summary" : "A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.",
+        "html_url" : "a URL at which the entity is uniquely displayed in the Web app",
+        "self" : "the API show URL at which the object is accessible",
+        "id" : "string",
+        "type" : "string. Possible values: user | user_reference"
+      }
+    } ],
+    "urgency" : "The urgency of the incident",
+    "service" : {
+      "summary" : "A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.",
+      "html_url" : "a URL at which the entity is uniquely displayed in the Web app",
+      "self" : "the API show URL at which the object is accessible",
+      "id" : "string",
+      "type" : "string. Possible values: service | service_reference"
+    },
+    "incident_key" : "A string which identifies the incident. Sending subsequent requests referencing the same service and with the same incident_key will result in those requests being rejected if an open incident matches that incident_key.",
+    "type" : "Required string. Possible values: incident",
+    "title" : "A succinct description of the nature, symptoms, cause, or effect of the incident.",
+    "priority" : {
+      "summary" : "A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.",
+      "html_url" : "a URL at which the entity is uniquely displayed in the Web app",
+      "self" : "the API show URL at which the object is accessible",
+      "id" : "string",
+      "type" : "string. Possible values: priority | priority_reference"
+    },
+    "body" : {
+      "details" : "Additional incident details.",
+      "type" : "Required string. Possible values: incident_body"
+    },
+    "escalation_policy" : {
+      "summary" : "A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.",
+      "html_url" : "a URL at which the entity is uniquely displayed in the Web app",
+      "self" : "the API show URL at which the object is accessible",
+      "id" : "string",
+      "type" : "string. Possible values: escalation_policy | escalation_policy_reference"
+    }
+  }
+}
+```
 
 </details>
 
@@ -1211,19 +1495,36 @@ Create a new note for the specified incident.
 
 <details><summary>Parameters</summary>
 
-#### From (required)
+### From (required)
 
 The email address of a valid user associated with the account making the request.
 
 **Type:** email
 
-#### id (required)
+### id (required)
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "note" : {
+    "created_at" : "The time at which the note was submitted",
+    "id" : "string",
+    "user" : {
+      "summary" : "A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.",
+      "html_url" : "a URL at which the entity is uniquely displayed in the Web app",
+      "self" : "the API show URL at which the object is accessible",
+      "id" : "string",
+      "type" : "string. Possible values: user | user_reference"
+    },
+    "content" : "The note content"
+  }
+}
+```
 
 </details>
 
@@ -1233,19 +1534,25 @@ Snooze an incident.
 
 <details><summary>Parameters</summary>
 
-#### From (required)
+### From (required)
 
 The email address of a valid user associated with the account making the request.
 
 **Type:** email
 
-#### id (required)
+### id (required)
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "duration" : "The number of seconds to snooze the incident for. After this number of seconds has elapsed, the incident will return to the \"triggered\" state."
+}
+```
 
 </details>
 
@@ -1255,19 +1562,25 @@ Create a new status update for the specified incident.
 
 <details><summary>Parameters</summary>
 
-#### From (required)
+### From (required)
 
 The email address of a valid user associated with the account making the request.
 
 **Type:** email
 
-#### id (required)
+### id (required)
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "message" : "The message to be posted as a status update."
+}
+```
 
 </details>
 
@@ -1277,17 +1590,54 @@ Create a new maintenance window for the specified services. No new incidents wil
 
 <details><summary>Parameters</summary>
 
-#### From (required)
+### From (required)
 
 The email address of a valid user associated with the account making the request.
 
 **Type:** email
 
-#### $body
+### $body
 
 The maintenance window object.
 
 **Type:** object
+
+```json
+{
+  "maintenance_window" : {
+    "summary" : "A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.",
+    "html_url" : "a URL at which the entity is uniquely displayed in the Web app",
+    "self" : "the API show URL at which the object is accessible",
+    "id" : "string",
+    "type" : "string. Possible values: maintenance_window | maintenance_window_reference",
+    "sequence_number" : "The order in which the maintenance window was created.",
+    "start_time" : "This maintenance window's start time. This is when the services will stop creating incidents. If this date is in the past, it will be updated to be the current time.",
+    "teams" : [ {
+      "summary" : "A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.",
+      "html_url" : "a URL at which the entity is uniquely displayed in the Web app",
+      "self" : "the API show URL at which the object is accessible",
+      "id" : "string",
+      "type" : "string. Possible values: team | team_reference"
+    } ],
+    "end_time" : "This maintenance window's end time. This is when the services will start creating incidents again. This date must be in the future and after the `start_time`.",
+    "description" : "A description for this maintenance window.",
+    "services" : [ {
+      "summary" : "A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.",
+      "html_url" : "a URL at which the entity is uniquely displayed in the Web app",
+      "self" : "the API show URL at which the object is accessible",
+      "id" : "string",
+      "type" : "string. Possible values: service | service_reference"
+    } ],
+    "created_by" : {
+      "summary" : "A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.",
+      "html_url" : "a URL at which the entity is uniquely displayed in the Web app",
+      "self" : "the API show URL at which the object is accessible",
+      "id" : "string",
+      "type" : "string. Possible values: user | user_reference"
+    }
+  }
+}
+```
 
 </details>
 
@@ -1297,13 +1647,107 @@ Create a new on-call schedule.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 The schedule to be created.
 
 **Type:** object
 
-#### overflow
+```json
+{
+  "schedule" : {
+    "summary" : "A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.",
+    "html_url" : "a URL at which the entity is uniquely displayed in the Web app",
+    "self" : "the API show URL at which the object is accessible",
+    "id" : "string",
+    "type" : "string. Possible values: schedule | schedule_reference",
+    "final_schedule" : {
+      "name" : "The name of the subschedule",
+      "rendered_schedule_entries" : [ {
+        "start" : "The start time of this entry.",
+        "end" : "The end time of this entry. If null, the entry does not end.",
+        "user" : {
+          "summary" : "A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.",
+          "html_url" : "a URL at which the entity is uniquely displayed in the Web app",
+          "self" : "the API show URL at which the object is accessible",
+          "id" : "string",
+          "type" : "string. Possible values: user | user_reference"
+        }
+      } ],
+      "rendered_coverage_percentage" : "The percentage of the time range covered by this layer. Returns null unless since or until are set."
+    },
+    "schedule_layers" : [ {
+      "start" : "The start time of this layer.",
+      "rotation_turn_length_seconds" : "The duration of each on-call shift in seconds.",
+      "name" : "The name of the schedule layer.",
+      "restrictions" : [ {
+        "duration_seconds" : "The duration of the restriction in seconds.",
+        "start_day_of_week" : "Only required for use with a `weekly_restriction` restriction type. The first day of the weekly rotation schedule as [ISO 8601 day](https://en.wikipedia.org/wiki/ISO_week_date) (1 is Monday, etc.)",
+        "type" : "Specify the types of `restriction`.",
+        "start_time_of_day" : "The start time in HH:mm:ss format."
+      } ],
+      "end" : "The end time of this layer. If `null`, the layer does not end.",
+      "id" : "string",
+      "rendered_schedule_entries" : [ {
+        "start" : "The start time of this entry.",
+        "end" : "The end time of this entry. If null, the entry does not end.",
+        "user" : {
+          "summary" : "A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.",
+          "html_url" : "a URL at which the entity is uniquely displayed in the Web app",
+          "self" : "the API show URL at which the object is accessible",
+          "id" : "string",
+          "type" : "string. Possible values: user | user_reference"
+        }
+      } ],
+      "rendered_coverage_percentage" : "The percentage of the time range covered by this layer. Returns null unless since or until are set.",
+      "rotation_virtual_start" : "The effective start time of the layer. This can be before the start time of the schedule.",
+      "users" : [ {
+        "user" : {
+          "summary" : "A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.",
+          "html_url" : "a URL at which the entity is uniquely displayed in the Web app",
+          "self" : "the API show URL at which the object is accessible",
+          "id" : "string",
+          "type" : "string. Possible values: user | user_reference"
+        }
+      } ]
+    } ],
+    "name" : "The name of the schedule",
+    "overrides_subschedule" : {
+      "name" : "The name of the subschedule",
+      "rendered_schedule_entries" : [ {
+        "start" : "The start time of this entry.",
+        "end" : "The end time of this entry. If null, the entry does not end.",
+        "user" : {
+          "summary" : "A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.",
+          "html_url" : "a URL at which the entity is uniquely displayed in the Web app",
+          "self" : "the API show URL at which the object is accessible",
+          "id" : "string",
+          "type" : "string. Possible values: user | user_reference"
+        }
+      } ],
+      "rendered_coverage_percentage" : "The percentage of the time range covered by this layer. Returns null unless since or until are set."
+    },
+    "description" : "The description of the schedule",
+    "escalation_policies" : [ {
+      "summary" : "A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.",
+      "html_url" : "a URL at which the entity is uniquely displayed in the Web app",
+      "self" : "the API show URL at which the object is accessible",
+      "id" : "string",
+      "type" : "string. Possible values: escalation_policy | escalation_policy_reference"
+    } ],
+    "time_zone" : "The time zone of the schedule.",
+    "users" : [ {
+      "summary" : "A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.",
+      "html_url" : "a URL at which the entity is uniquely displayed in the Web app",
+      "self" : "the API show URL at which the object is accessible",
+      "id" : "string",
+      "type" : "string. Possible values: user | user_reference"
+    } ]
+  }
+}
+```
+
+### overflow
 
 Any on-call schedule entries that pass the date range bounds will be truncated at the bounds, unless the parameter `overflow=true` is passed. This parameter defaults to false.
 For instance, if your schedule is a rotation that changes daily at midnight UTC, and your date range is from `2011-06-01T10:00:00Z` to `2011-06-01T14:00:00Z`:
@@ -1322,15 +1766,32 @@ Create an override for a specific user covering the specified time range. If you
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 **Type:** string
 
-#### $body
+### $body
 
 The override to be created
 
 **Type:** object
+
+```json
+{
+  "override" : {
+    "start" : "The start date and time for the override.",
+    "end" : "The end date and time for the override.",
+    "id" : "string",
+    "user" : {
+      "summary" : "A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.",
+      "html_url" : "a URL at which the entity is uniquely displayed in the Web app",
+      "self" : "the API show URL at which the object is accessible",
+      "id" : "string",
+      "type" : "string. Possible values: user | user_reference"
+    }
+  }
+}
+```
 
 </details>
 
@@ -1340,13 +1801,107 @@ Preview what an on-call schedule would look like without saving it.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 The schedule to be previewed.
 
 **Type:** object
 
-#### overflow
+```json
+{
+  "schedule" : {
+    "summary" : "A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.",
+    "html_url" : "a URL at which the entity is uniquely displayed in the Web app",
+    "self" : "the API show URL at which the object is accessible",
+    "id" : "string",
+    "type" : "string. Possible values: schedule | schedule_reference",
+    "final_schedule" : {
+      "name" : "The name of the subschedule",
+      "rendered_schedule_entries" : [ {
+        "start" : "The start time of this entry.",
+        "end" : "The end time of this entry. If null, the entry does not end.",
+        "user" : {
+          "summary" : "A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.",
+          "html_url" : "a URL at which the entity is uniquely displayed in the Web app",
+          "self" : "the API show URL at which the object is accessible",
+          "id" : "string",
+          "type" : "string. Possible values: user | user_reference"
+        }
+      } ],
+      "rendered_coverage_percentage" : "The percentage of the time range covered by this layer. Returns null unless since or until are set."
+    },
+    "schedule_layers" : [ {
+      "start" : "The start time of this layer.",
+      "rotation_turn_length_seconds" : "The duration of each on-call shift in seconds.",
+      "name" : "The name of the schedule layer.",
+      "restrictions" : [ {
+        "duration_seconds" : "The duration of the restriction in seconds.",
+        "start_day_of_week" : "Only required for use with a `weekly_restriction` restriction type. The first day of the weekly rotation schedule as [ISO 8601 day](https://en.wikipedia.org/wiki/ISO_week_date) (1 is Monday, etc.)",
+        "type" : "Specify the types of `restriction`.",
+        "start_time_of_day" : "The start time in HH:mm:ss format."
+      } ],
+      "end" : "The end time of this layer. If `null`, the layer does not end.",
+      "id" : "string",
+      "rendered_schedule_entries" : [ {
+        "start" : "The start time of this entry.",
+        "end" : "The end time of this entry. If null, the entry does not end.",
+        "user" : {
+          "summary" : "A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.",
+          "html_url" : "a URL at which the entity is uniquely displayed in the Web app",
+          "self" : "the API show URL at which the object is accessible",
+          "id" : "string",
+          "type" : "string. Possible values: user | user_reference"
+        }
+      } ],
+      "rendered_coverage_percentage" : "The percentage of the time range covered by this layer. Returns null unless since or until are set.",
+      "rotation_virtual_start" : "The effective start time of the layer. This can be before the start time of the schedule.",
+      "users" : [ {
+        "user" : {
+          "summary" : "A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.",
+          "html_url" : "a URL at which the entity is uniquely displayed in the Web app",
+          "self" : "the API show URL at which the object is accessible",
+          "id" : "string",
+          "type" : "string. Possible values: user | user_reference"
+        }
+      } ]
+    } ],
+    "name" : "The name of the schedule",
+    "overrides_subschedule" : {
+      "name" : "The name of the subschedule",
+      "rendered_schedule_entries" : [ {
+        "start" : "The start time of this entry.",
+        "end" : "The end time of this entry. If null, the entry does not end.",
+        "user" : {
+          "summary" : "A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.",
+          "html_url" : "a URL at which the entity is uniquely displayed in the Web app",
+          "self" : "the API show URL at which the object is accessible",
+          "id" : "string",
+          "type" : "string. Possible values: user | user_reference"
+        }
+      } ],
+      "rendered_coverage_percentage" : "The percentage of the time range covered by this layer. Returns null unless since or until are set."
+    },
+    "description" : "The description of the schedule",
+    "escalation_policies" : [ {
+      "summary" : "A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.",
+      "html_url" : "a URL at which the entity is uniquely displayed in the Web app",
+      "self" : "the API show URL at which the object is accessible",
+      "id" : "string",
+      "type" : "string. Possible values: escalation_policy | escalation_policy_reference"
+    } ],
+    "time_zone" : "The time zone of the schedule.",
+    "users" : [ {
+      "summary" : "A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.",
+      "html_url" : "a URL at which the entity is uniquely displayed in the Web app",
+      "self" : "the API show URL at which the object is accessible",
+      "id" : "string",
+      "type" : "string. Possible values: user | user_reference"
+    } ]
+  }
+}
+```
+
+### overflow
 
 Any on-call schedule entries that pass the date range bounds will be truncated at the bounds, unless the parameter `overflow=true` is passed. This parameter defaults to false.
 For instance, if your schedule is a rotation that changes daily at midnight UTC, and your date range is from `2011-06-01T10:00:00Z` to `2011-06-01T14:00:00Z`:
@@ -1357,13 +1912,13 @@ For instance, if your schedule is a rotation that changes daily at midnight UTC,
 
 **Type:** boolean
 
-#### since
+### since
 
 The start of the date range over which you want to search.
 
 **Type:** date-time
 
-#### until
+### until
 
 The end of the date range over which you want to search.
 
@@ -1377,11 +1932,86 @@ Create a new service.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 The service to be created
 
 **Type:** object
+
+```json
+{
+  "service" : {
+    "summary" : "A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.",
+    "html_url" : "a URL at which the entity is uniquely displayed in the Web app",
+    "self" : "the API show URL at which the object is accessible",
+    "id" : "string",
+    "type" : "string. Possible values: service | service_reference",
+    "teams" : [ {
+      "summary" : "A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.",
+      "html_url" : "a URL at which the entity is uniquely displayed in the Web app",
+      "self" : "the API show URL at which the object is accessible",
+      "id" : "string",
+      "type" : "string. Possible values: team | team_reference"
+    } ],
+    "addons" : [ {
+      "summary" : "A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.",
+      "html_url" : "a URL at which the entity is uniquely displayed in the Web app",
+      "self" : "the API show URL at which the object is accessible",
+      "id" : "string",
+      "type" : "string. Possible values: full_page_addon | full_page_addon_reference | incident_show_addon | incident_show_addon_reference"
+    } ],
+    "incident_urgency_rule" : {
+      "urgency" : "The incidents' urgency, if type is constant.",
+      "type" : "The type of incident urgency: whether it's constant, or it's dependent on the support hours.",
+      "outside_support_hours" : {
+        "urgency" : "The incidents' urgency, if type is constant.",
+        "type" : "The type of incident urgency: whether it's constant, or it's dependent on the support hours."
+      },
+      "during_support_hours" : {
+        "urgency" : "The incidents' urgency, if type is constant.",
+        "type" : "The type of incident urgency: whether it's constant, or it's dependent on the support hours."
+      }
+    },
+    "description" : "The user-provided description of the service.",
+    "created_at" : "The date/time when this service was created",
+    "alert_creation" : "Whether a service creates only incidents, or both alerts and incidents. A service must create alerts in order to enable incident merging.\n* \"create_incidents\" - The service will create one incident and zero alerts for each incoming event.\n* \"create_alerts_and_incidents\" - The service will create one incident and one associated alert for each incoming event.\n",
+    "escalation_policy" : {
+      "summary" : "A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.",
+      "html_url" : "a URL at which the entity is uniquely displayed in the Web app",
+      "self" : "the API show URL at which the object is accessible",
+      "id" : "string",
+      "type" : "string. Possible values: escalation_policy | escalation_policy_reference"
+    },
+    "acknowledgement_timeout" : "Time in seconds that an incident changes to the Triggered State after being Acknowledged. Value is `null` if the feature is disabled. Value must not be negative. Setting this field to `0`, `null` (or unset in POST request) will disable the feature.",
+    "scheduled_actions" : [ {
+      "at" : {
+        "name" : "Designates either the start or the end of support hours.",
+        "type" : "Must be set to named_time."
+      },
+      "to_urgency" : "Urgency level. Must be set to high.",
+      "type" : "The type of schedule action. Must be set to urgency_change."
+    } ],
+    "support_hours" : {
+      "days_of_week" : [ "The days of the week (1 through 7, for Monday through Sunday)" ],
+      "start_time" : "The support hours' starting time of day (date portion is ignored)",
+      "end_time" : "The support hours' ending time of day (date portion is ignored)",
+      "type" : "The type of support hours",
+      "time_zone" : "The time zone for the support hours"
+    },
+    "name" : "The name of the service.",
+    "integrations" : [ {
+      "summary" : "A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.",
+      "html_url" : "a URL at which the entity is uniquely displayed in the Web app",
+      "self" : "the API show URL at which the object is accessible",
+      "id" : "string",
+      "type" : "string. Possible values: aws_cloudwatch_inbound_integration | aws_cloudwatch_inbound_integration_reference | cloudkick_inbound_integration | cloudkick_inbound_integration_reference | event_transformer_api_inbound_integration | event_transformer_api_inbound_integration_reference | generic_email_inbound_integration | generic_email_inbound_integration_reference | generic_events_api_inbound_integration | generic_events_api_inbound_integration_reference | keynote_inbound_integration | keynote_inbound_integration_reference | nagios_inbound_integration | nagios_inbound_integration_reference | pingdom_inbound_integration | pingdom_inbound_integration_reference | sql_monitor_inbound_integration | sql_monitor_inbound_integration_reference"
+    } ],
+    "auto_resolve_timeout" : "Time in seconds that an incident is automatically resolved if left open for that long. Value is `null` if the feature is disabled. Value must not be negative. Setting this field to `0`, `null` (or unset in POST request) will disable the feature.",
+    "status" : "The current state of the Service. Valid statuses are:\n\n- `active`: The service is enabled and has no open incidents.\n- `warning`: The service is enabled and has one or more acknowledged incidents.\n- `critical`: The service is enabled and has one or more triggered incidents.\n- `maintenance`: The service is under maintenance, no new incidents will be triggered during maintenance mode.\n- `disabled`: The service is disabled and will not have any new triggered incidents.\n",
+    "last_incident_timestamp" : "The date/time when the most recent incident was created for this service."
+  }
+}
+```
 
 </details>
 
@@ -1391,15 +2021,43 @@ Create a new integration belonging to a service.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 **Type:** string
 
-#### $body
+### $body
 
 The integration to be created
 
 **Type:** object
+
+```json
+{
+  "integration" : {
+    "summary" : "A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.",
+    "html_url" : "a URL at which the entity is uniquely displayed in the Web app",
+    "self" : "the API show URL at which the object is accessible",
+    "id" : "string",
+    "type" : "string. Possible values: aws_cloudwatch_inbound_integration | aws_cloudwatch_inbound_integration_reference | cloudkick_inbound_integration | cloudkick_inbound_integration_reference | event_transformer_api_inbound_integration | event_transformer_api_inbound_integration_reference | generic_email_inbound_integration | generic_email_inbound_integration_reference | generic_events_api_inbound_integration | generic_events_api_inbound_integration_reference | keynote_inbound_integration | keynote_inbound_integration_reference | nagios_inbound_integration | nagios_inbound_integration_reference | pingdom_inbound_integration | pingdom_inbound_integration_reference | sql_monitor_inbound_integration | sql_monitor_inbound_integration_reference",
+    "service" : {
+      "summary" : "A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.",
+      "html_url" : "a URL at which the entity is uniquely displayed in the Web app",
+      "self" : "the API show URL at which the object is accessible",
+      "id" : "string",
+      "type" : "string. Possible values: service | service_reference"
+    },
+    "vendor" : {
+      "summary" : "A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.",
+      "html_url" : "a URL at which the entity is uniquely displayed in the Web app",
+      "self" : "the API show URL at which the object is accessible",
+      "id" : "string",
+      "type" : "string. Possible values: vendor | vendor_reference"
+    },
+    "name" : "The name of this integration.",
+    "created_at" : "The date/time when this integration was created."
+  }
+}
+```
 
 </details>
 
@@ -1409,11 +2067,25 @@ Create a new team.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 The team to be created.
 
 **Type:** object
+
+```json
+{
+  "team" : {
+    "summary" : "A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.",
+    "html_url" : "a URL at which the entity is uniquely displayed in the Web app",
+    "self" : "the API show URL at which the object is accessible",
+    "id" : "string",
+    "type" : "string. Possible values: team | team_reference",
+    "name" : "The name of the team.",
+    "description" : "The description of the team."
+  }
+}
+```
 
 </details>
 
@@ -1423,17 +2095,68 @@ Create a new user. Note that you must also supply a `password` property to creat
 
 <details><summary>Parameters</summary>
 
-#### From (required)
+### From (required)
 
 The email address of a valid user associated with the account making the request.
 
 **Type:** email
 
-#### $body
+### $body
 
 The user to be created.
 
 **Type:** object
+
+```json
+{
+  "user" : {
+    "summary" : "A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.",
+    "html_url" : "a URL at which the entity is uniquely displayed in the Web app",
+    "self" : "the API show URL at which the object is accessible",
+    "id" : "string",
+    "type" : "string. Possible values: user | user_reference",
+    "role" : "The user role. Account must have the `read_only_users` ability to set a user as a `read_only_user`, and must have the `permissions_service` ability to set a user as `observer` or `restricted_access`.",
+    "color" : "The schedule color.",
+    "avatar_url" : "The URL of the user's avatar.",
+    "teams" : [ {
+      "summary" : "A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.",
+      "html_url" : "a URL at which the entity is uniquely displayed in the Web app",
+      "self" : "the API show URL at which the object is accessible",
+      "id" : "string",
+      "type" : "string. Possible values: team | team_reference"
+    } ],
+    "notification_rules" : [ {
+      "summary" : "A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.",
+      "html_url" : "a URL at which the entity is uniquely displayed in the Web app",
+      "self" : "the API show URL at which the object is accessible",
+      "id" : "string",
+      "type" : "The type of notification rule.",
+      "start_delay_in_minutes" : "The delay before firing the rule, in minutes.",
+      "contact_method" : {
+        "summary" : "A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.",
+        "html_url" : "a URL at which the entity is uniquely displayed in the Web app",
+        "self" : "the API show URL at which the object is accessible",
+        "id" : "string",
+        "type" : "The type of contact method."
+      },
+      "urgency" : "Which incident urgency this rule is used for. Account must have the `urgencies` ability to have a low urgency notification rule."
+    } ],
+    "invitation_sent" : "If true, the user has an outstanding invitation.",
+    "contact_methods" : [ {
+      "summary" : "A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.",
+      "html_url" : "a URL at which the entity is uniquely displayed in the Web app",
+      "self" : "the API show URL at which the object is accessible",
+      "id" : "string",
+      "type" : "The type of contact method."
+    } ],
+    "name" : "The name of the user.",
+    "description" : "The user's bio.",
+    "time_zone" : "The preferred time zone name. If null, the account's time zone will be used.",
+    "job_title" : "The user's title.",
+    "email" : "The user's email address."
+  }
+}
+```
 
 </details>
 
@@ -1443,15 +2166,29 @@ Create a new contact method.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 **Type:** string
 
-#### $body
+### $body
 
 The contact method to be created.
 
 **Type:** object
+
+```json
+{
+  "contact_method" : {
+    "summary" : "A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.",
+    "html_url" : "a URL at which the entity is uniquely displayed in the Web app",
+    "self" : "the API show URL at which the object is accessible",
+    "id" : "string",
+    "type" : "The type of contact method.",
+    "address" : "The \"address\" to deliver to: email, phone number, etc., depending on the type.",
+    "label" : "The label (e.g., \"Work\", \"Mobile\", etc.)."
+  }
+}
+```
 
 </details>
 
@@ -1461,15 +2198,36 @@ Create a new notification rule.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 **Type:** string
 
-#### $body
+### $body
 
 The notification rule to be created.
 
 **Type:** object
+
+```json
+{
+  "notification_rule" : {
+    "summary" : "A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.",
+    "html_url" : "a URL at which the entity is uniquely displayed in the Web app",
+    "self" : "the API show URL at which the object is accessible",
+    "id" : "string",
+    "type" : "The type of notification rule.",
+    "start_delay_in_minutes" : "The delay before firing the rule, in minutes.",
+    "contact_method" : {
+      "summary" : "A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.",
+      "html_url" : "a URL at which the entity is uniquely displayed in the Web app",
+      "self" : "the API show URL at which the object is accessible",
+      "id" : "string",
+      "type" : "The type of contact method."
+    },
+    "urgency" : "Which incident urgency this rule is used for. Account must have the `urgencies` ability to have a low urgency notification rule."
+  }
+}
+```
 
 </details>
 
@@ -1479,15 +2237,29 @@ Update an existing add-on.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 **Type:** string
 
-#### $body
+### $body
 
 The add-on to be updated.
 
 **Type:** object
+
+```json
+{
+  "addon" : {
+    "summary" : "A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.",
+    "html_url" : "a URL at which the entity is uniquely displayed in the Web app",
+    "self" : "the API show URL at which the object is accessible",
+    "id" : "string",
+    "type" : "string. Possible values: full_page_addon | full_page_addon_reference | incident_show_addon | incident_show_addon_reference",
+    "src" : "The source URL to display in a frame in the PagerDuty UI. HTTPS is required.",
+    "name" : "The name of the add-on."
+  }
+}
+```
 
 </details>
 
@@ -1497,15 +2269,56 @@ Updates an existing escalation policy and rules.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 **Type:** string
 
-#### $body
+### $body
 
 The escalation policy to be updated.
 
 **Type:** object
+
+```json
+{
+  "escalation_policy" : {
+    "summary" : "A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.",
+    "html_url" : "a URL at which the entity is uniquely displayed in the Web app",
+    "self" : "the API show URL at which the object is accessible",
+    "id" : "string",
+    "type" : "string. Possible values: escalation_policy | escalation_policy_reference",
+    "repeat_enabled" : "Whether or not to allow this policy to repeat its escalation rules after the last rule is finished.",
+    "teams" : [ {
+      "summary" : "A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.",
+      "html_url" : "a URL at which the entity is uniquely displayed in the Web app",
+      "self" : "the API show URL at which the object is accessible",
+      "id" : "string",
+      "type" : "string. Possible values: team | team_reference"
+    } ],
+    "name" : "The name of the escalation policy.",
+    "description" : "Escalation policy description.",
+    "services" : [ {
+      "summary" : "A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.",
+      "html_url" : "a URL at which the entity is uniquely displayed in the Web app",
+      "self" : "the API show URL at which the object is accessible",
+      "id" : "string",
+      "type" : "string. Possible values: service | service_reference"
+    } ],
+    "num_loops" : "The number of times the escalation policy will repeat after reaching the end of its escalation.",
+    "escalation_rules" : [ {
+      "escalation_delay_in_minutes" : "The number of minutes before an unacknowledged incident escalates away from this rule.",
+      "id" : "string",
+      "targets" : [ {
+        "summary" : "A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.",
+        "html_url" : "a URL at which the entity is uniquely displayed in the Web app",
+        "self" : "the API show URL at which the object is accessible",
+        "id" : "string",
+        "type" : "string. Possible values: user | schedule | user_reference | schedule_reference"
+      } ]
+    } ]
+  }
+}
+```
 
 </details>
 
@@ -1515,15 +2328,43 @@ Update an existing extension.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 **Type:** string
 
-#### $body
+### $body
 
 The extension to be updated.
 
 **Type:** object
+
+```json
+{
+  "extension" : {
+    "summary" : "A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.",
+    "html_url" : "a URL at which the entity is uniquely displayed in the Web app",
+    "self" : "the API show URL at which the object is accessible",
+    "id" : "string",
+    "type" : "string. Possible values: extension | extension_reference",
+    "endpoint_url" : "The url of the extension.",
+    "extension_schema" : {
+      "summary" : "A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.",
+      "html_url" : "a URL at which the entity is uniquely displayed in the Web app",
+      "self" : "the API show URL at which the object is accessible",
+      "id" : "string",
+      "type" : "string. Possible values: extension_schema | extension_schema_reference"
+    },
+    "name" : "The name of the extension.",
+    "extension_objects" : [ {
+      "summary" : "A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.",
+      "html_url" : "a URL at which the entity is uniquely displayed in the Web app",
+      "self" : "the API show URL at which the object is accessible",
+      "id" : "string",
+      "type" : "string. Possible values: service | service_reference"
+    } ]
+  }
+}
+```
 
 </details>
 
@@ -1533,15 +2374,51 @@ Acknowledge, resolve, escalate or reassign one or more incidents.
 
 <details><summary>Parameters</summary>
 
-#### From (required)
+### From (required)
 
 The email address of a valid user associated with the account making the request.
 
 **Type:** email
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "incidents" : [ {
+    "assignments" : [ {
+      "assignee" : {
+        "summary" : "A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.",
+        "html_url" : "a URL at which the entity is uniquely displayed in the Web app",
+        "self" : "the API show URL at which the object is accessible",
+        "id" : "string",
+        "type" : "string. Possible values: user | user_reference"
+      }
+    } ],
+    "id" : "The id of the incident to update.",
+    "type" : "The incident type.",
+    "title" : "A succinct description of the nature, symptoms, cause, or effect of the incident.",
+    "priority" : {
+      "summary" : "A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.",
+      "html_url" : "a URL at which the entity is uniquely displayed in the Web app",
+      "self" : "the API show URL at which the object is accessible",
+      "id" : "string",
+      "type" : "string. Possible values: priority | priority_reference"
+    },
+    "escalation_policy" : {
+      "summary" : "A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.",
+      "html_url" : "a URL at which the entity is uniquely displayed in the Web app",
+      "self" : "the API show URL at which the object is accessible",
+      "id" : "string",
+      "type" : "string. Possible values: escalation_policy | escalation_policy_reference"
+    },
+    "resolution" : "The resolution for this incident if status is set to resolved.",
+    "escalation_level" : "Escalate the incident to this level in the escalation policy.",
+    "status" : "The new status of the incident."
+  } ]
+}
+```
 
 </details>
 
@@ -1551,19 +2428,55 @@ Acknowledge, resolve, escalate or reassign an incident.
 
 <details><summary>Parameters</summary>
 
-#### From (required)
+### From (required)
 
 The email address of a valid user associated with the account making the request.
 
 **Type:** email
 
-#### id (required)
+### id (required)
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "incident" : {
+    "assignments" : [ {
+      "assignee" : {
+        "summary" : "A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.",
+        "html_url" : "a URL at which the entity is uniquely displayed in the Web app",
+        "self" : "the API show URL at which the object is accessible",
+        "id" : "string",
+        "type" : "string. Possible values: user | user_reference"
+      }
+    } ],
+    "urgency" : "The urgency of the incident.",
+    "type" : "The incident type.",
+    "priority" : {
+      "summary" : "A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.",
+      "html_url" : "a URL at which the entity is uniquely displayed in the Web app",
+      "self" : "the API show URL at which the object is accessible",
+      "id" : "string",
+      "type" : "string. Possible values: priority | priority_reference"
+    },
+    "title" : "The new title of the incident.",
+    "escalation_policy" : {
+      "summary" : "A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.",
+      "html_url" : "a URL at which the entity is uniquely displayed in the Web app",
+      "self" : "the API show URL at which the object is accessible",
+      "id" : "string",
+      "type" : "string. Possible values: escalation_policy | escalation_policy_reference"
+    },
+    "resolution" : "The resolution for this incident if status is set to resolved.",
+    "escalation_level" : "Escalate the incident to this level in the escalation policy.",
+    "status" : "The new status of the incident."
+  }
+}
+```
 
 </details>
 
@@ -1573,19 +2486,90 @@ Resolve multiple alerts or associate them with different incidents.
 
 <details><summary>Parameters</summary>
 
-#### From (required)
+### From (required)
 
 The email address of a valid user associated with the account making the request.
 
 **Type:** email
 
-#### id (required)
+### id (required)
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "alerts" : [ {
+    "summary" : "A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.",
+    "html_url" : "a URL at which the entity is uniquely displayed in the Web app",
+    "self" : "the API show URL at which the object is accessible",
+    "id" : "string",
+    "type" : "string. Possible values: alert | alert_reference",
+    "severity" : "The magnitude of the problem as reported by the monitoring tool.",
+    "first_trigger_log_entry" : {
+      "summary" : "A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.",
+      "html_url" : "a URL at which the entity is uniquely displayed in the Web app",
+      "self" : "the API show URL at which the object is accessible",
+      "id" : "string",
+      "type" : "string. Possible values: acknowledge_log_entry | acknowledge_log_entry_reference | annotate_log_entry | annotate_log_entry_reference | assign_log_entry | assign_log_entry_reference | escalate_log_entry | escalate_log_entry_reference | exhaust_escalation_path_log_entry | exhaust_escalation_path_log_entry_reference | notify_log_entry | notify_log_entry_reference | reach_trigger_limit_log_entry | reach_trigger_limit_log_entry_reference | repeat_escalation_path_log_entry | repeat_escalation_path_log_entry_reference | resolve_log_entry | resolve_log_entry_reference | snooze_log_entry | snooze_log_entry_reference | trigger_log_entry | trigger_log_entry_reference | unacknowledge_log_entry | unacknowledge_log_entry_reference"
+    },
+    "alert_key" : "The alert's de-duplication key.",
+    "service" : {
+      "summary" : "A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.",
+      "html_url" : "a URL at which the entity is uniquely displayed in the Web app",
+      "self" : "the API show URL at which the object is accessible",
+      "id" : "string",
+      "type" : "string. Possible values: service | service_reference"
+    },
+    "integration" : {
+      "summary" : "A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.",
+      "html_url" : "a URL at which the entity is uniquely displayed in the Web app",
+      "self" : "the API show URL at which the object is accessible",
+      "id" : "string",
+      "type" : "string. Possible values: aws_cloudwatch_inbound_integration | aws_cloudwatch_inbound_integration_reference | cloudkick_inbound_integration | cloudkick_inbound_integration_reference | event_transformer_api_inbound_integration | event_transformer_api_inbound_integration_reference | generic_email_inbound_integration | generic_email_inbound_integration_reference | generic_events_api_inbound_integration | generic_events_api_inbound_integration_reference | keynote_inbound_integration | keynote_inbound_integration_reference | nagios_inbound_integration | nagios_inbound_integration_reference | pingdom_inbound_integration | pingdom_inbound_integration_reference | sql_monitor_inbound_integration | sql_monitor_inbound_integration_reference",
+      "service" : {
+        "summary" : "A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.",
+        "html_url" : "a URL at which the entity is uniquely displayed in the Web app",
+        "self" : "the API show URL at which the object is accessible",
+        "id" : "string",
+        "type" : "string. Possible values: service | service_reference"
+      },
+      "vendor" : {
+        "summary" : "A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.",
+        "html_url" : "a URL at which the entity is uniquely displayed in the Web app",
+        "self" : "the API show URL at which the object is accessible",
+        "id" : "string",
+        "type" : "string. Possible values: vendor | vendor_reference"
+      },
+      "name" : "The name of this integration.",
+      "created_at" : "The date/time when this integration was created."
+    },
+    "created_at" : "The date/time the alert was first triggered.",
+    "suppressed" : "Whether or not an alert is suppressed. Suppressed alerts are not created with a parent incident.",
+    "body" : {
+      "details" : { },
+      "contexts" : [ {
+        "src" : "The image's source url",
+        "href" : "The link's target url",
+        "text" : "The alternate display for an image",
+        "type" : "The type of context being attached to the incident."
+      } ],
+      "type" : "The type of the body."
+    },
+    "incident" : {
+      "summary" : "A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.",
+      "html_url" : "a URL at which the entity is uniquely displayed in the Web app",
+      "self" : "the API show URL at which the object is accessible",
+      "id" : "string",
+      "type" : "string. Possible values: incident | incident_reference"
+    },
+    "status" : "The current status of the alert."
+  } ]
+}
+```
 
 </details>
 
@@ -1595,27 +2579,98 @@ Resolve an alert or associate an alert with a new parent incident.
 
 <details><summary>Parameters</summary>
 
-#### From (required)
+### From (required)
 
 The email address of a valid user associated with the account making the request.
 
 **Type:** email
 
-#### alert_id (required)
+### alert_id (required)
 
 The id of the alert to update.
 
 **Type:** string
 
-#### id (required)
+### id (required)
 
 **Type:** string
 
-#### $body
+### $body
 
 The parameters of the alert to update.
 
 **Type:** object
+
+```json
+{
+  "alert" : {
+    "summary" : "A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.",
+    "html_url" : "a URL at which the entity is uniquely displayed in the Web app",
+    "self" : "the API show URL at which the object is accessible",
+    "id" : "string",
+    "type" : "string. Possible values: alert | alert_reference",
+    "severity" : "The magnitude of the problem as reported by the monitoring tool.",
+    "first_trigger_log_entry" : {
+      "summary" : "A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.",
+      "html_url" : "a URL at which the entity is uniquely displayed in the Web app",
+      "self" : "the API show URL at which the object is accessible",
+      "id" : "string",
+      "type" : "string. Possible values: acknowledge_log_entry | acknowledge_log_entry_reference | annotate_log_entry | annotate_log_entry_reference | assign_log_entry | assign_log_entry_reference | escalate_log_entry | escalate_log_entry_reference | exhaust_escalation_path_log_entry | exhaust_escalation_path_log_entry_reference | notify_log_entry | notify_log_entry_reference | reach_trigger_limit_log_entry | reach_trigger_limit_log_entry_reference | repeat_escalation_path_log_entry | repeat_escalation_path_log_entry_reference | resolve_log_entry | resolve_log_entry_reference | snooze_log_entry | snooze_log_entry_reference | trigger_log_entry | trigger_log_entry_reference | unacknowledge_log_entry | unacknowledge_log_entry_reference"
+    },
+    "alert_key" : "The alert's de-duplication key.",
+    "service" : {
+      "summary" : "A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.",
+      "html_url" : "a URL at which the entity is uniquely displayed in the Web app",
+      "self" : "the API show URL at which the object is accessible",
+      "id" : "string",
+      "type" : "string. Possible values: service | service_reference"
+    },
+    "integration" : {
+      "summary" : "A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.",
+      "html_url" : "a URL at which the entity is uniquely displayed in the Web app",
+      "self" : "the API show URL at which the object is accessible",
+      "id" : "string",
+      "type" : "string. Possible values: aws_cloudwatch_inbound_integration | aws_cloudwatch_inbound_integration_reference | cloudkick_inbound_integration | cloudkick_inbound_integration_reference | event_transformer_api_inbound_integration | event_transformer_api_inbound_integration_reference | generic_email_inbound_integration | generic_email_inbound_integration_reference | generic_events_api_inbound_integration | generic_events_api_inbound_integration_reference | keynote_inbound_integration | keynote_inbound_integration_reference | nagios_inbound_integration | nagios_inbound_integration_reference | pingdom_inbound_integration | pingdom_inbound_integration_reference | sql_monitor_inbound_integration | sql_monitor_inbound_integration_reference",
+      "service" : {
+        "summary" : "A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.",
+        "html_url" : "a URL at which the entity is uniquely displayed in the Web app",
+        "self" : "the API show URL at which the object is accessible",
+        "id" : "string",
+        "type" : "string. Possible values: service | service_reference"
+      },
+      "vendor" : {
+        "summary" : "A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.",
+        "html_url" : "a URL at which the entity is uniquely displayed in the Web app",
+        "self" : "the API show URL at which the object is accessible",
+        "id" : "string",
+        "type" : "string. Possible values: vendor | vendor_reference"
+      },
+      "name" : "The name of this integration.",
+      "created_at" : "The date/time when this integration was created."
+    },
+    "created_at" : "The date/time the alert was first triggered.",
+    "suppressed" : "Whether or not an alert is suppressed. Suppressed alerts are not created with a parent incident.",
+    "body" : {
+      "details" : { },
+      "contexts" : [ {
+        "src" : "The image's source url",
+        "href" : "The link's target url",
+        "text" : "The alternate display for an image",
+        "type" : "The type of context being attached to the incident."
+      } ],
+      "type" : "The type of the body."
+    },
+    "incident" : {
+      "summary" : "A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.",
+      "html_url" : "a URL at which the entity is uniquely displayed in the Web app",
+      "self" : "the API show URL at which the object is accessible",
+      "id" : "string",
+      "type" : "string. Possible values: incident | incident_reference"
+    },
+    "status" : "The current status of the alert."
+  }
+}
+```
 
 </details>
 
@@ -1625,19 +2680,31 @@ Merge a list of source incidents into this incident.
 
 <details><summary>Parameters</summary>
 
-#### From (required)
+### From (required)
 
 The email address of a valid user associated with the account making the request.
 
 **Type:** email
 
-#### id (required)
+### id (required)
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "source_incidents" : [ {
+    "summary" : "A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.",
+    "html_url" : "a URL at which the entity is uniquely displayed in the Web app",
+    "self" : "the API show URL at which the object is accessible",
+    "id" : "string",
+    "type" : "string. Possible values: incident | incident_reference"
+  } ]
+}
+```
 
 </details>
 
@@ -1647,15 +2714,52 @@ Update an existing maintenance window.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 **Type:** string
 
-#### $body
+### $body
 
 The maintenance window to be updated.
 
 **Type:** object
+
+```json
+{
+  "maintenance_window" : {
+    "summary" : "A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.",
+    "html_url" : "a URL at which the entity is uniquely displayed in the Web app",
+    "self" : "the API show URL at which the object is accessible",
+    "id" : "string",
+    "type" : "string. Possible values: maintenance_window | maintenance_window_reference",
+    "sequence_number" : "The order in which the maintenance window was created.",
+    "start_time" : "This maintenance window's start time. This is when the services will stop creating incidents. If this date is in the past, it will be updated to be the current time.",
+    "teams" : [ {
+      "summary" : "A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.",
+      "html_url" : "a URL at which the entity is uniquely displayed in the Web app",
+      "self" : "the API show URL at which the object is accessible",
+      "id" : "string",
+      "type" : "string. Possible values: team | team_reference"
+    } ],
+    "end_time" : "This maintenance window's end time. This is when the services will start creating incidents again. This date must be in the future and after the `start_time`.",
+    "description" : "A description for this maintenance window.",
+    "services" : [ {
+      "summary" : "A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.",
+      "html_url" : "a URL at which the entity is uniquely displayed in the Web app",
+      "self" : "the API show URL at which the object is accessible",
+      "id" : "string",
+      "type" : "string. Possible values: service | service_reference"
+    } ],
+    "created_by" : {
+      "summary" : "A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.",
+      "html_url" : "a URL at which the entity is uniquely displayed in the Web app",
+      "self" : "the API show URL at which the object is accessible",
+      "id" : "string",
+      "type" : "string. Possible values: user | user_reference"
+    }
+  }
+}
+```
 
 </details>
 
@@ -1665,17 +2769,111 @@ Update an existing on-call schedule.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 **Type:** string
 
-#### $body
+### $body
 
 The schedule to be updated.
 
 **Type:** object
 
-#### overflow
+```json
+{
+  "schedule" : {
+    "summary" : "A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.",
+    "html_url" : "a URL at which the entity is uniquely displayed in the Web app",
+    "self" : "the API show URL at which the object is accessible",
+    "id" : "string",
+    "type" : "string. Possible values: schedule | schedule_reference",
+    "final_schedule" : {
+      "name" : "The name of the subschedule",
+      "rendered_schedule_entries" : [ {
+        "start" : "The start time of this entry.",
+        "end" : "The end time of this entry. If null, the entry does not end.",
+        "user" : {
+          "summary" : "A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.",
+          "html_url" : "a URL at which the entity is uniquely displayed in the Web app",
+          "self" : "the API show URL at which the object is accessible",
+          "id" : "string",
+          "type" : "string. Possible values: user | user_reference"
+        }
+      } ],
+      "rendered_coverage_percentage" : "The percentage of the time range covered by this layer. Returns null unless since or until are set."
+    },
+    "schedule_layers" : [ {
+      "start" : "The start time of this layer.",
+      "rotation_turn_length_seconds" : "The duration of each on-call shift in seconds.",
+      "name" : "The name of the schedule layer.",
+      "restrictions" : [ {
+        "duration_seconds" : "The duration of the restriction in seconds.",
+        "start_day_of_week" : "Only required for use with a `weekly_restriction` restriction type. The first day of the weekly rotation schedule as [ISO 8601 day](https://en.wikipedia.org/wiki/ISO_week_date) (1 is Monday, etc.)",
+        "type" : "Specify the types of `restriction`.",
+        "start_time_of_day" : "The start time in HH:mm:ss format."
+      } ],
+      "end" : "The end time of this layer. If `null`, the layer does not end.",
+      "id" : "string",
+      "rendered_schedule_entries" : [ {
+        "start" : "The start time of this entry.",
+        "end" : "The end time of this entry. If null, the entry does not end.",
+        "user" : {
+          "summary" : "A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.",
+          "html_url" : "a URL at which the entity is uniquely displayed in the Web app",
+          "self" : "the API show URL at which the object is accessible",
+          "id" : "string",
+          "type" : "string. Possible values: user | user_reference"
+        }
+      } ],
+      "rendered_coverage_percentage" : "The percentage of the time range covered by this layer. Returns null unless since or until are set.",
+      "rotation_virtual_start" : "The effective start time of the layer. This can be before the start time of the schedule.",
+      "users" : [ {
+        "user" : {
+          "summary" : "A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.",
+          "html_url" : "a URL at which the entity is uniquely displayed in the Web app",
+          "self" : "the API show URL at which the object is accessible",
+          "id" : "string",
+          "type" : "string. Possible values: user | user_reference"
+        }
+      } ]
+    } ],
+    "name" : "The name of the schedule",
+    "overrides_subschedule" : {
+      "name" : "The name of the subschedule",
+      "rendered_schedule_entries" : [ {
+        "start" : "The start time of this entry.",
+        "end" : "The end time of this entry. If null, the entry does not end.",
+        "user" : {
+          "summary" : "A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.",
+          "html_url" : "a URL at which the entity is uniquely displayed in the Web app",
+          "self" : "the API show URL at which the object is accessible",
+          "id" : "string",
+          "type" : "string. Possible values: user | user_reference"
+        }
+      } ],
+      "rendered_coverage_percentage" : "The percentage of the time range covered by this layer. Returns null unless since or until are set."
+    },
+    "description" : "The description of the schedule",
+    "escalation_policies" : [ {
+      "summary" : "A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.",
+      "html_url" : "a URL at which the entity is uniquely displayed in the Web app",
+      "self" : "the API show URL at which the object is accessible",
+      "id" : "string",
+      "type" : "string. Possible values: escalation_policy | escalation_policy_reference"
+    } ],
+    "time_zone" : "The time zone of the schedule.",
+    "users" : [ {
+      "summary" : "A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.",
+      "html_url" : "a URL at which the entity is uniquely displayed in the Web app",
+      "self" : "the API show URL at which the object is accessible",
+      "id" : "string",
+      "type" : "string. Possible values: user | user_reference"
+    } ]
+  }
+}
+```
+
+### overflow
 
 Any on-call schedule entries that pass the date range bounds will be truncated at the bounds, unless the parameter `overflow=true` is passed. This parameter defaults to false.
 For instance, if your schedule is a rotation that changes daily at midnight UTC, and your date range is from `2011-06-01T10:00:00Z` to `2011-06-01T14:00:00Z`:
@@ -1694,15 +2892,90 @@ Update an existing service.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 **Type:** string
 
-#### $body
+### $body
 
 The service to be updated.
 
 **Type:** object
+
+```json
+{
+  "service" : {
+    "summary" : "A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.",
+    "html_url" : "a URL at which the entity is uniquely displayed in the Web app",
+    "self" : "the API show URL at which the object is accessible",
+    "id" : "string",
+    "type" : "string. Possible values: service | service_reference",
+    "teams" : [ {
+      "summary" : "A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.",
+      "html_url" : "a URL at which the entity is uniquely displayed in the Web app",
+      "self" : "the API show URL at which the object is accessible",
+      "id" : "string",
+      "type" : "string. Possible values: team | team_reference"
+    } ],
+    "addons" : [ {
+      "summary" : "A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.",
+      "html_url" : "a URL at which the entity is uniquely displayed in the Web app",
+      "self" : "the API show URL at which the object is accessible",
+      "id" : "string",
+      "type" : "string. Possible values: full_page_addon | full_page_addon_reference | incident_show_addon | incident_show_addon_reference"
+    } ],
+    "incident_urgency_rule" : {
+      "urgency" : "The incidents' urgency, if type is constant.",
+      "type" : "The type of incident urgency: whether it's constant, or it's dependent on the support hours.",
+      "outside_support_hours" : {
+        "urgency" : "The incidents' urgency, if type is constant.",
+        "type" : "The type of incident urgency: whether it's constant, or it's dependent on the support hours."
+      },
+      "during_support_hours" : {
+        "urgency" : "The incidents' urgency, if type is constant.",
+        "type" : "The type of incident urgency: whether it's constant, or it's dependent on the support hours."
+      }
+    },
+    "description" : "The user-provided description of the service.",
+    "created_at" : "The date/time when this service was created",
+    "alert_creation" : "Whether a service creates only incidents, or both alerts and incidents. A service must create alerts in order to enable incident merging.\n* \"create_incidents\" - The service will create one incident and zero alerts for each incoming event.\n* \"create_alerts_and_incidents\" - The service will create one incident and one associated alert for each incoming event.\n",
+    "escalation_policy" : {
+      "summary" : "A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.",
+      "html_url" : "a URL at which the entity is uniquely displayed in the Web app",
+      "self" : "the API show URL at which the object is accessible",
+      "id" : "string",
+      "type" : "string. Possible values: escalation_policy | escalation_policy_reference"
+    },
+    "acknowledgement_timeout" : "Time in seconds that an incident changes to the Triggered State after being Acknowledged. Value is `null` if the feature is disabled. Value must not be negative. Setting this field to `0`, `null` (or unset in POST request) will disable the feature.",
+    "scheduled_actions" : [ {
+      "at" : {
+        "name" : "Designates either the start or the end of support hours.",
+        "type" : "Must be set to named_time."
+      },
+      "to_urgency" : "Urgency level. Must be set to high.",
+      "type" : "The type of schedule action. Must be set to urgency_change."
+    } ],
+    "support_hours" : {
+      "days_of_week" : [ "The days of the week (1 through 7, for Monday through Sunday)" ],
+      "start_time" : "The support hours' starting time of day (date portion is ignored)",
+      "end_time" : "The support hours' ending time of day (date portion is ignored)",
+      "type" : "The type of support hours",
+      "time_zone" : "The time zone for the support hours"
+    },
+    "name" : "The name of the service.",
+    "integrations" : [ {
+      "summary" : "A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.",
+      "html_url" : "a URL at which the entity is uniquely displayed in the Web app",
+      "self" : "the API show URL at which the object is accessible",
+      "id" : "string",
+      "type" : "string. Possible values: aws_cloudwatch_inbound_integration | aws_cloudwatch_inbound_integration_reference | cloudkick_inbound_integration | cloudkick_inbound_integration_reference | event_transformer_api_inbound_integration | event_transformer_api_inbound_integration_reference | generic_email_inbound_integration | generic_email_inbound_integration_reference | generic_events_api_inbound_integration | generic_events_api_inbound_integration_reference | keynote_inbound_integration | keynote_inbound_integration_reference | nagios_inbound_integration | nagios_inbound_integration_reference | pingdom_inbound_integration | pingdom_inbound_integration_reference | sql_monitor_inbound_integration | sql_monitor_inbound_integration_reference"
+    } ],
+    "auto_resolve_timeout" : "Time in seconds that an incident is automatically resolved if left open for that long. Value is `null` if the feature is disabled. Value must not be negative. Setting this field to `0`, `null` (or unset in POST request) will disable the feature.",
+    "status" : "The current state of the Service. Valid statuses are:\n\n- `active`: The service is enabled and has no open incidents.\n- `warning`: The service is enabled and has one or more acknowledged incidents.\n- `critical`: The service is enabled and has one or more triggered incidents.\n- `maintenance`: The service is under maintenance, no new incidents will be triggered during maintenance mode.\n- `disabled`: The service is disabled and will not have any new triggered incidents.\n",
+    "last_incident_timestamp" : "The date/time when the most recent incident was created for this service."
+  }
+}
+```
 
 </details>
 
@@ -1712,21 +2985,49 @@ Update an integration belonging to a service.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 **Type:** string
 
-#### integration_id (required)
+### integration_id (required)
 
 The integration ID on the service.
 
 **Type:** string
 
-#### $body
+### $body
 
 The integration to be updated
 
 **Type:** object
+
+```json
+{
+  "integration" : {
+    "summary" : "A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.",
+    "html_url" : "a URL at which the entity is uniquely displayed in the Web app",
+    "self" : "the API show URL at which the object is accessible",
+    "id" : "string",
+    "type" : "string. Possible values: aws_cloudwatch_inbound_integration | aws_cloudwatch_inbound_integration_reference | cloudkick_inbound_integration | cloudkick_inbound_integration_reference | event_transformer_api_inbound_integration | event_transformer_api_inbound_integration_reference | generic_email_inbound_integration | generic_email_inbound_integration_reference | generic_events_api_inbound_integration | generic_events_api_inbound_integration_reference | keynote_inbound_integration | keynote_inbound_integration_reference | nagios_inbound_integration | nagios_inbound_integration_reference | pingdom_inbound_integration | pingdom_inbound_integration_reference | sql_monitor_inbound_integration | sql_monitor_inbound_integration_reference",
+    "service" : {
+      "summary" : "A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.",
+      "html_url" : "a URL at which the entity is uniquely displayed in the Web app",
+      "self" : "the API show URL at which the object is accessible",
+      "id" : "string",
+      "type" : "string. Possible values: service | service_reference"
+    },
+    "vendor" : {
+      "summary" : "A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.",
+      "html_url" : "a URL at which the entity is uniquely displayed in the Web app",
+      "self" : "the API show URL at which the object is accessible",
+      "id" : "string",
+      "type" : "string. Possible values: vendor | vendor_reference"
+    },
+    "name" : "The name of this integration.",
+    "created_at" : "The date/time when this integration was created."
+  }
+}
+```
 
 </details>
 
@@ -1736,15 +3037,29 @@ Update an existing team.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 **Type:** string
 
-#### $body
+### $body
 
 The team to be updated.
 
 **Type:** object
+
+```json
+{
+  "team" : {
+    "summary" : "A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.",
+    "html_url" : "a URL at which the entity is uniquely displayed in the Web app",
+    "self" : "the API show URL at which the object is accessible",
+    "id" : "string",
+    "type" : "string. Possible values: team | team_reference",
+    "name" : "The name of the team.",
+    "description" : "The description of the team."
+  }
+}
+```
 
 </details>
 
@@ -1754,13 +3069,13 @@ Add an escalation policy to a team.
 
 <details><summary>Parameters</summary>
 
-#### escalation_policy_id (required)
+### escalation_policy_id (required)
 
 The escalation policy ID on the team.
 
 **Type:** string
 
-#### id (required)
+### id (required)
 
 **Type:** string
 
@@ -1772,11 +3087,11 @@ Add a user to a team. Attempting to add a user with the `read_only_user` role wi
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 **Type:** string
 
-#### user_id (required)
+### user_id (required)
 
 The user ID on the team.
 
@@ -1790,15 +3105,66 @@ Update an existing user. Note that you may also supply a `password` property--it
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 **Type:** string
 
-#### $body
+### $body
 
 The user to be updated.
 
 **Type:** object
+
+```json
+{
+  "user" : {
+    "summary" : "A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.",
+    "html_url" : "a URL at which the entity is uniquely displayed in the Web app",
+    "self" : "the API show URL at which the object is accessible",
+    "id" : "string",
+    "type" : "string. Possible values: user | user_reference",
+    "role" : "The user role. Account must have the `read_only_users` ability to set a user as a `read_only_user`, and must have the `permissions_service` ability to set a user as `observer` or `restricted_access`.",
+    "color" : "The schedule color.",
+    "avatar_url" : "The URL of the user's avatar.",
+    "teams" : [ {
+      "summary" : "A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.",
+      "html_url" : "a URL at which the entity is uniquely displayed in the Web app",
+      "self" : "the API show URL at which the object is accessible",
+      "id" : "string",
+      "type" : "string. Possible values: team | team_reference"
+    } ],
+    "notification_rules" : [ {
+      "summary" : "A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.",
+      "html_url" : "a URL at which the entity is uniquely displayed in the Web app",
+      "self" : "the API show URL at which the object is accessible",
+      "id" : "string",
+      "type" : "The type of notification rule.",
+      "start_delay_in_minutes" : "The delay before firing the rule, in minutes.",
+      "contact_method" : {
+        "summary" : "A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.",
+        "html_url" : "a URL at which the entity is uniquely displayed in the Web app",
+        "self" : "the API show URL at which the object is accessible",
+        "id" : "string",
+        "type" : "The type of contact method."
+      },
+      "urgency" : "Which incident urgency this rule is used for. Account must have the `urgencies` ability to have a low urgency notification rule."
+    } ],
+    "invitation_sent" : "If true, the user has an outstanding invitation.",
+    "contact_methods" : [ {
+      "summary" : "A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.",
+      "html_url" : "a URL at which the entity is uniquely displayed in the Web app",
+      "self" : "the API show URL at which the object is accessible",
+      "id" : "string",
+      "type" : "The type of contact method."
+    } ],
+    "name" : "The name of the user.",
+    "description" : "The user's bio.",
+    "time_zone" : "The preferred time zone name. If null, the account's time zone will be used.",
+    "job_title" : "The user's title.",
+    "email" : "The user's email address."
+  }
+}
+```
 
 </details>
 
@@ -1808,21 +3174,35 @@ Update a user's contact method.
 
 <details><summary>Parameters</summary>
 
-#### contact_method_id (required)
+### contact_method_id (required)
 
 The contact method ID on the user.
 
 **Type:** string
 
-#### id (required)
+### id (required)
 
 **Type:** string
 
-#### $body
+### $body
 
 The user's contact method to be updated.
 
 **Type:** object
+
+```json
+{
+  "contact_method" : {
+    "summary" : "A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.",
+    "html_url" : "a URL at which the entity is uniquely displayed in the Web app",
+    "self" : "the API show URL at which the object is accessible",
+    "id" : "string",
+    "type" : "The type of contact method.",
+    "address" : "The \"address\" to deliver to: email, phone number, etc., depending on the type.",
+    "label" : "The label (e.g., \"Work\", \"Mobile\", etc.)."
+  }
+}
+```
 
 </details>
 
@@ -1832,21 +3212,42 @@ Update a user's notification rule.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 **Type:** string
 
-#### notification_rule_id (required)
+### notification_rule_id (required)
 
 The notification rule ID on the user.
 
 **Type:** string
 
-#### $body
+### $body
 
 The user's notification rule to be updated.
 
 **Type:** object
+
+```json
+{
+  "notification_rule" : {
+    "summary" : "A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.",
+    "html_url" : "a URL at which the entity is uniquely displayed in the Web app",
+    "self" : "the API show URL at which the object is accessible",
+    "id" : "string",
+    "type" : "The type of notification rule.",
+    "start_delay_in_minutes" : "The delay before firing the rule, in minutes.",
+    "contact_method" : {
+      "summary" : "A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.",
+      "html_url" : "a URL at which the entity is uniquely displayed in the Web app",
+      "self" : "the API show URL at which the object is accessible",
+      "id" : "string",
+      "type" : "The type of contact method."
+    },
+    "urgency" : "Which incident urgency this rule is used for. Account must have the `urgencies` ability to have a low urgency notification rule."
+  }
+}
+```
 
 </details>
 

@@ -11,21 +11,25 @@ layout: docs.mustache
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 **Type:** string
 
-#### index (required)
+### index (required)
 
 **Type:** string
 
-#### type (required)
+### type (required)
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{ }
+```
 
 </details>
 
@@ -35,7 +39,7 @@ layout: docs.mustache
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** string
 
@@ -47,7 +51,7 @@ layout: docs.mustache
 
 <details><summary>Parameters</summary>
 
-#### format (required)
+### format (required)
 
 The format of the data, e.g. 'json', 'yaml'. The default is json.
 
@@ -61,13 +65,17 @@ The format of the data, e.g. 'json', 'yaml'. The default is json.
 
 <details><summary>Parameters</summary>
 
-#### index (required)
+### index (required)
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{ }
+```
 
 </details>
 
@@ -77,7 +85,7 @@ The format of the data, e.g. 'json', 'yaml'. The default is json.
 
 <details><summary>Parameters</summary>
 
-#### index (required)
+### index (required)
 
 **Type:** string
 
@@ -89,11 +97,11 @@ The format of the data, e.g. 'json', 'yaml'. The default is json.
 
 <details><summary>Parameters</summary>
 
-#### index (required)
+### index (required)
 
 **Type:** string
 
-#### type (required)
+### type (required)
 
 **Type:** string
 
@@ -105,17 +113,21 @@ The format of the data, e.g. 'json', 'yaml'. The default is json.
 
 <details><summary>Parameters</summary>
 
-#### index (required)
+### index (required)
 
 **Type:** string
 
-#### type (required)
+### type (required)
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{ }
+```
 
 </details>
 
@@ -125,19 +137,23 @@ The format of the data, e.g. 'json', 'yaml'. The default is json.
 
 <details><summary>Parameters</summary>
 
-#### index (required)
+### index (required)
 
 **Type:** string
 
-#### type (required)
+### type (required)
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
 
-#### size
+```json
+{ }
+```
+
+### size
 
 **Type:** string
 

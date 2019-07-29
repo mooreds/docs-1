@@ -11,7 +11,7 @@ The Collegiate® Thesaurus API is an updated collection of synonyms and antonyms
 
 <details><summary>Parameters</summary>
 
-#### headword (required)
+### headword (required)
 
 **Type:** string
 
@@ -23,7 +23,7 @@ The Collegiate® Thesaurus API is an updated collection of synonyms and antonyms
 
 <details><summary>Parameters</summary>
 
-#### headword (required)
+### headword (required)
 
 **Type:** STRING
 

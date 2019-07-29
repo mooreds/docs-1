@@ -13,23 +13,27 @@ You can post a single email address or an array of addresses.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** array
 
-#### Accept
+```json
+[ "string" ]
+```
+
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -41,41 +45,58 @@ Create a file.
 
 <details><summary>Parameters</summary>
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### path (required)
+### path (required)
 
 The file path or directory. Set this to an empty string to get the contents of all files in the repository.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
 
-#### Accept
+```json
+{
+  "committer" : {
+    "name" : "string",
+    "email" : "string"
+  },
+  "author" : {
+    "name" : "string",
+    "email" : "string"
+  },
+  "message" : "string",
+  "sha" : "string",
+  "branch" : "string",
+  "content" : "string"
+}
+```
+
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -87,41 +108,45 @@ Add labels to an issue.
 
 <details><summary>Parameters</summary>
 
-#### number (required)
+### number (required)
 
 Number of issue.
 
 **Type:** integer
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** array
 
-#### Accept
+```json
+[ "string" ]
+```
+
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -133,37 +158,37 @@ In order to add a repository to a team, the authenticated user must be an owner 
 
 <details><summary>Parameters</summary>
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### teamId (required)
+### teamId (required)
 
 Id of team.
 
 **Type:** integer
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -175,39 +200,39 @@ Compare two commits
 
 <details><summary>Parameters</summary>
 
-#### baseId (required)
+### baseId (required)
 
 **Type:** string
 
-#### headId (required)
+### headId (required)
 
 **Type:** string
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -219,35 +244,44 @@ Create a Blob.
 
 <details><summary>Parameters</summary>
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
 
-#### Accept
+```json
+{
+  "size" : "integer",
+  "encoding" : { },
+  "sha" : "string",
+  "content" : "string"
+}
+```
+
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -259,41 +293,52 @@ Create a commit comment.
 
 <details><summary>Parameters</summary>
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### shaCode (required)
+### shaCode (required)
 
 SHA-1 code of the commit.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
 
-#### Accept
+```json
+{
+  "number" : "Line number in the file to comment on. Defaults to null.",
+  "path" : "Relative path of the file to comment on.",
+  "line" : "Deprecated - Use position parameter instead.",
+  "position" : "Line index in the diff to comment on.",
+  "body" : "Required string",
+  "sha" : "SHA of the commit to comment on."
+}
+```
+
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -305,29 +350,35 @@ Create a comment
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 Id of gist.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
 
-#### Accept
+```json
+{
+  "body" : "Required string"
+}
+```
+
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -339,41 +390,47 @@ Create a comment.
 
 <details><summary>Parameters</summary>
 
-#### number (required)
+### number (required)
 
 Number of issue.
 
 **Type:** integer
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
 
-#### Accept
+```json
+{
+  "body" : "Required string"
+}
+```
+
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -396,41 +453,50 @@ Create a comment.
 
 <details><summary>Parameters</summary>
 
-#### number (required)
+### number (required)
 
 Id of pull.
 
 **Type:** integer
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
 
-#### Accept
+```json
+{
+  "path" : "string",
+  "position" : "number",
+  "body" : "string",
+  "commit_id" : "string"
+}
+```
+
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -442,35 +508,47 @@ Users with push access can create a deployment for a given ref
 
 <details><summary>Parameters</summary>
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
 
-#### Accept
+```json
+{
+  "ref" : "string",
+  "payload" : {
+    "room_id" : "number",
+    "environment" : "string",
+    "deploy_user" : "string"
+  },
+  "description" : "string"
+}
+```
+
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -486,35 +564,41 @@ minutes, be sure to contact Support.
 
 <details><summary>Parameters</summary>
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
 
-#### Accept
+```json
+{
+  "organization" : "string"
+}
+```
+
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -526,23 +610,35 @@ Create a gist.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
 
-#### Accept
+```json
+{
+  "public" : "boolean",
+  "files" : {
+    "file1.txt" : {
+      "content" : "string"
+    }
+  },
+  "description" : "string"
+}
+```
+
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -554,35 +650,48 @@ Create a Commit.
 
 <details><summary>Parameters</summary>
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
 
-#### Accept
+```json
+{
+  "author" : {
+    "date" : "string",
+    "name" : "string",
+    "email" : "string"
+  },
+  "tree" : "Required string",
+  "message" : "Required string",
+  "parents" : [ "string" ]
+}
+```
+
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -594,35 +703,42 @@ Create a Reference
 
 <details><summary>Parameters</summary>
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
 
-#### Accept
+```json
+{
+  "ref" : "string",
+  "sha" : "string"
+}
+```
+
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -640,35 +756,54 @@ the tag reference - this call would be unnecessary.
 
 <details><summary>Parameters</summary>
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
 
-#### Accept
+```json
+{
+  "tagger" : {
+    "date" : "ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ",
+    "name" : "string",
+    "email" : "string"
+  },
+  "tag" : "string",
+  "message" : "string",
+  "sha" : "string",
+  "url" : "string",
+  "object" : {
+    "type" : "string",
+    "sha" : "string",
+    "url" : "string"
+  }
+}
+```
+
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -684,35 +819,50 @@ contents of that tree with the new path contents and write a new tree out.
 
 <details><summary>Parameters</summary>
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
 
-#### Accept
+```json
+{
+  "tree" : [ {
+    "mode" : "string",
+    "path" : "string",
+    "size" : "integer",
+    "type" : "string",
+    "sha" : "string",
+    "url" : "string"
+  } ],
+  "sha" : "string",
+  "url" : "string"
+}
+```
+
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -724,35 +874,42 @@ Create a hook.
 
 <details><summary>Parameters</summary>
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
 
-#### Accept
+```json
+{
+  "active" : "boolean",
+  "add_events" : [ "string" ]
+}
+```
+
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -766,35 +923,45 @@ Any user with pull access to a repository can create an issue.
 
 <details><summary>Parameters</summary>
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
 
-#### Accept
+```json
+{
+  "milestone" : "number",
+  "assignee" : "string",
+  "body" : "string",
+  "title" : "string",
+  "labels" : [ "string" ]
+}
+```
+
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -806,35 +973,42 @@ Create a key.
 
 <details><summary>Parameters</summary>
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
 
-#### Accept
+```json
+{
+  "title" : "string",
+  "key" : "string"
+}
+```
+
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -846,23 +1020,30 @@ Create a public key.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
 
-#### Accept
+```json
+{
+  "title" : "string",
+  "key" : "string"
+}
+```
+
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -874,35 +1055,39 @@ Create a label.
 
 <details><summary>Parameters</summary>
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** array
 
-#### Accept
+```json
+[ "string" ]
+```
+
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -914,35 +1099,44 @@ Create a milestone.
 
 <details><summary>Parameters</summary>
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
 
-#### Accept
+```json
+{
+  "description" : "string",
+  "state" : "string",
+  "title" : "string",
+  "due_on" : "string"
+}
+```
+
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -954,35 +1148,44 @@ Create a pull request.
 
 <details><summary>Parameters</summary>
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
 
-#### Accept
+```json
+{
+  "head" : "string",
+  "body" : "string",
+  "title" : "string",
+  "base" : "string"
+}
+```
+
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -996,35 +1199,46 @@ Users with push access to the repository can create a release.
 
 <details><summary>Parameters</summary>
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
 
-#### Accept
+```json
+{
+  "tag_name" : "string",
+  "prerelease" : "boolean",
+  "target_commitish" : "string",
+  "draft" : "boolean",
+  "name" : "string",
+  "body" : "string"
+}
+```
+
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -1038,23 +1252,38 @@ repo scope.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
 
-#### Accept
+```json
+{
+  "auto_init" : "True to create an initial commit with empty README. Default is false.",
+  "gitignore_template" : "Desired language or platform .gitignore template to apply. Use the name of the template without the extension. For example, \"Haskell\" Ignored if auto_init parameter is not provided.",
+  "private" : "True to create a private repository, false to create a public one. Creating private repositories requires a paid GitHub account.",
+  "has_wiki" : "True to enable the wiki for this repository, false to disable it. Default is true.",
+  "has_downloads" : "True to enable downloads for this repository, false to disable them. Default is true.",
+  "name" : "Required string",
+  "description" : "string",
+  "team_id" : "The id of the team that will be granted access to this repository. This is only valid when creating a repo in an organization.",
+  "has_issues" : "True to enable issues for this repository, false to disable them. Default is true.",
+  "homepage" : "string"
+}
+```
+
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -1068,29 +1297,44 @@ repo scope.
 
 <details><summary>Parameters</summary>
 
-#### org (required)
+### org (required)
 
 Name of organisation.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
 
-#### Accept
+```json
+{
+  "auto_init" : "True to create an initial commit with empty README. Default is false.",
+  "gitignore_template" : "Desired language or platform .gitignore template to apply. Use the name of the template without the extension. For example, \"Haskell\" Ignored if auto_init parameter is not provided.",
+  "private" : "True to create a private repository, false to create a public one. Creating private repositories requires a paid GitHub account.",
+  "has_wiki" : "True to enable the wiki for this repository, false to disable it. Default is true.",
+  "has_downloads" : "True to enable downloads for this repository, false to disable them. Default is true.",
+  "name" : "Required string",
+  "description" : "string",
+  "team_id" : "The id of the team that will be granted access to this repository. This is only valid when creating a repo in an organization.",
+  "has_issues" : "True to enable issues for this repository, false to disable them. Default is true.",
+  "homepage" : "string"
+}
+```
+
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -1104,41 +1348,49 @@ Users with push access can create deployment statuses for a given deployment:
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 The Deployment ID to list the statuses from.
 
 **Type:** integer
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
 
-#### Accept
+```json
+{
+  "target_url" : "string",
+  "description" : "string",
+  "state" : "string"
+}
+```
+
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -1150,41 +1402,53 @@ Create a Status.
 
 <details><summary>Parameters</summary>
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### ref (required)
+### ref (required)
 
 Ref to list the statuses from. It can be a SHA, a branch name, or a tag name.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
 
-#### Accept
+```json
+{
+  "ref" : "string",
+  "url" : "string",
+  "object" : {
+    "type" : "string",
+    "sha" : "string",
+    "url" : "string"
+  }
+}
+```
+
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -1198,29 +1462,37 @@ In order to create a team, the authenticated user must be an owner of organizati
 
 <details><summary>Parameters</summary>
 
-#### org (required)
+### org (required)
 
 Name of organisation.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
 
-#### Accept
+```json
+{
+  "repo_names" : [ "string" ],
+  "name" : "Required string",
+  "permission" : { }
+}
+```
+
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -1238,37 +1510,37 @@ Note: Previously /repos/:owner/:repo/hooks/:id/tes
 
 <details><summary>Parameters</summary>
 
-#### hookId (required)
+### hookId (required)
 
 Id of hook.
 
 **Type:** integer
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -1280,35 +1552,35 @@ Delete a release asset
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 **Type:** string
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -1320,37 +1592,37 @@ Remove collaborator.
 
 <details><summary>Parameters</summary>
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### user (required)
+### user (required)
 
 Login of the user.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -1362,37 +1634,37 @@ Delete a commit comment
 
 <details><summary>Parameters</summary>
 
-#### commentId (required)
+### commentId (required)
 
 Id of comment.
 
 **Type:** integer
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -1404,31 +1676,31 @@ Delete a comment.
 
 <details><summary>Parameters</summary>
 
-#### commentId (required)
+### commentId (required)
 
 Id of comment.
 
 **Type:** integer
 
-#### id (required)
+### id (required)
 
 Id of gist.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -1440,37 +1712,37 @@ Delete a comment.
 
 <details><summary>Parameters</summary>
 
-#### commentId (required)
+### commentId (required)
 
 Id of comment.
 
 **Type:** integer
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -1482,37 +1754,37 @@ Delete a comment.
 
 <details><summary>Parameters</summary>
 
-#### commentId (required)
+### commentId (required)
 
 Id of comment.
 
 **Type:** integer
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -1526,37 +1798,37 @@ This method deletes a file in a repository.
 
 <details><summary>Parameters</summary>
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### path (required)
+### path (required)
 
 The file path or directory. Set this to an empty string to get the contents of all files in the repository.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -1568,25 +1840,25 @@ Delete a gist.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 Id of gist.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -1601,37 +1873,37 @@ Example: Deleting a tag:        DELETE /repos/octocat/Hello-World/git/refs/tags/
 
 <details><summary>Parameters</summary>
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### ref (required)
+### ref (required)
 
 Ref to list the statuses from. It can be a SHA, a branch name, or a tag name.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -1643,37 +1915,37 @@ Delete a hook.
 
 <details><summary>Parameters</summary>
 
-#### hookId (required)
+### hookId (required)
 
 Id of hook.
 
 **Type:** integer
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -1685,37 +1957,37 @@ Delete a key.
 
 <details><summary>Parameters</summary>
 
-#### keyId (required)
+### keyId (required)
 
 Id of key.
 
 **Type:** integer
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -1727,25 +1999,25 @@ Delete a public key. Removes a public key. Requires that you are authenticated v
 
 <details><summary>Parameters</summary>
 
-#### keyId (required)
+### keyId (required)
 
 Id of key.
 
 **Type:** integer
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -1757,37 +2029,37 @@ Delete a label.
 
 <details><summary>Parameters</summary>
 
-#### name (required)
+### name (required)
 
 Name of the label.
 
 **Type:** string
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -1799,37 +2071,37 @@ Remove all labels from an issue.
 
 <details><summary>Parameters</summary>
 
-#### number (required)
+### number (required)
 
 Number of issue.
 
 **Type:** integer
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -1844,31 +2116,31 @@ will no longer have any access to the organization's repositories.
 
 <details><summary>Parameters</summary>
 
-#### org (required)
+### org (required)
 
 Name of organisation.
 
 **Type:** string
 
-#### username (required)
+### username (required)
 
 Name of user.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -1880,37 +2152,37 @@ Delete a milestone.
 
 <details><summary>Parameters</summary>
 
-#### number (required)
+### number (required)
 
 Number of milestone.
 
 **Type:** integer
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -1922,31 +2194,31 @@ Conceal a user's membership.
 
 <details><summary>Parameters</summary>
 
-#### org (required)
+### org (required)
 
 Name of organisation.
 
 **Type:** string
 
-#### username (required)
+### username (required)
 
 Name of user.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -1958,35 +2230,35 @@ Users with push access to the repository can delete a release.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 **Type:** string
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -2001,31 +2273,31 @@ scope is required.
 
 <details><summary>Parameters</summary>
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -2037,31 +2309,31 @@ Delete a Repository Subscription.
 
 <details><summary>Parameters</summary>
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -2076,25 +2348,25 @@ org that the team is associated with.
 
 <details><summary>Parameters</summary>
 
-#### teamId (required)
+### teamId (required)
 
 Id of team.
 
 **Type:** integer
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -2108,39 +2380,46 @@ Users with push access to the repository can edit a release asset.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 **Type:** string
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
 
-#### Accept
+```json
+{
+  "name" : "Required string",
+  "label" : "string"
+}
+```
+
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -2152,41 +2431,50 @@ update branch protection rules
 
 <details><summary>Parameters</summary>
 
-#### branch (required)
+### branch (required)
 
 Name of the branch.
 
 **Type:** string
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
 
-#### Accept
+```json
+{
+  "required_pull_request_reviews" : { },
+  "required_status_checks" : { },
+  "restrictions" : { },
+  "enforce_admins" : "boolean"
+}
+```
+
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -2198,37 +2486,37 @@ Add collaborator.
 
 <details><summary>Parameters</summary>
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### user (required)
+### user (required)
 
 Login of the user.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -2240,41 +2528,47 @@ Update a commit comment.
 
 <details><summary>Parameters</summary>
 
-#### commentId (required)
+### commentId (required)
 
 Id of comment.
 
 **Type:** integer
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
 
-#### Accept
+```json
+{
+  "body" : "Required string"
+}
+```
+
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -2286,35 +2580,41 @@ Edit a comment.
 
 <details><summary>Parameters</summary>
 
-#### commentId (required)
+### commentId (required)
 
 Id of comment.
 
 **Type:** integer
 
-#### id (required)
+### id (required)
 
 Id of gist.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
 
-#### Accept
+```json
+{
+  "body" : "string"
+}
+```
+
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -2326,41 +2626,47 @@ Edit a comment.
 
 <details><summary>Parameters</summary>
 
-#### commentId (required)
+### commentId (required)
 
 Id of comment.
 
 **Type:** integer
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
 
-#### Accept
+```json
+{
+  "body" : "Required string"
+}
+```
+
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -2372,41 +2678,47 @@ Edit a comment.
 
 <details><summary>Parameters</summary>
 
-#### commentId (required)
+### commentId (required)
 
 Id of comment.
 
 **Type:** integer
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
 
-#### Accept
+```json
+{
+  "body" : "Required string"
+}
+```
+
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -2418,29 +2730,48 @@ Edit a gist.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 Id of gist.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
 
-#### Accept
+```json
+{
+  "files" : {
+    "delete_this_file.txt" : "string",
+    "new_file.txt" : {
+      "content" : "string"
+    },
+    "file1.txt" : {
+      "content" : "string"
+    },
+    "old_name.txt" : {
+      "filename" : "string",
+      "content" : "string"
+    }
+  },
+  "description" : "string"
+}
+```
+
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -2452,41 +2783,48 @@ Update a Reference
 
 <details><summary>Parameters</summary>
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### ref (required)
+### ref (required)
 
 Ref to list the statuses from. It can be a SHA, a branch name, or a tag name.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
 
-#### Accept
+```json
+{
+  "force" : "boolean",
+  "sha" : "string"
+}
+```
+
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -2498,41 +2836,48 @@ Edit a hook.
 
 <details><summary>Parameters</summary>
 
-#### hookId (required)
+### hookId (required)
 
 Id of hook.
 
 **Type:** integer
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
 
-#### Accept
+```json
+{
+  "active" : "boolean",
+  "add_events" : [ "string" ]
+}
+```
+
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -2546,41 +2891,51 @@ Issue owners and users with push access can edit an issue.
 
 <details><summary>Parameters</summary>
 
-#### number (required)
+### number (required)
 
 Number of issue.
 
 **Type:** integer
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
 
-#### Accept
+```json
+{
+  "milestone" : "number",
+  "assignee" : "string",
+  "body" : "string",
+  "title" : "string",
+  "labels" : [ "string" ]
+}
+```
+
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -2592,41 +2947,45 @@ Update a label.
 
 <details><summary>Parameters</summary>
 
-#### name (required)
+### name (required)
 
 Name of the label.
 
 **Type:** string
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** array
 
-#### Accept
+```json
+[ "string" ]
+```
+
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -2640,41 +2999,45 @@ Sending an empty array ([]) will remove all Labels from the Issue.
 
 <details><summary>Parameters</summary>
 
-#### number (required)
+### number (required)
 
 Number of issue.
 
 **Type:** integer
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** array
 
-#### Accept
+```json
+[ "string" ]
+```
+
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -2692,31 +3055,31 @@ If the user is completely unaffiliated with the team's organization (meaning the
 
 <details><summary>Parameters</summary>
 
-#### teamId (required)
+### teamId (required)
 
 Id of team.
 
 **Type:** integer
 
-#### username (required)
+### username (required)
 
 Name of user.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -2728,41 +3091,50 @@ Update a milestone.
 
 <details><summary>Parameters</summary>
 
-#### number (required)
+### number (required)
 
 Number of milestone.
 
 **Type:** integer
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
 
-#### Accept
+```json
+{
+  "description" : "string",
+  "state" : "string",
+  "title" : "string",
+  "due_on" : "string"
+}
+```
+
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -2778,29 +3150,40 @@ a thread will mute all future notifications (until you comment or get @mentioned
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 Id of thread.
 
 **Type:** integer
 
-#### $body
+### $body
 
 **Type:** object
 
-#### Accept
+```json
+{
+  "ignored" : "boolean",
+  "subscribed" : "boolean",
+  "reason" : { },
+  "created_at" : "string",
+  "thread_url" : "string",
+  "url" : "string"
+}
+```
+
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -2812,29 +3195,39 @@ Edit an Organization.
 
 <details><summary>Parameters</summary>
 
-#### org (required)
+### org (required)
 
 Name of organisation.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
 
-#### Accept
+```json
+{
+  "billing_email" : "Billing email address. This address is not publicized.",
+  "name" : "string",
+  "company" : "string",
+  "location" : "string",
+  "email" : "Publicly visible email address."
+}
+```
+
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -2846,31 +3239,31 @@ Publicize a user's membership.
 
 <details><summary>Parameters</summary>
 
-#### org (required)
+### org (required)
 
 Name of organisation.
 
 **Type:** string
 
-#### username (required)
+### username (required)
 
 Name of user.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -2882,41 +3275,49 @@ Update a pull request.
 
 <details><summary>Parameters</summary>
 
-#### number (required)
+### number (required)
 
 Id of pull.
 
 **Type:** integer
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
 
-#### Accept
+```json
+{
+  "state" : "string",
+  "body" : "string",
+  "title" : "string"
+}
+```
+
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -2928,39 +3329,50 @@ Users with push access to the repository can edit a release
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 **Type:** string
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
 
-#### Accept
+```json
+{
+  "tag_name" : "string",
+  "prerelease" : "boolean",
+  "target_commitish" : "string",
+  "draft" : "boolean",
+  "name" : "string",
+  "body" : "string"
+}
+```
+
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -2972,35 +3384,47 @@ Edit repository.
 
 <details><summary>Parameters</summary>
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
 
-#### Accept
+```json
+{
+  "private" : "boolean",
+  "has_wiki" : "boolean",
+  "has_downloads" : "boolean",
+  "name" : "string",
+  "description" : "string",
+  "has_issues" : "boolean",
+  "homepage" : "string"
+}
+```
+
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -3012,35 +3436,42 @@ Set a Repository Subscription
 
 <details><summary>Parameters</summary>
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
 
-#### Accept
+```json
+{
+  "ignored" : "boolean",
+  "subscribed" : "boolean"
+}
+```
+
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -3055,29 +3486,36 @@ that the team is associated with.
 
 <details><summary>Parameters</summary>
 
-#### teamId (required)
+### teamId (required)
 
 Id of team.
 
 **Type:** integer
 
-#### $body
+### $body
 
 **Type:** object
 
-#### Accept
+```json
+{
+  "name" : "Required string",
+  "permission" : { }
+}
+```
+
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -3089,23 +3527,35 @@ Update the authenticated user.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
 
-#### Accept
+```json
+{
+  "hireable" : "boolean",
+  "name" : "string",
+  "bio" : "string",
+  "company" : "string",
+  "location" : "string",
+  "blog" : "string",
+  "email" : "string"
+}
+```
+
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -3120,25 +3570,25 @@ basic auth or OAuth with the user:follow scope.
 
 <details><summary>Parameters</summary>
 
-#### username (required)
+### username (required)
 
 Name of user.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -3150,25 +3600,25 @@ Fork a gist.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 Id of gist.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -3180,35 +3630,35 @@ Get a single release asset
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 **Type:** string
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -3225,37 +3675,37 @@ base64 encode it.
 
 <details><summary>Parameters</summary>
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### shaCode (required)
+### shaCode (required)
 
 SHA-1 code of the commit.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -3267,37 +3717,37 @@ Get Branch
 
 <details><summary>Parameters</summary>
 
-#### branch (required)
+### branch (required)
 
 Name of the branch.
 
 **Type:** string
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -3309,37 +3759,37 @@ List branch protection rules for a repo
 
 <details><summary>Parameters</summary>
 
-#### branch (required)
+### branch (required)
 
 Name of the branch.
 
 **Type:** string
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -3351,31 +3801,31 @@ Get a single comment.
 
 <details><summary>Parameters</summary>
 
-#### commentId (required)
+### commentId (required)
 
 Id of comment.
 
 **Type:** integer
 
-#### id (required)
+### id (required)
 
 Id of gist.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -3387,37 +3837,37 @@ Get a single commit comment.
 
 <details><summary>Parameters</summary>
 
-#### commentId (required)
+### commentId (required)
 
 Id of comment.
 
 **Type:** integer
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -3429,37 +3879,37 @@ Get a single comment.
 
 <details><summary>Parameters</summary>
 
-#### commentId (required)
+### commentId (required)
 
 Id of comment.
 
 **Type:** integer
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -3471,37 +3921,37 @@ Get a single comment.
 
 <details><summary>Parameters</summary>
 
-#### commentId (required)
+### commentId (required)
 
 Id of comment.
 
 **Type:** integer
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -3513,37 +3963,37 @@ Get a single commit.
 
 <details><summary>Parameters</summary>
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### shaCode (required)
+### shaCode (required)
 
 SHA-1 code of the commit.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -3555,19 +4005,19 @@ Lists all the emojis available to use on GitHub.
 
 <details><summary>Parameters</summary>
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -3579,37 +4029,37 @@ Get a single event.
 
 <details><summary>Parameters</summary>
 
-#### eventId (required)
+### eventId (required)
 
 Id of the event.
 
 **Type:** integer
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -3621,19 +4071,19 @@ List public events.
 
 <details><summary>Parameters</summary>
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -3648,19 +4098,19 @@ GitHub provides several timeline resources in Atom format. The Feeds API
 
 <details><summary>Parameters</summary>
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -3678,41 +4128,41 @@ Here can be many outcomes. For details see "http://developer.github.com/v3/repos
 
 <details><summary>Parameters</summary>
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### path (required)
+### path (required)
 
 The file path or directory. Set this to an empty string to get the contents of all files in the repository.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
-#### ref
+### ref
 
 The String name of the Commit/Branch/Tag. Defaults to 'master'.
 
@@ -3726,25 +4176,25 @@ Get a single gist.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 Id of gist.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -3756,37 +4206,37 @@ Get a Commit.
 
 <details><summary>Parameters</summary>
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### shaCode (required)
+### shaCode (required)
 
 SHA-1 code of the commit.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -3798,37 +4248,37 @@ Get a Reference
 
 <details><summary>Parameters</summary>
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### ref (required)
+### ref (required)
 
 Ref to list the statuses from. It can be a SHA, a branch name, or a tag name.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -3840,41 +4290,41 @@ Get a Tree.
 
 <details><summary>Parameters</summary>
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### shaCode (required)
+### shaCode (required)
 
 SHA-1 code of the commit.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
-#### recursive
+### recursive
 
 Get a Tree Recursively. (0 or 1)
 
@@ -3888,19 +4338,19 @@ This gives some information about GitHub.com, the service.
 
 <details><summary>Parameters</summary>
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -3912,37 +4362,37 @@ Get single hook.
 
 <details><summary>Parameters</summary>
 
-#### hookId (required)
+### hookId (required)
 
 Id of hook.
 
 **Type:** integer
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -3954,37 +4404,37 @@ Get a single issue
 
 <details><summary>Parameters</summary>
 
-#### number (required)
+### number (required)
 
 Number of issue.
 
 **Type:** integer
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -3996,37 +4446,37 @@ Get a key
 
 <details><summary>Parameters</summary>
 
-#### keyId (required)
+### keyId (required)
 
 Id of key.
 
 **Type:** integer
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -4038,25 +4488,25 @@ Get a single public key.
 
 <details><summary>Parameters</summary>
 
-#### keyId (required)
+### keyId (required)
 
 Id of key.
 
 **Type:** integer
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -4068,37 +4518,37 @@ Get a single label.
 
 <details><summary>Parameters</summary>
 
-#### name (required)
+### name (required)
 
 Name of the label.
 
 **Type:** string
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -4110,37 +4560,37 @@ List labels on an issue.
 
 <details><summary>Parameters</summary>
 
-#### number (required)
+### number (required)
 
 Number of issue.
 
 **Type:** integer
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -4155,25 +4605,25 @@ of the team.
 
 <details><summary>Parameters</summary>
 
-#### teamId (required)
+### teamId (required)
 
 Id of team.
 
 **Type:** integer
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -4187,31 +4637,31 @@ In order to get a user's membership with a team, the authenticated user must be 
 
 <details><summary>Parameters</summary>
 
-#### teamId (required)
+### teamId (required)
 
 Id of team.
 
 **Type:** integer
 
-#### username (required)
+### username (required)
 
 Name of user.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -4223,37 +4673,37 @@ Get a single milestone.
 
 <details><summary>Parameters</summary>
 
-#### number (required)
+### number (required)
 
 Number of milestone.
 
 **Type:** integer
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -4265,25 +4715,25 @@ View a single thread.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 Id of thread.
 
 **Type:** integer
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -4295,25 +4745,25 @@ Get an Organization.
 
 <details><summary>Parameters</summary>
 
-#### org (required)
+### org (required)
 
 Name of organisation.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -4325,37 +4775,37 @@ Get a single pull request.
 
 <details><summary>Parameters</summary>
 
-#### number (required)
+### number (required)
 
 Id of pull.
 
 **Type:** integer
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -4369,19 +4819,19 @@ Note: Accessing this endpoint does not count against your rate limit.
 
 <details><summary>Parameters</summary>
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -4395,35 +4845,35 @@ This method returns the preferred README for a repository.
 
 <details><summary>Parameters</summary>
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
-#### ref
+### ref
 
 The String name of the Commit/Branch/Tag. Defaults to master.
 
@@ -4437,35 +4887,35 @@ Get a single release
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 **Type:** string
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -4477,31 +4927,31 @@ Get repository.
 
 <details><summary>Parameters</summary>
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -4513,31 +4963,31 @@ Get a Repository Subscription.
 
 <details><summary>Parameters</summary>
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -4549,25 +4999,25 @@ Get team.
 
 <details><summary>Parameters</summary>
 
-#### teamId (required)
+### teamId (required)
 
 Id of team.
 
 **Type:** integer
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -4579,23 +5029,23 @@ Get a single template.
 
 <details><summary>Parameters</summary>
 
-#### language (required)
+### language (required)
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -4607,25 +5057,25 @@ Get a single user.
 
 <details><summary>Parameters</summary>
 
-#### username (required)
+### username (required)
 
 Name of user.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -4637,19 +5087,19 @@ Get the authenticated user.
 
 <details><summary>Parameters</summary>
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -4661,37 +5111,37 @@ Check if user is a collaborator
 
 <details><summary>Parameters</summary>
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### user (required)
+### user (required)
 
 Login of the user.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -4703,25 +5153,25 @@ Check if a gist is starred.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 Id of gist.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -4733,31 +5183,31 @@ Check if a user is, publicly or privately, a member of the organization.
 
 <details><summary>Parameters</summary>
 
-#### org (required)
+### org (required)
 
 Name of organisation.
 
 **Type:** string
 
-#### username (required)
+### username (required)
 
 Name of user.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -4769,25 +5219,25 @@ Get a Thread Subscription.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 Id of thread.
 
 **Type:** integer
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -4799,31 +5249,31 @@ Check public membership.
 
 <details><summary>Parameters</summary>
 
-#### org (required)
+### org (required)
 
 Name of organisation.
 
 **Type:** string
 
-#### username (required)
+### username (required)
 
 Name of user.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -4835,37 +5285,37 @@ Get if a pull request has been merged.
 
 <details><summary>Parameters</summary>
 
-#### number (required)
+### number (required)
 
 Id of pull.
 
 **Type:** integer
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -4877,37 +5327,37 @@ Check if a team manages a repository
 
 <details><summary>Parameters</summary>
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### teamId (required)
+### teamId (required)
 
 Id of team.
 
 **Type:** integer
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -4919,31 +5369,31 @@ Check if you are starring a repository.
 
 <details><summary>Parameters</summary>
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -4955,31 +5405,31 @@ Check if you are watching a repository.
 
 <details><summary>Parameters</summary>
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -4993,37 +5443,37 @@ You may also check to see if a particular user is an assignee for a repository.
 
 <details><summary>Parameters</summary>
 
-#### assignee (required)
+### assignee (required)
 
 Login of the assignee.
 
 **Type:** string
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -5035,31 +5485,31 @@ Check if one user follows another.
 
 <details><summary>Parameters</summary>
 
-#### targetUser (required)
+### targetUser (required)
 
 Name of user.
 
 **Type:** string
 
-#### username (required)
+### username (required)
 
 Name of user.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -5073,29 +5523,29 @@ List all notifications for the current user, grouped by repository.
 
 <details><summary>Parameters</summary>
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
-#### all
+### all
 
 True to show notifications marked as read.
 
 **Type:** boolean
 
-#### participating
+### participating
 
 True to show only notifications in which the user is directly participating
 or mentioned.
@@ -5103,7 +5553,7 @@ or mentioned.
 
 **Type:** boolean
 
-#### since
+### since
 
 The time should be passed in as UTC in the ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
 Example: "2012-10-09T23:39:01Z".
@@ -5124,23 +5574,23 @@ Link header to get the URL for the next page of repositories.
 
 <details><summary>Parameters</summary>
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
-#### since
+### since
 
 The integer ID of the last Repository that you've seen.
 
@@ -5154,35 +5604,35 @@ List assets for a release
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 **Type:** string
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -5197,31 +5647,31 @@ issues may be assigned.
 
 <details><summary>Parameters</summary>
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -5233,31 +5683,31 @@ Get list of branches
 
 <details><summary>Parameters</summary>
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -5274,31 +5724,31 @@ returned in the collaborators list.
 
 <details><summary>Parameters</summary>
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -5310,37 +5760,37 @@ List comments for a single commitList comments for a single commit.
 
 <details><summary>Parameters</summary>
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### shaCode (required)
+### shaCode (required)
 
 SHA-1 code of the commit.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -5354,31 +5804,31 @@ Comments are ordered by ascending ID.
 
 <details><summary>Parameters</summary>
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -5390,25 +5840,25 @@ List comments on a gist.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 Id of gist.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -5420,41 +5870,41 @@ List comments on an issue.
 
 <details><summary>Parameters</summary>
 
-#### number (required)
+### number (required)
 
 Number of issue.
 
 **Type:** integer
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
-#### since
+### since
 
 The time should be passed in as UTC in the ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
 Example: "2012-10-09T23:39:01Z".
@@ -5470,41 +5920,41 @@ List comments in a repository.
 
 <details><summary>Parameters</summary>
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
-#### direction
+### direction
 
 Ignored without 'sort' parameter.
 
 **Type:** string
 
-#### since
+### since
 
 The time should be passed in as UTC in the ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
 Example: "2012-10-09T23:39:01Z".
@@ -5512,7 +5962,7 @@ Example: "2012-10-09T23:39:01Z".
 
 **Type:** string
 
-#### sort
+### sort
 
 **Type:** string
 
@@ -5526,37 +5976,37 @@ List comments on a pull request.
 
 <details><summary>Parameters</summary>
 
-#### number (required)
+### number (required)
 
 Id of pull.
 
 **Type:** integer
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -5570,41 +6020,41 @@ By default, Review Comments are ordered by ascending ID.
 
 <details><summary>Parameters</summary>
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
-#### direction
+### direction
 
 Ignored without 'sort' parameter.
 
 **Type:** string
 
-#### since
+### since
 
 The time should be passed in as UTC in the ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
 Example: "2012-10-09T23:39:01Z".
@@ -5612,7 +6062,7 @@ Example: "2012-10-09T23:39:01Z".
 
 **Type:** string
 
-#### sort
+### sort
 
 **Type:** string
 
@@ -5626,53 +6076,53 @@ List commits on a repository.
 
 <details><summary>Parameters</summary>
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
-#### author
+### author
 
 GitHub login, name, or email by which to filter by commit author.
 
 **Type:** string
 
-#### path
+### path
 
 Only commits containing this file path will be returned.
 
 **Type:** string
 
-#### sha
+### sha
 
 Sha or branch to start listing commits from.
 
 **Type:** string
 
-#### since
+### since
 
 The time should be passed in as UTC in the ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
 Example: "2012-10-09T23:39:01Z".
@@ -5680,7 +6130,7 @@ Example: "2012-10-09T23:39:01Z".
 
 **Type:** string
 
-#### until
+### until
 
 ISO 8601 Date - Only commits before this date will be returned.
 
@@ -5694,37 +6144,37 @@ List commits on a pull request.
 
 <details><summary>Parameters</summary>
 
-#### number (required)
+### number (required)
 
 Id of pull.
 
 **Type:** integer
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -5736,35 +6186,35 @@ Get list of contributors.
 
 <details><summary>Parameters</summary>
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
-#### anon
+### anon
 
 Set to 1 or true to include anonymous contributors in results.
 
@@ -5778,31 +6228,31 @@ Users with pull access can view deployments for a repository
 
 <details><summary>Parameters</summary>
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -5820,19 +6270,19 @@ get other response format.
 
 <details><summary>Parameters</summary>
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -5844,37 +6294,37 @@ List events for an issue.
 
 <details><summary>Parameters</summary>
 
-#### number (required)
+### number (required)
 
 Number of issue.
 
 **Type:** integer
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -5886,31 +6336,31 @@ List issue events for a repository.
 
 <details><summary>Parameters</summary>
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -5922,31 +6372,31 @@ List public events for a network of repositories.
 
 <details><summary>Parameters</summary>
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -5958,25 +6408,25 @@ List public events for an organization.
 
 <details><summary>Parameters</summary>
 
-#### org (required)
+### org (required)
 
 Name of organisation.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -5988,31 +6438,31 @@ Get list of repository events.
 
 <details><summary>Parameters</summary>
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -6024,25 +6474,25 @@ If you are authenticated as the given user, you will see your private events. Ot
 
 <details><summary>Parameters</summary>
 
-#### username (required)
+### username (required)
 
 Name of user.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -6054,25 +6504,25 @@ These are events that you'll only see public events.
 
 <details><summary>Parameters</summary>
 
-#### username (required)
+### username (required)
 
 Name of user.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -6084,25 +6534,25 @@ List public events that a user has received
 
 <details><summary>Parameters</summary>
 
-#### username (required)
+### username (required)
 
 Name of user.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -6114,37 +6564,37 @@ List pull requests files.
 
 <details><summary>Parameters</summary>
 
-#### number (required)
+### number (required)
 
 Id of pull.
 
 **Type:** integer
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -6156,19 +6606,19 @@ List the authenticated user's followers
 
 <details><summary>Parameters</summary>
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -6180,25 +6630,25 @@ List a user's followers
 
 <details><summary>Parameters</summary>
 
-#### username (required)
+### username (required)
 
 Name of user.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -6210,19 +6660,19 @@ List who the authenticated user is following.
 
 <details><summary>Parameters</summary>
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -6234,25 +6684,25 @@ Check if you are following a user.
 
 <details><summary>Parameters</summary>
 
-#### username (required)
+### username (required)
 
 Name of user.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -6264,35 +6714,35 @@ List forks.
 
 <details><summary>Parameters</summary>
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
-#### sort
+### sort
 
 **Type:** string
 
@@ -6308,23 +6758,23 @@ return all public gists.
 
 <details><summary>Parameters</summary>
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
-#### since
+### since
 
 Timestamp in ISO 8601 format YYYY-MM-DDTHH:MM:SSZ.
 Only gists updated at or after this time are returned.
@@ -6340,29 +6790,29 @@ List a users gists.
 
 <details><summary>Parameters</summary>
 
-#### username (required)
+### username (required)
 
 Name of user.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
-#### since
+### since
 
 The time should be passed in as UTC in the ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
 Example: "2012-10-09T23:39:01Z".
@@ -6378,23 +6828,23 @@ List all public gists.
 
 <details><summary>Parameters</summary>
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
-#### since
+### since
 
 Timestamp in ISO 8601 format YYYY-MM-DDTHH:MM:SSZ.
 Only gists updated at or after this time are returned.
@@ -6410,23 +6860,23 @@ List the authenticated user's starred gists.
 
 <details><summary>Parameters</summary>
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
-#### since
+### since
 
 Timestamp in ISO 8601 format YYYY-MM-DDTHH:MM:SSZ.
 Only gists updated at or after this time are returned.
@@ -6442,31 +6892,31 @@ Get all References
 
 <details><summary>Parameters</summary>
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -6478,37 +6928,37 @@ Get a Tag.
 
 <details><summary>Parameters</summary>
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### shaCode (required)
+### shaCode (required)
 
 SHA-1 code of the commit.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -6520,31 +6970,31 @@ Get list of hooks.
 
 <details><summary>Parameters</summary>
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -6558,29 +7008,29 @@ List all issues across all the authenticated user's visible repositories.
 
 <details><summary>Parameters</summary>
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
-#### direction
+### direction
 
 **Type:** string
 
 **Potential values:** asc, desc
 
-#### filter
+### filter
 
 Issues assigned to you / created by you / mentioning you / you're
 subscribed to updates for / All issues the authenticated user can see
@@ -6590,13 +7040,13 @@ subscribed to updates for / All issues the authenticated user can see
 
 **Potential values:** assigned, created, mentioned, subscribed, all
 
-#### labels
+### labels
 
 String list of comma separated Label names. Example - bug,ui,@high.
 
 **Type:** string
 
-#### since
+### since
 
 Optional string of a timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
 Only issues updated at or after this time are returned.
@@ -6604,13 +7054,13 @@ Only issues updated at or after this time are returned.
 
 **Type:** string
 
-#### sort
+### sort
 
 **Type:** string
 
 **Potential values:** created, updated, comments
 
-#### state
+### state
 
 **Type:** string
 
@@ -6626,35 +7076,35 @@ List all issues for a given organization for the authenticated user.
 
 <details><summary>Parameters</summary>
 
-#### org (required)
+### org (required)
 
 Name of organisation.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
-#### direction
+### direction
 
 **Type:** string
 
 **Potential values:** asc, desc
 
-#### filter
+### filter
 
 Issues assigned to you / created by you / mentioning you / you're
 subscribed to updates for / All issues the authenticated user can see
@@ -6664,13 +7114,13 @@ subscribed to updates for / All issues the authenticated user can see
 
 **Potential values:** assigned, created, mentioned, subscribed, all
 
-#### labels
+### labels
 
 String list of comma separated Label names. Example - bug,ui,@high.
 
 **Type:** string
 
-#### since
+### since
 
 Optional string of a timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
 Only issues updated at or after this time are returned.
@@ -6678,13 +7128,13 @@ Only issues updated at or after this time are returned.
 
 **Type:** string
 
-#### sort
+### sort
 
 **Type:** string
 
 **Potential values:** created, updated, comments
 
-#### state
+### state
 
 **Type:** string
 
@@ -6698,41 +7148,41 @@ List issues for a repository.
 
 <details><summary>Parameters</summary>
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
-#### direction
+### direction
 
 **Type:** string
 
 **Potential values:** asc, desc
 
-#### filter
+### filter
 
 Issues assigned to you / created by you / mentioning you / you're
 subscribed to updates for / All issues the authenticated user can see
@@ -6742,13 +7192,13 @@ subscribed to updates for / All issues the authenticated user can see
 
 **Potential values:** assigned, created, mentioned, subscribed, all
 
-#### labels
+### labels
 
 String list of comma separated Label names. Example - bug,ui,@high.
 
 **Type:** string
 
-#### since
+### since
 
 Optional string of a timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
 Only issues updated at or after this time are returned.
@@ -6756,13 +7206,13 @@ Only issues updated at or after this time are returned.
 
 **Type:** string
 
-#### sort
+### sort
 
 **Type:** string
 
 **Potential values:** created, updated, comments
 
-#### state
+### state
 
 **Type:** string
 
@@ -6779,29 +7229,29 @@ user.
 
 <details><summary>Parameters</summary>
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
-#### direction
+### direction
 
 **Type:** string
 
 **Potential values:** asc, desc
 
-#### filter
+### filter
 
 Issues assigned to you / created by you / mentioning you / you're
 subscribed to updates for / All issues the authenticated user can see
@@ -6811,13 +7261,13 @@ subscribed to updates for / All issues the authenticated user can see
 
 **Potential values:** assigned, created, mentioned, subscribed, all
 
-#### labels
+### labels
 
 String list of comma separated Label names. Example - bug,ui,@high.
 
 **Type:** string
 
-#### since
+### since
 
 Optional string of a timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
 Only issues updated at or after this time are returned.
@@ -6825,13 +7275,13 @@ Only issues updated at or after this time are returned.
 
 **Type:** string
 
-#### sort
+### sort
 
 **Type:** string
 
 **Potential values:** created, updated, comments
 
-#### state
+### state
 
 **Type:** string
 
@@ -6848,19 +7298,19 @@ that you are authenticated through basic auth, or OAuth with the 'user', 'write:
 
 <details><summary>Parameters</summary>
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -6872,31 +7322,31 @@ Get list of keys.
 
 <details><summary>Parameters</summary>
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -6910,25 +7360,25 @@ Lists the verified public keys for a user. This is accessible by anyone.
 
 <details><summary>Parameters</summary>
 
-#### username (required)
+### username (required)
 
 Name of user.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -6940,37 +7390,37 @@ Get labels for every issue in a milestone.
 
 <details><summary>Parameters</summary>
 
-#### number (required)
+### number (required)
 
 Number of milestone.
 
 **Type:** integer
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -6982,31 +7432,31 @@ List all labels for this repository.
 
 <details><summary>Parameters</summary>
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -7021,31 +7471,31 @@ language is the number of bytes of code written in that language.
 
 <details><summary>Parameters</summary>
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -7059,25 +7509,25 @@ List all users who are members of an organization. A member is a user that belon
 
 <details><summary>Parameters</summary>
 
-#### org (required)
+### org (required)
 
 Name of organisation.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -7089,47 +7539,47 @@ List milestones for a repository.
 
 <details><summary>Parameters</summary>
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
-#### direction
+### direction
 
 Ignored without 'sort' parameter.
 
 **Type:** string
 
-#### sort
+### sort
 
 **Type:** string
 
 **Potential values:** due_date, completeness
 
-#### state
+### state
 
 String to filter by state.
 
@@ -7147,41 +7597,41 @@ List all notifications for the current user.
 
 <details><summary>Parameters</summary>
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
-#### all
+### all
 
 True to show notifications marked as read.
 
 **Type:** boolean
 
-#### participating
+### participating
 
 True to show only notifications in which the user is directly participating
 or mentioned.
@@ -7189,7 +7639,7 @@ or mentioned.
 
 **Type:** boolean
 
-#### since
+### since
 
 The time should be passed in as UTC in the ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
 Example: "2012-10-09T23:39:01Z".
@@ -7205,19 +7655,19 @@ List public and private organizations for the authenticated user.
 
 <details><summary>Parameters</summary>
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -7229,25 +7679,25 @@ List all public organizations for a user.
 
 <details><summary>Parameters</summary>
 
-#### username (required)
+### username (required)
 
 Name of user.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -7262,25 +7712,25 @@ or not.
 
 <details><summary>Parameters</summary>
 
-#### org (required)
+### org (required)
 
 Name of organisation.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -7292,41 +7742,41 @@ List pull requests.
 
 <details><summary>Parameters</summary>
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
-#### base
+### base
 
 Filter pulls by base branch name. Example - gh-pages.
 
 **Type:** string
 
-#### head
+### head
 
 Filter pulls by head user and branch name in the format of 'user:ref-name'.
 Example: github:new-script-format.
@@ -7334,7 +7784,7 @@ Example: github:new-script-format.
 
 **Type:** string
 
-#### state
+### state
 
 String to filter by state.
 
@@ -7350,31 +7800,31 @@ Users with push access to the repository will receive all releases (i.e., publis
 
 <details><summary>Parameters</summary>
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -7389,23 +7839,23 @@ user organizations and list organization repositories separately.
 
 <details><summary>Parameters</summary>
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
-#### affiliation
+### affiliation
 
 Comma-separated list of values. Can include:
 * owner: Repositories that are owned by the authenticated user.
@@ -7414,19 +7864,19 @@ Comma-separated list of values. Can include:
 
 **Type:** string
 
-#### direction
+### direction
 
 Can be one of asc or desc. Default: when using full_name: asc; otherwise desc
 
 **Type:** string
 
-#### sort
+### sort
 
 **Type:** string
 
 **Potential values:** created, updated, pushed, full_name
 
-#### type
+### type
 
 Will cause a 422 error if used in the same request as visibility or affiliation.
 
@@ -7434,7 +7884,7 @@ Will cause a 422 error if used in the same request as visibility or affiliation.
 
 **Potential values:** all, owner, public, private, member
 
-#### visibility
+### visibility
 
 **Type:** string
 
@@ -7448,25 +7898,25 @@ List team repos
 
 <details><summary>Parameters</summary>
 
-#### teamId (required)
+### teamId (required)
 
 Id of team.
 
 **Type:** integer
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -7478,41 +7928,41 @@ List public repositories for the specified user.
 
 <details><summary>Parameters</summary>
 
-#### username (required)
+### username (required)
 
 Name of user.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
-#### direction
+### direction
 
 Can be one of asc or desc. Default: when using full_name: asc, otherwise desc.
 
 **Type:** string
 
-#### sort
+### sort
 
 **Type:** string
 
 **Potential values:** created, updated, pushed, full_name
 
-#### type
+### type
 
 **Type:** string
 
@@ -7526,29 +7976,29 @@ List repositories for the specified org.
 
 <details><summary>Parameters</summary>
 
-#### org (required)
+### org (required)
 
 Name of organisation.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
-#### type
+### type
 
 **Type:** string
 
@@ -7562,31 +8012,31 @@ List Stargazers.
 
 <details><summary>Parameters</summary>
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -7598,25 +8048,25 @@ List repositories being starred by a user.
 
 <details><summary>Parameters</summary>
 
-#### username (required)
+### username (required)
 
 Name of user.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -7628,29 +8078,29 @@ List repositories being starred by the authenticated user.
 
 <details><summary>Parameters</summary>
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
-#### direction
+### direction
 
 Ignored without 'sort' parameter.
 
 **Type:** string
 
-#### sort
+### sort
 
 **Type:** string
 
@@ -7664,37 +8114,37 @@ Users with pull access can view deployment statuses for a deployment
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 The Deployment ID to list the statuses from.
 
 **Type:** integer
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -7706,37 +8156,37 @@ List Statuses for a specific Ref.
 
 <details><summary>Parameters</summary>
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### ref (required)
+### ref (required)
 
 Ref to list the statuses from. It can be a SHA, a branch name, or a tag name.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -7748,31 +8198,31 @@ List watchers.
 
 <details><summary>Parameters</summary>
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -7784,19 +8234,19 @@ Get list of tags.
 
 <details><summary>Parameters</summary>
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -7808,31 +8258,31 @@ Get list of teams
 
 <details><summary>Parameters</summary>
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -7844,19 +8294,19 @@ List all of the teams across all of the organizations to which the authenticated
 
 <details><summary>Parameters</summary>
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -7868,25 +8318,25 @@ List teams.
 
 <details><summary>Parameters</summary>
 
-#### org (required)
+### org (required)
 
 Name of organisation.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -7900,19 +8350,19 @@ List all templates available to pass as an option when creating a repository.
 
 <details><summary>Parameters</summary>
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -7928,23 +8378,23 @@ header to get the URL for the next page of users.
 
 <details><summary>Parameters</summary>
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
-#### since
+### since
 
 The integer ID of the last User that you've seen.
 
@@ -7958,25 +8408,25 @@ List repositories being watched by a user.
 
 <details><summary>Parameters</summary>
 
-#### username (required)
+### username (required)
 
 Name of user.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -7988,19 +8438,19 @@ List repositories being watched by the authenticated user.
 
 <details><summary>Parameters</summary>
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -8012,31 +8462,31 @@ List Stargazers. New implementation.
 
 <details><summary>Parameters</summary>
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -8050,23 +8500,29 @@ Marking a notification as "read" removes it from the default view on GitHub.com.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
 
-#### Accept
+```json
+{
+  "last_read_at" : "string"
+}
+```
+
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -8081,35 +8537,41 @@ default view on GitHub.com.
 
 <details><summary>Parameters</summary>
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
 
-#### Accept
+```json
+{
+  "last_read_at" : "string"
+}
+```
+
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -8121,25 +8583,25 @@ Mark a thread as read
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 Id of thread.
 
 **Type:** integer
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -8151,41 +8613,47 @@ Merge a pull request (Merge Button's)
 
 <details><summary>Parameters</summary>
 
-#### number (required)
+### number (required)
 
 Id of pull.
 
 **Type:** integer
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
 
-#### Accept
+```json
+{
+  "commit_message" : "string"
+}
+```
+
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -8197,35 +8665,43 @@ Perform a merge.
 
 <details><summary>Parameters</summary>
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
 
-#### Accept
+```json
+{
+  "head" : "string",
+  "commit_message" : "string",
+  "base" : "string"
+}
+```
+
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -8237,25 +8713,25 @@ Delete a Thread Subscription.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 Id of thread.
 
 **Type:** integer
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -8267,23 +8743,31 @@ Render an arbitrary Markdown document
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
 
-#### Accept
+```json
+{
+  "mode" : "string",
+  "context" : "string",
+  "text" : "string"
+}
+```
+
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -8295,19 +8779,19 @@ Render a Markdown document in raw mode
 
 <details><summary>Parameters</summary>
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -8321,19 +8805,19 @@ You can include a single email address or an array of addresses.
 
 <details><summary>Parameters</summary>
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -8345,43 +8829,43 @@ Remove a label from an issue.
 
 <details><summary>Parameters</summary>
 
-#### name (required)
+### name (required)
 
 Name of the label.
 
 **Type:** string
 
-#### number (required)
+### number (required)
 
 Number of issue.
 
 **Type:** integer
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -8395,31 +8879,31 @@ In order to remove a membership between a user and a team, the authenticated use
 
 <details><summary>Parameters</summary>
 
-#### teamId (required)
+### teamId (required)
 
 Id of team.
 
 **Type:** integer
 
-#### username (required)
+### username (required)
 
 Name of user.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -8431,37 +8915,37 @@ In order to remove a repository from a team, the authenticated user must be an o
 
 <details><summary>Parameters</summary>
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### teamId (required)
+### teamId (required)
 
 Id of team.
 
 **Type:** integer
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -8476,31 +8960,31 @@ to a repository.
 
 <details><summary>Parameters</summary>
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -8515,31 +8999,31 @@ is a group of commits per day, starting on Sunday.
 
 <details><summary>Parameters</summary>
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -8551,31 +9035,31 @@ Get contributors list with additions, deletions, and commit counts.
 
 <details><summary>Parameters</summary>
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -8587,31 +9071,31 @@ This is the user's organization dashboard. You must be authenticated as the user
 
 <details><summary>Parameters</summary>
 
-#### org (required)
+### org (required)
 
 Name of organisation.
 
 **Type:** string
 
-#### username (required)
+### username (required)
 
 Name of user.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -8623,31 +9107,31 @@ Get the weekly commit count for the repo owner and everyone else.
 
 <details><summary>Parameters</summary>
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -8668,31 +9152,31 @@ individual commits.
 
 <details><summary>Parameters</summary>
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -8708,37 +9192,37 @@ application/vnd.github.she-hulk-preview+json
 
 <details><summary>Parameters</summary>
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### ref (required)
+### ref (required)
 
 Ref to list the statuses from. It can be a SHA, a branch name, or a tag name.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -8750,7 +9234,7 @@ Search code.
 
 <details><summary>Parameters</summary>
 
-#### q (required)
+### q (required)
 
 The search terms. This can be any combination of the supported code
 search parameters:
@@ -8769,23 +9253,23 @@ at all.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
-#### order
+### order
 
 The sort field. if sort param is provided. Can be either asc or desc.
 
@@ -8793,7 +9277,7 @@ The sort field. if sort param is provided. Can be either asc or desc.
 
 **Potential values:** desc, asc
 
-#### sort
+### sort
 
 Can only be 'indexed', which indicates how recently a file has been indexed
 by the GitHub search infrastructure. If not provided, results are sorted
@@ -8812,29 +9296,29 @@ Find issues by state and keyword. (This method returns up to 100 results per pag
 
 <details><summary>Parameters</summary>
 
-#### q (required)
+### q (required)
 
 The q search term can also contain any combination of the supported issue search qualifiers:
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
-#### order
+### order
 
 The sort field. if sort param is provided. Can be either asc or desc.
 
@@ -8842,7 +9326,7 @@ The sort field. if sort param is provided. Can be either asc or desc.
 
 **Potential values:** desc, asc
 
-#### sort
+### sort
 
 The sort field. Can be comments, created, or updated. Default: results are sorted by best match.
 
@@ -8858,7 +9342,7 @@ Search repositories.
 
 <details><summary>Parameters</summary>
 
-#### q (required)
+### q (required)
 
 The search terms. This can be any combination of the supported repository
 search parameters:
@@ -8877,23 +9361,23 @@ creation, or when they were last updated.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
-#### order
+### order
 
 The sort field. if sort param is provided. Can be either asc or desc.
 
@@ -8901,7 +9385,7 @@ The sort field. if sort param is provided. Can be either asc or desc.
 
 **Potential values:** desc, asc
 
-#### sort
+### sort
 
 If not provided, results are sorted by best match.
 
@@ -8917,7 +9401,7 @@ Search users.
 
 <details><summary>Parameters</summary>
 
-#### q (required)
+### q (required)
 
 The search terms. This can be any combination of the supported user
 search parameters:
@@ -8935,23 +9419,23 @@ language.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
-#### order
+### order
 
 The sort field. if sort param is provided. Can be either asc or desc.
 
@@ -8959,7 +9443,7 @@ The sort field. if sort param is provided. Can be either asc or desc.
 
 **Potential values:** desc, asc
 
-#### sort
+### sort
 
 If not provided, results are sorted by best match.
 
@@ -8975,25 +9459,25 @@ Star a gist.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 Id of gist.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -9005,31 +9489,31 @@ Star a repository.
 
 <details><summary>Parameters</summary>
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -9041,23 +9525,30 @@ Transfer a repository. This API is currently available for developers to preview
 
 <details><summary>Parameters</summary>
 
-#### owner (required)
+### owner (required)
 
 The original owner of the repo
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 The repository name
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
 
-#### Accept
+```json
+{
+  "new_owner" : "The username or organization name the repository will be transferred to.",
+  "team_ids" : [ "ID of the team or teams to add to the repository. Teams can only be added to organization-owned repositories." ]
+}
+```
+
+### Accept
 
 Is used to set specified media type.
 
@@ -9074,25 +9565,25 @@ basic auth or OAuth with the user:follow scope.
 
 <details><summary>Parameters</summary>
 
-#### username (required)
+### username (required)
 
 Name of user.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -9104,25 +9595,25 @@ Unstar a gist.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 Id of gist.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -9134,31 +9625,31 @@ Unstar a repository
 
 <details><summary>Parameters</summary>
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -9170,31 +9661,31 @@ Stop watching a repository
 
 <details><summary>Parameters</summary>
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 
@@ -9206,31 +9697,31 @@ Watch a repository.
 
 <details><summary>Parameters</summary>
 
-#### owner (required)
+### owner (required)
 
 Name of repository owner.
 
 **Type:** string
 
-#### repo (required)
+### repo (required)
 
 Name of repository.
 
 **Type:** string
 
-#### Accept
+### Accept
 
 Is used to set specified media type.
 
 **Type:** string
 
-#### X-GitHub-Media-Type
+### X-GitHub-Media-Type
 
 You can check the current version of media type in responses.
 
 **Type:** string
 
-#### X-GitHub-Request-Id
+### X-GitHub-Request-Id
 
 **Type:** integer
 

@@ -11,13 +11,13 @@ layout: docs.mustache
 
 <details><summary>Parameters</summary>
 
-#### api (required)
+### api (required)
 
 API name (case-sensitive)
 
 **Type:** string
 
-#### owner (required)
+### owner (required)
 
 API owner (user or organization, case-sensitive)
 
@@ -31,13 +31,13 @@ API owner (user or organization, case-sensitive)
 
 <details><summary>Parameters</summary>
 
-#### api (required)
+### api (required)
 
 API name (case-sensitive)
 
 **Type:** string
 
-#### owner (required)
+### owner (required)
 
 API owner (user or organization, case-sensitive)
 
@@ -51,19 +51,19 @@ API owner (user or organization, case-sensitive)
 
 <details><summary>Parameters</summary>
 
-#### domain (required)
+### domain (required)
 
 Domain name (case-sensitive)
 
 **Type:** string
 
-#### owner (required)
+### owner (required)
 
 Domain owner (user or organization, case-sensitive)
 
 **Type:** string
 
-#### force
+### force
 
 Force update
 
@@ -77,19 +77,19 @@ Force update
 
 <details><summary>Parameters</summary>
 
-#### api (required)
+### api (required)
 
 API name (case-sensitive)
 
 **Type:** string
 
-#### owner (required)
+### owner (required)
 
 API owner (user or organization, case-sensitive)
 
 **Type:** string
 
-#### version (required)
+### version (required)
 
 Version identifier (case-sensitive)
 
@@ -103,25 +103,25 @@ Version identifier (case-sensitive)
 
 <details><summary>Parameters</summary>
 
-#### domain (required)
+### domain (required)
 
 Domain name (case-sensitive)
 
 **Type:** string
 
-#### owner (required)
+### owner (required)
 
 Domain owner (user or organization, case-sensitive)
 
 **Type:** string
 
-#### version (required)
+### version (required)
 
 Version identifier (case-sensitive)
 
 **Type:** string
 
-#### force
+### force
 
 Force update
 
@@ -135,19 +135,19 @@ Force update
 
 <details><summary>Parameters</summary>
 
-#### api (required)
+### api (required)
 
 API name (case-sensitive)
 
 **Type:** string
 
-#### owner (required)
+### owner (required)
 
 API owner (user or organization, case-sensitive)
 
 **Type:** string
 
-#### expandTeams
+### expandTeams
 
 **Type:** boolean
 
@@ -160,19 +160,19 @@ Returns all the comments and replies added by collaborators in the specified API
 
 <details><summary>Parameters</summary>
 
-#### api (required)
+### api (required)
 
 API name (case-sensitive)
 
 **Type:** string
 
-#### owner (required)
+### owner (required)
 
 API owner (user or organization, case-sensitive)
 
 **Type:** string
 
-#### version (required)
+### version (required)
 
 Version identifier (case-sensitive)
 
@@ -187,19 +187,19 @@ Returns all the comments and replies added by collaborators in the specified dom
 
 <details><summary>Parameters</summary>
 
-#### domain (required)
+### domain (required)
 
 Domain name (case-sensitive)
 
 **Type:** string
 
-#### owner (required)
+### owner (required)
 
 Domain owner (user or organization, case-sensitive)
 
 **Type:** string
 
-#### version (required)
+### version (required)
 
 Version identifier (case-sensitive)
 
@@ -213,19 +213,19 @@ Version identifier (case-sensitive)
 
 <details><summary>Parameters</summary>
 
-#### api (required)
+### api (required)
 
 API name (case-sensitive)
 
 **Type:** string
 
-#### owner (required)
+### owner (required)
 
 API owner (user or organization, case-sensitive)
 
 **Type:** string
 
-#### version (required)
+### version (required)
 
 Version identifier (case-sensitive)
 
@@ -239,19 +239,19 @@ Version identifier (case-sensitive)
 
 <details><summary>Parameters</summary>
 
-#### domain (required)
+### domain (required)
 
 Domain name (case-sensitive)
 
 **Type:** string
 
-#### owner (required)
+### owner (required)
 
 Domain owner (user or organization, case-sensitive)
 
 **Type:** string
 
-#### version (required)
+### version (required)
 
 Version identifier (case-sensitive)
 
@@ -265,19 +265,19 @@ Version identifier (case-sensitive)
 
 <details><summary>Parameters</summary>
 
-#### api (required)
+### api (required)
 
 API name (case-sensitive)
 
 **Type:** string
 
-#### owner (required)
+### owner (required)
 
 API owner (user or organization, case-sensitive)
 
 **Type:** string
 
-#### version (required)
+### version (required)
 
 Version identifier (case-sensitive)
 
@@ -291,19 +291,19 @@ Version identifier (case-sensitive)
 
 <details><summary>Parameters</summary>
 
-#### domain (required)
+### domain (required)
 
 Domain name (case-sensitive)
 
 **Type:** string
 
-#### owner (required)
+### owner (required)
 
 Domain owner (user or organization, case-sensitive)
 
 **Type:** string
 
-#### version (required)
+### version (required)
 
 Version identifier (case-sensitive)
 
@@ -317,19 +317,19 @@ Version identifier (case-sensitive)
 
 <details><summary>Parameters</summary>
 
-#### api (required)
+### api (required)
 
 API name (case-sensitive)
 
 **Type:** string
 
-#### owner (required)
+### owner (required)
 
 API owner (user or organization, case-sensitive)
 
 **Type:** string
 
-#### version (required)
+### version (required)
 
 Version identifier (case-sensitive)
 
@@ -343,19 +343,19 @@ Version identifier (case-sensitive)
 
 <details><summary>Parameters</summary>
 
-#### domain (required)
+### domain (required)
 
 Domain name (case-sensitive)
 
 **Type:** string
 
-#### owner (required)
+### owner (required)
 
 Domain owner (user or organization, case-sensitive)
 
 **Type:** string
 
-#### version (required)
+### version (required)
 
 Version identifier (case-sensitive)
 
@@ -369,13 +369,13 @@ Version identifier (case-sensitive)
 
 <details><summary>Parameters</summary>
 
-#### owner (required)
+### owner (required)
 
 API owner (user or organization, case-sensitive)
 
 **Type:** string
 
-#### order
+### order
 
 Sort order
 
@@ -383,7 +383,7 @@ Sort order
 
 **Potential values:** ASC, DESC
 
-#### sort
+### sort
 
 Sort criteria or result set:
 * NAME
@@ -404,13 +404,13 @@ Sort criteria or result set:
 
 <details><summary>Parameters</summary>
 
-#### owner (required)
+### owner (required)
 
 Domain owner (user or organization, case-sensitive)
 
 **Type:** string
 
-#### order
+### order
 
 Sort order
 
@@ -418,7 +418,7 @@ Sort order
 
 **Potential values:** ASC, DESC
 
-#### sort
+### sort
 
 Sort criteria or result set:
 * NAME
@@ -439,13 +439,13 @@ Sort criteria or result set:
 
 <details><summary>Parameters</summary>
 
-#### api (required)
+### api (required)
 
 API name (case-sensitive)
 
 **Type:** string
 
-#### owner (required)
+### owner (required)
 
 API owner (user or organization, case-sensitive)
 
@@ -459,13 +459,13 @@ API owner (user or organization, case-sensitive)
 
 <details><summary>Parameters</summary>
 
-#### domain (required)
+### domain (required)
 
 Domain name (case-sensitive)
 
 **Type:** string
 
-#### owner (required)
+### owner (required)
 
 Domain owner (user or organization, case-sensitive)
 
@@ -479,37 +479,37 @@ Saves the provided Swagger definition; the owner must match the token owner. The
 
 <details><summary>Parameters</summary>
 
-#### api (required)
+### api (required)
 
 API name (case-sensitive)
 
 **Type:** string
 
-#### owner (required)
+### owner (required)
 
 API owner (user or organization, case-sensitive)
 
 **Type:** string
 
-#### $body
+### $body
 
 The Swagger definition of this API
 
 **Type:** string
 
-#### force
+### force
 
 Force update
 
 **Type:** boolean
 
-#### isPrivate
+### isPrivate
 
 Defines whether the API has to be private
 
 **Type:** boolean
 
-#### version
+### version
 
 API version
 
@@ -523,37 +523,37 @@ API version
 
 <details><summary>Parameters</summary>
 
-#### domain (required)
+### domain (required)
 
 Domain name (case-sensitive)
 
 **Type:** string
 
-#### owner (required)
+### owner (required)
 
 Domain owner (user or organization, case-sensitive)
 
 **Type:** string
 
-#### version (required)
+### version (required)
 
 Domain version
 
 **Type:** string
 
-#### $body
+### $body
 
 The Swagger definition of this domain
 
 **Type:** string
 
-#### force
+### force
 
 Force update
 
 **Type:** boolean
 
-#### isPrivate
+### isPrivate
 
 Specifies whether the domain has to be private
 
@@ -567,7 +567,7 @@ Specifies whether the domain has to be private
 
 <details><summary>Parameters</summary>
 
-#### order
+### order
 
 Sort order
 
@@ -575,13 +575,13 @@ Sort order
 
 **Potential values:** ASC, DESC
 
-#### query
+### query
 
 Free text query to match
 
 **Type:** string
 
-#### sort
+### sort
 
 Sort criteria or result set:
 * NAME
@@ -594,7 +594,7 @@ Sort criteria or result set:
 
 **Potential values:** NAME, UPDATED, CREATED, OWNER
 
-#### state
+### state
 
 Matches against published state of the spec:
 * UNPUBLISHED - spec is a draft, a work in progress
@@ -606,11 +606,15 @@ Matches against published state of the spec:
 
 **Potential values:** ALL, PUBLISHED, UNPUBLISHED
 
-#### tag
+### tag
 
 Matches against tags associated with an API
 
 **Type:** array
+
+```json
+[ "string" ]
+```
 
 </details>
 
@@ -620,7 +624,7 @@ Matches against tags associated with an API
 
 <details><summary>Parameters</summary>
 
-#### order
+### order
 
 Sort order
 
@@ -628,19 +632,19 @@ Sort order
 
 **Potential values:** ASC, DESC
 
-#### owner
+### owner
 
 API or Domain owner identifier. Can be username or organization name
 
 **Type:** string
 
-#### query
+### query
 
 Free text query to match
 
 **Type:** string
 
-#### sort
+### sort
 
 Sort criteria or result set:
 * NAME
@@ -653,7 +657,7 @@ Sort criteria or result set:
 
 **Potential values:** NAME, UPDATED, CREATED, OWNER
 
-#### specType
+### specType
 
 Type of Swagger specs to search:
 * API - APIs only
@@ -665,7 +669,7 @@ Type of Swagger specs to search:
 
 **Potential values:** API, DOMAIN, ANY
 
-#### state
+### state
 
 Matches against published state of the spec:
 * UNPUBLISHED - spec is a draft, a work in progress
@@ -677,7 +681,7 @@ Matches against published state of the spec:
 
 **Potential values:** ALL, PUBLISHED, UNPUBLISHED
 
-#### visibility
+### visibility
 
 The visibility of a spec in SwaggerHub:
 * PUBLIC - can be viewed by anyone
@@ -697,7 +701,7 @@ The visibility of a spec in SwaggerHub:
 
 <details><summary>Parameters</summary>
 
-#### order
+### order
 
 Sort order
 
@@ -705,13 +709,13 @@ Sort order
 
 **Potential values:** ASC, DESC
 
-#### query
+### query
 
 Free text query to match
 
 **Type:** string
 
-#### sort
+### sort
 
 Sort criteria or result set:
 * NAME
@@ -724,7 +728,7 @@ Sort criteria or result set:
 
 **Potential values:** NAME, UPDATED, CREATED, OWNER
 
-#### state
+### state
 
 Matches against published state of the spec:
 * UNPUBLISHED - spec is a draft, a work in progress
@@ -736,11 +740,15 @@ Matches against published state of the spec:
 
 **Potential values:** ALL, PUBLISHED, UNPUBLISHED
 
-#### tag
+### tag
 
 Matches against tags associated with a domain
 
 **Type:** array
+
+```json
+[ "string" ]
+```
 
 </details>
 
@@ -750,21 +758,64 @@ Matches against tags associated with a domain
 
 <details><summary>Parameters</summary>
 
-#### api (required)
+### api (required)
 
 API name (case-sensitive)
 
 **Type:** string
 
-#### owner (required)
+### owner (required)
 
 API owner (user or organization, case-sensitive)
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "owner" : "string",
+  "teams" : [ {
+    "name" : "Required string",
+    "startTime" : "date-time",
+    "title" : "string",
+    "uuid" : "string",
+    "blocked" : "boolean",
+    "roles" : [ "string. Possible values: EDIT | COMMENT | VIEW" ],
+    "donotdisturb" : "boolean",
+    "members" : [ {
+      "name" : "Required string",
+      "startTime" : "date-time",
+      "title" : "string",
+      "uuid" : "string"
+    } ]
+  } ],
+  "hint" : {
+    "type" : "type identifier of the managed entity"
+  },
+  "members" : [ {
+    "name" : "Required string",
+    "startTime" : "date-time",
+    "title" : "string",
+    "uuid" : "string",
+    "blocked" : "boolean",
+    "roles" : [ "string. Possible values: EDIT | COMMENT | VIEW" ],
+    "donotdisturb" : "boolean"
+  } ],
+  "owners" : [ "string" ],
+  "pendingMembers" : [ {
+    "name" : "Required string",
+    "startTime" : "date-time",
+    "title" : "string",
+    "uuid" : "string",
+    "blocked" : "boolean",
+    "roles" : [ "string. Possible values: EDIT | COMMENT | VIEW" ],
+    "donotdisturb" : "boolean"
+  } ]
+}
+```
 
 </details>
 

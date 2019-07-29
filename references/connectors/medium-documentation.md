@@ -11,17 +11,29 @@ Creates a post on the authenticated user’s profile.
 
 <details><summary>Parameters</summary>
 
-#### authorId (required)
+### authorId (required)
 
 authorId is the user id of the authenticated user.
 
 **Type:** string
 
-#### $body
+### $body
 
 Creates a post for user.
 
 **Type:** object
+
+```json
+{
+  "license" : "The license of the post. Valid values are `all-rights-reserved`, `cc-40-by`, `cc-40-by-sa`, `cc-40-by-nd`, `cc-40-by-nc`, `cc-40-by-nc-nd`, `cc-40-by-nc-sa`, `cc-40-zero`, `public-domain`. The default is `all-rights-reserved`.",
+  "canonicalUrl" : "The original home of this content, if it was originally published elsewhere.",
+  "contentFormat" : "The format of the \"content\" field. There are two valid values, \"html\", and \"markdown\"",
+  "title" : "The title of the post. Note that this title is used for SEO and when rendering the post as a listing, but will not appear in the actual post—for that, the title must be specified in the content field as well. Titles longer than 100 characters will be ignored. In that case, a title will be synthesized from the first content in the post when it is published.",
+  "content" : "The body of the post, in a valid, semantic, HTML fragment, or Markdown. Further markups may be supported in the future. For a full list of accepted HTML tags, see here. If you want your title to appear on the post page, you must also include it as part of the post content.",
+  "publishStatus" : "The status of the post. Valid values are `public`, `draft`, or `unlisted`. The default is `public`.",
+  "tags" : [ "string" ]
+}
+```
 
 </details>
 
@@ -37,17 +49,29 @@ There are additional rules around publishing that each request to this API must 
 
 <details><summary>Parameters</summary>
 
-#### publicationId (required)
+### publicationId (required)
 
 Here publicationId is the id of the publication the post is being created under. The publicationId can be acquired from the API for listing user’s publications.
 
 **Type:** string
 
-#### $body
+### $body
 
 Creates a post for publication.
 
 **Type:** object
+
+```json
+{
+  "license" : "The license of the post. Valid values are `all-rights-reserved`, `cc-40-by`, `cc-40-by-sa`, `cc-40-by-nd`, `cc-40-by-nc`, `cc-40-by-nc-nd`, `cc-40-by-nc-sa`, `cc-40-zero`, `public-domain`. The default is `all-rights-reserved`.",
+  "canonicalUrl" : "The original home of this content, if it was originally published elsewhere.",
+  "contentFormat" : "The format of the \"content\" field. There are two valid values, \"html\", and \"markdown\"",
+  "title" : "The title of the post. Note that this title is used for SEO and when rendering the post as a listing, but will not appear in the actual post—for that, the title must be specified in the content field as well. Titles longer than 100 characters will be ignored. In that case, a title will be synthesized from the first content in the post when it is published.",
+  "content" : "The body of the post, in a valid, semantic, HTML fragment, or Markdown. Further markups may be supported in the future. For a full list of accepted HTML tags, see here. If you want your title to appear on the post page, you must also include it as part of the post content.",
+  "publishStatus" : "The status of the post. Valid values are `public`, `draft`, or `unlisted`. The default is `public`.",
+  "tags" : [ "string" ]
+}
+```
 
 </details>
 
@@ -63,7 +87,7 @@ Returns a full list of publications that the user is related to in some way. Thi
 
 <details><summary>Parameters</summary>
 
-#### userId (required)
+### userId (required)
 
 A unique identifier for the user.
 
@@ -77,7 +101,7 @@ This endpoint returns a list of contributors for a given publication. In other w
 
 <details><summary>Parameters</summary>
 
-#### publicationId (required)
+### publicationId (required)
 
 A unique identifier for the publication.
 

@@ -18,9 +18,18 @@ Cross-account permissions don't apply to this action. For more information, see 
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "AWSAccountIds" : [ "string" ],
+  "Actions" : [ "string" ],
+  "Label" : "The unique identification of the permission you're setting (for example, AliceSendMessage). Maximum 80 characters. Allowed characters include alphanumeric characters, hyphens (-), and underscores (_).",
+  "QueueUrl" : "The URL of the Amazon SQS queue to which permissions are added. \nQueue URLs and names are case-sensitive."
+}
+```
 
 </details>
 
@@ -36,9 +45,17 @@ Unlike with a queue, when you change the visibility timeout for a specific messa
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "ReceiptHandle" : "The receipt handle associated with the message whose visibility timeout is changed. This parameter is returned by the  ReceiveMessage  action.",
+  "VisibilityTimeout" : "The new value for the message's visibility timeout (in seconds). Values values: 0 to 43200. Maximum: 12 hours.",
+  "QueueUrl" : "The URL of the Amazon SQS queue whose message's visibility is changed. \nQueue URLs and names are case-sensitive."
+}
+```
 
 </details>
 
@@ -52,9 +69,20 @@ Some actions take lists of parameters. These lists are specified using the param
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "Entries" : [ {
+    "ReceiptHandle" : "A receipt handle.",
+    "VisibilityTimeout" : "The new value (in seconds) for the message's visibility timeout.",
+    "Id" : "An identifier for this particular receipt handle used to communicate the result.  \nThe Ids of a batch request need to be unique within a request"
+  } ],
+  "QueueUrl" : "The URL of the Amazon SQS queue whose messages' visibility is changed. \nQueue URLs and names are case-sensitive."
+}
+```
 
 </details>
 
@@ -75,9 +103,16 @@ Cross-account permissions don't apply to this action. For more information, see 
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "Attribute" : "A map of attributes with their corresponding values. \nThe following lists the names, descriptions, and values of the special request parameters that the CreateQueue action uses:  \n  DelaySeconds - The length of time, in seconds, for which the delivery of all messages in the queue is delayed. Valid values: An integer from 0 to 900 seconds (15 minutes). Default: 0.   \n  MaximumMessageSize - The limit of how many bytes a message can contain before Amazon SQS rejects it. Valid values: An integer from 1,024 bytes (1 KiB) to 262,144 bytes (256 KiB). Default: 262,144 (256 KiB).   \n  MessageRetentionPeriod - The length of time, in seconds, for which Amazon SQS retains a message. Valid values: An integer from 60 seconds (1 minute) to 1,209,600 seconds (14 days). Default: 345,600 (4 days).   \n  Policy - The queue's policy. A valid AWS policy. For more information about policy structure, see Overview of AWS IAM Policies in the Amazon IAM User Guide.   \n  ReceiveMessageWaitTimeSeconds - The length of time, in seconds, for which a  ReceiveMessage  action waits for a message to arrive. Valid values: An integer from 0 to 20 (seconds). Default: 0.   \n  RedrivePolicy - The string that includes the parameters for the dead-letter queue functionality of the source queue. For more information about the redrive policy and dead-letter queues, see Using Amazon SQS Dead-Letter Queues in the Amazon Simple Queue Service Developer Guide.     deadLetterTargetArn - The Amazon Resource Name (ARN) of the dead-letter queue to which Amazon SQS moves messages after the value of maxReceiveCount is exceeded.    maxReceiveCount - The number of times a message is delivered to the source queue before being moved to the dead-letter queue. When the ReceiveCount for a message exceeds the maxReceiveCount for a queue, Amazon SQS moves the message to the dead-letter-queue.    The dead-letter queue of a FIFO queue must also be a FIFO queue. Similarly, the dead-letter queue of a standard queue must also be a standard queue.   \n  VisibilityTimeout - The visibility timeout for the queue, in seconds. Valid values: An integer from 0 to 43,200 (12 hours). Default: 30. For more information about the visibility timeout, see Visibility Timeout in the Amazon Simple Queue Service Developer Guide.   \nThe following attributes apply only to server-side-encryption:  \n  KmsMasterKeyId - The ID of an AWS-managed customer master key (CMK) for Amazon SQS or a custom CMK. For more information, see Key Terms. While the alias of the AWS-managed CMK for Amazon SQS is always alias/aws/sqs, the alias of a custom CMK can, for example, be alias/MyAlias . For more examples, see KeyId in the AWS Key Management Service API Reference.   \n  KmsDataKeyReusePeriodSeconds - The length of time, in seconds, for which Amazon SQS can reuse a data key to encrypt or decrypt messages before calling AWS KMS again. An integer representing seconds, between 60 seconds (1 minute) and 86,400 seconds (24 hours). Default: 300 (5 minutes). A shorter time period provides better security but results in more calls to KMS which might incur charges after Free Tier. For more information, see How Does the Data Key Reuse Period Work?.    \nThe following attributes apply only to FIFO (first-in-first-out) queues:  \n  FifoQueue - Designates a queue as FIFO. Valid values: true, false. You can provide this attribute only during queue creation. You can't change it for an existing queue. When you set this attribute, you must also provide the MessageGroupId for your messages explicitly. For more information, see FIFO Queue Logic in the Amazon Simple Queue Service Developer Guide.  \n  ContentBasedDeduplication - Enables content-based deduplication. Valid values: true, false. For more information, see Exactly-Once Processing in the Amazon Simple Queue Service Developer Guide.    Every message must have a unique MessageDeduplicationId,   You may provide a MessageDeduplicationId explicitly.   If you aren't able to provide a MessageDeduplicationId and you enable ContentBasedDeduplication for your queue, Amazon SQS uses a SHA-256 hash to generate the MessageDeduplicationId using the body of the message (but not the attributes of the message).    If you don't provide a MessageDeduplicationId and the queue doesn't have ContentBasedDeduplication set, the action fails with an error.   If the queue has ContentBasedDeduplication set, your MessageDeduplicationId overrides the generated one.     When ContentBasedDeduplication is in effect, messages with identical content sent within the deduplication interval are treated as duplicates and only one copy of the message is delivered.   If you send one message with ContentBasedDeduplication enabled and then another message with a MessageDeduplicationId that is the same as the one generated for the first MessageDeduplicationId, the two messages are treated as duplicates and only one copy of the message is delivered.    ",
+  "QueueName" : "The name of the new queue. The following limits apply to this name:  \n A queue name can have up to 80 characters.  \n Valid values: alphanumeric characters, hyphens (-), and underscores (_).  \n A FIFO queue name must end with the .fifo suffix.   \nQueue URLs and names are case-sensitive."
+}
+```
 
 </details>
 
@@ -89,9 +124,16 @@ For standard queues, it is possible to receive a message even after you delete i
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "ReceiptHandle" : "The receipt handle associated with the message to delete.",
+  "QueueUrl" : "The URL of the Amazon SQS queue from which messages are deleted. \nQueue URLs and names are case-sensitive."
+}
+```
 
 </details>
 
@@ -105,9 +147,19 @@ Some actions take lists of parameters. These lists are specified using the param
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "Entries" : [ {
+    "ReceiptHandle" : "A receipt handle.",
+    "Id" : "An identifier for this particular receipt handle. This is used to communicate the result.  \nThe Ids of a batch request need to be unique within a request"
+  } ],
+  "QueueUrl" : "The URL of the Amazon SQS queue from which messages are deleted. \nQueue URLs and names are case-sensitive."
+}
+```
 
 </details>
 
@@ -121,9 +173,15 @@ Cross-account permissions don't apply to this action. For more information, see 
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "QueueUrl" : "The URL of the Amazon SQS queue to delete. \nQueue URLs and names are case-sensitive."
+}
+```
 
 </details>
 
@@ -137,9 +195,16 @@ Some actions take lists of parameters. These lists are specified using the param
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "AttributeNames" : [ "string. Possible values: All | Policy | VisibilityTimeout | MaximumMessageSize | MessageRetentionPeriod | ApproximateNumberOfMessages | ApproximateNumberOfMessagesNotVisible | CreatedTimestamp | LastModifiedTimestamp | QueueArn | ApproximateNumberOfMessagesDelayed | DelaySeconds | ReceiveMessageWaitTimeSeconds | RedrivePolicy | FifoQueue | ContentBasedDeduplication | KmsMasterKeyId | KmsDataKeyReusePeriodSeconds" ],
+  "QueueUrl" : "The URL of the Amazon SQS queue whose attribute information is retrieved. \nQueue URLs and names are case-sensitive."
+}
+```
 
 </details>
 
@@ -150,9 +215,16 @@ To access a queue that belongs to another AWS account, use the QueueOwnerAWSAcco
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "QueueOwnerAWSAccountId" : "The AWS account ID of the account that created the queue.",
+  "QueueName" : "The name of the queue whose URL must be fetched. Maximum 80 characters. Valid values: alphanumeric characters, hyphens (-), and underscores (_). \nQueue URLs and names are case-sensitive."
+}
+```
 
 </details>
 
@@ -163,9 +235,15 @@ For more information about using dead-letter queues, see Using Amazon SQS Dead-L
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "QueueUrl" : "The URL of a dead-letter queue. \nQueue URLs and names are case-sensitive."
+}
+```
 
 </details>
 
@@ -183,9 +261,15 @@ Cross-account permissions don't apply to this action. For more information, see 
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "QueueUrl" : "The URL of the queue."
+}
+```
 
 </details>
 
@@ -196,9 +280,15 @@ Cross-account permissions don't apply to this action. For more information, see 
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "QueueNamePrefix" : "A string to use for filtering the list results. Only those queues whose name begins with the specified string are returned. \nQueue URLs and names are case-sensitive."
+}
+```
 
 </details>
 
@@ -212,9 +302,15 @@ Messages sent to the queue after you call PurgeQueue might be deleted while the 
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "QueueUrl" : "The URL of the queue from which the PurgeQueue action deletes messages. \nQueue URLs and names are case-sensitive."
+}
+```
 
 </details>
 
@@ -236,9 +332,21 @@ In the future, new attributes might be added. If you write code that calls this 
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "MessageAttributeNames" : [ "string" ],
+  "MaxNumberOfMessages" : "The maximum number of messages to return. Amazon SQS never returns more messages than this value (however, fewer messages might be returned). Valid values: 1 to 10. Default: 1.",
+  "AttributeNames" : [ "string. Possible values: All | Policy | VisibilityTimeout | MaximumMessageSize | MessageRetentionPeriod | ApproximateNumberOfMessages | ApproximateNumberOfMessagesNotVisible | CreatedTimestamp | LastModifiedTimestamp | QueueArn | ApproximateNumberOfMessagesDelayed | DelaySeconds | ReceiveMessageWaitTimeSeconds | RedrivePolicy | FifoQueue | ContentBasedDeduplication | KmsMasterKeyId | KmsDataKeyReusePeriodSeconds" ],
+  "VisibilityTimeout" : "The duration (in seconds) that the received messages are hidden from subsequent retrieve requests after being retrieved by a ReceiveMessage request.",
+  "WaitTimeSeconds" : "The duration (in seconds) for which the call waits for a message to arrive in the queue before returning. If a message is available, the call returns sooner than WaitTimeSeconds. If no messages are available and the wait time expires, the call returns successfully with an empty list of messages.",
+  "ReceiveRequestAttemptId" : "This parameter applies only to FIFO (first-in-first-out) queues. \nThe token used for deduplication of ReceiveMessage calls. If a networking issue occurs after a ReceiveMessage action, and instead of a response you receive a generic error, you can retry the same action with an identical ReceiveRequestAttemptId to retrieve the same set of messages, even if their visibility timeout has not yet expired.  \n You can use ReceiveRequestAttemptId only for 5 minutes after a ReceiveMessage action.  \n When you set FifoQueue, a caller of the ReceiveMessage action can provide a ReceiveRequestAttemptId explicitly.  \n If a caller of the ReceiveMessage action doesn't provide a ReceiveRequestAttemptId, Amazon SQS generates a ReceiveRequestAttemptId.  \n You can retry the ReceiveMessage action with the same ReceiveRequestAttemptId if none of the messages have been modified (deleted or had their visibility changes).  \n During a visibility timeout, subsequent calls with the same ReceiveRequestAttemptId return the same messages and receipt handles. If a retry occurs within the deduplication interval, it resets the visibility timeout. For more information, see Visibility Timeout in the Amazon Simple Queue Service Developer Guide.  If a caller of the ReceiveMessage action still processes messages when the visibility timeout expires and messages become visible, another worker consuming from the same queue can receive the same messages and therefore process duplicates. Also, if a consumer whose message processing time is longer than the visibility timeout tries to delete the processed messages, the action fails with an error. To mitigate this effect, ensure that your application observes a safe threshold before the visibility timeout expires and extend the visibility timeout as necessary.   \n While messages with a particular MessageGroupId are invisible, no more messages belonging to the same MessageGroupId are returned until the visibility timeout expires. You can still receive messages with another MessageGroupId as long as it is also visible.  \n If a caller of ReceiveMessage can't track the ReceiveRequestAttemptId, no retries work until the original visibility timeout expires. As a result, delays might occur but the messages in the queue remain in a strict order.   \nThe length of ReceiveRequestAttemptId is 128 characters. ReceiveRequestAttemptId can contain alphanumeric characters (a-z, A-Z, 0-9) and punctuation (!\"#$%&amp;'()*+,-./:;&lt;=&gt;?@[\\]^_`{|}~). \nFor best practices of using ReceiveRequestAttemptId, see Using the ReceiveRequestAttemptId Request Parameter in the Amazon Simple Queue Service Developer Guide.",
+  "QueueUrl" : "The URL of the Amazon SQS queue from which messages are received. \nQueue URLs and names are case-sensitive."
+}
+```
 
 </details>
 
@@ -250,9 +358,16 @@ Cross-account permissions don't apply to this action. For more information, see 
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "Label" : "The identification of the permission to remove. This is the label added using the  AddPermission  action.",
+  "QueueUrl" : "The URL of the Amazon SQS queue from which permissions are removed. \nQueue URLs and names are case-sensitive."
+}
+```
 
 </details>
 
@@ -265,9 +380,20 @@ Any characters not included in this list will be rejected. For more information,
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "MessageAttribute" : "Each message attribute consists of a Name, Type, and Value. For more information, see Amazon SQS Message Attributes in the Amazon Simple Queue Service Developer Guide.",
+  "DelaySeconds" : " The length of time, in seconds, for which to delay a specific message. Valid values: 0 to 900. Maximum: 15 minutes. Messages with a positive DelaySeconds value become available for processing after the delay period is finished. If you don't specify a value, the default value for the queue applies.   \nWhen you set FifoQueue, you can't set DelaySeconds per message. You can set this parameter only on a queue level.",
+  "MessageGroupId" : "This parameter applies only to FIFO (first-in-first-out) queues. \nThe tag that specifies that a message belongs to a specific message group. Messages that belong to the same message group are processed in a FIFO manner (however, messages in different message groups might be processed out of order). To interleave multiple ordered streams within a single queue, use MessageGroupId values (for example, session data for multiple users). In this scenario, multiple consumers can process the queue, but the session data of each user is processed in a FIFO fashion.  \n You must associate a non-empty MessageGroupId with a message. If you don't provide a MessageGroupId, the action fails.  \n  ReceiveMessage might return messages with multiple MessageGroupId values. For each MessageGroupId, the messages are sorted by time sent. The caller can't specify a MessageGroupId.   \nThe length of MessageGroupId is 128 characters. Valid values: alphanumeric characters and punctuation (!\"#$%&amp;'()*+,-./:;&lt;=&gt;?@[\\]^_`{|}~). \nFor best practices of using MessageGroupId, see Using the MessageGroupId Property in the Amazon Simple Queue Service Developer Guide.  \n MessageGroupId is required for FIFO queues. You can't use it for Standard queues.",
+  "MessageDeduplicationId" : "This parameter applies only to FIFO (first-in-first-out) queues. \nThe token used for deduplication of sent messages. If a message with a particular MessageDeduplicationId is sent successfully, any messages sent with the same MessageDeduplicationId are accepted successfully but aren't delivered during the 5-minute deduplication interval. For more information, see  Exactly-Once Processing in the Amazon Simple Queue Service Developer Guide.  \n Every message must have a unique MessageDeduplicationId,   You may provide a MessageDeduplicationId explicitly.   If you aren't able to provide a MessageDeduplicationId and you enable ContentBasedDeduplication for your queue, Amazon SQS uses a SHA-256 hash to generate the MessageDeduplicationId using the body of the message (but not the attributes of the message).    If you don't provide a MessageDeduplicationId and the queue doesn't have ContentBasedDeduplication set, the action fails with an error.   If the queue has ContentBasedDeduplication set, your MessageDeduplicationId overrides the generated one.    \n When ContentBasedDeduplication is in effect, messages with identical content sent within the deduplication interval are treated as duplicates and only one copy of the message is delivered.  \n If you send one message with ContentBasedDeduplication enabled and then another message with a MessageDeduplicationId that is the same as the one generated for the first MessageDeduplicationId, the two messages are treated as duplicates and only one copy of the message is delivered.     \nThe MessageDeduplicationId is available to the consumer of the message (this can be useful for troubleshooting delivery issues). \nIf a message is sent successfully but the acknowledgement is lost and the message is resent with the same MessageDeduplicationId after the deduplication interval, Amazon SQS can't detect duplicate messages. \nAmazon SQS continues to keep track of the message deduplication ID even after the message is received and deleted.  \nThe length of MessageDeduplicationId is 128 characters. MessageDeduplicationId can contain alphanumeric characters (a-z, A-Z, 0-9) and punctuation (!\"#$%&amp;'()*+,-./:;&lt;=&gt;?@[\\]^_`{|}~). \nFor best practices of using MessageDeduplicationId, see Using the MessageDeduplicationId Property in the Amazon Simple Queue Service Developer Guide.",
+  "QueueUrl" : "The URL of the Amazon SQS queue to which a message is sent. \nQueue URLs and names are case-sensitive.",
+  "MessageBody" : "The message to send. The maximum string size is 256 KB.  \nA message can include only XML, JSON, and unformatted text. The following Unicode characters are allowed: \n #x9 | #xA | #xD | #x20 to #xD7FF | #xE000 to #xFFFD | #x10000 to #x10FFFF  \nAny characters not included in this list will be rejected. For more information, see the W3C specification for characters."
+}
+```
 
 </details>
 
@@ -286,9 +412,23 @@ Some actions take lists of parameters. These lists are specified using the param
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "Entries" : [ {
+    "MessageAttribute" : "Each message attribute consists of a Name, Type, and Value. For more information, see Amazon SQS Message Attributes in the Amazon Simple Queue Service Developer Guide.",
+    "DelaySeconds" : "The length of time, in seconds, for which a specific message is delayed. Valid values: 0 to 900. Maximum: 15 minutes. Messages with a positive DelaySeconds value become available for processing after the delay period is finished. If you don't specify a value, the default value for the queue is applied.   \nWhen you set FifoQueue, you can't set DelaySeconds per message. You can set this parameter only on a queue level.",
+    "MessageGroupId" : "This parameter applies only to FIFO (first-in-first-out) queues. \nThe tag that specifies that a message belongs to a specific message group. Messages that belong to the same message group are processed in a FIFO manner (however, messages in different message groups might be processed out of order). To interleave multiple ordered streams within a single queue, use MessageGroupId values (for example, session data for multiple users). In this scenario, multiple consumers can process the queue, but the session data of each user is processed in a FIFO fashion.  \n You must associate a non-empty MessageGroupId with a message. If you don't provide a MessageGroupId, the action fails.  \n  ReceiveMessage might return messages with multiple MessageGroupId values. For each MessageGroupId, the messages are sorted by time sent. The caller can't specify a MessageGroupId.   \nThe length of MessageGroupId is 128 characters. Valid values: alphanumeric characters and punctuation (!\"#$%&amp;'()*+,-./:;&lt;=&gt;?@[\\]^_`{|}~). \nFor best practices of using MessageGroupId, see Using the MessageGroupId Property in the Amazon Simple Queue Service Developer Guide.  \n MessageGroupId is required for FIFO queues. You can't use it for Standard queues.",
+    "Id" : "An identifier for a message in this batch used to communicate the result.  \nThe Ids of a batch request need to be unique within a request \nThis identifier can have up to 80 characters. The following characters are accepted: alphanumeric characters, hyphens(-), and underscores (_).",
+    "MessageDeduplicationId" : "This parameter applies only to FIFO (first-in-first-out) queues. \nThe token used for deduplication of messages within a 5-minute minimum deduplication interval. If a message with a particular MessageDeduplicationId is sent successfully, subsequent messages with the same MessageDeduplicationId are accepted successfully but aren't delivered. For more information, see  Exactly-Once Processing in the Amazon Simple Queue Service Developer Guide.  \n Every message must have a unique MessageDeduplicationId,   You may provide a MessageDeduplicationId explicitly.   If you aren't able to provide a MessageDeduplicationId and you enable ContentBasedDeduplication for your queue, Amazon SQS uses a SHA-256 hash to generate the MessageDeduplicationId using the body of the message (but not the attributes of the message).    If you don't provide a MessageDeduplicationId and the queue doesn't have ContentBasedDeduplication set, the action fails with an error.   If the queue has ContentBasedDeduplication set, your MessageDeduplicationId overrides the generated one.    \n When ContentBasedDeduplication is in effect, messages with identical content sent within the deduplication interval are treated as duplicates and only one copy of the message is delivered.  \n If you send one message with ContentBasedDeduplication enabled and then another message with a MessageDeduplicationId that is the same as the one generated for the first MessageDeduplicationId, the two messages are treated as duplicates and only one copy of the message is delivered.     \nThe MessageDeduplicationId is available to the consumer of the message (this can be useful for troubleshooting delivery issues). \nIf a message is sent successfully but the acknowledgement is lost and the message is resent with the same MessageDeduplicationId after the deduplication interval, Amazon SQS can't detect duplicate messages. \nAmazon SQS continues to keep track of the message deduplication ID even after the message is received and deleted.  \nThe length of MessageDeduplicationId is 128 characters. MessageDeduplicationId can contain alphanumeric characters (a-z, A-Z, 0-9) and punctuation (!\"#$%&amp;'()*+,-./:;&lt;=&gt;?@[\\]^_`{|}~). \nFor best practices of using MessageDeduplicationId, see Using the MessageDeduplicationId Property in the Amazon Simple Queue Service Developer Guide.",
+    "MessageBody" : "The body of the message."
+  } ],
+  "QueueUrl" : "The URL of the Amazon SQS queue to which batched messages are sent. \nQueue URLs and names are case-sensitive."
+}
+```
 
 </details>
 
@@ -300,9 +440,16 @@ Cross-account permissions don't apply to this action. For more information, see 
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "Attribute" : "A map of attributes to set. \nThe following lists the names, descriptions, and values of the special request parameters that the SetQueueAttributes action uses:  \n  DelaySeconds - The length of time, in seconds, for which the delivery of all messages in the queue is delayed. Valid values: An integer from 0 to 900 (15 minutes). Default: 0.   \n  MaximumMessageSize - The limit of how many bytes a message can contain before Amazon SQS rejects it. Valid values: An integer from 1,024 bytes (1 KiB) up to 262,144 bytes (256 KiB). Default: 262,144 (256 KiB).   \n  MessageRetentionPeriod - The length of time, in seconds, for which Amazon SQS retains a message. Valid values: An integer representing seconds, from 60 (1 minute) to 1,209,600 (14 days). Default: 345,600 (4 days).   \n  Policy - The queue's policy. A valid AWS policy. For more information about policy structure, see Overview of AWS IAM Policies in the Amazon IAM User Guide.   \n  ReceiveMessageWaitTimeSeconds - The length of time, in seconds, for which a  ReceiveMessage  action waits for a message to arrive. Valid values: an integer from 0 to 20 (seconds). Default: 0.   \n  RedrivePolicy - The string that includes the parameters for the dead-letter queue functionality of the source queue. For more information about the redrive policy and dead-letter queues, see Using Amazon SQS Dead-Letter Queues in the Amazon Simple Queue Service Developer Guide.     deadLetterTargetArn - The Amazon Resource Name (ARN) of the dead-letter queue to which Amazon SQS moves messages after the value of maxReceiveCount is exceeded.    maxReceiveCount - The number of times a message is delivered to the source queue before being moved to the dead-letter queue. When the ReceiveCount for a message exceeds the maxReceiveCount for a queue, Amazon SQS moves the message to the dead-letter-queue.    The dead-letter queue of a FIFO queue must also be a FIFO queue. Similarly, the dead-letter queue of a standard queue must also be a standard queue.   \n  VisibilityTimeout - The visibility timeout for the queue, in seconds. Valid values: an integer from 0 to 43,200 (12 hours). Default: 30. For more information about the visibility timeout, see Visibility Timeout in the Amazon Simple Queue Service Developer Guide.   \nThe following attributes apply only to server-side-encryption:  \n  KmsMasterKeyId - The ID of an AWS-managed customer master key (CMK) for Amazon SQS or a custom CMK. For more information, see Key Terms. While the alias of the AWS-managed CMK for Amazon SQS is always alias/aws/sqs, the alias of a custom CMK can, for example, be alias/MyAlias . For more examples, see KeyId in the AWS Key Management Service API Reference.   \n  KmsDataKeyReusePeriodSeconds - The length of time, in seconds, for which Amazon SQS can reuse a data key to encrypt or decrypt messages before calling AWS KMS again. An integer representing seconds, between 60 seconds (1 minute) and 86,400 seconds (24 hours). Default: 300 (5 minutes). A shorter time period provides better security but results in more calls to KMS which might incur charges after Free Tier. For more information, see How Does the Data Key Reuse Period Work?.    \nThe following attribute applies only to FIFO (first-in-first-out) queues:  \n  ContentBasedDeduplication - Enables content-based deduplication. For more information, see Exactly-Once Processing in the Amazon Simple Queue Service Developer Guide.    Every message must have a unique MessageDeduplicationId,   You may provide a MessageDeduplicationId explicitly.   If you aren't able to provide a MessageDeduplicationId and you enable ContentBasedDeduplication for your queue, Amazon SQS uses a SHA-256 hash to generate the MessageDeduplicationId using the body of the message (but not the attributes of the message).    If you don't provide a MessageDeduplicationId and the queue doesn't have ContentBasedDeduplication set, the action fails with an error.   If the queue has ContentBasedDeduplication set, your MessageDeduplicationId overrides the generated one.     When ContentBasedDeduplication is in effect, messages with identical content sent within the deduplication interval are treated as duplicates and only one copy of the message is delivered.   If you send one message with ContentBasedDeduplication enabled and then another message with a MessageDeduplicationId that is the same as the one generated for the first MessageDeduplicationId, the two messages are treated as duplicates and only one copy of the message is delivered.    ",
+  "QueueUrl" : "The URL of the Amazon SQS queue whose attributes are set. \nQueue URLs and names are case-sensitive."
+}
+```
 
 </details>
 
@@ -320,9 +467,16 @@ Cross-account permissions don't apply to this action. For more information, see 
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "Tags" : "The list of tags to be added to the specified queue.",
+  "QueueUrl" : "The URL of the queue."
+}
+```
 
 </details>
 
@@ -340,9 +494,16 @@ Cross-account permissions don't apply to this action. For more information, see 
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "TagKeys" : [ "string" ],
+  "QueueUrl" : "The URL of the queue."
+}
+```
 
 </details>
 

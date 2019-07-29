@@ -11,7 +11,7 @@ Returns a GIF given that GIF's unique ID
 
 <details><summary>Parameters</summary>
 
-#### gif-id (required)
+### gif-id (required)
 
 **Type:** string
 
@@ -23,7 +23,7 @@ A multiget version of the get GIF by ID endpoint.
 
 <details><summary>Parameters</summary>
 
-#### ids
+### ids
 
 comma-separated string of ids
 
@@ -37,7 +37,7 @@ The translate API draws on search, but uses the GIPHY special sauce to handle tr
 
 <details><summary>Parameters</summary>
 
-#### s (required)
+### s (required)
 
 Search term
 
@@ -51,7 +51,7 @@ Returns a random GIF, limited by tag. Excluding the tag parameter will return a 
 
 <details><summary>Parameters</summary>
 
-#### tag
+### tag
 
 **Type:** string
 
@@ -69,7 +69,7 @@ The translate API draws on search, but uses the GIPHY special sauce to handle tr
 
 <details><summary>Parameters</summary>
 
-#### s (required)
+### s (required)
 
 search term
 
@@ -95,7 +95,7 @@ Search all GIPHY GIFs for a word or phrase. Punctuation will be stripped and ign
 
 <details><summary>Parameters</summary>
 
-#### q
+### q
 
 **Type:** string
 
@@ -107,7 +107,7 @@ Replicates the functionality and requirements of the classic GIPHY search, but r
 
 <details><summary>Parameters</summary>
 
-#### q
+### q
 
 **Type:** string
 

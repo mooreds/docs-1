@@ -12,13 +12,19 @@ Once canceled, no additional charges will be made by the PaymentIntent and any o
 
 <details><summary>Parameters</summary>
 
-#### intent (required)
+### intent (required)
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "expand" : [ "string" ]
+}
+```
 
 </details>
 
@@ -28,15 +34,21 @@ A previously created payout can be canceled if it has not yet been paid out. Fun
 
 <details><summary>Parameters</summary>
 
-#### payout (required)
+### payout (required)
 
 The identifier of the payout to be canceled.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "expand" : [ "string" ]
+}
+```
 
 </details>
 
@@ -46,15 +58,21 @@ Cancels a top-up. Only pending top-ups can be canceled.
 
 <details><summary>Parameters</summary>
 
-#### topup (required)
+### topup (required)
 
 The ID of the top-up to cancel.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "expand" : [ "string" ]
+}
+```
 
 </details>
 
@@ -65,13 +83,27 @@ Uncaptured payments expire exactly seven days after they are created. If they ar
 
 <details><summary>Parameters</summary>
 
-#### charge (required)
+### charge (required)
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "statement_descriptor" : "An arbitrary string to be displayed on your customer's credit card statement. This may be up to *22 characters*. As an example, if your website is `RunClub` and the item you're charging for is a race ticket, you may want to specify a `statement_descriptor` of `RunClub 5K race ticket`. The statement description must contain at least one letter, may not include `&lt;&gt;\"'` characters, and will appear on your customer's statement in capital letters. Non-ASCII characters are automatically stripped. Updating this value will overwrite the previous statement descriptor of this charge. While most banks display this information consistently, some may display it incorrectly or not at all.",
+  "amount" : "The amount to capture, which must be less than or equal to the original amount. Any additional amount will be automatically refunded.",
+  "expand" : [ "string" ],
+  "transfer_group" : "A string that identifies this transaction as part of a group. `transfer_group` may only be provided if it has not been set. See the [Connect documentation](/docs/connect/charges-transfers#grouping-transactions) for details.",
+  "receipt_email" : "The email address to send this charge's receipt to. This will override the previously-specified email address for this charge, if one was set. Receipts will not be sent in test mode.",
+  "destination" : {
+    "amount" : "integer"
+  },
+  "application_fee" : "An application fee to add on to this charge. Can only be used with Stripe Connect."
+}
+```
 
 </details>
 
@@ -82,15 +114,21 @@ The status of the dispute will change from needs_response to lost. Closing a dis
 
 <details><summary>Parameters</summary>
 
-#### dispute (required)
+### dispute (required)
 
 ID of the dispute to close.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "expand" : [ "string" ]
+}
+```
 
 </details>
 
@@ -101,9 +139,154 @@ For Standard accounts, parameters other than country, email, and typeare used to
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "business_logo" : "(ID of a [file upload](https://stripe.com/docs/guides/file-upload)) A logo for this account (at least 128px x 128px)",
+  "debit_negative_balances" : "A Boolean indicating whether Stripe should try to reclaim negative balances from an attached bank account. For details, see [Understanding Connect Account Balances](/docs/connect/account-balances).",
+  "tos_acceptance" : {
+    "date" : "Required integer",
+    "ip" : "Required string",
+    "user_agent" : "string"
+  },
+  "country" : "The country in which the account holder resides, or in which the business is legally established. This should be an ISO 3166-1 alpha-2 country code. For example, if you are in the United States and the business for which you're creating an account is legally represented in Canada, you would use `CA` as the country for the account being created.",
+  "metadata" : { },
+  "from_recipient" : "string",
+  "payout_schedule" : {
+    "weekly_anchor" : "string. Possible values: friday | monday | saturday | sunday | thursday | tuesday | wednesday",
+    "interval" : "string. Possible values: daily | four_times_monthly | manual | monthly | weekly",
+    "delay_days" : "integer",
+    "monthly_anchor" : "integer"
+  },
+  "support_phone" : "A publicly shareable support phone number for the business.",
+  "account_token" : "An [account token](https://stripe.com/docs/api#create_account_token), used to securely provide details to the account.",
+  "type" : "Whether you'd like to create a [Standard or Custom](/docs/connect/accounts) account. Standard accounts are normal Stripe accounts: Stripe will email the account holder to set up a username and password, and will handle all account management directly with them. Custom accounts have extra parameters available to them, and require that you, the platform, handle all communication with the account holder. Possible values are `standard` and `custom`.",
+  "statement_descriptor" : "The default text that appears on credit card statements when a charge is made [directly on the account](/docs/connect/direct-charges)",
+  "support_url" : "A publicly shareable URL that provides support for this account.",
+  "legal_entity" : {
+    "business_vat_id" : "string",
+    "personal_address_kana" : {
+      "country" : "string",
+      "town" : "string",
+      "city" : "string",
+      "state" : "string",
+      "postal_code" : "string",
+      "line2" : "string",
+      "line1" : "string"
+    },
+    "gender" : "string",
+    "address_kana" : {
+      "country" : "string",
+      "town" : "string",
+      "city" : "string",
+      "state" : "string",
+      "postal_code" : "string",
+      "line2" : "string",
+      "line1" : "string"
+    },
+    "type" : "string",
+    "personal_address" : {
+      "country" : "string",
+      "city" : "string",
+      "state" : "string",
+      "postal_code" : "string",
+      "line2" : "string",
+      "line1" : "string"
+    },
+    "address_kanji" : {
+      "country" : "string",
+      "town" : "string",
+      "city" : "string",
+      "state" : "string",
+      "postal_code" : "string",
+      "line2" : "string",
+      "line1" : "string"
+    },
+    "ssn_last_4" : "string",
+    "first_name" : "string",
+    "first_name_kana" : "string",
+    "personal_id_number" : "string",
+    "verification" : {
+      "document" : "string"
+    },
+    "last_name_kanji" : "string",
+    "personal_address_kanji" : {
+      "country" : "string",
+      "town" : "string",
+      "city" : "string",
+      "state" : "string",
+      "postal_code" : "string",
+      "line2" : "string",
+      "line1" : "string"
+    },
+    "business_name" : "string",
+    "maiden_name" : "string",
+    "address" : {
+      "country" : "string",
+      "city" : "string",
+      "state" : "string",
+      "postal_code" : "string",
+      "line2" : "string",
+      "line1" : "string"
+    },
+    "business_tax_id" : "string",
+    "first_name_kanji" : "string",
+    "last_name" : "string",
+    "business_name_kana" : "string",
+    "tax_id_registrar" : "string",
+    "dob" : {
+      "month" : "Required integer",
+      "year" : "Required integer",
+      "day" : "Required integer"
+    },
+    "additional_owners" : {
+      "<string>" : {
+        "maiden_name" : "string",
+        "address" : {
+          "country" : "string",
+          "city" : "string",
+          "state" : "string",
+          "postal_code" : "string",
+          "line2" : "string",
+          "line1" : "string"
+        },
+        "dob" : {
+          "month" : "Required integer",
+          "year" : "Required integer",
+          "day" : "Required integer"
+        },
+        "last_name" : "string",
+        "first_name" : "string",
+        "personal_id_number" : "string",
+        "verification" : {
+          "document" : "string"
+        }
+      }
+    },
+    "last_name_kana" : "string",
+    "business_name_kanji" : "string",
+    "phone_number" : "string"
+  },
+  "business_url" : "The URL that best shows the service or product provided by this account.",
+  "product_description" : "Internal-only description of the product sold by, or service provided by, the business. Used by Stripe for risk and underwriting purposes.",
+  "email" : "The email address of the account holder. For Standard accounts, Stripe will email your user with instructions on how to set up their account. For Custom accounts, this is only to make the account easier to identify to you: Stripe will never directly email your users.",
+  "bank_account" : { },
+  "business_name" : "The publicly sharable name for this account.",
+  "decline_charge_on" : {
+    "avs_failure" : "boolean",
+    "cvc_failure" : "boolean"
+  },
+  "expand" : [ "string" ],
+  "support_email" : "A publicly shareable support email address for the business.",
+  "external_account" : { },
+  "business_primary_color" : "A CSS hex color value representing the primary branding color for this account.",
+  "default_currency" : "Three-letter ISO currency code representing the default currency for the account. This must be a currency that [Stripe supports in the account's country](https://stripe.com/docs/payouts).",
+  "payout_statement_descriptor" : "The text that appears on the bank account statement for payouts. If not set, this defaults to the platform's bank descriptor as set in the Dashboard."
+}
+```
 
 </details>
 
@@ -113,13 +296,23 @@ For Standard accounts, parameters other than country, email, and typeare used to
 
 <details><summary>Parameters</summary>
 
-#### account (required)
+### account (required)
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "expand" : [ "string" ],
+  "metadata" : { },
+  "external_account" : { },
+  "default_for_currency" : "When set to true, or if this is the first external account added in this currency, this account becomes the default external account for its currency.",
+  "bank_account" : { }
+}
+```
 
 </details>
 
@@ -129,9 +322,157 @@ Creates a single-use token that represents a bank account’s details.This token
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "amount" : "integer",
+  "payment_user_agent" : "string",
+  "ip" : "string",
+  "external_id" : "string",
+  "pii" : {
+    "ssn_last_4" : "string",
+    "personal_id_number" : "string",
+    "tax_id" : "string"
+  },
+  "referrer" : "string",
+  "validation_type" : "string. Possible values: amount | card | none",
+  "expand" : [ "string" ],
+  "iovation_blackbox" : "string",
+  "recipient" : "string",
+  "currency" : "string",
+  "request_id" : "string",
+  "account" : {
+    "tos_shown_and_accepted" : "boolean",
+    "legal_entity" : {
+      "business_vat_id" : "string",
+      "personal_address_kana" : {
+        "country" : "string",
+        "town" : "string",
+        "city" : "string",
+        "state" : "string",
+        "postal_code" : "string",
+        "line2" : "string",
+        "line1" : "string"
+      },
+      "gender" : "string",
+      "address_kana" : {
+        "country" : "string",
+        "town" : "string",
+        "city" : "string",
+        "state" : "string",
+        "postal_code" : "string",
+        "line2" : "string",
+        "line1" : "string"
+      },
+      "type" : "string",
+      "personal_address" : {
+        "country" : "string",
+        "city" : "string",
+        "state" : "string",
+        "postal_code" : "string",
+        "line2" : "string",
+        "line1" : "string"
+      },
+      "address_kanji" : {
+        "country" : "string",
+        "town" : "string",
+        "city" : "string",
+        "state" : "string",
+        "postal_code" : "string",
+        "line2" : "string",
+        "line1" : "string"
+      },
+      "ssn_last_4" : "string",
+      "first_name" : "string",
+      "first_name_kana" : "string",
+      "personal_id_number" : "string",
+      "verification" : {
+        "document" : "string"
+      },
+      "last_name_kanji" : "string",
+      "personal_address_kanji" : {
+        "country" : "string",
+        "town" : "string",
+        "city" : "string",
+        "state" : "string",
+        "postal_code" : "string",
+        "line2" : "string",
+        "line1" : "string"
+      },
+      "business_name" : "string",
+      "maiden_name" : "string",
+      "address" : {
+        "country" : "string",
+        "city" : "string",
+        "state" : "string",
+        "postal_code" : "string",
+        "line2" : "string",
+        "line1" : "string"
+      },
+      "business_tax_id" : "string",
+      "first_name_kanji" : "string",
+      "last_name" : "string",
+      "business_name_kana" : "string",
+      "tax_id_registrar" : "string",
+      "dob" : {
+        "month" : "Required integer",
+        "year" : "Required integer",
+        "day" : "Required integer"
+      },
+      "additional_owners" : {
+        "<string>" : {
+          "maiden_name" : "string",
+          "address" : {
+            "country" : "string",
+            "city" : "string",
+            "state" : "string",
+            "postal_code" : "string",
+            "line2" : "string",
+            "line1" : "string"
+          },
+          "dob" : {
+            "month" : "Required integer",
+            "year" : "Required integer",
+            "day" : "Required integer"
+          },
+          "last_name" : "string",
+          "first_name" : "string",
+          "personal_id_number" : "string",
+          "verification" : {
+            "document" : "string"
+          }
+        }
+      },
+      "last_name_kana" : "string",
+      "business_name_kanji" : "string",
+      "phone_number" : "string"
+    }
+  },
+  "card" : {
+    "token_cryptogram_currency" : "string",
+    "pk_token" : "string",
+    "token_cryptogram" : "string",
+    "token_cryptogram_requestor" : "string",
+    "address_country" : "string",
+    "token_cryptogram_used" : "boolean",
+    "address_state" : "string",
+    "address_city" : "string",
+    "address_line2" : "string",
+    "address_line1" : "string",
+    "token_cryptogram_amount" : "integer",
+    "name" : "string",
+    "address_zip" : "string",
+    "object" : "string. Possible values: card"
+  },
+  "email" : "string",
+  "user_agent" : "string",
+  "bank_account" : { },
+  "customer" : "The customer (owned by the application's account) for which to create a token. For use only with [Stripe Connect](/docs/connect). Also, this can be used only with an [OAuth access token](/docs/connect/standard-accounts) or [Stripe-Account header](/docs/connect/authentication). For more details, see [Shared Customers](/docs/connect/shared-customers)."
+}
+```
 
 </details>
 
@@ -141,9 +482,90 @@ To charge a credit card or other payment source, you create a Charge object. If 
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "metadata" : { },
+  "destination" : {
+    "amount" : "integer",
+    "account" : "Required string"
+  },
+  "description" : "An arbitrary string which you can attach to a `Charge` object. It is displayed when in the web interface alongside the charge. Note that if you use Stripe to send automatic email receipts to your customers, your receipt emails will include the `description` of the charge(s) that they are describing.",
+  "external_id" : "string",
+  "source" : { },
+  "invoice_source" : "string",
+  "statement_descriptor" : { },
+  "shipping" : {
+    "carrier" : "string",
+    "address" : {
+      "country" : "string",
+      "city" : "string",
+      "state" : "string",
+      "postal_code" : "string",
+      "line2" : "string",
+      "line1" : "Required string"
+    },
+    "phone" : "string",
+    "name" : "Required string",
+    "tracking_number" : "string"
+  },
+  "alternate_statement_descriptors" : {
+    "kanji" : "string",
+    "kana" : "string"
+  },
+  "idempotency_key" : "string",
+  "currency" : "Three-letter [ISO currency code](https://www.iso.org/iso-4217-currency-codes.html), in lowercase. Must be a [supported currency](https://stripe.com/docs/currencies).",
+  "payment_method" : "string",
+  "user_agent" : "string",
+  "order" : "string",
+  "include" : [ "string" ],
+  "amount" : "A positive integer representing how much to charge, in the [smallest currency unit](/docs/currencies#zero-decimal) (e.g., `100` cents to charge $1.00, or `100` to charge ¥100, a zero-decimal currency). The minimum amount is $0.50 USD or [equivalent in charge currency](/docs/currencies#minimum-and-maximum-charge-amounts).",
+  "payment_user_agent" : "string",
+  "transfer_group" : "A string that identifies this transaction as part of a group. For details, see [Grouping transactions](/docs/connect/charges-transfers#grouping-transactions).",
+  "device_id" : "string",
+  "exchange_rate" : "number",
+  "on_behalf_of" : "The Stripe account ID for which these funds are intended. Automatically set if you use the `destination` parameter. For details, see [Creating Separate Charges and Transfers](/docs/connect/charges-transfers#on-behalf-of).",
+  "recurring" : "boolean",
+  "ip" : "string",
+  "cross_border_classification" : "string. Possible values: export",
+  "capture" : "Whether to immediately capture the charge. When `false`, the charge issues an authorization (or pre-authorization), and will need to be [captured](#capture_charge) later. Uncaptured charges expire in _seven days_. For more information, see the [authorizing charges and settling later](/docs/charges#auth-and-capture) documentation.",
+  "referrer" : "string",
+  "expand" : [ "string" ],
+  "application" : "string",
+  "receipt_email" : "The email address to which this charge's [receipt](/docs/dashboard/receipts) will be sent. The receipt will not be sent until the charge is paid, and no receipts will be sent for test mode charges. If this charge is for a customer, the email address specified here will override the customer's email address. If `receipt_email` is specified for a charge in live mode, a receipt will be sent regardless of your [email settings](https://dashboard.stripe.com/account/emails).",
+  "statement_address" : {
+    "city" : "Required string",
+    "state" : "Required string",
+    "postal_code" : "Required string",
+    "line2" : "string",
+    "line1" : "Required string"
+  },
+  "uncaptured" : "boolean",
+  "application_fee" : "A fee in %s that will be applied to the charge and transferred to the application owner's Stripe account. The request must be made with an OAuth key or the `Stripe-Account` header in order to take an application fee. For more information, see the application fees [documentation](/docs/connect/direct-charges#collecting-fees).",
+  "invoice" : "string",
+  "card_program" : "string",
+  "card" : { },
+  "level3" : {
+    "shipping_amount" : "integer",
+    "merchant_reference" : "Required string",
+    "customer_reference" : "string",
+    "shipping_address_zip" : "string",
+    "line_items" : [ {
+      "tax_amount" : "integer",
+      "quantity" : "integer",
+      "discount_amount" : "integer",
+      "unit_cost" : "integer",
+      "product_code" : "Required string",
+      "product_description" : "Required string"
+    } ],
+    "shipping_from_zip" : "string"
+  },
+  "customer" : "The ID of an existing customer that will be charged in this request."
+}
+```
 
 </details>
 
@@ -154,9 +576,25 @@ A coupon has either a percent_off or an amount_off and currency. If you set an a
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "duration" : "Specifies how long the discount will be in effect. Can be `forever`, `once`, or `repeating`.",
+  "duration_in_months" : "Required only if `duration` is `repeating`, in which case it must be a positive integer that specifies the number of months the discount will be in effect.",
+  "redeem_by" : "Unix timestamp specifying the last time at which the coupon can be redeemed. After the redeem_by date, the coupon can no longer be applied to new customers.",
+  "expand" : [ "string" ],
+  "metadata" : { },
+  "max_redemptions" : "A positive integer specifying the number of times the coupon can be redeemed before it's no longer valid. For example, you might have a 50% off coupon that the first 20 readers of your blog can use.",
+  "name" : "Name of the coupon displayed to customers on, for instance invoices, or receipts. By default the `id` is shown if `name` is not set.",
+  "currency" : "Three-letter [ISO code for the currency](https://stripe.com/docs/currencies) of the `amount_off` parameter (required if `amount_off` is passed).",
+  "percent_off" : "A positive float larger than 0, and smaller or equal to 100, that represents the discount the coupon will apply (required if `amount_off` is not passed).",
+  "id" : "Unique string of your choice that will be used to identify this coupon when applying it to a customer. This is often a specific code you'll give to your customer to use when signing up (e.g., `FALL25OFF`). If you don't want to specify a particular code, you can leave the ID blank and we'll generate a random code for you.",
+  "amount_off" : "A positive integer representing the amount to subtract from an invoice total (required if `percent_off` is not passed)."
+}
+```
 
 </details>
 
@@ -166,9 +604,41 @@ Creates a new customer object.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "metadata" : { },
+  "account_balance" : "An integer amount in %s that represents the account balance for your customer. Account balances only affect invoices. A negative amount represents a credit that decreases the amount due on an invoice; a positive amount increases the amount due on an invoice.",
+  "coupon" : "string",
+  "default_source" : "ID of the source to make the customer's new default.",
+  "invoice_prefix" : "The prefix for the customer used to generate unique invoice numbers. Must be 3–12 uppercase letters or numbers.",
+  "description" : "An arbitrary string that you can attach to a customer object. It is displayed alongside the customer in the dashboard.",
+  "source" : { },
+  "expand" : [ "string" ],
+  "shipping" : {
+    "address" : {
+      "country" : "string",
+      "city" : "string",
+      "state" : "string",
+      "postal_code" : "string",
+      "line2" : "string",
+      "line1" : "Required string"
+    },
+    "phone" : "string",
+    "name" : "Required string"
+  },
+  "tax_info" : {
+    "type" : "Required string. Possible values: vat",
+    "tax_id" : "Required string"
+  },
+  "id" : "A custom ID to use for the customer",
+  "email" : "Customer's email address. It's displayed alongside the customer in your dashboard and can be useful for searching and tracking. This may be up to *512 characters*.",
+  "customer" : "string"
+}
+```
 
 </details>
 
@@ -179,13 +649,24 @@ If the card’s owner has no default card, then the new card will become the def
 
 <details><summary>Parameters</summary>
 
-#### customer (required)
+### customer (required)
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "alipay_account" : { },
+  "expand" : [ "string" ],
+  "metadata" : { },
+  "source" : { },
+  "card" : { },
+  "bank_account" : { }
+}
+```
 
 </details>
 
@@ -195,15 +676,37 @@ Creates a new subscription on an existing customer.
 
 <details><summary>Parameters</summary>
 
-#### customer (required)
+### customer (required)
 
 The identifier of the customer to subscribe.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "metadata" : { },
+  "cancel_at_period_end" : "Boolean indicating whether this subscription should cancel at the end of the current period.",
+  "coupon" : "The code of the coupon to apply to this subscription. A coupon applied to a subscription will only affect invoices created for that particular subscription.",
+  "days_until_due" : "Number of days a customer has to pay invoices generated by this subscription. Valid only for subscriptions where `billing` is set to `send_invoice`.",
+  "trial_end" : "Unix timestamp representing the end of the trial period the customer will get before being charged for the first time. This will always overwrite any trials that might apply via a subscribed plan. If set, trial_end will override the default trial period of the plan the customer is being subscribed to. The special value `now` can be provided to end the customer's trial immediately.",
+  "trial_period_days" : "Integer representing the number of trial period days before the customer is charged for the first time. This will always overwrite any trials that might apply via a subscribed plan.",
+  "application_fee_percent" : "A non-negative decimal between 0 and 100, with at most two decimal places. This represents the percentage of the subscription invoice subtotal that will be transferred to the application owner's Stripe account. The request must be made with an OAuth key in order to set an application fee percentage. For more information, see the application fees [documentation](https://stripe.com/docs/connect/subscriptions#collecting-fees-on-subscriptions).",
+  "billing_cycle_anchor" : "A future timestamp to anchor the subscription's [billing cycle](/docs/subscriptions/billing-cycle). This is used to determine the date of the first full invoice, and, for plans with `month` or `year` intervals, the day of the month for subsequent invoices.",
+  "billing" : "Either `charge_automatically`, or `send_invoice`. When charging automatically, Stripe will attempt to pay this subscription at the end of the cycle using the default source attached to the customer. When sending an invoice, Stripe will email your customer an invoice with payment instructions. Defaults to `charge_automatically`.",
+  "tax_percent" : "A non-negative decimal (with at most four decimal places) between 0 and 100. This represents the percentage of the subscription invoice subtotal that will be calculated and added as tax to the final amount in each billing period. For example, a plan which charges $10/month with a `tax_percent` of `20.0` will charge $12 per invoice. To unset a previously-set value, pass an empty string.",
+  "expand" : [ "string" ],
+  "trial_from_plan" : "Indicates if a plan's `trial_period_days` should be applied to the subscription. Setting `trial_end` per subscription is preferred, and this defaults to `false`. Setting this flag to `true` together with `trial_end` is not allowed.",
+  "items" : [ {
+    "quantity" : "integer",
+    "plan" : "Required string"
+  } ],
+  "prorate" : "Boolean (defaults to `true`) telling us whether to [credit for unused time](/docs/subscriptions/billing-cycle#prorations) when the billing cycle changes (e.g. when switching plans, resetting `billing_cycle_anchor=now`, or starting a trial). If `false`, the anchor period will be free (similar to a trial) and no proration adjustments will be created."
+}
+```
 
 </details>
 
@@ -213,9 +716,18 @@ Creates a new file link object.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "expand" : [ "string" ],
+  "metadata" : { },
+  "expires_at" : "A future timestamp after which the link will no longer be usable.",
+  "file" : "The ID of the file."
+}
+```
 
 </details>
 
@@ -226,9 +738,25 @@ Once you create the invoice, Stripe will attempt to collect payment according to
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "statement_descriptor" : "Extra information about a charge for the customer's credit card statement. It must contain at least one letter. If not specified and this invoice is part of a subscription, the default `statement_descriptor` will be set to the first subscription item's product's `statement_descriptor`.",
+  "tax_percent" : "The percent tax rate applied to the invoice, represented as a decimal number.",
+  "expand" : [ "string" ],
+  "metadata" : { },
+  "due_date" : "The date on which payment for this invoice is due. Only valid for invoices where `billing=send_invoice`.",
+  "days_until_due" : "The number of days from which the invoice is created until it is due. Only valid for invoices where `billing=send_invoice`.",
+  "description" : "string",
+  "application_fee" : "A fee in %s that will be applied to the invoice and transferred to the application owner's Stripe account. The request must be made with an OAuth key or the Stripe-Account header in order to take an application fee. For more information, see the application fees [documentation](/docs/connect/subscriptions#working-with-invoices).",
+  "subscription" : "The ID of the subscription to invoice. If not set, the created invoice will include all pending invoice items for the customer. If set, the created invoice will exclude pending invoice items that pertain to other subscriptions.",
+  "billing" : "Either `charge_automatically`, or `send_invoice`. When charging automatically, Stripe will attempt to pay this invoice using the default source attached to the customer. When sending an invoice, Stripe will email this invoice to the customer with payment instructions. Defaults to `charge_automatically`.",
+  "customer" : "Required string"
+}
+```
 
 </details>
 
@@ -238,9 +766,25 @@ Adds an arbitrary charge or credit to the customer’s upcoming invoice.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "amount" : "The integer amount in **%s** of the charge to be applied to the upcoming invoice. If you want to apply a credit to the customer's account, pass a negative amount.",
+  "expand" : [ "string" ],
+  "metadata" : { },
+  "quantity" : "Non-negative integer. The quantity of units for the invoice item.",
+  "description" : "An arbitrary string which you can attach to the invoice item. The description is displayed in the invoice for easy tracking.",
+  "currency" : "Three-letter [ISO currency code](https://www.iso.org/iso-4217-currency-codes.html), in lowercase. Must be a [supported currency](https://stripe.com/docs/currencies).",
+  "invoice" : "The ID of an existing invoice to add this invoice item to. When left blank, the invoice item will be added to the next upcoming scheduled invoice. Use this when adding invoice items in response to an invoice.created webhook. You cannot add an invoice item to an invoice that has already been paid, attempted or closed.",
+  "subscription" : "The ID of a subscription to add this invoice item to. When left blank, the invoice item will be be added to the next upcoming scheduled invoice. When set, scheduled invoices for subscriptions other than the specified subscription will ignore the invoice item. Use this when you want to express that an invoice item has been accrued within the context of a particular subscription.",
+  "unit_amount" : "The integer unit amount in **%s** of the charge to be applied to the upcoming invoice. This unit_amount will be multiplied by the quantity to get the full amount. If you want to apply a credit to the customer's account, pass a negative unit_amount.",
+  "discountable" : "Controls whether discounts apply to this invoice item. Defaults to false for prorations or negative invoice items, and true for all other invoice items.",
+  "customer" : "The ID of the customer who will be billed when this invoice item is billed."
+}
+```
 
 </details>
 
@@ -250,9 +794,37 @@ Creates an Issuing Card object.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "expand" : [ "string" ],
+  "metadata" : { },
+  "shipping" : {
+    "address" : {
+      "country" : "Required string",
+      "city" : "Required string",
+      "state" : "string",
+      "postal_code" : "Required string",
+      "line2" : "string",
+      "line1" : "Required string"
+    },
+    "name" : "Required string"
+  },
+  "currency" : "The currency for the card. This currently must be `usd`.",
+  "cardholder" : "The [Cardholder](/docs/api#issuing_cardholder_object) object with which the card will be associated.",
+  "type" : "The type of card to issue. Possible values are `physical` or `virtual`.",
+  "authorization_controls" : {
+    "max_approvals" : "integer",
+    "allowed_categories" : [ "string. Possible values: ac_refrigeration_repair | accounting_bookkeeping_services | advertising_services | agricultural_cooperative | airlines_air_carriers | airports_flying_fields | ambulance_services | amusement_parks_carnivals | antique_reproductions | antique_shops | aquariums | architectural_surveying_services | art_dealers_and_galleries | artists_supply_and_craft_shops | auto_and_home_supply_stores | auto_body_repair_shops | auto_paint_shops | auto_service_shops | automated_cash_disburse | automated_fuel_dispensers | automobile_associations | automotive_parts_and_accessories_stores | automotive_tire_stores | bail_and_bond_payments | bakeries | bands_orchestras | barber_and_beauty_shops | betting_casino_gambling | bicycle_shops | billiard_pool_establishments | boat_dealers | boat_rentals_and_leases | book_stores | books_periodicals_and_newspapers | bowling_alleys | bus_lines | business_secretarial_schools | buying_shopping_services | cable_satellite_and_other_pay_television_and_radio | camera_and_photographic_supply_stores | candy_nut_and_confectionery_stores | car_and_truck_dealers_new_used | car_and_truck_dealers_used_only | car_rental_agencies | car_washes | carpentry_services | carpet_upholstery_cleaning | caterers | charitable_and_social_service_organizations_fundraising | chemicals_and_allied_products | chidrens_and_infants_wear_stores | child_care_services | chiropodists_podiatrists | chiropractors | cigar_stores_and_stands | civic_social_fraternal_associations | cleaning_and_maintenance | clothing_rental | colleges_universities | commercial_equipment | commercial_footwear | commercial_photography_art_and_graphics | commuter_transport_and_ferries | computer_network_services | computer_programming | computer_repair | computer_software_stores | computers_peripherals_and_software | concrete_work_services | construction_materials | consulting_public_relations | correspondence_schools | cosmetic_stores | counseling_services | country_clubs | courier_services | court_costs | credit_reporting_agencies | cruise_lines | dairy_products_stores | dance_hall_studios_schools | dating_escort_services | dentists_orthodontists | department_stores | detective_agencies | direct_marketing_catalog_merchant | direct_marketing_combination_catalog_and_retail_merchant | direct_marketing_inbound_telemarketing | direct_marketing_insurance_services | direct_marketing_other | direct_marketing_outbound_telemarketing | direct_marketing_subscription | direct_marketing_travel | discount_stores | doctors | door_to_door_sales | drapery_window_covering_and_upholstery_stores | drinking_places | drug_stores_and_pharmacies | drugs_drug_proprietaries_and_druggist_sundries | dry_cleaners | durable_goods | duty_free_stores | eating_places_restaurants | educational_services | electric_razor_stores | electrical_parts_and_equipment | electrical_services | electronics_repair_shops | electronics_stores | elementary_secondary_schools | employment_temp_agencies | equipment_rental | exterminating_services | family_clothing_stores | fast_food_restaurants | financial_institutions | fines_government_administrative_entities | fireplace_fireplace_screens_and_accessories_stores | floor_covering_stores | florists | florists_supplies_nursery_stock_and_flowers | freezer_and_locker_meat_provisioners | fuel_dealers_non_automotive | funeral_services_crematories | furniture_home_furnishings_and_equipment_stores_except_appliances | furniture_repair_refinishing | furriers_and_fur_shops | general_services | gift_card_novelty_and_souvenir_shops | glass_paint_and_wallpaper_stores | glassware_crystal_stores | golf_courses_public | government_services | grocery_stores_supermarkets | hardware_equipment_and_supplies | hardware_stores | health_and_beauty_spas | hearing_aids_sales_and_supplies | heating_plumbing_a_c | hobby_toy_and_game_shops | home_supply_warehouse_stores | hospitals | hotels_motels_and_resorts | household_appliance_stores | industrial_supplies | information_retrieval_services | insurance_default | insurance_underwriting_premiums | intra_company_purchases | jewelry_stores_watches_clocks_and_silverware_stores | landscaping_services | laundries | laundry_cleaning_services | legal_services_attorneys | luggage_and_leather_goods_stores | lumber_building_materials_stores | manual_cash_disburse | marinas_service_and_supplies | masonry_stonework_and_plaster | massage_parlors | means_womens_clothing_stores | medical_and_dental_labs | medical_dental_ophthalmic_and_hospital_equipment_and_supplies | medical_services | membership_organizations | mens_and_boys_clothing_and_accessories_stores | metal_service_centers | miscellaneous | miscellaneous_apparel_and_accessory_shops | miscellaneous_auto_dealers | miscellaneous_business_services | miscellaneous_food_stores | miscellaneous_general_merchandise | miscellaneous_general_services | miscellaneous_home_furnishing_specialty_stores | miscellaneous_publishing_and_printing | miscellaneous_recreation_services | miscellaneous_repair_shops | miscellaneous_specialty_retail | mobile_home_dealers | motion_picture_theaters | motor_freight_carriers_and_trucking | motor_homes_dealers | motor_vehicle_supplies_and_new_parts | motorcycle_shops_and_dealers | motorcycle_shops_dealers | music_stores_musical_instruments_pianos_and_sheet_music | news_dealers_and_newsstands | non_fi_money_orders | non_fi_stored_value_card_purchase_load | nondurable_goods | nurseries_lawn_and_garden_supply_stores | nursing_personal_care | office_and_commercial_furniture | opticians_eyeglasses | optometrists_ophthalmologist | orthopedic_goods_prosthetic_devices | osteopaths | package_stores_beer_wine_and_liquor | paints_varnishes_and_supplies | parking_lots_garages | passenger_railways | pawn_shops | pet_shops_pet_food_and_supplies | petroleum_and_petroleum_products | photo_developing | photographic_photocopy_microfilm_equipment_and_supplies | photographic_studios | picture_video_production | piece_goods_notions_and_other_dry_goods | plumbing_heating_equipment_and_supplies | political_organizations | postal_services_government_only | precious_stones_and_metals_watches_and_jewelry | professional_services | public_warehousing_and_storage | quick_copy_repro_and_blueprint | railroads | real_estate_agents_and_managers_rentals | record_stores | recreational_vehicle_rentals | religious_goods_stores | religious_organizations | roofing_siding_sheet_metal | secretarial_support_services | security_brokers_dealers | service_stations | sewing_needlework_fabric_and_piece_goods_stores | shoe_repair_hat_cleaning | shoe_stores | small_appliance_repair | snowmobile_dealers | special_trade_services | specialty_cleaning | sporting_goods_stores | sporting_recreation_camps | sports_and_riding_apparel_stores | sports_clubs_fields | stamp_and_coin_stores | stationary_office_supplies_printing_and_writing_paper | stationery_stores_office_and_school_supply_stores | swimming_pools_sales | t_ui_travel_germany | tailors_alterations | tax_payments_government_agencies | tax_preparation_services | taxicabs_limousines | telecommunication_equipment_and_telephone_sales | telecommunication_services | telegraph_services | tent_and_awning_shops | testing_laboratories | theatrical_ticket_agencies | timeshares | tire_retreading_and_repair | tolls_bridge_fees | tourist_attractions_and_exhibits | towing_services | trailer_parks_campgrounds | transportation_services | travel_agencies_tour_operators | truck_stop_iteration | truck_utility_trailer_rentals | typesetting_plate_making_and_related_services | typewriter_stores | u_s_federal_government_agencies_or_departments | uniforms_commercial_clothing | used_merchandise_and_secondhand_stores | utilities | variety_stores | veterinary_services | video_amusement_game_supplies | video_game_arcades | video_tape_rental_stores | vocational_trade_schools | watch_jewelry_repair | welding_repair | wholesale_clubs | wig_and_toupee_stores | wires_money_orders | womens_accessory_and_specialty_shops | womens_ready_to_wear_stores | wrecking_and_salvage_yards" ],
+    "blocked_categories" : [ "string. Possible values: ac_refrigeration_repair | accounting_bookkeeping_services | advertising_services | agricultural_cooperative | airlines_air_carriers | airports_flying_fields | ambulance_services | amusement_parks_carnivals | antique_reproductions | antique_shops | aquariums | architectural_surveying_services | art_dealers_and_galleries | artists_supply_and_craft_shops | auto_and_home_supply_stores | auto_body_repair_shops | auto_paint_shops | auto_service_shops | automated_cash_disburse | automated_fuel_dispensers | automobile_associations | automotive_parts_and_accessories_stores | automotive_tire_stores | bail_and_bond_payments | bakeries | bands_orchestras | barber_and_beauty_shops | betting_casino_gambling | bicycle_shops | billiard_pool_establishments | boat_dealers | boat_rentals_and_leases | book_stores | books_periodicals_and_newspapers | bowling_alleys | bus_lines | business_secretarial_schools | buying_shopping_services | cable_satellite_and_other_pay_television_and_radio | camera_and_photographic_supply_stores | candy_nut_and_confectionery_stores | car_and_truck_dealers_new_used | car_and_truck_dealers_used_only | car_rental_agencies | car_washes | carpentry_services | carpet_upholstery_cleaning | caterers | charitable_and_social_service_organizations_fundraising | chemicals_and_allied_products | chidrens_and_infants_wear_stores | child_care_services | chiropodists_podiatrists | chiropractors | cigar_stores_and_stands | civic_social_fraternal_associations | cleaning_and_maintenance | clothing_rental | colleges_universities | commercial_equipment | commercial_footwear | commercial_photography_art_and_graphics | commuter_transport_and_ferries | computer_network_services | computer_programming | computer_repair | computer_software_stores | computers_peripherals_and_software | concrete_work_services | construction_materials | consulting_public_relations | correspondence_schools | cosmetic_stores | counseling_services | country_clubs | courier_services | court_costs | credit_reporting_agencies | cruise_lines | dairy_products_stores | dance_hall_studios_schools | dating_escort_services | dentists_orthodontists | department_stores | detective_agencies | direct_marketing_catalog_merchant | direct_marketing_combination_catalog_and_retail_merchant | direct_marketing_inbound_telemarketing | direct_marketing_insurance_services | direct_marketing_other | direct_marketing_outbound_telemarketing | direct_marketing_subscription | direct_marketing_travel | discount_stores | doctors | door_to_door_sales | drapery_window_covering_and_upholstery_stores | drinking_places | drug_stores_and_pharmacies | drugs_drug_proprietaries_and_druggist_sundries | dry_cleaners | durable_goods | duty_free_stores | eating_places_restaurants | educational_services | electric_razor_stores | electrical_parts_and_equipment | electrical_services | electronics_repair_shops | electronics_stores | elementary_secondary_schools | employment_temp_agencies | equipment_rental | exterminating_services | family_clothing_stores | fast_food_restaurants | financial_institutions | fines_government_administrative_entities | fireplace_fireplace_screens_and_accessories_stores | floor_covering_stores | florists | florists_supplies_nursery_stock_and_flowers | freezer_and_locker_meat_provisioners | fuel_dealers_non_automotive | funeral_services_crematories | furniture_home_furnishings_and_equipment_stores_except_appliances | furniture_repair_refinishing | furriers_and_fur_shops | general_services | gift_card_novelty_and_souvenir_shops | glass_paint_and_wallpaper_stores | glassware_crystal_stores | golf_courses_public | government_services | grocery_stores_supermarkets | hardware_equipment_and_supplies | hardware_stores | health_and_beauty_spas | hearing_aids_sales_and_supplies | heating_plumbing_a_c | hobby_toy_and_game_shops | home_supply_warehouse_stores | hospitals | hotels_motels_and_resorts | household_appliance_stores | industrial_supplies | information_retrieval_services | insurance_default | insurance_underwriting_premiums | intra_company_purchases | jewelry_stores_watches_clocks_and_silverware_stores | landscaping_services | laundries | laundry_cleaning_services | legal_services_attorneys | luggage_and_leather_goods_stores | lumber_building_materials_stores | manual_cash_disburse | marinas_service_and_supplies | masonry_stonework_and_plaster | massage_parlors | means_womens_clothing_stores | medical_and_dental_labs | medical_dental_ophthalmic_and_hospital_equipment_and_supplies | medical_services | membership_organizations | mens_and_boys_clothing_and_accessories_stores | metal_service_centers | miscellaneous | miscellaneous_apparel_and_accessory_shops | miscellaneous_auto_dealers | miscellaneous_business_services | miscellaneous_food_stores | miscellaneous_general_merchandise | miscellaneous_general_services | miscellaneous_home_furnishing_specialty_stores | miscellaneous_publishing_and_printing | miscellaneous_recreation_services | miscellaneous_repair_shops | miscellaneous_specialty_retail | mobile_home_dealers | motion_picture_theaters | motor_freight_carriers_and_trucking | motor_homes_dealers | motor_vehicle_supplies_and_new_parts | motorcycle_shops_and_dealers | motorcycle_shops_dealers | music_stores_musical_instruments_pianos_and_sheet_music | news_dealers_and_newsstands | non_fi_money_orders | non_fi_stored_value_card_purchase_load | nondurable_goods | nurseries_lawn_and_garden_supply_stores | nursing_personal_care | office_and_commercial_furniture | opticians_eyeglasses | optometrists_ophthalmologist | orthopedic_goods_prosthetic_devices | osteopaths | package_stores_beer_wine_and_liquor | paints_varnishes_and_supplies | parking_lots_garages | passenger_railways | pawn_shops | pet_shops_pet_food_and_supplies | petroleum_and_petroleum_products | photo_developing | photographic_photocopy_microfilm_equipment_and_supplies | photographic_studios | picture_video_production | piece_goods_notions_and_other_dry_goods | plumbing_heating_equipment_and_supplies | political_organizations | postal_services_government_only | precious_stones_and_metals_watches_and_jewelry | professional_services | public_warehousing_and_storage | quick_copy_repro_and_blueprint | railroads | real_estate_agents_and_managers_rentals | record_stores | recreational_vehicle_rentals | religious_goods_stores | religious_organizations | roofing_siding_sheet_metal | secretarial_support_services | security_brokers_dealers | service_stations | sewing_needlework_fabric_and_piece_goods_stores | shoe_repair_hat_cleaning | shoe_stores | small_appliance_repair | snowmobile_dealers | special_trade_services | specialty_cleaning | sporting_goods_stores | sporting_recreation_camps | sports_and_riding_apparel_stores | sports_clubs_fields | stamp_and_coin_stores | stationary_office_supplies_printing_and_writing_paper | stationery_stores_office_and_school_supply_stores | swimming_pools_sales | t_ui_travel_germany | tailors_alterations | tax_payments_government_agencies | tax_preparation_services | taxicabs_limousines | telecommunication_equipment_and_telephone_sales | telecommunication_services | telegraph_services | tent_and_awning_shops | testing_laboratories | theatrical_ticket_agencies | timeshares | tire_retreading_and_repair | tolls_bridge_fees | tourist_attractions_and_exhibits | towing_services | trailer_parks_campgrounds | transportation_services | travel_agencies_tour_operators | truck_stop_iteration | truck_utility_trailer_rentals | typesetting_plate_making_and_related_services | typewriter_stores | u_s_federal_government_agencies_or_departments | uniforms_commercial_clothing | used_merchandise_and_secondhand_stores | utilities | variety_stores | veterinary_services | video_amusement_game_supplies | video_game_arcades | video_tape_rental_stores | vocational_trade_schools | watch_jewelry_repair | welding_repair | wholesale_clubs | wig_and_toupee_stores | wires_money_orders | womens_accessory_and_specialty_shops | womens_ready_to_wear_stores | wrecking_and_salvage_yards" ],
+    "max_amount" : "integer"
+  },
+  "status" : "Specifies whether to permit authorizations on this card. Possible values are `active` or `inactive`."
+}
+```
 
 </details>
 
@@ -262,9 +834,32 @@ Creates a new Issuing Cardholder object that can be issued cards.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "expand" : [ "string" ],
+  "metadata" : { },
+  "name" : "The cardholder's name. This will be printed on cards issued to them.",
+  "phone_number" : "The cardholder's phone number. This will be transformed to [E.164](https://en.wikipedia.org/wiki/E.164) if it is not provided in that format already.",
+  "type" : "The type of cardholder. Possible values are `individual` or `business_entity`.",
+  "email" : "The cardholder's email address.",
+  "billing" : {
+    "address" : {
+      "country" : "Required string",
+      "city" : "Required string",
+      "state" : "string",
+      "postal_code" : "Required string",
+      "line2" : "string",
+      "line1" : "Required string"
+    },
+    "name" : "string"
+  },
+  "status" : "Specifies whether to permit authorizations on this cardholder's cards. Possible values are `active` or `inactive`."
+}
+```
 
 </details>
 
@@ -274,9 +869,29 @@ Creates an Issuing Dispute object.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "reason" : "The reason for the dispute, which can be chosen out of a set of valid values.",
+  "amount" : "Amount to dispute, defaults to full value, given in the currency the transaction was made in.",
+  "expand" : [ "string" ],
+  "metadata" : { },
+  "evidence" : {
+    "other" : {
+      "dispute_explanation" : "Required string",
+      "uncategorized_file" : "string"
+    },
+    "fraudulent" : {
+      "dispute_explanation" : "Required string",
+      "uncategorized_file" : "string"
+    }
+  },
+  "disputed_transaction" : "The ID of the issuing transaction to create a dispute for."
+}
+```
 
 </details>
 
@@ -287,15 +902,22 @@ You may only create login links for Express accounts connected to your platform.
 
 <details><summary>Parameters</summary>
 
-#### account (required)
+### account (required)
 
 The identifier of the account to create a login link for.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "expand" : [ "string" ],
+  "redirect_url" : "Where to redirect the user after they log out of their dashboard."
+}
+```
 
 </details>
 
@@ -305,9 +927,40 @@ Creates a new Order object.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "expand" : [ "string" ],
+  "metadata" : { },
+  "coupon" : "A coupon code that represents a discount to be applied to this order. Must be one-time duration and in same currency as the order.",
+  "shipping" : {
+    "address" : {
+      "country" : "string",
+      "city" : "string",
+      "state" : "string",
+      "postal_code" : "string",
+      "line2" : "string",
+      "line1" : "Required string"
+    },
+    "phone" : "string",
+    "name" : "Required string"
+  },
+  "currency" : "Three-letter [ISO currency code](https://www.iso.org/iso-4217-currency-codes.html), in lowercase. Must be a [supported currency](https://stripe.com/docs/currencies).",
+  "items" : [ {
+    "parent" : "string",
+    "amount" : "integer",
+    "quantity" : "integer",
+    "description" : "string",
+    "currency" : "string",
+    "type" : "string. Possible values: discount | shipping | sku | tax"
+  } ],
+  "email" : "The email address of the customer placing the order.",
+  "customer" : "The ID of an existing customer to use for this order. If provided, the customer email and shipping address will be used to create the order. Subsequently, the customer will also be charged to pay the order. If `email` or `shipping` are also provided, they will override the values retrieved from the customer object."
+}
+```
 
 </details>
 
@@ -317,13 +970,26 @@ Return all or part of an order. The order must have a status of paid or fulfille
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "expand" : [ "string" ],
+  "items" : [ {
+    "parent" : "string",
+    "amount" : "integer",
+    "quantity" : "integer",
+    "description" : "string",
+    "type" : "string. Possible values: discount | shipping | sku | tax"
+  } ]
+}
+```
 
 </details>
 
@@ -333,9 +999,89 @@ Return all or part of an order. The order must have a status of paid or fulfille
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "metadata" : { },
+  "destination" : {
+    "amount" : "integer",
+    "account" : "Required string"
+  },
+  "description" : "string",
+  "external_id" : "string",
+  "source" : "string",
+  "invoice_source" : "string",
+  "statement_descriptor" : "string",
+  "shipping" : {
+    "carrier" : "string",
+    "address" : {
+      "country" : "string",
+      "city" : "string",
+      "state" : "string",
+      "postal_code" : "string",
+      "line2" : "string",
+      "line1" : "Required string"
+    },
+    "phone" : "string",
+    "name" : "Required string",
+    "tracking_number" : "string"
+  },
+  "alternate_statement_descriptors" : {
+    "kanji" : "string",
+    "kana" : "string"
+  },
+  "idempotency_key" : "string",
+  "currency" : "Required string",
+  "payment_method" : "string",
+  "user_agent" : "string",
+  "order" : "string",
+  "include" : [ "string" ],
+  "amount" : "Required integer",
+  "payment_user_agent" : "string",
+  "transfer_group" : "string",
+  "device_id" : "string",
+  "exchange_rate" : "number",
+  "on_behalf_of" : "string",
+  "recurring" : "boolean",
+  "ip" : "string",
+  "cross_border_classification" : "string. Possible values: export",
+  "capture" : "boolean",
+  "referrer" : "string",
+  "expand" : [ "string" ],
+  "application" : "string",
+  "receipt_email" : "string",
+  "statement_address" : {
+    "city" : "Required string",
+    "state" : "Required string",
+    "postal_code" : "Required string",
+    "line2" : "string",
+    "line1" : "Required string"
+  },
+  "uncaptured" : "boolean",
+  "application_fee" : "integer",
+  "invoice" : "string",
+  "card_program" : "string",
+  "level3" : {
+    "shipping_amount" : "integer",
+    "merchant_reference" : "Required string",
+    "customer_reference" : "string",
+    "shipping_address_zip" : "string",
+    "line_items" : [ {
+      "tax_amount" : "integer",
+      "quantity" : "integer",
+      "discount_amount" : "integer",
+      "unit_cost" : "integer",
+      "product_code" : "Required string",
+      "product_description" : "Required string"
+    } ],
+    "shipping_from_zip" : "string"
+  },
+  "customer" : "string"
+}
+```
 
 </details>
 
@@ -345,9 +1091,48 @@ Creates a PaymentIntent object.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "capture_method" : "Capture method of this PaymentIntent, one of `automatic` or `manual`.",
+  "amount" : "Amount intended to be collected by this PaymentIntent",
+  "metadata" : { },
+  "transfer_group" : "A string that identifies the resulting payment as part of a group. See the [Connect documentation](/docs/connect/charges-transfers#grouping-transactions) for details.",
+  "allowed_source_types" : [ "string" ],
+  "description" : "An arbitrary string attached to the object. Often useful for displaying to users.",
+  "source" : "ID of the Source object to attach to this PaymentIntent.",
+  "statement_descriptor" : "Extra information about a PaymentIntent. This will appear on your customer's statement when this PaymentIntent succeeds in creating a charge.",
+  "transfer_data" : {
+    "amount" : "integer",
+    "destination" : "Required string"
+  },
+  "expand" : [ "string" ],
+  "shipping" : {
+    "carrier" : "string",
+    "address" : {
+      "country" : "string",
+      "city" : "string",
+      "state" : "string",
+      "postal_code" : "string",
+      "line2" : "string",
+      "line1" : "Required string"
+    },
+    "phone" : "string",
+    "name" : "Required string",
+    "tracking_number" : "string"
+  },
+  "receipt_email" : "Email address that the receipt for the resulting payment will be sent to.",
+  "return_url" : "The URL to redirect your customer back to after they authenticate or cancel their payment on the payment method's app or site.If you'd prefer to redirect to a mobile application, you can alternatively supply an application URI scheme.",
+  "currency" : "Three-letter [ISO currency code](https://www.iso.org/iso-4217-currency-codes.html), in lowercase. Must be a [supported currency](https://stripe.com/docs/currencies).",
+  "save_source_to_customer" : "`true` to save this PaymentIntent's Source to the associated Customer, if the Source is not already attached.",
+  "attempt_confirmation" : "Attempt to confirm this PaymentIntent on source attachment.",
+  "application_fee_amount" : "The amount of the application fee (if any) that will be applied to the payment and transferred to theapplication owner's Stripe account. To use an application fee, therequest must be made on behalf of another account, using the`Stripe-Account` header or an OAuth key. For more information, see[Collecting applicationfees](/docs/connect/direct-charges#collecting-fees).",
+  "customer" : "ID of the customer this PaymentIntent is for if one exists."
+}
+```
 
 </details>
 
@@ -359,9 +1144,23 @@ If you are creating a manual payout on a Stripe account that uses multiple payme
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "statement_descriptor" : "A string to be displayed on the recipient's bank or card statement. This may be at most 22 characters. Attempting to use a `statement_descriptor` longer than 22 characters will return an error. Note: Most banks will truncate this information and/or display it inconsistently. Some may not display it at all.",
+  "amount" : "A positive integer in cents representing how much to payout.",
+  "expand" : [ "string" ],
+  "metadata" : { },
+  "method" : "The method used to send this payout, which can be `standard` or `instant`. `instant` is only supported for payouts to debit cards. (See [Instant payouts for marketplaces for more information](https://stripe.com/blog/instant-payouts-for-marketplaces).)",
+  "destination" : "The ID of a bank account or a card to send the payout to. If no destination is supplied, the default external account for the specified currency will be used.",
+  "description" : "An arbitrary string attached to the object. Often useful for displaying to users.",
+  "currency" : "Three-letter [ISO currency code](https://www.iso.org/iso-4217-currency-codes.html), in lowercase. Must be a [supported currency](https://stripe.com/docs/currencies).",
+  "source_type" : "The source balance to draw this payout from. Balances for different payment sources are kept separately. You can find the amounts with the balances API. Valid options are: **alipay_account**, **bank_account**, and **card**."
+}
+```
 
 </details>
 
@@ -371,9 +1170,46 @@ You can create plans using the API, or in the Stripe Dashboard.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "interval_count" : "The number of intervals between subscription billings. For example, `interval=month` and `interval_count=3` bills every 3 months. Maximum of one year interval allowed (1 year, 12 months, or 52 weeks).",
+  "amount" : "A positive integer in %s (or 0 for a free plan) representing how much to charge on a recurring basis.",
+  "metadata" : { },
+  "product" : {
+    "statement_descriptor" : "string",
+    "metadata" : { },
+    "name" : "Required string",
+    "active" : "boolean",
+    "id" : "string",
+    "unit_label" : "string"
+  },
+  "tiers" : [ {
+    "up_to" : { },
+    "unit_amount" : "integer"
+  } ],
+  "transform_usage" : {
+    "round" : "Required string. Possible values: down | up",
+    "divide_by" : "Required integer"
+  },
+  "active" : "Whether the plan is currently available for new subscriptions. Defaults to `true`.",
+  "aggregate_usage" : "Specifies a usage aggregation strategy for plans of `usage_type=metered`. Allowed values are `sum` for summing up all usage during a period, `last_during_period` for picking the last usage record reported within a period, `last_ever` for picking the last usage record ever (across period bounds) or `max` which picks the usage record with the maximum reported usage during a period. Defaults to `sum`.",
+  "billing_scheme" : "Describes how to compute the price per period. Either `per_unit` or `tiered`. `per_unit` indicates that the fixed amount (specified in `amount`) will be charged per unit in `quantity` (for plans with `usage_type=licensed`), or per unit of total usage (for plans with `usage_type=metered`). `tiered` indicates that the unit pricing will be computed using a tiering strategy as defined using the `tiers` and `tiers_mode` attributes.",
+  "trial_period_days" : "Default number of trial days when subscribing a customer to this plan using [`trial_from_plan=true`](/docs/api#create_subscription-trial_from_plan).",
+  "statement_descriptor" : "An arbitrary string to be displayed on your customer's credit card statement. This may be up to 22 characters. The statement description may not include &lt;&gt;\"' characters, and will appear on your customer's statement in capital letters. Non-ASCII characters are automatically stripped. While most banks display this information consistently, some may display it incorrectly or not at all. It must contain at least one letter.",
+  "tiers_mode" : "Defines if the tiering price should be `graduated` or `volume` based. In `volume`-based tiering, the maximum quantity within a period determines the per unit price, in `graduated` tiering pricing can successively change as the quantity grows.",
+  "expand" : [ "string" ],
+  "usage_type" : "Configures how the quantity per period should be determined, can be either `metered` or `licensed`. `licensed` will automatically bill the `quantity` set for a plan when adding it to a subscription, `metered` will aggregate the total usage based on usage records. Defaults to `licensed`.",
+  "name" : "The plan name. Customers may see this value on Stripe-generated invoices and receipts.",
+  "nickname" : "A brief description of the plan, hidden from customers.",
+  "currency" : "Three-letter [ISO currency code](https://www.iso.org/iso-4217-currency-codes.html), in lowercase. Must be a [supported currency](https://stripe.com/docs/currencies).",
+  "interval" : "Specifies billing frequency. Either `day`, `week`, `month` or `year`.",
+  "id" : "An identifier randomly generated by Stripe. Used to identify this plan when subscribing a customer. You can optionally override this ID, but the ID must be unique across all plans in your Stripe account. You can, however, use the same plan ID in both live and test modes."
+}
+```
 
 </details>
 
@@ -385,15 +1221,23 @@ Once entirely refunded, an application fee can’t be refunded again.This method
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 The identifier of the application fee to be refunded.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "amount" : "A positive integer, in _%s_, representing how much of this fee to refund. Can refund only up to the remaining unrefunded amount of the fee.",
+  "expand" : [ "string" ],
+  "metadata" : { }
+}
+```
 
 </details>
 
@@ -403,9 +1247,16 @@ To connect to a reader the Stripe Terminal SDK needs to retrieve a short-lived c
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "expand" : [ "string" ],
+  "operator_account" : "If the request is being made from the platform account but the reader is being operated by a connected account, indicate the operating account."
+}
+```
 
 </details>
 
@@ -415,9 +1266,25 @@ Creates a new Location object.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "expand" : [ "string" ],
+  "address" : {
+    "country" : "Required string",
+    "city" : "Required string",
+    "state" : "string",
+    "postal_code" : "Required string",
+    "line2" : "string",
+    "line1" : "Required string"
+  },
+  "display_name" : "A name for the location.",
+  "operator_account" : "If the request is being made from the platform account but the reader is being operated by a connected account, indicate the operating account."
+}
+```
 
 </details>
 
@@ -427,9 +1294,19 @@ Creates a new Reader object.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "expand" : [ "string" ],
+  "registration_code" : "A code generated by the reader used for registering to an account.",
+  "location" : "The location to assign the reader to. If no location is specified, the reader will be assigned to the account's default location.",
+  "label" : "Custom label given to the reader for easier identification. If no label is specified, the registration code will be used.",
+  "operator_account" : "If the request is being made from the platform account but the reader is being operated by a connected account, indicate the operating account."
+}
+```
 
 </details>
 
@@ -439,9 +1316,35 @@ Creates a new product object. To create a product for use with subscriptions, se
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "deactivate_on" : [ "string" ],
+  "images" : [ "string" ],
+  "metadata" : { },
+  "active" : "Whether the product is currently available for purchase. Defaults to `true`.",
+  "caption" : "A short one-line description of the product, meant to be displayable to the customer. May only be set if type=`good`.",
+  "description" : "The product's description, meant to be displayable to the customer. May only be set if type=`good`.",
+  "type" : "The type of the product. The product is either of type `service`, which is eligible for use with Subscriptions and Plans or `good`, which is eligible for use with Orders and SKUs.",
+  "url" : "A URL of a publicly-accessible webpage for this product. May only be set if type=`good`.",
+  "package_dimensions" : {
+    "length" : "Required number",
+    "width" : "Required number",
+    "weight" : "Required number",
+    "height" : "Required number"
+  },
+  "statement_descriptor" : "An arbitrary string to be displayed on your customer's credit card statement. This may be up to 22 characters. The statement description may not include &lt;&gt;\"' characters, and will appear on your customer's statement in capital letters. Non-ASCII characters are automatically stripped. While most banks display this information consistently, some may display it incorrectly or not at all. It must contain at least one letter. May only be set if type=`service`.",
+  "expand" : [ "string" ],
+  "shippable" : "Whether this product is shipped (i.e., physical goods). Defaults to `true`. May only be set if type=`good`.",
+  "name" : "The product's name, meant to be displayable to the customer. Applicable to both `service` and `good` types.",
+  "attributes" : [ "string" ],
+  "id" : "An identifier will be randomly generated by Stripe. You can optionally override this ID, but the ID must be unique across all products in your Stripe account. Applicable to both `service` and `good` types.",
+  "unit_label" : "A label that represents units of this product, such as seat(s), in Stripe and on customers’ receipts and invoices. Only available on products of type=`service`."
+}
+```
 
 </details>
 
@@ -451,9 +1354,23 @@ Creates a new product object. To create a product for use with subscriptions, se
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "reason" : "string. Possible values: duplicate | fraudulent | requested_by_customer",
+  "amount" : "integer",
+  "expand" : [ "string" ],
+  "metadata" : { },
+  "charge" : "string",
+  "refund_application_fee" : "boolean",
+  "description" : "string",
+  "reverse_transfer" : "boolean",
+  "directive" : { }
+}
+```
 
 </details>
 
@@ -463,9 +1380,34 @@ Creates a new SKU associated with a product.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "package_dimensions" : {
+    "length" : "Required number",
+    "width" : "Required number",
+    "weight" : "Required number",
+    "height" : "Required number"
+  },
+  "image" : "The URL of an image for this SKU, meant to be displayable to the customer.",
+  "expand" : [ "string" ],
+  "metadata" : { },
+  "product" : "The ID of the product this SKU is associated with. Must be a product with type `good`.",
+  "price" : "The cost of the item as a nonnegative integer in the smallest currency unit (that is, 100 cents to charge $1.00, or 100 to charge ¥100, Japanese Yen being a zero-decimal currency).",
+  "active" : "Whether the SKU is available for purchase. Default to `true`.",
+  "attributes" : "A dictionary of attributes and values for the attributes defined by the product. If, for example, a product's attributes are `[\"size\", \"gender\"]`, a valid SKU has the following dictionary of attributes: `{\"size\": \"Medium\", \"gender\": \"Unisex\"}`.",
+  "currency" : "Three-letter [ISO currency code](https://www.iso.org/iso-4217-currency-codes.html), in lowercase. Must be a [supported currency](https://stripe.com/docs/currencies).",
+  "id" : "The identifier for the SKU. Must be unique. If not provided, an identifier will be randomly generated.",
+  "inventory" : {
+    "quantity" : "integer",
+    "type" : "string. Possible values: bucket | finite | infinite",
+    "value" : "string. Possible values:  | in_stock | limited | out_of_stock"
+  }
+}
+```
 
 </details>
 
@@ -475,9 +1417,53 @@ Creates a new source object.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "owner" : {
+    "address" : {
+      "country" : "string",
+      "city" : "string",
+      "state" : "string",
+      "postal_code" : "string",
+      "line2" : "string",
+      "line1" : "string"
+    },
+    "phone" : "string",
+    "name" : "string",
+    "email" : "string"
+  },
+  "redirect" : {
+    "return_url" : "Required string"
+  },
+  "amount" : "Amount associated with the source. This is the amount for which the source will be chargeable once ready. Required for `single_use` sources.",
+  "mandate" : {
+    "notification_method" : "string. Possible values: email | manual | none",
+    "acceptance" : {
+      "date" : "Required integer",
+      "ip" : "Required string",
+      "user_agent" : "Required string",
+      "status" : "Required string. Possible values: accepted | pending | refused | revoked"
+    }
+  },
+  "metadata" : { },
+  "receiver" : {
+    "refund_attributes_method" : "string. Possible values: email | manual | none"
+  },
+  "usage" : "string. Possible values: reusable | single_use",
+  "type" : "The `type` of the source to create. Required unless `customer` and `original_source` are specified (see the [Shared card Sources](/docs/sources/connect#shared-card-sources) guide)",
+  "original_source" : "The source to share.",
+  "token" : "An optional token used to create the source. When passed, token properties will override source parameters.",
+  "statement_descriptor" : "An arbitrary string to be displayed on your customer's statement. As an example, if your website is `RunClub` and the item you're charging for is a race ticket, you may want to specify a `statement_descriptor` of `RunClub 5K race ticket.` While many payment types will display this information, some may not display it at all.",
+  "expand" : [ "string" ],
+  "currency" : "Three-letter [ISO code for the currency](https://stripe.com/docs/currencies) associated with the source. This is the currency for which the source will be chargeable once ready.",
+  "flow" : "The authentication `flow` of the source to create. `flow` is one of `redirect`, `receiver`, `code_verification`, `none`. It is generally inferred unless a type supports multiple flows.",
+  "customer" : "The `Customer` to whom the original source is attached to. Must be set when the original source is not a `Source` (e.g., `Card`)."
+}
+```
 
 </details>
 
@@ -487,9 +1473,32 @@ Creates a new subscription on an existing customer.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "metadata" : { },
+  "cancel_at_period_end" : "Boolean indicating whether this subscription should cancel at the end of the current period.",
+  "coupon" : "The code of the coupon to apply to this subscription. A coupon applied to a subscription will only affect invoices created for that particular subscription.",
+  "days_until_due" : "Number of days a customer has to pay invoices generated by this subscription. Valid only for subscriptions where `billing` is set to `send_invoice`.",
+  "trial_end" : "Unix timestamp representing the end of the trial period the customer will get before being charged for the first time. This will always overwrite any trials that might apply via a subscribed plan. If set, trial_end will override the default trial period of the plan the customer is being subscribed to. The special value `now` can be provided to end the customer's trial immediately.",
+  "trial_period_days" : "Integer representing the number of trial period days before the customer is charged for the first time. This will always overwrite any trials that might apply via a subscribed plan.",
+  "application_fee_percent" : "A non-negative decimal between 0 and 100, with at most two decimal places. This represents the percentage of the subscription invoice subtotal that will be transferred to the application owner's Stripe account. The request must be made with an OAuth key in order to set an application fee percentage. For more information, see the application fees [documentation](https://stripe.com/docs/connect/subscriptions#collecting-fees-on-subscriptions).",
+  "billing_cycle_anchor" : "A future timestamp to anchor the subscription's [billing cycle](/docs/subscriptions/billing-cycle). This is used to determine the date of the first full invoice, and, for plans with `month` or `year` intervals, the day of the month for subsequent invoices.",
+  "billing" : "Either `charge_automatically`, or `send_invoice`. When charging automatically, Stripe will attempt to pay this subscription at the end of the cycle using the default source attached to the customer. When sending an invoice, Stripe will email your customer an invoice with payment instructions. Defaults to `charge_automatically`.",
+  "tax_percent" : "A non-negative decimal (with at most four decimal places) between 0 and 100. This represents the percentage of the subscription invoice subtotal that will be calculated and added as tax to the final amount in each billing period. For example, a plan which charges $10/month with a `tax_percent` of `20.0` will charge $12 per invoice. To unset a previously-set value, pass an empty string.",
+  "expand" : [ "string" ],
+  "trial_from_plan" : "Indicates if a plan's `trial_period_days` should be applied to the subscription. Setting `trial_end` per subscription is preferred, and this defaults to `false`. Setting this flag to `true` together with `trial_end` is not allowed.",
+  "items" : [ {
+    "quantity" : "integer",
+    "plan" : "Required string"
+  } ],
+  "prorate" : "Boolean (defaults to `true`) telling us whether to [credit for unused time](/docs/subscriptions/billing-cycle#prorations) when the billing cycle changes (e.g. when switching plans, resetting `billing_cycle_anchor=now`, or starting a trial). If `false`, the anchor period will be free (similar to a trial) and no proration adjustments will be created.",
+  "customer" : "The identifier of the customer to subscribe."
+}
+```
 
 </details>
 
@@ -499,9 +1508,21 @@ Adds a new item to an existing subscription. No existing items will be changed o
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "expand" : [ "string" ],
+  "metadata" : { },
+  "quantity" : "The quantity you'd like to apply to the subscription item you're creating.",
+  "subscription" : "The identifier of the subscription to modify.",
+  "plan" : "The identifier of the plan to add to the subscription.",
+  "prorate" : "Flag indicating whether to [prorate](/docs/subscriptions/upgrading-downgrading#understanding-proration) switching plans during a billing cycle.",
+  "proration_date" : "If set, the proration will be calculated as though the subscription was updated at the given time. This can be used to apply the same proration that was previewed with the [upcoming invoice](#retrieve_customer_invoice) endpoint."
+}
+```
 
 </details>
 
@@ -511,9 +1532,22 @@ Top up the balance of an account
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "statement_descriptor" : "Extra information about a top-up for the source's bank statement. Limited to 15 ASCII characters.",
+  "amount" : "A positive integer in %s representing how much to transfer.",
+  "expand" : [ "string" ],
+  "metadata" : { },
+  "transfer_group" : "A string that identifies this top-up as part of a group.",
+  "description" : "An arbitrary string attached to the object. Often useful for displaying to users.",
+  "currency" : "Three-letter [ISO currency code](https://www.iso.org/iso-4217-currency-codes.html), in lowercase. Must be a [supported currency](https://stripe.com/docs/currencies).",
+  "source" : "The ID of a source to transfer funds from. For most users, this should be left unspecified which will use the bank account that was set up in the dashboard for the specified currency. In test mode, this can be a test bank token (see [Testing Top-ups](/docs/connect/testing#testing-top-ups))."
+}
+```
 
 </details>
 
@@ -523,9 +1557,22 @@ To send funds from your Stripe account to a connected account, you create a new 
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "amount" : "A positive integer in %s representing how much to transfer.",
+  "expand" : [ "string" ],
+  "metadata" : { },
+  "transfer_group" : "A string that identifies this transaction as part of a group. See the [Connect documentation](/docs/connect/charges-transfers#grouping-transactions) for details.",
+  "destination" : "The ID of a connected Stripe account. See the Connect documentation for details.",
+  "description" : "An arbitrary string attached to the object. Often useful for displaying to users.",
+  "source_transaction" : "You can use this parameter to transfer funds from a charge before they are added to your available balance. A pending balance will transfer immediately but the funds will not become available until the original charge becomes available. [See the Connect documentation](/docs/connect/charges-transfers#transfer-availability) for details.",
+  "currency" : "3-letter [ISO code for currency](/docs/payouts)."
+}
+```
 
 </details>
 
@@ -535,9 +1582,23 @@ Creates a new Recipient object and verifies the recipient’s identity.Also veri
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "expand" : [ "string" ],
+  "metadata" : { },
+  "name" : "The recipient's full, legal name. For type `individual`, should be in the format `First Last`, `First Middle Last`, or `First M Last` (no prefixes or suffixes). For `corporation`, the full, incorporated name.",
+  "description" : "An arbitrary string which you can attach to a `Recipient` object. It is displayed alongside the recipient in the web interface.",
+  "type" : "Type of the recipient: either `individual` or `corporation`.",
+  "card" : { },
+  "email" : "The recipient's email address. It is displayed alongside the recipient in the web interface, and can be useful for searching and tracking.",
+  "tax_id" : "The recipient's tax ID, as a string. For type `individual`, the full SSN; for type `corporation`, the full EIN.",
+  "bank_account" : { }
+}
+```
 
 </details>
 
@@ -549,15 +1610,25 @@ Once entirely reversed, a transfer can’t be reversed again. This method will r
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 The ID of the transfer to be reversed.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "amount" : "A positive integer in %s representing how much of this transfer to reverse. Can only reverse up to the unreversed amount remaining of the transfer. Partial transfer reversals are only allowed for transfers to Stripe Accounts. Defaults to the entire transfer amount.",
+  "expand" : [ "string" ],
+  "metadata" : { },
+  "refund_application_fee" : "Boolean indicating whether the application fee should be refunded when reversing this transfer. If a full transfer reversal is given, the full application fee will be refunded. Otherwise, the application fee will be refunded with an amount proportional to the amount of the transfer reversed.",
+  "description" : "An arbitrary string which you can attach to a reversal object. It is displayed alongside the reversal in the Dashboard. This will be unset if you POST an empty value."
+}
+```
 
 </details>
 
@@ -567,15 +1638,24 @@ Creates a usage record for a specified subscription item and date, and fills it 
 
 <details><summary>Parameters</summary>
 
-#### subscription_item (required)
+### subscription_item (required)
 
 The ID of the subscription item for this usage record.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "expand" : [ "string" ],
+  "quantity" : "The usage quantity for the specified timestamp.",
+  "action" : "Valid values are `increment` (default) or `set`. When using `increment` the specified `quantity` will be added to the usage at the specified timestamp. The `set` action will overwrite the usage quantity at that timestamp.",
+  "timestamp" : "The timestamp for the usage event. This timestamp must be within the current billing period of the subscription of the provided `subscription_item`."
+}
+```
 
 </details>
 
@@ -585,15 +1665,21 @@ Declines a pending Issuing Authorization object.
 
 <details><summary>Parameters</summary>
 
-#### authorization (required)
+### authorization (required)
 
 The identifier of the issuing authorization to decline.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "expand" : [ "string" ]
+}
+```
 
 </details>
 
@@ -605,7 +1691,7 @@ If you are looking to close your own account, use the data tab in your account s
 
 <details><summary>Parameters</summary>
 
-#### account (required)
+### account (required)
 
 The identifier of the account to be deleted. If none is provided, will default to the account of the API key.
 
@@ -619,11 +1705,11 @@ The identifier of the account to be deleted. If none is provided, will default t
 
 <details><summary>Parameters</summary>
 
-#### account (required)
+### account (required)
 
 **Type:** string
 
-#### id (required)
+### id (required)
 
 The ID of the external account to be deleted.
 
@@ -637,7 +1723,7 @@ You can delete coupons via the coupon management page of the Stripe dashboard. H
 
 <details><summary>Parameters</summary>
 
-#### coupon (required)
+### coupon (required)
 
 The identifier of the coupon to be deleted.
 
@@ -651,7 +1737,7 @@ Permanently deletes a customer. It cannot be undone. Also immediately cancels an
 
 <details><summary>Parameters</summary>
 
-#### customer (required)
+### customer (required)
 
 The identifier of the customer to be deleted.
 
@@ -665,7 +1751,7 @@ Removes the currently applied discount on a customer.
 
 <details><summary>Parameters</summary>
 
-#### customer (required)
+### customer (required)
 
 **Type:** string
 
@@ -677,11 +1763,11 @@ Removes the currently applied discount on a customer.
 
 <details><summary>Parameters</summary>
 
-#### customer (required)
+### customer (required)
 
 **Type:** string
 
-#### id (required)
+### id (required)
 
 The ID of the source to be deleted.
 
@@ -695,7 +1781,7 @@ Removes an invoice item from the upcoming invoice. Removing an invoice item is o
 
 <details><summary>Parameters</summary>
 
-#### invoiceitem (required)
+### invoiceitem (required)
 
 The identifier of the invoice item to be deleted.
 
@@ -709,7 +1795,7 @@ Deleting plans means new subscribers can’t be added. Existing subscribers aren
 
 <details><summary>Parameters</summary>
 
-#### plan (required)
+### plan (required)
 
 The identifier of the plan to be deleted.
 
@@ -723,7 +1809,7 @@ Delete a product. Deleting a product with type=good is only possible if it has n
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 The ID of the product to delete.
 
@@ -737,7 +1823,7 @@ Delete a SKU. Deleting a SKU is only possible until it has been used in an order
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 The identifier of the SKU to be deleted.
 
@@ -753,7 +1839,7 @@ By default, upon subscription cancellation, Stripe will close all unpaid invoice
 
 <details><summary>Parameters</summary>
 
-#### subscription_exposed_id (required)
+### subscription_exposed_id (required)
 
 **Type:** string
 
@@ -765,7 +1851,7 @@ Removes the currently applied discount on a subscription.
 
 <details><summary>Parameters</summary>
 
-#### subscription_exposed_id (required)
+### subscription_exposed_id (required)
 
 **Type:** string
 
@@ -777,7 +1863,7 @@ Deletes an item from the subscription. Removing a subscription item from a subsc
 
 <details><summary>Parameters</summary>
 
-#### item (required)
+### item (required)
 
 The identifier of the subscription item to delete.
 
@@ -791,7 +1877,7 @@ Permanently deletes a recipient. It cannot be undone.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 The identifier of the recipient to be deleted.
 
@@ -805,17 +1891,21 @@ Retrieves the details of the account.
 
 <details><summary>Parameters</summary>
 
-#### account (required)
+### account (required)
 
 The identifier of the account to retrieve. If none is provided, the account associated with the API key is returned.
 
 **Type:** string
 
-#### expand
+### expand
 
 Specifies which fields in the response should be expanded.
 
 **Type:** array
+
+```json
+[ "string" ]
+```
 
 </details>
 
@@ -825,11 +1915,15 @@ Returns a list of accounts connected to your platform via Connect. If you’re n
 
 <details><summary>Parameters</summary>
 
-#### expand
+### expand
 
 Specifies which fields in the response should be expanded.
 
 **Type:** array
+
+```json
+[ "string" ]
+```
 
 </details>
 
@@ -839,37 +1933,59 @@ Returns a list of transactions that have contributed to the Stripe account balan
 
 <details><summary>Parameters</summary>
 
-#### available_on
+### available_on
 
 **Type:** object
 
-#### created
+```json
+{
+  "lt" : "integer",
+  "gte" : "integer",
+  "lte" : "integer",
+  "gt" : "integer"
+}
+```
+
+### created
 
 **Type:** object
 
-#### currency
+```json
+{
+  "lt" : "integer",
+  "gte" : "integer",
+  "lte" : "integer",
+  "gt" : "integer"
+}
+```
+
+### currency
 
 **Type:** string
 
-#### expand
+### expand
 
 Specifies which fields in the response should be expanded.
 
 **Type:** array
 
-#### payout
+```json
+[ "string" ]
+```
+
+### payout
 
 For automatic Stripe payouts only, only returns transactions that were payed out on the specified payout ID.
 
 **Type:** string
 
-#### source
+### source
 
 Only returns the original transaction.
 
 **Type:** string
 
-#### type
+### type
 
 Only returns transactions of the given type. One of: `charge`, `refund`, `adjustment`, `application_fee`, `application_fee_refund`, `transfer`, `payment`, `payout`, `payout_failure`, `stripe_fee`, or `network_cost`.
 
@@ -883,29 +1999,48 @@ Returns a list of charges you’ve previously created. The charges are returned 
 
 <details><summary>Parameters</summary>
 
-#### created
+### created
 
 **Type:** object
 
-#### customer
+```json
+{
+  "lt" : "integer",
+  "gte" : "integer",
+  "lte" : "integer",
+  "gt" : "integer"
+}
+```
+
+### customer
 
 Only return charges for the customer specified by this customer ID.
 
 **Type:** string
 
-#### expand
+### expand
 
 Specifies which fields in the response should be expanded.
 
 **Type:** array
 
-#### source
+```json
+[ "string" ]
+```
+
+### source
 
 A filter on the list, based on the source of the charge. The value can be a dictionary with the following options:
 
 **Type:** object
 
-#### transfer_group
+```json
+{
+  "object" : "string"
+}
+```
+
+### transfer_group
 
 Only return charges for this transfer group.
 
@@ -919,11 +2054,15 @@ Lists all Country Spec objects available in the API.
 
 <details><summary>Parameters</summary>
 
-#### expand
+### expand
 
 Specifies which fields in the response should be expanded.
 
 **Type:** array
+
+```json
+[ "string" ]
+```
 
 </details>
 
@@ -933,17 +2072,30 @@ Returns a list of your coupons.
 
 <details><summary>Parameters</summary>
 
-#### created
+### created
 
 A filter on the list, based on the object `created` field. The value can be a string with an integer Unix timestamp, or it can be a dictionary with a number of different query options.
 
 **Type:** object
 
-#### expand
+```json
+{
+  "lt" : "integer",
+  "gte" : "integer",
+  "lte" : "integer",
+  "gt" : "integer"
+}
+```
+
+### expand
 
 Specifies which fields in the response should be expanded.
 
 **Type:** array
+
+```json
+[ "string" ]
+```
 
 </details>
 
@@ -953,25 +2105,29 @@ Specifies which fields in the response should be expanded.
 
 <details><summary>Parameters</summary>
 
-#### customer (required)
+### customer (required)
 
 The ID of the customer whose sources will be retrieved.
 
 **Type:** string
 
-#### expand
+### expand
 
 Specifies which fields in the response should be expanded.
 
 **Type:** array
 
-#### object
+```json
+[ "string" ]
+```
+
+### object
 
 Filter sources according to a particular object type.
 
 **Type:** string
 
-#### type
+### type
 
 **Type:** string
 
@@ -983,17 +2139,21 @@ You can see a list of the customer’s active subscriptions. Note that the 10 mo
 
 <details><summary>Parameters</summary>
 
-#### customer (required)
+### customer (required)
 
 The ID of the customer whose subscriptions will be retrieved.
 
 **Type:** string
 
-#### expand
+### expand
 
 Specifies which fields in the response should be expanded.
 
 **Type:** array
+
+```json
+[ "string" ]
+```
 
 </details>
 
@@ -1003,21 +2163,34 @@ Returns a list of your customers. The customers are returned sorted by creation 
 
 <details><summary>Parameters</summary>
 
-#### created
+### created
 
 **Type:** object
 
-#### email
+```json
+{
+  "lt" : "integer",
+  "gte" : "integer",
+  "lte" : "integer",
+  "gt" : "integer"
+}
+```
+
+### email
 
 A filter on the list based on the customer's `email` field. The value must be a string.
 
 **Type:** string
 
-#### expand
+### expand
 
 Specifies which fields in the response should be expanded.
 
 **Type:** array
+
+```json
+[ "string" ]
+```
 
 </details>
 
@@ -1027,15 +2200,28 @@ Returns a list of your disputes.
 
 <details><summary>Parameters</summary>
 
-#### created
+### created
 
 **Type:** object
 
-#### expand
+```json
+{
+  "lt" : "integer",
+  "gte" : "integer",
+  "lte" : "integer",
+  "gt" : "integer"
+}
+```
+
+### expand
 
 Specifies which fields in the response should be expanded.
 
 **Type:** array
+
+```json
+[ "string" ]
+```
 
 </details>
 
@@ -1045,15 +2231,19 @@ Specifies which fields in the response should be expanded.
 
 <details><summary>Parameters</summary>
 
-#### account (required)
+### account (required)
 
 **Type:** string
 
-#### expand
+### expand
 
 Specifies which fields in the response should be expanded.
 
 **Type:** array
+
+```json
+[ "string" ]
+```
 
 </details>
 
@@ -1063,23 +2253,36 @@ Returns a list of file links.
 
 <details><summary>Parameters</summary>
 
-#### created
+### created
 
 **Type:** object
 
-#### expand
+```json
+{
+  "lt" : "integer",
+  "gte" : "integer",
+  "lte" : "integer",
+  "gt" : "integer"
+}
+```
+
+### expand
 
 Specifies which fields in the response should be expanded.
 
 **Type:** array
 
-#### expired
+```json
+[ "string" ]
+```
+
+### expired
 
 Filter links by their expiration status. By default, all links are returned.
 
 **Type:** boolean
 
-#### file
+### file
 
 Only return links for the given file.
 
@@ -1093,17 +2296,30 @@ Returns a list of the files that your account has access to. The files are retur
 
 <details><summary>Parameters</summary>
 
-#### created
+### created
 
 **Type:** object
 
-#### expand
+```json
+{
+  "lt" : "integer",
+  "gte" : "integer",
+  "lte" : "integer",
+  "gt" : "integer"
+}
+```
+
+### expand
 
 Specifies which fields in the response should be expanded.
 
 **Type:** array
 
-#### purpose
+```json
+[ "string" ]
+```
+
+### purpose
 
 The file purpose to filter queries by. If none is provided, files will not be filtered by purpose.
 
@@ -1119,23 +2335,36 @@ Returns a list of your invoice items. Invoice items are returned sorted by creat
 
 <details><summary>Parameters</summary>
 
-#### created
+### created
 
 **Type:** object
 
-#### customer
+```json
+{
+  "lt" : "integer",
+  "gte" : "integer",
+  "lte" : "integer",
+  "gt" : "integer"
+}
+```
+
+### customer
 
 The identifier of the customer whose invoice items to return. If none is provided, all invoice items will be returned.
 
 **Type:** string
 
-#### expand
+### expand
 
 Specifies which fields in the response should be expanded.
 
 **Type:** array
 
-#### invoice
+```json
+[ "string" ]
+```
+
+### invoice
 
 Only return invoice items belonging to this invoice. If none is provided, all invoice items will be returned. If specifying an invoice, no customer identifier is needed.
 
@@ -1149,17 +2378,21 @@ When retrieving an invoice, you’ll get a lines property containing the total c
 
 <details><summary>Parameters</summary>
 
-#### invoice (required)
+### invoice (required)
 
 The ID of the invoice containing the lines to be retrieved.
 
 **Type:** string
 
-#### expand
+### expand
 
 Specifies which fields in the response should be expanded.
 
 **Type:** array
+
+```json
+[ "string" ]
+```
 
 </details>
 
@@ -1169,7 +2402,7 @@ You can list all invoices, or list the invoices for a specific customer. The inv
 
 <details><summary>Parameters</summary>
 
-#### billing
+### billing
 
 The billing mode of the invoice to retrieve. Either `charge_automatically` or `send_invoice`.
 
@@ -1177,27 +2410,49 @@ The billing mode of the invoice to retrieve. Either `charge_automatically` or `s
 
 **Potential values:** charge_automatically, send_invoice
 
-#### customer
+### customer
 
 Only return invoices for the customer specified by this customer ID.
 
 **Type:** string
 
-#### date
+### date
 
 **Type:** object
 
-#### due_date
+```json
+{
+  "lt" : "integer",
+  "gte" : "integer",
+  "lte" : "integer",
+  "gt" : "integer"
+}
+```
+
+### due_date
 
 **Type:** object
 
-#### expand
+```json
+{
+  "lt" : "integer",
+  "gte" : "integer",
+  "lte" : "integer",
+  "gt" : "integer"
+}
+```
+
+### expand
 
 Specifies which fields in the response should be expanded.
 
 **Type:** array
 
-#### subscription
+```json
+[ "string" ]
+```
+
+### subscription
 
 Only return invoices for the subscription specified by this subscription ID.
 
@@ -1211,31 +2466,44 @@ Returns a list of Issuing Authorization objects. The objects are sorted in desce
 
 <details><summary>Parameters</summary>
 
-#### card
+### card
 
 Only return issuing transactions that belong to the given card.
 
 **Type:** string
 
-#### cardholder
+### cardholder
 
 Only return authorizations belonging to the given cardholder.
 
 **Type:** string
 
-#### created
+### created
 
 Only return authorizations that were created during the given date interval.
 
 **Type:** object
 
-#### expand
+```json
+{
+  "lt" : "integer",
+  "gte" : "integer",
+  "lte" : "integer",
+  "gt" : "integer"
+}
+```
+
+### expand
 
 Specifies which fields in the response should be expanded.
 
 **Type:** array
 
-#### status
+```json
+[ "string" ]
+```
+
+### status
 
 Only return authorizations with the given status. One of pending, closed, or reversed.
 
@@ -1251,31 +2519,44 @@ Returns a list of Issuing Cardholder objects. The objects are sorted in descendi
 
 <details><summary>Parameters</summary>
 
-#### created
+### created
 
 Only return cardholders that were created during the given date interval.
 
 **Type:** object
 
-#### email
+```json
+{
+  "lt" : "integer",
+  "gte" : "integer",
+  "lte" : "integer",
+  "gt" : "integer"
+}
+```
+
+### email
 
 Only return cardholders that have the given email address.
 
 **Type:** string
 
-#### expand
+### expand
 
 Specifies which fields in the response should be expanded.
 
 **Type:** array
 
-#### phone_number
+```json
+[ "string" ]
+```
+
+### phone_number
 
 Only return cardholders that have the given phone number.
 
 **Type:** string
 
-#### status
+### status
 
 Only return cardholders that have the given status. One of `active` or `inactive`.
 
@@ -1283,7 +2564,7 @@ Only return cardholders that have the given status. One of `active` or `inactive
 
 **Potential values:** active, inactive
 
-#### type
+### type
 
 Only return cardholders that have the given type. One of One of `individual` or `business_entity`.
 
@@ -1299,55 +2580,68 @@ Returns a list of Issuing Card objects. The objects are sorted in descending ord
 
 <details><summary>Parameters</summary>
 
-#### cardholder
+### cardholder
 
 Only return cards belonging to the Cardholder with the provided ID.
 
 **Type:** string
 
-#### created
+### created
 
 Only return cards that were issued during the given date interval.
 
 **Type:** object
 
-#### exp_month
+```json
+{
+  "lt" : "integer",
+  "gte" : "integer",
+  "lte" : "integer",
+  "gt" : "integer"
+}
+```
+
+### exp_month
 
 Only return cards that have the given expiration month.
 
 **Type:** integer
 
-#### exp_year
+### exp_year
 
 Only return cards that have the given expiration year.
 
 **Type:** integer
 
-#### expand
+### expand
 
 Specifies which fields in the response should be expanded.
 
 **Type:** array
 
-#### last4
+```json
+[ "string" ]
+```
+
+### last4
 
 Only return cards that have the given last four digits.
 
 **Type:** string
 
-#### name
+### name
 
 Only return cards that have the given name.
 
 **Type:** string
 
-#### source
+### source
 
 Only return cards whose full card number matches that of this card source ID.
 
 **Type:** string
 
-#### status
+### status
 
 Only return cards that have the given status. One of `active`, `inactive`, or `canceled`.
 
@@ -1355,7 +2649,7 @@ Only return cards that have the given status. One of `active`, `inactive`, or `c
 
 **Potential values:** active, canceled, inactive, lost, pending_compliance, stolen
 
-#### type
+### type
 
 Only return cards that have the given type. One of `virtual` or `physical`.
 
@@ -1371,23 +2665,36 @@ Returns a list of Issuing Dispute objects. The objects are sorted in descending 
 
 <details><summary>Parameters</summary>
 
-#### created
+### created
 
 Only return issuing disputes that were created during the given date interval.
 
 **Type:** object
 
-#### disputed_transaction
+```json
+{
+  "lt" : "integer",
+  "gte" : "integer",
+  "lte" : "integer",
+  "gt" : "integer"
+}
+```
+
+### disputed_transaction
 
 Only return issuing disputes for the given transaction.
 
 **Type:** string
 
-#### expand
+### expand
 
 Specifies which fields in the response should be expanded.
 
 **Type:** array
+
+```json
+[ "string" ]
+```
 
 </details>
 
@@ -1397,29 +2704,42 @@ Returns a list of Issuing Transaction objects. The objects are sorted in descend
 
 <details><summary>Parameters</summary>
 
-#### card
+### card
 
 Only return issuing transactions that belong to the given card.
 
 **Type:** string
 
-#### cardholder
+### cardholder
 
 Only return authorizations belonging to the given cardholder.
 
 **Type:** string
 
-#### created
+### created
 
 Only return transactions that were created during the given date interval.
 
 **Type:** object
 
-#### expand
+```json
+{
+  "lt" : "integer",
+  "gte" : "integer",
+  "lte" : "integer",
+  "gt" : "integer"
+}
+```
+
+### expand
 
 Specifies which fields in the response should be expanded.
 
 **Type:** array
+
+```json
+[ "string" ]
+```
 
 </details>
 
@@ -1429,33 +2749,50 @@ List events, going back up to 30 days.
 
 <details><summary>Parameters</summary>
 
-#### created
+### created
 
 **Type:** object
 
-#### delivery_success
+```json
+{
+  "lt" : "integer",
+  "gte" : "integer",
+  "lte" : "integer",
+  "gt" : "integer"
+}
+```
+
+### delivery_success
 
 Filter events by whether all webhooks were successfully delivered. If false, events which are still pending or have failed all delivery attempts to a webhook endpoint will be returned.
 
 **Type:** boolean
 
-#### expand
+### expand
 
 Specifies which fields in the response should be expanded.
 
 **Type:** array
 
-#### type
+```json
+[ "string" ]
+```
+
+### type
 
 A string containing a specific event name, or group of events using * as a wildcard. The list will be filtered to include only events with a matching event property.
 
 **Type:** string
 
-#### types
+### types
 
 An array of up to 20 strings containing specific event names. The list will be filtered to include only events with a matching event property. You may pass either `type` or `types`, but not both.
 
 **Type:** array
+
+```json
+[ "string" ]
+```
 
 </details>
 
@@ -1465,19 +2802,32 @@ Returns a list of your order returns. The returns are returned sorted by creatio
 
 <details><summary>Parameters</summary>
 
-#### created
+### created
 
 Date this return was created.
 
 **Type:** object
 
-#### expand
+```json
+{
+  "lt" : "integer",
+  "gte" : "integer",
+  "lte" : "integer",
+  "gt" : "integer"
+}
+```
+
+### expand
 
 Specifies which fields in the response should be expanded.
 
 **Type:** array
 
-#### order
+```json
+[ "string" ]
+```
+
+### order
 
 The order to retrieve returns for.
 
@@ -1491,47 +2841,97 @@ Returns a list of your orders. The orders are returned sorted by creation date, 
 
 <details><summary>Parameters</summary>
 
-#### created
+### created
 
 Date this order was created.
 
 **Type:** object
 
-#### customer
+```json
+{
+  "lt" : "integer",
+  "gte" : "integer",
+  "lte" : "integer",
+  "gt" : "integer"
+}
+```
+
+### customer
 
 Only return orders for the given customer.
 
 **Type:** string
 
-#### expand
+### expand
 
 Specifies which fields in the response should be expanded.
 
 **Type:** array
 
-#### ids
+```json
+[ "string" ]
+```
+
+### ids
 
 Only return orders with the given IDs.
 
 **Type:** array
 
-#### status
+```json
+[ "string" ]
+```
+
+### status
 
 Only return orders that have the given status. One of `created`, `paid`, `fulfilled`, or `refunded`.
 
 **Type:** string
 
-#### status_transitions
+### status_transitions
 
 Filter orders based on when they were paid, fulfilled, canceled, or returned.
 
 **Type:** object
 
-#### upstream_ids
+```json
+{
+  "canceled" : {
+    "lt" : "integer",
+    "gte" : "integer",
+    "lte" : "integer",
+    "gt" : "integer"
+  },
+  "fulfilled" : {
+    "lt" : "integer",
+    "gte" : "integer",
+    "lte" : "integer",
+    "gt" : "integer"
+  },
+  "paid" : {
+    "lt" : "integer",
+    "gte" : "integer",
+    "lte" : "integer",
+    "gt" : "integer"
+  },
+  "returned" : {
+    "lt" : "integer",
+    "gte" : "integer",
+    "lte" : "integer",
+    "gt" : "integer"
+  }
+}
+```
+
+### upstream_ids
 
 Only return orders with the given upstream order IDs.
 
 **Type:** array
+
+```json
+[ "string" ]
+```
 
 </details>
 
@@ -1541,17 +2941,30 @@ Returns a list of PaymentIntents.
 
 <details><summary>Parameters</summary>
 
-#### created
+### created
 
 A filter on the list, based on the object `created` field. The value can be a string with an integer Unix timestamp, or it can be a dictionary with a number of different query options.
 
 **Type:** object
 
-#### expand
+```json
+{
+  "lt" : "integer",
+  "gte" : "integer",
+  "lte" : "integer",
+  "gt" : "integer"
+}
+```
+
+### expand
 
 Specifies which fields in the response should be expanded.
 
 **Type:** array
+
+```json
+[ "string" ]
+```
 
 </details>
 
@@ -1561,27 +2974,49 @@ Returns a list of existing payouts sent to third-party bank accounts or that Str
 
 <details><summary>Parameters</summary>
 
-#### arrival_date
+### arrival_date
 
 **Type:** object
 
-#### created
+```json
+{
+  "lt" : "integer",
+  "gte" : "integer",
+  "lte" : "integer",
+  "gt" : "integer"
+}
+```
+
+### created
 
 **Type:** object
 
-#### destination
+```json
+{
+  "lt" : "integer",
+  "gte" : "integer",
+  "lte" : "integer",
+  "gt" : "integer"
+}
+```
+
+### destination
 
 The ID of an external account - only return payouts sent to this external account.
 
 **Type:** string
 
-#### expand
+### expand
 
 Specifies which fields in the response should be expanded.
 
 **Type:** array
 
-#### status
+```json
+[ "string" ]
+```
+
+### status
 
 Only return payouts that have the given status: `pending`, `paid`, `failed`, or `canceled`.
 
@@ -1595,25 +3030,38 @@ Returns a list of your plans.
 
 <details><summary>Parameters</summary>
 
-#### active
+### active
 
 Only return plans that are active or inactive (e.g., pass `false` to list all inactive products).
 
 **Type:** boolean
 
-#### created
+### created
 
 A filter on the list, based on the object `created` field. The value can be a string with an integer Unix timestamp, or it can be a dictionary with a number of different query options.
 
 **Type:** object
 
-#### expand
+```json
+{
+  "lt" : "integer",
+  "gte" : "integer",
+  "lte" : "integer",
+  "gt" : "integer"
+}
+```
+
+### expand
 
 Specifies which fields in the response should be expanded.
 
 **Type:** array
 
-#### product
+```json
+[ "string" ]
+```
+
+### product
 
 Only return plans for the given product.
 
@@ -1627,21 +3075,34 @@ Returns a list of application fees you’ve previously collected. The applicatio
 
 <details><summary>Parameters</summary>
 
-#### charge
+### charge
 
 Only return application fees for the charge specified by this charge ID.
 
 **Type:** string
 
-#### created
+### created
 
 **Type:** object
 
-#### expand
+```json
+{
+  "lt" : "integer",
+  "gte" : "integer",
+  "lte" : "integer",
+  "gt" : "integer"
+}
+```
+
+### expand
 
 Specifies which fields in the response should be expanded.
 
 **Type:** array
+
+```json
+[ "string" ]
+```
 
 </details>
 
@@ -1651,17 +3112,21 @@ You can see a list of the refunds belonging to a specific application fee. Note 
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 The ID of the application fee whose refunds will be retrieved.
 
 **Type:** string
 
-#### expand
+### expand
 
 Specifies which fields in the response should be expanded.
 
 **Type:** array
+
+```json
+[ "string" ]
+```
 
 </details>
 
@@ -1671,13 +3136,17 @@ Returns a list of Location objects.
 
 <details><summary>Parameters</summary>
 
-#### expand
+### expand
 
 Specifies which fields in the response should be expanded.
 
 **Type:** array
 
-#### operator_account
+```json
+[ "string" ]
+```
+
+### operator_account
 
 The identifier of the account associated with this location.
 
@@ -1691,25 +3160,29 @@ Returns a list of Reader objects.
 
 <details><summary>Parameters</summary>
 
-#### expand
+### expand
 
 Specifies which fields in the response should be expanded.
 
 **Type:** array
 
-#### location
+```json
+[ "string" ]
+```
+
+### location
 
 A location id to filter the response list to only readers at the specific location
 
 **Type:** string
 
-#### operator_account
+### operator_account
 
 The identifier of the account associated with this reader.
 
 **Type:** string
 
-#### status
+### status
 
 A status filter to filter readers to only offline or online readers
 
@@ -1723,37 +3196,54 @@ Returns a list of your products. The products are returned sorted by creation da
 
 <details><summary>Parameters</summary>
 
-#### active
+### active
 
 Only return products that are active or inactive (e.g., pass `false` to list all inactive products).
 
 **Type:** boolean
 
-#### created
+### created
 
 Only return products that were created during the given date interval.
 
 **Type:** object
 
-#### expand
+```json
+{
+  "lt" : "integer",
+  "gte" : "integer",
+  "lte" : "integer",
+  "gt" : "integer"
+}
+```
+
+### expand
 
 Specifies which fields in the response should be expanded.
 
 **Type:** array
 
-#### ids
+```json
+[ "string" ]
+```
+
+### ids
 
 Only return products with the given IDs.
 
 **Type:** array
 
-#### shippable
+```json
+[ "string" ]
+```
+
+### shippable
 
 Only return products that can be shipped (i.e., physical, not digital products).
 
 **Type:** boolean
 
-#### type
+### type
 
 Only return products of this type.
 
@@ -1761,7 +3251,7 @@ Only return products of this type.
 
 **Potential values:** good, service
 
-#### url
+### url
 
 Only return products with the given url.
 
@@ -1775,21 +3265,34 @@ Returns a list of all refunds you’ve previously created. The refunds are retur
 
 <details><summary>Parameters</summary>
 
-#### charge
+### charge
 
 Only return refunds for the charge specified by this charge ID.
 
 **Type:** string
 
-#### created
+### created
 
 **Type:** object
 
-#### expand
+```json
+{
+  "lt" : "integer",
+  "gte" : "integer",
+  "lte" : "integer",
+  "gt" : "integer"
+}
+```
+
+### expand
 
 Specifies which fields in the response should be expanded.
 
 **Type:** array
+
+```json
+[ "string" ]
+```
 
 </details>
 
@@ -1799,11 +3302,15 @@ Returns a list of scheduled query runs.
 
 <details><summary>Parameters</summary>
 
-#### expand
+### expand
 
 Specifies which fields in the response should be expanded.
 
 **Type:** array
+
+```json
+[ "string" ]
+```
 
 </details>
 
@@ -1813,37 +3320,51 @@ Returns a list of your SKUs. The SKUs are returned sorted by creation date, with
 
 <details><summary>Parameters</summary>
 
-#### active
+### active
 
 Only return SKUs that are active or inactive (e.g., pass `false` to list all inactive products).
 
 **Type:** boolean
 
-#### attributes
+### attributes
 
 Only return SKUs that have the specified key/value pairs in this partially constructed dictionary. Can be specified only if `product` is also supplied. For instance, if the associated product has attributes `["color", "size"]`, passing in `attributes[color]=red` returns all the SKUs for this product that have `color` set to `red`.
 
 **Type:** object
 
-#### expand
+```json
+{
+  "<string>" : "string"
+}
+```
+
+### expand
 
 Specifies which fields in the response should be expanded.
 
 **Type:** array
 
-#### ids
+```json
+[ "string" ]
+```
+
+### ids
 
 Only return SKUs with the given IDs.
 
 **Type:** array
 
-#### in_stock
+```json
+[ "string" ]
+```
+
+### in_stock
 
 Only return SKUs that are either in stock or out of stock (e.g., pass `false` to list all SKUs that are out of stock). If no value is provided, all SKUs are returned.
 
 **Type:** boolean
 
-#### product
+### product
 
 The ID of the product whose SKUs will be retrieved. Must be a product with type `good`.
 
@@ -1857,17 +3378,21 @@ Returns a list of subscription item period summaries sorted in reverse-chronolog
 
 <details><summary>Parameters</summary>
 
-#### subscription_item (required)
+### subscription_item (required)
 
 Only summary items for the given subscription item.
 
 **Type:** string
 
-#### expand
+### expand
 
 Specifies which fields in the response should be expanded.
 
 **Type:** array
+
+```json
+[ "string" ]
+```
 
 </details>
 
@@ -1877,17 +3402,21 @@ Returns a list of your subscription items for a given subscription.
 
 <details><summary>Parameters</summary>
 
-#### subscription (required)
+### subscription (required)
 
 The ID of the subscription whose items will be retrieved.
 
 **Type:** string
 
-#### expand
+### expand
 
 Specifies which fields in the response should be expanded.
 
 **Type:** array
+
+```json
+[ "string" ]
+```
 
 </details>
 
@@ -1897,7 +3426,7 @@ By default, returns a list of subscriptions that have not been canceled. In orde
 
 <details><summary>Parameters</summary>
 
-#### billing
+### billing
 
 The billing mode of the subscriptions to retrieve. Either `charge_automatically` or `send_invoice`.
 
@@ -1905,29 +3434,42 @@ The billing mode of the subscriptions to retrieve. Either `charge_automatically`
 
 **Potential values:** charge_automatically, send_invoice
 
-#### created
+### created
 
 **Type:** object
 
-#### customer
+```json
+{
+  "lt" : "integer",
+  "gte" : "integer",
+  "lte" : "integer",
+  "gt" : "integer"
+}
+```
+
+### customer
 
 The ID of the customer whose subscriptions will be retrieved.
 
 **Type:** string
 
-#### expand
+### expand
 
 Specifies which fields in the response should be expanded.
 
 **Type:** array
 
-#### plan
+```json
+[ "string" ]
+```
+
+### plan
 
 The ID of the plan whose subscriptions will be retrieved.
 
 **Type:** string
 
-#### status
+### status
 
 The status of the subscriptions to retrieve. One of: `trialing`, `active`, `past_due`, `unpaid`, `canceled`, or `all`. Passing in a value of `canceled` will return all canceled subscriptions, including those belonging to deleted customers. Passing in a value of `all` will return subscriptions of all statuses.
 
@@ -1943,25 +3485,47 @@ Returns a list of top-ups.
 
 <details><summary>Parameters</summary>
 
-#### amount
+### amount
 
 A positive integer in %s representing how much to transfer.
 
 **Type:** object
 
-#### created
+```json
+{
+  "lt" : "integer",
+  "gte" : "integer",
+  "lte" : "integer",
+  "gt" : "integer"
+}
+```
+
+### created
 
 A filter on the list, based on the object `created` field. The value can be a string with an integer Unix timestamp, or it can be a dictionary with a number of different query options.
 
 **Type:** object
 
-#### expand
+```json
+{
+  "lt" : "integer",
+  "gte" : "integer",
+  "lte" : "integer",
+  "gt" : "integer"
+}
+```
+
+### expand
 
 Specifies which fields in the response should be expanded.
 
 **Type:** array
 
-#### status
+```json
+[ "string" ]
+```
+
+### status
 
 Only return top-ups that have the given status. One of `canceled`, `failed`, `pending` or `succeeded`.
 
@@ -1977,23 +3541,36 @@ Returns a list of your recipients. The recipients are returned sorted by creatio
 
 <details><summary>Parameters</summary>
 
-#### created
+### created
 
 **Type:** object
 
-#### expand
+```json
+{
+  "lt" : "integer",
+  "gte" : "integer",
+  "lte" : "integer",
+  "gt" : "integer"
+}
+```
+
+### expand
 
 Specifies which fields in the response should be expanded.
 
 **Type:** array
 
-#### type
+```json
+[ "string" ]
+```
+
+### type
 
 **Type:** string
 
 **Potential values:** corporation, individual
 
-#### verified
+### verified
 
 Only return recipients that are verified or unverified.
 
@@ -2007,17 +3584,21 @@ You can see a list of the reversals belonging to a specific transfer. Note that 
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 The ID of the transfer whose reversals will be retrieved.
 
 **Type:** string
 
-#### expand
+### expand
 
 Specifies which fields in the response should be expanded.
 
 **Type:** array
+
+```json
+[ "string" ]
+```
 
 </details>
 
@@ -2027,23 +3608,36 @@ Returns a list of existing transfers sent to connected accounts. The transfers a
 
 <details><summary>Parameters</summary>
 
-#### created
+### created
 
 **Type:** object
 
-#### destination
+```json
+{
+  "lt" : "integer",
+  "gte" : "integer",
+  "lte" : "integer",
+  "gt" : "integer"
+}
+```
+
+### destination
 
 Only return transfers for the destination specified by this account ID.
 
 **Type:** string
 
-#### expand
+### expand
 
 Specifies which fields in the response should be expanded.
 
 **Type:** array
 
-#### transfer_group
+```json
+[ "string" ]
+```
+
+### transfer_group
 
 Only return transfers with the specified transfer group.
 
@@ -2057,73 +3651,96 @@ When retrieving an upcoming invoice, you’ll get a lines property containing th
 
 <details><summary>Parameters</summary>
 
-#### customer (required)
+### customer (required)
 
 The customer of the upcoming invoice is required. In other cases it is ignored.
 
 **Type:** string
 
-#### coupon
+### coupon
 
 The code of the coupon to apply. If `subscription` or `subscription_items` is provided, the invoice returned will preview updating or creating a subscription with that coupon. Otherwise, it will preview applying that coupon to the customer for the next upcoming invoice from among the customer's subscriptions. The invoice can be previewed without a coupon by passing this value as an empty string.
 
 **Type:** string
 
-#### expand
+### expand
 
 Specifies which fields in the response should be expanded.
 
 **Type:** array
 
-#### subscription
+```json
+[ "string" ]
+```
+
+### subscription
 
 The identifier of the subscription for which you'd like to retrieve the upcoming invoice. If not provided, but a `subscription_items` is provided, you will preview creating a subscription with those items. If neither `subscription` nor `subscription_items` is provided, you will retrieve the next upcoming invoice from among the customer's subscriptions.
 
 **Type:** string
 
-#### subscription_billing_cycle_anchor
+### subscription_billing_cycle_anchor
 
 For new subscriptions, a future timestamp to anchor the subscription's [billing cycle](/docs/subscriptions/billing-cycle). This is used to determine the date of the first full invoice, and, for plans with `month` or `year` intervals, the day of the month for subsequent invoices.For existing subscriptions, the value can only be set to `now` or `unchanged`.
 
 **Type:** object
 
-#### subscription_cancel_at_period_end
+```json
+{ }
+```
+
+### subscription_cancel_at_period_end
 
 Boolean indicating whether this subscription should cancel at the end of the current period.
 
 **Type:** boolean
 
-#### subscription_items
+### subscription_items
 
 Preview updating the subscription with this list of items. Otherwise this parameter is ignored.
 
 **Type:** array
 
-#### subscription_prorate
+```json
+[ {
+  "metadata" : { },
+  "deleted" : "boolean",
+  "quantity" : "integer",
+  "clear_usage" : "boolean",
+  "id" : "string",
+  "plan" : "string"
+} ]
+```
+
+### subscription_prorate
 
 If previewing an update to a subscription, this decides whether the preview will show the result of applying prorations or not. If set, one of `subscription_items` or `subscription`, and one of `subscription_items` or `subscription_trial_end` are required.
 
 **Type:** boolean
 
-#### subscription_proration_date
+### subscription_proration_date
 
 If previewing an update to a subscription, and doing proration, `subscription_proration_date` forces the proration to be calculated as though the update was done at the specified time. The time given must be within the current subscription period, and cannot be before the subscription was on its current plan. If set, `subscription`, and one of `subscription_items`, or `subscription_trial_end` are required. Also, `subscription_proration` cannot be set to false.
 
 **Type:** integer
 
-#### subscription_tax_percent
+### subscription_tax_percent
 
 If provided, the invoice returned will preview updating or creating a subscription with that tax percent. If set, one of `subscription_items` or `subscription` is required.
 
 **Type:** number
 
-#### subscription_trial_end
+### subscription_trial_end
 
 If provided, the invoice returned will preview updating or creating a subscription with that trial end. If set, one of `subscription_items` or `subscription` is required.
 
 **Type:** object
 
-#### subscription_trial_from_plan
+```json
+{ }
+```
+
+### subscription_trial_from_plan
 
 Indicates if a plan's `trial_period_days` should be applied to the subscription. Setting `subscription_trial_end` per subscription is preferred, and this defaults to `false`. Setting this flag to `true` together with `subscription_trial_end` is not allowed.
 
@@ -2137,23 +3754,27 @@ By default, you can see the 10 most recent refunds stored directly on the applic
 
 <details><summary>Parameters</summary>
 
-#### fee (required)
+### fee (required)
 
 ID of the application fee refunded.
 
 **Type:** string
 
-#### id (required)
+### id (required)
 
 ID of refund to retrieve.
 
 **Type:** string
 
-#### expand
+### expand
 
 Specifies which fields in the response should be expanded.
 
 **Type:** array
+
+```json
+[ "string" ]
+```
 
 </details>
 
@@ -2163,11 +3784,15 @@ Retrieves the current account balance, based on the authentication that was used
 
 <details><summary>Parameters</summary>
 
-#### expand
+### expand
 
 Specifies which fields in the response should be expanded.
 
 **Type:** array
+
+```json
+[ "string" ]
+```
 
 </details>
 
@@ -2177,17 +3802,21 @@ Retrieves the balance transaction with the given ID.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 The ID of the desired balance transaction, as found on any API object that affects the balance (e.g., a charge or transfer).
 
 **Type:** string
 
-#### expand
+### expand
 
 Specifies which fields in the response should be expanded.
 
 **Type:** array
+
+```json
+[ "string" ]
+```
 
 </details>
 
@@ -2197,17 +3826,21 @@ Retrieves the details of a charge that has previously been created. Supply the u
 
 <details><summary>Parameters</summary>
 
-#### charge (required)
+### charge (required)
 
 The identifier of the charge to be retrieved.
 
 **Type:** string
 
-#### expand
+### expand
 
 Specifies which fields in the response should be expanded.
 
 **Type:** array
+
+```json
+[ "string" ]
+```
 
 </details>
 
@@ -2217,17 +3850,21 @@ Returns a Country Spec for a given Country code.
 
 <details><summary>Parameters</summary>
 
-#### country (required)
+### country (required)
 
 An ISO 3166-1 alpha-2 country code. Available country codes can be listed with the [List Country Specs](/docs/api#list_country_specs) endpoint.
 
 **Type:** string
 
-#### expand
+### expand
 
 Specifies which fields in the response should be expanded.
 
 **Type:** array
+
+```json
+[ "string" ]
+```
 
 </details>
 
@@ -2237,17 +3874,21 @@ Retrieves the coupon with the given ID.
 
 <details><summary>Parameters</summary>
 
-#### coupon (required)
+### coupon (required)
 
 The ID of the desired coupon.
 
 **Type:** string
 
-#### expand
+### expand
 
 Specifies which fields in the response should be expanded.
 
 **Type:** array
+
+```json
+[ "string" ]
+```
 
 </details>
 
@@ -2257,17 +3898,21 @@ Retrieves the details of an existing customer. You need only supply the unique c
 
 <details><summary>Parameters</summary>
 
-#### customer (required)
+### customer (required)
 
 The identifier of the customer to be retrieved.
 
 **Type:** string
 
-#### expand
+### expand
 
 Specifies which fields in the response should be expanded.
 
 **Type:** array
+
+```json
+[ "string" ]
+```
 
 </details>
 
@@ -2277,15 +3922,19 @@ Specifies which fields in the response should be expanded.
 
 <details><summary>Parameters</summary>
 
-#### customer (required)
+### customer (required)
 
 **Type:** string
 
-#### expand
+### expand
 
 Specifies which fields in the response should be expanded.
 
 **Type:** array
+
+```json
+[ "string" ]
+```
 
 </details>
 
@@ -2295,21 +3944,25 @@ Specifies which fields in the response should be expanded.
 
 <details><summary>Parameters</summary>
 
-#### customer (required)
+### customer (required)
 
 **Type:** string
 
-#### id (required)
+### id (required)
 
 The ID of the source to be retrieved.
 
 **Type:** string
 
-#### expand
+### expand
 
 Specifies which fields in the response should be expanded.
 
 **Type:** array
+
+```json
+[ "string" ]
+```
 
 </details>
 
@@ -2319,17 +3972,21 @@ Retrieves the dispute with the given ID.
 
 <details><summary>Parameters</summary>
 
-#### dispute (required)
+### dispute (required)
 
 ID of dispute to retrieve.
 
 **Type:** string
 
-#### expand
+### expand
 
 Specifies which fields in the response should be expanded.
 
 **Type:** array
+
+```json
+[ "string" ]
+```
 
 </details>
 
@@ -2339,19 +3996,23 @@ Specifies which fields in the response should be expanded.
 
 <details><summary>Parameters</summary>
 
-#### account (required)
+### account (required)
 
 **Type:** string
 
-#### id (required)
+### id (required)
 
 **Type:** string
 
-#### expand
+### expand
 
 Specifies which fields in the response should be expanded.
 
 **Type:** array
+
+```json
+[ "string" ]
+```
 
 </details>
 
@@ -2361,17 +4022,21 @@ Retrieves the details of an existing file object. Supply the unique file ID from
 
 <details><summary>Parameters</summary>
 
-#### file (required)
+### file (required)
 
 The identifier of the file to be retrieved.
 
 **Type:** string
 
-#### expand
+### expand
 
 Specifies which fields in the response should be expanded.
 
 **Type:** array
+
+```json
+[ "string" ]
+```
 
 </details>
 
@@ -2381,17 +4046,21 @@ Retrieves the file link with the given ID.
 
 <details><summary>Parameters</summary>
 
-#### link (required)
+### link (required)
 
 The identifier of the file link to be retrieved.
 
 **Type:** string
 
-#### expand
+### expand
 
 Specifies which fields in the response should be expanded.
 
 **Type:** array
+
+```json
+[ "string" ]
+```
 
 </details>
 
@@ -2401,17 +4070,21 @@ Retrieves the invoice with the given ID.
 
 <details><summary>Parameters</summary>
 
-#### invoice (required)
+### invoice (required)
 
 The identifier of the desired invoice.
 
 **Type:** string
 
-#### expand
+### expand
 
 Specifies which fields in the response should be expanded.
 
 **Type:** array
+
+```json
+[ "string" ]
+```
 
 </details>
 
@@ -2421,17 +4094,21 @@ Retrieves the invoice item with the given ID.
 
 <details><summary>Parameters</summary>
 
-#### invoiceitem (required)
+### invoiceitem (required)
 
 The ID of the desired invoice item.
 
 **Type:** string
 
-#### expand
+### expand
 
 Specifies which fields in the response should be expanded.
 
 **Type:** array
+
+```json
+[ "string" ]
+```
 
 </details>
 
@@ -2441,17 +4118,21 @@ Retrieves an Issuing Authorization object.
 
 <details><summary>Parameters</summary>
 
-#### authorization (required)
+### authorization (required)
 
 The ID of the authorization to retrieve.
 
 **Type:** string
 
-#### expand
+### expand
 
 Specifies which fields in the response should be expanded.
 
 **Type:** array
+
+```json
+[ "string" ]
+```
 
 </details>
 
@@ -2461,17 +4142,21 @@ Retrieves an Issuing Card object.
 
 <details><summary>Parameters</summary>
 
-#### card (required)
+### card (required)
 
 The identifier of the card to be retrieved.
 
 **Type:** string
 
-#### expand
+### expand
 
 Specifies which fields in the response should be expanded.
 
 **Type:** array
+
+```json
+[ "string" ]
+```
 
 </details>
 
@@ -2481,17 +4166,21 @@ For virtual cards only. Retrieves an Issuing Card_details object that contains t
 
 <details><summary>Parameters</summary>
 
-#### card (required)
+### card (required)
 
 The identifier of the virtual card to be retrieved.
 
 **Type:** string
 
-#### expand
+### expand
 
 Specifies which fields in the response should be expanded.
 
 **Type:** array
+
+```json
+[ "string" ]
+```
 
 </details>
 
@@ -2501,17 +4190,21 @@ Retrieves an Issuing Cardholder object.
 
 <details><summary>Parameters</summary>
 
-#### cardholder (required)
+### cardholder (required)
 
 The identifier of the cardholder to be retrieved.
 
 **Type:** string
 
-#### expand
+### expand
 
 Specifies which fields in the response should be expanded.
 
 **Type:** array
+
+```json
+[ "string" ]
+```
 
 </details>
 
@@ -2521,17 +4214,21 @@ Retrieves an Issuing Dispute object.
 
 <details><summary>Parameters</summary>
 
-#### dispute (required)
+### dispute (required)
 
 The ID of the dispute to retrieve.
 
 **Type:** string
 
-#### expand
+### expand
 
 Specifies which fields in the response should be expanded.
 
 **Type:** array
+
+```json
+[ "string" ]
+```
 
 </details>
 
@@ -2541,17 +4238,21 @@ Retrieves an Issuing Transaction object.
 
 <details><summary>Parameters</summary>
 
-#### transaction (required)
+### transaction (required)
 
 The ID of the transaction to retrieve.
 
 **Type:** string
 
-#### expand
+### expand
 
 Specifies which fields in the response should be expanded.
 
 **Type:** array
+
+```json
+[ "string" ]
+```
 
 </details>
 
@@ -2561,17 +4262,21 @@ Retrieves the details of an event. Supply the unique identifier of the event, wh
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 The identifier of the event to be retrieved.
 
 **Type:** string
 
-#### expand
+### expand
 
 Specifies which fields in the response should be expanded.
 
 **Type:** array
+
+```json
+[ "string" ]
+```
 
 </details>
 
@@ -2581,17 +4286,21 @@ Retrieves the details of an existing order. Supply the unique order ID from eith
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 The identifier of the order to be retrieved.
 
 **Type:** string
 
-#### expand
+### expand
 
 Specifies which fields in the response should be expanded.
 
 **Type:** array
+
+```json
+[ "string" ]
+```
 
 </details>
 
@@ -2601,17 +4310,21 @@ Retrieves the details of an existing order return. Supply the unique order ID fr
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 The identifier of the order return to be retrieved.
 
 **Type:** string
 
-#### expand
+### expand
 
 Specifies which fields in the response should be expanded.
 
 **Type:** array
+
+```json
+[ "string" ]
+```
 
 </details>
 
@@ -2621,15 +4334,19 @@ Specifies which fields in the response should be expanded.
 
 <details><summary>Parameters</summary>
 
-#### payment (required)
+### payment (required)
 
 **Type:** string
 
-#### expand
+### expand
 
 Specifies which fields in the response should be expanded.
 
 **Type:** array
+
+```json
+[ "string" ]
+```
 
 </details>
 
@@ -2641,21 +4358,25 @@ When retrieved with a publishable key, only a subset of properties will be retur
 
 <details><summary>Parameters</summary>
 
-#### intent (required)
+### intent (required)
 
 **Type:** string
 
-#### client_secret
+### client_secret
 
 The client secret of the PaymentIntent. Required if a publishable key is used to retrieve the source.
 
 **Type:** string
 
-#### expand
+### expand
 
 Specifies which fields in the response should be expanded.
 
 **Type:** array
+
+```json
+[ "string" ]
+```
 
 </details>
 
@@ -2665,17 +4386,21 @@ Retrieves the details of an existing payout. Supply the unique payout ID from ei
 
 <details><summary>Parameters</summary>
 
-#### payout (required)
+### payout (required)
 
 The identifier of the payout to be retrieved.
 
 **Type:** string
 
-#### expand
+### expand
 
 Specifies which fields in the response should be expanded.
 
 **Type:** array
+
+```json
+[ "string" ]
+```
 
 </details>
 
@@ -2685,17 +4410,21 @@ Retrieves the plan with the given ID.
 
 <details><summary>Parameters</summary>
 
-#### plan (required)
+### plan (required)
 
 The ID of the desired plan.
 
 **Type:** string
 
-#### expand
+### expand
 
 Specifies which fields in the response should be expanded.
 
 **Type:** array
+
+```json
+[ "string" ]
+```
 
 </details>
 
@@ -2705,17 +4434,21 @@ Retrieves the details of an application fee that your account has collected. The
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 The identifier of the fee to be retrieved.
 
 **Type:** string
 
-#### expand
+### expand
 
 Specifies which fields in the response should be expanded.
 
 **Type:** array
+
+```json
+[ "string" ]
+```
 
 </details>
 
@@ -2725,19 +4458,23 @@ Retrieves a Location object.
 
 <details><summary>Parameters</summary>
 
-#### location (required)
+### location (required)
 
 The identifier of the location to be retrieved.
 
 **Type:** string
 
-#### expand
+### expand
 
 Specifies which fields in the response should be expanded.
 
 **Type:** array
 
-#### operator_account
+```json
+[ "string" ]
+```
+
+### operator_account
 
 The identifier of the account associated with this location.
 
@@ -2751,19 +4488,23 @@ Retrieves a Reader object.
 
 <details><summary>Parameters</summary>
 
-#### reader (required)
+### reader (required)
 
 The identifier of the reader to be retrieved.
 
 **Type:** string
 
-#### expand
+### expand
 
 Specifies which fields in the response should be expanded.
 
 **Type:** array
 
-#### operator_account
+```json
+[ "string" ]
+```
+
+### operator_account
 
 The identifier of the account associated with this reader.
 
@@ -2777,17 +4518,21 @@ Retrieves the details of an existing product. Supply the unique product ID from 
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 The identifier of the product to be retrieved.
 
 **Type:** string
 
-#### expand
+### expand
 
 Specifies which fields in the response should be expanded.
 
 **Type:** array
+
+```json
+[ "string" ]
+```
 
 </details>
 
@@ -2797,17 +4542,21 @@ Retrieves the details of an existing refund.
 
 <details><summary>Parameters</summary>
 
-#### refund (required)
+### refund (required)
 
 ID of refund to retrieve.
 
 **Type:** string
 
-#### expand
+### expand
 
 Specifies which fields in the response should be expanded.
 
 **Type:** array
+
+```json
+[ "string" ]
+```
 
 </details>
 
@@ -2817,17 +4566,21 @@ Retrieves the details of an scheduled query run.
 
 <details><summary>Parameters</summary>
 
-#### scheduled_query_run (required)
+### scheduled_query_run (required)
 
 Unique identifier for the object.
 
 **Type:** string
 
-#### expand
+### expand
 
 Specifies which fields in the response should be expanded.
 
 **Type:** array
+
+```json
+[ "string" ]
+```
 
 </details>
 
@@ -2837,17 +4590,21 @@ Retrieves the details of an existing SKU. Supply the unique SKU identifier from 
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 The identifier of the SKU to be retrieved.
 
 **Type:** string
 
-#### expand
+### expand
 
 Specifies which fields in the response should be expanded.
 
 **Type:** array
+
+```json
+[ "string" ]
+```
 
 </details>
 
@@ -2857,23 +4614,27 @@ Retrieves an existing source object. Supply the unique source ID from a source c
 
 <details><summary>Parameters</summary>
 
-#### source (required)
+### source (required)
 
 The identifier of the source to be retrieved.
 
 **Type:** string
 
-#### client_secret
+### client_secret
 
 The client secret of the source. Required if a publishable key is used to retrieve the source.
 
 **Type:** string
 
-#### expand
+### expand
 
 Specifies which fields in the response should be expanded.
 
 **Type:** array
+
+```json
+[ "string" ]
+```
 
 </details>
 
@@ -2883,23 +4644,27 @@ Retrieve an existing source transaction object. Supply the unique source ID from
 
 <details><summary>Parameters</summary>
 
-#### source (required)
+### source (required)
 
 The ID of the source whose source transaction will be retrieved.
 
 **Type:** string
 
-#### source_transaction (required)
+### source_transaction (required)
 
 The ID of the source transaction that will be retrieved.
 
 **Type:** string
 
-#### expand
+### expand
 
 Specifies which fields in the response should be expanded.
 
 **Type:** array
+
+```json
+[ "string" ]
+```
 
 </details>
 
@@ -2909,15 +4674,19 @@ Retrieves the subscription with the given ID.
 
 <details><summary>Parameters</summary>
 
-#### subscription_exposed_id (required)
+### subscription_exposed_id (required)
 
 **Type:** string
 
-#### expand
+### expand
 
 Specifies which fields in the response should be expanded.
 
 **Type:** array
+
+```json
+[ "string" ]
+```
 
 </details>
 
@@ -2927,17 +4696,21 @@ Retrieves the invoice item with the given ID.
 
 <details><summary>Parameters</summary>
 
-#### item (required)
+### item (required)
 
 The identifier of the subscription item to retrieve.
 
 **Type:** string
 
-#### expand
+### expand
 
 Specifies which fields in the response should be expanded.
 
 **Type:** array
+
+```json
+[ "string" ]
+```
 
 </details>
 
@@ -2947,17 +4720,21 @@ Retrieves the token with the given ID.
 
 <details><summary>Parameters</summary>
 
-#### token (required)
+### token (required)
 
 The ID of the desired token.
 
 **Type:** string
 
-#### expand
+### expand
 
 Specifies which fields in the response should be expanded.
 
 **Type:** array
+
+```json
+[ "string" ]
+```
 
 </details>
 
@@ -2967,17 +4744,21 @@ Retrieves the details of a top-up that has previously been created. Supply the u
 
 <details><summary>Parameters</summary>
 
-#### topup (required)
+### topup (required)
 
 The ID of the top-up to retrieve.
 
 **Type:** string
 
-#### expand
+### expand
 
 Specifies which fields in the response should be expanded.
 
 **Type:** array
+
+```json
+[ "string" ]
+```
 
 </details>
 
@@ -2987,17 +4768,21 @@ Retrieves the details of an existing transfer. Supply the unique transfer ID fro
 
 <details><summary>Parameters</summary>
 
-#### transfer (required)
+### transfer (required)
 
 The identifier of the transfer to be retrieved.
 
 **Type:** string
 
-#### expand
+### expand
 
 Specifies which fields in the response should be expanded.
 
 **Type:** array
+
+```json
+[ "string" ]
+```
 
 </details>
 
@@ -3007,17 +4792,21 @@ Retrieves the details of an existing recipient. You need only supply the unique 
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 The identifier of the recipient to be retrieved.
 
 **Type:** string
 
-#### expand
+### expand
 
 Specifies which fields in the response should be expanded.
 
 **Type:** array
+
+```json
+[ "string" ]
+```
 
 </details>
 
@@ -3027,23 +4816,27 @@ By default, you can see the 10 most recent reversals stored directly on the tran
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 ID of reversal to retrieve.
 
 **Type:** string
 
-#### transfer (required)
+### transfer (required)
 
 ID of the transfer reversed.
 
 **Type:** string
 
-#### expand
+### expand
 
 Specifies which fields in the response should be expanded.
 
 **Type:** array
+
+```json
+[ "string" ]
+```
 
 </details>
 
@@ -3055,79 +4848,113 @@ You can preview the effects of updating a subscription, including a preview of w
 
 <details><summary>Parameters</summary>
 
-#### customer (required)
+### customer (required)
 
 The identifier of the customer whose upcoming invoice you'd like to retrieve.
 
 **Type:** string
 
-#### coupon
+### coupon
 
 The code of the coupon to apply. If `subscription` or `subscription_items` is provided, the invoice returned will preview updating or creating a subscription with that coupon. Otherwise, it will preview applying that coupon to the customer for the next upcoming invoice from among the customer's subscriptions. The invoice can be previewed without a coupon by passing this value as an empty string.
 
 **Type:** string
 
-#### expand
+### expand
 
 Specifies which fields in the response should be expanded.
 
 **Type:** array
 
-#### invoice_items
+```json
+[ "string" ]
+```
+
+### invoice_items
 
 List of invoice items to add or update in the upcoming invoice preview.
 
 **Type:** array
 
-#### subscription
+```json
+[ {
+  "amount" : "integer",
+  "metadata" : { },
+  "invoiceitem" : "string",
+  "description" : "string",
+  "currency" : "string",
+  "discountable" : "boolean"
+} ]
+```
+
+### subscription
 
 The identifier of the subscription for which you'd like to retrieve the upcoming invoice. If not provided, but a `subscription_items` is provided, you will preview creating a subscription with those items. If neither `subscription` nor `subscription_items` is provided, you will retrieve the next upcoming invoice from among the customer's subscriptions.
 
 **Type:** string
 
-#### subscription_billing_cycle_anchor
+### subscription_billing_cycle_anchor
 
 For new subscriptions, a future timestamp to anchor the subscription's [billing cycle](/docs/subscriptions/billing-cycle). This is used to determine the date of the first full invoice, and, for plans with `month` or `year` intervals, the day of the month for subsequent invoices.For existing subscriptions, the value can only be set to `now` or `unchanged`.
 
 **Type:** object
 
-#### subscription_cancel_at_period_end
+```json
+{ }
+```
+
+### subscription_cancel_at_period_end
 
 Boolean indicating whether this subscription should cancel at the end of the current period.
 
 **Type:** boolean
 
-#### subscription_items
+### subscription_items
 
 List of subscription items, each with an attached plan.
 
 **Type:** array
 
-#### subscription_prorate
+```json
+[ {
+  "metadata" : { },
+  "deleted" : "boolean",
+  "quantity" : "integer",
+  "clear_usage" : "boolean",
+  "id" : "string",
+  "plan" : "string"
+} ]
+```
+
+### subscription_prorate
 
 If previewing an update to a subscription, this decides whether the preview will show the result of applying prorations or not. If set, one of `subscription_items` or `subscription`, and one of `subscription_items` or `subscription_trial_end` are required.
 
 **Type:** boolean
 
-#### subscription_proration_date
+### subscription_proration_date
 
 If previewing an update to a subscription, and doing proration, `subscription_proration_date` forces the proration to be calculated as though the update was done at the specified time. The time given must be within the current subscription period, and cannot be before the subscription was on its current plan. If set, `subscription`, and one of `subscription_items`, or `subscription_trial_end` are required. Also, `subscription_proration` cannot be set to false.
 
 **Type:** integer
 
-#### subscription_tax_percent
+### subscription_tax_percent
 
 If provided, the invoice returned will preview updating or creating a subscription with that tax percent. If set, one of `subscription_items` or `subscription` is required.
 
 **Type:** number
 
-#### subscription_trial_end
+### subscription_trial_end
 
 If provided, the invoice returned will preview updating or creating a subscription with that trial end. If set, one of `subscription_items` or `subscription` is required.
 
 **Type:** object
 
-#### subscription_trial_from_plan
+```json
+{ }
+```
+
+### subscription_trial_from_plan
 
 Indicates if a plan's `trial_period_days` should be applied to the subscription. Setting `subscription_trial_end` per subscription is preferred, and this defaults to `false`. Setting this flag to `true` together with `subscription_trial_end` is not allowed.
 
@@ -3141,15 +4968,22 @@ Approves a pending Issuing Authorization object.
 
 <details><summary>Parameters</summary>
 
-#### authorization (required)
+### authorization (required)
 
 The identifier of the authorization to approve.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "expand" : [ "string" ],
+  "held_amount" : "If the authorization's `is_held_amount_controllable` property is `true`, you may provide this value to control how much to hold for the authorization."
+}
+```
 
 </details>
 
@@ -3159,15 +4993,23 @@ Stripe automatically creates and then attempts to collect payment on invoices fo
 
 <details><summary>Parameters</summary>
 
-#### invoice (required)
+### invoice (required)
 
 ID of invoice to pay.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "expand" : [ "string" ],
+  "forgive" : "Determines if invoice should be forgiven if source has insufficient funds to fully pay the invoice.",
+  "source" : "A payment source to be charged. The source must be the ID of a source belonging to the customer associated with the invoice being paid."
+}
+```
 
 </details>
 
@@ -3177,13 +5019,25 @@ ID of invoice to pay.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "expand" : [ "string" ],
+  "metadata" : { },
+  "shipping_method" : "string",
+  "application_fee" : "integer",
+  "source" : { },
+  "email" : "The email address of the customer placing the order. Required if not previously specified for the order.",
+  "customer" : "The ID of an existing customer that will be charged for this order. If no customer was attached to the order at creation, either `source` or `customer` is required. Otherwise, the specified customer will be charged instead of the one attached to the order."
+}
+```
 
 </details>
 
@@ -3194,13 +5048,24 @@ Uncaptured PaymentIntents will be canceled exactly seven days after they are cre
 
 <details><summary>Parameters</summary>
 
-#### intent (required)
+### intent (required)
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "transfer_data" : {
+    "amount" : "integer"
+  },
+  "expand" : [ "string" ],
+  "amount_to_capture" : "The amount to capture from the PaymentIntent, which must be less than or equal to the original amount. Any additional amount will be automatically refunded. Defaults to the full `amount_capturable` if not provided.",
+  "application_fee_amount" : "The amount of the application fee (if any) that will be applied to the payment and transferred to theapplication owner's Stripe account. To use an application fee, therequest must be made on behalf of another account, using the`Stripe-Account` header or an OAuth key. For more information, see[Collecting applicationfees](/docs/connect/direct-charges#collecting-fees)."
+}
+```
 
 </details>
 
@@ -3212,13 +5077,26 @@ When using a publishable key, theclient_secret must be providedto confirm the Pa
 
 <details><summary>Parameters</summary>
 
-#### intent (required)
+### intent (required)
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "invoice_charge_reason" : "string. Possible values: api | dunning_retry | invoice_payer | manual_admin | manual_mrch | payment_receiver | unsent_invoice | update_card | update_customer | update_invoice",
+  "expand" : [ "string" ],
+  "receipt_email" : "Email address that the receipt for the resulting payment will be sent to.",
+  "return_url" : "The URL to redirect your customer back to after they authenticate or cancel their payment on the payment method's app or site.If you'd prefer to redirect to a mobile application, you can alternatively supply an application URI scheme.",
+  "save_source_to_customer" : "`true` to save this PaymentIntent's Source to the associated Customer, if the Source is not already attached.",
+  "client_secret" : "The client secret of the PaymentIntent.",
+  "invoice" : "string",
+  "source" : "ID of the Source object to attach to this PaymentIntent."
+}
+```
 
 </details>
 
@@ -3229,15 +5107,22 @@ Test-mode Custom and Express accounts can be rejected at any time. Accounts crea
 
 <details><summary>Parameters</summary>
 
-#### account (required)
+### account (required)
 
 The identifier of the account to reject
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "reason" : "The reason for rejecting the account. Can be `fraud`, `terms_of_service`, or `other`.",
+  "expand" : [ "string" ]
+}
+```
 
 </details>
 
@@ -3247,13 +5132,19 @@ Resend an event. This only works in testmode
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "expand" : [ "string" ]
+}
+```
 
 </details>
 
@@ -3264,13 +5155,155 @@ To update your own account, use the Dashboard. Refer to our Connect documentatio
 
 <details><summary>Parameters</summary>
 
-#### account (required)
+### account (required)
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "business_logo" : "(ID of a [file upload](https://stripe.com/docs/guides/file-upload)) A logo for this account (at least 128px x 128px)",
+  "debit_negative_balances" : "A Boolean indicating whether Stripe should try to reclaim negative balances from an attached bank account. For details, see [Understanding Connect Account Balances](/docs/connect/account-balances).",
+  "tos_acceptance" : {
+    "date" : "Required integer",
+    "ip" : "Required string",
+    "user_agent" : "string"
+  },
+  "business_name" : "The publicly sharable name for this account.",
+  "metadata" : { },
+  "payout_schedule" : {
+    "weekly_anchor" : "string. Possible values: friday | monday | saturday | sunday | thursday | tuesday | wednesday",
+    "interval" : "string. Possible values: daily | four_times_monthly | manual | monthly | weekly",
+    "delay_days" : "integer",
+    "monthly_anchor" : "integer"
+  },
+  "support_phone" : "A publicly shareable support phone number for the business.",
+  "account_token" : "An [account token](https://stripe.com/docs/api#create_account_token), used to securely provide details to the account.",
+  "decline_charge_on" : {
+    "avs_failure" : "boolean",
+    "cvc_failure" : "boolean"
+  },
+  "statement_descriptor" : "The default text that appears on credit card statements when a charge is made [directly on the account](/docs/connect/direct-charges)",
+  "expand" : [ "string" ],
+  "support_email" : "A publicly shareable support email address for the business.",
+  "support_url" : "A publicly shareable URL that provides support for this account.",
+  "external_account" : { },
+  "business_primary_color" : "A CSS hex color value representing the primary branding color for this account.",
+  "legal_entity" : {
+    "business_vat_id" : "string",
+    "personal_address_kana" : {
+      "country" : "string",
+      "town" : "string",
+      "city" : "string",
+      "state" : "string",
+      "postal_code" : "string",
+      "line2" : "string",
+      "line1" : "string"
+    },
+    "gender" : "string",
+    "address_kana" : {
+      "country" : "string",
+      "town" : "string",
+      "city" : "string",
+      "state" : "string",
+      "postal_code" : "string",
+      "line2" : "string",
+      "line1" : "string"
+    },
+    "type" : "string",
+    "personal_address" : {
+      "country" : "string",
+      "city" : "string",
+      "state" : "string",
+      "postal_code" : "string",
+      "line2" : "string",
+      "line1" : "string"
+    },
+    "address_kanji" : {
+      "country" : "string",
+      "town" : "string",
+      "city" : "string",
+      "state" : "string",
+      "postal_code" : "string",
+      "line2" : "string",
+      "line1" : "string"
+    },
+    "ssn_last_4" : "string",
+    "first_name" : "string",
+    "first_name_kana" : "string",
+    "personal_id_number" : "string",
+    "verification" : {
+      "document" : "string"
+    },
+    "last_name_kanji" : "string",
+    "personal_address_kanji" : {
+      "country" : "string",
+      "town" : "string",
+      "city" : "string",
+      "state" : "string",
+      "postal_code" : "string",
+      "line2" : "string",
+      "line1" : "string"
+    },
+    "business_name" : "string",
+    "maiden_name" : "string",
+    "address" : {
+      "country" : "string",
+      "city" : "string",
+      "state" : "string",
+      "postal_code" : "string",
+      "line2" : "string",
+      "line1" : "string"
+    },
+    "business_tax_id" : "string",
+    "first_name_kanji" : "string",
+    "last_name" : "string",
+    "business_name_kana" : "string",
+    "tax_id_registrar" : "string",
+    "dob" : {
+      "month" : "Required integer",
+      "year" : "Required integer",
+      "day" : "Required integer"
+    },
+    "additional_owners" : {
+      "<string>" : {
+        "maiden_name" : "string",
+        "address" : {
+          "country" : "string",
+          "city" : "string",
+          "state" : "string",
+          "postal_code" : "string",
+          "line2" : "string",
+          "line1" : "string"
+        },
+        "dob" : {
+          "month" : "Required integer",
+          "year" : "Required integer",
+          "day" : "Required integer"
+        },
+        "last_name" : "string",
+        "first_name" : "string",
+        "personal_id_number" : "string",
+        "verification" : {
+          "document" : "string"
+        }
+      }
+    },
+    "last_name_kana" : "string",
+    "business_name_kanji" : "string",
+    "phone_number" : "string"
+  },
+  "business_url" : "The URL that best shows the service or product provided by this account.",
+  "default_currency" : "Three-letter ISO currency code representing the default currency for the account. This must be a currency that [Stripe supports in the account's country](https://stripe.com/docs/payouts).",
+  "product_description" : "Internal-only description of the product sold by, or service provided by, the business. Used by Stripe for risk and underwriting purposes.",
+  "email" : "Email address of the account representative. For Standard accounts, this is used to ask them to claim their Stripe account. For Custom accounts, this only makes the account easier to identify to platforms; Stripe does not email the account representative.",
+  "payout_statement_descriptor" : "The text that appears on the bank account statement for payouts. If not set, this defaults to the platform's bank descriptor as set in the Dashboard.",
+  "bank_account" : { }
+}
+```
 
 </details>
 
@@ -3281,19 +5314,38 @@ You can re-enable a disabled bank account by performing an update call without p
 
 <details><summary>Parameters</summary>
 
-#### account (required)
+### account (required)
 
 **Type:** string
 
-#### id (required)
+### id (required)
 
 The ID of the external account to update
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "metadata" : { },
+  "account_holder_name" : "The name of the person or business that owns the bank account.",
+  "address_country" : "Billing address country, if provided when creating card.",
+  "address_state" : "State/County/Province/Region.",
+  "exp_month" : "Two digit number representing the card’s expiration month.",
+  "exp_year" : "Four digit number representing the card’s expiration year.",
+  "address_city" : "City/District/Suburb/Town/Village.",
+  "expand" : [ "string" ],
+  "address_line2" : "Address line 2 (Apartment/Suite/Unit/Building).",
+  "address_line1" : "Address line 1 (Street address/PO Box/Company name).",
+  "account_holder_type" : "The type of entity that holds the account. This can be either `individual` or `company`.",
+  "name" : "Cardholder name.",
+  "address_zip" : "ZIP or postal code",
+  "default_for_currency" : "When set to true, this becomes the default external account for its currency."
+}
+```
 
 </details>
 
@@ -3303,13 +5355,41 @@ Updates the specified charge by setting the values of the parameters passed. Any
 
 <details><summary>Parameters</summary>
 
-#### charge (required)
+### charge (required)
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "expand" : [ "string" ],
+  "metadata" : { },
+  "transfer_group" : "A string that identifies this transaction as part of a group. `transfer_group` may only be provided if it has not been set. See the [Connect documentation](/docs/connect/charges-transfers#grouping-transactions) for details.",
+  "shipping" : {
+    "carrier" : "string",
+    "address" : {
+      "country" : "string",
+      "city" : "string",
+      "state" : "string",
+      "postal_code" : "string",
+      "line2" : "string",
+      "line1" : "Required string"
+    },
+    "phone" : "string",
+    "name" : "Required string",
+    "tracking_number" : "string"
+  },
+  "receipt_email" : "This is the email address that the receipt for this charge will be sent to. If this field is updated, then a new email receipt will be sent to the updated address.",
+  "description" : "An arbitrary string which you can attach to a charge object. It is displayed when in the web interface alongside the charge. Note that if you use Stripe to send automatic email receipts to your customers, your receipt emails will include the `description` of the charge(s) that they are describing.",
+  "fraud_details" : {
+    "user_report" : "Required string. Possible values: fraudulent | safe"
+  },
+  "customer" : "The ID of an existing customer that will be associated with this request. This field may only be updated if there is no existing associated customer with this charge."
+}
+```
 
 </details>
 
@@ -3319,15 +5399,23 @@ Updates the metadata of a coupon. Other coupon details (currency, duration, amou
 
 <details><summary>Parameters</summary>
 
-#### coupon (required)
+### coupon (required)
 
 The identifier of the coupon to be updated.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "expand" : [ "string" ],
+  "metadata" : { },
+  "name" : "Name of the coupon displayed to customers on, for instance invoices, or receipts. By default the `id` is shown if `name` is not set."
+}
+```
 
 </details>
 
@@ -3337,15 +5425,51 @@ The identifier of the coupon to be updated.
 
 <details><summary>Parameters</summary>
 
-#### customer (required)
+### customer (required)
 
 The identifier of the customer to subscribe.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "metadata" : { },
+  "account_balance" : "An integer amount in %s that represents the account balance for your customer. Account balances only affect invoices. A negative amount represents a credit that decreases the amount due on an invoice; a positive amount increases the amount due on an invoice.",
+  "coupon" : "string",
+  "default_source" : "ID of the source to make the customer's new default.",
+  "invoice_prefix" : "The prefix for the customer used to generate unique invoice numbers. Must be 3–12 uppercase letters or numbers.",
+  "description" : "An arbitrary string that you can attach to a customer object. It is displayed alongside the customer in the dashboard.",
+  "trial_end" : "Unix timestamp representing the end of the trial period the customer will get before being charged for the first time. This will always overwrite any trials that might apply via a subscribed plan. If set, trial_end will override the default trial period of the plan the customer is being subscribed to. The special value `now` can be provided to end the customer's trial immediately.",
+  "source" : { },
+  "expand" : [ "string" ],
+  "default_alipay_account" : "ID of Alipay account to make the customer's new default for invoice payments.",
+  "default_bank_account" : "ID of bank account to make the customer's new default for invoice payments.",
+  "shipping" : {
+    "address" : {
+      "country" : "string",
+      "city" : "string",
+      "state" : "string",
+      "postal_code" : "string",
+      "line2" : "string",
+      "line1" : "Required string"
+    },
+    "phone" : "string",
+    "name" : "Required string"
+  },
+  "tax_info" : {
+    "type" : "Required string. Possible values: vat",
+    "tax_id" : "Required string"
+  },
+  "default_card" : "ID of card to make the customer's new default for invoice payments.",
+  "card" : { },
+  "email" : "Customer's email address. It's displayed alongside the customer in your dashboard and can be useful for searching and tracking. This may be up to *512 characters*.",
+  "bank_account" : { }
+}
+```
 
 </details>
 
@@ -3355,19 +5479,50 @@ The identifier of the customer to subscribe.
 
 <details><summary>Parameters</summary>
 
-#### customer (required)
+### customer (required)
 
 **Type:** string
 
-#### id (required)
+### id (required)
 
 The ID of the card to be updated.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "owner" : {
+    "address" : {
+      "country" : "string",
+      "city" : "string",
+      "state" : "string",
+      "postal_code" : "string",
+      "line2" : "string",
+      "line1" : "string"
+    },
+    "phone" : "string",
+    "name" : "string",
+    "email" : "string"
+  },
+  "metadata" : { },
+  "account_holder_name" : "The name of the person or business that owns the bank account.",
+  "address_country" : "Billing address country, if provided when creating card.",
+  "address_state" : "State/County/Province/Region.",
+  "exp_month" : "Two digit number representing the card’s expiration month.",
+  "exp_year" : "Four digit number representing the card’s expiration year.",
+  "address_city" : "City/District/Suburb/Town/Village.",
+  "expand" : [ "string" ],
+  "address_line2" : "Address line 2 (Apartment/Suite/Unit/Building).",
+  "address_line1" : "Address line 1 (Street address/PO Box/Company name).",
+  "account_holder_type" : "The type of entity that holds the account. This can be either `individual` or `company`.",
+  "name" : "Cardholder name.",
+  "address_zip" : "ZIP or postal code"
+}
+```
 
 </details>
 
@@ -3378,15 +5533,52 @@ Depending on your dispute type, different evidence fields will give you a better
 
 <details><summary>Parameters</summary>
 
-#### dispute (required)
+### dispute (required)
 
 ID of the dispute to update.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "expand" : [ "string" ],
+  "metadata" : { },
+  "evidence" : {
+    "refund_policy" : "string",
+    "customer_communication" : "string",
+    "shipping_date" : "string",
+    "billing_address" : "string",
+    "duplicate_charge_documentation" : "string",
+    "refund_policy_disclosure" : "string",
+    "shipping_carrier" : "string",
+    "service_documentation" : "string",
+    "uncategorized_text" : "string",
+    "cancellation_policy_disclosure" : "string",
+    "service_date" : "string",
+    "duplicate_charge_id" : "string",
+    "shipping_address" : "string",
+    "product_description" : "string",
+    "duplicate_charge_explanation" : "string",
+    "customer_purchase_ip" : "string",
+    "refund_refusal_explanation" : "string",
+    "uncategorized_file" : "string",
+    "shipping_documentation" : "string",
+    "access_activity_log" : "string",
+    "cancellation_rebuttal" : "string",
+    "customer_signature" : "string",
+    "cancellation_policy" : "string",
+    "receipt" : "string",
+    "customer_name" : "string",
+    "customer_email_address" : "string",
+    "shipping_tracking_number" : "string"
+  },
+  "submit" : "Whether to immediately submit evidence to the bank. If `false`, evidence is staged on the dispute. Staged evidence is visible in the API and Dashboard, and can be submitted to the bank by making another request with this attribute set to `true` (the default)."
+}
+```
 
 </details>
 
@@ -3396,15 +5588,23 @@ Updates an existing file link object. Expired links can no longer be updated.
 
 <details><summary>Parameters</summary>
 
-#### link (required)
+### link (required)
 
 The ID of the file link.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "expand" : [ "string" ],
+  "metadata" : { },
+  "expires_at" : { }
+}
+```
 
 </details>
 
@@ -3414,13 +5614,29 @@ Until an invoice is paid, it is marked as open (closed=false). If you’d like t
 
 <details><summary>Parameters</summary>
 
-#### invoice (required)
+### invoice (required)
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "statement_descriptor" : "Extra information about a charge for the customer's credit card statement. It must contain at least one letter. If not specified and this invoice is part of a subscription, the default `statement_descriptor` will be set to the first subscription item's product's `statement_descriptor`.",
+  "tax_percent" : "The percent tax rate applied to the invoice, represented as a non-negative decimal number (with at most four decimal places) between 0 and 100. To unset a previously-set value, pass an empty string. The tax rate of an attempted, paid or forgiven invoice cannot be changed.",
+  "expand" : [ "string" ],
+  "metadata" : { },
+  "forgiven" : "Boolean representing whether an invoice is forgiven or not. To forgive an invoice, pass true. Forgiving an invoice instructs us to update the subscription status as if the invoice were successfully paid. Once an invoice has been forgiven, it cannot be unforgiven or reopened.",
+  "due_date" : "The date on which payment for this invoice is due. Only valid for invoices where `billing=send_invoice`.",
+  "paid" : "Boolean representing whether an invoice is paid or not. To mark invoice as paid, pass true. Only applies to invoices where `billing=send_invoice`.",
+  "closed" : "Boolean representing whether an invoice is closed or not. To close an invoice, pass true.",
+  "days_until_due" : "The number of days from which the invoice is created until it is due. Only valid for invoices where `billing=send_invoice`.",
+  "description" : "string",
+  "application_fee" : "A fee in %s that will be applied to the invoice and transferred to the application owner's Stripe account. The request must be made with an OAuth key or the Stripe-Account header in order to take an application fee. For more information, see the application fees [documentation](/docs/connect/subscriptions#working-with-invoices)."
+}
+```
 
 </details>
 
@@ -3430,13 +5646,25 @@ Updates the amount or description of an invoice item on an upcoming invoice. Upd
 
 <details><summary>Parameters</summary>
 
-#### invoiceitem (required)
+### invoiceitem (required)
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "amount" : "The integer amount in **%s** of the charge to be applied to the upcoming invoice. If you want to apply a credit to the customer's account, pass a negative amount.",
+  "expand" : [ "string" ],
+  "metadata" : { },
+  "quantity" : "Non-negative integer. The quantity of units for the invoice item.",
+  "description" : "An arbitrary string which you can attach to the invoice item. The description is displayed in the invoice for easy tracking.",
+  "unit_amount" : "The integer unit amount in **%s** of the charge to be applied to the upcoming invoice. This unit_amount will be multiplied by the quantity to get the full amount. If you want to apply a credit to the customer's account, pass a negative unit_amount.",
+  "discountable" : "Controls whether discounts apply to this invoice item. Defaults to false for prorations or negative invoice items, and true for all other invoice items. Cannot be set to true for prorations."
+}
+```
 
 </details>
 
@@ -3446,15 +5674,22 @@ Updates the specified Issuing Authorization object by setting the values of the 
 
 <details><summary>Parameters</summary>
 
-#### authorization (required)
+### authorization (required)
 
 The identifier of the authorization to update.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "expand" : [ "string" ],
+  "metadata" : { }
+}
+```
 
 </details>
 
@@ -3464,15 +5699,30 @@ Updates the specified Issuing Card object by setting the values of the parameter
 
 <details><summary>Parameters</summary>
 
-#### card (required)
+### card (required)
 
 The identifier of the issued card to update.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "expand" : [ "string" ],
+  "metadata" : { },
+  "cardholder" : "The [Cardholder](/docs/api#issuing_cardholder_object) to associate the card with.",
+  "authorization_controls" : {
+    "max_approvals" : "integer",
+    "allowed_categories" : [ "string. Possible values: ac_refrigeration_repair | accounting_bookkeeping_services | advertising_services | agricultural_cooperative | airlines_air_carriers | airports_flying_fields | ambulance_services | amusement_parks_carnivals | antique_reproductions | antique_shops | aquariums | architectural_surveying_services | art_dealers_and_galleries | artists_supply_and_craft_shops | auto_and_home_supply_stores | auto_body_repair_shops | auto_paint_shops | auto_service_shops | automated_cash_disburse | automated_fuel_dispensers | automobile_associations | automotive_parts_and_accessories_stores | automotive_tire_stores | bail_and_bond_payments | bakeries | bands_orchestras | barber_and_beauty_shops | betting_casino_gambling | bicycle_shops | billiard_pool_establishments | boat_dealers | boat_rentals_and_leases | book_stores | books_periodicals_and_newspapers | bowling_alleys | bus_lines | business_secretarial_schools | buying_shopping_services | cable_satellite_and_other_pay_television_and_radio | camera_and_photographic_supply_stores | candy_nut_and_confectionery_stores | car_and_truck_dealers_new_used | car_and_truck_dealers_used_only | car_rental_agencies | car_washes | carpentry_services | carpet_upholstery_cleaning | caterers | charitable_and_social_service_organizations_fundraising | chemicals_and_allied_products | chidrens_and_infants_wear_stores | child_care_services | chiropodists_podiatrists | chiropractors | cigar_stores_and_stands | civic_social_fraternal_associations | cleaning_and_maintenance | clothing_rental | colleges_universities | commercial_equipment | commercial_footwear | commercial_photography_art_and_graphics | commuter_transport_and_ferries | computer_network_services | computer_programming | computer_repair | computer_software_stores | computers_peripherals_and_software | concrete_work_services | construction_materials | consulting_public_relations | correspondence_schools | cosmetic_stores | counseling_services | country_clubs | courier_services | court_costs | credit_reporting_agencies | cruise_lines | dairy_products_stores | dance_hall_studios_schools | dating_escort_services | dentists_orthodontists | department_stores | detective_agencies | direct_marketing_catalog_merchant | direct_marketing_combination_catalog_and_retail_merchant | direct_marketing_inbound_telemarketing | direct_marketing_insurance_services | direct_marketing_other | direct_marketing_outbound_telemarketing | direct_marketing_subscription | direct_marketing_travel | discount_stores | doctors | door_to_door_sales | drapery_window_covering_and_upholstery_stores | drinking_places | drug_stores_and_pharmacies | drugs_drug_proprietaries_and_druggist_sundries | dry_cleaners | durable_goods | duty_free_stores | eating_places_restaurants | educational_services | electric_razor_stores | electrical_parts_and_equipment | electrical_services | electronics_repair_shops | electronics_stores | elementary_secondary_schools | employment_temp_agencies | equipment_rental | exterminating_services | family_clothing_stores | fast_food_restaurants | financial_institutions | fines_government_administrative_entities | fireplace_fireplace_screens_and_accessories_stores | floor_covering_stores | florists | florists_supplies_nursery_stock_and_flowers | freezer_and_locker_meat_provisioners | fuel_dealers_non_automotive | funeral_services_crematories | furniture_home_furnishings_and_equipment_stores_except_appliances | furniture_repair_refinishing | furriers_and_fur_shops | general_services | gift_card_novelty_and_souvenir_shops | glass_paint_and_wallpaper_stores | glassware_crystal_stores | golf_courses_public | government_services | grocery_stores_supermarkets | hardware_equipment_and_supplies | hardware_stores | health_and_beauty_spas | hearing_aids_sales_and_supplies | heating_plumbing_a_c | hobby_toy_and_game_shops | home_supply_warehouse_stores | hospitals | hotels_motels_and_resorts | household_appliance_stores | industrial_supplies | information_retrieval_services | insurance_default | insurance_underwriting_premiums | intra_company_purchases | jewelry_stores_watches_clocks_and_silverware_stores | landscaping_services | laundries | laundry_cleaning_services | legal_services_attorneys | luggage_and_leather_goods_stores | lumber_building_materials_stores | manual_cash_disburse | marinas_service_and_supplies | masonry_stonework_and_plaster | massage_parlors | means_womens_clothing_stores | medical_and_dental_labs | medical_dental_ophthalmic_and_hospital_equipment_and_supplies | medical_services | membership_organizations | mens_and_boys_clothing_and_accessories_stores | metal_service_centers | miscellaneous | miscellaneous_apparel_and_accessory_shops | miscellaneous_auto_dealers | miscellaneous_business_services | miscellaneous_food_stores | miscellaneous_general_merchandise | miscellaneous_general_services | miscellaneous_home_furnishing_specialty_stores | miscellaneous_publishing_and_printing | miscellaneous_recreation_services | miscellaneous_repair_shops | miscellaneous_specialty_retail | mobile_home_dealers | motion_picture_theaters | motor_freight_carriers_and_trucking | motor_homes_dealers | motor_vehicle_supplies_and_new_parts | motorcycle_shops_and_dealers | motorcycle_shops_dealers | music_stores_musical_instruments_pianos_and_sheet_music | news_dealers_and_newsstands | non_fi_money_orders | non_fi_stored_value_card_purchase_load | nondurable_goods | nurseries_lawn_and_garden_supply_stores | nursing_personal_care | office_and_commercial_furniture | opticians_eyeglasses | optometrists_ophthalmologist | orthopedic_goods_prosthetic_devices | osteopaths | package_stores_beer_wine_and_liquor | paints_varnishes_and_supplies | parking_lots_garages | passenger_railways | pawn_shops | pet_shops_pet_food_and_supplies | petroleum_and_petroleum_products | photo_developing | photographic_photocopy_microfilm_equipment_and_supplies | photographic_studios | picture_video_production | piece_goods_notions_and_other_dry_goods | plumbing_heating_equipment_and_supplies | political_organizations | postal_services_government_only | precious_stones_and_metals_watches_and_jewelry | professional_services | public_warehousing_and_storage | quick_copy_repro_and_blueprint | railroads | real_estate_agents_and_managers_rentals | record_stores | recreational_vehicle_rentals | religious_goods_stores | religious_organizations | roofing_siding_sheet_metal | secretarial_support_services | security_brokers_dealers | service_stations | sewing_needlework_fabric_and_piece_goods_stores | shoe_repair_hat_cleaning | shoe_stores | small_appliance_repair | snowmobile_dealers | special_trade_services | specialty_cleaning | sporting_goods_stores | sporting_recreation_camps | sports_and_riding_apparel_stores | sports_clubs_fields | stamp_and_coin_stores | stationary_office_supplies_printing_and_writing_paper | stationery_stores_office_and_school_supply_stores | swimming_pools_sales | t_ui_travel_germany | tailors_alterations | tax_payments_government_agencies | tax_preparation_services | taxicabs_limousines | telecommunication_equipment_and_telephone_sales | telecommunication_services | telegraph_services | tent_and_awning_shops | testing_laboratories | theatrical_ticket_agencies | timeshares | tire_retreading_and_repair | tolls_bridge_fees | tourist_attractions_and_exhibits | towing_services | trailer_parks_campgrounds | transportation_services | travel_agencies_tour_operators | truck_stop_iteration | truck_utility_trailer_rentals | typesetting_plate_making_and_related_services | typewriter_stores | u_s_federal_government_agencies_or_departments | uniforms_commercial_clothing | used_merchandise_and_secondhand_stores | utilities | variety_stores | veterinary_services | video_amusement_game_supplies | video_game_arcades | video_tape_rental_stores | vocational_trade_schools | watch_jewelry_repair | welding_repair | wholesale_clubs | wig_and_toupee_stores | wires_money_orders | womens_accessory_and_specialty_shops | womens_ready_to_wear_stores | wrecking_and_salvage_yards" ],
+    "blocked_categories" : [ "string. Possible values: ac_refrigeration_repair | accounting_bookkeeping_services | advertising_services | agricultural_cooperative | airlines_air_carriers | airports_flying_fields | ambulance_services | amusement_parks_carnivals | antique_reproductions | antique_shops | aquariums | architectural_surveying_services | art_dealers_and_galleries | artists_supply_and_craft_shops | auto_and_home_supply_stores | auto_body_repair_shops | auto_paint_shops | auto_service_shops | automated_cash_disburse | automated_fuel_dispensers | automobile_associations | automotive_parts_and_accessories_stores | automotive_tire_stores | bail_and_bond_payments | bakeries | bands_orchestras | barber_and_beauty_shops | betting_casino_gambling | bicycle_shops | billiard_pool_establishments | boat_dealers | boat_rentals_and_leases | book_stores | books_periodicals_and_newspapers | bowling_alleys | bus_lines | business_secretarial_schools | buying_shopping_services | cable_satellite_and_other_pay_television_and_radio | camera_and_photographic_supply_stores | candy_nut_and_confectionery_stores | car_and_truck_dealers_new_used | car_and_truck_dealers_used_only | car_rental_agencies | car_washes | carpentry_services | carpet_upholstery_cleaning | caterers | charitable_and_social_service_organizations_fundraising | chemicals_and_allied_products | chidrens_and_infants_wear_stores | child_care_services | chiropodists_podiatrists | chiropractors | cigar_stores_and_stands | civic_social_fraternal_associations | cleaning_and_maintenance | clothing_rental | colleges_universities | commercial_equipment | commercial_footwear | commercial_photography_art_and_graphics | commuter_transport_and_ferries | computer_network_services | computer_programming | computer_repair | computer_software_stores | computers_peripherals_and_software | concrete_work_services | construction_materials | consulting_public_relations | correspondence_schools | cosmetic_stores | counseling_services | country_clubs | courier_services | court_costs | credit_reporting_agencies | cruise_lines | dairy_products_stores | dance_hall_studios_schools | dating_escort_services | dentists_orthodontists | department_stores | detective_agencies | direct_marketing_catalog_merchant | direct_marketing_combination_catalog_and_retail_merchant | direct_marketing_inbound_telemarketing | direct_marketing_insurance_services | direct_marketing_other | direct_marketing_outbound_telemarketing | direct_marketing_subscription | direct_marketing_travel | discount_stores | doctors | door_to_door_sales | drapery_window_covering_and_upholstery_stores | drinking_places | drug_stores_and_pharmacies | drugs_drug_proprietaries_and_druggist_sundries | dry_cleaners | durable_goods | duty_free_stores | eating_places_restaurants | educational_services | electric_razor_stores | electrical_parts_and_equipment | electrical_services | electronics_repair_shops | electronics_stores | elementary_secondary_schools | employment_temp_agencies | equipment_rental | exterminating_services | family_clothing_stores | fast_food_restaurants | financial_institutions | fines_government_administrative_entities | fireplace_fireplace_screens_and_accessories_stores | floor_covering_stores | florists | florists_supplies_nursery_stock_and_flowers | freezer_and_locker_meat_provisioners | fuel_dealers_non_automotive | funeral_services_crematories | furniture_home_furnishings_and_equipment_stores_except_appliances | furniture_repair_refinishing | furriers_and_fur_shops | general_services | gift_card_novelty_and_souvenir_shops | glass_paint_and_wallpaper_stores | glassware_crystal_stores | golf_courses_public | government_services | grocery_stores_supermarkets | hardware_equipment_and_supplies | hardware_stores | health_and_beauty_spas | hearing_aids_sales_and_supplies | heating_plumbing_a_c | hobby_toy_and_game_shops | home_supply_warehouse_stores | hospitals | hotels_motels_and_resorts | household_appliance_stores | industrial_supplies | information_retrieval_services | insurance_default | insurance_underwriting_premiums | intra_company_purchases | jewelry_stores_watches_clocks_and_silverware_stores | landscaping_services | laundries | laundry_cleaning_services | legal_services_attorneys | luggage_and_leather_goods_stores | lumber_building_materials_stores | manual_cash_disburse | marinas_service_and_supplies | masonry_stonework_and_plaster | massage_parlors | means_womens_clothing_stores | medical_and_dental_labs | medical_dental_ophthalmic_and_hospital_equipment_and_supplies | medical_services | membership_organizations | mens_and_boys_clothing_and_accessories_stores | metal_service_centers | miscellaneous | miscellaneous_apparel_and_accessory_shops | miscellaneous_auto_dealers | miscellaneous_business_services | miscellaneous_food_stores | miscellaneous_general_merchandise | miscellaneous_general_services | miscellaneous_home_furnishing_specialty_stores | miscellaneous_publishing_and_printing | miscellaneous_recreation_services | miscellaneous_repair_shops | miscellaneous_specialty_retail | mobile_home_dealers | motion_picture_theaters | motor_freight_carriers_and_trucking | motor_homes_dealers | motor_vehicle_supplies_and_new_parts | motorcycle_shops_and_dealers | motorcycle_shops_dealers | music_stores_musical_instruments_pianos_and_sheet_music | news_dealers_and_newsstands | non_fi_money_orders | non_fi_stored_value_card_purchase_load | nondurable_goods | nurseries_lawn_and_garden_supply_stores | nursing_personal_care | office_and_commercial_furniture | opticians_eyeglasses | optometrists_ophthalmologist | orthopedic_goods_prosthetic_devices | osteopaths | package_stores_beer_wine_and_liquor | paints_varnishes_and_supplies | parking_lots_garages | passenger_railways | pawn_shops | pet_shops_pet_food_and_supplies | petroleum_and_petroleum_products | photo_developing | photographic_photocopy_microfilm_equipment_and_supplies | photographic_studios | picture_video_production | piece_goods_notions_and_other_dry_goods | plumbing_heating_equipment_and_supplies | political_organizations | postal_services_government_only | precious_stones_and_metals_watches_and_jewelry | professional_services | public_warehousing_and_storage | quick_copy_repro_and_blueprint | railroads | real_estate_agents_and_managers_rentals | record_stores | recreational_vehicle_rentals | religious_goods_stores | religious_organizations | roofing_siding_sheet_metal | secretarial_support_services | security_brokers_dealers | service_stations | sewing_needlework_fabric_and_piece_goods_stores | shoe_repair_hat_cleaning | shoe_stores | small_appliance_repair | snowmobile_dealers | special_trade_services | specialty_cleaning | sporting_goods_stores | sporting_recreation_camps | sports_and_riding_apparel_stores | sports_clubs_fields | stamp_and_coin_stores | stationary_office_supplies_printing_and_writing_paper | stationery_stores_office_and_school_supply_stores | swimming_pools_sales | t_ui_travel_germany | tailors_alterations | tax_payments_government_agencies | tax_preparation_services | taxicabs_limousines | telecommunication_equipment_and_telephone_sales | telecommunication_services | telegraph_services | tent_and_awning_shops | testing_laboratories | theatrical_ticket_agencies | timeshares | tire_retreading_and_repair | tolls_bridge_fees | tourist_attractions_and_exhibits | towing_services | trailer_parks_campgrounds | transportation_services | travel_agencies_tour_operators | truck_stop_iteration | truck_utility_trailer_rentals | typesetting_plate_making_and_related_services | typewriter_stores | u_s_federal_government_agencies_or_departments | uniforms_commercial_clothing | used_merchandise_and_secondhand_stores | utilities | variety_stores | veterinary_services | video_amusement_game_supplies | video_game_arcades | video_tape_rental_stores | vocational_trade_schools | watch_jewelry_repair | welding_repair | wholesale_clubs | wig_and_toupee_stores | wires_money_orders | womens_accessory_and_specialty_shops | womens_ready_to_wear_stores | wrecking_and_salvage_yards" ],
+    "max_amount" : "integer"
+  },
+  "status" : "Specifies whether to permit authorizations on this card. Possible values are `active`, `inactive`, or `canceled`."
+}
+```
 
 </details>
 
@@ -3482,15 +5732,37 @@ Updates the specified Issuing Cardholder object by setting the values of the par
 
 <details><summary>Parameters</summary>
 
-#### cardholder (required)
+### cardholder (required)
 
 The ID of the cardholder to update.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "expand" : [ "string" ],
+  "metadata" : { },
+  "name" : "The name of the cardholder, printed on the card.",
+  "phone_number" : "The cardholder's phone number.",
+  "email" : "The cardholder's email address.",
+  "billing" : {
+    "address" : {
+      "country" : "Required string",
+      "city" : "Required string",
+      "state" : "string",
+      "postal_code" : "Required string",
+      "line2" : "string",
+      "line1" : "Required string"
+    },
+    "name" : "string"
+  },
+  "status" : "Specifies whether to permit authorizations on this cardholder's cards. Possible values are `active` or `inactive`."
+}
+```
 
 </details>
 
@@ -3500,15 +5772,22 @@ Updates the specified Issuing Dispute object by setting the values of the parame
 
 <details><summary>Parameters</summary>
 
-#### dispute (required)
+### dispute (required)
 
 The ID of the dispute to update.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "expand" : [ "string" ],
+  "metadata" : { }
+}
+```
 
 </details>
 
@@ -3518,15 +5797,22 @@ Updates the specified Issuing Transaction object by setting the values of the pa
 
 <details><summary>Parameters</summary>
 
-#### transaction (required)
+### transaction (required)
 
 The identifier of the transaction to update.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "expand" : [ "string" ],
+  "metadata" : { }
+}
+```
 
 </details>
 
@@ -3536,13 +5822,27 @@ Updates the specific order by setting the values of the parameters passed. Any p
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "expand" : [ "string" ],
+  "metadata" : { },
+  "coupon" : "A coupon code that represents a discount to be applied to this order. Must be one-time duration and in same currency as the order.",
+  "shipping" : {
+    "carrier" : "Required string",
+    "tracking_number" : "Required string"
+  },
+  "selected_shipping_method" : "The shipping method to select for fulfilling this order. If specified, must be one of the `id`s of a shipping method in the `shipping_methods` array. If specified, will overwrite the existing selected shipping method, updating `items` as necessary.",
+  "status" : "Current order status. One of `created`, `paid`, `canceled`, `fulfilled`, or `returned`. More detail in the [Orders Guide](/docs/orders/guide#understanding-order-statuses)."
+}
+```
 
 </details>
 
@@ -3552,13 +5852,33 @@ Updates a PaymentIntent object.
 
 <details><summary>Parameters</summary>
 
-#### intent (required)
+### intent (required)
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "amount" : "Amount intended to be collected by this PaymentIntent",
+  "metadata" : { },
+  "transfer_group" : "A string that identifies the resulting payment as part of a group. `transfer_group` may only be provided if it has not been set. See the [Connect documentation](/docs/connect/charges-transfers#grouping-transactions) for details.",
+  "description" : "An arbitrary string attached to the object. Often useful for displaying to users.",
+  "source" : "ID of the Source object to attach to this PaymentIntent.",
+  "transfer_data" : {
+    "amount" : "integer"
+  },
+  "expand" : [ "string" ],
+  "receipt_email" : "Email address that the receipt for the resulting payment will be sent to.",
+  "return_url" : "The URL to redirect your customer back to after they authenticate or cancel their payment on the payment method's app or site.If you'd prefer to redirect to a mobile application, you can alternatively supply an application URI scheme.",
+  "currency" : "Three-letter [ISO currency code](https://www.iso.org/iso-4217-currency-codes.html), in lowercase. Must be a [supported currency](https://stripe.com/docs/currencies).",
+  "save_source_to_customer" : "`true` to save this PaymentIntent's Source to the associated Customer, if the Source is not already attached.",
+  "application_fee_amount" : "The amount of the application fee (if any) for the resulting payment. [See the Connect documentation](/docs/connect/direct-charges#collecting-fees) for details.",
+  "customer" : "ID of the customer this PaymentIntent is for if one exists."
+}
+```
 
 </details>
 
@@ -3568,15 +5888,22 @@ Updates the specified payout by setting the values of the parameters passed. Any
 
 <details><summary>Parameters</summary>
 
-#### payout (required)
+### payout (required)
 
 The identifier of the payout to be updated.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "expand" : [ "string" ],
+  "metadata" : { }
+}
+```
 
 </details>
 
@@ -3586,15 +5913,28 @@ Updates the specified plan by setting the values of the parameters passed. Any p
 
 <details><summary>Parameters</summary>
 
-#### plan (required)
+### plan (required)
 
 The identifier of the plan to be updated.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "statement_descriptor" : "An arbitrary string to be displayed on your customer's credit card statement. This may be up to 22 characters. The statement description may not include &lt;&gt;\"' characters, and will appear on your customer's statement in capital letters. Non-ASCII characters are automatically stripped. While most banks display this information consistently, some may display it incorrectly or not at all. It must contain at least one letter.",
+  "expand" : [ "string" ],
+  "metadata" : { },
+  "product" : "The product the plan belongs to. Note that after updating, statement descriptors and line items of the plan in active subscriptions will be affected.",
+  "name" : "The plan name. Customers may see this value on Stripe-generated invoices and receipts.",
+  "nickname" : "A brief description of the plan, hidden from customers.",
+  "active" : "Whether the plan is currently available for new subscriptions.",
+  "trial_period_days" : "Default number of trial days when subscribing a customer to this plan using [`trial_from_plan=true`](/docs/api#create_subscription-trial_from_plan)."
+}
+```
 
 </details>
 
@@ -3605,21 +5945,28 @@ This request only accepts metadata as an argument.
 
 <details><summary>Parameters</summary>
 
-#### fee (required)
+### fee (required)
 
 ID of the application fee refunded.
 
 **Type:** string
 
-#### id (required)
+### id (required)
 
 ID of refund to retrieve.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "expand" : [ "string" ],
+  "metadata" : { }
+}
+```
 
 </details>
 
@@ -3629,15 +5976,31 @@ Updates a Location object by setting the values of the parameters passed. Any pa
 
 <details><summary>Parameters</summary>
 
-#### location (required)
+### location (required)
 
 The identifier of the location to be updated.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "expand" : [ "string" ],
+  "address" : {
+    "country" : "Required string",
+    "city" : "Required string",
+    "state" : "string",
+    "postal_code" : "Required string",
+    "line2" : "string",
+    "line1" : "Required string"
+  },
+  "display_name" : "A name for the location.",
+  "operator_account" : "The identifier of the new account associated with this location."
+}
+```
 
 </details>
 
@@ -3647,15 +6010,23 @@ Updates a Reader object by setting the values of the parameters passed. Any para
 
 <details><summary>Parameters</summary>
 
-#### reader (required)
+### reader (required)
 
 The identifier of the reader to be updated.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "expand" : [ "string" ],
+  "label" : "The new label of the reader.",
+  "operator_account" : "The identifier of the new account associated with this reader."
+}
+```
 
 </details>
 
@@ -3666,13 +6037,37 @@ Note that a product’s attributes are not editable. Instead, you would need to 
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "deactivate_on" : [ "string" ],
+  "images" : [ "string" ],
+  "metadata" : { },
+  "active" : "Whether the product is available for purchase.",
+  "caption" : "A short one-line description of the product, meant to be displayable to the customer.",
+  "description" : "The product's description, meant to be displayable to the customer.",
+  "url" : "A URL of a publicly-accessible webpage for this product.",
+  "package_dimensions" : {
+    "length" : "Required number",
+    "width" : "Required number",
+    "weight" : "Required number",
+    "height" : "Required number"
+  },
+  "statement_descriptor" : "An arbitrary string to be displayed on your customer's credit card statement. This may be up to 22 characters. The statement description may not include &lt;&gt;\"' characters, and will appear on your customer's statement in capital letters. Non-ASCII characters are automatically stripped. While most banks display this information consistently, some may display it incorrectly or not at all. It must contain at least one letter. May only be set if type=`service`.",
+  "expand" : [ "string" ],
+  "shippable" : "Whether this product is shipped (i.e., physical goods). Defaults to `true`.",
+  "name" : "The product's name, meant to be displayable to the customer. Applicable to both `service` and `good` types.",
+  "attributes" : [ "string" ],
+  "unit_label" : "A label that represents units of this product, such as seat(s), in Stripe and on customers’ receipts and invoices. Only available on products of type=`service`."
+}
+```
 
 </details>
 
@@ -3683,13 +6078,20 @@ This request only accepts metadata as an argument.
 
 <details><summary>Parameters</summary>
 
-#### refund (required)
+### refund (required)
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "expand" : [ "string" ],
+  "metadata" : { }
+}
+```
 
 </details>
 
@@ -3700,13 +6102,37 @@ Note that a SKU’s attributes are not editable. Instead, you would need to deac
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "package_dimensions" : {
+    "length" : "Required number",
+    "width" : "Required number",
+    "weight" : "Required number",
+    "height" : "Required number"
+  },
+  "image" : "The URL of an image for this SKU, meant to be displayable to the customer.",
+  "expand" : [ "string" ],
+  "metadata" : { },
+  "product" : "The ID of the product that this SKU should belong to. The product must exist, have the same set of attribute names as the SKU's current product, and be of type `good`.",
+  "price" : "The cost of the item as a positive integer in the smallest currency unit (that is, 100 cents to charge $1.00, or 100 to charge ¥100, Japanese Yen being a zero-decimal currency).",
+  "active" : "Whether this SKU is available for purchase.",
+  "attributes" : "A dictionary of attributes and values for the attributes defined by the product. When specified, `attributes` will partially update the existing attributes dictionary on the product, with the postcondition that a value must be present for each attribute key on the product, and that all SKUs for the product must have unique sets of attributes.",
+  "currency" : "Three-letter [ISO currency code](https://www.iso.org/iso-4217-currency-codes.html), in lowercase. Must be a [supported currency](https://stripe.com/docs/currencies).",
+  "inventory" : {
+    "quantity" : "integer",
+    "type" : "string. Possible values: bucket | finite | infinite",
+    "value" : "string. Possible values:  | in_stock | limited | out_of_stock"
+  }
+}
+```
 
 </details>
 
@@ -3717,13 +6143,42 @@ This request accepts the metadata and owner as arguments. It is also possible to
 
 <details><summary>Parameters</summary>
 
-#### source (required)
+### source (required)
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "owner" : {
+    "address" : {
+      "country" : "string",
+      "city" : "string",
+      "state" : "string",
+      "postal_code" : "string",
+      "line2" : "string",
+      "line1" : "string"
+    },
+    "phone" : "string",
+    "name" : "string",
+    "email" : "string"
+  },
+  "expand" : [ "string" ],
+  "mandate" : {
+    "notification_method" : "string. Possible values: email | manual | none",
+    "acceptance" : {
+      "date" : "Required integer",
+      "ip" : "Required string",
+      "user_agent" : "Required string",
+      "status" : "Required string. Possible values: accepted | pending | refused | revoked"
+    }
+  },
+  "metadata" : { }
+}
+```
 
 </details>
 
@@ -3733,15 +6188,41 @@ Updates an existing subscription on a customer to match the specified parameters
 
 <details><summary>Parameters</summary>
 
-#### subscription_exposed_id (required)
+### subscription_exposed_id (required)
 
 The identifier of the subscription to update.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "metadata" : { },
+  "cancel_at_period_end" : "Boolean indicating whether this subscription should cancel at the end of the current period.",
+  "coupon" : "The code of the coupon to apply to this subscription. A coupon applied to a subscription will only affect invoices created for that particular subscription.",
+  "days_until_due" : "Number of days a customer has to pay invoices generated by this subscription. Valid only for subscriptions where `billing` is set to `send_invoice`.",
+  "trial_end" : "Unix timestamp representing the end of the trial period the customer will get before being charged for the first time. This will always overwrite any trials that might apply via a subscribed plan. If set, trial_end will override the default trial period of the plan the customer is being subscribed to. The special value `now` can be provided to end the customer's trial immediately.",
+  "application_fee_percent" : "A non-negative decimal between 0 and 100, with at most two decimal places. This represents the percentage of the subscription invoice subtotal that will be transferred to the application owner's Stripe account. The request must be made with an OAuth key in order to set an application fee percentage. For more information, see the application fees [documentation](https://stripe.com/docs/connect/subscriptions#collecting-fees-on-subscriptions).",
+  "billing_cycle_anchor" : "Either `now` or `unchanged`. Setting the value to `now` resets the subscription's billing cycle anchor to the current time. For more information, see the billing cycle [documentation](/docs/billing/subscriptions/billing-cycle).",
+  "billing" : "Either `charge_automatically`, or `send_invoice`. When charging automatically, Stripe will attempt to pay this subscription at the end of the cycle using the default source attached to the customer. When sending an invoice, Stripe will email your customer an invoice with payment instructions. Defaults to `charge_automatically`.",
+  "tax_percent" : "A non-negative decimal (with at most four decimal places) between 0 and 100. This represents the percentage of the subscription invoice subtotal that will be calculated and added as tax to the final amount in each billing period. For example, a plan which charges $10/month with a `tax_percent` of `20.0` will charge $12 per invoice. To unset a previously-set value, pass an empty string.",
+  "expand" : [ "string" ],
+  "trial_from_plan" : "Indicates if a plan's `trial_period_days` should be applied to the subscription. Setting `trial_end` per subscription is preferred, and this defaults to `false`. Setting this flag to `true` together with `trial_end` is not allowed.",
+  "items" : [ {
+    "metadata" : { },
+    "deleted" : "boolean",
+    "quantity" : "integer",
+    "clear_usage" : "boolean",
+    "id" : "string",
+    "plan" : "string"
+  } ],
+  "prorate" : "Boolean (defaults to `true`) telling us whether to [credit for unused time](/docs/subscriptions/billing-cycle#prorations) when the billing cycle changes (e.g. when switching plans, resetting `billing_cycle_anchor=now`, or starting a trial). If `false`, the anchor period will be free (similar to a trial) and no proration adjustments will be created.",
+  "proration_date" : "If set, the proration will be calculated as though the subscription was updated at the given time. This can be used to apply exactly the same proration that was previewed with [upcoming invoice](#retrieve_customer_invoice) endpoint. It can also be used to implement custom proration logic, such as prorating by day instead of by second, by providing the time that you wish to use for proration calculations."
+}
+```
 
 </details>
 
@@ -3751,15 +6232,26 @@ Updates the plan or quantity of an item on a current subscription.
 
 <details><summary>Parameters</summary>
 
-#### item (required)
+### item (required)
 
 The identifier of the subscription item to modify.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "expand" : [ "string" ],
+  "metadata" : { },
+  "quantity" : "The quantity you'd like to apply to the subscription item you're creating.",
+  "plan" : "The identifier of the new plan for this subscription item.",
+  "prorate" : "Flag indicating whether to [prorate](/docs/subscriptions/upgrading-downgrading#understanding-proration) switching plans during a billing cycle.",
+  "proration_date" : "If set, the proration will be calculated as though the subscription was updated at the given time. This can be used to apply the same proration that was previewed with the [upcoming invoice](#retrieve_customer_invoice) endpoint."
+}
+```
 
 </details>
 
@@ -3769,15 +6261,23 @@ Updates the metadata of a top-up. Other top-up details are not editable by desig
 
 <details><summary>Parameters</summary>
 
-#### topup (required)
+### topup (required)
 
 The ID of the top-up to retrieve.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "expand" : [ "string" ],
+  "metadata" : { },
+  "description" : "An arbitrary string attached to the object. Often useful for displaying to users."
+}
+```
 
 </details>
 
@@ -3788,15 +6288,23 @@ This request accepts only metadata as an argument.
 
 <details><summary>Parameters</summary>
 
-#### transfer (required)
+### transfer (required)
 
 The ID of the transfer to be updated.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "expand" : [ "string" ],
+  "metadata" : { },
+  "description" : "An arbitrary string attached to the object. Often useful for displaying to users."
+}
+```
 
 </details>
 
@@ -3807,13 +6315,27 @@ If you update the name or tax ID, the identity verification will automatically b
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "expand" : [ "string" ],
+  "metadata" : { },
+  "default_card" : "ID of the card to set as the recipient's new default for payouts.",
+  "name" : "The recipient's full, legal name. For type `individual`, should be in the format `First Last`, `First Middle Last`, or `First M Last` (no prefixes or suffixes). For `corporation`, the full, incorporated name.",
+  "description" : "An arbitrary string which you can attach to a `Recipient` object. It is displayed alongside the recipient in the web interface.",
+  "card" : { },
+  "email" : "The recipient's email address. It is displayed alongside the recipient in the web interface, and can be useful for searching and tracking.",
+  "tax_id" : "The recipient's tax ID, as a string. For type `individual`, the full SSN; for type `corporation`, the full EIN.",
+  "bank_account" : { }
+}
+```
 
 </details>
 
@@ -3824,21 +6346,28 @@ This request only accepts metadata and description as arguments.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 ID of reversal to retrieve.
 
 **Type:** string
 
-#### transfer (required)
+### transfer (required)
 
 ID of the transfer reversed.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "expand" : [ "string" ],
+  "metadata" : { }
+}
+```
 
 </details>
 
@@ -3848,19 +6377,27 @@ ID of the transfer reversed.
 
 <details><summary>Parameters</summary>
 
-#### customer (required)
+### customer (required)
 
 **Type:** string
 
-#### id (required)
+### id (required)
 
 The ID of the source to be verified.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "expand" : [ "string" ],
+  "amounts" : [ "integer" ],
+  "verification_method" : "string"
+}
+```
 
 </details>
 
@@ -3870,15 +6407,22 @@ The ID of the source to be verified.
 
 <details><summary>Parameters</summary>
 
-#### source (required)
+### source (required)
 
 The ID of the desired source.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "expand" : [ "string" ],
+  "values" : [ "string" ]
+}
+```
 
 </details>
 

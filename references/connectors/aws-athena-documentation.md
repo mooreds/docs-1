@@ -11,9 +11,15 @@ Returns the details of a single named query or a list of up to 50 queries, which
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "NamedQueryIds" : [ "string" ]
+}
+```
 
 </details>
 
@@ -23,9 +29,15 @@ Returns the details of a single query execution or a list of up to 50 query exec
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "QueryExecutionIds" : [ "string" ]
+}
+```
 
 </details>
 
@@ -36,9 +48,19 @@ For code samples using the AWS SDK for Java, see Examples and Code Samples in th
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "ClientRequestToken" : "A unique case-sensitive string used to ensure the request to create the query is idempotent (executes only once). If another CreateNamedQuery request is received, the same response is returned and another query is not created. If a parameter has changed, for example, the QueryString, an error is returned.  \nThis token is listed as not required because AWS SDKs (for example the AWS SDK for Java) auto-generate the token for users. If you are not using the AWS SDK or the AWS CLI, you must provide this token or the action will fail.",
+  "Description" : "A brief explanation of the query.",
+  "QueryString" : "The text of the query itself. In other words, all query statements.",
+  "Database" : "The database to which the query belongs.",
+  "Name" : "The plain language name for the query."
+}
+```
 
 </details>
 
@@ -49,9 +71,15 @@ For code samples using the AWS SDK for Java, see Examples and Code Samples in th
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "NamedQueryId" : "The unique ID of the query to delete."
+}
+```
 
 </details>
 
@@ -61,9 +89,15 @@ Returns information about a single query.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "NamedQueryId" : "The unique ID of the query. Use ListNamedQueries to get query IDs."
+}
+```
 
 </details>
 
@@ -73,9 +107,15 @@ Returns information about a single execution of a query. Each time a query execu
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "QueryExecutionId" : "The unique ID of the query execution."
+}
+```
 
 </details>
 
@@ -85,9 +125,15 @@ Returns the results of a single query execution specified by QueryExecutionId. T
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "QueryExecutionId" : "The unique ID of the query execution."
+}
+```
 
 </details>
 
@@ -112,9 +158,26 @@ For code samples using the AWS SDK for Java, see Examples and Code Samples in th
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "ClientRequestToken" : "A unique case-sensitive string used to ensure the request to create the query is idempotent (executes only once). If another StartQueryExecution request is received, the same response is returned and another query is not created. If a parameter has changed, for example, the QueryString, an error is returned.  \nThis token is listed as not required because AWS SDKs (for example the AWS SDK for Java) auto-generate the token for users. If you are not using the AWS SDK or the AWS CLI, you must provide this token or the action will fail.",
+  "ResultConfiguration" : {
+    "EncryptionConfiguration" : {
+      "EncryptionOption" : "Indicates whether Amazon S3 server-side encryption with Amazon S3-managed keys (SSE-S3), server-side encryption with KMS-managed keys (SSE-KMS), or client-side encryption with KMS-managed keys (CSE-KMS) is used.",
+      "KmsKey" : "For SSE-KMS and CSE-KMS, this is the KMS key ARN or ID."
+    },
+    "OutputLocation" : "The location in Amazon S3 where your query results are stored, such as s3://path/to/query/bucket/. For more information, see Queries and Query Result Files.  "
+  },
+  "QueryExecutionContext" : {
+    "Database" : "The name of the database."
+  },
+  "QueryString" : "The SQL query statements to be executed."
+}
+```
 
 </details>
 
@@ -125,9 +188,15 @@ For code samples using the AWS SDK for Java, see Examples and Code Samples in th
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "QueryExecutionId" : "The unique ID of the query execution to stop."
+}
+```
 
 </details>
 

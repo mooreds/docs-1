@@ -12,25 +12,25 @@ layout: docs.mustache
 
 <details><summary>Parameters</summary>
 
-#### playlist_id (required)
+### playlist_id (required)
 
 The Spotify playlist ID.
 
 **Type:** string
 
-#### uris (required)
+### uris (required)
 
 A comma-separated list of Spotify track URIs to add. A maximum of 100 tracks can be added in one request.
 
 **Type:** string
 
-#### user_id (required)
+### user_id (required)
 
 The user's Spotify user ID.
 
 **Type:** string
 
-#### position
+### position
 
 The position to insert the tracks, a zero-based index
 
@@ -45,20 +45,20 @@ The position to insert the tracks, a zero-based index
 
 <details><summary>Parameters</summary>
 
-#### country
+### country
 
 The country (an ISO 3166-1 alpha-2 country code)
 
 **Type:** string
 
-#### locale
+### locale
 
 The desired language, consisting of an ISO 639 language code and an ISO 3166-1 alpha-2 country code, joined by an underscore. For example: es_MX, meaning "Spanish (Mexico)".
 
 
 **Type:** string
 
-#### timestamp
+### timestamp
 
 A timestamp in ISO 8601 format (yyyy-MM-dd'T'HH:mm:ss) with the user's local time to get results tailored to a specific date and time in the day. If not provided, it defaults to the current UTC time. Example: "2014-10-23T09:00:00" for a user whose local time is 9AM.
 
@@ -74,7 +74,7 @@ A timestamp in ISO 8601 format (yyyy-MM-dd'T'HH:mm:ss) with the user's local tim
 
 <details><summary>Parameters</summary>
 
-#### country
+### country
 
 The country (an ISO 3166-1 alpha-2 country code)
 
@@ -89,13 +89,13 @@ The country (an ISO 3166-1 alpha-2 country code)
 
 <details><summary>Parameters</summary>
 
-#### ids (required)
+### ids (required)
 
 A comma-separated string of the artists or users ids.
 
 **Type:** string
 
-#### type (required)
+### type (required)
 
 The type to follow.
 
@@ -112,7 +112,7 @@ The type to follow.
 
 <details><summary>Parameters</summary>
 
-#### ids (required)
+### ids (required)
 
 A comma-separated list of IDs
 
@@ -127,19 +127,19 @@ A comma-separated list of IDs
 
 <details><summary>Parameters</summary>
 
-#### ids (required)
+### ids (required)
 
 A comma-separated list of users ids
 
 **Type:** string
 
-#### owner_id (required)
+### owner_id (required)
 
 The playlist owner's Spotify ID
 
 **Type:** string
 
-#### playlist_id (required)
+### playlist_id (required)
 
 The Spotify playlist ID.
 
@@ -154,15 +154,22 @@ The Spotify playlist ID.
 
 <details><summary>Parameters</summary>
 
-#### user_id (required)
+### user_id (required)
 
 The user's Spotify user ID.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "public" : "boolean",
+  "name" : "Required string"
+}
+```
 
 </details>
 
@@ -173,7 +180,7 @@ The user's Spotify user ID.
 
 <details><summary>Parameters</summary>
 
-#### ids (required)
+### ids (required)
 
 A comma-separated list of IDs
 
@@ -188,21 +195,28 @@ A comma-separated list of IDs
 
 <details><summary>Parameters</summary>
 
-#### playlist_id (required)
+### playlist_id (required)
 
 The Spotify playlist ID.
 
 **Type:** string
 
-#### user_id (required)
+### user_id (required)
 
 The user's Spotify user ID.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "public" : "boolean",
+  "name" : "string"
+}
+```
 
 </details>
 
@@ -213,13 +227,13 @@ The user's Spotify user ID.
 
 <details><summary>Parameters</summary>
 
-#### ids (required)
+### ids (required)
 
 A comma-separated list of the artists or users ids
 
 **Type:** string
 
-#### type (required)
+### type (required)
 
 The type to follow.
 
@@ -236,21 +250,27 @@ The type to follow.
 
 <details><summary>Parameters</summary>
 
-#### playlist_id (required)
+### playlist_id (required)
 
 The Spotify playlist ID.
 
 **Type:** string
 
-#### user_id (required)
+### user_id (required)
 
 The user's Spotify user ID.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "public" : "boolean"
+}
+```
 
 </details>
 
@@ -261,13 +281,13 @@ The user's Spotify user ID.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 The Spotify ID for the album
 
 **Type:** string
 
-#### market
+### market
 
 The market (an ISO 3166-1 alpha-2 country code)
 
@@ -282,13 +302,13 @@ The market (an ISO 3166-1 alpha-2 country code)
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 The Spotify ID for the album
 
 **Type:** string
 
-#### market
+### market
 
 The market (an ISO 3166-1 alpha-2 country code)
 
@@ -303,13 +323,13 @@ The market (an ISO 3166-1 alpha-2 country code)
 
 <details><summary>Parameters</summary>
 
-#### ids (required)
+### ids (required)
 
 A comma-separated list of IDs
 
 **Type:** string
 
-#### market
+### market
 
 The market (an ISO 3166-1 alpha-2 country code)
 
@@ -324,7 +344,7 @@ The market (an ISO 3166-1 alpha-2 country code)
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 The Spotify ID for the artist
 
@@ -339,19 +359,19 @@ The Spotify ID for the artist
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 The Spotify ID for the artist
 
 **Type:** string
 
-#### album_type
+### album_type
 
 Filter by album types
 
 **Type:** string
 
-#### market
+### market
 
 The market (an ISO 3166-1 alpha-2 country code)
 
@@ -366,13 +386,13 @@ The market (an ISO 3166-1 alpha-2 country code)
 
 <details><summary>Parameters</summary>
 
-#### country (required)
+### country (required)
 
 The country (an ISO 3166-1 alpha-2 country code)
 
 **Type:** string
 
-#### id (required)
+### id (required)
 
 The Spotify ID for the artist
 
@@ -387,7 +407,7 @@ The Spotify ID for the artist
 
 <details><summary>Parameters</summary>
 
-#### ids (required)
+### ids (required)
 
 A comma-separated list of IDs
 
@@ -402,7 +422,7 @@ A comma-separated list of IDs
 
 <details><summary>Parameters</summary>
 
-#### type (required)
+### type (required)
 
 The ID type, currently only artist is supported.
 
@@ -419,13 +439,13 @@ The ID type, currently only artist is supported.
 
 <details><summary>Parameters</summary>
 
-#### country
+### country
 
 The country (an ISO 3166-1 alpha-2 country code)
 
 **Type:** string
 
-#### locale
+### locale
 
 The desired language, consisting of an ISO 639 language code and an ISO 3166-1 alpha-2 country code, joined by an underscore. For example: es_MX, meaning "Spanish (Mexico)".
 
@@ -441,19 +461,19 @@ The desired language, consisting of an ISO 639 language code and an ISO 3166-1 a
 
 <details><summary>Parameters</summary>
 
-#### category_id (required)
+### category_id (required)
 
 The Spotify ID of the category you wish to fetch.
 
 **Type:** string
 
-#### country
+### country
 
 The country (an ISO 3166-1 alpha-2 country code)
 
 **Type:** string
 
-#### locale
+### locale
 
 The desired language, consisting of an ISO 639 language code and an ISO 3166-1 alpha-2 country code, joined by an underscore. For example: es_MX, meaning "Spanish (Mexico)".
 
@@ -469,13 +489,13 @@ The desired language, consisting of an ISO 639 language code and an ISO 3166-1 a
 
 <details><summary>Parameters</summary>
 
-#### category_id (required)
+### category_id (required)
 
 The Spotify ID of the category you wish to fetch.
 
 **Type:** string
 
-#### country
+### country
 
 The country (an ISO 3166-1 alpha-2 country code)
 
@@ -503,7 +523,7 @@ The country (an ISO 3166-1 alpha-2 country code)
 
 <details><summary>Parameters</summary>
 
-#### market
+### market
 
 The market (an ISO 3166-1 alpha-2 country code)
 
@@ -518,25 +538,25 @@ The market (an ISO 3166-1 alpha-2 country code)
 
 <details><summary>Parameters</summary>
 
-#### playlist_id (required)
+### playlist_id (required)
 
 The Spotify playlist ID.
 
 **Type:** string
 
-#### user_id (required)
+### user_id (required)
 
 The user's Spotify user ID.
 
 **Type:** string
 
-#### fields
+### fields
 
 A comma-separated list of fields to filter query
 
 **Type:** string
 
-#### market
+### market
 
 The market (an ISO 3166-1 alpha-2 country code)
 
@@ -551,25 +571,25 @@ The market (an ISO 3166-1 alpha-2 country code)
 
 <details><summary>Parameters</summary>
 
-#### playlist_id (required)
+### playlist_id (required)
 
 The Spotify playlist ID.
 
 **Type:** string
 
-#### user_id (required)
+### user_id (required)
 
 The user's Spotify user ID.
 
 **Type:** string
 
-#### fields
+### fields
 
 A comma-separated list of fields to filter query
 
 **Type:** string
 
-#### market
+### market
 
 The market (an ISO 3166-1 alpha-2 country code)
 
@@ -584,7 +604,7 @@ The market (an ISO 3166-1 alpha-2 country code)
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 The Spotify ID for the artist
 
@@ -599,11 +619,11 @@ The Spotify ID for the artist
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 **Type:** string
 
-#### market
+### market
 
 The market (an ISO 3166-1 alpha-2 country code)
 
@@ -618,13 +638,13 @@ The market (an ISO 3166-1 alpha-2 country code)
 
 <details><summary>Parameters</summary>
 
-#### ids (required)
+### ids (required)
 
 A comma-separated list of IDs
 
 **Type:** string
 
-#### market
+### market
 
 The market (an ISO 3166-1 alpha-2 country code)
 
@@ -639,7 +659,7 @@ The market (an ISO 3166-1 alpha-2 country code)
 
 <details><summary>Parameters</summary>
 
-#### user_id (required)
+### user_id (required)
 
 The user's Spotify user ID.
 
@@ -654,7 +674,7 @@ The user's Spotify user ID.
 
 <details><summary>Parameters</summary>
 
-#### user_id (required)
+### user_id (required)
 
 The user's Spotify user ID.
 
@@ -687,9 +707,21 @@ The user's Spotify user ID.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "uris" : [ "string" ],
+  "position_ms" : "integer",
+  "offset" : {
+    "position" : "integer",
+    "uri" : "string"
+  },
+  "context_uri" : "string"
+}
+```
 
 </details>
 
@@ -700,7 +732,7 @@ The user's Spotify user ID.
 
 <details><summary>Parameters</summary>
 
-#### position_ms (required)
+### position_ms (required)
 
 The position in milliseconds to seek to. Must be a positive number. Passing in a position that is greater than the length of the track will cause the player to start playing the next song.
 
@@ -715,21 +747,29 @@ The position in milliseconds to seek to. Must be a positive number. Passing in a
 
 <details><summary>Parameters</summary>
 
-#### playlist_id (required)
+### playlist_id (required)
 
 The Spotify playlist ID.
 
 **Type:** string
 
-#### user_id (required)
+### user_id (required)
 
 The user's Spotify user ID.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "tracks" : [ {
+    "uri" : "string"
+  } ]
+}
+```
 
 </details>
 
@@ -740,21 +780,30 @@ The user's Spotify user ID.
 
 <details><summary>Parameters</summary>
 
-#### playlist_id (required)
+### playlist_id (required)
 
 The Spotify playlist ID.
 
 **Type:** string
 
-#### user_id (required)
+### user_id (required)
 
 The user's Spotify user ID.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "insert_before" : "Required. The position where the tracks should be inserted. To reorder the tracks to the end of the playlist, simply set insert_before to the position after the last track. Examples- To reorder the first track to the last position in a playlist with 10 tracks, set range_start to 0, and insert_before to 10. To reorder the last track in a playlist with 10 tracks to the start of the playlist, set range_start to 9, and insert_before to 0.",
+  "snapshot_id" : "Optional. The playlist’s snapshot ID against which you want to make the changes.",
+  "range_length" : "Optional. The amount of tracks to be reordered. Defaults to 1 if not set. \\ The range of tracks to be reordered begins from the range_start position, and includes the range_length subsequent tracks. Example - To move the tracks at index 9-10 to the start of the playlist, range_start is set to 9, and range_length is set to 2.",
+  "range_start" : "Required. The position of the first track to be reordered."
+}
+```
 
 </details>
 
@@ -765,7 +814,7 @@ The user's Spotify user ID.
 
 <details><summary>Parameters</summary>
 
-#### ids (required)
+### ids (required)
 
 A comma-separated list of IDs
 
@@ -780,19 +829,19 @@ A comma-separated list of IDs
 
 <details><summary>Parameters</summary>
 
-#### q (required)
+### q (required)
 
 The search query's keywords (and optional field filters). The search is not case-sensitive: 'roadhouse' will match 'Roadhouse', 'roadHouse', etc. Keywords will be matched in any order unless surrounded by quotes, thus q=roadhouse&amp;20blues will match both 'Blues Roadhouse' and 'Roadhouse of the Blues'. Quotation marks can be used to limit the match to a phrase: q=roadhouse&amp;20blues will match 'My Roadhouse Blues' but not 'Roadhouse of the Blues'. By default, results are returned when a match is found in any field of the target object type. Searches can be made more specific by specifying an album, artist or track field filter. For example q=album:gold%20artist:abba&amp;type=album will search for albums with the text 'gold' in the album name and the text 'abba' in an artist name. Other possible field filters, depending on object types being searched, include year, genre, upc, and isrc. For example, q=damian%20genre:reggae-pop&amp;type=artist. The asterisk (*) character can, with some limitations, be used as a wildcard (maximum: 2 per query). It will match a variable number of non-white-space characters. It cannot be used in a quoted phrase, in a field filter, or as the first character of the keyword string. Searching for playlists will return results matching the playlist's name and/or description.
 
 **Type:** string
 
-#### type (required)
+### type (required)
 
 A comma-separated list of item types to search across. Search results will include hits from all the specified item types; for example q=name:abacab&amp;type=album,track will return both albums and tracks with "abacab" in their name.
 
 **Type:** string
 
-#### market
+### market
 
 The market (an ISO 3166-1 alpha-2 country code). If given, only items with content playable in that market will be returned.
 
@@ -807,13 +856,13 @@ The market (an ISO 3166-1 alpha-2 country code). If given, only items with conte
 
 <details><summary>Parameters</summary>
 
-#### ids (required)
+### ids (required)
 
 A comma-separated list of the artists or users ids
 
 **Type:** string
 
-#### type (required)
+### type (required)
 
 The type to unfollow.
 
@@ -830,13 +879,13 @@ The type to unfollow.
 
 <details><summary>Parameters</summary>
 
-#### playlist_id (required)
+### playlist_id (required)
 
 The Spotify playlist ID.
 
 **Type:** string
 
-#### user_id (required)
+### user_id (required)
 
 The user's Spotify user ID.
 

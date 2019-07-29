@@ -16,17 +16,75 @@ If you need more crawlers, please contact Apify support.
 
 <details><summary>Parameters</summary>
 
-#### user_id (required)
+### user_id (required)
 
 User ID. This value can be found under Account &gt; Integrations. Note that this value is different from the username.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
 
-#### desc
+```json
+{
+  "disableWebSecurity" : "boolean",
+  "maxCrawledPages" : "number",
+  "injectUnderscoreJs" : "boolean",
+  "finishWebhookData" : "string",
+  "customData" : "string",
+  "injectJQuery" : "boolean",
+  "crawlPurls" : [ {
+    "value" : "Required string",
+    "key" : "string"
+  } ],
+  "customId" : "Required string",
+  "timeout" : "number",
+  "cookies" : [ {
+    "path" : "string",
+    "expires" : "string",
+    "domain" : "string",
+    "name" : "string",
+    "httponly" : "string",
+    "expiry" : "string",
+    "secure" : "string",
+    "value" : "string"
+  } ],
+  "pageFunction" : "string",
+  "verboseLog" : "boolean",
+  "pageLoadTimeout" : "number",
+  "proxyGroups" : [ "string" ],
+  "maxCrawledPagesPerSlave" : "number",
+  "loadImages" : "boolean",
+  "cookiesPersistence" : "string",
+  "customProxies" : "string",
+  "comments" : "string",
+  "clickableElementsSelector" : "string",
+  "maxInfiniteScrollHeight" : "number",
+  "ignoreRobotsTxt" : "boolean",
+  "randomWaitBetweenRequests" : "number",
+  "maxParallelRequests" : "number",
+  "loadCss" : "boolean",
+  "skipLoadingFrames" : "boolean",
+  "finishWebhookUrl" : "string",
+  "startUrls" : [ {
+    "value" : "Required string",
+    "key" : "string"
+  } ],
+  "maxCrawlDepth" : "number",
+  "considerUrlFragment" : "boolean",
+  "customHttpHeaders" : [ {
+    "value" : "Required string",
+    "key" : "Required string"
+  } ],
+  "resourceTimeout" : "number",
+  "maxOutputPages" : "number",
+  "pageFunctionTimeout" : "number",
+  "interceptRequest" : "string"
+}
+```
+
+### desc
 
 By default, records are sorted in the order in which they were created or added. This property is useful when fetching all the records, because it ensures that records that were created after the client started the pagination will not be skipped. If you specify desc=1 parameter, the records will be returned in the reverse order, i.e. from newest to oldest records.
 
@@ -43,25 +101,25 @@ otherwise [an error](#introduction/errors) is returned.
 
 <details><summary>Parameters</summary>
 
-#### crawler_id (required)
+### crawler_id (required)
 
 Custom or internal ID of the crawler. This value can be found under the crawler's Basic Settings.
 
 **Type:** string
 
-#### user_id (required)
+### user_id (required)
 
 User ID. This value can be found under Account &gt; Integrations. Note that this value is different from the username.
 
 **Type:** string
 
-#### executionId
+### executionId
 
 Crawler execution ID for which the crawler settings should be returned.
 
 **Type:** string
 
-#### noSecrets
+### noSecrets
 
 If `1` then the response will only contain crawler settings and no sensitive data such as links to API related endpoints that contain authentication tokens.
 This option is used to export crawler configuration to JSON file that can be shared with other users.
@@ -82,29 +140,89 @@ Please also note that if you override `proxyGroups` parameter of crawler that do
 
 <details><summary>Parameters</summary>
 
-#### crawler_id (required)
+### crawler_id (required)
 
 Custom or internal ID of the crawler. This value can be found under the crawler's Basic Settings.
 
 **Type:** string
 
-#### user_id (required)
+### user_id (required)
 
 User ID. This value can be found under Account &gt; Integrations. Note that this value is different from the username.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
 
-#### tag
+```json
+{
+  "disableWebSecurity" : "boolean",
+  "maxCrawledPages" : "number",
+  "injectUnderscoreJs" : "boolean",
+  "finishWebhookData" : "string",
+  "customData" : "string",
+  "injectJQuery" : "boolean",
+  "crawlPurls" : [ {
+    "value" : "Required string",
+    "key" : "string"
+  } ],
+  "customId" : "Required string",
+  "timeout" : "number",
+  "cookies" : [ {
+    "path" : "string",
+    "expires" : "string",
+    "domain" : "string",
+    "name" : "string",
+    "httponly" : "string",
+    "expiry" : "string",
+    "secure" : "string",
+    "value" : "string"
+  } ],
+  "pageFunction" : "string",
+  "verboseLog" : "boolean",
+  "pageLoadTimeout" : "number",
+  "proxyGroups" : [ "string" ],
+  "maxCrawledPagesPerSlave" : "number",
+  "loadImages" : "boolean",
+  "cookiesPersistence" : "string",
+  "customProxies" : "string",
+  "comments" : "string",
+  "clickableElementsSelector" : "string",
+  "maxInfiniteScrollHeight" : "number",
+  "ignoreRobotsTxt" : "boolean",
+  "proxyType" : "string",
+  "randomWaitBetweenRequests" : "number",
+  "maxParallelRequests" : "number",
+  "loadCss" : "boolean",
+  "skipLoadingFrames" : "boolean",
+  "finishWebhookUrl" : "string",
+  "startUrls" : [ {
+    "value" : "Required string",
+    "key" : "string"
+  } ],
+  "maxCrawlDepth" : "number",
+  "considerUrlFragment" : "boolean",
+  "customHttpHeaders" : [ {
+    "value" : "Required string",
+    "key" : "Required string"
+  } ],
+  "_id" : "string",
+  "resourceTimeout" : "number",
+  "maxOutputPages" : "number",
+  "pageFunctionTimeout" : "number",
+  "interceptRequest" : "string"
+}
+```
+
+### tag
 
 Custom tag for the execution. It cannot be longer than 64 characters.
 
 **Type:** string
 
-#### wait
+### wait
 
 The maximum number of seconds the server waits for the execution to finish. By default it is `0`, the maximum value is `120`.
 
@@ -120,25 +238,25 @@ To get crawler settings used for a specific crawler execution, use the `executio
 
 <details><summary>Parameters</summary>
 
-#### crawler_id (required)
+### crawler_id (required)
 
 Custom or internal ID of the crawler. This value can be found under the crawler's Basic Settings.
 
 **Type:** string
 
-#### user_id (required)
+### user_id (required)
 
 User ID. This value can be found under Account &gt; Integrations. Note that this value is different from the username.
 
 **Type:** string
 
-#### executionId
+### executionId
 
 Crawler execution ID for which the crawler settings should be returned.
 
 **Type:** string
 
-#### noSecrets
+### noSecrets
 
 If `1` then the response will only contain crawler settings and no sensitive data such as links to API related endpoints that contain authentication tokens.
 This option is used to export crawler configuration to JSON file that can be shared with other users.
@@ -153,25 +271,25 @@ Gets a list of executions of a specific crawler. Optionally, you can use `status
 
 <details><summary>Parameters</summary>
 
-#### crawler_id (required)
+### crawler_id (required)
 
 Custom or internal ID of the crawler. This value can be found under the crawler's Basic Settings.
 
 **Type:** string
 
-#### user_id (required)
+### user_id (required)
 
 User ID. This value can be found under Account &gt; Integrations. Note that this value is different from the username.
 
 **Type:** string
 
-#### desc
+### desc
 
 By default, records are sorted in the order in which they were created or added. This property is useful when fetching all the records, because it ensures that records that were created after the client started the pagination will not be skipped. If you specify desc=1 parameter, the records will be returned in the reverse order, i.e. from newest to oldest records.
 
 **Type:** number
 
-#### status
+### status
 
 Filter for the execution status.
 
@@ -187,19 +305,19 @@ The response is an **Execution details** object corresponding to the last execut
 
 <details><summary>Parameters</summary>
 
-#### crawler_id (required)
+### crawler_id (required)
 
 Custom or internal ID of the crawler. This value can be found under the crawler's Basic Settings.
 
 **Type:** string
 
-#### user_id (required)
+### user_id (required)
 
 User ID. This value can be found under Account &gt; Integrations. Note that this value is different from the username.
 
 **Type:** string
 
-#### status
+### status
 
 Filter for the execution status.
 
@@ -217,19 +335,19 @@ If there is no matching execution or the last execution still has no results, th
 
 <details><summary>Parameters</summary>
 
-#### crawler_id (required)
+### crawler_id (required)
 
 Custom or internal ID of the crawler. This value can be found under the crawler's Basic Settings.
 
 **Type:** string
 
-#### user_id (required)
+### user_id (required)
 
 User ID. This value can be found under Account &gt; Integrations. Note that this value is different from the username.
 
 **Type:** string
 
-#### bom
+### bom
 
 All responses are encoded in UTF-8 encoding. By default, the `csv` files are prefixed with
 the UTF-8 Byte Order Mark (BOM), while `json`, `jsonl`, `xml`, `html` and `rss` files are not.
@@ -237,25 +355,25 @@ If you want to override this default behavior, specify `bom=1` query parameter t
 
 **Type:** number
 
-#### hideUrl
+### hideUrl
 
 If set to `1` then `url` field will not be added to each page function result object. By default each page function result object contains `url` field.
 
 **Type:** number
 
-#### simplified
+### simplified
 
 If `1` then the results will be returned in a simplified form without crawling metadata. By default full results are returned.
 
 **Type:** number
 
-#### skipFailedPages
+### skipFailedPages
 
 If set to `1` then pages with non-empty `errorInfo` property are skipped from the output and the `errorInfo` property is hidden. Note that the skipped pages are still counted in the pagination.
 
 **Type:** number
 
-#### status
+### status
 
 Filter for the execution status.
 
@@ -274,13 +392,13 @@ A single response will not return more than 1000 array elements.
 
 <details><summary>Parameters</summary>
 
-#### user_id (required)
+### user_id (required)
 
 User ID. This value can be found under Account &gt; Integrations. Note that this value is different from the username.
 
 **Type:** string
 
-#### desc
+### desc
 
 By default, records are sorted in the order in which they were created or added. This property is useful when fetching all the records, because it ensures that records that were created after the client started the pagination will not be skipped. If you specify desc=1 parameter, the records will be returned in the reverse order, i.e. from newest to oldest records.
 
@@ -296,7 +414,7 @@ The caller only needs to know a hard-to-guess crawler execution ID, which will n
 
 <details><summary>Parameters</summary>
 
-#### execution_id (required)
+### execution_id (required)
 
 Crawler execution ID. This value can be found under the crawler's Runs tab. Click on a specific run to find the execution ID under Info.
 
@@ -313,13 +431,13 @@ The caller only needs to know a hard-to-guess crawler execution ID, which will n
 
 <details><summary>Parameters</summary>
 
-#### execution_id (required)
+### execution_id (required)
 
 Crawler execution ID. This value can be found under the crawler's Runs tab. Click on a specific run to find the execution ID under Info.
 
 **Type:** string
 
-#### bom
+### bom
 
 All responses are encoded in UTF-8 encoding. By default, the `csv` files are prefixed with
 the UTF-8 Byte Order Mark (BOM), while `json`, `jsonl`, `xml`, `html` and `rss` files are not.
@@ -327,25 +445,25 @@ If you want to override this default behavior, specify `bom=1` query parameter t
 
 **Type:** number
 
-#### desc
+### desc
 
 By default, records are sorted in the order in which they were created or added. This property is useful when fetching all the records, because it ensures that records that were created after the client started the pagination will not be skipped. If you specify desc=1 parameter, the records will be returned in the reverse order, i.e. from newest to oldest records.
 
 **Type:** number
 
-#### hideUrl
+### hideUrl
 
 If set to `1` then `url` field will not be added to each page function result object. By default each page function result object contains `url` field.
 
 **Type:** number
 
-#### simplified
+### simplified
 
 If `1` then the results will be returned in a simplified form without crawling metadata. By default full results are returned.
 
 **Type:** number
 
-#### skipFailedPages
+### skipFailedPages
 
 If set to `1` then pages with non-empty `errorInfo` property are skipped from the output and the `errorInfo` property is hidden. Note that the skipped pages are still counted in the pagination.
 
@@ -360,7 +478,7 @@ The caller only needs to know a hard-to-guess crawler execution ID, which will n
 
 <details><summary>Parameters</summary>
 
-#### execution_id (required)
+### execution_id (required)
 
 Crawler execution ID. This value can be found under the crawler's Runs tab. Click on a specific run to find the execution ID under Info.
 
@@ -380,29 +498,87 @@ The response is the full **Crawler settings** object as returned by the [Get cra
 
 <details><summary>Parameters</summary>
 
-#### crawler_id (required)
+### crawler_id (required)
 
 Custom or internal ID of the crawler. This value can be found under the crawler's Basic Settings.
 
 **Type:** string
 
-#### user_id (required)
+### user_id (required)
 
 User ID. This value can be found under Account &gt; Integrations. Note that this value is different from the username.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
 
-#### executionId
+```json
+{
+  "disableWebSecurity" : "boolean",
+  "maxCrawledPages" : "number",
+  "injectUnderscoreJs" : "boolean",
+  "finishWebhookData" : "string",
+  "customData" : "string",
+  "injectJQuery" : "boolean",
+  "crawlPurls" : [ {
+    "value" : "Required string",
+    "key" : "string"
+  } ],
+  "customId" : "Required string",
+  "timeout" : "number",
+  "cookies" : [ {
+    "path" : "string",
+    "expires" : "string",
+    "domain" : "string",
+    "name" : "string",
+    "httponly" : "string",
+    "expiry" : "string",
+    "secure" : "string",
+    "value" : "string"
+  } ],
+  "pageFunction" : "string",
+  "verboseLog" : "boolean",
+  "pageLoadTimeout" : "number",
+  "proxyGroups" : [ "string" ],
+  "maxCrawledPagesPerSlave" : "number",
+  "loadImages" : "boolean",
+  "cookiesPersistence" : "string",
+  "customProxies" : "string",
+  "comments" : "string",
+  "clickableElementsSelector" : "string",
+  "maxInfiniteScrollHeight" : "number",
+  "ignoreRobotsTxt" : "boolean",
+  "randomWaitBetweenRequests" : "number",
+  "maxParallelRequests" : "number",
+  "loadCss" : "boolean",
+  "skipLoadingFrames" : "boolean",
+  "finishWebhookUrl" : "string",
+  "startUrls" : [ {
+    "value" : "Required string",
+    "key" : "string"
+  } ],
+  "maxCrawlDepth" : "number",
+  "considerUrlFragment" : "boolean",
+  "customHttpHeaders" : [ {
+    "value" : "Required string",
+    "key" : "Required string"
+  } ],
+  "resourceTimeout" : "number",
+  "maxOutputPages" : "number",
+  "pageFunctionTimeout" : "number",
+  "interceptRequest" : "string"
+}
+```
+
+### executionId
 
 Crawler execution ID for which the crawler settings should be returned.
 
 **Type:** string
 
-#### noSecrets
+### noSecrets
 
 If `1` then the response will only contain crawler settings and no sensitive data such as links to API related endpoints that contain authentication tokens.
 This option is used to export crawler configuration to JSON file that can be shared with other users.

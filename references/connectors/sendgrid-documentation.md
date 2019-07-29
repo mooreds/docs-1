@@ -22,19 +22,23 @@ For more information about transactional templates, please see our [User Guide](
 
 <details><summary>Parameters</summary>
 
-#### template_id (required)
+### template_id (required)
 
 **Type:** string
 
-#### version_id (required)
+### version_id (required)
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
 
-#### on-behalf-of
+```json
+{ }
+```
+
+### on-behalf-of
 
 **Type:** string
 
@@ -57,15 +61,21 @@ For more information on whitelabeling, please see our [User Guide](https://sendg
 
 <details><summary>Parameters</summary>
 
-#### domain_id (required)
+### domain_id (required)
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
 
-#### on-behalf-of
+```json
+{
+  "username" : "Username to associate with the domain whitelabel."
+}
+```
+
+### on-behalf-of
 
 **Type:** string
 
@@ -85,17 +95,23 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/API_
 
 <details><summary>Parameters</summary>
 
-#### link_id (required)
+### link_id (required)
 
 The id of the link whitelabel you want to associate.
 
 **Type:** integer
 
-#### $body
+### $body
 
 **Type:** object
 
-#### on-behalf-of
+```json
+{
+  "username" : "The username of the subuser account that you want to associate the link whitelabel with."
+}
+```
+
+### on-behalf-of
 
 **Type:** string
 
@@ -111,17 +127,23 @@ Suppressions are recipient email addresses that are added to [unsubscribe groups
 
 <details><summary>Parameters</summary>
 
-#### group_id (required)
+### group_id (required)
 
 The id of the unsubscribe group that you are adding suppressions to.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
 
-#### on-behalf-of
+```json
+{
+  "recipient_emails" : [ "string" ]
+}
+```
+
+### on-behalf-of
 
 **Type:** string
 
@@ -135,11 +157,17 @@ A global suppression (or global unsubscribe) is an email address of a recipient 
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
 
-#### on-behalf-of
+```json
+{
+  "recipient_emails" : [ "string" ]
+}
+```
+
+### on-behalf-of
 
 **Type:** string
 
@@ -160,15 +188,21 @@ For more information on whitelabeling, please see our [User Guide](https://sendg
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
 
-#### on-behalf-of
+```json
+{
+  "ip" : "IP to associate with the domain. Used for manually specifying IPs for custom SPF."
+}
+```
+
+### on-behalf-of
 
 **Type:** string
 
@@ -184,15 +218,21 @@ A single IP address or a range of IP addresses may be dedicated to an account in
 
 <details><summary>Parameters</summary>
 
-#### pool_name (required)
+### pool_name (required)
 
 The name of the IP pool that you want to add an IP address to.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "ip" : "The IP address that you want to add to an IP pool."
+}
+```
 
 </details>
 
@@ -208,11 +248,19 @@ For more information, please see our [User Guide](http://sendgrid.com/docs/User_
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
 
-#### on-behalf-of
+```json
+{
+  "ips" : [ {
+    "ip" : "An IP address that you want to whitelist."
+  } ]
+}
+```
+
+### on-behalf-of
 
 **Type:** string
 
@@ -226,23 +274,27 @@ The Contacts API helps you manage your [Marketing Campaigns](https://sendgrid.co
 
 <details><summary>Parameters</summary>
 
-#### list_id (required)
+### list_id (required)
 
 The ID of the list that you want to add the recipient to.
 
 **Type:** integer
 
-#### recipient_id (required)
+### recipient_id (required)
 
 The ID of the recipient you are adding to the list.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
 
-#### on-behalf-of
+```json
+{ }
+```
+
+### on-behalf-of
 
 **Type:** string
 
@@ -258,11 +310,20 @@ The Contacts API helps you manage your [Marketing Campaigns](https://sendgrid.co
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** array
 
-#### on-behalf-of
+```json
+[ {
+  "last_name" : "The last name of the recipient.",
+  "first_name" : "The first name of the recipient.",
+  "age" : "integer",
+  "email" : "The email address of the recipient."
+} ]
+```
+
+### on-behalf-of
 
 **Type:** string
 
@@ -278,17 +339,21 @@ The Contacts API helps you manage your [Marketing Campaigns](https://sendgrid.co
 
 <details><summary>Parameters</summary>
 
-#### list_id (required)
+### list_id (required)
 
 The id of the list of recipients you want to retrieve.
 
 **Type:** integer
 
-#### $body
+### $body
 
 **Type:** array
 
-#### on-behalf-of
+```json
+[ "string" ]
+```
+
+### on-behalf-of
 
 **Type:** string
 
@@ -302,7 +367,7 @@ This endpoint allows you to approve an access attempt.
 
 <details><summary>Parameters</summary>
 
-#### request_id (required)
+### request_id (required)
 
 The ID of the request that you want to approve.
 
@@ -324,11 +389,23 @@ For more information on whitelabeling, please see our [User Guide](https://sendg
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
 
-#### on-behalf-of
+```json
+{
+  "default" : "Whether to use this whitelabel as the fallback if no domain whitelabels match the sender's domain.",
+  "custom_spf" : "Specify whether to use a custom SPF or allow SendGrid to manage your SPF. This option is only available to domain whitelabels setup for manual security.",
+  "automatic_security" : "Whether to allow SendGrid to manage your SPF records, DKIM keys, and DKIM key rotation.",
+  "domain" : "Domain being whitelabeled.",
+  "subdomain" : "The subdomain to use for this domain whitelabel.",
+  "ips" : [ "string" ],
+  "username" : "The username that this whitelabel will be associated with."
+}
+```
+
+### on-behalf-of
 
 **Type:** string
 
@@ -347,15 +424,24 @@ For more information about alerts, please see our [User Guide](https://sendgrid.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
 
-#### Authorization
+```json
+{
+  "email_to" : "The email address the alert will be sent to.\nExample: test@example.com",
+  "percentage" : "Required for usage_alert. When this usage threshold is reached, the alert will be sent.\nExample: 90",
+  "type" : "The type of alert you want to create. Can be either usage_limit or stats_notification.\nExample: usage_limit",
+  "frequency" : "Required for stats_notification. How frequently the alert will be sent.\nExample: daily"
+}
+```
+
+### Authorization
 
 **Type:** string
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
@@ -375,11 +461,19 @@ See the [API Key Permissions List](https://sendgrid.com/docs/API_Reference/Web_A
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
 
-#### on-behalf-of
+```json
+{
+  "name" : "The name you will use to describe this API Key.",
+  "scopes" : [ "string" ],
+  "sample" : "string"
+}
+```
+
+### on-behalf-of
 
 **Type:** string
 
@@ -397,9 +491,13 @@ More Information:
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{ }
+```
 
 </details>
 
@@ -413,23 +511,31 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/API_
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
 
-#### limit
+```json
+{
+  "default" : "Indicates if you want to use this link whitelabel as the fallback, or default, whitelabel.",
+  "domain" : "The root domain for your subdomain that you are creating the whitelabel for. This should match your FROM email address.",
+  "subdomain" : "The subdomain to create the link whitelabel for. Must be different from the subdomain you used for a domain whitelabel."
+}
+```
+
+### limit
 
 Number of domains to return.
 
 **Type:** integer
 
-#### offset
+### offset
 
 Paging offset.
 
 **Type:** integer
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
@@ -449,9 +555,25 @@ For more information:
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "html_content" : "The HTML of your marketing email.",
+  "segment_ids" : [ "integer" ],
+  "subject" : "The subject of your campaign that your recipients will see.",
+  "suppression_group_id" : "The suppression group that this marketing email belongs to, allowing recipients to opt-out of emails of this type.",
+  "ip_pool" : "The pool of IPs that you would like to send this email from.",
+  "custom_unsubscribe_url" : "This is the url of the custom unsubscribe page that you provide for customers to unsubscribe from your suppression groups.",
+  "categories" : [ "string" ],
+  "title" : "The display title of your campaign. This will be viewable by you in the Marketing Campaigns UI.",
+  "list_ids" : [ "integer" ],
+  "plain_content" : "The plain text content of your emails.",
+  "sender_id" : "The ID of the \"sender\" identity that you have created. Your recipients will see this as the \"from\" on your marketing emails."
+}
+```
 
 </details>
 
@@ -463,11 +585,18 @@ The contactdb is a database of your contacts for [SendGrid Marketing Campaigns](
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
 
-#### on-behalf-of
+```json
+{
+  "name" : "string",
+  "type" : "string"
+}
+```
+
+### on-behalf-of
 
 **Type:** string
 
@@ -479,9 +608,17 @@ This endpoint is for adding a(n) IP Address(es) to your account.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "count" : "The amount of IPs to add to the account.",
+  "subusers" : [ "string" ],
+  "warmup" : "Whether or not to warmup the IPs being added."
+}
+```
 
 </details>
 
@@ -491,15 +628,22 @@ Subuser monitor settings allow you to receive a sample of an outgoing message by
 
 <details><summary>Parameters</summary>
 
-#### subuser_name (required)
+### subuser_name (required)
 
 The name of the subuser for which to retrieve monitor settings.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "email" : "The email address to send emails at the frequency specified for monitoring.",
+  "frequency" : "The frequency by which to send the emails. An email will be sent, every time your subuser sends this {frequency} emails."
+}
+```
 
 </details>
 
@@ -517,9 +661,15 @@ If an IP pool is NOT specified for an email, it will use any IP available, inclu
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "name" : "The name of your new IP pool."
+}
+```
 
 </details>
 
@@ -531,11 +681,17 @@ The Contacts API helps you manage your [Marketing Campaigns](https://sendgrid.co
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
 
-#### on-behalf-of
+```json
+{
+  "name" : "Required string"
+}
+```
+
+### on-behalf-of
 
 **Type:** string
 
@@ -553,11 +709,19 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/API_
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
 
-#### on-behalf-of
+```json
+{
+  "domain" : "The root, or sending, domain that will be used to send message from the IP.",
+  "ip" : "The IP address that you want to whitelabel.",
+  "subdomain" : "The subdomain that will be used to send emails from the IP. Should be the same as the subdomain used for your domain whitelabel."
+}
+```
+
+### on-behalf-of
 
 **Type:** string
 
@@ -591,11 +755,25 @@ For more information about segments in Marketing Campaigns, please see our [User
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
 
-#### on-behalf-of
+```json
+{
+  "list_id" : "The list id from which to make this segment. Not including this ID will mean your segment is created from the main contactdb rather than a list.",
+  "name" : "The name of this segment.",
+  "recipient_count" : "The count of recipients in this list. This is not included on creation of segments.",
+  "conditions" : [ {
+    "field" : "Required string",
+    "and_or" : "string. Possible values: and | or | ",
+    "value" : "Required string",
+    "operator" : "Required string. Possible values: eq | ne | lt | gt | contains"
+  } ]
+}
+```
+
+### on-behalf-of
 
 **Type:** string
 
@@ -611,11 +789,31 @@ Sender Identities are required to be verified before use. If your domain has bee
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
 
-#### on-behalf-of
+```json
+{
+  "zip" : "The zipcode of the sender identity.",
+  "country" : "The country of the sender identity.",
+  "address" : "The physical address of the sender identity.",
+  "reply_to" : {
+    "name" : "This is the name appended to the reply to email field. IE - Your name or company name.",
+    "email" : "This is the email that your recipient will reply to."
+  },
+  "city" : "The city of the sender identity.",
+  "address_2" : "Additional sender identity address information.",
+  "nickname" : "A nickname for the sender identity. Not used for sending.",
+  "from" : {
+    "name" : "This is the name appended to the from email field. IE - Your name or company name.",
+    "email" : "This is where the email will appear to originate from for your recipient"
+  },
+  "state" : "The state of the sender identity."
+}
+```
+
+### on-behalf-of
 
 **Type:** string
 
@@ -632,9 +830,18 @@ For more information about Subusers:
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "password" : "The password this subuser will use when logging into SendGrid.",
+  "ips" : [ "ipv4" ],
+  "email" : "The email address of the subuser.",
+  "username" : "The username for this subuser."
+}
+```
 
 </details>
 
@@ -648,11 +855,17 @@ Transactional templates are templates created specifically for transactional ema
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
 
-#### on-behalf-of
+```json
+{
+  "name" : "The name for the new transactional template."
+}
+```
+
+### on-behalf-of
 
 **Type:** string
 
@@ -670,11 +883,19 @@ Each user can create up to 25 different suppression groups.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
 
-#### on-behalf-of
+```json
+{
+  "name" : "The name that you would like to use for your new suppression group.",
+  "description" : "A brief description of your new suppression group.",
+  "is_default" : "Indicates if you would like this to be your default suppression group."
+}
+```
+
+### on-behalf-of
 
 **Type:** string
 
@@ -691,9 +912,16 @@ The Cancel Scheduled Sends feature allows the customer to cancel a scheduled sen
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "batch_id" : "The batch ID is the identifier that your scheduled mail sends share.",
+  "status" : "The status of the send you would like to implement. This can be pause or cancel. To delete a pause or cancel status see DELETE /v3/user/scheduled_sends/{batch_id}"
+}
+```
 
 </details>
 
@@ -707,15 +935,26 @@ For more information about transactional templates, please see our [User Guide](
 
 <details><summary>Parameters</summary>
 
-#### template_id (required)
+### template_id (required)
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
 
-#### on-behalf-of
+```json
+{
+  "html_content" : "The HTML content of the new version. Must include &lt;%body%&gt; tag. Maximum of 1048576 bytes allowed for plain content.",
+  "subject" : "Subject of the new transactional template version. Must include &lt;%subject%&gt; tag.",
+  "name" : "Name of the new transactional template version.",
+  "active" : "Set the new version as the active version associated with the template. Only one version of a template can be active. The first version created for a template will automatically be set to Active.",
+  "template_id" : "The name of the original transactional template.",
+  "plain_content" : "Text/plain content of the new transactional template version. Must include &lt;%body%&gt; tag. Maximum of 1048576 bytes allowed for plain content."
+}
+```
+
+### on-behalf-of
 
 **Type:** string
 
@@ -729,11 +968,20 @@ The inbound parse webhook allows you to have incoming emails parsed, extracting 
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
 
-#### on-behalf-of
+```json
+{
+  "hostname" : "A specific and unique domain or subdomain that you have created to use exclusively to parse your incoming email. For example, parse.yourdomain.com.",
+  "spam_check" : "Indicates if you would like SendGrid to check the content parsed from your emails for spam before POSTing them to your domain.",
+  "send_raw" : "Indicates if you would like SendGrid to post the original MIME-type content of your parsed email. When this parameter is set to \"false\", SendGrid will send a JSON payload of the content of your email.",
+  "url" : "The public URL where you would like SendGrid to POST the data parsed from your email. Any emails sent with the given hostname provided (whose MX records have been updated to point to SendGrid) will be parsed and POSTed to this URL."
+}
+```
+
+### on-behalf-of
 
 **Type:** string
 
@@ -751,13 +999,13 @@ For more information about alerts, please see our [User Guide](https://sendgrid.
 
 <details><summary>Parameters</summary>
 
-#### alert_id (required)
+### alert_id (required)
 
 The ID of the alert you would like to retrieve.
 
 **Type:** integer
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
@@ -778,7 +1026,7 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/User
 
 <details><summary>Parameters</summary>
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
@@ -800,7 +1048,7 @@ Note: the `delete_all` and `emails` parameters should be used independently of e
 
 <details><summary>Parameters</summary>
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
@@ -822,13 +1070,13 @@ The API Keys feature allows customers to be able to generate an API Key credenti
 
 <details><summary>Parameters</summary>
 
-#### api_key_id (required)
+### api_key_id (required)
 
 The ID of the API Key for which you are requesting information.
 
 **Type:** string
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
@@ -844,11 +1092,11 @@ For more information on whitelabeling, please see our [User Guide](https://sendg
 
 <details><summary>Parameters</summary>
 
-#### domain_id (required)
+### domain_id (required)
 
 **Type:** string
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
@@ -871,7 +1119,7 @@ For more information on whitelabeling, please see our [User Guide](https://sendg
 
 <details><summary>Parameters</summary>
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
@@ -887,13 +1135,13 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/API_
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 The id of the link whitelabel you want to retrieve.
 
 **Type:** integer
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
@@ -911,7 +1159,7 @@ For more information:
 
 <details><summary>Parameters</summary>
 
-#### campaign_id (required)
+### campaign_id (required)
 
 The id of the campaign you would like to retrieve.
 
@@ -927,13 +1175,13 @@ The contactdb is a database of your contacts for [SendGrid Marketing Campaigns](
 
 <details><summary>Parameters</summary>
 
-#### custom_field_id (required)
+### custom_field_id (required)
 
 The ID of the custom field that you want to retrieve.
 
 **Type:** integer
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
@@ -953,17 +1201,17 @@ For more information see:
 
 <details><summary>Parameters</summary>
 
-#### email (required)
+### email (required)
 
 **Type:** string
 
-#### email_address (required)
+### email_address (required)
 
 The email address you would like to remove from the bounce list.
 
 **Type:** email
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
@@ -977,13 +1225,13 @@ A global suppression (or global unsubscribe) is an email address of a recipient 
 
 <details><summary>Parameters</summary>
 
-#### email (required)
+### email (required)
 
 The email address of the global suppression you want to retrieve. Or, if you want to check if an email address is on the global suppressions list, enter that email address here.
 
 **Type:** string
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
@@ -997,19 +1245,19 @@ Suppressions are recipient email addresses that are added to [unsubscribe groups
 
 <details><summary>Parameters</summary>
 
-#### email (required)
+### email (required)
 
 The email address that you want to remove from the suppression group.
 
 **Type:** string
 
-#### group_id (required)
+### group_id (required)
 
 The id of the suppression group that you are removing an email address from.
 
 **Type:** string
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
@@ -1027,17 +1275,17 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/User
 
 <details><summary>Parameters</summary>
 
-#### Authorization (required)
+### Authorization (required)
 
 **Type:** string
 
-#### email (required)
+### email (required)
 
 The specific email address of the invalid email entry that you want to retrieve.
 
 **Type:** string
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
@@ -1060,7 +1308,7 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/User
 
 <details><summary>Parameters</summary>
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
@@ -1082,15 +1330,15 @@ For more information on whitelabeling, please see our [User Guide](https://sendg
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 **Type:** string
 
-#### ip (required)
+### ip (required)
 
 **Type:** string
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
@@ -1106,13 +1354,13 @@ A single IP address or a range of IP addresses may be dedicated to an account in
 
 <details><summary>Parameters</summary>
 
-#### ip (required)
+### ip (required)
 
 The IP address that you are removing.
 
 **Type:** string
 
-#### pool_name (required)
+### pool_name (required)
 
 The name of the IP pool that you are removing the IP address from.
 
@@ -1132,13 +1380,13 @@ For more information, please see our [User Guide](http://sendgrid.com/docs/User_
 
 <details><summary>Parameters</summary>
 
-#### rule_id (required)
+### rule_id (required)
 
 The ID of the whitelisted IP address that you want to retrieve.
 
 **Type:** string
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
@@ -1156,7 +1404,7 @@ For more information, please see our [User Guide](http://sendgrid.com/docs/User_
 
 <details><summary>Parameters</summary>
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
@@ -1168,11 +1416,11 @@ Subuser monitor settings allow you to receive a sample of an outgoing message by
 
 <details><summary>Parameters</summary>
 
-#### Authorization (required)
+### Authorization (required)
 
 **Type:** string
 
-#### subuser_name (required)
+### subuser_name (required)
 
 The name of the subuser for which to retrieve monitor settings.
 
@@ -1192,7 +1440,7 @@ If an IP pool is NOT specified for an email, it will use any IP available, inclu
 
 <details><summary>Parameters</summary>
 
-#### pool_name (required)
+### pool_name (required)
 
 The name of the IP pool that you want to retrieve the IP addresses from.
 
@@ -1208,13 +1456,13 @@ The Contacts API helps you manage your [Marketing Campaigns](https://sendgrid.co
 
 <details><summary>Parameters</summary>
 
-#### recipient_id (required)
+### recipient_id (required)
 
 The ID of the recipient that you want to retrieve.
 
 **Type:** string
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
@@ -1228,19 +1476,19 @@ The Contacts API helps you manage your [Marketing Campaigns](https://sendgrid.co
 
 <details><summary>Parameters</summary>
 
-#### list_id (required)
+### list_id (required)
 
 The ID of the list that you want to add the recipient to.
 
 **Type:** integer
 
-#### recipient_id (required)
+### recipient_id (required)
 
 The ID of the recipient you are adding to the list.
 
 **Type:** string
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
@@ -1254,11 +1502,11 @@ The Contacts API helps you manage your [Marketing Campaigns](https://sendgrid.co
 
 <details><summary>Parameters</summary>
 
-#### list_id (required)
+### list_id (required)
 
 **Type:** string
 
-#### delete_contacts
+### delete_contacts
 
 Adds the ability to delete all contacts on the list in addition to deleting the list.
 
@@ -1266,7 +1514,7 @@ Adds the ability to delete all contacts on the list in addition to deleting the 
 
 **Potential values:** true, false
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
@@ -1280,7 +1528,7 @@ The Contacts API helps you manage your [Marketing Campaigns](https://sendgrid.co
 
 <details><summary>Parameters</summary>
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
@@ -1296,7 +1544,7 @@ The contactdb is a database of your contacts for [SendGrid Marketing Campaigns](
 
 <details><summary>Parameters</summary>
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
@@ -1312,13 +1560,13 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/API_
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 The id of the IP whitelabel that you would like to retrieve.
 
 **Type:** string
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
@@ -1336,17 +1584,17 @@ For more information about segments in Marketing Campaigns, please see our [User
 
 <details><summary>Parameters</summary>
 
-#### segment_id (required)
+### segment_id (required)
 
 **Type:** string
 
-#### delete_contacts
+### delete_contacts
 
 True to delete all contacts matching the segment in addition to deleting the segment
 
 **Type:** boolean
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
@@ -1360,13 +1608,13 @@ Sender Identities are required to be verified before use. If your domain has bee
 
 <details><summary>Parameters</summary>
 
-#### sender_id (required)
+### sender_id (required)
 
 The ID of the sender identity that you want to update.
 
 **Type:** integer
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
@@ -1382,13 +1630,13 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/User
 
 <details><summary>Parameters</summary>
 
-#### email (required)
+### email (required)
 
 The email address of a specific spam report that you want to retrieve.
 
 **Type:** string
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
@@ -1409,7 +1657,7 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/User
 
 <details><summary>Parameters</summary>
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
@@ -1426,7 +1674,7 @@ For more information about Subusers:
 
 <details><summary>Parameters</summary>
 
-#### subuser_name (required)
+### subuser_name (required)
 
 **Type:** string
 
@@ -1440,7 +1688,7 @@ This endpoint allows you to delete a teammate.
 
 <details><summary>Parameters</summary>
 
-#### username (required)
+### username (required)
 
 The username of the teammate that you want to retrieve.
 
@@ -1458,13 +1706,13 @@ Transactional templates are templates created specifically for transactional ema
 
 <details><summary>Parameters</summary>
 
-#### template_id (required)
+### template_id (required)
 
 The id of the transactional template you want to retrieve.
 
 **Type:** string
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
@@ -1484,13 +1732,13 @@ Each user can create up to 25 different suppression groups.
 
 <details><summary>Parameters</summary>
 
-#### group_id (required)
+### group_id (required)
 
 The ID of the suppression group you would like to retrieve.
 
 **Type:** string
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
@@ -1504,7 +1752,7 @@ The Cancel Scheduled Sends feature allows the customer to cancel a scheduled sen
 
 <details><summary>Parameters</summary>
 
-#### batch_id (required)
+### batch_id (required)
 
 **Type:** string
 
@@ -1526,15 +1774,15 @@ For more information about transactional templates, please see our [User Guide](
 
 <details><summary>Parameters</summary>
 
-#### template_id (required)
+### template_id (required)
 
 **Type:** string
 
-#### version_id (required)
+### version_id (required)
 
 **Type:** string
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
@@ -1548,13 +1796,13 @@ The inbound parse webhook allows you to have incoming emails parsed, extracting 
 
 <details><summary>Parameters</summary>
 
-#### hostname (required)
+### hostname (required)
 
 The hostname associated with the inbound parse setting that you would like to retrieve.
 
 **Type:** string
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
@@ -1568,7 +1816,7 @@ This endpoint allows you to deny an attempt to access your account.
 
 <details><summary>Parameters</summary>
 
-#### request_id (required)
+### request_id (required)
 
 The ID of the request that you want to deny.
 
@@ -1587,13 +1835,19 @@ For more information about Subusers:
 
 <details><summary>Parameters</summary>
 
-#### subuser_name (required)
+### subuser_name (required)
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "disabled" : "Whether or not this subuser is disabled. True means disabled, False means enabled."
+}
+```
 
 </details>
 
@@ -1607,7 +1861,7 @@ Mail settings allow you to tell SendGrid specific things to do to every email th
 
 <details><summary>Parameters</summary>
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
@@ -1625,17 +1879,17 @@ For more information about alerts, please see our [User Guide](https://sendgrid.
 
 <details><summary>Parameters</summary>
 
-#### alert_id (required)
+### alert_id (required)
 
 The ID of the alert you would like to retrieve.
 
 **Type:** integer
 
-#### Authorization
+### Authorization
 
 **Type:** string
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
@@ -1649,13 +1903,13 @@ If the API Key ID does not exist an HTTP 404 will be returned.
 
 <details><summary>Parameters</summary>
 
-#### api_key_id (required)
+### api_key_id (required)
 
 The ID of the API Key for which you are requesting information.
 
 **Type:** string
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
@@ -1671,11 +1925,11 @@ For more information on whitelabeling, please see our [User Guide](https://sendg
 
 <details><summary>Parameters</summary>
 
-#### domain_id (required)
+### domain_id (required)
 
 **Type:** string
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
@@ -1691,7 +1945,7 @@ Mail settings allow you to tell SendGrid specific things to do to every email th
 
 <details><summary>Parameters</summary>
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
@@ -1707,7 +1961,7 @@ The Contacts API helps you manage your [Marketing Campaigns](https://sendgrid.co
 
 <details><summary>Parameters</summary>
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
@@ -1727,11 +1981,11 @@ For more information see:
 
 <details><summary>Parameters</summary>
 
-#### email (required)
+### email (required)
 
 **Type:** string
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
@@ -1747,7 +2001,7 @@ Mail settings allow you to tell SendGrid specific things to do to every email th
 
 <details><summary>Parameters</summary>
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
@@ -1763,7 +2017,7 @@ Mail settings allow you to tell SendGrid specific things to do to every email th
 
 <details><summary>Parameters</summary>
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
@@ -1779,13 +2033,13 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/API_
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 The id of the link whitelabel you want to retrieve.
 
 **Type:** integer
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
@@ -1803,7 +2057,7 @@ For more information:
 
 <details><summary>Parameters</summary>
 
-#### campaign_id (required)
+### campaign_id (required)
 
 The id of the campaign you would like to retrieve.
 
@@ -1819,13 +2073,13 @@ The contactdb is a database of your contacts for [SendGrid Marketing Campaigns](
 
 <details><summary>Parameters</summary>
 
-#### custom_field_id (required)
+### custom_field_id (required)
 
 The ID of the custom field that you want to retrieve.
 
 **Type:** integer
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
@@ -1846,7 +2100,7 @@ For more information on whitelabeling, please see our [User Guide](https://sendg
 
 <details><summary>Parameters</summary>
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
@@ -1869,13 +2123,13 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/API_
 
 <details><summary>Parameters</summary>
 
-#### domain
+### domain
 
 The domain to match against when finding a corresponding link whitelabel.
 
 **Type:** string
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
@@ -1891,13 +2145,13 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/User
 
 <details><summary>Parameters</summary>
 
-#### email (required)
+### email (required)
 
 The email address of the specific block.
 
 **Type:** string
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
@@ -1911,13 +2165,13 @@ Suppressions are recipient email addresses that are added to [unsubscribe groups
 
 <details><summary>Parameters</summary>
 
-#### group_id (required)
+### group_id (required)
 
 The id of the unsubscribe group that you are adding suppressions to.
 
 **Type:** string
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
@@ -1933,7 +2187,7 @@ Mail settings allow you to tell SendGrid specific things to do to every email th
 
 <details><summary>Parameters</summary>
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
@@ -1951,17 +2205,17 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/User
 
 <details><summary>Parameters</summary>
 
-#### Authorization (required)
+### Authorization (required)
 
 **Type:** string
 
-#### email (required)
+### email (required)
 
 The specific email address of the invalid email entry that you want to retrieve.
 
 **Type:** string
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
@@ -1979,13 +2233,13 @@ For more information, please see our [User Guide](http://sendgrid.com/docs/User_
 
 <details><summary>Parameters</summary>
 
-#### rule_id (required)
+### rule_id (required)
 
 The ID of the whitelisted IP address that you want to retrieve.
 
 **Type:** string
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
@@ -2013,7 +2267,7 @@ For more general information about warming up IPs, please see our [Classroom](ht
 
 <details><summary>Parameters</summary>
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
@@ -2029,13 +2283,13 @@ The Contacts API helps you manage your [Marketing Campaigns](https://sendgrid.co
 
 <details><summary>Parameters</summary>
 
-#### recipient_id (required)
+### recipient_id (required)
 
 The ID of the recipient for whom you are retrieving lists.
 
 **Type:** string
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
@@ -2047,7 +2301,7 @@ Subuser monitor settings allow you to receive a sample of an outgoing message by
 
 <details><summary>Parameters</summary>
 
-#### subuser_name (required)
+### subuser_name (required)
 
 The name of the subuser for which to retrieve monitor settings.
 
@@ -2079,7 +2333,7 @@ Mail settings allow you to tell SendGrid specific things to do to every email th
 
 <details><summary>Parameters</summary>
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
@@ -2097,7 +2351,7 @@ If an IP pool is NOT specified for an email, it will use any IP available, inclu
 
 <details><summary>Parameters</summary>
 
-#### pool_name (required)
+### pool_name (required)
 
 The name of the IP pool that you want to retrieve the IP addresses from.
 
@@ -2115,7 +2369,7 @@ A single IP address or a range of IP addresses may be dedicated to an account in
 
 <details><summary>Parameters</summary>
 
-#### ip_address (required)
+### ip_address (required)
 
 The IP address you are retrieving the IP pools for.
 
@@ -2131,13 +2385,13 @@ The Contacts API helps you manage your [Marketing Campaigns](https://sendgrid.co
 
 <details><summary>Parameters</summary>
 
-#### recipient_id (required)
+### recipient_id (required)
 
 The ID of the recipient that you want to retrieve.
 
 **Type:** string
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
@@ -2151,11 +2405,11 @@ The Contacts API helps you manage your [Marketing Campaigns](https://sendgrid.co
 
 <details><summary>Parameters</summary>
 
-#### list_id (required)
+### list_id (required)
 
 **Type:** string
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
@@ -2169,7 +2423,7 @@ This endpoint allows you to request the reputations for your subusers.
 
 <details><summary>Parameters</summary>
 
-#### usernames
+### usernames
 
 **Type:** string
 
@@ -2185,13 +2439,13 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/API_
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 The id of the IP whitelabel that you would like to retrieve.
 
 **Type:** string
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
@@ -2203,7 +2457,7 @@ This endpoint allows you to retrieve the date and time that the given campaign h
 
 <details><summary>Parameters</summary>
 
-#### campaign_id (required)
+### campaign_id (required)
 
 **Type:** integer
 
@@ -2219,11 +2473,11 @@ For more information about segments in Marketing Campaigns, please see our [User
 
 <details><summary>Parameters</summary>
 
-#### segment_id (required)
+### segment_id (required)
 
 **Type:** string
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
@@ -2237,13 +2491,13 @@ Sender Identities are required to be verified before use. If your domain has bee
 
 <details><summary>Parameters</summary>
 
-#### sender_id (required)
+### sender_id (required)
 
 The ID of the sender identity that you want to update.
 
 **Type:** integer
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
@@ -2259,7 +2513,7 @@ Mail settings allow you to tell SendGrid specific things to do to every email th
 
 <details><summary>Parameters</summary>
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
@@ -2275,7 +2529,7 @@ Mail settings allow you to tell SendGrid specific things to do to every email th
 
 <details><summary>Parameters</summary>
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
@@ -2291,13 +2545,13 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/User
 
 <details><summary>Parameters</summary>
 
-#### email (required)
+### email (required)
 
 The email address of a specific spam report that you want to retrieve.
 
 **Type:** string
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
@@ -2311,13 +2565,13 @@ Parent accounts will see aggregated stats for their account and all subuser acco
 
 <details><summary>Parameters</summary>
 
-#### start_date (required)
+### start_date (required)
 
 The starting date of the statistics to retrieve. Must follow format YYYY-MM-DD.
 
 **Type:** string
 
-#### aggregated_by
+### aggregated_by
 
 How to group the statistics. Must be either "day", "week", or "month".
 
@@ -2325,13 +2579,13 @@ How to group the statistics. Must be either "day", "week", or "month".
 
 **Potential values:** day, week, month
 
-#### end_date
+### end_date
 
 The end date of the statistics to retrieve. Defaults to today. Must follow format YYYY-MM-DD.
 
 **Type:** string
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
@@ -2353,7 +2607,7 @@ Advanced Stats provide a more in-depth view of your email statistics and the act
 
 <details><summary>Parameters</summary>
 
-#### client_type (required)
+### client_type (required)
 
 Specifies the type of client to retrieve stats for. Must be either "phone", "tablet", "webmail", or "desktop".
 
@@ -2361,13 +2615,13 @@ Specifies the type of client to retrieve stats for. Must be either "phone", "tab
 
 **Potential values:** phone, tablet, webmail, desktop
 
-#### start_date (required)
+### start_date (required)
 
 The starting date of the statistics to retrieve. Must follow format YYYY-MM-DD.
 
 **Type:** string
 
-#### aggregated_by
+### aggregated_by
 
 How to group the statistics. Must be either "day", "week", or "month".
 
@@ -2375,13 +2629,13 @@ How to group the statistics. Must be either "day", "week", or "month".
 
 **Potential values:** day, week, month
 
-#### end_date
+### end_date
 
 The end date of the statistics to retrieve. Defaults to today. Must follow format YYYY-MM-DD.
 
 **Type:** string
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
@@ -2397,13 +2651,13 @@ Advanced Stats provide a more in-depth view of your email statistics and the act
 
 <details><summary>Parameters</summary>
 
-#### start_date (required)
+### start_date (required)
 
 The starting date of the statistics to retrieve. Must follow format YYYY-MM-DD.
 
 **Type:** string
 
-#### aggregated_by
+### aggregated_by
 
 How to group the stats. Must be either "day", "week", or "month".
 
@@ -2411,19 +2665,19 @@ How to group the stats. Must be either "day", "week", or "month".
 
 **Potential values:** day, week, month
 
-#### browsers
+### browsers
 
 The browsers to get statistics for. You can include up to 10 different browsers by including this parameter multiple times.
 
 **Type:** string
 
-#### end_date
+### end_date
 
 The end date of the statistics to retrieve. Defaults to today.
 
 **Type:** string
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
@@ -2439,19 +2693,19 @@ Categories allow you to group your emails together according to broad topics tha
 
 <details><summary>Parameters</summary>
 
-#### categories (required)
+### categories (required)
 
 The individual categories that you want to retrieve statistics for. You may include up to 10 different categories.
 
 **Type:** string
 
-#### start_date (required)
+### start_date (required)
 
 The starting date of the statistics to retrieve. Must follow format YYYY-MM-DD
 
 **Type:** string
 
-#### aggregated_by
+### aggregated_by
 
 How to group the statistics. Must be either "day", "week", or "month".
 
@@ -2459,13 +2713,13 @@ How to group the statistics. Must be either "day", "week", or "month".
 
 **Potential values:** day, week, month
 
-#### end_date
+### end_date
 
 The end date of the statistics to retrieve. Defaults to today. Must follow format YYYY-MM-DD.
 
 **Type:** string
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
@@ -2481,13 +2735,13 @@ Advanced Stats provide a more in-depth view of your email statistics and the act
 
 <details><summary>Parameters</summary>
 
-#### start_date (required)
+### start_date (required)
 
 The starting date of the statistics to retrieve. Must follow format YYYY-MM-DD.
 
 **Type:** string
 
-#### aggregated_by
+### aggregated_by
 
 How to group the statistics. Must be either "day", "week", or "month".
 
@@ -2495,13 +2749,13 @@ How to group the statistics. Must be either "day", "week", or "month".
 
 **Potential values:** day, week, month
 
-#### end_date
+### end_date
 
 The end date of the statistics to retrieve. Defaults to today. Must follow format YYYY-MM-DD.
 
 **Type:** string
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
@@ -2526,25 +2780,25 @@ Advanced Stats provide a more in-depth view of your email statistics and the act
 
 <details><summary>Parameters</summary>
 
-#### start_date (required)
+### start_date (required)
 
 The starting date of the statistics to retrieve.
 
 **Type:** string
 
-#### aggregated_by
+### aggregated_by
 
 How to group the statistics. Must be either "day", "week", or "month".
 
 **Type:** string
 
-#### end_date
+### end_date
 
 The end date of the statistics to retrieve. Defaults to today.
 
 **Type:** string
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
@@ -2560,17 +2814,17 @@ Advanced Stats provide a more in-depth view of your email statistics and the act
 
 <details><summary>Parameters</summary>
 
-#### Authorization (required)
+### Authorization (required)
 
 **Type:** string
 
-#### start_date (required)
+### start_date (required)
 
 The starting date of the statistics to retrieve. Must be in format YYYY-MM-DD
 
 **Type:** string
 
-#### aggregated_by
+### aggregated_by
 
 How you would like the statistics to be grouped. Must be either "day", "week", or "month".
 
@@ -2578,7 +2832,7 @@ How you would like the statistics to be grouped. Must be either "day", "week", o
 
 **Potential values:** day, week, month
 
-#### country
+### country
 
 The country you would like to see statistics for. Currently only supported for US and CA.
 
@@ -2586,13 +2840,13 @@ The country you would like to see statistics for. Currently only supported for U
 
 **Potential values:** US, CA
 
-#### end_date
+### end_date
 
 The end date of the statistics to retrieve.
 
 **Type:** string
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
@@ -2608,13 +2862,13 @@ Advanced Stats provide a more in-depth view of your email statistics and the act
 
 <details><summary>Parameters</summary>
 
-#### start_date (required)
+### start_date (required)
 
 The starting date of the statistics to retrieve. Must follow format YYYY-MM-DD.
 
 **Type:** string
 
-#### aggregated_by
+### aggregated_by
 
 How to group the stats. Must be either "day", "wee", or "month".
 
@@ -2622,19 +2876,19 @@ How to group the stats. Must be either "day", "wee", or "month".
 
 **Potential values:** day, week, month
 
-#### end_date
+### end_date
 
 The end date of the statistics to retrieve. Defaults to today. Must follow format YYYY-MM-DD.
 
 **Type:** string
 
-#### mailbox_providers
+### mailbox_providers
 
 The mail box providers to get statistics for. You can include up to 10 by including this parameter multiple times.
 
 **Type:** string
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
@@ -2653,17 +2907,17 @@ For more information, see our [User Guide](https://sendgrid.com/docs/User_Guide/
 
 <details><summary>Parameters</summary>
 
-#### date (required)
+### date (required)
 
 The date of the month to retrieve statistics for. Must be formatted YYYY-MM-DD
 
 **Type:** string
 
-#### subuser_name (required)
+### subuser_name (required)
 
 **Type:** string
 
-#### sort_by_direction
+### sort_by_direction
 
 The direction you want to sort.
 
@@ -2671,7 +2925,7 @@ The direction you want to sort.
 
 **Potential values:** desc, asc
 
-#### sort_by_metric
+### sort_by_metric
 
 The metric that you want to sort by. Metrics that you can sort by are: `blocks`, `bounces`, `clicks`, `delivered`, `opens`, `requests`, `unique_clicks`, `unique_opens`, and `unsubscribes`.'
 
@@ -2691,19 +2945,19 @@ For more information, see our [User Guide](https://sendgrid.com/docs/User_Guide/
 
 <details><summary>Parameters</summary>
 
-#### start_date (required)
+### start_date (required)
 
 The starting date of the statistics to retrieve. Must follow format YYYY-MM-DD.
 
 **Type:** string
 
-#### subusers (required)
+### subusers (required)
 
 The subuser you want to retrieve statistics for. You may include this parameter up to 10 times to retrieve statistics for multiple subusers.
 
 **Type:** string
 
-#### aggregated_by
+### aggregated_by
 
 How to group the statistics. Must be either "day", "week", or "month".
 
@@ -2711,7 +2965,7 @@ How to group the statistics. Must be either "day", "week", or "month".
 
 **Potential values:** day, week, month
 
-#### end_date
+### end_date
 
 The end date of the statistics to retrieve. Defaults to today.
 
@@ -2732,13 +2986,13 @@ For more information, see our [User Guide](https://sendgrid.com/docs/User_Guide/
 
 <details><summary>Parameters</summary>
 
-#### date (required)
+### date (required)
 
 The date of the month to retrieve statistics for. Must be formatted YYYY-MM-DD
 
 **Type:** string
 
-#### sort_by_direction
+### sort_by_direction
 
 The direction you want to sort.
 
@@ -2746,13 +3000,13 @@ The direction you want to sort.
 
 **Potential values:** desc, asc
 
-#### sort_by_metric
+### sort_by_metric
 
 The metric that you want to sort by. Metrics that you can sort by are: `blocks`, `bounces`, `clicks`, `delivered`, `opens`, `requests`, `unique_clicks`, `unique_opens`, and `unsubscribes`.'
 
 **Type:** string
 
-#### subuser
+### subuser
 
 A substring search of your subusers.
 
@@ -2771,25 +3025,25 @@ For more information, see our [User Guide](https://sendgrid.com/docs/User_Guide/
 
 <details><summary>Parameters</summary>
 
-#### start_date (required)
+### start_date (required)
 
 The starting date of the statistics to retrieve. Must follow format YYYY-MM-DD.
 
 **Type:** string
 
-#### aggregated_by
+### aggregated_by
 
 How to group the statistics. Defaults to today. Must follow format YYYY-MM-DD.
 
 **Type:** string
 
-#### end_date
+### end_date
 
 The end date of the statistics to retrieve. Defaults to today. Must follow format YYYY-MM-DD.
 
 **Type:** string
 
-#### sort_by_direction
+### sort_by_direction
 
 The direction you want to sort.
 
@@ -2797,7 +3051,7 @@ The direction you want to sort.
 
 **Potential values:** desc, asc
 
-#### sort_by_metric
+### sort_by_metric
 
 The metric that you want to sort by. Must be a single metric.
 
@@ -2815,13 +3069,13 @@ Categories allow you to group your emails together according to broad topics tha
 
 <details><summary>Parameters</summary>
 
-#### start_date (required)
+### start_date (required)
 
 The starting date of the statistics to retrieve. Must follow format YYYY-MM-DD.
 
 **Type:** string
 
-#### aggregated_by
+### aggregated_by
 
 How to group the statistics. Must be either "day", "week", or "month".
 
@@ -2829,17 +3083,17 @@ How to group the statistics. Must be either "day", "week", or "month".
 
 **Potential values:** day, week, month
 
-#### end_date
+### end_date
 
 The end date of the statistics to retrieve. Defaults to today. Must follow format YYYY-MM-DD.
 
 **Type:** string
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
-#### sort_by_direction
+### sort_by_direction
 
 The direction you want to sort.
 
@@ -2847,7 +3101,7 @@ The direction you want to sort.
 
 **Potential values:** desc, asc
 
-#### sort_by_metric
+### sort_by_metric
 
 The metric that you want to sort by. Must be a single metric.
 
@@ -2861,7 +3115,7 @@ This endpoint allows you to retrieve a specific teammate by username.
 
 <details><summary>Parameters</summary>
 
-#### username (required)
+### username (required)
 
 The username of the teammate that you want to retrieve.
 
@@ -2879,13 +3133,13 @@ Transactional templates are templates created specifically for transactional ema
 
 <details><summary>Parameters</summary>
 
-#### template_id (required)
+### template_id (required)
 
 The id of the transactional template you want to retrieve.
 
 **Type:** string
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
@@ -2903,7 +3157,7 @@ Mail settings allow you to tell SendGrid specific things to do to every email th
 
 <details><summary>Parameters</summary>
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
@@ -2917,7 +3171,7 @@ The contactdb is a database of your contacts for [SendGrid Marketing Campaigns](
 
 <details><summary>Parameters</summary>
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
@@ -2933,7 +3187,7 @@ For more information about tracking, please see our [User Guide](https://sendgri
 
 <details><summary>Parameters</summary>
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
@@ -2953,7 +3207,7 @@ For more information about tracking, please see our [User Guide](https://sendgri
 
 <details><summary>Parameters</summary>
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
@@ -2971,7 +3225,7 @@ For more information about tracking, please see our [User Guide](https://sendgri
 
 <details><summary>Parameters</summary>
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
@@ -2989,7 +3243,7 @@ For more information about tracking, please see our [User Guide](https://sendgri
 
 <details><summary>Parameters</summary>
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
@@ -3007,13 +3261,13 @@ Each user can create up to 25 different suppression groups.
 
 <details><summary>Parameters</summary>
 
-#### group_id (required)
+### group_id (required)
 
 The ID of the suppression group you would like to retrieve.
 
 **Type:** string
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
@@ -3027,13 +3281,13 @@ Suppressions are a list of email addresses that will not receive content sent un
 
 <details><summary>Parameters</summary>
 
-#### email (required)
+### email (required)
 
 The email address that you want to search suppression groups for.
 
 **Type:** string
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
@@ -3045,11 +3299,11 @@ The email address that you want to search suppression groups for.
 
 <details><summary>Parameters</summary>
 
-#### Authorization (required)
+### Authorization (required)
 
 **Type:** string
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
@@ -3069,7 +3323,7 @@ For more information about your user profile:
 
 <details><summary>Parameters</summary>
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
@@ -3083,7 +3337,7 @@ Your monthly credit allotment limits the number of emails you may send before in
 
 <details><summary>Parameters</summary>
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
@@ -3101,7 +3355,7 @@ For more information about your user profile:
 
 <details><summary>Parameters</summary>
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
@@ -3117,7 +3371,7 @@ For more information about your user profile:
 
 <details><summary>Parameters</summary>
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
@@ -3131,7 +3385,7 @@ The Cancel Scheduled Sends feature allows the customer to cancel a scheduled sen
 
 <details><summary>Parameters</summary>
 
-#### batch_id (required)
+### batch_id (required)
 
 **Type:** string
 
@@ -3147,7 +3401,7 @@ The Enforced TLS settings specify whether or not the recipient is required to su
 
 <details><summary>Parameters</summary>
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
@@ -3165,7 +3419,7 @@ For more information about your user profile:
 
 <details><summary>Parameters</summary>
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
@@ -3187,15 +3441,15 @@ For more information about transactional templates, please see our [User Guide](
 
 <details><summary>Parameters</summary>
 
-#### template_id (required)
+### template_id (required)
 
 **Type:** string
 
-#### version_id (required)
+### version_id (required)
 
 **Type:** string
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
@@ -3211,13 +3465,13 @@ For more general information about warming up IPs, please see our [Classroom](ht
 
 <details><summary>Parameters</summary>
 
-#### ip_address (required)
+### ip_address (required)
 
 The IP address that you want to retrieve the warmup status for.
 
 **Type:** string
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
@@ -3235,7 +3489,7 @@ Common uses of this data are to remove unsubscribes, react to spam reports, dete
 
 <details><summary>Parameters</summary>
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
@@ -3249,13 +3503,13 @@ The inbound parse webhook allows you to have incoming emails parsed, extracting 
 
 <details><summary>Parameters</summary>
 
-#### hostname (required)
+### hostname (required)
 
 The hostname associated with the inbound parse setting that you would like to retrieve.
 
 **Type:** string
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
@@ -3271,13 +3525,13 @@ There are a number of pre-made integrations for the SendGrid Parse Webhook which
 
 <details><summary>Parameters</summary>
 
-#### start_date (required)
+### start_date (required)
 
 The starting date of the statistics you want to retrieve. Must be in the format YYYY-MM-DD
 
 **Type:** string
 
-#### aggregated_by
+### aggregated_by
 
 How you would like the statistics to by grouped.
 
@@ -3285,13 +3539,13 @@ How you would like the statistics to by grouped.
 
 **Potential values:** day, week, month
 
-#### end_date
+### end_date
 
 The end date of the statistics you want to retrieve. Must be in the format YYYY-MM-DD
 
 **Type:** string
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
@@ -3307,9 +3561,17 @@ Essentials, [Legacy Lite](https://sendgrid.com/docs/Classroom/Basics/Billing/leg
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "is_admin" : "Set to true if teammate should be an admin user",
+  "scopes" : [ "string" ],
+  "email" : "New teammate's email"
+}
+```
 
 </details>
 
@@ -3323,13 +3585,13 @@ A global suppression (or global unsubscribe) is an email address of a recipient 
 
 <details><summary>Parameters</summary>
 
-#### email (required)
+### email (required)
 
 The email address of the global suppression you want to retrieve. Or, if you want to check if an email address is on the global suppressions list, enter that email address here.
 
 **Type:** string
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
@@ -3357,11 +3619,11 @@ For more information about alerts, please see our [User Guide](https://sendgrid.
 
 <details><summary>Parameters</summary>
 
-#### Authorization
+### Authorization
 
 **Type:** string
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
@@ -3375,7 +3637,7 @@ Suppressions are a list of email addresses that will not receive content sent un
 
 <details><summary>Parameters</summary>
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
@@ -3389,7 +3651,7 @@ The API Keys feature allows customers to be able to generate an API Key credenti
 
 <details><summary>Parameters</summary>
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
@@ -3405,23 +3667,23 @@ For more information on whitelabeling, please see our [User Guide](https://sendg
 
 <details><summary>Parameters</summary>
 
-#### domain
+### domain
 
 Search for domain whitelabels that match the given domain.
 
 **Type:** string
 
-#### exclude_subusers
+### exclude_subusers
 
 Exclude subuser domains from the result.
 
 **Type:** boolean
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
-#### username
+### username
 
 The username associated with a whitelabel.
 
@@ -3446,7 +3708,7 @@ For more information on whitelabeling, please see our [User Guide](https://sendg
 
 <details><summary>Parameters</summary>
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
@@ -3462,17 +3724,17 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/User
 
 <details><summary>Parameters</summary>
 
-#### end_time
+### end_time
 
 Refers end of the time range in unix timestamp when a blocked email was created (inclusive).
 
 **Type:** integer
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
-#### start_time
+### start_time
 
 Refers start of the time range in unix timestamp when a blocked email was created (inclusive).
 
@@ -3493,21 +3755,21 @@ For more information see:
 
 <details><summary>Parameters</summary>
 
-#### Accept (required)
+### Accept (required)
 
 **Type:** string
 
-#### end_time
+### end_time
 
 Refers end of the time range in unix timestamp when a bounce was created (inclusive).
 
 **Type:** integer
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
-#### start_time
+### start_time
 
 Refers start of the time range in unix timestamp when a bounce was created (inclusive).
 
@@ -3525,7 +3787,7 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/API_
 
 <details><summary>Parameters</summary>
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
@@ -3545,13 +3807,13 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/API_
 
 <details><summary>Parameters</summary>
 
-#### username (required)
+### username (required)
 
 The username of the subuser to retrieve associated link whitelabels for.
 
 **Type:** string
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
@@ -3579,13 +3841,13 @@ Categories can help organize your email analytics by enabling you to “tag” e
 
 <details><summary>Parameters</summary>
 
-#### category
+### category
 
 Allows you to perform a prefix search on this particular category.
 
 **Type:** string
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
@@ -3599,7 +3861,7 @@ The contactdb is a database of your contacts for [SendGrid Marketing Campaigns](
 
 <details><summary>Parameters</summary>
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
@@ -3613,17 +3875,17 @@ A global suppression (or global unsubscribe) is an email address of a recipient 
 
 <details><summary>Parameters</summary>
 
-#### end_time
+### end_time
 
 Refers end of the time range in unix timestamp when an unsubscribe email was created (inclusive).
 
 **Type:** integer
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
-#### start_time
+### start_time
 
 Refers start of the time range in unix timestamp when an unsubscribe email was created (inclusive).
 
@@ -3643,17 +3905,17 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/User
 
 <details><summary>Parameters</summary>
 
-#### end_time
+### end_time
 
 Refers end of the time range in unix timestamp when an invalid email was created (inclusive).
 
 **Type:** integer
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
-#### start_time
+### start_time
 
 Refers start of the time range in unix timestamp when an invalid email was created (inclusive).
 
@@ -3671,19 +3933,19 @@ A single IP address or a range of IP addresses may be dedicated to an account in
 
 <details><summary>Parameters</summary>
 
-#### exclude_whitelabels
+### exclude_whitelabels
 
 Should we exclude whitelabels?
 
 **Type:** boolean
 
-#### ip
+### ip
 
 The IP address to get
 
 **Type:** string
 
-#### sort_by_direction
+### sort_by_direction
 
 The direction to sort the results.
 
@@ -3691,7 +3953,7 @@ The direction to sort the results.
 
 **Potential values:** desc, asc
 
-#### subuser
+### subuser
 
 The subuser you are requesting for.
 
@@ -3709,7 +3971,7 @@ For more information, please see our [User Guide](http://sendgrid.com/docs/User_
 
 <details><summary>Parameters</summary>
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
@@ -3725,7 +3987,7 @@ For more information, please see our [User Guide](http://sendgrid.com/docs/User_
 
 <details><summary>Parameters</summary>
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
@@ -3739,7 +4001,7 @@ Mail settings allow you to tell SendGrid specific things to do to every email th
 
 <details><summary>Parameters</summary>
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
@@ -3759,7 +4021,7 @@ The Contacts API helps you manage your [Marketing Campaigns](https://sendgrid.co
 
 <details><summary>Parameters</summary>
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
@@ -3776,7 +4038,7 @@ The Contacts API helps you manage your [Marketing Campaigns](https://sendgrid.co
 
 <details><summary>Parameters</summary>
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
@@ -3790,13 +4052,13 @@ The Contacts API helps you manage your [Marketing Campaigns](https://sendgrid.co
 
 <details><summary>Parameters</summary>
 
-#### list_id (required)
+### list_id (required)
 
 The id of the list of recipients you want to retrieve.
 
 **Type:** integer
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
@@ -3812,13 +4074,13 @@ For more information about segments in Marketing Campaigns, please see our [User
 
 <details><summary>Parameters</summary>
 
-#### segment_id (required)
+### segment_id (required)
 
 The ID of the segment from which you want to retrieve recipients.
 
 **Type:** integer
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
@@ -3832,7 +4094,7 @@ The contactdb is a database of your contacts for [SendGrid Marketing Campaigns](
 
 <details><summary>Parameters</summary>
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
@@ -3850,13 +4112,13 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/API_
 
 <details><summary>Parameters</summary>
 
-#### ip
+### ip
 
 The IP segment that you would like to use in a prefix search.
 
 **Type:** string
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
@@ -3870,7 +4132,7 @@ API Keys can be used to authenticate the use of [SendGrid’s v3 Web API](https:
 
 <details><summary>Parameters</summary>
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
@@ -3886,7 +4148,7 @@ For more information about segments in Marketing Campaigns, please see our [User
 
 <details><summary>Parameters</summary>
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
@@ -3900,7 +4162,7 @@ Sender Identities are required to be verified before use. If your domain has bee
 
 <details><summary>Parameters</summary>
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
@@ -3916,17 +4178,17 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/User
 
 <details><summary>Parameters</summary>
 
-#### end_time
+### end_time
 
 Refers end of the time range in unix timestamp when a spam report was created (inclusive).
 
 **Type:** integer
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
-#### start_time
+### start_time
 
 Refers start of the time range in unix timestamp when a spam report was created (inclusive).
 
@@ -3945,7 +4207,7 @@ For more information about Subusers:
 
 <details><summary>Parameters</summary>
 
-#### username
+### username
 
 The username of this subuser.
 
@@ -3979,7 +4241,7 @@ Transactional templates are templates created specifically for transactional ema
 
 <details><summary>Parameters</summary>
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
@@ -3995,7 +4257,7 @@ For more information about tracking, please see our [User Guide](https://sendgri
 
 <details><summary>Parameters</summary>
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
@@ -4013,13 +4275,13 @@ Suppression groups, or [unsubscribe groups](https://sendgrid.com/docs/API_Refere
 
 <details><summary>Parameters</summary>
 
-#### id
+### id
 
 The ID of a suppression group that you want to retrieve information for.
 
 **Type:** integer
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
@@ -4039,7 +4301,7 @@ The inbound parse webhook allows you to have incoming emails parsed, extracting 
 
 <details><summary>Parameters</summary>
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
@@ -4060,15 +4322,19 @@ For more information on whitelabeling, please see our [User Guide](https://sendg
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
 
-#### on-behalf-of
+```json
+{ }
+```
+
+### on-behalf-of
 
 **Type:** string
 
@@ -4088,13 +4354,13 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/API_
 
 <details><summary>Parameters</summary>
 
-#### username (required)
+### username (required)
 
 The username of the subuser account that you want to disassociate a link whitelabel from.
 
 **Type:** string
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
@@ -4108,13 +4374,13 @@ Sender Identities are required to be verified before use. If your domain has bee
 
 <details><summary>Parameters</summary>
 
-#### sender_id (required)
+### sender_id (required)
 
 The ID of the sender identity for which you would like to resend a verification email.
 
 **Type:** integer
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
@@ -4128,7 +4394,7 @@ This endpoint allows you to resend a teammate invite.
 
 <details><summary>Parameters</summary>
 
-#### token (required)
+### token (required)
 
 The token for the invite that you want to resend.
 
@@ -4146,13 +4412,19 @@ For more information:
 
 <details><summary>Parameters</summary>
 
-#### campaign_id (required)
+### campaign_id (required)
 
 **Type:** integer
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "send_at" : "The unix timestamp for the date and time you would like your campaign to be sent out."
+}
+```
 
 </details>
 
@@ -4173,11 +4445,11 @@ The contactdb is a database of your contacts for [SendGrid Marketing Campaigns](
 
 <details><summary>Parameters</summary>
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
-#### {field_name}
+### {field_name}
 
 **Type:** string
 
@@ -4193,17 +4465,23 @@ Suppressions are a list of email addresses that will not receive content sent un
 
 <details><summary>Parameters</summary>
 
-#### group_id (required)
+### group_id (required)
 
 The ID of the suppression group that you would like to search.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
 
-#### on-behalf-of
+```json
+{
+  "recipient_emails" : [ "string" ]
+}
+```
+
+### on-behalf-of
 
 **Type:** string
 
@@ -4221,13 +4499,17 @@ For more information:
 
 <details><summary>Parameters</summary>
 
-#### campaign_id (required)
+### campaign_id (required)
 
 **Type:** integer
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{ }
+```
 
 </details>
 
@@ -4243,13 +4525,19 @@ For more information:
 
 <details><summary>Parameters</summary>
 
-#### campaign_id (required)
+### campaign_id (required)
 
 **Type:** integer
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "to" : "The email address that should receive the test campaign."
+}
+```
 
 </details>
 
@@ -4267,9 +4555,111 @@ For more detailed information about how to use the v3 Mail Send endpoint, please
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "headers" : { },
+  "mail_settings" : {
+    "sandbox_mode" : {
+      "enable" : "Indicates if this setting is enabled."
+    },
+    "bcc" : {
+      "enable" : "Indicates if this setting is enabled.",
+      "email" : "The email address that you would like to receive the BCC."
+    },
+    "footer" : {
+      "enable" : "Indicates if this setting is enabled.",
+      "html" : "The HTML content of your footer.",
+      "text" : "The plain text content of your footer."
+    },
+    "spam_check" : {
+      "enable" : "Indicates if this setting is enabled.",
+      "threshold" : "The threshold used to determine if your content qualifies as spam on a scale from 1 to 10, with 10 being most strict, or most likely to be considered as spam.",
+      "post_to_url" : "An Inbound Parse URL that you would like a copy of your email along with the spam report to be sent to."
+    },
+    "bypass_list_management" : {
+      "enable" : "Indicates if this setting is enabled."
+    }
+  },
+  "personalizations" : [ {
+    "cc" : [ {
+      "name" : "The name of the person to whom you are sending an email.",
+      "email" : "Required email"
+    } ],
+    "headers" : { },
+    "bcc" : [ {
+      "name" : "The name of the person to whom you are sending an email.",
+      "email" : "Required email"
+    } ],
+    "substitutions" : { },
+    "subject" : "The subject of your email. Char length requirements, according to the RFC - http://stackoverflow.com/questions/1592291/what-is-the-email-subject-length-limit#answer-1592310",
+    "send_at" : "A unix timestamp allowing you to specify when you want your email to be delivered. Scheduling more than 72 hours in advance is forbidden.",
+    "to" : [ {
+      "name" : "The name of the person to whom you are sending an email.",
+      "email" : "Required email"
+    } ],
+    "custom_args" : { }
+  } ],
+  "attachments" : [ {
+    "disposition" : "The content-disposition of the attachment specifying how you would like the attachment to be displayed. For example, “inline” results in the attached file being displayed automatically within the message while “attachment” results in the attached file requiring some action to be taken before it is displayed (e.g. opening or downloading the file).",
+    "filename" : "The filename of the attachment.",
+    "content_id" : "The content id for the attachment. This is used when the disposition is set to “inline” and the attachment is an image, allowing the file to be displayed within the body of your email.",
+    "type" : "The mime type of the content you are attaching. For example, “text/plain” or “text/html”.",
+    "content" : "The Base64 encoded content of the attachment."
+  } ],
+  "tracking_settings" : {
+    "click_tracking" : {
+      "enable" : "Indicates if this setting is enabled.",
+      "enable_text" : "Indicates if this setting should be included in the text/plain portion of your email."
+    },
+    "subscription_tracking" : {
+      "enable" : "Indicates if this setting is enabled.",
+      "html" : "HTML to be appended to the email, with the subscription tracking link. You may control where the link is by using the tag &lt;% %&gt;",
+      "text" : "Text to be appended to the email, with the subscription tracking link. You may control where the link is by using the tag &lt;% %&gt;",
+      "substitution_tag" : "A tag that will be replaced with the unsubscribe URL. for example: [unsubscribe_url]. If this parameter is used, it will override both the `text` and `html` parameters. The URL of the link will be placed at the substitution tag’s location, with no additional formatting."
+    },
+    "ganalytics" : {
+      "utm_term" : "Used to identify any paid keywords.",
+      "utm_campaign" : "The name of the campaign.",
+      "enable" : "Indicates if this setting is enabled.",
+      "utm_medium" : "Name of the marketing medium. (e.g. Email)",
+      "utm_content" : "Used to differentiate your campaign from advertisements.",
+      "utm_source" : "Name of the referrer source. (e.g. Google, SomeDomain.com, or Marketing Email)"
+    },
+    "open_tracking" : {
+      "enable" : "Indicates if this setting is enabled.",
+      "substitution_tag" : "Allows you to specify a substitution tag that you can insert in the body of your email at a location that you desire. This tag will be replaced by the open tracking pixel."
+    }
+  },
+  "batch_id" : "This ID represents a batch of emails to be sent at the same time. Including a batch_id in your request allows you include this email in that batch, and also enables you to cancel or pause the delivery of that batch. For more information, see https://sendgrid.com/docs/API_Reference/Web_API_v3/cancel_schedule_send.html",
+  "subject" : "The global, or “message level”, subject of your email. This may be overridden by personalizations[x].subject.",
+  "send_at" : "A unix timestamp allowing you to specify when you want your email to be delivered. This may be overridden by the personalizations[x].send_at parameter. Scheduling more ta 72 hours in advance is forbidden.",
+  "content" : [ {
+    "type" : "The mime type of the content you are including in your email. For example, “text/plain” or “text/html”.",
+    "value" : "The actual content of the specified mime type that you are including in your email."
+  } ],
+  "sections" : { },
+  "custom_args" : { },
+  "reply_to" : {
+    "name" : "The name of the person to whom you are sending an email.",
+    "email" : "Required email"
+  },
+  "asm" : {
+    "group_id" : "The unsubscribe group to associate with this email.",
+    "groups_to_display" : [ "integer" ]
+  },
+  "from" : {
+    "name" : "The name of the person to whom you are sending an email.",
+    "email" : "Required email"
+  },
+  "ip_pool_name" : "The IP Pool that you would like to send this email from.",
+  "template_id" : "The id of a template that you would like to use. If you use a template that contains a subject and content (either text or html), you do not need to specify those at the personalizations nor message level.",
+  "categories" : [ "string" ]
+}
+```
 
 </details>
 
@@ -4283,13 +4673,13 @@ For more general information about warming up IPs, please see our [Classroom](ht
 
 <details><summary>Parameters</summary>
 
-#### ip_address (required)
+### ip_address (required)
 
 The IP address that you want to retrieve the warmup status for.
 
 **Type:** string
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
@@ -4305,11 +4695,17 @@ Common uses of this data are to remove unsubscribes, react to spam reports, dete
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
 
-#### on-behalf-of
+```json
+{
+  "url" : "The URL where you would like the test notification to be sent."
+}
+```
+
+### on-behalf-of
 
 **Type:** string
 
@@ -4325,17 +4721,17 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/User
 
 <details><summary>Parameters</summary>
 
-#### Authorization (required)
+### Authorization (required)
 
 **Type:** string
 
-#### email (required)
+### email (required)
 
 The email address of the specific block.
 
 **Type:** string
 
-#### on-behalf-of
+### on-behalf-of
 
 **Type:** string
 
@@ -4347,7 +4743,7 @@ This endpoint allows you to delete a pending teammate invite.
 
 <details><summary>Parameters</summary>
 
-#### token (required)
+### token (required)
 
 The token for the invite you want to delete.
 
@@ -4368,7 +4764,7 @@ For more information:
 
 <details><summary>Parameters</summary>
 
-#### campaign_id (required)
+### campaign_id (required)
 
 **Type:** integer
 
@@ -4384,11 +4780,18 @@ Mail settings allow you to tell SendGrid specific things to do to every email th
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
 
-#### on-behalf-of
+```json
+{
+  "list" : [ "string" ],
+  "enabled" : "Indicates if your email address whitelist is enabled."
+}
+```
+
+### on-behalf-of
 
 **Type:** string
 
@@ -4406,17 +4809,25 @@ For more information about alerts, please see our [User Guide](https://sendgrid.
 
 <details><summary>Parameters</summary>
 
-#### alert_id (required)
+### alert_id (required)
 
 The ID of the alert you would like to retrieve.
 
 **Type:** integer
 
-#### $body
+### $body
 
 **Type:** object
 
-#### on-behalf-of
+```json
+{
+  "email_to" : "The new email address you want your alert to be sent to.\nExample: test@example.com",
+  "percentage" : "The new percentage threshold at which the usage_limit alert will be sent.\nExample: 90",
+  "frequency" : "The new frequency at which to send the stats_notification alert.\nExample: monthly"
+}
+```
+
+### on-behalf-of
 
 **Type:** string
 
@@ -4433,17 +4844,24 @@ The API Keys feature allows customers to be able to generate an API Key credenti
 
 <details><summary>Parameters</summary>
 
-#### api_key_id (required)
+### api_key_id (required)
 
 The ID of the API Key for which you are requesting information.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
 
-#### on-behalf-of
+```json
+{
+  "name" : "string",
+  "scopes" : [ "string" ]
+}
+```
+
+### on-behalf-of
 
 **Type:** string
 
@@ -4459,15 +4877,22 @@ For more information on whitelabeling, please see our [User Guide](https://sendg
 
 <details><summary>Parameters</summary>
 
-#### domain_id (required)
+### domain_id (required)
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
 
-#### on-behalf-of
+```json
+{
+  "default" : "Indicates whether this domain whitelabel should be considered the default.",
+  "custom_spf" : "Indicates whether to generate a custom SPF record for manual security."
+}
+```
+
+### on-behalf-of
 
 **Type:** string
 
@@ -4483,11 +4908,18 @@ Mail settings allow you to tell SendGrid specific things to do to every email th
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
 
-#### on-behalf-of
+```json
+{
+  "email" : "The email address of the recipient.",
+  "enabled" : "Indicates if the mail setting is enabled."
+}
+```
+
+### on-behalf-of
 
 **Type:** string
 
@@ -4503,11 +4935,18 @@ Mail settings allow you to tell SendGrid specific things to do to every email th
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
 
-#### on-behalf-of
+```json
+{
+  "email" : "The email address that you would like your bounce reports forwarded to.",
+  "enabled" : "Indicates if the bounce forwarding mail setting is enabled."
+}
+```
+
+### on-behalf-of
 
 **Type:** string
 
@@ -4523,11 +4962,19 @@ Mail settings allow you to tell SendGrid specific things to do to every email th
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
 
-#### on-behalf-of
+```json
+{
+  "hard_bounces" : "The number of days, after which SendGrid will purge all contacts from your hard bounces suppression lists.",
+  "soft_bounces" : "The number of days, after which SendGrid will purge all contacts from your soft bounces suppression lists.",
+  "enabled" : "Indicates if the bounce purge mail setting is enabled."
+}
+```
+
+### on-behalf-of
 
 **Type:** string
 
@@ -4543,17 +4990,23 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/API_
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 The id of the link whitelabel you want to retrieve.
 
 **Type:** integer
 
-#### $body
+### $body
 
 **Type:** object
 
-#### on-behalf-of
+```json
+{
+  "default" : "Indicates if the link whitelabel is set as the default, or fallback, whitelabel."
+}
+```
+
+### on-behalf-of
 
 **Type:** string
 
@@ -4569,15 +5022,25 @@ For more information:
 
 <details><summary>Parameters</summary>
 
-#### campaign_id (required)
+### campaign_id (required)
 
 The id of the campaign you would like to retrieve.
 
 **Type:** integer
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "html_content" : "The HTML content of this campaign.",
+  "subject" : "The subject line for your campaign.",
+  "categories" : [ "string" ],
+  "title" : "The title of the campaign.",
+  "plain_content" : "The plain content of this campaign."
+}
+```
 
 </details>
 
@@ -4591,11 +5054,19 @@ Mail settings allow you to tell SendGrid specific things to do to every email th
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
 
-#### on-behalf-of
+```json
+{
+  "html_content" : "The custom HTML content of your email footer.",
+  "enabled" : "Indicates if the Footer mail setting is currently enabled.",
+  "plain_content" : "The plain text content of your email footer."
+}
+```
+
+### on-behalf-of
 
 **Type:** string
 
@@ -4612,19 +5083,23 @@ More information:
 
 <details><summary>Parameters</summary>
 
-#### Authorization (required)
+### Authorization (required)
 
 **Type:** string
 
-#### subuser_name (required)
+### subuser_name (required)
 
 **Type:** string
 
-#### $body
+### $body
 
 The IP addresses you would like to assign to the subuser.
 
 **Type:** array
+
+```json
+[ "ipv4" ]
+```
 
 </details>
 
@@ -4634,15 +5109,22 @@ Subuser monitor settings allow you to receive a sample of an outgoing message by
 
 <details><summary>Parameters</summary>
 
-#### subuser_name (required)
+### subuser_name (required)
 
 The name of the subuser for which to retrieve monitor settings.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "email" : "The email address to send emails at the frequency specified for monitoring.",
+  "frequency" : "The frequency by which to send the emails. An email will be sent, every time your subuser sends this {frequency} emails."
+}
+```
 
 </details>
 
@@ -4662,17 +5144,23 @@ The API Keys feature allows customers to be able to generate an API Key credenti
 
 <details><summary>Parameters</summary>
 
-#### api_key_id (required)
+### api_key_id (required)
 
 The ID of the API Key for which you are requesting information.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
 
-#### on-behalf-of
+```json
+{
+  "name" : "The new name of the API Key."
+}
+```
+
+### on-behalf-of
 
 **Type:** string
 
@@ -4690,15 +5178,21 @@ If an IP pool is NOT specified for an email, it will use any IP available, inclu
 
 <details><summary>Parameters</summary>
 
-#### pool_name (required)
+### pool_name (required)
 
 The name of the IP pool that you want to retrieve the IP addresses from.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "name" : "The new name for your IP pool."
+}
+```
 
 </details>
 
@@ -4712,9 +5206,17 @@ By integrating with New Relic, you can send your SendGrid email statistics to yo
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "enable_subuser_statistics" : "Indicates if your subuser statistics will be sent to your New Relic Dashboard.",
+  "enabled" : "Indicates if this partner setting is enabled.",
+  "license_key" : "The license key for your New Relic account."
+}
+```
 
 </details>
 
@@ -4728,11 +5230,17 @@ Mail settings allow you to tell SendGrid specific things to do to every email th
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
 
-#### on-behalf-of
+```json
+{
+  "enabled" : "The new setting you would like to use for your Plain Content mail setting."
+}
+```
+
+### on-behalf-of
 
 **Type:** string
 
@@ -4747,15 +5255,21 @@ The Contacts API helps you manage your [Marketing Campaigns](https://sendgrid.co
 
 <details><summary>Parameters</summary>
 
-#### list_id (required)
+### list_id (required)
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
 
-#### on-behalf-of
+```json
+{
+  "name" : "The new name for your list."
+}
+```
+
+### on-behalf-of
 
 **Type:** string
 
@@ -4773,11 +5287,19 @@ The contactdb is a database of your contacts for [SendGrid Marketing Campaigns](
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** array
 
-#### on-behalf-of
+```json
+[ {
+  "last_name" : "The last name of the recipient. This is one of the default custom fields.",
+  "first_name" : "The first name of the recipient. This is one of the default custom fields.",
+  "email" : "Required email"
+} ]
+```
+
+### on-behalf-of
 
 **Type:** string
 
@@ -4793,13 +5315,19 @@ For more information:
 
 <details><summary>Parameters</summary>
 
-#### campaign_id (required)
+### campaign_id (required)
 
 **Type:** integer
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "send_at" : "Required integer"
+}
+```
 
 </details>
 
@@ -4813,15 +5341,28 @@ For more information about segments in Marketing Campaigns, please see our [User
 
 <details><summary>Parameters</summary>
 
-#### segment_id (required)
+### segment_id (required)
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
 
-#### on-behalf-of
+```json
+{
+  "list_id" : "The list ID you would like this segment to be built from.",
+  "name" : "Required string",
+  "conditions" : [ {
+    "field" : "Required string",
+    "and_or" : "string. Possible values: and | or | ",
+    "value" : "Required string",
+    "operator" : "Required string. Possible values: eq | ne | lt | gt | contains"
+  } ]
+}
+```
+
+### on-behalf-of
 
 **Type:** string
 
@@ -4837,17 +5378,37 @@ Partial updates are allowed, but fields that are marked as "required" in the POS
 
 <details><summary>Parameters</summary>
 
-#### sender_id (required)
+### sender_id (required)
 
 The ID of the sender identity that you want to update.
 
 **Type:** integer
 
-#### $body
+### $body
 
 **Type:** object
 
-#### on-behalf-of
+```json
+{
+  "zip" : "The zipcode of the sender identity.",
+  "country" : "The country of the sender identity.",
+  "address" : "The physical address of the sender identity.",
+  "reply_to" : {
+    "name" : "This is the name appended to the reply to email field. IE - Your name or company name.",
+    "email" : "This is the email that your recipient will reply to."
+  },
+  "city" : "The city of the sender identity.",
+  "address_2" : "Additional sender identity address information.",
+  "nickname" : "A nickname for the sender identity. Not used for sending.",
+  "from" : {
+    "name" : "This is the name appended to the from email field. IE - Your name or company name.",
+    "email" : "This is where the email will appear to originate from for your recipient"
+  },
+  "state" : "The state of the sender identity."
+}
+```
+
+### on-behalf-of
 
 **Type:** string
 
@@ -4863,11 +5424,19 @@ Mail settings allow you to tell SendGrid specific things to do to every email th
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
 
-#### on-behalf-of
+```json
+{
+  "max_score" : "The new max score, or spam threshold that you would like to set for the spam checker.",
+  "enabled" : "Indicates if you want the spam check mail setting to be enabled or not.",
+  "url" : "The Inbound Parse URL where you would like your spam reports to be sent to."
+}
+```
+
+### on-behalf-of
 
 **Type:** string
 
@@ -4883,11 +5452,18 @@ Mail settings allow you to tell SendGrid specific things to do to every email th
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
 
-#### on-behalf-of
+```json
+{
+  "email" : "The email address where you would like the spam reports to be forwarded.",
+  "enabled" : "Indicates if the Forward Spam setting is enabled."
+}
+```
+
+### on-behalf-of
 
 **Type:** string
 
@@ -4905,15 +5481,22 @@ To turn a teammate into an admin, the request body should contain an `is_admin` 
 
 <details><summary>Parameters</summary>
 
-#### username (required)
+### username (required)
 
 The username of the teammate that you want to retrieve.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "is_admin" : "Set to True if this teammate should be promoted to an admin user. If True, scopes should be an empty array.",
+  "scopes" : [ "string" ]
+}
+```
 
 </details>
 
@@ -4927,17 +5510,23 @@ Transactional templates are templates created specifically for transactional ema
 
 <details><summary>Parameters</summary>
 
-#### template_id (required)
+### template_id (required)
 
 The id of the transactional template you want to retrieve.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
 
-#### on-behalf-of
+```json
+{
+  "name" : "The name of the transactional template."
+}
+```
+
+### on-behalf-of
 
 **Type:** string
 
@@ -4955,11 +5544,18 @@ Mail settings allow you to tell SendGrid specific things to do to every email th
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
 
-#### on-behalf-of
+```json
+{
+  "html_content" : "The new HTML content for your legacy email template.",
+  "enabled" : "Indicates if you want to enable the legacy email template mail setting."
+}
+```
+
+### on-behalf-of
 
 **Type:** string
 
@@ -4975,11 +5571,17 @@ For more information about tracking, please see our [User Guide](https://sendgri
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
 
-#### on-behalf-of
+```json
+{
+  "enabled" : "The setting you want to use for click tracking."
+}
+```
+
+### on-behalf-of
 
 **Type:** string
 
@@ -4999,11 +5601,22 @@ For more information about tracking, please see our [User Guide](https://sendgri
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
 
-#### on-behalf-of
+```json
+{
+  "utm_term" : "Any paid keywords.",
+  "utm_campaign" : "The name of the campaign.",
+  "utm_medium" : "Name of the marketing medium (e.g. \"Email\").",
+  "enabled" : "Indicates if Google Analytics is enabled.",
+  "utm_content" : "Used to differentiate ads",
+  "utm_source" : "Name of the referrer source."
+}
+```
+
+### on-behalf-of
 
 **Type:** string
 
@@ -5021,11 +5634,17 @@ For more information about tracking, please see our [User Guide](https://sendgri
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
 
-#### on-behalf-of
+```json
+{
+  "enabled" : "The new status that you want to set for open tracking."
+}
+```
+
+### on-behalf-of
 
 **Type:** string
 
@@ -5043,11 +5662,22 @@ For more information about tracking, please see our [User Guide](https://sendgri
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
 
-#### on-behalf-of
+```json
+{
+  "html_content" : "The information and HTML for your unsubscribe link.",
+  "landing" : "The HTML that will be displayed on the page that your customers will see after clicking unsubscribe, hosted on SendGrid’s server.",
+  "replace" : "Your custom defined replacement tag for your templates. Use this tag to place your unsubscribe content anywhere in your emailtemplate.",
+  "enabled" : "Indicates if subscription tracking is enabled.",
+  "plain_content" : "The information in plain text for your unsubscribe link. You should have the “&lt;% %&gt;” tag in your content, otherwise the user will have no URL for unsubscribing.",
+  "url" : "The URL where you would like your users sent to unsubscribe."
+}
+```
+
+### on-behalf-of
 
 **Type:** string
 
@@ -5065,21 +5695,30 @@ Each user can create up to 25 different suppression groups.
 
 <details><summary>Parameters</summary>
 
-#### Authorization (required)
+### Authorization (required)
 
 **Type:** string
 
-#### group_id (required)
+### group_id (required)
 
 The ID of the suppression group you would like to retrieve.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
 
-#### on-behalf-of
+```json
+{
+  "name" : "The name of the suppression group. Each group created by a user must have a unique name.",
+  "description" : "The description of the suppression group.",
+  "id" : "The id of the suppression group.",
+  "is_default" : "Indicates if the suppression group is set as the default group."
+}
+```
+
+### on-behalf-of
 
 **Type:** string
 
@@ -5097,11 +5736,17 @@ For more information about your user profile:
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
 
-#### on-behalf-of
+```json
+{
+  "email" : "The new email address that you would like to use for your account."
+}
+```
+
+### on-behalf-of
 
 **Type:** string
 
@@ -5119,11 +5764,18 @@ For more information about your user profile:
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
 
-#### on-behalf-of
+```json
+{
+  "old_password" : "The old password for your account.",
+  "new_password" : "The new password you would like to use for your account."
+}
+```
+
+### on-behalf-of
 
 **Type:** string
 
@@ -5143,11 +5795,27 @@ It should be noted that any one or more of the parameters can be updated via the
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
 
-#### on-behalf-of
+```json
+{
+  "zip" : "The zip code for this user.",
+  "country" : "Th country of this user profile.",
+  "website" : "The website associated with this user.",
+  "address" : "The street address for this user profile.",
+  "address2" : "An optional second line for the street address of this user profile.",
+  "city" : "The city for the user profile.",
+  "phone" : "The phone number for the user.",
+  "last_name" : "The last name of the user.",
+  "company" : "That company that this user profile is associated with.",
+  "state" : "The state for this user.",
+  "first_name" : "The first name of the user."
+}
+```
+
+### on-behalf-of
 
 **Type:** string
 
@@ -5161,13 +5829,19 @@ The Cancel Scheduled Sends feature allows the customer to cancel a scheduled sen
 
 <details><summary>Parameters</summary>
 
-#### batch_id (required)
+### batch_id (required)
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "status" : "The status you would like the scheduled send to have."
+}
+```
 
 </details>
 
@@ -5181,11 +5855,18 @@ The Enforced TLS settings specify whether or not the recipient is required to su
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
 
-#### on-behalf-of
+```json
+{
+  "require_tls" : "Indicates if you want to require your recipients to support TLS.",
+  "require_valid_cert" : "Indicates if you want to require your recipients to have a valid certificate."
+}
+```
+
+### on-behalf-of
 
 **Type:** string
 
@@ -5203,11 +5884,17 @@ For more information about your user profile:
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
 
-#### on-behalf-of
+```json
+{
+  "username" : "The new username you would like to use for your account."
+}
+```
+
+### on-behalf-of
 
 **Type:** string
 
@@ -5229,19 +5916,29 @@ For more information about transactional templates, please see our [User Guide](
 
 <details><summary>Parameters</summary>
 
-#### template_id (required)
+### template_id (required)
 
 **Type:** string
 
-#### version_id (required)
+### version_id (required)
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
 
-#### on-behalf-of
+```json
+{
+  "html_content" : "The HTML content of the template version.",
+  "subject" : "The subject of the template version.",
+  "name" : "The name of the template version.",
+  "active" : "Indicates if the template version is active.",
+  "plain_content" : "The text/plain content of the template version."
+}
+```
+
+### on-behalf-of
 
 **Type:** string
 
@@ -5259,11 +5956,29 @@ Common uses of this data are to remove unsubscribes, react to spam reports, dete
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
 
-#### on-behalf-of
+```json
+{
+  "deferred" : "Recipient's email server temporarily rejected message.",
+  "group_unsubscribe" : "Recipient unsubscribe from specific group, by either direct link or updating preferences. You need to enable Subscription Tracking for getting this type of event.",
+  "spam_report" : "Recipient marked a message as spam.",
+  "bounce" : "Receiving server could not or would not accept message.",
+  "dropped" : "You may see the following drop reasons: Invalid SMTPAPI header, Spam Content (if spam checker app enabled), Unsubscribed Address, Bounced Address, Spam Reporting Address, Invalid, Recipient List over Package Quota",
+  "delivered" : "Message has been successfully delivered to the receiving server.",
+  "click" : "Recipient clicked on a link within the message. You need to enable Click Tracking for getting this type of event.",
+  "enabled" : "Indicates if the event webhook is enabled.",
+  "url" : "The URL that you want the event webhook to POST to.",
+  "processed" : "Message has been received and is ready to be delivered.",
+  "unsubscribe" : "Recipient clicked on message's subscription management link. You need to enable Subscription Tracking for getting this type of event.",
+  "group_resubscribe" : "Recipient resubscribes to specific group by updating preferences. You need to enable Subscription Tracking for getting this type of event.",
+  "open" : "Recipient has opened the HTML message. You need to enable Open Tracking for getting this type of event."
+}
+```
+
+### on-behalf-of
 
 **Type:** string
 
@@ -5277,17 +5992,26 @@ The inbound parse webhook allows you to have incoming emails parsed, extracting 
 
 <details><summary>Parameters</summary>
 
-#### hostname (required)
+### hostname (required)
 
 The hostname associated with the inbound parse setting that you would like to retrieve.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
 
-#### on-behalf-of
+```json
+{
+  "hostname" : "A specific and unique domain or subdomain that you have created to use exclusively to parse your incoming email. For example, parse.yourdomain.com.",
+  "spam_check" : "Indicates if you would like SendGrid to check the content parsed from your emails for spam before POSTing them to your domain.",
+  "send_raw" : "Indicates if you would like SendGrid to post the original MIME-type content of your parsed email. When this parameter is set to \"false\", SendGrid will send a JSON payload of the content of your email.",
+  "url" : "The public URL where you would like SendGrid to POST the data parsed from your email. Any emails sent with the given hostname provided (whose MX records have been updated to point to SendGrid) will be parsed and POSTed to this URL."
+}
+```
+
+### on-behalf-of
 
 **Type:** string
 
@@ -5305,7 +6029,7 @@ More Information:
 
 <details><summary>Parameters</summary>
 
-#### batch_id (required)
+### batch_id (required)
 
 **Type:** string
 
@@ -5321,17 +6045,21 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/API_
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 The id of the link whitelabel that you want to validate.
 
 **Type:** integer
 
-#### $body
+### $body
 
 **Type:** object
 
-#### on-behalf-of
+```json
+{ }
+```
+
+### on-behalf-of
 
 **Type:** string
 
@@ -5347,15 +6075,19 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/API_
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 **Type:** integer
 
-#### $body
+### $body
 
 **Type:** object
 
-#### on-behalf-of
+```json
+{ }
+```
+
+### on-behalf-of
 
 **Type:** string
 
@@ -5371,11 +6103,17 @@ For more general information about warming up IPs, please see our [Classroom](ht
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
 
-#### on-behalf-of
+```json
+{
+  "ip" : "The IP address that you want to begin warming up."
+}
+```
+
+### on-behalf-of
 
 **Type:** string
 

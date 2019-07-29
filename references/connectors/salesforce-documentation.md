@@ -11,13 +11,13 @@ Calling DELETE on your apex endpoint
 
 <details><summary>Parameters</summary>
 
-#### apexPath (required)
+### apexPath (required)
 
 Path to reach your REST Apex resource. E.g Account/accountId
 
 **Type:** string
 
-#### $body
+### $body
 
 entity data
 
@@ -31,19 +31,23 @@ deletes an SObject instance
 
 <details><summary>Parameters</summary>
 
-#### apiVersion (required)
+### apiVersion (required)
 
 Version of API you are calling
 
 **Type:** string
 
-#### id (required)
+### id (required)
 
 The ID of the SObject to delete
 
 **Type:** array
 
-#### sobjectName (required)
+```json
+[ "string" ]
+```
+
+### sobjectName (required)
 
 Name of the salesforce Object
 
@@ -57,13 +61,13 @@ describe a new instance of SObject entity
 
 <details><summary>Parameters</summary>
 
-#### apiVersion (required)
+### apiVersion (required)
 
 Version of API you are calling
 
 **Type:** string
 
-#### sobjectName (required)
+### sobjectName (required)
 
 Name of the salesforce Object
 
@@ -77,13 +81,13 @@ Calling GET on your apex endpoint
 
 <details><summary>Parameters</summary>
 
-#### apexPath (required)
+### apexPath (required)
 
 Path to reach your REST Apex resource. E.g Account/accountId
 
 **Type:** string
 
-#### $body
+### $body
 
 entity data
 
@@ -97,25 +101,25 @@ Retrieves the list of individual records that have been deleted within the given
 
 <details><summary>Parameters</summary>
 
-#### apiVersion (required)
+### apiVersion (required)
 
 Version of API you are calling
 
 **Type:** string
 
-#### end (required)
+### end (required)
 
 The end time of the timespan for which to retrieve data. eg 2013-05-07T22:07:19.000+0000
 
 **Type:** string
 
-#### sobjectName (required)
+### sobjectName (required)
 
 Name of the salesforce Object
 
 **Type:** string
 
-#### start (required)
+### start (required)
 
 The start time of the timespan for which to retrieve data. eg 2013-05-07T22:07:19.000+0000
 
@@ -129,19 +133,23 @@ Returns sf instances by id
 
 <details><summary>Parameters</summary>
 
-#### apiVersion (required)
+### apiVersion (required)
 
 Version of API you are calling
 
 **Type:** string
 
-#### id (required)
+### id (required)
 
 The ID of the SObject to get
 
 **Type:** array
 
-#### sobjectName (required)
+```json
+[ "string" ]
+```
+
+### sobjectName (required)
 
 Name of the salesforce Object
 
@@ -155,7 +163,7 @@ Lists the available objects and their metadata for your organization’s data.
 
 <details><summary>Parameters</summary>
 
-#### apiVersion (required)
+### apiVersion (required)
 
 Version of API you are calling
 
@@ -169,25 +177,25 @@ Retrieves the list of individual records that have been deleted within the given
 
 <details><summary>Parameters</summary>
 
-#### apiVersion (required)
+### apiVersion (required)
 
 Version of API you are calling
 
 **Type:** string
 
-#### end (required)
+### end (required)
 
 The end time of the timespan for which to retrieve data. eg 2013-05-07T22:07:19.000+0000
 
 **Type:** string
 
-#### sobjectName (required)
+### sobjectName (required)
 
 Name of the salesforce Object
 
 **Type:** string
 
-#### start (required)
+### start (required)
 
 The start time of the timespan for which to retrieve data. eg 2013-05-07T22:07:19.000+0000
 
@@ -201,13 +209,13 @@ Calling POST on your apex endpoint
 
 <details><summary>Parameters</summary>
 
-#### apexPath (required)
+### apexPath (required)
 
 Path to reach your REST Apex resource. E.g Account/accountId
 
 **Type:** string
 
-#### $body
+### $body
 
 entity data
 
@@ -221,13 +229,13 @@ Calling PUT on your apex endpoint
 
 <details><summary>Parameters</summary>
 
-#### apexPath (required)
+### apexPath (required)
 
 Path to reach your REST Apex resource. E.g Account/accountId
 
 **Type:** string
 
-#### $body
+### $body
 
 entity data
 
@@ -241,25 +249,29 @@ updates an SObject instance
 
 <details><summary>Parameters</summary>
 
-#### apiVersion (required)
+### apiVersion (required)
 
 Version of API you are calling
 
 **Type:** string
 
-#### id (required)
+### id (required)
 
 The ID of the SObject to update
 
 **Type:** array
 
-#### sobjectName (required)
+```json
+[ "string" ]
+```
+
+### sobjectName (required)
 
 Name of the salesforce Object
 
 **Type:** string
 
-#### $body
+### $body
 
 entity data
 
@@ -273,17 +285,17 @@ Executes the specified SOQL query.If the query results are too large, the respon
 
 <details><summary>Parameters</summary>
 
-#### apiVersion (required)
+### apiVersion (required)
 
 **Type:** string
 
-#### q (required)
+### q (required)
 
 A SOQL query.
 
 **Type:** string
 
-#### explain
+### explain
 
 A SOQL query to get performance feedback on. Use explain instead of q to get a response that details how Salesforce will process your query.
 
@@ -297,11 +309,11 @@ Executes the specified SOQL query. Unlike the Query resource, QueryAll will retu
 
 <details><summary>Parameters</summary>
 
-#### apiVersion (required)
+### apiVersion (required)
 
 **Type:** string
 
-#### q (required)
+### q (required)
 
 A SOQL query.
 

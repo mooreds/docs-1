@@ -12,7 +12,7 @@ Fetch comics and metadata  by comic id.
 
 <details><summary>Parameters</summary>
 
-#### comicId (required)
+### comicId (required)
 
 **Type:** number
 

@@ -11,13 +11,13 @@ Get multiple random dog images from a breed, e.g. hound
 
 <details><summary>Parameters</summary>
 
-#### breed (required)
+### breed (required)
 
 breed to fetch
 
 **Type:** string
 
-#### num (required)
+### num (required)
 
 Number of dogs to return. Max number returned is 50.
 
@@ -37,7 +37,7 @@ Get a random dog image for a breed
 
 <details><summary>Parameters</summary>
 
-#### breed (required)
+### breed (required)
 
 breed to fetch
 
@@ -51,13 +51,13 @@ Get a random dog image for a sub-breed
 
 <details><summary>Parameters</summary>
 
-#### breed (required)
+### breed (required)
 
 breed to fetch
 
 **Type:** string
 
-#### subbreed (required)
+### subbreed (required)
 
 subbreed to fetch
 
@@ -71,7 +71,7 @@ Get multiple random dog images
 
 <details><summary>Parameters</summary>
 
-#### num (required)
+### num (required)
 
 Number of dogs to return. Max number returned is 50.
 
@@ -85,19 +85,19 @@ Get multiple random dog images from a sub-breed
 
 <details><summary>Parameters</summary>
 
-#### breed (required)
+### breed (required)
 
 breed to fetch
 
 **Type:** string
 
-#### num (required)
+### num (required)
 
 Number of dogs to return. Max number returned is 50.
 
 **Type:** integer
 
-#### subbreed (required)
+### subbreed (required)
 
 subbreed to fetch
 
@@ -111,7 +111,7 @@ Get all images of a particular breed
 
 <details><summary>Parameters</summary>
 
-#### breed (required)
+### breed (required)
 
 breed to fetch
 
@@ -131,13 +131,13 @@ Get all images of a particular sub-breed
 
 <details><summary>Parameters</summary>
 
-#### breed (required)
+### breed (required)
 
 breed to fetch
 
 **Type:** string
 
-#### subbreed (required)
+### subbreed (required)
 
 subbreed to fetch
 
@@ -151,7 +151,7 @@ Returns an array of all the sub-breeds from a breed
 
 <details><summary>Parameters</summary>
 
-#### breed (required)
+### breed (required)
 
 breed to fetch
 

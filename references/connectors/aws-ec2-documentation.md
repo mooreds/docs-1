@@ -11,11 +11,22 @@ Accepts the Convertible Reserved Instance exchange quote described in the GetRes
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for accepting the quote.
 
 **Type:** object
+
+```json
+{
+  "TargetConfiguration" : [ {
+    "InstanceCount" : "The number of instances the Covertible Reserved Instance offering can be applied to. This parameter is reserved and cannot be specified in a request",
+    "OfferingId" : "The Convertible Reserved Instance offering ID."
+  } ],
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.",
+  "ReservedInstanceId" : [ "string" ]
+}
+```
 
 </details>
 
@@ -25,9 +36,17 @@ Accepts one or more interface VPC endpoint connection requests to your VPC endpo
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.",
+  "VpcEndpointId" : [ "string" ],
+  "ServiceId" : "The ID of the endpoint service."
+}
+```
 
 </details>
 
@@ -38,9 +57,16 @@ For an inter-region VPC peering connection request, you must accept the VPC peer
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "VpcPeeringConnectionId" : "The ID of the VPC peering connection. You must specify this parameter in the request.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation."
+}
+```
 
 </details>
 
@@ -53,11 +79,19 @@ For more information, see Elastic IP Addresses in the Amazon Elastic Compute Clo
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for AllocateAddress.
 
 **Type:** object
+
+```json
+{
+  "Address" : "[EC2-VPC] The Elastic IP address to recover.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.",
+  "Domain" : "Set to vpc to allocate the address for use with instances in a VPC. \nDefault: The address is for use with instances in EC2-Classic."
+}
+```
 
 </details>
 
@@ -67,9 +101,26 @@ Allocates a Dedicated Host to your account. At a minimum, specify the instance s
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "AutoPlacement" : "This is enabled by default. This property allows instances to be automatically placed onto available Dedicated Hosts, when you are launching instances without specifying a host ID. \nDefault: Enabled",
+  "AvailabilityZone" : "The Availability Zone for the Dedicated Hosts.",
+  "Quantity" : "The number of Dedicated Hosts to allocate to your account with these parameters.",
+  "TagSpecification" : [ {
+    "Tag" : [ {
+      "value" : "The value of the tag. \nConstraints: Tag values are case-sensitive and accept a maximum of 255 Unicode characters.",
+      "key" : "The key of the tag. \nConstraints: Tag keys are case-sensitive and accept a maximum of 127 Unicode characters. May not begin with aws:."
+    } ],
+    "resourceType" : "The type of resource to tag. Currently, the resource types that support tagging on creation are fleet, dedicated-host, instance, snapshot, and volume. To tag a resource after it has been created, see CreateTags."
+  } ],
+  "InstanceType" : "Specify the instance type for which to configure your Dedicated Hosts. When you specify the instance type, that is the only instance type that you can launch onto that host.",
+  "ClientToken" : "Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see How to Ensure Idempotency in the Amazon Elastic Compute Cloud User Guide. "
+}
+```
 
 </details>
 
@@ -79,9 +130,17 @@ Assigns one or more IPv6 addresses to the specified network interface. You can s
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "Ipv6AddressCount" : "The number of IPv6 addresses to assign to the network interface. Amazon EC2 automatically selects the IPv6 addresses from the subnet range. You can't use this option if specifying specific IPv6 addresses.",
+  "Ipv6Addresses" : [ "string" ],
+  "NetworkInterfaceId" : "The ID of the network interface."
+}
+```
 
 </details>
 
@@ -92,11 +151,20 @@ AssignPrivateIpAddresses is available only in EC2-VPC.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for AssignPrivateIpAddresses.
 
 **Type:** object
+
+```json
+{
+  "AllowReassignment" : "Indicates whether to allow an IP address that is already assigned to another network interface or instance to be reassigned to the specified network interface.",
+  "PrivateIpAddress" : [ "string" ],
+  "SecondaryPrivateIpAddressCount" : "The number of secondary IP addresses to assign to the network interface. You can't specify this parameter when also specifying private IP addresses.",
+  "NetworkInterfaceId" : "The ID of the network interface."
+}
+```
 
 </details>
 
@@ -110,11 +178,23 @@ This is an idempotent operation. If you perform the operation more than once, Am
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for AssociateAddress.
 
 **Type:** object
+
+```json
+{
+  "PrivateIpAddress" : "[EC2-VPC] The primary or secondary private IP address to associate with the Elastic IP address. If no private IP address is specified, the Elastic IP address is associated with the primary private IP address.",
+  "AllowReassociation" : "[EC2-VPC] For a VPC in an EC2-Classic account, specify true to allow an Elastic IP address that is already associated with an instance or network interface to be reassociated with the specified instance or network interface. Otherwise, the operation fails. In a VPC in an EC2-VPC-only account, reassociation is automatic, therefore you can specify false to ensure the operation fails if the Elastic IP address is already associated with another resource.",
+  "PublicIp" : "The Elastic IP address. This is required for EC2-Classic.",
+  "InstanceId" : "The ID of the instance. This is required for EC2-Classic. For EC2-VPC, you can specify either the instance ID or the network interface ID, but not both. The operation fails if you specify an instance ID unless exactly one network interface is attached.",
+  "AllocationId" : "[EC2-VPC] The allocation ID. This is required for EC2-VPC.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.",
+  "NetworkInterfaceId" : "[EC2-VPC] The ID of the network interface. If the instance has more than one network interface, you must specify a network interface ID."
+}
+```
 
 </details>
 
@@ -126,9 +206,17 @@ For more information, see DHCP Options Sets in the Amazon Virtual Private Cloud 
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "VpcId" : "The ID of the VPC.",
+  "DhcpOptionsId" : "The ID of the DHCP options set, or default to associate no DHCP options with the VPC.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation."
+}
+```
 
 </details>
 
@@ -138,9 +226,19 @@ Associates an IAM instance profile with a running or stopped instance. You canno
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "InstanceId" : "The ID of the instance.",
+  "IamInstanceProfile" : {
+    "name" : "The name of the instance profile.",
+    "arn" : "The Amazon Resource Name (ARN) of the instance profile."
+  }
+}
+```
 
 </details>
 
@@ -151,9 +249,17 @@ For more information, see Route Tables in the Amazon Virtual Private Cloud User 
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "RouteTableId" : "The ID of the route table.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.",
+  "SubnetId" : "The ID of the subnet."
+}
+```
 
 </details>
 
@@ -163,9 +269,16 @@ Associates a CIDR block with your subnet. You can only associate a single IPv6 C
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "SubnetId" : "The ID of your subnet.",
+  "Ipv6CidrBlock" : "The IPv6 CIDR block for your subnet. The subnet must have a /64 prefix length."
+}
+```
 
 </details>
 
@@ -176,9 +289,17 @@ For more information about associating CIDR blocks with your VPC and applicable 
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "VpcId" : "The ID of the VPC.",
+  "CidrBlock" : "An IPv4 CIDR block to associate with the VPC.",
+  "AmazonProvidedIpv6CidrBlock" : "Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IPv6 addresses, or the size of the CIDR block."
+}
+```
 
 </details>
 
@@ -190,9 +311,18 @@ Linking your instance to a VPC is sometimes referred to as attaching your instan
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "VpcId" : "The ID of a ClassicLink-enabled VPC.",
+  "InstanceId" : "The ID of an EC2-Classic instance to link to the ClassicLink-enabled VPC.",
+  "SecurityGroupId" : [ "string" ],
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation."
+}
+```
 
 </details>
 
@@ -202,9 +332,17 @@ Attaches an internet gateway to a VPC, enabling connectivity between the interne
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "InternetGatewayId" : "The ID of the internet gateway.",
+  "VpcId" : "The ID of the VPC.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation."
+}
+```
 
 </details>
 
@@ -214,11 +352,20 @@ Attaches a network interface to an instance.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for AttachNetworkInterface.
 
 **Type:** object
+
+```json
+{
+  "InstanceId" : "The ID of the instance.",
+  "DeviceIndex" : "The index of the device for the network interface attachment.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.",
+  "NetworkInterfaceId" : "The ID of the network interface."
+}
+```
 
 </details>
 
@@ -236,11 +383,20 @@ For more information about EBS volumes, see Attaching Amazon EBS Volumes in the 
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for AttachVolume.
 
 **Type:** object
+
+```json
+{
+  "VolumeId" : "The ID of the EBS volume. The volume and instance must be within the same Availability Zone.",
+  "InstanceId" : "The ID of the instance.",
+  "Device" : "The device name (for example, /dev/sdh or xvdh).",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation."
+}
+```
 
 </details>
 
@@ -251,11 +407,19 @@ For more information, see AWS Managed VPN Connections in the Amazon Virtual Priv
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for AttachVpnGateway.
 
 **Type:** object
+
+```json
+{
+  "VpcId" : "The ID of the VPC.",
+  "VpnGatewayId" : "The ID of the virtual private gateway.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation."
+}
+```
 
 </details>
 
@@ -267,9 +431,48 @@ Rule changes are propagated to affected instances as quickly as possible. Howeve
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "CidrIp" : "Not supported. Use a set of IP permissions to specify the CIDR.",
+  "FromPort" : "Not supported. Use a set of IP permissions to specify the port.",
+  "ToPort" : "Not supported. Use a set of IP permissions to specify the port.",
+  "SourceSecurityGroupName" : "Not supported. Use a set of IP permissions to specify a destination security group.",
+  "SourceSecurityGroupOwnerId" : "Not supported. Use a set of IP permissions to specify a destination security group.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.",
+  "IpProtocol" : "Not supported. Use a set of IP permissions to specify the protocol name or number.",
+  "IpPermissions" : [ {
+    "ipRanges" : [ {
+      "description" : "A description for the security group rule that references this IPv4 address range. \nConstraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=;{}!$*",
+      "cidrIp" : "The IPv4 CIDR range. You can either specify a CIDR range or a source security group, not both. To specify a single IPv4 address, use the /32 prefix length."
+    } ],
+    "prefixListIds" : [ {
+      "description" : "A description for the security group rule that references this prefix list ID. \nConstraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=;{}!$*",
+      "prefixListId" : "The ID of the prefix."
+    } ],
+    "fromPort" : "The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type number. A value of -1 indicates all ICMP/ICMPv6 types. If you specify all ICMP/ICMPv6 types, you must specify all codes.",
+    "toPort" : "The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code. A value of -1 indicates all ICMP/ICMPv6 codes for the specified ICMP type. If you specify all ICMP/ICMPv6 types, you must specify all codes.",
+    "groups" : [ {
+      "groupName" : "The name of the security group. In a request, use this parameter for a security group in EC2-Classic or a default VPC only. For a security group in a nondefault VPC, use the security group ID.  \nFor a referenced security group in another VPC, this value is not returned if the referenced security group is deleted.",
+      "groupId" : "The ID of the security group.",
+      "vpcId" : "The ID of the VPC for the referenced security group, if applicable.",
+      "description" : "A description for the security group rule that references this user ID group pair. \nConstraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=;{}!$*",
+      "vpcPeeringConnectionId" : "The ID of the VPC peering connection, if applicable.",
+      "peeringStatus" : "The status of a VPC peering connection, if applicable.",
+      "userId" : "The ID of an AWS account. \nFor a referenced security group in another VPC, the account ID of the referenced security group is returned in the response. If the referenced security group is deleted, this value is not returned. \n[EC2-Classic] Required when adding or removing rules that reference a security group in another AWS account."
+    } ],
+    "ipProtocol" : "The IP protocol name (tcp, udp, icmp) or number (see Protocol Numbers).  \n[EC2-VPC only] Use -1 to specify all protocols. When authorizing security group rules, specifying -1 or a protocol number other than tcp, udp, icmp, or 58 (ICMPv6) allows traffic on all ports, regardless of any port range you specify. For tcp, udp, and icmp, you must specify a port range. For 58 (ICMPv6), you can optionally specify a port range; if you don't, traffic for all types and codes is allowed when authorizing rules. ",
+    "ipv6Ranges" : [ {
+      "description" : "A description for the security group rule that references this IPv6 address range. \nConstraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=;{}!$*",
+      "cidrIpv6" : "The IPv6 CIDR range. You can either specify a CIDR range or a source security group, not both. To specify a single IPv6 address, use the /128 prefix length."
+    } ]
+  } ],
+  "GroupId" : "The ID of the security group."
+}
+```
 
 </details>
 
@@ -283,9 +486,49 @@ You can optionally specify a description for the security group rule.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "GroupName" : "[EC2-Classic, default VPC] The name of the security group. You must specify either the security group ID or the security group name in the request.",
+  "CidrIp" : "The CIDR IPv4 address range. You can't specify this parameter when specifying a source security group.",
+  "FromPort" : "The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type number. For the ICMP/ICMPv6 type number, use -1 to specify all types. If you specify all ICMP/ICMPv6 types, you must specify all codes.",
+  "ToPort" : "The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code number. For the ICMP/ICMPv6 code number, use -1 to specify all codes. If you specify all ICMP/ICMPv6 types, you must specify all codes.",
+  "SourceSecurityGroupName" : "[EC2-Classic, default VPC] The name of the source security group. You can't specify this parameter in combination with the following parameters: the CIDR IP address range, the start of the port range, the IP protocol, and the end of the port range. Creates rules that grant full ICMP, UDP, and TCP access. To create a rule with a specific IP protocol and port range, use a set of IP permissions instead. For EC2-VPC, the source security group must be in the same VPC.",
+  "SourceSecurityGroupOwnerId" : "[EC2-Classic] The AWS account ID for the source security group, if the source security group is in a different account. You can't specify this parameter in combination with the following parameters: the CIDR IP address range, the IP protocol, the start of the port range, and the end of the port range. Creates rules that grant full ICMP, UDP, and TCP access. To create a rule with a specific IP protocol and port range, use a set of IP permissions instead.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.",
+  "IpProtocol" : "The IP protocol name (tcp, udp, icmp) or number (see Protocol Numbers). (VPC only) Use -1 to specify all protocols. If you specify -1, or a protocol number other than tcp, udp, icmp, or 58 (ICMPv6), traffic on all ports is allowed, regardless of any ports you specify. For tcp, udp, and icmp, you must specify a port range. For protocol 58 (ICMPv6), you can optionally specify a port range; if you don't, traffic for all types and codes is allowed.",
+  "IpPermissions" : [ {
+    "ipRanges" : [ {
+      "description" : "A description for the security group rule that references this IPv4 address range. \nConstraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=;{}!$*",
+      "cidrIp" : "The IPv4 CIDR range. You can either specify a CIDR range or a source security group, not both. To specify a single IPv4 address, use the /32 prefix length."
+    } ],
+    "prefixListIds" : [ {
+      "description" : "A description for the security group rule that references this prefix list ID. \nConstraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=;{}!$*",
+      "prefixListId" : "The ID of the prefix."
+    } ],
+    "fromPort" : "The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type number. A value of -1 indicates all ICMP/ICMPv6 types. If you specify all ICMP/ICMPv6 types, you must specify all codes.",
+    "toPort" : "The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code. A value of -1 indicates all ICMP/ICMPv6 codes for the specified ICMP type. If you specify all ICMP/ICMPv6 types, you must specify all codes.",
+    "groups" : [ {
+      "groupName" : "The name of the security group. In a request, use this parameter for a security group in EC2-Classic or a default VPC only. For a security group in a nondefault VPC, use the security group ID.  \nFor a referenced security group in another VPC, this value is not returned if the referenced security group is deleted.",
+      "groupId" : "The ID of the security group.",
+      "vpcId" : "The ID of the VPC for the referenced security group, if applicable.",
+      "description" : "A description for the security group rule that references this user ID group pair. \nConstraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=;{}!$*",
+      "vpcPeeringConnectionId" : "The ID of the VPC peering connection, if applicable.",
+      "peeringStatus" : "The status of a VPC peering connection, if applicable.",
+      "userId" : "The ID of an AWS account. \nFor a referenced security group in another VPC, the account ID of the referenced security group is returned in the response. If the referenced security group is deleted, this value is not returned. \n[EC2-Classic] Required when adding or removing rules that reference a security group in another AWS account."
+    } ],
+    "ipProtocol" : "The IP protocol name (tcp, udp, icmp) or number (see Protocol Numbers).  \n[EC2-VPC only] Use -1 to specify all protocols. When authorizing security group rules, specifying -1 or a protocol number other than tcp, udp, icmp, or 58 (ICMPv6) allows traffic on all ports, regardless of any port range you specify. For tcp, udp, and icmp, you must specify a port range. For 58 (ICMPv6), you can optionally specify a port range; if you don't, traffic for all types and codes is allowed when authorizing rules. ",
+    "ipv6Ranges" : [ {
+      "description" : "A description for the security group rule that references this IPv6 address range. \nConstraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=;{}!$*",
+      "cidrIpv6" : "The IPv6 CIDR range. You can either specify a CIDR range or a source security group, not both. To specify a single IPv6 address, use the /128 prefix length."
+    } ]
+  } ],
+  "GroupId" : "The ID of the security group. You must specify either the security group ID or the security group name in the request. For security groups in a nondefault VPC, you must specify the security group ID."
+}
+```
 
 </details>
 
@@ -297,11 +540,27 @@ This action is not applicable for Linux/Unix instances or Windows instances that
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for BundleInstance.
 
 **Type:** object
+
+```json
+{
+  "Storage" : {
+    "S3" : {
+      "bucket" : "The bucket in which to store the AMI. You can specify a bucket that you already own or a new bucket that Amazon EC2 creates on your behalf. If you specify a bucket that belongs to someone else, Amazon EC2 returns an error.",
+      "uploadPolicySignature" : "The signature of the JSON document.",
+      "prefix" : "The beginning of the file name of the AMI.",
+      "AWSAccessKeyId" : "The access key ID of the owner of the bucket. Before you specify a value for your access key ID, review and follow the guidance in Best Practices for Managing AWS Access Keys.",
+      "uploadPolicy" : "An Amazon S3 upload policy that gives Amazon EC2 permission to upload items into Amazon S3 on your behalf."
+    }
+  },
+  "InstanceId" : "The ID of the instance to bundle. \nType: String \nDefault: None \nRequired: Yes",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation."
+}
+```
 
 </details>
 
@@ -311,11 +570,18 @@ Cancels a bundling operation for an instance store-backed Windows instance.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for CancelBundleTask.
 
 **Type:** object
+
+```json
+{
+  "BundleId" : "The ID of the bundle task.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation."
+}
+```
 
 </details>
 
@@ -326,11 +592,19 @@ For more information, see Importing a Virtual Machine Using the Amazon EC2 CLI.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for CancelConversionTask.
 
 **Type:** object
+
+```json
+{
+  "ConversionTaskId" : "The ID of the conversion task.",
+  "ReasonMessage" : "The reason for canceling the conversion task.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation."
+}
+```
 
 </details>
 
@@ -340,11 +614,17 @@ Cancels an active export task. The request removes all artifacts of the export, 
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for CancelExportTask.
 
 **Type:** object
+
+```json
+{
+  "ExportTaskId" : "The ID of the export task. This is the ID returned by CreateInstanceExportTask."
+}
+```
 
 </details>
 
@@ -354,11 +634,19 @@ Cancels an in-process import virtual machine or import snapshot task.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for CancelImportTask.
 
 **Type:** object
+
+```json
+{
+  "CancelReason" : "The reason for canceling the task.",
+  "ImportTaskId" : "The ID of the import image or import snapshot task to be canceled.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation."
+}
+```
 
 </details>
 
@@ -369,11 +657,17 @@ For more information, see Reserved Instance Marketplace in the Amazon Elastic Co
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for CancelReservedInstancesListing.
 
 **Type:** object
+
+```json
+{
+  "ReservedInstancesListingId" : "The ID of the Reserved Instance listing."
+}
+```
 
 </details>
 
@@ -384,11 +678,19 @@ After you cancel a Spot Fleet request, the Spot Fleet launches no new Spot Insta
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for CancelSpotFleetRequests.
 
 **Type:** object
+
+```json
+{
+  "SpotFleetRequestId" : [ "string" ],
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.",
+  "TerminateInstances" : "Indicates whether to terminate instances for a Spot Fleet request if it is canceled successfully."
+}
+```
 
 </details>
 
@@ -399,11 +701,18 @@ Canceling a Spot Instance request does not terminate running Spot Instances asso
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for CancelSpotInstanceRequests.
 
 **Type:** object
+
+```json
+{
+  "SpotInstanceRequestId" : [ "string" ],
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation."
+}
+```
 
 </details>
 
@@ -413,11 +722,19 @@ Determines whether a product code is associated with an instance. This action ca
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for ConfirmProductInstance.
 
 **Type:** object
+
+```json
+{
+  "ProductCode" : "The product code. This must be a product code that you own.",
+  "InstanceId" : "The ID of the instance.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation."
+}
+```
 
 </details>
 
@@ -427,9 +744,20 @@ Copies the specified Amazon FPGA Image (AFI) to the current region.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "Description" : "The description for the new AFI.",
+  "SourceFpgaImageId" : "The ID of the source AFI.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.",
+  "ClientToken" : "Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see Ensuring Idempotency.",
+  "SourceRegion" : "The region that contains the source AFI.",
+  "Name" : "The name for the new AFI. The default is the name of the source AFI."
+}
+```
 
 </details>
 
@@ -441,11 +769,24 @@ For more information about the prerequisites and limits when copying an AMI, see
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for CopyImage.
 
 **Type:** object
+
+```json
+{
+  "Description" : "A description for the new AMI in the destination region.",
+  "KmsKeyId" : "An identifier for the AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating the encrypted volume. This parameter is only required if you want to use a non-default CMK; if this parameter is not specified, the default CMK for EBS is used. If a KmsKeyId is specified, the Encrypted flag must also be set.  \nThe CMK identifier may be provided in any of the following formats:   \n Key ID  \n Key alias, in the form alias/ExampleAlias    \n ARN using key ID. The ID ARN contains the arn:aws:kms namespace, followed by the region of the CMK, the AWS account ID of the CMK owner, the key namespace, and then the CMK ID. For example, arn:aws:kms:us-east-1:012345678910:key/abcd1234-a123-456a-a12b-a123b4cd56ef.   \n ARN using key alias. The alias ARN contains the arn:aws:kms namespace, followed by the region of the CMK, the AWS account ID of the CMK owner, the alias namespace, and then the CMK alias. For example, arn:aws:kms:us-east-1:012345678910:alias/ExampleAlias.    \nAWS parses KmsKeyId asynchronously, meaning that the action you call may appear to complete even though you provided an invalid identifier. This action will eventually report failure.  \nThe specified CMK must exist in the region that the snapshot is being copied to. ",
+  "Encrypted" : "Specifies whether the destination snapshots of the copied image should be encrypted. You can encrypt a copy of an unencrypted snapshot, but you cannot create an unencrypted copy of an encrypted snapshot. The default CMK for EBS is used unless you specify a non-default AWS Key Management Service (AWS KMS) CMK using KmsKeyId. For more information, see Amazon EBS Encryption in the Amazon Elastic Compute Cloud User Guide.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.",
+  "SourceRegion" : "The name of the region that contains the AMI to copy.",
+  "SourceImageId" : "The ID of the AMI to copy.",
+  "ClientToken" : "Unique, case-sensitive identifier you provide to ensure idempotency of the request. For more information, see How to Ensure Idempotency in the Amazon Elastic Compute Cloud User Guide.",
+  "Name" : "The name of the new AMI in the destination region."
+}
+```
 
 </details>
 
@@ -459,11 +800,24 @@ For more information, see Copying an Amazon EBS Snapshot in the Amazon Elastic C
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for CopySnapshot.
 
 **Type:** object
+
+```json
+{
+  "PresignedUrl" : "When you copy an encrypted source snapshot using the Amazon EC2 Query API, you must supply a pre-signed URL. This parameter is optional for unencrypted snapshots. For more information, see Query Requests. \nThe PresignedUrl should use the snapshot source endpoint, the CopySnapshot action, and include the SourceRegion, SourceSnapshotId, and DestinationRegion parameters. The PresignedUrl must be signed using AWS Signature Version 4. Because EBS snapshots are stored in Amazon S3, the signing algorithm for this parameter uses the same logic that is described in Authenticating Requests by Using Query Parameters (AWS Signature Version 4) in the Amazon Simple Storage Service API Reference. An invalid or improperly signed PresignedUrl will cause the copy operation to fail asynchronously, and the snapshot will move to an error state.",
+  "Description" : "A description for the EBS snapshot.",
+  "KmsKeyId" : "An identifier for the AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating the encrypted volume. This parameter is only required if you want to use a non-default CMK; if this parameter is not specified, the default CMK for EBS is used. If a KmsKeyId is specified, the Encrypted flag must also be set.  \nThe CMK identifier may be provided in any of the following formats:   \n Key ID  \n Key alias  \n ARN using key ID. The ID ARN contains the arn:aws:kms namespace, followed by the region of the CMK, the AWS account ID of the CMK owner, the key namespace, and then the CMK ID. For example, arn:aws:kms:us-east-1:012345678910:key/abcd1234-a123-456a-a12b-a123b4cd56ef.   \n ARN using key alias. The alias ARN contains the arn:aws:kms namespace, followed by the region of the CMK, the AWS account ID of the CMK owner, the alias namespace, and then the CMK alias. For example, arn:aws:kms:us-east-1:012345678910:alias/ExampleAlias.    \nAWS parses KmsKeyId asynchronously, meaning that the action you call may appear to complete even though you provided an invalid identifier. The action will eventually fail. ",
+  "SourceSnapshotId" : "The ID of the EBS snapshot to copy.",
+  "Encrypted" : "Specifies whether the destination snapshot should be encrypted. You can encrypt a copy of an unencrypted snapshot, but you cannot use it to create an unencrypted copy of an encrypted snapshot. Your default CMK for EBS is used unless you specify a non-default AWS Key Management Service (AWS KMS) CMK using KmsKeyId. For more information, see Amazon EBS Encryption in the Amazon Elastic Compute Cloud User Guide.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.",
+  "DestinationRegion" : "The destination region to use in the PresignedUrl parameter of a snapshot copy operation. This parameter is only valid for specifying the destination region in a PresignedUrl parameter, where it is required. \nThe snapshot copy is sent to the regional endpoint that you sent the HTTP request to (for example, ec2.us-east-1.amazonaws.com). With the AWS CLI, this is specified using the --region parameter or the default region in your AWS configuration file.",
+  "SourceRegion" : "The ID of the region that contains the snapshot to be copied."
+}
+```
 
 </details>
 
@@ -477,11 +831,20 @@ You cannot create more than one customer gateway with the same VPN type, IP addr
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for CreateCustomerGateway.
 
 **Type:** object
+
+```json
+{
+  "Type" : "The type of VPN connection that this customer gateway supports (ipsec.1).",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.",
+  "IpAddress" : "The Internet-routable IP address for the customer gateway's outside interface. The address must be static.",
+  "BgpAsn" : "For devices that support BGP, the customer gateway's BGP ASN. \nDefault: 65000"
+}
+```
 
 </details>
 
@@ -491,9 +854,16 @@ Creates a default subnet with a size /20 IPv4 CIDR block in the specified Availa
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.",
+  "AvailabilityZone" : "The Availability Zone in which to create the default subnet."
+}
+```
 
 </details>
 
@@ -505,9 +875,15 @@ If your account supports EC2-Classic, you cannot use this action to create a def
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation."
+}
+```
 
 </details>
 
@@ -523,9 +899,19 @@ Your VPC automatically starts out with a set of DHCP options that includes only 
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "DhcpConfiguration" : [ {
+    "Value" : [ "string" ],
+    "key" : "string"
+  } ],
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation."
+}
+```
 
 </details>
 
@@ -535,9 +921,17 @@ Your VPC automatically starts out with a set of DHCP options that includes only 
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "VpcId" : "The ID of the VPC for which to create the egress-only internet gateway.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.",
+  "ClientToken" : "Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see How to Ensure Idempotency."
+}
+```
 
 </details>
 
@@ -549,9 +943,58 @@ For more information, see Launching an EC2 Fleet in the Amazon Elastic Compute C
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "TargetCapacitySpecification" : {
+    "DefaultTargetCapacityType" : "The default TotalTargetCapacity, which is either Spot or On-Demand.",
+    "TotalTargetCapacity" : "The number of units to request, filled using DefaultTargetCapacityType.",
+    "OnDemandTargetCapacity" : "The number of On-Demand units to request.",
+    "SpotTargetCapacity" : "The number of Spot units to request."
+  },
+  "Type" : "The type of request. Indicates whether the EC2 Fleet only requests the target capacity, or also attempts to maintain it. If you request a certain target capacity, EC2 Fleet only places the required requests. It does not attempt to replenish instances if capacity is diminished, and does not submit requests in alternative capacity pools if capacity is unavailable. To maintain a certain target capacity, EC2 Fleet places the required requests to meet this target capacity. It also automatically replenishes any interrupted Spot Instances. Default: maintain.",
+  "OnDemandOptions" : {
+    "AllocationStrategy" : "The order of the launch template overrides to use in fulfilling On-Demand capacity. If you specify lowest-price, EC2 Fleet uses price to determine the order, launching the lowest price first. If you specify prioritized, EC2 Fleet uses the priority that you assigned to each launch template override, launching the highest priority first. If you do not specify a value, EC2 Fleet defaults to lowest-price."
+  },
+  "ExcessCapacityTerminationPolicy" : "Indicates whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2 Fleet.",
+  "SpotOptions" : {
+    "AllocationStrategy" : "Indicates how to allocate the target capacity across the Spot pools specified by the Spot Fleet request. The default is lowestPrice.",
+    "InstanceInterruptionBehavior" : "The behavior when a Spot Instance is interrupted. The default is terminate.",
+    "InstancePoolsToUseCount" : "The number of Spot pools across which to allocate your target Spot capacity. Valid only when Spot AllocationStrategy is set to lowest-price. EC2 Fleet selects the cheapest Spot pools and evenly allocates your target Spot capacity across the number of Spot pools that you specify."
+  },
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.",
+  "ValidFrom" : "The start date and time of the request, in UTC format (for example, YYYY-MM-DDTHH:MM:SSZ). The default is to start fulfilling the request immediately.",
+  "ReplaceUnhealthyInstances" : "Indicates whether EC2 Fleet should replace unhealthy instances.",
+  "LaunchTemplateConfigs" : [ {
+    "LaunchTemplateSpecification" : {
+      "LaunchTemplateName" : "The name of the launch template.",
+      "Version" : "The version number of the launch template. ",
+      "LaunchTemplateId" : "The ID of the launch template."
+    },
+    "Overrides" : [ {
+      "WeightedCapacity" : "The number of units provided by the specified instance type.",
+      "Priority" : "The priority for the launch template override. If AllocationStrategy is set to prioritized, EC2 Fleet uses priority to determine which launch template override to use first in fulfilling On-Demand capacity. The highest priority is launched first. Valid values are whole numbers starting at 0. The lower the number, the higher the priority. If no number is set, the launch template override has the lowest priority.",
+      "AvailabilityZone" : "The Availability Zone in which to launch the instances.",
+      "SubnetId" : "The ID of the subnet in which to launch the instances.",
+      "InstanceType" : "The instance type.",
+      "MaxPrice" : "The maximum price per unit hour that you are willing to pay for a Spot Instance."
+    } ]
+  } ],
+  "ClientToken" : "Unique, case-sensitive identifier you provide to ensure the idempotency of the request. For more information, see Ensuring Idempotency.",
+  "TagSpecification" : [ {
+    "Tag" : [ {
+      "value" : "The value of the tag. \nConstraints: Tag values are case-sensitive and accept a maximum of 255 Unicode characters.",
+      "key" : "The key of the tag. \nConstraints: Tag keys are case-sensitive and accept a maximum of 127 Unicode characters. May not begin with aws:."
+    } ],
+    "resourceType" : "The type of resource to tag. Currently, the resource types that support tagging on creation are fleet, dedicated-host, instance, snapshot, and volume. To tag a resource after it has been created, see CreateTags."
+  } ],
+  "ValidUntil" : "The end date and time of the request, in UTC format (for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new EC2 Fleet requests are placed or able to fulfill the request. The default end date is 7 days from the current date.",
+  "TerminateInstancesWithExpiration" : "Indicates whether running instances should be terminated when the EC2 Fleet expires."
+}
+```
 
 </details>
 
@@ -564,9 +1007,23 @@ For more information, see VPC Flow Logs in the Amazon Virtual Private Cloud User
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "ResourceId" : [ "string" ],
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.",
+  "ResourceType" : "The type of resource on which to create the flow log.",
+  "LogDestination" : "Specifies the destination to which the flow log data is to be published. Flow log data can be published to an CloudWatch Logs log group or an Amazon S3 bucket. The value specified for this parameter depends on the value specified for LogDestinationType. \nIf LogDestinationType is not specified or cloud-watch-logs, specify the Amazon Resource Name (ARN) of the CloudWatch Logs log group. \nIf LogDestinationType is s3, specify the ARN of the Amazon S3 bucket. You can also specify a subfolder in the bucket. To specify a subfolder in the bucket, use the following ARN format: bucket_ARN/subfolder_name/. For example, to specify a subfolder named my-logs in a bucket named my-bucket, use the following ARN: arn:aws:s3:::my-bucket/my-logs/. You cannot use AWSLogs as a subfolder name. This is a reserved term.",
+  "LogGroupName" : "The name of the log group.",
+  "ClientToken" : "Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see How to Ensure Idempotency.",
+  "DeliverLogsPermissionArn" : "The ARN for the IAM role that's used to post flow logs to a log group.",
+  "LogDestinationType" : "Specifies the type of destination to which the flow log data is to be published. Flow log data can be published to CloudWatch Logs or Amazon S3. To publish flow log data to CloudWatch Logs, specify cloud-watch-logs. To publish flow log data to Amazon S3, specify s3. \nDefault: cloud-watch-logs ",
+  "TrafficType" : "The type of traffic to log."
+}
+```
 
 </details>
 
@@ -578,9 +1035,26 @@ An AFI contains the FPGA bitstream that is ready to download to an FPGA. You can
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "LogsStorageLocation" : {
+    "Bucket" : "The name of the S3 bucket.",
+    "Key" : "The key."
+  },
+  "InputStorageLocation" : {
+    "Bucket" : "The name of the S3 bucket.",
+    "Key" : "The key."
+  },
+  "Description" : "A description for the AFI.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.",
+  "ClientToken" : "Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see Ensuring Idempotency.",
+  "Name" : "A name for the AFI."
+}
+```
 
 </details>
 
@@ -592,11 +1066,35 @@ For more information, see Creating Amazon EBS-Backed Linux AMIs in the Amazon El
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for CreateImage.
 
 **Type:** object
+
+```json
+{
+  "Description" : "A description for the new image.",
+  "InstanceId" : "The ID of the instance.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.",
+  "BlockDeviceMapping" : [ {
+    "noDevice" : "Suppresses the specified device included in the block device mapping of the AMI.",
+    "virtualName" : "The virtual device name (ephemeralN). Instance store volumes are numbered starting from 0. An instance type with 2 available instance store volumes can specify mappings for ephemeral0 and ephemeral1. The number of available instance store volumes depends on the instance type. After you connect to the instance, you must mount the volume. \nNVMe instance store volumes are automatically enumerated and assigned a device name. Including them in your block device mapping has no effect. \nConstraints: For M3 instances, you must specify instance store volumes in the block device mapping for the instance. When you launch an M3 instance, we ignore any instance store volumes specified in the block device mapping for the AMI.",
+    "ebs" : {
+      "volumeType" : "The volume type: gp2, io1, st1, sc1, or standard. \nDefault: standard ",
+      "snapshotId" : "The ID of the snapshot.",
+      "encrypted" : "Indicates whether the EBS volume is encrypted. Encrypted volumes can only be attached to instances that support Amazon EBS encryption.  \nIf you are creating a volume from a snapshot, you cannot specify an encryption value. This is because only blank volumes can be encrypted on creation. If you are creating a snapshot from an existing EBS volume, you cannot specify an encryption value that differs from that of the EBS volume. We recommend that you omit the encryption value from the block device mappings when creating an image from an instance.",
+      "KmsKeyId" : "Identifier (key ID, key alias, ID ARN, or alias ARN) for a user-managed CMK under which the EBS volume is encrypted. \nThis parameter is only supported on BlockDeviceMapping objects called by RunInstances, RequestSpotFleet, and RequestSpotInstances.",
+      "iops" : "The number of I/O operations per second (IOPS) that the volume supports. For io1, this represents the number of IOPS that are provisioned for the volume. For gp2, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting. For more information about General Purpose SSD baseline performance, I/O credits, and bursting, see Amazon EBS Volume Types in the Amazon Elastic Compute Cloud User Guide. \nConstraint: Range is 100-20000 IOPS for io1 volumes and 100-10000 IOPS for gp2 volumes. \nCondition: This parameter is required for requests to create io1 volumes; it is not used in requests to create gp2, st1, sc1, or standard volumes.",
+      "deleteOnTermination" : "Indicates whether the EBS volume is deleted on instance termination.",
+      "volumeSize" : "The size of the volume, in GiB. \nConstraints: 1-16384 for General Purpose SSD (gp2), 4-16384 for Provisioned IOPS SSD (io1), 500-16384 for Throughput Optimized HDD (st1), 500-16384 for Cold HDD (sc1), and 1-1024 for Magnetic (standard) volumes. If you specify a snapshot, the volume size must be equal to or larger than the snapshot size. \nDefault: If you're creating the volume from a snapshot and don't specify a volume size, the default is the snapshot size."
+    },
+    "deviceName" : "The device name (for example, /dev/sdh or xvdh)."
+  } ],
+  "NoReboot" : "By default, Amazon EC2 attempts to shut down and reboot the instance before creating the image. If the 'No Reboot' option is set, Amazon EC2 doesn't shut down the instance before creating the image. When this option is used, file system integrity on the created image can't be guaranteed.",
+  "Name" : "A name for the new image. \nConstraints: 3-128 alphanumeric characters, parentheses (()), square brackets ([]), spaces ( ), periods (.), slashes (/), dashes (-), single quotes ('), at-signs (@), or underscores(_)"
+}
+```
 
 </details>
 
@@ -607,11 +1105,25 @@ For information about the supported operating systems, image formats, and known 
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for CreateInstanceExportTask.
 
 **Type:** object
+
+```json
+{
+  "Description" : "A description for the conversion task or the resource being exported. The maximum length is 255 bytes.",
+  "InstanceId" : "The ID of the instance.",
+  "ExportToS3" : {
+    "diskImageFormat" : "The format for the exported image.",
+    "containerFormat" : "The container format used to combine disk images with metadata (such as OVF). If absent, only the disk image is exported.",
+    "s3Prefix" : "The image is written to a single object in the S3 bucket at the S3 key s3prefix + exportTaskId + '.' + diskImageFormat.",
+    "s3Bucket" : "The S3 bucket for the destination image. The destination bucket must exist and grant WRITE and READ_ACP permissions to the AWS account vm-import-export@amazon.com."
+  },
+  "TargetEnvironment" : "The target virtualization environment."
+}
+```
 
 </details>
 
@@ -622,9 +1134,15 @@ For more information about your VPC and internet gateway, see the Amazon Virtual
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation."
+}
+```
 
 </details>
 
@@ -637,9 +1155,16 @@ For more information, see Key Pairs in the Amazon Elastic Compute Cloud User Gui
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "KeyName" : "A unique name for the key pair. \nConstraints: Up to 255 ASCII characters",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation."
+}
+```
 
 </details>
 
@@ -649,9 +1174,106 @@ Creates a launch template. A launch template contains the parameters to launch a
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "LaunchTemplateData" : {
+    "UserData" : "The Base64-encoded user data to make available to the instance. For more information, see Running Commands on Your Linux Instance at Launch (Linux) and Adding User Data (Windows).",
+    "InstanceInitiatedShutdownBehavior" : "Indicates whether an instance stops or terminates when you initiate shutdown from the instance (using the operating system command for system shutdown). \nDefault: stop ",
+    "SecurityGroupId" : [ "string" ],
+    "CpuOptions" : {
+      "ThreadsPerCore" : "The number of threads per CPU core. To disable Intel Hyper-Threading Technology for the instance, specify a value of 1. Otherwise, specify the default value of 2.",
+      "CoreCount" : "The number of CPU cores for the instance."
+    },
+    "NetworkInterface" : [ {
+      "Description" : "A description for the network interface.",
+      "PrivateIpAddress" : "The primary private IPv4 address of the network interface.",
+      "PrivateIpAddresses" : [ {
+        "privateIpAddress" : "The private IPv4 addresses.",
+        "primary" : "Indicates whether the private IPv4 address is the primary private IPv4 address. Only one IPv4 address can be designated as primary."
+      } ],
+      "SecondaryPrivateIpAddressCount" : "The number of secondary private IPv4 addresses to assign to a network interface.",
+      "DeviceIndex" : "The device index for the network interface attachment.",
+      "Ipv6AddressCount" : "The number of IPv6 addresses to assign to a network interface. Amazon EC2 automatically selects the IPv6 addresses from the subnet range. You can't use this option if specifying specific IPv6 addresses.",
+      "SecurityGroupId" : [ "string" ],
+      "Ipv6Addresses" : [ {
+        "Ipv6Address" : "The IPv6 address."
+      } ],
+      "SubnetId" : "The ID of the subnet for the network interface.",
+      "AssociatePublicIpAddress" : "Associates a public IPv4 address with eth0 for a new network interface.",
+      "NetworkInterfaceId" : "The ID of the network interface.",
+      "DeleteOnTermination" : "Indicates whether the network interface is deleted when the instance is terminated."
+    } ],
+    "ElasticGpuSpecification" : [ {
+      "Type" : "The type of Elastic GPU."
+    } ],
+    "IamInstanceProfile" : {
+      "Arn" : "The Amazon Resource Name (ARN) of the instance profile.",
+      "Name" : "The name of the instance profile."
+    },
+    "KernelId" : "The ID of the kernel.  \nWe recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see User Provided Kernels in the Amazon Elastic Compute Cloud User Guide.",
+    "TagSpecification" : [ {
+      "ResourceType" : "The type of resource to tag. Currently, the resource types that support tagging on creation are instance and volume. To tag a resource after it has been created, see CreateTags.",
+      "Tag" : [ {
+        "value" : "The value of the tag. \nConstraints: Tag values are case-sensitive and accept a maximum of 255 Unicode characters.",
+        "key" : "The key of the tag. \nConstraints: Tag keys are case-sensitive and accept a maximum of 127 Unicode characters. May not begin with aws:."
+      } ]
+    } ],
+    "SecurityGroup" : [ "string" ],
+    "EbsOptimized" : "Indicates whether the instance is optimized for Amazon EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal Amazon EBS I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS-optimized instance.",
+    "KeyName" : "The name of the key pair. You can create a key pair using CreateKeyPair or ImportKeyPair.  \nIf you do not specify a key pair, you can't connect to the instance unless you choose an AMI that is configured to allow users another way to log in.",
+    "DisableApiTermination" : "If set to true, you can't terminate the instance using the Amazon EC2 console, CLI, or API. To change this attribute to false after launch, use ModifyInstanceAttribute.",
+    "Placement" : {
+      "GroupName" : "The name of the placement group for the instance.",
+      "Tenancy" : "The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware.",
+      "SpreadDomain" : "Reserved for future use.",
+      "AvailabilityZone" : "The Availability Zone for the instance.",
+      "Affinity" : "The affinity setting for an instance on a Dedicated Host.",
+      "HostId" : "The ID of the Dedicated Host for the instance."
+    },
+    "InstanceMarketOptions" : {
+      "SpotOptions" : {
+        "SpotInstanceType" : "The Spot Instance request type.",
+        "InstanceInterruptionBehavior" : "The behavior when a Spot Instance is interrupted. The default is terminate.",
+        "MaxPrice" : "The maximum hourly price you're willing to pay for the Spot Instances.",
+        "BlockDurationMinutes" : "The required duration for the Spot Instances (also known as Spot blocks), in minutes. This value must be a multiple of 60 (60, 120, 180, 240, 300, or 360).",
+        "ValidUntil" : "The end date of the request. For a one-time request, the request remains active until all instances launch, the request is canceled, or this date is reached. If the request is persistent, it remains active until it is canceled or this date and time is reached. The default end date is 7 days from the current date."
+      },
+      "MarketType" : "The market type."
+    },
+    "ImageId" : "The ID of the AMI, which you can get by using DescribeImages.",
+    "BlockDeviceMapping" : [ {
+      "Ebs" : {
+        "SnapshotId" : "The ID of the snapshot.",
+        "VolumeType" : "The volume type.",
+        "KmsKeyId" : "The ARN of the AWS Key Management Service (AWS KMS) CMK used for encryption.",
+        "Encrypted" : "Indicates whether the EBS volume is encrypted. Encrypted volumes can only be attached to instances that support Amazon EBS encryption. If you are creating a volume from a snapshot, you can't specify an encryption value.",
+        "Iops" : "The number of I/O operations per second (IOPS) that the volume supports. For io1, this represents the number of IOPS that are provisioned for the volume. For gp2, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting. For more information about General Purpose SSD baseline performance, I/O credits, and bursting, see Amazon EBS Volume Types in the Amazon Elastic Compute Cloud User Guide. \nCondition: This parameter is required for requests to create io1 volumes; it is not used in requests to create gp2, st1, sc1, or standard volumes.",
+        "VolumeSize" : "The size of the volume, in GiB. \nDefault: If you're creating the volume from a snapshot and don't specify a volume size, the default is the snapshot size.",
+        "DeleteOnTermination" : "Indicates whether the EBS volume is deleted on instance termination."
+      },
+      "NoDevice" : "Suppresses the specified device included in the block device mapping of the AMI.",
+      "VirtualName" : "The virtual device name (ephemeralN). Instance store volumes are numbered starting from 0. An instance type with 2 available instance store volumes can specify mappings for ephemeral0 and ephemeral1. The number of available instance store volumes depends on the instance type. After you connect to the instance, you must mount the volume.",
+      "DeviceName" : "The device name (for example, /dev/sdh or xvdh)."
+    } ],
+    "InstanceType" : "The instance type. For more information, see Instance Types in the Amazon Elastic Compute Cloud User Guide.",
+    "RamDiskId" : "The ID of the RAM disk.  \nWe recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see User Provided Kernels in the Amazon Elastic Compute Cloud User Guide.",
+    "Monitoring" : {
+      "Enabled" : "Specify true to enable detailed monitoring. Otherwise, basic monitoring is enabled."
+    },
+    "CreditSpecification" : {
+      "CpuCredits" : "The credit option for CPU usage of a T2 or T3 instance. Valid values are standard and unlimited."
+    }
+  },
+  "LaunchTemplateName" : "A name for the launch template.",
+  "VersionDescription" : "A description for the first version of the launch template.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.",
+  "ClientToken" : "Unique, case-sensitive identifier you provide to ensure the idempotency of the request. For more information, see Ensuring Idempotency."
+}
+```
 
 </details>
 
@@ -662,9 +1284,108 @@ Launch template versions are numbered in the order in which they are created. Yo
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "LaunchTemplateData" : {
+    "UserData" : "The Base64-encoded user data to make available to the instance. For more information, see Running Commands on Your Linux Instance at Launch (Linux) and Adding User Data (Windows).",
+    "InstanceInitiatedShutdownBehavior" : "Indicates whether an instance stops or terminates when you initiate shutdown from the instance (using the operating system command for system shutdown). \nDefault: stop ",
+    "SecurityGroupId" : [ "string" ],
+    "CpuOptions" : {
+      "ThreadsPerCore" : "The number of threads per CPU core. To disable Intel Hyper-Threading Technology for the instance, specify a value of 1. Otherwise, specify the default value of 2.",
+      "CoreCount" : "The number of CPU cores for the instance."
+    },
+    "NetworkInterface" : [ {
+      "Description" : "A description for the network interface.",
+      "PrivateIpAddress" : "The primary private IPv4 address of the network interface.",
+      "PrivateIpAddresses" : [ {
+        "privateIpAddress" : "The private IPv4 addresses.",
+        "primary" : "Indicates whether the private IPv4 address is the primary private IPv4 address. Only one IPv4 address can be designated as primary."
+      } ],
+      "SecondaryPrivateIpAddressCount" : "The number of secondary private IPv4 addresses to assign to a network interface.",
+      "DeviceIndex" : "The device index for the network interface attachment.",
+      "Ipv6AddressCount" : "The number of IPv6 addresses to assign to a network interface. Amazon EC2 automatically selects the IPv6 addresses from the subnet range. You can't use this option if specifying specific IPv6 addresses.",
+      "SecurityGroupId" : [ "string" ],
+      "Ipv6Addresses" : [ {
+        "Ipv6Address" : "The IPv6 address."
+      } ],
+      "SubnetId" : "The ID of the subnet for the network interface.",
+      "AssociatePublicIpAddress" : "Associates a public IPv4 address with eth0 for a new network interface.",
+      "NetworkInterfaceId" : "The ID of the network interface.",
+      "DeleteOnTermination" : "Indicates whether the network interface is deleted when the instance is terminated."
+    } ],
+    "ElasticGpuSpecification" : [ {
+      "Type" : "The type of Elastic GPU."
+    } ],
+    "IamInstanceProfile" : {
+      "Arn" : "The Amazon Resource Name (ARN) of the instance profile.",
+      "Name" : "The name of the instance profile."
+    },
+    "KernelId" : "The ID of the kernel.  \nWe recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see User Provided Kernels in the Amazon Elastic Compute Cloud User Guide.",
+    "TagSpecification" : [ {
+      "ResourceType" : "The type of resource to tag. Currently, the resource types that support tagging on creation are instance and volume. To tag a resource after it has been created, see CreateTags.",
+      "Tag" : [ {
+        "value" : "The value of the tag. \nConstraints: Tag values are case-sensitive and accept a maximum of 255 Unicode characters.",
+        "key" : "The key of the tag. \nConstraints: Tag keys are case-sensitive and accept a maximum of 127 Unicode characters. May not begin with aws:."
+      } ]
+    } ],
+    "SecurityGroup" : [ "string" ],
+    "EbsOptimized" : "Indicates whether the instance is optimized for Amazon EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal Amazon EBS I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS-optimized instance.",
+    "KeyName" : "The name of the key pair. You can create a key pair using CreateKeyPair or ImportKeyPair.  \nIf you do not specify a key pair, you can't connect to the instance unless you choose an AMI that is configured to allow users another way to log in.",
+    "DisableApiTermination" : "If set to true, you can't terminate the instance using the Amazon EC2 console, CLI, or API. To change this attribute to false after launch, use ModifyInstanceAttribute.",
+    "Placement" : {
+      "GroupName" : "The name of the placement group for the instance.",
+      "Tenancy" : "The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware.",
+      "SpreadDomain" : "Reserved for future use.",
+      "AvailabilityZone" : "The Availability Zone for the instance.",
+      "Affinity" : "The affinity setting for an instance on a Dedicated Host.",
+      "HostId" : "The ID of the Dedicated Host for the instance."
+    },
+    "InstanceMarketOptions" : {
+      "SpotOptions" : {
+        "SpotInstanceType" : "The Spot Instance request type.",
+        "InstanceInterruptionBehavior" : "The behavior when a Spot Instance is interrupted. The default is terminate.",
+        "MaxPrice" : "The maximum hourly price you're willing to pay for the Spot Instances.",
+        "BlockDurationMinutes" : "The required duration for the Spot Instances (also known as Spot blocks), in minutes. This value must be a multiple of 60 (60, 120, 180, 240, 300, or 360).",
+        "ValidUntil" : "The end date of the request. For a one-time request, the request remains active until all instances launch, the request is canceled, or this date is reached. If the request is persistent, it remains active until it is canceled or this date and time is reached. The default end date is 7 days from the current date."
+      },
+      "MarketType" : "The market type."
+    },
+    "ImageId" : "The ID of the AMI, which you can get by using DescribeImages.",
+    "BlockDeviceMapping" : [ {
+      "Ebs" : {
+        "SnapshotId" : "The ID of the snapshot.",
+        "VolumeType" : "The volume type.",
+        "KmsKeyId" : "The ARN of the AWS Key Management Service (AWS KMS) CMK used for encryption.",
+        "Encrypted" : "Indicates whether the EBS volume is encrypted. Encrypted volumes can only be attached to instances that support Amazon EBS encryption. If you are creating a volume from a snapshot, you can't specify an encryption value.",
+        "Iops" : "The number of I/O operations per second (IOPS) that the volume supports. For io1, this represents the number of IOPS that are provisioned for the volume. For gp2, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting. For more information about General Purpose SSD baseline performance, I/O credits, and bursting, see Amazon EBS Volume Types in the Amazon Elastic Compute Cloud User Guide. \nCondition: This parameter is required for requests to create io1 volumes; it is not used in requests to create gp2, st1, sc1, or standard volumes.",
+        "VolumeSize" : "The size of the volume, in GiB. \nDefault: If you're creating the volume from a snapshot and don't specify a volume size, the default is the snapshot size.",
+        "DeleteOnTermination" : "Indicates whether the EBS volume is deleted on instance termination."
+      },
+      "NoDevice" : "Suppresses the specified device included in the block device mapping of the AMI.",
+      "VirtualName" : "The virtual device name (ephemeralN). Instance store volumes are numbered starting from 0. An instance type with 2 available instance store volumes can specify mappings for ephemeral0 and ephemeral1. The number of available instance store volumes depends on the instance type. After you connect to the instance, you must mount the volume.",
+      "DeviceName" : "The device name (for example, /dev/sdh or xvdh)."
+    } ],
+    "InstanceType" : "The instance type. For more information, see Instance Types in the Amazon Elastic Compute Cloud User Guide.",
+    "RamDiskId" : "The ID of the RAM disk.  \nWe recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see User Provided Kernels in the Amazon Elastic Compute Cloud User Guide.",
+    "Monitoring" : {
+      "Enabled" : "Specify true to enable detailed monitoring. Otherwise, basic monitoring is enabled."
+    },
+    "CreditSpecification" : {
+      "CpuCredits" : "The credit option for CPU usage of a T2 or T3 instance. Valid values are standard and unlimited."
+    }
+  },
+  "LaunchTemplateName" : "The name of the launch template. You must specify either the launch template ID or launch template name in the request.",
+  "VersionDescription" : "A description for the version of the launch template.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.",
+  "SourceVersion" : "The version number of the launch template version on which to base the new version. The new version inherits the same launch parameters as the source version, except for parameters that you specify in LaunchTemplateData.",
+  "LaunchTemplateId" : "The ID of the launch template. You must specify either the launch template ID or launch template name in the request.",
+  "ClientToken" : "Unique, case-sensitive identifier you provide to ensure the idempotency of the request. For more information, see Ensuring Idempotency."
+}
+```
 
 </details>
 
@@ -674,9 +1395,17 @@ Creates a NAT gateway in the specified public subnet. This action creates a netw
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "AllocationId" : "The allocation ID of an Elastic IP address to associate with the NAT gateway. If the Elastic IP address is associated with another resource, you must first disassociate it.",
+  "SubnetId" : "The subnet in which to create the NAT gateway.",
+  "ClientToken" : "Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see How to Ensure Idempotency. \nConstraint: Maximum 64 ASCII characters."
+}
+```
 
 </details>
 
@@ -687,9 +1416,16 @@ For more information, see Network ACLs in the Amazon Virtual Private Cloud User 
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "VpcId" : "The ID of the VPC.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation."
+}
+```
 
 </details>
 
@@ -702,9 +1438,30 @@ For more information about network ACLs, see Network ACLs in the Amazon Virtual 
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "PortRange" : {
+    "from" : "The first port in the range.",
+    "to" : "The last port in the range."
+  },
+  "NetworkAclId" : "The ID of the network ACL.",
+  "RuleAction" : "Indicates whether to allow or deny the traffic that matches the rule.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.",
+  "CidrBlock" : "The IPv4 network range to allow or deny, in CIDR notation (for example 172.16.0.0/24).",
+  "Egress" : "Indicates whether this is an egress rule (rule is applied to traffic leaving the subnet).",
+  "RuleNumber" : "The rule number for the entry (for example, 100). ACL entries are processed in ascending order by rule number. \nConstraints: Positive integer from 1 to 32766. The range 32767 to 65535 is reserved for internal use.",
+  "Ipv6CidrBlock" : "The IPv6 network range to allow or deny, in CIDR notation (for example 2001:db8:1234:1a00::/64).",
+  "Protocol" : "The protocol. A value of -1 or all means all protocols. If you specify all, -1, or a protocol number other than 6 (tcp), 17 (udp), or 1 (icmp), traffic on all ports is allowed, regardless of any ports or ICMP types or codes that you specify. If you specify protocol 58 (ICMPv6) and specify an IPv4 CIDR block, traffic for all ICMP types and codes allowed, regardless of any that you specify. If you specify protocol 58 (ICMPv6) and specify an IPv6 CIDR block, you must specify an ICMP type and code.",
+  "Icmp" : {
+    "code" : "The ICMP code. A value of -1 means all codes for the specified ICMP type.",
+    "type" : "The ICMP type. A value of -1 means all types."
+  }
+}
+```
 
 </details>
 
@@ -715,11 +1472,30 @@ For more information about network interfaces, see Elastic Network Interfaces in
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for CreateNetworkInterface.
 
 **Type:** object
+
+```json
+{
+  "PrivateIpAddress" : "The primary private IPv4 address of the network interface. If you don't specify an IPv4 address, Amazon EC2 selects one for you from the subnet's IPv4 CIDR range. If you specify an IP address, you cannot indicate any IP addresses specified in privateIpAddresses as primary (only one IP address can be designated as primary).",
+  "Description" : "A description for the network interface.",
+  "SecondaryPrivateIpAddressCount" : "The number of secondary private IPv4 addresses to assign to a network interface. When you specify a number of secondary IPv4 addresses, Amazon EC2 selects these IP addresses within the subnet's IPv4 CIDR range. You can't specify this option and specify more than one private IP address using privateIpAddresses. \nThe number of IP addresses you can assign to a network interface varies by instance type. For more information, see IP Addresses Per ENI Per Instance Type in the Amazon Virtual Private Cloud User Guide.",
+  "PrivateIpAddresses" : [ {
+    "privateIpAddress" : "The private IPv4 addresses.",
+    "primary" : "Indicates whether the private IPv4 address is the primary private IPv4 address. Only one IPv4 address can be designated as primary."
+  } ],
+  "Ipv6AddressCount" : "The number of IPv6 addresses to assign to a network interface. Amazon EC2 automatically selects the IPv6 addresses from the subnet range. You can't use this option if specifying specific IPv6 addresses. If your subnet has the AssignIpv6AddressOnCreation attribute set to true, you can specify 0 to override this setting.",
+  "SecurityGroupId" : [ "string" ],
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.",
+  "Ipv6Addresses" : [ {
+    "ipv6Address" : "The IPv6 address."
+  } ],
+  "SubnetId" : "The ID of the subnet to associate with the network interface."
+}
+```
 
 </details>
 
@@ -730,11 +1506,21 @@ You can grant permission to a single AWS account only, and only one account at a
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for CreateNetworkInterfacePermission.
 
 **Type:** object
+
+```json
+{
+  "AwsService" : "The AWS service. Currently not supported.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.",
+  "Permission" : "The type of permission to grant.",
+  "AwsAccountId" : "The AWS account ID.",
+  "NetworkInterfaceId" : "The ID of the network interface."
+}
+```
 
 </details>
 
@@ -746,11 +1532,19 @@ For more information, see Placement Groups in the Amazon Elastic Compute Cloud U
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for CreatePlacementGroup.
 
 **Type:** object
+
+```json
+{
+  "GroupName" : "A name for the placement group. Must be unique within the scope of your account for the region. \nConstraints: Up to 255 ASCII characters",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.",
+  "Strategy" : "The placement strategy."
+}
+```
 
 </details>
 
@@ -764,11 +1558,24 @@ For more information, see Reserved Instance Marketplace in the Amazon Elastic Co
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for CreateReservedInstancesListing.
 
 **Type:** object
+
+```json
+{
+  "InstanceCount" : "The number of instances that are a part of a Reserved Instance account to be listed in the Reserved Instance Marketplace. This number should be less than or equal to the instance count associated with the Reserved Instance ID specified in this call.",
+  "ReservedInstancesId" : "The ID of the active Standard Reserved Instance.",
+  "ClientToken" : "Unique, case-sensitive identifier you provide to ensure idempotency of your listings. This helps avoid duplicate listings. For more information, see Ensuring Idempotency.",
+  "PriceSchedules" : [ {
+    "price" : "The fixed price for the term.",
+    "term" : "The number of months remaining in the reservation. For example, 2 is the second to the last month before the capacity reservation expires.",
+    "currencyCode" : "The currency for transacting the Reserved Instance resale. At this time, the only supported currency is USD."
+  } ]
+}
+```
 
 </details>
 
@@ -784,9 +1591,24 @@ For more information about route tables, see Route Tables in the Amazon Virtual 
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "DestinationIpv6CidrBlock" : "The IPv6 CIDR block used for the destination match. Routing decisions are based on the most specific match.",
+  "VpcPeeringConnectionId" : "The ID of a VPC peering connection.",
+  "RouteTableId" : "The ID of the route table for the route.",
+  "InstanceId" : "The ID of a NAT instance in your VPC. The operation fails if you specify an instance ID unless exactly one network interface is attached.",
+  "EgressOnlyInternetGatewayId" : "[IPv6 traffic only] The ID of an egress-only internet gateway.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.",
+  "DestinationCidrBlock" : "The IPv4 CIDR address block used for the destination match. Routing decisions are based on the most specific match.",
+  "GatewayId" : "The ID of an internet gateway or virtual private gateway attached to your VPC.",
+  "NetworkInterfaceId" : "The ID of a network interface.",
+  "NatGatewayId" : "[IPv4 traffic only] The ID of a NAT gateway."
+}
+```
 
 </details>
 
@@ -797,9 +1619,16 @@ For more information, see Route Tables in the Amazon Virtual Private Cloud User 
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "VpcId" : "The ID of the VPC.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation."
+}
+```
 
 </details>
 
@@ -815,9 +1644,18 @@ You can add or remove rules from your security groups using AuthorizeSecurityGro
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "GroupName" : "The name of the security group. \nConstraints: Up to 255 characters in length. Cannot start with sg-. \nConstraints for EC2-Classic: ASCII characters \nConstraints for EC2-VPC: a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=&amp;;{}!$*",
+  "GroupDescription" : "A description for the security group. This is informational only. \nConstraints: Up to 255 characters in length \nConstraints for EC2-Classic: ASCII characters \nConstraints for EC2-VPC: a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=&amp;;{}!$*",
+  "VpcId" : "[EC2-VPC] The ID of the VPC. Required for EC2-VPC.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation."
+}
+```
 
 </details>
 
@@ -833,11 +1671,26 @@ For more information, see Amazon Elastic Block Store and Amazon EBS Encryption i
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for CreateSnapshot.
 
 **Type:** object
+
+```json
+{
+  "VolumeId" : "The ID of the EBS volume.",
+  "Description" : "A description for the snapshot.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.",
+  "TagSpecification" : [ {
+    "Tag" : [ {
+      "value" : "The value of the tag. \nConstraints: Tag values are case-sensitive and accept a maximum of 255 Unicode characters.",
+      "key" : "The key of the tag. \nConstraints: Tag keys are case-sensitive and accept a maximum of 127 Unicode characters. May not begin with aws:."
+    } ],
+    "resourceType" : "The type of resource to tag. Currently, the resource types that support tagging on creation are fleet, dedicated-host, instance, snapshot, and volume. To tag a resource after it has been created, see CreateTags."
+  } ]
+}
+```
 
 </details>
 
@@ -847,11 +1700,19 @@ Creates a data feed for Spot Instances, enabling you to view Spot Instance usage
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for CreateSpotDatafeedSubscription.
 
 **Type:** object
+
+```json
+{
+  "Bucket" : "The Amazon S3 bucket in which to store the Spot Instance data feed.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.",
+  "Prefix" : "A prefix for the data feed file names."
+}
+```
 
 </details>
 
@@ -867,9 +1728,19 @@ For more information about subnets, see Your VPC and Subnets in the Amazon Virtu
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "VpcId" : "The ID of the VPC.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.",
+  "CidrBlock" : "The IPv4 network range for the subnet, in CIDR notation. For example, 10.0.0.0/24.",
+  "AvailabilityZone" : "The Availability Zone for the subnet. \nDefault: AWS selects one for you. If you create more than one subnet in your VPC, we may not necessarily select a different zone for each subnet.",
+  "Ipv6CidrBlock" : "The IPv6 network range for the subnet, in CIDR notation. The subnet size must use a /64 prefix length."
+}
+```
 
 </details>
 
@@ -880,9 +1751,20 @@ For more information about tags, see Tagging Your Resources in the Amazon Elasti
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "ResourceId" : [ "string" ],
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.",
+  "Tag" : [ {
+    "value" : "The value of the tag. \nConstraints: Tag values are case-sensitive and accept a maximum of 255 Unicode characters.",
+    "key" : "The key of the tag. \nConstraints: Tag keys are case-sensitive and accept a maximum of 127 Unicode characters. May not begin with aws:."
+  } ]
+}
+```
 
 </details>
 
@@ -896,11 +1778,31 @@ For more information, see Creating an Amazon EBS Volume in the Amazon Elastic Co
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for CreateVolume.
 
 **Type:** object
+
+```json
+{
+  "SnapshotId" : "The snapshot from which to create the volume.",
+  "VolumeType" : "The volume type. This can be gp2 for General Purpose SSD, io1 for Provisioned IOPS SSD, st1 for Throughput Optimized HDD, sc1 for Cold HDD, or standard for Magnetic volumes. \nDefaults: If no volume type is specified, the default is standard in us-east-1, eu-west-1, eu-central-1, us-west-2, us-west-1, sa-east-1, ap-northeast-1, ap-northeast-2, ap-southeast-1, ap-southeast-2, ap-south-1, us-gov-west-1, and cn-north-1. In all other regions, EBS defaults to gp2.",
+  "KmsKeyId" : "An identifier for the AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating the encrypted volume. This parameter is only required if you want to use a non-default CMK; if this parameter is not specified, the default CMK for EBS is used. If a KmsKeyId is specified, the Encrypted flag must also be set.  \nThe CMK identifier may be provided in any of the following formats:   \n Key ID  \n Key alias  \n ARN using key ID. The ID ARN contains the arn:aws:kms namespace, followed by the region of the CMK, the AWS account ID of the CMK owner, the key namespace, and then the CMK ID. For example, arn:aws:kms:us-east-1:012345678910:key/abcd1234-a123-456a-a12b-a123b4cd56ef.   \n ARN using key alias. The alias ARN contains the arn:aws:kms namespace, followed by the region of the CMK, the AWS account ID of the CMK owner, the alias namespace, and then the CMK alias. For example, arn:aws:kms:us-east-1:012345678910:alias/ExampleAlias.    \nAWS parses KmsKeyId asynchronously, meaning that the action you call may appear to complete even though you provided an invalid identifier. The action will eventually fail. ",
+  "Size" : "The size of the volume, in GiBs. \nConstraints: 1-16384 for gp2, 4-16384 for io1, 500-16384 for st1, 500-16384 for sc1, and 1-1024 for standard. If you specify a snapshot, the volume size must be equal to or larger than the snapshot size. \nDefault: If you're creating the volume from a snapshot and don't specify a volume size, the default is the snapshot size.",
+  "Encrypted" : "Specifies whether the volume should be encrypted. Encrypted Amazon EBS volumes may only be attached to instances that support Amazon EBS encryption. Volumes that are created from encrypted snapshots are automatically encrypted. There is no way to create an encrypted volume from an unencrypted snapshot or vice versa. If your AMI uses encrypted volumes, you can only launch it on supported instance types. For more information, see Amazon EBS Encryption in the Amazon Elastic Compute Cloud User Guide.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.",
+  "AvailabilityZone" : "The Availability Zone in which to create the volume. Use DescribeAvailabilityZones to list the Availability Zones that are currently available to you.",
+  "Iops" : "The number of I/O operations per second (IOPS) to provision for the volume, with a maximum ratio of 50 IOPS/GiB. Range is 100 to 32000 IOPS for volumes in most regions. For exceptions, see Amazon EBS Volume Types in the Amazon Elastic Compute Cloud User Guide. \nThis parameter is valid only for Provisioned IOPS SSD (io1) volumes.",
+  "TagSpecification" : [ {
+    "Tag" : [ {
+      "value" : "The value of the tag. \nConstraints: Tag values are case-sensitive and accept a maximum of 255 Unicode characters.",
+      "key" : "The key of the tag. \nConstraints: Tag keys are case-sensitive and accept a maximum of 127 Unicode characters. May not begin with aws:."
+    } ],
+    "resourceType" : "The type of resource to tag. Currently, the resource types that support tagging on creation are fleet, dedicated-host, instance, snapshot, and volume. To tag a resource after it has been created, see CreateTags."
+  } ]
+}
+```
 
 </details>
 
@@ -913,9 +1815,18 @@ You can specify the instance tenancy value for the VPC when you create it. You c
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "InstanceTenancy" : "The tenancy options for instances launched into the VPC. For default, instances are launched with shared tenancy by default. You can launch instances with any tenancy into a shared tenancy VPC. For dedicated, instances are launched as dedicated tenancy instances by default. You can only launch instances with a tenancy of dedicated or host into a dedicated tenancy VPC.  \n Important: The host value cannot be used with this parameter. Use the default or dedicated values only. \nDefault: default ",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.",
+  "CidrBlock" : "The IPv4 network range for the VPC, in CIDR notation. For example, 10.0.0.0/16.",
+  "AmazonProvidedIpv6CidrBlock" : "Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IP addresses, or the size of the CIDR block."
+}
+```
 
 </details>
 
@@ -928,11 +1839,26 @@ Use DescribeVpcEndpointServices to get a list of supported services.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for CreateVpcEndpoint.
 
 **Type:** object
+
+```json
+{
+  "PrivateDnsEnabled" : "(Interface endpoint) Indicate whether to associate a private hosted zone with the specified VPC. The private hosted zone contains a record set for the default public DNS name for the service for the region (for example, kinesis.us-east-1.amazonaws.com) which resolves to the private IP addresses of the endpoint network interfaces in the VPC. This enables you to make requests to the default public DNS name for the service instead of the public DNS names that are automatically generated by the VPC endpoint service. \nTo use a private hosted zone, you must set the following VPC attributes to true: enableDnsHostnames and enableDnsSupport. Use ModifyVpcAttribute to set the VPC attributes. \nDefault: false ",
+  "RouteTableId" : [ "string" ],
+  "VpcId" : "The ID of the VPC in which the endpoint will be used.",
+  "ServiceName" : "The service name. To get a list of available services, use the DescribeVpcEndpointServices request, or get the name from the service provider.",
+  "SecurityGroupId" : [ "string" ],
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.",
+  "PolicyDocument" : "(Gateway endpoint) A policy to attach to the endpoint that controls access to the service. The policy must be in valid JSON format. If this parameter is not specified, we attach a default policy that allows full access to the service.",
+  "VpcEndpointType" : "The type of endpoint. \nDefault: Gateway",
+  "SubnetId" : [ "string" ],
+  "ClientToken" : "Unique, case-sensitive identifier you provide to ensure the idempotency of the request. For more information, see How to Ensure Idempotency."
+}
+```
 
 </details>
 
@@ -943,9 +1869,20 @@ You can create a connection notification for interface endpoints only.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "ConnectionEvents" : [ "string" ],
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.",
+  "ClientToken" : "Unique, case-sensitive identifier you provide to ensure the idempotency of the request. For more information, see How to Ensure Idempotency.",
+  "VpcEndpointId" : "The ID of the endpoint. ",
+  "ConnectionNotificationArn" : "The ARN of the SNS topic for the notifications.",
+  "ServiceId" : "The ID of the endpoint service."
+}
+```
 
 </details>
 
@@ -956,9 +1893,18 @@ To create an endpoint service configuration, you must first create a Network Loa
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "NetworkLoadBalancerArn" : [ "string" ],
+  "AcceptanceRequired" : "Indicate whether requests from service consumers to create an endpoint to your service must be accepted. To accept a request, use AcceptVpcEndpointConnections.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.",
+  "ClientToken" : "Unique, case-sensitive identifier you provide to ensure the idempotency of the request. For more information, see How to Ensure Idempotency."
+}
+```
 
 </details>
 
@@ -971,9 +1917,19 @@ If you create a VPC peering connection request between VPCs with overlapping CID
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "VpcId" : "The ID of the requester VPC. You must specify this parameter in the request.",
+  "PeerVpcId" : "The ID of the VPC with which you are creating the VPC peering connection. You must specify this parameter in the request.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.",
+  "PeerRegion" : "The region code for the accepter VPC, if the accepter VPC is located in a region other than the region in which you make the request. \nDefault: The region in which you make the request.",
+  "PeerOwnerId" : "The AWS account ID of the owner of the accepter VPC. \nDefault: Your AWS account ID"
+}
+```
 
 </details>
 
@@ -988,11 +1944,27 @@ For more information, see AWS Managed VPN Connections in the Amazon Virtual Priv
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for CreateVpnConnection.
 
 **Type:** object
+
+```json
+{
+  "Options" : {
+    "TunnelOptions" : [ {
+      "PreSharedKey" : "The pre-shared key (PSK) to establish initial authentication between the virtual private gateway and customer gateway. \nConstraints: Allowed characters are alphanumeric characters and ._. Must be between 8 and 64 characters in length and cannot start with zero (0).",
+      "TunnelInsideCidr" : "The range of inside IP addresses for the tunnel. Any specified CIDR blocks must be unique across all VPN connections that use the same virtual private gateway.  \nConstraints: A size /30 CIDR block from the 169.254.0.0/16 range. The following CIDR blocks are reserved and cannot be used:  \n  169.254.0.0/30   \n  169.254.1.0/30   \n  169.254.2.0/30   \n  169.254.3.0/30   \n  169.254.4.0/30   \n  169.254.5.0/30   \n  169.254.169.252/30  "
+    } ],
+    "staticRoutesOnly" : "Indicate whether the VPN connection uses static routes only. If you are creating a VPN connection for a device that does not support BGP, you must specify true. Use CreateVpnConnectionRoute to create a static route. \nDefault: false "
+  },
+  "Type" : "The type of VPN connection (ipsec.1).",
+  "CustomerGatewayId" : "The ID of the customer gateway.",
+  "VpnGatewayId" : "The ID of the virtual private gateway.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation."
+}
+```
 
 </details>
 
@@ -1003,11 +1975,18 @@ For more information about VPN connections, see AWS Managed VPN Connections in t
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for CreateVpnConnectionRoute.
 
 **Type:** object
+
+```json
+{
+  "VpnConnectionId" : "The ID of the VPN connection.",
+  "DestinationCidrBlock" : "The CIDR block associated with the local subnet of the customer network."
+}
+```
 
 </details>
 
@@ -1018,11 +1997,20 @@ For more information about virtual private gateways, see AWS Managed VPN Connect
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for CreateVpnGateway.
 
 **Type:** object
+
+```json
+{
+  "Type" : "The type of VPN connection this virtual private gateway supports.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.",
+  "AvailabilityZone" : "The Availability Zone for the virtual private gateway.",
+  "AmazonSideAsn" : "A private Autonomous System Number (ASN) for the Amazon side of a BGP session. If you're using a 16-bit ASN, it must be in the 64512 to 65534 range. If you're using a 32-bit ASN, it must be in the 4200000000 to 4294967294 range. \nDefault: 64512"
+}
+```
 
 </details>
 
@@ -1032,11 +2020,18 @@ Deletes the specified customer gateway. You must delete the VPN connection befor
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for DeleteCustomerGateway.
 
 **Type:** object
+
+```json
+{
+  "CustomerGatewayId" : "The ID of the customer gateway.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation."
+}
+```
 
 </details>
 
@@ -1046,9 +2041,16 @@ Deletes the specified set of DHCP options. You must disassociate the set of DHCP
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "DhcpOptionsId" : "The ID of the DHCP options set.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation."
+}
+```
 
 </details>
 
@@ -1058,9 +2060,16 @@ Deletes an egress-only internet gateway.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "EgressOnlyInternetGatewayId" : "The ID of the egress-only internet gateway.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation."
+}
+```
 
 </details>
 
@@ -1071,9 +2080,17 @@ After you delete an EC2 Fleet, it launches no new instances. You must specify wh
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "FleetId" : [ "string" ],
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.",
+  "TerminateInstances" : "Indicates whether to terminate instances for an EC2 Fleet if it is deleted successfully."
+}
+```
 
 </details>
 
@@ -1083,9 +2100,16 @@ Deletes one or more flow logs.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.",
+  "FlowLogId" : [ "string" ]
+}
+```
 
 </details>
 
@@ -1095,9 +2119,16 @@ Deletes the specified Amazon FPGA Image (AFI).
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "FpgaImageId" : "The ID of the AFI.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation."
+}
+```
 
 </details>
 
@@ -1107,9 +2138,16 @@ Deletes the specified internet gateway. You must detach the internet gateway fro
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "InternetGatewayId" : "The ID of the internet gateway.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation."
+}
+```
 
 </details>
 
@@ -1119,9 +2157,16 @@ Deletes the specified key pair, by removing the public key from Amazon EC2.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "KeyName" : "The name of the key pair.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation."
+}
+```
 
 </details>
 
@@ -1131,9 +2176,17 @@ Deletes a launch template. Deleting a launch template deletes all of its version
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "LaunchTemplateName" : "The name of the launch template. You must specify either the launch template ID or launch template name in the request.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.",
+  "LaunchTemplateId" : "The ID of the launch template. You must specify either the launch template ID or launch template name in the request."
+}
+```
 
 </details>
 
@@ -1143,9 +2196,18 @@ Deletes one or more versions of a launch template. You cannot delete the default
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "LaunchTemplateName" : "The name of the launch template. You must specify either the launch template ID or launch template name in the request.",
+  "LaunchTemplateVersion" : [ "string" ],
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.",
+  "LaunchTemplateId" : "The ID of the launch template. You must specify either the launch template ID or launch template name in the request."
+}
+```
 
 </details>
 
@@ -1155,9 +2217,15 @@ Deletes the specified NAT gateway. Deleting a NAT gateway disassociates its Elas
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "NatGatewayId" : "The ID of the NAT gateway."
+}
+```
 
 </details>
 
@@ -1167,9 +2235,16 @@ Deletes the specified network ACL. You can't delete the ACL if it's associated w
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "NetworkAclId" : "The ID of the network ACL.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation."
+}
+```
 
 </details>
 
@@ -1179,9 +2254,18 @@ Deletes the specified ingress or egress entry (rule) from the specified network 
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "NetworkAclId" : "The ID of the network ACL.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.",
+  "Egress" : "Indicates whether the rule is an egress rule.",
+  "RuleNumber" : "The rule number of the entry to delete."
+}
+```
 
 </details>
 
@@ -1191,11 +2275,18 @@ Deletes the specified network interface. You must detach the network interface b
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for DeleteNetworkInterface.
 
 **Type:** object
+
+```json
+{
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.",
+  "NetworkInterfaceId" : "The ID of the network interface."
+}
+```
 
 </details>
 
@@ -1205,11 +2296,19 @@ Deletes a permission for a network interface. By default, you cannot delete the 
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for DeleteNetworkInterfacePermission.
 
 **Type:** object
+
+```json
+{
+  "Force" : "Specify true to remove the permission even if the network interface is attached to an instance.",
+  "NetworkInterfacePermissionId" : "The ID of the network interface permission.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation."
+}
+```
 
 </details>
 
@@ -1219,11 +2318,18 @@ Deletes the specified placement group. You must terminate all instances in the p
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for DeletePlacementGroup.
 
 **Type:** object
+
+```json
+{
+  "GroupName" : "The name of the placement group.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation."
+}
+```
 
 </details>
 
@@ -1233,9 +2339,18 @@ Deletes the specified route from the specified route table.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "DestinationIpv6CidrBlock" : "The IPv6 CIDR range for the route. The value you specify must match the CIDR for the route exactly.",
+  "RouteTableId" : "The ID of the route table.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.",
+  "DestinationCidrBlock" : "The IPv4 CIDR range for the route. The value you specify must match the CIDR for the route exactly."
+}
+```
 
 </details>
 
@@ -1245,9 +2360,16 @@ Deletes the specified route table. You must disassociate the route table from an
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "RouteTableId" : "The ID of the route table.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation."
+}
+```
 
 </details>
 
@@ -1258,9 +2380,17 @@ If you attempt to delete a security group that is associated with an instance, o
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "GroupName" : "[EC2-Classic, default VPC] The name of the security group. You can specify either the security group name or the security group ID.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.",
+  "GroupId" : "The ID of the security group. Required for a nondefault VPC."
+}
+```
 
 </details>
 
@@ -1273,11 +2403,18 @@ For more information, see Deleting an Amazon EBS Snapshot in the Amazon Elastic 
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for DeleteSnapshot.
 
 **Type:** object
+
+```json
+{
+  "SnapshotId" : "The ID of the EBS snapshot.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation."
+}
+```
 
 </details>
 
@@ -1287,11 +2424,17 @@ Deletes the data feed for Spot Instances.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for DeleteSpotDatafeedSubscription.
 
 **Type:** object
+
+```json
+{
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation."
+}
+```
 
 </details>
 
@@ -1301,9 +2444,16 @@ Deletes the specified subnet. You must terminate all running instances in the su
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.",
+  "SubnetId" : "The ID of the subnet."
+}
+```
 
 </details>
 
@@ -1314,9 +2464,20 @@ To list the current tags, use DescribeTags. For more information about tags, see
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "ResourceId" : [ "string" ],
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.",
+  "Tag" : [ {
+    "value" : "The value of the tag. \nConstraints: Tag values are case-sensitive and accept a maximum of 255 Unicode characters.",
+    "key" : "The key of the tag. \nConstraints: Tag keys are case-sensitive and accept a maximum of 127 Unicode characters. May not begin with aws:."
+  } ]
+}
+```
 
 </details>
 
@@ -1328,11 +2489,18 @@ For more information, see Deleting an Amazon EBS Volume in the Amazon Elastic Co
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for DeleteVolume.
 
 **Type:** object
+
+```json
+{
+  "VolumeId" : "The ID of the volume.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation."
+}
+```
 
 </details>
 
@@ -1342,9 +2510,16 @@ Deletes the specified VPC. You must detach or delete all gateways and resources 
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "VpcId" : "The ID of the VPC.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation."
+}
+```
 
 </details>
 
@@ -1354,9 +2529,16 @@ Deletes one or more VPC endpoint connection notifications.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "ConnectionNotificationId" : [ "string" ],
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation."
+}
+```
 
 </details>
 
@@ -1366,9 +2548,16 @@ Deletes one or more VPC endpoint service configurations in your account. Before 
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.",
+  "ServiceId" : [ "string" ]
+}
+```
 
 </details>
 
@@ -1378,11 +2567,18 @@ Deletes one or more specified VPC endpoints. Deleting a gateway endpoint also de
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for DeleteVpcEndpoints.
 
 **Type:** object
+
+```json
+{
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.",
+  "VpcEndpointId" : [ "string" ]
+}
+```
 
 </details>
 
@@ -1392,9 +2588,16 @@ Deletes a VPC peering connection. Either the owner of the requester VPC or the o
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "VpcPeeringConnectionId" : "The ID of the VPC peering connection.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation."
+}
+```
 
 </details>
 
@@ -1405,11 +2608,18 @@ If you're deleting the VPC and its associated components, we recommend that you 
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for DeleteVpnConnection.
 
 **Type:** object
+
+```json
+{
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.",
+  "VpnConnectionId" : "The ID of the VPN connection."
+}
+```
 
 </details>
 
@@ -1419,11 +2629,18 @@ Deletes the specified static route associated with a VPN connection between an e
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for DeleteVpnConnectionRoute.
 
 **Type:** object
+
+```json
+{
+  "VpnConnectionId" : "The ID of the VPN connection.",
+  "DestinationCidrBlock" : "The CIDR block associated with the local subnet of the customer network."
+}
+```
 
 </details>
 
@@ -1433,11 +2650,18 @@ Deletes the specified virtual private gateway. We recommend that before you dele
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for DeleteVpnGateway.
 
 **Type:** object
+
+```json
+{
+  "VpnGatewayId" : "The ID of the virtual private gateway.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation."
+}
+```
 
 </details>
 
@@ -1448,11 +2672,18 @@ When you deregister an Amazon EBS-backed AMI, it doesn't affect the snapshot tha
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for DeregisterImage.
 
 **Type:** object
+
+```json
+{
+  "ImageId" : "The ID of the AMI.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation."
+}
+```
 
 </details>
 
@@ -1468,11 +2699,18 @@ Describes attributes of your AWS account. The following are the supported accoun
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for DescribeAccountAttributes.
 
 **Type:** object
+
+```json
+{
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.",
+  "AttributeName" : [ "string. Possible values: supported-platforms | default-vpc" ]
+}
+```
 
 </details>
 
@@ -1483,11 +2721,23 @@ An Elastic IP address is for use in either the EC2-Classic platform or in a VPC.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for DescribeAddresses.
 
 **Type:** object
+
+```json
+{
+  "PublicIp" : [ "string" ],
+  "Filter" : [ {
+    "Value" : [ "string" ],
+    "Name" : "The name of the filter. Filter names are case-sensitive."
+  } ],
+  "AllocationId" : [ "string" ],
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation."
+}
+```
 
 </details>
 
@@ -1499,9 +2749,15 @@ The following resource types support longer IDs: bundle | conversion-task | cust
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation."
+}
+```
 
 </details>
 
@@ -1512,11 +2768,22 @@ For more information, see Regions and Availability Zones in the Amazon Elastic C
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for DescribeAvailabilityZones.
 
 **Type:** object
+
+```json
+{
+  "ZoneName" : [ "string" ],
+  "Filter" : [ {
+    "Value" : [ "string" ],
+    "Name" : "The name of the filter. Filter names are case-sensitive."
+  } ],
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation."
+}
+```
 
 </details>
 
@@ -1527,11 +2794,22 @@ Completed bundle tasks are listed for only a limited time. If your bundle task i
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for DescribeBundleTasks.
 
 **Type:** object
+
+```json
+{
+  "BundleId" : [ "string" ],
+  "Filter" : [ {
+    "Value" : [ "string" ],
+    "Name" : "The name of the filter. Filter names are case-sensitive."
+  } ],
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation."
+}
+```
 
 </details>
 
@@ -1541,9 +2819,22 @@ Describes one or more of your linked EC2-Classic instances. This request only re
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "NextToken" : "The token to retrieve the next page of results.",
+  "InstanceId" : [ "string" ],
+  "Filter" : [ {
+    "Value" : [ "string" ],
+    "Name" : "The name of the filter. Filter names are case-sensitive."
+  } ],
+  "MaxResults" : "The maximum number of results to return for the request in a single page. The remaining results of the initial request can be seen by sending another request with the returned NextToken value. This value can be between 5 and 1000. If MaxResults is given a value larger than 1000, only 1000 results are returned. You cannot specify this parameter and the instance IDs parameter in the same request. \nConstraint: If the value is greater than 1000, we return only 1000 items.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation."
+}
+```
 
 </details>
 
@@ -1554,11 +2845,18 @@ For information about the import manifest referenced by this API action, see VM 
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for DescribeConversionTasks.
 
 **Type:** object
+
+```json
+{
+  "ConversionTaskId" : [ "string" ],
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation."
+}
+```
 
 </details>
 
@@ -1569,11 +2867,22 @@ For more information about VPN customer gateways, see AWS Managed VPN Connection
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for DescribeCustomerGateways.
 
 **Type:** object
+
+```json
+{
+  "CustomerGatewayId" : [ "string" ],
+  "Filter" : [ {
+    "Value" : [ "string" ],
+    "Name" : "The name of the filter. Filter names are case-sensitive."
+  } ],
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation."
+}
+```
 
 </details>
 
@@ -1584,9 +2893,20 @@ For more information, see DHCP Options Sets in the Amazon Virtual Private Cloud 
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "Filter" : [ {
+    "Value" : [ "string" ],
+    "Name" : "The name of the filter. Filter names are case-sensitive."
+  } ],
+  "DhcpOptionsId" : [ "string" ],
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation."
+}
+```
 
 </details>
 
@@ -1596,9 +2916,18 @@ Describes one or more of your egress-only internet gateways.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "NextToken" : "The token to retrieve the next page of results.",
+  "MaxResults" : "The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned NextToken value. This value can be between 5 and 1000. If MaxResults is given a value larger than 1000, only 1000 results are returned.",
+  "EgressOnlyInternetGatewayId" : [ "string" ],
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation."
+}
+```
 
 </details>
 
@@ -1608,9 +2937,22 @@ Describes the Elastic GPUs associated with your instances. For more information 
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "ElasticGpuId" : [ "string" ],
+  "NextToken" : "The token to request the next page of results.",
+  "Filter" : [ {
+    "Value" : [ "string" ],
+    "Name" : "The name of the filter. Filter names are case-sensitive."
+  } ],
+  "MaxResults" : "The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned NextToken value. This value can be between 5 and 1000.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation."
+}
+```
 
 </details>
 
@@ -1620,11 +2962,17 @@ Describes one or more of your export tasks.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for DescribeExportTasks.
 
 **Type:** object
+
+```json
+{
+  "ExportTaskId" : [ "string" ]
+}
+```
 
 </details>
 
@@ -1634,9 +2982,20 @@ Describes the events for the specified EC2 Fleet during the specified time.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "NextToken" : "The token for the next set of results.",
+  "EventType" : "The type of events to describe. By default, all events are described.",
+  "FleetId" : "The ID of the EC2 Fleet.",
+  "MaxResults" : "The maximum number of results to return in a single call. Specify a value between 1 and 1000. The default value is 1000. To retrieve the remaining results, make another call with the returned NextToken value.",
+  "StartTime" : "The start date and time for the events, in UTC format (for example, YYYY-MM-DDTHH:MM:SSZ).",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation."
+}
+```
 
 </details>
 
@@ -1646,9 +3005,22 @@ Describes the running instances for the specified EC2 Fleet.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "NextToken" : "The token for the next set of results.",
+  "Filter" : [ {
+    "Value" : [ "string" ],
+    "Name" : "The name of the filter. Filter names are case-sensitive."
+  } ],
+  "FleetId" : "The ID of the EC2 Fleet.",
+  "MaxResults" : "The maximum number of results to return in a single call. Specify a value between 1 and 1000. The default value is 1000. To retrieve the remaining results, make another call with the returned NextToken value.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation."
+}
+```
 
 </details>
 
@@ -1658,9 +3030,22 @@ Describes one or more of your EC2 Fleet.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "NextToken" : "The token for the next set of results.",
+  "Filter" : [ {
+    "Value" : [ "string" ],
+    "Name" : "The name of the filter. Filter names are case-sensitive."
+  } ],
+  "FleetId" : [ "string" ],
+  "MaxResults" : "The maximum number of results to return in a single call. Specify a value between 1 and 1000. The default value is 1000. To retrieve the remaining results, make another call with the returned NextToken value.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation."
+}
+```
 
 </details>
 
@@ -1670,9 +3055,22 @@ Describes one or more flow logs. To view the information in your flow logs (the 
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "NextToken" : "The token to retrieve the next page of results.",
+  "Filter" : [ {
+    "Value" : [ "string" ],
+    "Name" : "The name of the filter. Filter names are case-sensitive."
+  } ],
+  "MaxResults" : "The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned NextToken value. This value can be between 5 and 1000. If MaxResults is given a value larger than 1000, only 1000 results are returned. You cannot specify this parameter and the flow log IDs parameter in the same request.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.",
+  "FlowLogId" : [ "string" ]
+}
+```
 
 </details>
 
@@ -1682,9 +3080,17 @@ Describes the specified attribute of the specified Amazon FPGA Image (AFI).
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "FpgaImageId" : "The ID of the AFI.",
+  "Attribute" : "The AFI attribute.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation."
+}
+```
 
 </details>
 
@@ -1694,9 +3100,23 @@ Describes one or more available Amazon FPGA Images (AFIs). These include public 
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "FpgaImageId" : [ "string" ],
+  "Owner" : [ "string" ],
+  "NextToken" : "The token to retrieve the next page of results.",
+  "Filter" : [ {
+    "Value" : [ "string" ],
+    "Name" : "The name of the filter. Filter names are case-sensitive."
+  } ],
+  "MaxResults" : "The maximum number of results to return in a single call.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation."
+}
+```
 
 </details>
 
@@ -1707,9 +3127,23 @@ The results describe all the Dedicated Host reservation offerings, including off
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "NextToken" : "The token to use to retrieve the next page of results.",
+  "Filter" : [ {
+    "Value" : [ "string" ],
+    "Name" : "The name of the filter. Filter names are case-sensitive."
+  } ],
+  "MaxResults" : "The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned nextToken value. This value can be between 5 and 500. If maxResults is given a larger value than 500, you receive an error.",
+  "MaxDuration" : "This is the maximum duration of the reservation to purchase, specified in seconds. Reservations are available in one-year and three-year terms. The number of seconds specified must be the number of seconds in a year (365x24x60x60) times one of the supported durations (1 or 3). For example, specify 94608000 for three years.",
+  "MinDuration" : "This is the minimum duration of the reservation you'd like to purchase, specified in seconds. Reservations are available in one-year and three-year terms. The number of seconds specified must be the number of seconds in a year (365x24x60x60) times one of the supported durations (1 or 3). For example, specify 31536000 for one year.",
+  "OfferingId" : "The ID of the reservation offering."
+}
+```
 
 </details>
 
@@ -1719,9 +3153,21 @@ Describes reservations that are associated with Dedicated Hosts in your account.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "NextToken" : "The token to use to retrieve the next page of results.",
+  "HostReservationIdSet" : [ "string" ],
+  "Filter" : [ {
+    "Value" : [ "string" ],
+    "Name" : "The name of the filter. Filter names are case-sensitive."
+  } ],
+  "MaxResults" : "The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned nextToken value. This value can be between 5 and 500. If maxResults is given a larger value than 500, you receive an error."
+}
+```
 
 </details>
 
@@ -1732,9 +3178,21 @@ The results describe only the Dedicated Hosts in the region you're currently usi
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "NextToken" : "The token to retrieve the next page of results.",
+  "Filter" : [ {
+    "Value" : [ "string" ],
+    "Name" : "The name of the filter. Filter names are case-sensitive."
+  } ],
+  "MaxResults" : "The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned nextToken value. This value can be between 5 and 500. If maxResults is given a larger value than 500, you receive an error. You cannot specify this parameter and the host IDs parameter in the same request.",
+  "HostId" : [ "string" ]
+}
+```
 
 </details>
 
@@ -1744,9 +3202,19 @@ Describes your IAM instance profile associations.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "Filter" : [ {
+    "Value" : [ "string" ],
+    "Name" : "The name of the filter. Filter names are case-sensitive."
+  } ],
+  "AssociationId" : [ "string" ]
+}
+```
 
 </details>
 
@@ -1758,11 +3226,17 @@ These settings apply to the IAM user who makes the request; they do not apply to
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for DescribeIdFormat.
 
 **Type:** object
+
+```json
+{
+  "Resource" : "The type of resource: bundle | conversion-task | customer-gateway | dhcp-options | elastic-ip-allocation | elastic-ip-association | export-task | flow-log | image | import-task | instance | internet-gateway | network-acl | network-acl-association | network-interface | network-interface-attachment | prefix-list | reservation | route-table | route-table-association | security-group | snapshot | subnet | subnet-cidr-block-association | volume | vpc | vpc-cidr-block-association | vpc-endpoint | vpc-peering-connection | vpn-connection | vpn-gateway "
+}
+```
 
 </details>
 
@@ -1774,11 +3248,18 @@ These settings apply to the principal specified in the request. They do not appl
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for DescribeIdentityIdFormat.
 
 **Type:** object
+
+```json
+{
+  "PrincipalArn" : "The ARN of the principal, which can be an IAM role, IAM user, or the root user.",
+  "Resource" : "The type of resource: bundle | conversion-task | customer-gateway | dhcp-options | elastic-ip-allocation | elastic-ip-association | export-task | flow-log | image | import-task | instance | internet-gateway | network-acl | network-acl-association | network-interface | network-interface-attachment | prefix-list | reservation | route-table | route-table-association | security-group | snapshot | subnet | subnet-cidr-block-association | volume | vpc | vpc-cidr-block-association | vpc-endpoint | vpc-peering-connection | vpn-connection | vpn-gateway "
+}
+```
 
 </details>
 
@@ -1788,11 +3269,19 @@ Describes the specified attribute of the specified AMI. You can specify only one
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for DescribeImageAttribute.
 
 **Type:** object
+
+```json
+{
+  "Attribute" : "The AMI attribute. \n Note: Depending on your account privileges, the blockDeviceMapping attribute may return a Client.AuthFailure error. If this happens, use DescribeImages to get information about the block device mapping for the AMI.",
+  "ImageId" : "The ID of the AMI.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation."
+}
+```
 
 </details>
 
@@ -1803,11 +3292,24 @@ Deregistered images are included in the returned results for an unspecified inte
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for DescribeImages.
 
 **Type:** object
+
+```json
+{
+  "Owner" : [ "string" ],
+  "Filter" : [ {
+    "Value" : [ "string" ],
+    "Name" : "The name of the filter. Filter names are case-sensitive."
+  } ],
+  "ImageId" : [ "string" ],
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.",
+  "ExecutableBy" : [ "string" ]
+}
+```
 
 </details>
 
@@ -1817,11 +3319,24 @@ Displays details about an import virtual machine or import snapshot tasks that a
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for DescribeImportImageTasks.
 
 **Type:** object
+
+```json
+{
+  "Filters" : [ {
+    "Value" : [ "string" ],
+    "Name" : "The name of the filter. Filter names are case-sensitive."
+  } ],
+  "NextToken" : "A token that indicates the next page of results.",
+  "MaxResults" : "The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned NextToken value.",
+  "ImportTaskId" : [ "string" ],
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation."
+}
+```
 
 </details>
 
@@ -1831,11 +3346,24 @@ Describes your import snapshot tasks.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for DescribeImportSnapshotTasks.
 
 **Type:** object
+
+```json
+{
+  "Filters" : [ {
+    "Value" : [ "string" ],
+    "Name" : "The name of the filter. Filter names are case-sensitive."
+  } ],
+  "NextToken" : "A token that indicates the next page of results.",
+  "MaxResults" : "The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned NextToken value.",
+  "ImportTaskId" : [ "string" ],
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation."
+}
+```
 
 </details>
 
@@ -1845,11 +3373,19 @@ Describes the specified attribute of the specified instance. You can specify onl
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for DescribeInstanceAttribute.
 
 **Type:** object
+
+```json
+{
+  "Attribute" : "The instance attribute. \nNote: The enaSupport attribute is not supported at this time.",
+  "InstanceId" : "The ID of the instance.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation."
+}
+```
 
 </details>
 
@@ -1864,9 +3400,22 @@ For more information, see Burstable Performance Instances in the Amazon Elastic 
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "NextToken" : "The token to retrieve the next page of results.",
+  "InstanceId" : [ "string" ],
+  "Filter" : [ {
+    "Value" : [ "string" ],
+    "Name" : "The name of the filter. Filter names are case-sensitive."
+  } ],
+  "MaxResults" : "The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned NextToken value. This value can be between 5 and 1000. You cannot specify this parameter and the instance IDs parameter in the same call.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation."
+}
+```
 
 </details>
 
@@ -1880,11 +3429,23 @@ Instance status includes the following components:
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for DescribeInstanceStatus.
 
 **Type:** object
+
+```json
+{
+  "InstanceId" : [ "string" ],
+  "Filter" : [ {
+    "Value" : [ "string" ],
+    "Name" : "The name of the filter. Filter names are case-sensitive."
+  } ],
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.",
+  "IncludeAllInstances" : "When true, includes the health status for all instances. When false, includes the health status for running instances only. \nDefault: false "
+}
+```
 
 </details>
 
@@ -1897,11 +3458,22 @@ If you describe instances in the rare case where an Availability Zone is experie
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for DescribeInstances.
 
 **Type:** object
+
+```json
+{
+  "InstanceId" : [ "string" ],
+  "Filter" : [ {
+    "Value" : [ "string" ],
+    "Name" : "The name of the filter. Filter names are case-sensitive."
+  } ],
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation."
+}
+```
 
 </details>
 
@@ -1911,9 +3483,20 @@ Describes one or more of your internet gateways.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "InternetGatewayId" : [ "string" ],
+  "Filter" : [ {
+    "Value" : [ "string" ],
+    "Name" : "The name of the filter. Filter names are case-sensitive."
+  } ],
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation."
+}
+```
 
 </details>
 
@@ -1924,9 +3507,20 @@ For more information about key pairs, see Key Pairs in the Amazon Elastic Comput
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "KeyName" : [ "string" ],
+  "Filter" : [ {
+    "Value" : [ "string" ],
+    "Name" : "The name of the filter. Filter names are case-sensitive."
+  } ],
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation."
+}
+```
 
 </details>
 
@@ -1936,9 +3530,26 @@ Describes one or more versions of a specified launch template. You can describe 
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "MinVersion" : "The version number after which to describe launch template versions.",
+  "LaunchTemplateName" : "The name of the launch template. You must specify either the launch template ID or launch template name in the request.",
+  "NextToken" : "The token to request the next page of results.",
+  "Filter" : [ {
+    "Value" : [ "string" ],
+    "Name" : "The name of the filter. Filter names are case-sensitive."
+  } ],
+  "MaxResults" : "The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned NextToken value. This value can be between 1 and 200.",
+  "LaunchTemplateVersion" : [ "string" ],
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.",
+  "LaunchTemplateId" : "The ID of the launch template. You must specify either the launch template ID or launch template name in the request.",
+  "MaxVersion" : "The version number up to which to describe launch template versions."
+}
+```
 
 </details>
 
@@ -1948,9 +3559,23 @@ Describes one or more launch templates.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "LaunchTemplateName" : [ "string" ],
+  "NextToken" : "The token to request the next page of results.",
+  "Filter" : [ {
+    "Value" : [ "string" ],
+    "Name" : "The name of the filter. Filter names are case-sensitive."
+  } ],
+  "MaxResults" : "The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned NextToken value. This value can be between 5 and 1000.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.",
+  "LaunchTemplateId" : [ "string" ]
+}
+```
 
 </details>
 
@@ -1960,11 +3585,24 @@ Describes your Elastic IP addresses that are being moved to the EC2-VPC platform
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for DescribeMovingAddresses.
 
 **Type:** object
+
+```json
+{
+  "NextToken" : "The token to use to retrieve the next page of results.",
+  "PublicIp" : [ "string" ],
+  "Filter" : [ {
+    "Value" : [ "string" ],
+    "Name" : "The name of the filter. Filter names are case-sensitive."
+  } ],
+  "MaxResults" : "The maximum number of results to return for the request in a single page. The remaining results of the initial request can be seen by sending another request with the returned NextToken value. This value can be between 5 and 1000; if MaxResults is given a value outside of this range, an error is returned. \nDefault: If no value is provided, the default is 1000.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation."
+}
+```
 
 </details>
 
@@ -1974,9 +3612,19 @@ Describes one or more of your NAT gateways.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "Filter" : [ {
+    "Value" : [ "string" ],
+    "Name" : "The name of the filter. Filter names are case-sensitive."
+  } ],
+  "NatGatewayId" : [ "string" ]
+}
+```
 
 </details>
 
@@ -1987,9 +3635,20 @@ For more information, see Network ACLs in the Amazon Virtual Private Cloud User 
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "NetworkAclId" : [ "string" ],
+  "Filter" : [ {
+    "Value" : [ "string" ],
+    "Name" : "The name of the filter. Filter names are case-sensitive."
+  } ],
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation."
+}
+```
 
 </details>
 
@@ -1999,11 +3658,19 @@ Describes a network interface attribute. You can specify only one attribute at a
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for DescribeNetworkInterfaceAttribute.
 
 **Type:** object
+
+```json
+{
+  "Attribute" : "The attribute of the network interface. This parameter is required.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.",
+  "NetworkInterfaceId" : "The ID of the network interface."
+}
+```
 
 </details>
 
@@ -2013,11 +3680,23 @@ Describes the permissions for your network interfaces.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for DescribeNetworkInterfacePermissions.
 
 **Type:** object
+
+```json
+{
+  "NextToken" : "The token to request the next page of results.",
+  "Filter" : [ {
+    "Value" : [ "string" ],
+    "Name" : "The name of the filter. Filter names are case-sensitive."
+  } ],
+  "NetworkInterfacePermissionId" : [ "string" ],
+  "MaxResults" : "The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned NextToken value. If this parameter is not specified, up to 50 results are returned by default."
+}
+```
 
 </details>
 
@@ -2027,11 +3706,22 @@ Describes one or more of your network interfaces.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for DescribeNetworkInterfaces.
 
 **Type:** object
+
+```json
+{
+  "Filter" : [ {
+    "Value" : [ "string" ],
+    "Name" : "The name of the filter. Filter names are case-sensitive."
+  } ],
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.",
+  "NetworkInterfaceId" : [ "string" ]
+}
+```
 
 </details>
 
@@ -2041,11 +3731,22 @@ Describes one or more of your placement groups. For more information, see Placem
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for DescribePlacementGroups.
 
 **Type:** object
+
+```json
+{
+  "GroupName" : [ "string" ],
+  "Filter" : [ {
+    "Value" : [ "string" ],
+    "Name" : "The name of the filter. Filter names are case-sensitive."
+  } ],
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation."
+}
+```
 
 </details>
 
@@ -2055,9 +3756,22 @@ Describes available AWS services in a prefix list format, which includes the pre
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "NextToken" : "The token for the next set of items to return. (You received this token from a prior call.)",
+  "PrefixListId" : [ "string" ],
+  "Filter" : [ {
+    "Value" : [ "string" ],
+    "Name" : "The name of the filter. Filter names are case-sensitive."
+  } ],
+  "MaxResults" : "The maximum number of items to return for this request. The request returns a token that you can specify in a subsequent call to get the next set of results. \nConstraint: If the value specified is greater than 1000, we return only 1000 items.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation."
+}
+```
 
 </details>
 
@@ -2069,9 +3783,18 @@ The following resource types support longer IDs: bundle | conversion-task | cust
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "NextToken" : "The token to request the next page of results.",
+  "MaxResults" : "The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned NextToken value. ",
+  "Resource" : [ "string" ],
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation."
+}
+```
 
 </details>
 
@@ -2082,11 +3805,22 @@ For a list of the regions supported by Amazon EC2, see Regions and Endpoints.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for DescribeRegions.
 
 **Type:** object
+
+```json
+{
+  "RegionName" : [ "string" ],
+  "Filter" : [ {
+    "Value" : [ "string" ],
+    "Name" : "The name of the filter. Filter names are case-sensitive."
+  } ],
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation."
+}
+```
 
 </details>
 
@@ -2097,11 +3831,24 @@ For more information about Reserved Instances, see Reserved Instances in the Ama
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for DescribeReservedInstances.
 
 **Type:** object
+
+```json
+{
+  "OfferingType" : "The Reserved Instance offering type. If you are using tools that predate the 2011-11-01 API version, you only have access to the Medium Utilization Reserved Instance offering type.",
+  "ReservedInstancesId" : [ "string" ],
+  "OfferingClass" : "Describes whether the Reserved Instance is Standard or Convertible.",
+  "Filter" : [ {
+    "Value" : [ "string" ],
+    "Name" : "The name of the filter. Filter names are case-sensitive."
+  } ],
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation."
+}
+```
 
 </details>
 
@@ -2115,11 +3862,22 @@ For more information, see Reserved Instance Marketplace in the Amazon Elastic Co
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for DescribeReservedInstancesListings.
 
 **Type:** object
+
+```json
+{
+  "ReservedInstancesId" : "One or more Reserved Instance IDs.",
+  "Filter" : [ {
+    "Value" : [ "string" ],
+    "Name" : "The name of the filter. Filter names are case-sensitive."
+  } ],
+  "ReservedInstancesListingId" : "One or more Reserved Instance listing IDs."
+}
+```
 
 </details>
 
@@ -2130,11 +3888,21 @@ For more information, see Modifying Reserved Instances in the Amazon Elastic Com
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for DescribeReservedInstancesModifications.
 
 **Type:** object
+
+```json
+{
+  "ReservedInstancesModificationId" : [ "string" ],
+  "Filter" : [ {
+    "Value" : [ "string" ],
+    "Name" : "The name of the filter. Filter names are case-sensitive."
+  } ]
+}
+```
 
 </details>
 
@@ -2146,11 +3914,32 @@ For more information, see Reserved Instance Marketplace in the Amazon Elastic Co
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for DescribeReservedInstancesOfferings.
 
 **Type:** object
+
+```json
+{
+  "OfferingClass" : "The offering class of the Reserved Instance. Can be standard or convertible.",
+  "MaxDuration" : "The maximum duration (in seconds) to filter when searching for offerings. \nDefault: 94608000 (3 years)",
+  "IncludeMarketplace" : "Include Reserved Instance Marketplace offerings in the response.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.",
+  "MinDuration" : "The minimum duration (in seconds) to filter when searching for offerings. \nDefault: 2592000 (1 month)",
+  "AvailabilityZone" : "The Availability Zone in which the Reserved Instance can be used.",
+  "OfferingType" : "The Reserved Instance offering type. If you are using tools that predate the 2011-11-01 API version, you only have access to the Medium Utilization Reserved Instance offering type. ",
+  "MaxInstanceCount" : "The maximum number of instances to filter when searching for offerings. \nDefault: 20",
+  "Filter" : [ {
+    "Value" : [ "string" ],
+    "Name" : "The name of the filter. Filter names are case-sensitive."
+  } ],
+  "InstanceTenancy" : "The tenancy of the instances covered by the reservation. A Reserved Instance with a tenancy of dedicated is applied to instances that run in a VPC on single-tenant hardware (i.e., Dedicated Instances). \n Important: The host value cannot be used with this parameter. Use the default or dedicated values only. \nDefault: default ",
+  "ProductDescription" : "The Reserved Instance product platform description. Instances that include (Amazon VPC) in the description are for use with Amazon VPC.",
+  "InstanceType" : "The instance type that the reservation will cover (for example, m1.small). For more information, see Instance Types in the Amazon Elastic Compute Cloud User Guide.",
+  "ReservedInstancesOfferingId" : [ "string" ]
+}
+```
 
 </details>
 
@@ -2162,9 +3951,20 @@ For more information, see Route Tables in the Amazon Virtual Private Cloud User 
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "RouteTableId" : [ "string" ],
+  "Filter" : [ {
+    "Value" : [ "string" ],
+    "Name" : "The name of the filter. Filter names are case-sensitive."
+  } ],
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation."
+}
+```
 
 </details>
 
@@ -2176,11 +3976,36 @@ After you find a schedule that meets your needs, call PurchaseScheduledInstances
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for DescribeScheduledInstanceAvailability.
 
 **Type:** object
+
+```json
+{
+  "Recurrence" : {
+    "OccurrenceDay" : [ "integer" ],
+    "Frequency" : "The frequency (Daily, Weekly, or Monthly).",
+    "OccurrenceUnit" : "The unit for OccurrenceDays (DayOfWeek or DayOfMonth). This value is required for a monthly schedule. You can't specify DayOfWeek with a weekly schedule. You can't specify this value with a daily schedule.",
+    "OccurrenceRelativeToEnd" : "Indicates whether the occurrence is relative to the end of the specified week or month. You can't specify this value with a daily schedule.",
+    "Interval" : "The interval quantity. The interval unit depends on the value of Frequency. For example, every 2 weeks or every 2 months."
+  },
+  "MaxSlotDurationInHours" : "The maximum available duration, in hours. This value must be greater than MinSlotDurationInHours and less than 1,720.",
+  "NextToken" : "The token for the next set of results.",
+  "Filter" : [ {
+    "Value" : [ "string" ],
+    "Name" : "The name of the filter. Filter names are case-sensitive."
+  } ],
+  "MaxResults" : "The maximum number of results to return in a single call. This value can be between 5 and 300. The default value is 300. To retrieve the remaining results, make another call with the returned NextToken value.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.",
+  "FirstSlotStartTimeRange" : {
+    "EarliestTime" : "The earliest date and time, in UTC, for the Scheduled Instance to start.",
+    "LatestTime" : "The latest date and time, in UTC, for the Scheduled Instance to start. This value must be later than or equal to the earliest date and at most three months in the future."
+  },
+  "MinSlotDurationInHours" : "The minimum available duration, in hours. The minimum required duration is 1,200 hours per year. For example, the minimum daily schedule is 4 hours, the minimum weekly schedule is 24 hours, and the minimum monthly schedule is 100 hours."
+}
+```
 
 </details>
 
@@ -2190,11 +4015,28 @@ Describes one or more of your Scheduled Instances.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for DescribeScheduledInstances.
 
 **Type:** object
+
+```json
+{
+  "SlotStartTimeRange" : {
+    "EarliestTime" : "The earliest date and time, in UTC, for the Scheduled Instance to start.",
+    "LatestTime" : "The latest date and time, in UTC, for the Scheduled Instance to start."
+  },
+  "NextToken" : "The token for the next set of results.",
+  "Filter" : [ {
+    "Value" : [ "string" ],
+    "Name" : "The name of the filter. Filter names are case-sensitive."
+  } ],
+  "MaxResults" : "The maximum number of results to return in a single call. This value can be between 5 and 300. The default value is 100. To retrieve the remaining results, make another call with the returned NextToken value.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.",
+  "ScheduledInstanceId" : [ "string" ]
+}
+```
 
 </details>
 
@@ -2204,9 +4046,16 @@ Contains the parameters for DescribeScheduledInstances.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.",
+  "GroupId" : [ "string" ]
+}
+```
 
 </details>
 
@@ -2217,9 +4066,21 @@ A security group is for use with instances either in the EC2-Classic platform or
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "GroupName" : [ "string" ],
+  "Filter" : [ {
+    "Value" : [ "string" ],
+    "Name" : "The name of the filter. Filter names are case-sensitive."
+  } ],
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.",
+  "GroupId" : [ "string" ]
+}
+```
 
 </details>
 
@@ -2230,11 +4091,19 @@ For more information about EBS snapshots, see Amazon EBS Snapshots in the Amazon
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for DescribeSnapshotAttribute.
 
 **Type:** object
+
+```json
+{
+  "SnapshotId" : "The ID of the EBS snapshot.",
+  "Attribute" : "The snapshot attribute you would like to view.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation."
+}
+```
 
 </details>
 
@@ -2254,11 +4123,24 @@ For more information about EBS snapshots, see Amazon EBS Snapshots in the Amazon
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for DescribeSnapshots.
 
 **Type:** object
+
+```json
+{
+  "RestorableBy" : [ "string" ],
+  "SnapshotId" : [ "string" ],
+  "Owner" : [ "string" ],
+  "Filter" : [ {
+    "Value" : [ "string" ],
+    "Name" : "The name of the filter. Filter names are case-sensitive."
+  } ],
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation."
+}
+```
 
 </details>
 
@@ -2268,11 +4150,17 @@ Describes the data feed for Spot Instances. For more information, see Spot Insta
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for DescribeSpotDatafeedSubscription.
 
 **Type:** object
+
+```json
+{
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation."
+}
+```
 
 </details>
 
@@ -2282,11 +4170,18 @@ Describes the running instances for the specified Spot Fleet.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for DescribeSpotFleetInstances.
 
 **Type:** object
+
+```json
+{
+  "SpotFleetRequestId" : "The ID of the Spot Fleet request.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation."
+}
+```
 
 </details>
 
@@ -2297,11 +4192,22 @@ Spot Fleet events are delayed by up to 30 seconds before they can be described. 
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for DescribeSpotFleetRequestHistory.
 
 **Type:** object
+
+```json
+{
+  "NextToken" : "The token for the next set of results.",
+  "EventType" : "The type of events to describe. By default, all events are described.",
+  "SpotFleetRequestId" : "The ID of the Spot Fleet request.",
+  "MaxResults" : "The maximum number of results to return in a single call. Specify a value between 1 and 1000. The default value is 1000. To retrieve the remaining results, make another call with the returned NextToken value.",
+  "StartTime" : "The starting date and time for the events, in UTC format (for example, YYYY-MM-DDTHH:MM:SSZ).",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation."
+}
+```
 
 </details>
 
@@ -2312,11 +4218,18 @@ Spot Fleet requests are deleted 48 hours after they are canceled and their insta
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for DescribeSpotFleetRequests.
 
 **Type:** object
+
+```json
+{
+  "SpotFleetRequestId" : [ "string" ],
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation."
+}
+```
 
 </details>
 
@@ -2328,11 +4241,22 @@ Spot Instance requests are deleted four hours after they are canceled and their 
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for DescribeSpotInstanceRequests.
 
 **Type:** object
+
+```json
+{
+  "SpotInstanceRequestId" : [ "string" ],
+  "Filter" : [ {
+    "Value" : [ "string" ],
+    "Name" : "The name of the filter. Filter names are case-sensitive."
+  } ],
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation."
+}
+```
 
 </details>
 
@@ -2343,11 +4267,26 @@ When you specify a start and end time, this operation returns the prices of the 
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for DescribeSpotPriceHistory.
 
 **Type:** object
+
+```json
+{
+  "EndTime" : "The date and time, up to the current date, from which to stop retrieving the price history data, in UTC format (for example, YYYY-MM-DDTHH:MM:SSZ).",
+  "Filter" : [ {
+    "Value" : [ "string" ],
+    "Name" : "The name of the filter. Filter names are case-sensitive."
+  } ],
+  "StartTime" : "The date and time, up to the past 90 days, from which to start retrieving the price history data, in UTC format (for example, YYYY-MM-DDTHH:MM:SSZ).",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.",
+  "AvailabilityZone" : "Filters the results by the specified Availability Zone.",
+  "ProductDescription" : [ "string" ],
+  "InstanceType" : [ "string. Possible values: t1.micro | t2.nano | t2.micro | t2.small | t2.medium | t2.large | t2.xlarge | t2.2xlarge | t3.nano | t3.micro | t3.small | t3.medium | t3.large | t3.xlarge | t3.2xlarge | m1.small | m1.medium | m1.large | m1.xlarge | m3.medium | m3.large | m3.xlarge | m3.2xlarge | m4.large | m4.xlarge | m4.2xlarge | m4.4xlarge | m4.10xlarge | m4.16xlarge | m2.xlarge | m2.2xlarge | m2.4xlarge | cr1.8xlarge | r3.large | r3.xlarge | r3.2xlarge | r3.4xlarge | r3.8xlarge | r4.large | r4.xlarge | r4.2xlarge | r4.4xlarge | r4.8xlarge | r4.16xlarge | r5.large | r5.xlarge | r5.2xlarge | r5.4xlarge | r5.8xlarge | r5.12xlarge | r5.16xlarge | r5.24xlarge | r5.metal | r5d.large | r5d.xlarge | r5d.2xlarge | r5d.4xlarge | r5d.8xlarge | r5d.12xlarge | r5d.16xlarge | r5d.24xlarge | r5d.metal | x1.16xlarge | x1.32xlarge | x1e.xlarge | x1e.2xlarge | x1e.4xlarge | x1e.8xlarge | x1e.16xlarge | x1e.32xlarge | i2.xlarge | i2.2xlarge | i2.4xlarge | i2.8xlarge | i3.large | i3.xlarge | i3.2xlarge | i3.4xlarge | i3.8xlarge | i3.16xlarge | i3.metal | hi1.4xlarge | hs1.8xlarge | c1.medium | c1.xlarge | c3.large | c3.xlarge | c3.2xlarge | c3.4xlarge | c3.8xlarge | c4.large | c4.xlarge | c4.2xlarge | c4.4xlarge | c4.8xlarge | c5.large | c5.xlarge | c5.2xlarge | c5.4xlarge | c5.9xlarge | c5.18xlarge | c5d.large | c5d.xlarge | c5d.2xlarge | c5d.4xlarge | c5d.9xlarge | c5d.18xlarge | cc1.4xlarge | cc2.8xlarge | g2.2xlarge | g2.8xlarge | g3.4xlarge | g3.8xlarge | g3.16xlarge | g3s.xlarge | cg1.4xlarge | p2.xlarge | p2.8xlarge | p2.16xlarge | p3.2xlarge | p3.8xlarge | p3.16xlarge | d2.xlarge | d2.2xlarge | d2.4xlarge | d2.8xlarge | f1.2xlarge | f1.4xlarge | f1.16xlarge | m5.large | m5.xlarge | m5.2xlarge | m5.4xlarge | m5.12xlarge | m5.24xlarge | m5d.large | m5d.xlarge | m5d.2xlarge | m5d.4xlarge | m5d.12xlarge | m5d.24xlarge | h1.2xlarge | h1.4xlarge | h1.8xlarge | h1.16xlarge | z1d.large | z1d.xlarge | z1d.2xlarge | z1d.3xlarge | z1d.6xlarge | z1d.12xlarge | u-6tb1.metal | u-9tb1.metal | u-12tb1.metal" ]
+}
+```
 
 </details>
 
@@ -2357,9 +4296,18 @@ Contains the parameters for DescribeSpotPriceHistory.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "VpcId" : "The ID of the VPC.",
+  "NextToken" : "The token for the next set of items to return. (You received this token from a prior call.)",
+  "MaxResults" : "The maximum number of items to return for this request. The request returns a token that you can specify in a subsequent call to get the next set of results.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation."
+}
+```
 
 </details>
 
@@ -2370,9 +4318,20 @@ For more information, see Your VPC and Subnets in the Amazon Virtual Private Clo
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "Filter" : [ {
+    "Value" : [ "string" ],
+    "Name" : "The name of the filter. Filter names are case-sensitive."
+  } ],
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.",
+  "SubnetId" : [ "string" ]
+}
+```
 
 </details>
 
@@ -2383,9 +4342,19 @@ For more information about tags, see Tagging Your Resources in the Amazon Elasti
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "Filter" : [ {
+    "Value" : [ "string" ],
+    "Name" : "The name of the filter. Filter names are case-sensitive."
+  } ],
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation."
+}
+```
 
 </details>
 
@@ -2396,11 +4365,19 @@ For more information about EBS volumes, see Amazon EBS Volumes in the Amazon Ela
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for DescribeVolumeAttribute.
 
 **Type:** object
+
+```json
+{
+  "VolumeId" : "The ID of the volume.",
+  "Attribute" : "The attribute of the volume. This parameter is required.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation."
+}
+```
 
 </details>
 
@@ -2415,11 +4392,22 @@ Volume status is based on the volume status checks, and does not reflect the vol
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for DescribeVolumeStatus.
 
 **Type:** object
+
+```json
+{
+  "VolumeId" : [ "string" ],
+  "Filter" : [ {
+    "Value" : [ "string" ],
+    "Name" : "The name of the filter. Filter names are case-sensitive."
+  } ],
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation."
+}
+```
 
 </details>
 
@@ -2431,11 +4419,22 @@ For more information about EBS volumes, see Amazon EBS Volumes in the Amazon Ela
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for DescribeVolumes.
 
 **Type:** object
+
+```json
+{
+  "VolumeId" : [ "string" ],
+  "Filter" : [ {
+    "Value" : [ "string" ],
+    "Name" : "The name of the filter. Filter names are case-sensitive."
+  } ],
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation."
+}
+```
 
 </details>
 
@@ -2447,9 +4446,22 @@ Current-generation EBS volumes support modification of attributes including type
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "VolumeId" : [ "string" ],
+  "NextToken" : "The nextToken value returned by a previous paginated request.",
+  "Filter" : [ {
+    "Value" : [ "string" ],
+    "Name" : "The name of the filter. Filter names are case-sensitive."
+  } ],
+  "MaxResults" : "The maximum number of results (up to a limit of 500) to be returned in a paginated request.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation."
+}
+```
 
 </details>
 
@@ -2459,9 +4471,17 @@ Describes the specified attribute of the specified VPC. You can specify only one
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "VpcId" : "The ID of the VPC.",
+  "Attribute" : "The VPC attribute.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation."
+}
+```
 
 </details>
 
@@ -2471,9 +4491,20 @@ Describes the ClassicLink status of one or more VPCs.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "VpcId" : [ "string" ],
+  "Filter" : [ {
+    "Value" : [ "string" ],
+    "Name" : "The name of the filter. Filter names are case-sensitive."
+  } ],
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation."
+}
+```
 
 </details>
 
@@ -2483,9 +4514,17 @@ Describes the ClassicLink DNS support status of one or more VPCs. If enabled, th
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "NextToken" : "The token for the next set of items to return. (You received this token from a prior call.)",
+  "VpcIds" : [ "string" ],
+  "MaxResults" : "The maximum number of items to return for this request. The request returns a token that you can specify in a subsequent call to get the next set of results."
+}
+```
 
 </details>
 
@@ -2495,9 +4534,22 @@ Describes the connection notifications for VPC endpoints and VPC endpoint servic
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "ConnectionNotificationId" : "The ID of the notification.",
+  "NextToken" : "The token to request the next page of results.",
+  "Filter" : [ {
+    "Value" : [ "string" ],
+    "Name" : "The name of the filter. Filter names are case-sensitive."
+  } ],
+  "MaxResults" : "The maximum number of results to return in a single call. To retrieve the remaining results, make another request with the returned NextToken value.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation."
+}
+```
 
 </details>
 
@@ -2507,9 +4559,21 @@ Describes the VPC endpoint connections to your VPC endpoint services, including 
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "NextToken" : "The token to retrieve the next page of results.",
+  "Filter" : [ {
+    "Value" : [ "string" ],
+    "Name" : "The name of the filter. Filter names are case-sensitive."
+  } ],
+  "MaxResults" : "The maximum number of results to return for the request in a single page. The remaining results of the initial request can be seen by sending another request with the returned NextToken value. This value can be between 5 and 1000; if MaxResults is given a value larger than 1000, only 1000 results are returned.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation."
+}
+```
 
 </details>
 
@@ -2519,9 +4583,22 @@ Describes the VPC endpoint service configurations in your account (your services
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "NextToken" : "The token to retrieve the next page of results.",
+  "Filter" : [ {
+    "Value" : [ "string" ],
+    "Name" : "The name of the filter. Filter names are case-sensitive."
+  } ],
+  "MaxResults" : "The maximum number of results to return for the request in a single page. The remaining results of the initial request can be seen by sending another request with the returned NextToken value. This value can be between 5 and 1000; if MaxResults is given a value larger than 1000, only 1000 results are returned.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.",
+  "ServiceId" : [ "string" ]
+}
+```
 
 </details>
 
@@ -2531,9 +4608,22 @@ Describes the principals (service consumers) that are permitted to discover your
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "NextToken" : "The token to retrieve the next page of results.",
+  "Filter" : [ {
+    "Value" : [ "string" ],
+    "Name" : "The name of the filter. Filter names are case-sensitive."
+  } ],
+  "MaxResults" : "The maximum number of results to return for the request in a single page. The remaining results of the initial request can be seen by sending another request with the returned NextToken value. This value can be between 5 and 1000; if MaxResults is given a value larger than 1000, only 1000 results are returned.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.",
+  "ServiceId" : "The ID of the service."
+}
+```
 
 </details>
 
@@ -2543,11 +4633,24 @@ Describes available services to which you can create a VPC endpoint.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for DescribeVpcEndpointServices.
 
 **Type:** object
+
+```json
+{
+  "NextToken" : "The token for the next set of items to return. (You received this token from a prior call.)",
+  "Filter" : [ {
+    "Value" : [ "string" ],
+    "Name" : "The name of the filter. Filter names are case-sensitive."
+  } ],
+  "ServiceName" : [ "string" ],
+  "MaxResults" : "The maximum number of items to return for this request. The request returns a token that you can specify in a subsequent call to get the next set of results. \nConstraint: If the value is greater than 1000, we return only 1000 items.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation."
+}
+```
 
 </details>
 
@@ -2557,11 +4660,24 @@ Describes one or more of your VPC endpoints.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for DescribeVpcEndpoints.
 
 **Type:** object
+
+```json
+{
+  "NextToken" : "The token for the next set of items to return. (You received this token from a prior call.)",
+  "Filter" : [ {
+    "Value" : [ "string" ],
+    "Name" : "The name of the filter. Filter names are case-sensitive."
+  } ],
+  "MaxResults" : "The maximum number of items to return for this request. The request returns a token that you can specify in a subsequent call to get the next set of results. \nConstraint: If the value is greater than 1000, we return only 1000 items.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.",
+  "VpcEndpointId" : [ "string" ]
+}
+```
 
 </details>
 
@@ -2571,9 +4687,20 @@ Describes one or more of your VPC peering connections.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "VpcPeeringConnectionId" : [ "string" ],
+  "Filter" : [ {
+    "Value" : [ "string" ],
+    "Name" : "The name of the filter. Filter names are case-sensitive."
+  } ],
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation."
+}
+```
 
 </details>
 
@@ -2583,9 +4710,20 @@ Describes one or more of your VPCs.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "VpcId" : [ "string" ],
+  "Filter" : [ {
+    "Value" : [ "string" ],
+    "Name" : "The name of the filter. Filter names are case-sensitive."
+  } ],
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation."
+}
+```
 
 </details>
 
@@ -2596,11 +4734,22 @@ For more information about VPN connections, see AWS Managed VPN Connections in t
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for DescribeVpnConnections.
 
 **Type:** object
+
+```json
+{
+  "Filter" : [ {
+    "Value" : [ "string" ],
+    "Name" : "The name of the filter. Filter names are case-sensitive."
+  } ],
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.",
+  "VpnConnectionId" : [ "string" ]
+}
+```
 
 </details>
 
@@ -2611,11 +4760,22 @@ For more information about virtual private gateways, see AWS Managed VPN Connect
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for DescribeVpnGateways.
 
 **Type:** object
+
+```json
+{
+  "VpnGatewayId" : [ "string" ],
+  "Filter" : [ {
+    "Value" : [ "string" ],
+    "Name" : "The name of the filter. Filter names are case-sensitive."
+  } ],
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation."
+}
+```
 
 </details>
 
@@ -2625,9 +4785,17 @@ Unlinks (detaches) a linked EC2-Classic instance from a VPC. After the instance 
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "VpcId" : "The ID of the VPC to which the instance is linked.",
+  "InstanceId" : "The ID of the instance to unlink from the VPC.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation."
+}
+```
 
 </details>
 
@@ -2637,9 +4805,17 @@ Detaches an internet gateway from a VPC, disabling connectivity between the inte
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "InternetGatewayId" : "The ID of the internet gateway.",
+  "VpcId" : "The ID of the VPC.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation."
+}
+```
 
 </details>
 
@@ -2649,11 +4825,19 @@ Detaches a network interface from an instance.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for DetachNetworkInterface.
 
 **Type:** object
+
+```json
+{
+  "Force" : "Specifies whether to force a detachment.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.",
+  "AttachmentId" : "The ID of the attachment."
+}
+```
 
 </details>
 
@@ -2665,11 +4849,21 @@ For more information, see Detaching an Amazon EBS Volume in the Amazon Elastic C
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for DetachVolume.
 
 **Type:** object
+
+```json
+{
+  "VolumeId" : "The ID of the volume.",
+  "InstanceId" : "The ID of the instance.",
+  "Force" : "Forces detachment if the previous detachment attempt did not occur cleanly (for example, logging into an instance, unmounting the volume, and detaching normally). This option can lead to data loss or a corrupted file system. Use this option only as a last resort to detach a volume from a failed instance. The instance won't have an opportunity to flush file system caches or file system metadata. If you use this option, you must perform file system check and repair procedures.",
+  "Device" : "The device name.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation."
+}
+```
 
 </details>
 
@@ -2680,11 +4874,19 @@ You must wait for the attachment's state to switch to detached before you can de
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for DetachVpnGateway.
 
 **Type:** object
+
+```json
+{
+  "VpcId" : "The ID of the VPC.",
+  "VpnGatewayId" : "The ID of the virtual private gateway.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation."
+}
+```
 
 </details>
 
@@ -2694,11 +4896,18 @@ Disables a virtual private gateway (VGW) from propagating routes to a specified 
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for DisableVgwRoutePropagation.
 
 **Type:** object
+
+```json
+{
+  "RouteTableId" : "The ID of the route table.",
+  "GatewayId" : "The ID of the virtual private gateway."
+}
+```
 
 </details>
 
@@ -2708,9 +4917,16 @@ Disables ClassicLink for a VPC. You cannot disable ClassicLink for a VPC that ha
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "VpcId" : "The ID of the VPC.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation."
+}
+```
 
 </details>
 
@@ -2720,9 +4936,15 @@ Disables ClassicLink DNS support for a VPC. If disabled, DNS hostnames resolve t
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "VpcId" : "The ID of the VPC."
+}
+```
 
 </details>
 
@@ -2734,11 +4956,19 @@ This is an idempotent operation. If you perform the operation more than once, Am
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for DisassociateAddress.
 
 **Type:** object
+
+```json
+{
+  "PublicIp" : "[EC2-Classic] The Elastic IP address. Required for EC2-Classic.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.",
+  "AssociationId" : "[EC2-VPC] The association ID. Required for EC2-VPC."
+}
+```
 
 </details>
 
@@ -2749,9 +4979,15 @@ Use DescribeIamInstanceProfileAssociations to get the association ID.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "AssociationId" : "The ID of the IAM instance profile association."
+}
+```
 
 </details>
 
@@ -2762,9 +4998,16 @@ After you perform this action, the subnet no longer uses the routes in the route
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.",
+  "AssociationId" : "The association ID representing the current association between the route table and subnet."
+}
+```
 
 </details>
 
@@ -2774,9 +5017,15 @@ Disassociates a CIDR block from a subnet. Currently, you can disassociate an IPv
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "AssociationId" : "The association ID for the CIDR block."
+}
+```
 
 </details>
 
@@ -2787,9 +5036,15 @@ You cannot disassociate the CIDR block with which you originally created the VPC
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "AssociationId" : "The association ID for the CIDR block."
+}
+```
 
 </details>
 
@@ -2799,11 +5054,18 @@ Enables a virtual private gateway (VGW) to propagate routes to the specified rou
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for EnableVgwRoutePropagation.
 
 **Type:** object
+
+```json
+{
+  "RouteTableId" : "The ID of the route table.",
+  "GatewayId" : "The ID of the virtual private gateway."
+}
+```
 
 </details>
 
@@ -2813,11 +5075,18 @@ Enables I/O operations for a volume that had I/O operations disabled because the
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for EnableVolumeIO.
 
 **Type:** object
+
+```json
+{
+  "VolumeId" : "The ID of the volume.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation."
+}
+```
 
 </details>
 
@@ -2827,9 +5096,16 @@ Enables a VPC for ClassicLink. You can then link EC2-Classic instances to your C
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "VpcId" : "The ID of the VPC.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation."
+}
+```
 
 </details>
 
@@ -2839,9 +5115,15 @@ Enables a VPC to support DNS hostname resolution for ClassicLink. If enabled, th
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "VpcId" : "The ID of the VPC."
+}
+```
 
 </details>
 
@@ -2854,11 +5136,19 @@ For more information, see Instance Console Output in the Amazon Elastic Compute 
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for GetConsoleOutput.
 
 **Type:** object
+
+```json
+{
+  "InstanceId" : "The ID of the instance.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.",
+  "Latest" : "When enabled, retrieves the latest console output for the instance. \nDefault: disabled (false)"
+}
+```
 
 </details>
 
@@ -2869,11 +5159,19 @@ The returned content is Base64-encoded.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for the request.
 
 **Type:** object
+
+```json
+{
+  "WakeUp" : "When set to true, acts as keystroke input and wakes up an instance that's in standby or \"sleep\" mode.",
+  "InstanceId" : "The ID of the instance.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation."
+}
+```
 
 </details>
 
@@ -2884,9 +5182,16 @@ This is a preview of the PurchaseHostReservation action and does not result in t
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "HostIdSet" : [ "string" ],
+  "OfferingId" : "The offering ID of the reservation."
+}
+```
 
 </details>
 
@@ -2896,9 +5201,16 @@ Retrieves the configuration data of the specified instance. You can use this dat
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "InstanceId" : "The ID of the instance.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation."
+}
+```
 
 </details>
 
@@ -2912,11 +5224,18 @@ When you launch an instance, password generation and encryption may take a few m
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for GetPasswordData.
 
 **Type:** object
+
+```json
+{
+  "InstanceId" : "The ID of the Windows instance.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation."
+}
+```
 
 </details>
 
@@ -2926,11 +5245,22 @@ Returns a quote and exchange information for exchanging one or more specified Co
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for GetReservedInstanceExchangeQuote.
 
 **Type:** object
+
+```json
+{
+  "TargetConfiguration" : [ {
+    "InstanceCount" : "The number of instances the Covertible Reserved Instance offering can be applied to. This parameter is reserved and cannot be specified in a request",
+    "OfferingId" : "The Convertible Reserved Instance offering ID."
+  } ],
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.",
+  "ReservedInstanceId" : [ "string" ]
+}
+```
 
 </details>
 
@@ -2940,11 +5270,41 @@ Import single or multi-volume disk images or EBS snapshots into an Amazon Machin
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for ImportImage.
 
 **Type:** object
+
+```json
+{
+  "RoleName" : "The name of the role to use when not using the default role, 'vmimport'.",
+  "Description" : "A description string for the import image task.",
+  "Platform" : "The operating system of the virtual machine. \nValid values: Windows | Linux ",
+  "Architecture" : "The architecture of the virtual machine. \nValid values: i386 | x86_64 ",
+  "Hypervisor" : "The target hypervisor platform. \nValid values: xen ",
+  "ClientData" : {
+    "Comment" : "A user-defined comment about the disk upload.",
+    "UploadEnd" : "The time that the disk upload ends.",
+    "UploadSize" : "The size of the uploaded disk image, in GiB.",
+    "UploadStart" : "The time that the disk upload starts."
+  },
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.",
+  "DiskContainer" : [ {
+    "SnapshotId" : "The ID of the EBS snapshot to be used for importing the snapshot.",
+    "Description" : "The description of the disk image.",
+    "Format" : "The format of the disk image being imported. \nValid values: VHD | VMDK | OVA ",
+    "UserBucket" : {
+      "S3Bucket" : "The name of the S3 bucket where the disk image is located.",
+      "S3Key" : "The file name of the disk image."
+    },
+    "Url" : "The URL to the Amazon S3-based disk image being imported. The URL can either be a https URL (https://..) or an Amazon S3 URL (s3://..)",
+    "DeviceName" : "The block device mapping for the disk."
+  } ],
+  "ClientToken" : "The token to enable idempotency for VM import requests.",
+  "LicenseType" : "The license type to be used for the Amazon Machine Image (AMI) after importing. \n Note: You may only use BYOL if you have existing licenses with rights to use these licenses in a third party cloud like AWS. For more information, see Prerequisites in the VM Import/Export User Guide. \nValid values: AWS | BYOL "
+}
+```
 
 </details>
 
@@ -2955,11 +5315,52 @@ For information about the import manifest referenced by this API action, see VM 
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for ImportInstance.
 
 **Type:** object
+
+```json
+{
+  "Description" : "A description for the instance being imported.",
+  "Platform" : "The instance operating system.",
+  "LaunchSpecification" : {
+    "GroupName" : [ "string" ],
+    "subnetId" : "[EC2-VPC] The ID of the subnet in which to launch the instance.",
+    "instanceInitiatedShutdownBehavior" : "Indicates whether an instance stops or terminates when you initiate shutdown from the instance (using the operating system command for system shutdown).",
+    "userData" : {
+      "data" : "The user data. If you are using an AWS SDK or command line tool, Base64-encoding is performed for you, and you can load the text from a file. Otherwise, you must provide Base64-encoded text."
+    },
+    "instanceType" : "The instance type. For more information about the instance types that you can import, see Instance Types in the VM Import/Export User Guide.",
+    "additionalInfo" : "Reserved.",
+    "placement" : {
+      "groupName" : "The name of the placement group the instance is in.",
+      "tenancy" : "The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware. The host tenancy is not supported for the ImportInstance command.",
+      "hostId" : "The ID of the Dedicated Host on which the instance resides. This parameter is not supported for the ImportInstance command.",
+      "availabilityZone" : "The Availability Zone of the instance.",
+      "spreadDomain" : "Reserved for future use.",
+      "affinity" : "The affinity setting for the instance on the Dedicated Host. This parameter is not supported for the ImportInstance command."
+    },
+    "monitoring" : "Indicates whether monitoring is enabled.",
+    "privateIpAddress" : "[EC2-VPC] An available IP address from the IP address range of the subnet.",
+    "architecture" : "The architecture of the instance.",
+    "GroupId" : [ "string" ]
+  },
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.",
+  "DiskImage" : [ {
+    "Description" : "A description of the disk image.",
+    "Volume" : {
+      "size" : "The size of the volume, in GiB."
+    },
+    "Image" : {
+      "importManifestUrl" : "A presigned URL for the import manifest stored in Amazon S3 and presented here as an Amazon S3 presigned URL. For information about creating a presigned URL for an Amazon S3 object, read the \"Query String Request Authentication Alternative\" section of the Authenticating REST Requests topic in the Amazon Simple Storage Service Developer Guide. \nFor information about the import manifest referenced by this API action, see VM Import Manifest.",
+      "bytes" : "The size of the disk image, in GiB.",
+      "format" : "The disk image format."
+    }
+  } ]
+}
+```
 
 </details>
 
@@ -2970,9 +5371,17 @@ For more information about key pairs, see Key Pairs in the Amazon Elastic Comput
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "KeyName" : "A unique name for the key pair.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.",
+  "PublicKeyMaterial" : "The public key. For API calls, the text must be base64-encoded. For command line tools, base64 encoding is performed for you."
+}
+```
 
 </details>
 
@@ -2982,11 +5391,35 @@ Imports a disk into an EBS snapshot.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for ImportSnapshot.
 
 **Type:** object
+
+```json
+{
+  "RoleName" : "The name of the role to use when not using the default role, 'vmimport'.",
+  "Description" : "The description string for the import snapshot task.",
+  "ClientData" : {
+    "Comment" : "A user-defined comment about the disk upload.",
+    "UploadEnd" : "The time that the disk upload ends.",
+    "UploadSize" : "The size of the uploaded disk image, in GiB.",
+    "UploadStart" : "The time that the disk upload starts."
+  },
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.",
+  "DiskContainer" : {
+    "Description" : "The description of the disk image being imported.",
+    "Format" : "The format of the disk image being imported. \nValid values: VHD | VMDK | OVA ",
+    "UserBucket" : {
+      "S3Bucket" : "The name of the S3 bucket where the disk image is located.",
+      "S3Key" : "The file name of the disk image."
+    },
+    "Url" : "The URL to the Amazon S3-based disk image being imported. It can either be a https URL (https://..) or an Amazon S3 URL (s3://..)."
+  },
+  "ClientToken" : "Token to enable idempotency for VM import requests."
+}
+```
 
 </details>
 
@@ -2997,11 +5430,27 @@ For information about the import manifest referenced by this API action, see VM 
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for ImportVolume.
 
 **Type:** object
+
+```json
+{
+  "Description" : "A description of the volume.",
+  "Volume" : {
+    "size" : "The size of the volume, in GiB."
+  },
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.",
+  "AvailabilityZone" : "The Availability Zone for the resulting EBS volume.",
+  "Image" : {
+    "importManifestUrl" : "A presigned URL for the import manifest stored in Amazon S3 and presented here as an Amazon S3 presigned URL. For information about creating a presigned URL for an Amazon S3 object, read the \"Query String Request Authentication Alternative\" section of the Authenticating REST Requests topic in the Amazon Simple Storage Service Developer Guide. \nFor information about the import manifest referenced by this API action, see VM Import Manifest.",
+    "bytes" : "The size of the disk image, in GiB.",
+    "format" : "The disk image format."
+  }
+}
+```
 
 </details>
 
@@ -3012,9 +5461,23 @@ While the EC2 Fleet is being modified, it is in the modifying state.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "TargetCapacitySpecification" : {
+    "DefaultTargetCapacityType" : "The default TotalTargetCapacity, which is either Spot or On-Demand.",
+    "TotalTargetCapacity" : "The number of units to request, filled using DefaultTargetCapacityType.",
+    "OnDemandTargetCapacity" : "The number of On-Demand units to request.",
+    "SpotTargetCapacity" : "The number of Spot units to request."
+  },
+  "ExcessCapacityTerminationPolicy" : "Indicates whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2 Fleet.",
+  "FleetId" : "The ID of the EC2 Fleet.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation."
+}
+```
 
 </details>
 
@@ -3024,9 +5487,33 @@ Modifies the specified attribute of the specified Amazon FPGA Image (AFI).
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "LoadPermission" : {
+    "Add" : [ {
+      "Group" : "The name of the group.",
+      "UserId" : "The AWS account ID."
+    } ],
+    "Remove" : [ {
+      "Group" : "The name of the group.",
+      "UserId" : "The AWS account ID."
+    } ]
+  },
+  "FpgaImageId" : "The ID of the AFI.",
+  "Description" : "A description for the AFI.",
+  "ProductCode" : [ "string" ],
+  "Attribute" : "The name of the attribute.",
+  "UserId" : [ "string" ],
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.",
+  "OperationType" : "The operation type.",
+  "Name" : "A name for the AFI.",
+  "UserGroup" : [ "string" ]
+}
+```
 
 </details>
 
@@ -3036,9 +5523,16 @@ Modify the auto-placement setting of a Dedicated Host. When auto-placement is en
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "AutoPlacement" : "Specify whether to enable or disable auto-placement.",
+  "HostId" : [ "string" ]
+}
+```
 
 </details>
 
@@ -3051,11 +5545,18 @@ Resources created with longer IDs are visible to all IAM roles and users, regard
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters of ModifyIdFormat.
 
 **Type:** object
+
+```json
+{
+  "Resource" : "The type of resource: bundle | conversion-task | customer-gateway | dhcp-options | elastic-ip-allocation | elastic-ip-association | export-task | flow-log | image | import-task | internet-gateway | network-acl | network-acl-association | network-interface | network-interface-attachment | prefix-list | route-table | route-table-association | security-group | subnet | subnet-cidr-block-association | vpc | vpc-cidr-block-association | vpc-endpoint | vpc-peering-connection | vpn-connection | vpn-gateway. \nAlternatively, use the all-current option to include all resource types that are currently within their opt-in period for longer IDs.",
+  "UseLongIds" : "Indicate whether the resource should use longer IDs (17-character IDs)."
+}
+```
 
 </details>
 
@@ -3069,11 +5570,19 @@ Resources created with longer IDs are visible to all IAM roles and users, regard
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters of ModifyIdentityIdFormat.
 
 **Type:** object
+
+```json
+{
+  "PrincipalArn" : "The ARN of the principal, which can be an IAM user, IAM role, or the root user. Specify all to modify the ID format for all IAM users, IAM roles, and the root user of the account.",
+  "Resource" : "The type of resource: bundle | conversion-task | customer-gateway | dhcp-options | elastic-ip-allocation | elastic-ip-association | export-task | flow-log | image | import-task | internet-gateway | network-acl | network-acl-association | network-interface | network-interface-attachment | prefix-list | route-table | route-table-association | security-group | subnet | subnet-cidr-block-association | vpc | vpc-cidr-block-association | vpc-endpoint | vpc-peering-connection | vpn-connection | vpn-gateway. \nAlternatively, use the all-current option to include all resource types that are currently within their opt-in period for longer IDs.",
+  "UseLongIds" : "Indicates whether the resource should use longer IDs (17-character IDs)"
+}
+```
 
 </details>
 
@@ -3085,11 +5594,37 @@ To enable the SriovNetSupport enhanced networking attribute of an image, enable 
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for ModifyImageAttribute.
 
 **Type:** object
+
+```json
+{
+  "Description" : {
+    "value" : "The attribute value. The value is case-sensitive."
+  },
+  "ProductCode" : [ "string" ],
+  "Attribute" : "The name of the attribute to modify. The valid values are description, launchPermission, and productCodes.",
+  "UserId" : [ "string" ],
+  "Value" : "The value of the attribute being modified. This parameter can be used only when the Attribute parameter is description or productCodes.",
+  "ImageId" : "The ID of the AMI.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.",
+  "OperationType" : "The operation type. This parameter can be used only when the Attribute parameter is launchPermission.",
+  "LaunchPermission" : {
+    "Add" : [ {
+      "userId" : "The AWS account ID.",
+      "group" : "The name of the group."
+    } ],
+    "Remove" : [ {
+      "userId" : "The AWS account ID.",
+      "group" : "The name of the group."
+    } ]
+  },
+  "UserGroup" : [ "string" ]
+}
+```
 
 </details>
 
@@ -3101,11 +5636,60 @@ To modify some attributes, the instance must be stopped. For more information, s
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for ModifyInstanceAttribute.
 
 **Type:** object
+
+```json
+{
+  "Attribute" : "The name of the attribute.",
+  "InstanceId" : "The ID of the instance.",
+  "UserData" : {
+    "value" : "blob"
+  },
+  "InstanceInitiatedShutdownBehavior" : {
+    "value" : "The attribute value. The value is case-sensitive."
+  },
+  "EnaSupport" : {
+    "value" : "The attribute value. The valid values are true or false."
+  },
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.",
+  "SriovNetSupport" : {
+    "value" : "The attribute value. The value is case-sensitive."
+  },
+  "GroupId" : [ "string" ],
+  "EbsOptimized" : {
+    "value" : "The attribute value. The valid values are true or false."
+  },
+  "Ramdisk" : {
+    "value" : "The attribute value. The value is case-sensitive."
+  },
+  "DisableApiTermination" : {
+    "value" : "The attribute value. The valid values are true or false."
+  },
+  "SourceDestCheck" : {
+    "value" : "The attribute value. The valid values are true or false."
+  },
+  "Value" : "A new value for the attribute. Use only with the kernel, ramdisk, userData, disableApiTermination, or instanceInitiatedShutdownBehavior attribute.",
+  "BlockDeviceMapping" : [ {
+    "noDevice" : "suppress the specified device included in the block device mapping.",
+    "ebs" : {
+      "volumeId" : "The ID of the EBS volume.",
+      "deleteOnTermination" : "Indicates whether the volume is deleted on instance termination."
+    },
+    "virtualName" : "The virtual device name.",
+    "deviceName" : "The device name (for example, /dev/sdh or xvdh)."
+  } ],
+  "InstanceType" : {
+    "value" : "The attribute value. The value is case-sensitive."
+  },
+  "Kernel" : {
+    "value" : "The attribute value. The value is case-sensitive."
+  }
+}
+```
 
 </details>
 
@@ -3116,9 +5700,20 @@ For more information, see Burstable Performance Instances in the Amazon Elastic 
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "InstanceCreditSpecification" : [ {
+    "InstanceId" : "The ID of the instance.",
+    "CpuCredits" : "The credit option for CPU usage of the instance. Valid values are standard and unlimited."
+  } ],
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.",
+  "ClientToken" : "A unique, case-sensitive token that you provide to ensure idempotency of your modification request. For more information, see Ensuring Idempotency."
+}
+```
 
 </details>
 
@@ -3134,9 +5729,19 @@ To modify the host ID, tenancy, or placement group for an instance, the instance
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "Tenancy" : "The tenancy for the instance.",
+  "GroupName" : "The name of the placement group in which to place the instance. For spread placement groups, the instance must have a tenancy of default. For cluster placement groups, the instance must have a tenancy of default or dedicated. \nTo remove an instance from a placement group, specify an empty string (\"\").",
+  "InstanceId" : "The ID of the instance that you are modifying.",
+  "Affinity" : "The affinity setting for the instance.",
+  "HostId" : "The ID of the Dedicated Host with which to associate the instance."
+}
+```
 
 </details>
 
@@ -3146,9 +5751,19 @@ Modifies a launch template. You can specify which version of the launch template
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "SetDefaultVersion" : "The version number of the launch template to set as the default version.",
+  "LaunchTemplateName" : "The name of the launch template. You must specify either the launch template ID or launch template name in the request.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.",
+  "LaunchTemplateId" : "The ID of the launch template. You must specify either the launch template ID or launch template name in the request.",
+  "ClientToken" : "Unique, case-sensitive identifier you provide to ensure the idempotency of the request. For more information, see Ensuring Idempotency."
+}
+```
 
 </details>
 
@@ -3158,11 +5773,29 @@ Modifies the specified network interface attribute. You can specify only one att
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for ModifyNetworkInterfaceAttribute.
 
 **Type:** object
+
+```json
+{
+  "SourceDestCheck" : {
+    "value" : "The attribute value. The valid values are true or false."
+  },
+  "Description" : {
+    "value" : "The attribute value. The value is case-sensitive."
+  },
+  "SecurityGroupId" : [ "string" ],
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.",
+  "Attachment" : {
+    "attachmentId" : "The ID of the network interface attachment.",
+    "deleteOnTermination" : "Indicates whether the network interface is deleted when the instance is terminated."
+  },
+  "NetworkInterfaceId" : "The ID of the network interface."
+}
+```
 
 </details>
 
@@ -3173,11 +5806,25 @@ For more information, see Modifying Reserved Instances in the Amazon Elastic Com
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for ModifyReservedInstances.
 
 **Type:** object
+
+```json
+{
+  "ReservedInstancesId" : [ "string" ],
+  "ReservedInstancesConfigurationSetItemType" : [ {
+    "instanceCount" : "The number of modified Reserved Instances.",
+    "instanceType" : "The instance type for the modified Reserved Instances.",
+    "scope" : "Whether the Reserved Instance is applied to instances in a region or instances in a specific Availability Zone.",
+    "availabilityZone" : "The Availability Zone for the modified Reserved Instances.",
+    "platform" : "The network platform of the modified Reserved Instances, which is either EC2-Classic or EC2-VPC."
+  } ],
+  "ClientToken" : "A unique, case-sensitive token you provide to ensure idempotency of your modification request. For more information, see Ensuring Idempotency."
+}
+```
 
 </details>
 
@@ -3189,11 +5836,32 @@ For more information about modifying snapshot permissions, see Sharing Snapshots
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for ModifySnapshotAttribute.
 
 **Type:** object
+
+```json
+{
+  "SnapshotId" : "The ID of the snapshot.",
+  "CreateVolumePermission" : {
+    "Add" : [ {
+      "userId" : "The specific AWS account ID that is to be added or removed from a volume's list of create volume permissions.",
+      "group" : "The specific group that is to be added or removed from a volume's list of create volume permissions."
+    } ],
+    "Remove" : [ {
+      "userId" : "The specific AWS account ID that is to be added or removed from a volume's list of create volume permissions.",
+      "group" : "The specific group that is to be added or removed from a volume's list of create volume permissions."
+    } ]
+  },
+  "Attribute" : "The snapshot attribute to modify. Only volume creation permissions can be modified.",
+  "UserId" : [ "string" ],
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.",
+  "OperationType" : "The type of operation to perform to the attribute.",
+  "UserGroup" : [ "string" ]
+}
+```
 
 </details>
 
@@ -3207,11 +5875,19 @@ If you are finished with your Spot Fleet for now, but will use it again later, y
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for ModifySpotFleetRequest.
 
 **Type:** object
+
+```json
+{
+  "ExcessCapacityTerminationPolicy" : "Indicates whether running Spot Instances should be terminated if the target capacity of the Spot Fleet request is decreased below the current size of the Spot Fleet.",
+  "SpotFleetRequestId" : "The ID of the Spot Fleet request.",
+  "TargetCapacity" : "The size of the fleet."
+}
+```
 
 </details>
 
@@ -3221,9 +5897,21 @@ Modifies a subnet attribute. You can only modify one attribute at a time.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "AssignIpv6AddressOnCreation" : {
+    "value" : "The attribute value. The valid values are true or false."
+  },
+  "MapPublicIpOnLaunch" : {
+    "value" : "The attribute value. The valid values are true or false."
+  },
+  "SubnetId" : "The ID of the subnet."
+}
+```
 
 </details>
 
@@ -3237,9 +5925,19 @@ If you reach the maximum volume modification rate per volume limit, you will nee
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "VolumeId" : "The ID of the volume.",
+  "VolumeType" : "The target EBS volume type of the volume. \nDefault: If no type is specified, the existing type is retained.",
+  "Size" : "The target size of the volume, in GiB. The target volume size must be greater than or equal to than the existing size of the volume. For information about available EBS volume sizes, see Amazon EBS Volume Types. \nDefault: If no size is specified, the existing size is retained.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.",
+  "Iops" : "The target IOPS rate of the volume. \nThis is only valid for Provisioned IOPS SSD (io1) volumes. For more information, see Provisioned IOPS SSD (io1) Volumes. \nDefault: If no IOPS value is specified, the existing value is retained."
+}
+```
 
 </details>
 
@@ -3251,11 +5949,21 @@ You can change the default behavior to resume I/O operations. We recommend that 
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for ModifyVolumeAttribute.
 
 **Type:** object
+
+```json
+{
+  "VolumeId" : "The ID of the volume.",
+  "AutoEnableIO" : {
+    "value" : "The attribute value. The valid values are true or false."
+  },
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation."
+}
+```
 
 </details>
 
@@ -3265,9 +5973,21 @@ Modifies the specified attribute of the specified VPC.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "VpcId" : "The ID of the VPC.",
+  "EnableDnsSupport" : {
+    "value" : "The attribute value. The valid values are true or false."
+  },
+  "EnableDnsHostnames" : {
+    "value" : "The attribute value. The valid values are true or false."
+  }
+}
+```
 
 </details>
 
@@ -3277,11 +5997,27 @@ Modifies attributes of a specified VPC endpoint. The attributes that you can mod
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for ModifyVpcEndpoint.
 
 **Type:** object
+
+```json
+{
+  "PrivateDnsEnabled" : "(Interface endpoint) Indicate whether a private hosted zone is associated with the VPC.",
+  "AddSecurityGroupId" : [ "string" ],
+  "ResetPolicy" : "(Gateway endpoint) Specify true to reset the policy document to the default policy. The default policy allows full access to the service.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.",
+  "AddSubnetId" : [ "string" ],
+  "RemoveRouteTableId" : [ "string" ],
+  "PolicyDocument" : "(Gateway endpoint) A policy document to attach to the endpoint. The policy must be in valid JSON format.",
+  "RemoveSubnetId" : [ "string" ],
+  "AddRouteTableId" : [ "string" ],
+  "VpcEndpointId" : "The ID of the endpoint.",
+  "RemoveSecurityGroupId" : [ "string" ]
+}
+```
 
 </details>
 
@@ -3291,9 +6027,18 @@ Modifies a connection notification for VPC endpoint or VPC endpoint service. You
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "ConnectionEvents" : [ "string" ],
+  "ConnectionNotificationId" : "The ID of the notification.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.",
+  "ConnectionNotificationArn" : "The ARN for the SNS topic for the notification."
+}
+```
 
 </details>
 
@@ -3303,9 +6048,19 @@ Modifies the attributes of your VPC endpoint service configuration. You can chan
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "RemoveNetworkLoadBalancerArn" : [ "string" ],
+  "AcceptanceRequired" : "Indicate whether requests to create an endpoint to your service must be accepted.",
+  "AddNetworkLoadBalancerArn" : [ "string" ],
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.",
+  "ServiceId" : "The ID of the service."
+}
+```
 
 </details>
 
@@ -3316,9 +6071,18 @@ If you grant permissions to all principals, the service is public. Any users who
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "AddAllowedPrincipals" : [ "string" ],
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.",
+  "RemoveAllowedPrincipals" : [ "string" ],
+  "ServiceId" : "The ID of the service."
+}
+```
 
 </details>
 
@@ -3332,9 +6096,26 @@ If the peered VPCs are in different accounts, each owner must initiate a separat
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "VpcPeeringConnectionId" : "The ID of the VPC peering connection.",
+  "AccepterPeeringConnectionOptions" : {
+    "AllowDnsResolutionFromRemoteVpc" : "If true, enables a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.",
+    "AllowEgressFromLocalClassicLinkToRemoteVpc" : "If true, enables outbound communication from an EC2-Classic instance that's linked to a local VPC using ClassicLink to instances in a peer VPC.",
+    "AllowEgressFromLocalVpcToRemoteClassicLink" : "If true, enables outbound communication from instances in a local VPC to an EC2-Classic instance that's linked to a peer VPC using ClassicLink."
+  },
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.",
+  "RequesterPeeringConnectionOptions" : {
+    "AllowDnsResolutionFromRemoteVpc" : "If true, enables a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.",
+    "AllowEgressFromLocalClassicLinkToRemoteVpc" : "If true, enables outbound communication from an EC2-Classic instance that's linked to a local VPC using ClassicLink to instances in a peer VPC.",
+    "AllowEgressFromLocalVpcToRemoteClassicLink" : "If true, enables outbound communication from instances in a local VPC to an EC2-Classic instance that's linked to a peer VPC using ClassicLink."
+  }
+}
+```
 
 </details>
 
@@ -3346,9 +6127,17 @@ For more information, see Dedicated Instances in the Amazon Elastic Compute Clou
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "VpcId" : "The ID of the VPC.",
+  "InstanceTenancy" : "The instance tenancy attribute for the VPC. ",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation."
+}
+```
 
 </details>
 
@@ -3359,11 +6148,18 @@ To disable detailed monitoring, see .
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for MonitorInstances.
 
 **Type:** object
+
+```json
+{
+  "InstanceId" : [ "string" ],
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation."
+}
+```
 
 </details>
 
@@ -3373,11 +6169,18 @@ Moves an Elastic IP address from the EC2-Classic platform to the EC2-VPC platfor
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for MoveAddressToVpc.
 
 **Type:** object
+
+```json
+{
+  "PublicIp" : "The Elastic IP address.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation."
+}
+```
 
 </details>
 
@@ -3387,9 +6190,19 @@ Purchase a reservation with configurations that match those of your Dedicated Ho
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "CurrencyCode" : "The currency in which the totalUpfrontPrice, LimitPrice, and totalHourlyPrice amounts are specified. At this time, the only supported currency is USD.",
+  "LimitPrice" : "The specified limit is checked against the total upfront cost of the reservation (calculated as the offering's upfront cost multiplied by the host count). If the total upfront cost is greater than the specified price limit, the request fails. This is used to ensure that the purchase does not exceed the expected upfront cost of the purchase. At this time, the only supported currency is USD. For example, to indicate a limit price of USD 100, specify 100.00.",
+  "HostIdSet" : [ "string" ],
+  "ClientToken" : "Unique, case-sensitive identifier you provide to ensure idempotency of the request. For more information, see How to Ensure Idempotency in the Amazon Elastic Compute Cloud User Guide.",
+  "OfferingId" : "The ID of the offering."
+}
+```
 
 </details>
 
@@ -3401,11 +6214,23 @@ For more information, see Reserved Instances and Reserved Instance Marketplace i
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for PurchaseReservedInstancesOffering.
 
 **Type:** object
+
+```json
+{
+  "InstanceCount" : "The number of Reserved Instances to purchase.",
+  "LimitPrice" : {
+    "amount" : "Used for Reserved Instance Marketplace offerings. Specifies the limit price on the total order (instanceCount * price).",
+    "currencyCode" : "The currency in which the limitPrice amount is specified. At this time, the only supported currency is USD."
+  },
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.",
+  "ReservedInstancesOfferingId" : "The ID of the Reserved Instance offering to purchase."
+}
+```
 
 </details>
 
@@ -3417,11 +6242,22 @@ After you purchase a Scheduled Instance, you can't cancel, modify, or resell you
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for PurchaseScheduledInstances.
 
 **Type:** object
+
+```json
+{
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.",
+  "PurchaseRequest" : [ {
+    "InstanceCount" : "The number of instances.",
+    "PurchaseToken" : "The purchase token."
+  } ],
+  "ClientToken" : "Unique, case-sensitive identifier that ensures the idempotency of the request. For more information, see Ensuring Idempotency."
+}
+```
 
 </details>
 
@@ -3433,11 +6269,18 @@ For more information about troubleshooting, see Getting Console Output and Reboo
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for RebootInstances.
 
 **Type:** object
+
+```json
+{
+  "InstanceId" : [ "string" ],
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation."
+}
+```
 
 </details>
 
@@ -3453,11 +6296,42 @@ If needed, you can deregister an AMI at any time. Any modifications you make to 
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for RegisterImage.
 
 **Type:** object
+
+```json
+{
+  "RamdiskId" : "The ID of the RAM disk.",
+  "RootDeviceName" : "The device name of the root device volume (for example, /dev/sda1).",
+  "Description" : "A description for your AMI.",
+  "Architecture" : "The architecture of the AMI. \nDefault: For Amazon EBS-backed AMIs, i386. For instance store-backed AMIs, the architecture specified in the manifest file.",
+  "VirtualizationType" : "The type of virtualization (hvm | paravirtual). \nDefault: paravirtual ",
+  "EnaSupport" : "Set to true to enable enhanced networking with ENA for the AMI and any instances that you launch from the AMI. \nThis option is supported only for HVM AMIs. Specifying this option with a PV AMI can make instances launched from the AMI unreachable.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.",
+  "BlockDeviceMapping" : [ {
+    "noDevice" : "Suppresses the specified device included in the block device mapping of the AMI.",
+    "virtualName" : "The virtual device name (ephemeralN). Instance store volumes are numbered starting from 0. An instance type with 2 available instance store volumes can specify mappings for ephemeral0 and ephemeral1. The number of available instance store volumes depends on the instance type. After you connect to the instance, you must mount the volume. \nNVMe instance store volumes are automatically enumerated and assigned a device name. Including them in your block device mapping has no effect. \nConstraints: For M3 instances, you must specify instance store volumes in the block device mapping for the instance. When you launch an M3 instance, we ignore any instance store volumes specified in the block device mapping for the AMI.",
+    "ebs" : {
+      "volumeType" : "The volume type: gp2, io1, st1, sc1, or standard. \nDefault: standard ",
+      "snapshotId" : "The ID of the snapshot.",
+      "encrypted" : "Indicates whether the EBS volume is encrypted. Encrypted volumes can only be attached to instances that support Amazon EBS encryption.  \nIf you are creating a volume from a snapshot, you cannot specify an encryption value. This is because only blank volumes can be encrypted on creation. If you are creating a snapshot from an existing EBS volume, you cannot specify an encryption value that differs from that of the EBS volume. We recommend that you omit the encryption value from the block device mappings when creating an image from an instance.",
+      "KmsKeyId" : "Identifier (key ID, key alias, ID ARN, or alias ARN) for a user-managed CMK under which the EBS volume is encrypted. \nThis parameter is only supported on BlockDeviceMapping objects called by RunInstances, RequestSpotFleet, and RequestSpotInstances.",
+      "iops" : "The number of I/O operations per second (IOPS) that the volume supports. For io1, this represents the number of IOPS that are provisioned for the volume. For gp2, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting. For more information about General Purpose SSD baseline performance, I/O credits, and bursting, see Amazon EBS Volume Types in the Amazon Elastic Compute Cloud User Guide. \nConstraint: Range is 100-20000 IOPS for io1 volumes and 100-10000 IOPS for gp2 volumes. \nCondition: This parameter is required for requests to create io1 volumes; it is not used in requests to create gp2, st1, sc1, or standard volumes.",
+      "deleteOnTermination" : "Indicates whether the EBS volume is deleted on instance termination.",
+      "volumeSize" : "The size of the volume, in GiB. \nConstraints: 1-16384 for General Purpose SSD (gp2), 4-16384 for Provisioned IOPS SSD (io1), 500-16384 for Throughput Optimized HDD (st1), 500-16384 for Cold HDD (sc1), and 1-1024 for Magnetic (standard) volumes. If you specify a snapshot, the volume size must be equal to or larger than the snapshot size. \nDefault: If you're creating the volume from a snapshot and don't specify a volume size, the default is the snapshot size."
+    },
+    "deviceName" : "The device name (for example, /dev/sdh or xvdh)."
+  } ],
+  "SriovNetSupport" : "Set to simple to enable enhanced networking with the Intel 82599 Virtual Function interface for the AMI and any instances that you launch from the AMI. \nThere is no way to disable sriovNetSupport at this time. \nThis option is supported only for HVM AMIs. Specifying this option with a PV AMI can make instances launched from the AMI unreachable.",
+  "BillingProduct" : [ "string" ],
+  "KernelId" : "The ID of the kernel.",
+  "ImageLocation" : "The full path to your AMI manifest in Amazon S3 storage.",
+  "Name" : "A name for your AMI. \nConstraints: 3-128 alphanumeric characters, parentheses (()), square brackets ([]), spaces ( ), periods (.), slashes (/), dashes (-), single quotes ('), at-signs (@), or underscores(_)"
+}
+```
 
 </details>
 
@@ -3467,9 +6341,17 @@ Rejects one or more VPC endpoint connection requests to your VPC endpoint servic
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.",
+  "VpcEndpointId" : [ "string" ],
+  "ServiceId" : "The ID of the service."
+}
+```
 
 </details>
 
@@ -3479,9 +6361,16 @@ Rejects a VPC peering connection request. The VPC peering connection must be in 
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "VpcPeeringConnectionId" : "The ID of the VPC peering connection.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation."
+}
+```
 
 </details>
 
@@ -3495,11 +6384,19 @@ After releasing an Elastic IP address, it is released to the IP address pool. Be
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for ReleaseAddress.
 
 **Type:** object
+
+```json
+{
+  "PublicIp" : "[EC2-Classic] The Elastic IP address. Required for EC2-Classic.",
+  "AllocationId" : "[EC2-VPC] The allocation ID. Required for EC2-VPC.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation."
+}
+```
 
 </details>
 
@@ -3511,9 +6408,15 @@ Released hosts still appear in a DescribeHosts response.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "HostId" : [ "string" ]
+}
+```
 
 </details>
 
@@ -3524,9 +6427,19 @@ Use DescribeIamInstanceProfileAssociations to get the association ID.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "IamInstanceProfile" : {
+    "name" : "The name of the instance profile.",
+    "arn" : "The Amazon Resource Name (ARN) of the instance profile."
+  },
+  "AssociationId" : "The ID of the existing IAM instance profile association."
+}
+```
 
 </details>
 
@@ -3537,9 +6450,17 @@ This is an idempotent operation.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "NetworkAclId" : "The ID of the new network ACL to associate with the subnet.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.",
+  "AssociationId" : "The ID of the current association between the original network ACL and the subnet."
+}
+```
 
 </details>
 
@@ -3549,9 +6470,30 @@ Replaces an entry (rule) in a network ACL. For more information, see Network ACL
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "PortRange" : {
+    "from" : "The first port in the range.",
+    "to" : "The last port in the range."
+  },
+  "NetworkAclId" : "The ID of the ACL.",
+  "RuleAction" : "Indicates whether to allow or deny the traffic that matches the rule.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.",
+  "CidrBlock" : "The IPv4 network range to allow or deny, in CIDR notation (for example 172.16.0.0/24).",
+  "Egress" : "Indicates whether to replace the egress rule. \nDefault: If no value is specified, we replace the ingress rule.",
+  "RuleNumber" : "The rule number of the entry to replace.",
+  "Ipv6CidrBlock" : "The IPv6 network range to allow or deny, in CIDR notation (for example 2001:bd8:1234:1a00::/64).",
+  "Protocol" : "The IP protocol. You can specify all or -1 to mean all protocols. If you specify all, -1, or a protocol number other than tcp, udp, or icmp, traffic on all ports is allowed, regardless of any ports or ICMP types or codes you that specify. If you specify protocol 58 (ICMPv6) and specify an IPv4 CIDR block, traffic for all ICMP types and codes allowed, regardless of any that you specify. If you specify protocol 58 (ICMPv6) and specify an IPv6 CIDR block, you must specify an ICMP type and code.",
+  "Icmp" : {
+    "code" : "The ICMP code. A value of -1 means all codes for the specified ICMP type.",
+    "type" : "The ICMP type. A value of -1 means all types."
+  }
+}
+```
 
 </details>
 
@@ -3562,9 +6504,24 @@ For more information, see Route Tables in the Amazon Virtual Private Cloud User 
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "DestinationIpv6CidrBlock" : "The IPv6 CIDR address block used for the destination match. The value that you provide must match the CIDR of an existing route in the table.",
+  "VpcPeeringConnectionId" : "The ID of a VPC peering connection.",
+  "RouteTableId" : "The ID of the route table.",
+  "InstanceId" : "The ID of a NAT instance in your VPC.",
+  "EgressOnlyInternetGatewayId" : "[IPv6 traffic only] The ID of an egress-only internet gateway.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.",
+  "DestinationCidrBlock" : "The IPv4 CIDR address block used for the destination match. The value that you provide must match the CIDR of an existing route in the table.",
+  "GatewayId" : "The ID of an internet gateway or virtual private gateway.",
+  "NetworkInterfaceId" : "The ID of a network interface.",
+  "NatGatewayId" : "[IPv4 traffic only] The ID of a NAT gateway."
+}
+```
 
 </details>
 
@@ -3575,9 +6532,17 @@ You can also use ReplaceRouteTableAssociation to change which table is the main 
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "RouteTableId" : "The ID of the new route table to associate with the subnet.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.",
+  "AssociationId" : "The association ID."
+}
+```
 
 </details>
 
@@ -3588,11 +6553,23 @@ Use of this action does not change the value returned by DescribeInstanceStatus.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for ReportInstanceStatus.
 
 **Type:** object
+
+```json
+{
+  "Status" : "The status of all instances listed.",
+  "Description" : "Descriptive text about the health state of your instance.",
+  "EndTime" : "The time at which the reported instance health state ended.",
+  "InstanceId" : [ "string" ],
+  "StartTime" : "The time at which the reported instance health state began.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.",
+  "ReasonCode" : [ "string. Possible values: instance-stuck-in-state | unresponsive | not-accepting-credentials | password-not-available | performance-network | performance-instance-store | performance-ebs-volume | performance-other | other" ]
+}
+```
 
 </details>
 
@@ -3608,11 +6585,132 @@ For more information, see Spot Fleet Requests in the Amazon EC2 User Guide for L
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for RequestSpotFleet.
 
 **Type:** object
+
+```json
+{
+  "SpotFleetRequestConfig" : {
+    "onDemandFulfilledCapacity" : "The number of On-Demand units fulfilled by this request compared to the set target On-Demand capacity.",
+    "spotPrice" : "The maximum price per unit hour that you are willing to pay for a Spot Instance. The default is the On-Demand price.",
+    "targetCapacity" : "The number of units to request. You can choose to set the target capacity in terms of instances or a performance characteristic that is important to your application workload, such as vCPUs, memory, or I/O. If the request type is maintain, you can specify a target capacity of 0 and add capacity later.",
+    "clientToken" : "A unique, case-sensitive identifier that you provide to ensure the idempotency of your listings. This helps to avoid duplicate listings. For more information, see Ensuring Idempotency.",
+    "instancePoolsToUseCount" : "The number of Spot pools across which to allocate your target Spot capacity. Valid only when Spot AllocationStrategy is set to lowest-price. Spot Fleet selects the cheapest Spot pools and evenly allocates your target Spot capacity across the number of Spot pools that you specify.",
+    "launchTemplateConfigs" : [ {
+      "overrides" : [ {
+        "subnetId" : "The ID of the subnet in which to launch the instances.",
+        "spotPrice" : "The maximum price per unit hour that you are willing to pay for a Spot Instance.",
+        "instanceType" : "The instance type.",
+        "priority" : "The priority for the launch template override. If OnDemandAllocationStrategy is set to prioritized, Spot Fleet uses priority to determine which launch template override to use first in fulfilling On-Demand capacity. The highest priority is launched first. Valid values are whole numbers starting at 0. The lower the number, the higher the priority. If no number is set, the launch template override has the lowest priority.",
+        "availabilityZone" : "The Availability Zone in which to launch the instances.",
+        "weightedCapacity" : "The number of units provided by the specified instance type."
+      } ],
+      "launchTemplateSpecification" : {
+        "launchTemplateId" : "The ID of the launch template. You must specify either a template ID or a template name.",
+        "version" : "The version number of the launch template. You must specify a version number.",
+        "launchTemplateName" : "The name of the launch template. You must specify either a template name or a template ID."
+      }
+    } ],
+    "onDemandAllocationStrategy" : "The order of the launch template overrides to use in fulfilling On-Demand capacity. If you specify lowestPrice, Spot Fleet uses price to determine the order, launching the lowest price first. If you specify prioritized, Spot Fleet uses the priority that you assign to each Spot Fleet launch template override, launching the highest priority first. If you do not specify a value, Spot Fleet defaults to lowestPrice.",
+    "onDemandTargetCapacity" : "The number of On-Demand units to request. You can choose to set the target capacity in terms of instances or a performance characteristic that is important to your application workload, such as vCPUs, memory, or I/O. If the request type is maintain, you can specify a target capacity of 0 and add capacity later.",
+    "validFrom" : "The start date and time of the request, in UTC format (for example, YYYY-MM-DDTHH:MM:SSZ). The default is to start fulfilling the request immediately.",
+    "launchSpecifications" : [ {
+      "subnetId" : "The ID of the subnet in which to launch the instances. To specify multiple subnets, separate them using commas; for example, \"subnet-a61dafcf, subnet-65ea5f08\".",
+      "addressingType" : "Deprecated.",
+      "kernelId" : "The ID of the kernel.",
+      "ebsOptimized" : "Indicates whether the instances are optimized for EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal EBS I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS Optimized instance. \nDefault: false ",
+      "ramdiskId" : "The ID of the RAM disk.",
+      "imageId" : "The ID of the AMI.",
+      "spotPrice" : "The maximum price per unit hour that you are willing to pay for a Spot Instance. If this value is not specified, the default is the Spot price specified for the fleet. To determine the Spot price per unit hour, divide the Spot price by the value of WeightedCapacity.",
+      "userData" : "The Base64-encoded user data to make available to the instances.",
+      "networkInterfaceSet" : [ {
+        "networkInterfaceId" : "The ID of the network interface.",
+        "subnetId" : "The ID of the subnet associated with the network string. Applies only if creating a network interface when launching an instance.",
+        "ipv6AddressCount" : "A number of IPv6 addresses to assign to the network interface. Amazon EC2 chooses the IPv6 addresses from the range of the subnet. You cannot specify this option and the option to assign specific IPv6 addresses in the same request. You can specify this option if you've specified a minimum number of instances to launch.",
+        "SecurityGroupId" : [ "string" ],
+        "ipv6AddressesSet" : [ {
+          "ipv6Address" : "The IPv6 address."
+        } ],
+        "description" : "The description of the network interface. Applies only if creating a network interface when launching an instance.",
+        "associatePublicIpAddress" : "Indicates whether to assign a public IPv4 address to an instance you launch in a VPC. The public IP address can only be assigned to a network interface for eth0, and can only be assigned to a new network interface, not an existing one. You cannot specify more than one network interface in the request. If launching into a default subnet, the default value is true.",
+        "deleteOnTermination" : "If set to true, the interface is deleted when the instance is terminated. You can specify true only if creating a new network interface when launching an instance.",
+        "secondaryPrivateIpAddressCount" : "The number of secondary private IPv4 addresses. You can't specify this option and specify more than one private IP address using the private IP addresses option. You cannot specify this option if you're launching more than one instance in a RunInstances request.",
+        "deviceIndex" : "The index of the device on the instance for the network interface attachment. If you are specifying a network interface in a RunInstances request, you must provide the device index.",
+        "privateIpAddress" : "The private IPv4 address of the network interface. Applies only if creating a network interface when launching an instance. You cannot specify this option if you're launching more than one instance in a RunInstances request.",
+        "privateIpAddressesSet" : [ {
+          "privateIpAddress" : "The private IPv4 addresses.",
+          "primary" : "Indicates whether the private IPv4 address is the primary private IPv4 address. Only one IPv4 address can be designated as primary."
+        } ]
+      } ],
+      "blockDeviceMapping" : [ {
+        "noDevice" : "Suppresses the specified device included in the block device mapping of the AMI.",
+        "virtualName" : "The virtual device name (ephemeralN). Instance store volumes are numbered starting from 0. An instance type with 2 available instance store volumes can specify mappings for ephemeral0 and ephemeral1. The number of available instance store volumes depends on the instance type. After you connect to the instance, you must mount the volume. \nNVMe instance store volumes are automatically enumerated and assigned a device name. Including them in your block device mapping has no effect. \nConstraints: For M3 instances, you must specify instance store volumes in the block device mapping for the instance. When you launch an M3 instance, we ignore any instance store volumes specified in the block device mapping for the AMI.",
+        "ebs" : {
+          "volumeType" : "The volume type: gp2, io1, st1, sc1, or standard. \nDefault: standard ",
+          "snapshotId" : "The ID of the snapshot.",
+          "encrypted" : "Indicates whether the EBS volume is encrypted. Encrypted volumes can only be attached to instances that support Amazon EBS encryption.  \nIf you are creating a volume from a snapshot, you cannot specify an encryption value. This is because only blank volumes can be encrypted on creation. If you are creating a snapshot from an existing EBS volume, you cannot specify an encryption value that differs from that of the EBS volume. We recommend that you omit the encryption value from the block device mappings when creating an image from an instance.",
+          "KmsKeyId" : "Identifier (key ID, key alias, ID ARN, or alias ARN) for a user-managed CMK under which the EBS volume is encrypted. \nThis parameter is only supported on BlockDeviceMapping objects called by RunInstances, RequestSpotFleet, and RequestSpotInstances.",
+          "iops" : "The number of I/O operations per second (IOPS) that the volume supports. For io1, this represents the number of IOPS that are provisioned for the volume. For gp2, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting. For more information about General Purpose SSD baseline performance, I/O credits, and bursting, see Amazon EBS Volume Types in the Amazon Elastic Compute Cloud User Guide. \nConstraint: Range is 100-20000 IOPS for io1 volumes and 100-10000 IOPS for gp2 volumes. \nCondition: This parameter is required for requests to create io1 volumes; it is not used in requests to create gp2, st1, sc1, or standard volumes.",
+          "deleteOnTermination" : "Indicates whether the EBS volume is deleted on instance termination.",
+          "volumeSize" : "The size of the volume, in GiB. \nConstraints: 1-16384 for General Purpose SSD (gp2), 4-16384 for Provisioned IOPS SSD (io1), 500-16384 for Throughput Optimized HDD (st1), 500-16384 for Cold HDD (sc1), and 1-1024 for Magnetic (standard) volumes. If you specify a snapshot, the volume size must be equal to or larger than the snapshot size. \nDefault: If you're creating the volume from a snapshot and don't specify a volume size, the default is the snapshot size."
+        },
+        "deviceName" : "The device name (for example, /dev/sdh or xvdh)."
+      } ],
+      "tagSpecificationSet" : [ {
+        "tag" : [ {
+          "value" : "The value of the tag. \nConstraints: Tag values are case-sensitive and accept a maximum of 255 Unicode characters.",
+          "key" : "The key of the tag. \nConstraints: Tag keys are case-sensitive and accept a maximum of 127 Unicode characters. May not begin with aws:."
+        } ],
+        "resourceType" : "The type of resource. Currently, the only resource type that is supported is instance."
+      } ],
+      "instanceType" : "The instance type.",
+      "keyName" : "The name of the key pair.",
+      "monitoring" : {
+        "enabled" : "Enables monitoring for the instance. \nDefault: false "
+      },
+      "groupSet" : [ {
+        "groupName" : "The name of the security group.",
+        "groupId" : "The ID of the security group."
+      } ],
+      "iamInstanceProfile" : {
+        "name" : "The name of the instance profile.",
+        "arn" : "The Amazon Resource Name (ARN) of the instance profile."
+      },
+      "weightedCapacity" : "The number of units provided by the specified instance type. These are the same units that you chose to set the target capacity in terms (instances or a performance characteristic such as vCPUs, memory, or I/O). \nIf the target capacity divided by this value is not a whole number, we round the number of instances to the next whole number. If this value is not specified, the default is 1.",
+      "placement" : {
+        "groupName" : "The name of the placement group.",
+        "tenancy" : "The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware. The host tenancy is not supported for Spot Instances.",
+        "availabilityZone" : "The Availability Zone. \n[Spot Fleet only] To specify multiple Availability Zones, separate them using commas; for example, \"us-west-2a, us-west-2b\"."
+      }
+    } ],
+    "type" : "The type of request. Indicates whether the Spot Fleet only requests the target capacity or also attempts to maintain it. When this value is request, the Spot Fleet only places the required requests. It does not attempt to replenish Spot Instances if capacity is diminished, nor does it submit requests in alternative Spot pools if capacity is not available. To maintain a certain target capacity, the Spot Fleet places the required requests to meet capacity and automatically replenishes any interrupted instances. Default: maintain.",
+    "allocationStrategy" : "Indicates how to allocate the target capacity across the Spot pools specified by the Spot Fleet request. The default is lowestPrice.",
+    "fulfilledCapacity" : "The number of units fulfilled by this request compared to the set target capacity.",
+    "replaceUnhealthyInstances" : "Indicates whether Spot Fleet should replace unhealthy instances.",
+    "loadBalancersConfig" : {
+      "targetGroupsConfig" : {
+        "targetGroups" : [ {
+          "arn" : "The Amazon Resource Name (ARN) of the target group."
+        } ]
+      },
+      "classicLoadBalancersConfig" : {
+        "classicLoadBalancers" : [ {
+          "name" : "The name of the load balancer."
+        } ]
+      }
+    },
+    "terminateInstancesWithExpiration" : "Indicates whether running Spot Instances should be terminated when the Spot Fleet request expires.",
+    "iamFleetRole" : "Grants the Spot Fleet permission to terminate Spot Instances on your behalf when you cancel its Spot Fleet request using CancelSpotFleetRequests or when the Spot Fleet request expires, if you set terminateInstancesWithExpiration.",
+    "validUntil" : "The end date and time of the request, in UTC format (for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot Instance requests are placed or able to fulfill the request. The default end date is 7 days from the current date.",
+    "instanceInterruptionBehavior" : "The behavior when a Spot Instance is interrupted. The default is terminate.",
+    "excessCapacityTerminationPolicy" : "Indicates whether running Spot Instances should be terminated if the target capacity of the Spot Fleet request is decreased below the current size of the Spot Fleet."
+  },
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation."
+}
+```
 
 </details>
 
@@ -3623,11 +6721,85 @@ For more information, see Spot Instance Requests in the Amazon EC2 User Guide fo
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for RequestSpotInstances.
 
 **Type:** object
+
+```json
+{
+  "InstanceCount" : "The maximum number of Spot Instances to launch. \nDefault: 1",
+  "SpotPrice" : "The maximum price per hour that you are willing to pay for a Spot Instance. The default is the On-Demand price.",
+  "Type" : "The Spot Instance request type. \nDefault: one-time ",
+  "AvailabilityZoneGroup" : "The user-specified name for a logical grouping of requests. \nWhen you specify an Availability Zone group in a Spot Instance request, all Spot Instances in the request are launched in the same Availability Zone. Instance proximity is maintained with this parameter, but the choice of Availability Zone is not. The group applies only to requests for Spot Instances of the same instance type. Any additional Spot Instance requests that are specified with the same Availability Zone group name are launched in that same Availability Zone, as long as at least one instance from the group is still active. \nIf there is no active instance running in the Availability Zone group that you specify for a new Spot Instance request (all instances are terminated, the request is expired, or the maximum price you specified falls below current Spot price), then Amazon EC2 launches the instance in any Availability Zone where the constraint can be met. Consequently, the subsequent set of Spot Instances could be placed in a different zone from the original request, even if you specified the same Availability Zone group. \nDefault: Instances are launched in any available Availability Zone.",
+  "LaunchGroup" : "The instance launch group. Launch groups are Spot Instances that launch together and terminate together. \nDefault: Instances are launched and terminated individually",
+  "InstanceInterruptionBehavior" : "The behavior when a Spot Instance is interrupted. The default is terminate.",
+  "LaunchSpecification" : {
+    "subnetId" : "The ID of the subnet in which to launch the instance.",
+    "addressingType" : "Deprecated.",
+    "kernelId" : "The ID of the kernel.",
+    "ebsOptimized" : "Indicates whether the instance is optimized for EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal EBS I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS Optimized instance. \nDefault: false ",
+    "ramdiskId" : "The ID of the RAM disk.",
+    "imageId" : "The ID of the AMI.",
+    "userData" : "The Base64-encoded user data for the instance.",
+    "blockDeviceMapping" : [ {
+      "noDevice" : "Suppresses the specified device included in the block device mapping of the AMI.",
+      "virtualName" : "The virtual device name (ephemeralN). Instance store volumes are numbered starting from 0. An instance type with 2 available instance store volumes can specify mappings for ephemeral0 and ephemeral1. The number of available instance store volumes depends on the instance type. After you connect to the instance, you must mount the volume. \nNVMe instance store volumes are automatically enumerated and assigned a device name. Including them in your block device mapping has no effect. \nConstraints: For M3 instances, you must specify instance store volumes in the block device mapping for the instance. When you launch an M3 instance, we ignore any instance store volumes specified in the block device mapping for the AMI.",
+      "ebs" : {
+        "volumeType" : "The volume type: gp2, io1, st1, sc1, or standard. \nDefault: standard ",
+        "snapshotId" : "The ID of the snapshot.",
+        "encrypted" : "Indicates whether the EBS volume is encrypted. Encrypted volumes can only be attached to instances that support Amazon EBS encryption.  \nIf you are creating a volume from a snapshot, you cannot specify an encryption value. This is because only blank volumes can be encrypted on creation. If you are creating a snapshot from an existing EBS volume, you cannot specify an encryption value that differs from that of the EBS volume. We recommend that you omit the encryption value from the block device mappings when creating an image from an instance.",
+        "KmsKeyId" : "Identifier (key ID, key alias, ID ARN, or alias ARN) for a user-managed CMK under which the EBS volume is encrypted. \nThis parameter is only supported on BlockDeviceMapping objects called by RunInstances, RequestSpotFleet, and RequestSpotInstances.",
+        "iops" : "The number of I/O operations per second (IOPS) that the volume supports. For io1, this represents the number of IOPS that are provisioned for the volume. For gp2, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting. For more information about General Purpose SSD baseline performance, I/O credits, and bursting, see Amazon EBS Volume Types in the Amazon Elastic Compute Cloud User Guide. \nConstraint: Range is 100-20000 IOPS for io1 volumes and 100-10000 IOPS for gp2 volumes. \nCondition: This parameter is required for requests to create io1 volumes; it is not used in requests to create gp2, st1, sc1, or standard volumes.",
+        "deleteOnTermination" : "Indicates whether the EBS volume is deleted on instance termination.",
+        "volumeSize" : "The size of the volume, in GiB. \nConstraints: 1-16384 for General Purpose SSD (gp2), 4-16384 for Provisioned IOPS SSD (io1), 500-16384 for Throughput Optimized HDD (st1), 500-16384 for Cold HDD (sc1), and 1-1024 for Magnetic (standard) volumes. If you specify a snapshot, the volume size must be equal to or larger than the snapshot size. \nDefault: If you're creating the volume from a snapshot and don't specify a volume size, the default is the snapshot size."
+      },
+      "deviceName" : "The device name (for example, /dev/sdh or xvdh)."
+    } ],
+    "SecurityGroupId" : [ "string" ],
+    "instanceType" : "The instance type.",
+    "keyName" : "The name of the key pair.",
+    "NetworkInterface" : [ {
+      "networkInterfaceId" : "The ID of the network interface.",
+      "subnetId" : "The ID of the subnet associated with the network string. Applies only if creating a network interface when launching an instance.",
+      "ipv6AddressCount" : "A number of IPv6 addresses to assign to the network interface. Amazon EC2 chooses the IPv6 addresses from the range of the subnet. You cannot specify this option and the option to assign specific IPv6 addresses in the same request. You can specify this option if you've specified a minimum number of instances to launch.",
+      "SecurityGroupId" : [ "string" ],
+      "ipv6AddressesSet" : [ {
+        "ipv6Address" : "The IPv6 address."
+      } ],
+      "description" : "The description of the network interface. Applies only if creating a network interface when launching an instance.",
+      "associatePublicIpAddress" : "Indicates whether to assign a public IPv4 address to an instance you launch in a VPC. The public IP address can only be assigned to a network interface for eth0, and can only be assigned to a new network interface, not an existing one. You cannot specify more than one network interface in the request. If launching into a default subnet, the default value is true.",
+      "deleteOnTermination" : "If set to true, the interface is deleted when the instance is terminated. You can specify true only if creating a new network interface when launching an instance.",
+      "secondaryPrivateIpAddressCount" : "The number of secondary private IPv4 addresses. You can't specify this option and specify more than one private IP address using the private IP addresses option. You cannot specify this option if you're launching more than one instance in a RunInstances request.",
+      "deviceIndex" : "The index of the device on the instance for the network interface attachment. If you are specifying a network interface in a RunInstances request, you must provide the device index.",
+      "privateIpAddress" : "The private IPv4 address of the network interface. Applies only if creating a network interface when launching an instance. You cannot specify this option if you're launching more than one instance in a RunInstances request.",
+      "privateIpAddressesSet" : [ {
+        "privateIpAddress" : "The private IPv4 addresses.",
+        "primary" : "Indicates whether the private IPv4 address is the primary private IPv4 address. Only one IPv4 address can be designated as primary."
+      } ]
+    } ],
+    "SecurityGroup" : [ "string" ],
+    "monitoring" : {
+      "enabled" : "Indicates whether detailed monitoring is enabled. Otherwise, basic monitoring is enabled."
+    },
+    "iamInstanceProfile" : {
+      "name" : "The name of the instance profile.",
+      "arn" : "The Amazon Resource Name (ARN) of the instance profile."
+    },
+    "placement" : {
+      "groupName" : "The name of the placement group.",
+      "tenancy" : "The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware. The host tenancy is not supported for Spot Instances.",
+      "availabilityZone" : "The Availability Zone. \n[Spot Fleet only] To specify multiple Availability Zones, separate them using commas; for example, \"us-west-2a, us-west-2b\"."
+    }
+  },
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.",
+  "ValidFrom" : "The start date of the request. If this is a one-time request, the request becomes active at this date and time and remains active until all instances launch, the request expires, or the request is canceled. If the request is persistent, the request becomes active at this date and time and remains active until it expires or is canceled.",
+  "ClientToken" : "Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see How to Ensure Idempotency in the Amazon EC2 User Guide for Linux Instances.",
+  "ValidUntil" : "The end date of the request. If this is a one-time request, the request remains active until all instances launch, the request is canceled, or this date is reached. If the request is persistent, it remains active until it is canceled or this date is reached. The default end date is 7 days from the current date.",
+  "BlockDurationMinutes" : "The required duration for the Spot Instances (also known as Spot blocks), in minutes. This value must be a multiple of 60 (60, 120, 180, 240, 300, or 360). \nThe duration period starts as soon as your Spot Instance receives its instance ID. At the end of the duration period, Amazon EC2 marks the Spot Instance for termination and provides a Spot Instance termination notice, which gives the instance a two-minute warning before it terminates. \nYou can't specify an Availability Zone group or a launch group if you specify a duration."
+}
+```
 
 </details>
 
@@ -3637,9 +6809,17 @@ Resets the specified attribute of the specified Amazon FPGA Image (AFI) to its d
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "FpgaImageId" : "The ID of the AFI.",
+  "Attribute" : "The attribute.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation."
+}
+```
 
 </details>
 
@@ -3650,11 +6830,19 @@ The productCodes attribute can't be reset.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for ResetImageAttribute.
 
 **Type:** object
+
+```json
+{
+  "Attribute" : "The attribute to reset (currently you can only reset the launch permission attribute).",
+  "ImageId" : "The ID of the AMI.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation."
+}
+```
 
 </details>
 
@@ -3665,11 +6853,19 @@ The sourceDestCheck attribute controls whether source/destination checking is en
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for ResetInstanceAttribute.
 
 **Type:** object
+
+```json
+{
+  "Attribute" : "The attribute to reset.  \nYou can only reset the following attributes: kernel | ramdisk | sourceDestCheck. To change an instance attribute, use ModifyInstanceAttribute.",
+  "InstanceId" : "The ID of the instance.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation."
+}
+```
 
 </details>
 
@@ -3679,11 +6875,19 @@ Resets a network interface attribute. You can specify only one attribute at a ti
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for ResetNetworkInterfaceAttribute.
 
 **Type:** object
+
+```json
+{
+  "SourceDestCheck" : "The source/destination checking attribute. Resets the value to true.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.",
+  "NetworkInterfaceId" : "The ID of the network interface."
+}
+```
 
 </details>
 
@@ -3694,11 +6898,19 @@ For more information about modifying snapshot permissions, see Sharing Snapshots
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for ResetSnapshotAttribute.
 
 **Type:** object
+
+```json
+{
+  "SnapshotId" : "The ID of the snapshot.",
+  "Attribute" : "The attribute to reset. Currently, only the attribute for permission to create volumes can be reset.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation."
+}
+```
 
 </details>
 
@@ -3708,11 +6920,18 @@ Restores an Elastic IP address that was previously moved to the EC2-VPC platform
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for RestoreAddressToClassic.
 
 **Type:** object
+
+```json
+{
+  "PublicIp" : "The Elastic IP address.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation."
+}
+```
 
 </details>
 
@@ -3724,9 +6943,48 @@ Rule changes are propagated to instances within the security group as quickly as
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "CidrIp" : "Not supported. Use a set of IP permissions to specify the CIDR.",
+  "FromPort" : "Not supported. Use a set of IP permissions to specify the port.",
+  "ToPort" : "Not supported. Use a set of IP permissions to specify the port.",
+  "SourceSecurityGroupName" : "Not supported. Use a set of IP permissions to specify a destination security group.",
+  "SourceSecurityGroupOwnerId" : "Not supported. Use a set of IP permissions to specify a destination security group.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.",
+  "IpProtocol" : "Not supported. Use a set of IP permissions to specify the protocol name or number.",
+  "IpPermissions" : [ {
+    "ipRanges" : [ {
+      "description" : "A description for the security group rule that references this IPv4 address range. \nConstraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=;{}!$*",
+      "cidrIp" : "The IPv4 CIDR range. You can either specify a CIDR range or a source security group, not both. To specify a single IPv4 address, use the /32 prefix length."
+    } ],
+    "prefixListIds" : [ {
+      "description" : "A description for the security group rule that references this prefix list ID. \nConstraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=;{}!$*",
+      "prefixListId" : "The ID of the prefix."
+    } ],
+    "fromPort" : "The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type number. A value of -1 indicates all ICMP/ICMPv6 types. If you specify all ICMP/ICMPv6 types, you must specify all codes.",
+    "toPort" : "The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code. A value of -1 indicates all ICMP/ICMPv6 codes for the specified ICMP type. If you specify all ICMP/ICMPv6 types, you must specify all codes.",
+    "groups" : [ {
+      "groupName" : "The name of the security group. In a request, use this parameter for a security group in EC2-Classic or a default VPC only. For a security group in a nondefault VPC, use the security group ID.  \nFor a referenced security group in another VPC, this value is not returned if the referenced security group is deleted.",
+      "groupId" : "The ID of the security group.",
+      "vpcId" : "The ID of the VPC for the referenced security group, if applicable.",
+      "description" : "A description for the security group rule that references this user ID group pair. \nConstraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=;{}!$*",
+      "vpcPeeringConnectionId" : "The ID of the VPC peering connection, if applicable.",
+      "peeringStatus" : "The status of a VPC peering connection, if applicable.",
+      "userId" : "The ID of an AWS account. \nFor a referenced security group in another VPC, the account ID of the referenced security group is returned in the response. If the referenced security group is deleted, this value is not returned. \n[EC2-Classic] Required when adding or removing rules that reference a security group in another AWS account."
+    } ],
+    "ipProtocol" : "The IP protocol name (tcp, udp, icmp) or number (see Protocol Numbers).  \n[EC2-VPC only] Use -1 to specify all protocols. When authorizing security group rules, specifying -1 or a protocol number other than tcp, udp, icmp, or 58 (ICMPv6) allows traffic on all ports, regardless of any port range you specify. For tcp, udp, and icmp, you must specify a port range. For 58 (ICMPv6), you can optionally specify a port range; if you don't, traffic for all types and codes is allowed when authorizing rules. ",
+    "ipv6Ranges" : [ {
+      "description" : "A description for the security group rule that references this IPv6 address range. \nConstraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=;{}!$*",
+      "cidrIpv6" : "The IPv6 CIDR range. You can either specify a CIDR range or a source security group, not both. To specify a single IPv6 address, use the /128 prefix length."
+    } ]
+  } ],
+  "GroupId" : "The ID of the security group."
+}
+```
 
 </details>
 
@@ -3739,9 +6997,49 @@ Rule changes are propagated to instances within the security group as quickly as
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "GroupName" : "[EC2-Classic, default VPC] The name of the security group. You must specify either the security group ID or the security group name in the request.",
+  "CidrIp" : "The CIDR IP address range. You can't specify this parameter when specifying a source security group.",
+  "FromPort" : "The start of port range for the TCP and UDP protocols, or an ICMP type number. For the ICMP type number, use -1 to specify all ICMP types.",
+  "ToPort" : "The end of port range for the TCP and UDP protocols, or an ICMP code number. For the ICMP code number, use -1 to specify all ICMP codes for the ICMP type.",
+  "SourceSecurityGroupName" : "[EC2-Classic, default VPC] The name of the source security group. You can't specify this parameter in combination with the following parameters: the CIDR IP address range, the start of the port range, the IP protocol, and the end of the port range. For EC2-VPC, the source security group must be in the same VPC. To revoke a specific rule for an IP protocol and port range, use a set of IP permissions instead.",
+  "SourceSecurityGroupOwnerId" : "[EC2-Classic] The AWS account ID of the source security group, if the source security group is in a different account. You can't specify this parameter in combination with the following parameters: the CIDR IP address range, the IP protocol, the start of the port range, and the end of the port range. To revoke a specific rule for an IP protocol and port range, use a set of IP permissions instead.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.",
+  "IpProtocol" : "The IP protocol name (tcp, udp, icmp) or number (see Protocol Numbers). Use -1 to specify all.",
+  "IpPermissions" : [ {
+    "ipRanges" : [ {
+      "description" : "A description for the security group rule that references this IPv4 address range. \nConstraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=;{}!$*",
+      "cidrIp" : "The IPv4 CIDR range. You can either specify a CIDR range or a source security group, not both. To specify a single IPv4 address, use the /32 prefix length."
+    } ],
+    "prefixListIds" : [ {
+      "description" : "A description for the security group rule that references this prefix list ID. \nConstraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=;{}!$*",
+      "prefixListId" : "The ID of the prefix."
+    } ],
+    "fromPort" : "The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type number. A value of -1 indicates all ICMP/ICMPv6 types. If you specify all ICMP/ICMPv6 types, you must specify all codes.",
+    "toPort" : "The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code. A value of -1 indicates all ICMP/ICMPv6 codes for the specified ICMP type. If you specify all ICMP/ICMPv6 types, you must specify all codes.",
+    "groups" : [ {
+      "groupName" : "The name of the security group. In a request, use this parameter for a security group in EC2-Classic or a default VPC only. For a security group in a nondefault VPC, use the security group ID.  \nFor a referenced security group in another VPC, this value is not returned if the referenced security group is deleted.",
+      "groupId" : "The ID of the security group.",
+      "vpcId" : "The ID of the VPC for the referenced security group, if applicable.",
+      "description" : "A description for the security group rule that references this user ID group pair. \nConstraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=;{}!$*",
+      "vpcPeeringConnectionId" : "The ID of the VPC peering connection, if applicable.",
+      "peeringStatus" : "The status of a VPC peering connection, if applicable.",
+      "userId" : "The ID of an AWS account. \nFor a referenced security group in another VPC, the account ID of the referenced security group is returned in the response. If the referenced security group is deleted, this value is not returned. \n[EC2-Classic] Required when adding or removing rules that reference a security group in another AWS account."
+    } ],
+    "ipProtocol" : "The IP protocol name (tcp, udp, icmp) or number (see Protocol Numbers).  \n[EC2-VPC only] Use -1 to specify all protocols. When authorizing security group rules, specifying -1 or a protocol number other than tcp, udp, icmp, or 58 (ICMPv6) allows traffic on all ports, regardless of any port range you specify. For tcp, udp, and icmp, you must specify a port range. For 58 (ICMPv6), you can optionally specify a port range; if you don't, traffic for all types and codes is allowed when authorizing rules. ",
+    "ipv6Ranges" : [ {
+      "description" : "A description for the security group rule that references this IPv6 address range. \nConstraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=;{}!$*",
+      "cidrIpv6" : "The IPv6 CIDR range. You can either specify a CIDR range or a source security group, not both. To specify a single IPv6 address, use the /128 prefix length."
+    } ]
+  } ],
+  "GroupId" : "The ID of the security group. You must specify either the security group ID or the security group name in the request. For security groups in a nondefault VPC, you must specify the security group ID."
+}
+```
 
 </details>
 
@@ -3764,11 +7062,118 @@ For troubleshooting, see What To Do If An Instance Immediately Terminates, and T
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for RunInstances.
 
 **Type:** object
+
+```json
+{
+  "PrivateIpAddress" : "[EC2-VPC] The primary IPv4 address. You must specify a value from the IPv4 address range of the subnet. \nOnly one private IP address can be designated as primary. You can't specify this option if you've specified the option to designate a private IP address as the primary IP address in a network interface specification. You cannot specify this option if you're launching more than one instance in the request.",
+  "UserData" : "The user data to make available to the instance. For more information, see Running Commands on Your Linux Instance at Launch (Linux) and Adding User Data (Windows). If you are using a command line tool, base64-encoding is performed for you, and you can load the text from a file. Otherwise, you must provide base64-encoded text.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.",
+  "ElasticGpuSpecification" : [ {
+    "Type" : "The type of Elastic GPU."
+  } ],
+  "IamInstanceProfile" : {
+    "name" : "The name of the instance profile.",
+    "arn" : "The Amazon Resource Name (ARN) of the instance profile."
+  },
+  "SubnetId" : "[EC2-VPC] The ID of the subnet to launch the instance into.",
+  "MaxCount" : "The maximum number of instances to launch. If you specify more instances than Amazon EC2 can launch in the target Availability Zone, Amazon EC2 launches the largest possible number of instances above MinCount. \nConstraints: Between 1 and the maximum number you're allowed for the specified instance type. For more information about the default limits, and how to request an increase, see How many instances can I run in Amazon EC2 in the Amazon EC2 FAQ.",
+  "KernelId" : "The ID of the kernel.  \nWe recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see  PV-GRUB in the Amazon Elastic Compute Cloud User Guide.",
+  "EbsOptimized" : "Indicates whether the instance is optimized for Amazon EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal Amazon EBS I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS-optimized instance. \nDefault: false ",
+  "Placement" : {
+    "groupName" : "The name of the placement group the instance is in.",
+    "tenancy" : "The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware. The host tenancy is not supported for the ImportInstance command.",
+    "hostId" : "The ID of the Dedicated Host on which the instance resides. This parameter is not supported for the ImportInstance command.",
+    "availabilityZone" : "The Availability Zone of the instance.",
+    "spreadDomain" : "Reserved for future use.",
+    "affinity" : "The affinity setting for the instance on the Dedicated Host. This parameter is not supported for the ImportInstance command."
+  },
+  "LaunchTemplate" : {
+    "LaunchTemplateName" : "The name of the launch template.",
+    "Version" : "The version number of the launch template. \nDefault: The default version for the launch template.",
+    "LaunchTemplateId" : "The ID of the launch template."
+  },
+  "Ipv6AddressCount" : "[EC2-VPC] A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet. You cannot specify this option and the option to assign specific IPv6 addresses in the same request. You can specify this option if you've specified a minimum number of instances to launch.",
+  "ImageId" : "The ID of the AMI, which you can get by calling DescribeImages. An AMI is required to launch an instance and must be specified here or in a launch template.",
+  "BlockDeviceMapping" : [ {
+    "noDevice" : "Suppresses the specified device included in the block device mapping of the AMI.",
+    "virtualName" : "The virtual device name (ephemeralN). Instance store volumes are numbered starting from 0. An instance type with 2 available instance store volumes can specify mappings for ephemeral0 and ephemeral1. The number of available instance store volumes depends on the instance type. After you connect to the instance, you must mount the volume. \nNVMe instance store volumes are automatically enumerated and assigned a device name. Including them in your block device mapping has no effect. \nConstraints: For M3 instances, you must specify instance store volumes in the block device mapping for the instance. When you launch an M3 instance, we ignore any instance store volumes specified in the block device mapping for the AMI.",
+    "ebs" : {
+      "volumeType" : "The volume type: gp2, io1, st1, sc1, or standard. \nDefault: standard ",
+      "snapshotId" : "The ID of the snapshot.",
+      "encrypted" : "Indicates whether the EBS volume is encrypted. Encrypted volumes can only be attached to instances that support Amazon EBS encryption.  \nIf you are creating a volume from a snapshot, you cannot specify an encryption value. This is because only blank volumes can be encrypted on creation. If you are creating a snapshot from an existing EBS volume, you cannot specify an encryption value that differs from that of the EBS volume. We recommend that you omit the encryption value from the block device mappings when creating an image from an instance.",
+      "KmsKeyId" : "Identifier (key ID, key alias, ID ARN, or alias ARN) for a user-managed CMK under which the EBS volume is encrypted. \nThis parameter is only supported on BlockDeviceMapping objects called by RunInstances, RequestSpotFleet, and RequestSpotInstances.",
+      "iops" : "The number of I/O operations per second (IOPS) that the volume supports. For io1, this represents the number of IOPS that are provisioned for the volume. For gp2, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting. For more information about General Purpose SSD baseline performance, I/O credits, and bursting, see Amazon EBS Volume Types in the Amazon Elastic Compute Cloud User Guide. \nConstraint: Range is 100-20000 IOPS for io1 volumes and 100-10000 IOPS for gp2 volumes. \nCondition: This parameter is required for requests to create io1 volumes; it is not used in requests to create gp2, st1, sc1, or standard volumes.",
+      "deleteOnTermination" : "Indicates whether the EBS volume is deleted on instance termination.",
+      "volumeSize" : "The size of the volume, in GiB. \nConstraints: 1-16384 for General Purpose SSD (gp2), 4-16384 for Provisioned IOPS SSD (io1), 500-16384 for Throughput Optimized HDD (st1), 500-16384 for Cold HDD (sc1), and 1-1024 for Magnetic (standard) volumes. If you specify a snapshot, the volume size must be equal to or larger than the snapshot size. \nDefault: If you're creating the volume from a snapshot and don't specify a volume size, the default is the snapshot size."
+    },
+    "deviceName" : "The device name (for example, /dev/sdh or xvdh)."
+  } ],
+  "InstanceType" : "The instance type. For more information, see Instance Types in the Amazon Elastic Compute Cloud User Guide. \nDefault: m1.small ",
+  "Monitoring" : {
+    "enabled" : "Indicates whether detailed monitoring is enabled. Otherwise, basic monitoring is enabled."
+  },
+  "Ipv6Address" : [ {
+    "ipv6Address" : "The IPv6 address."
+  } ],
+  "AdditionalInfo" : "Reserved.",
+  "InstanceInitiatedShutdownBehavior" : "Indicates whether an instance stops or terminates when you initiate shutdown from the instance (using the operating system command for system shutdown). \nDefault: stop ",
+  "CpuOptions" : {
+    "ThreadsPerCore" : "The number of threads per CPU core. To disable Intel Hyper-Threading Technology for the instance, specify a value of 1. Otherwise, specify the default value of 2.",
+    "CoreCount" : "The number of CPU cores for the instance."
+  },
+  "SecurityGroupId" : [ "string" ],
+  "NetworkInterface" : [ {
+    "networkInterfaceId" : "The ID of the network interface.",
+    "subnetId" : "The ID of the subnet associated with the network string. Applies only if creating a network interface when launching an instance.",
+    "ipv6AddressCount" : "A number of IPv6 addresses to assign to the network interface. Amazon EC2 chooses the IPv6 addresses from the range of the subnet. You cannot specify this option and the option to assign specific IPv6 addresses in the same request. You can specify this option if you've specified a minimum number of instances to launch.",
+    "SecurityGroupId" : [ "string" ],
+    "ipv6AddressesSet" : [ {
+      "ipv6Address" : "The IPv6 address."
+    } ],
+    "description" : "The description of the network interface. Applies only if creating a network interface when launching an instance.",
+    "associatePublicIpAddress" : "Indicates whether to assign a public IPv4 address to an instance you launch in a VPC. The public IP address can only be assigned to a network interface for eth0, and can only be assigned to a new network interface, not an existing one. You cannot specify more than one network interface in the request. If launching into a default subnet, the default value is true.",
+    "deleteOnTermination" : "If set to true, the interface is deleted when the instance is terminated. You can specify true only if creating a new network interface when launching an instance.",
+    "secondaryPrivateIpAddressCount" : "The number of secondary private IPv4 addresses. You can't specify this option and specify more than one private IP address using the private IP addresses option. You cannot specify this option if you're launching more than one instance in a RunInstances request.",
+    "deviceIndex" : "The index of the device on the instance for the network interface attachment. If you are specifying a network interface in a RunInstances request, you must provide the device index.",
+    "privateIpAddress" : "The private IPv4 address of the network interface. Applies only if creating a network interface when launching an instance. You cannot specify this option if you're launching more than one instance in a RunInstances request.",
+    "privateIpAddressesSet" : [ {
+      "privateIpAddress" : "The private IPv4 addresses.",
+      "primary" : "Indicates whether the private IPv4 address is the primary private IPv4 address. Only one IPv4 address can be designated as primary."
+    } ]
+  } ],
+  "TagSpecification" : [ {
+    "Tag" : [ {
+      "value" : "The value of the tag. \nConstraints: Tag values are case-sensitive and accept a maximum of 255 Unicode characters.",
+      "key" : "The key of the tag. \nConstraints: Tag keys are case-sensitive and accept a maximum of 127 Unicode characters. May not begin with aws:."
+    } ],
+    "resourceType" : "The type of resource to tag. Currently, the resource types that support tagging on creation are fleet, dedicated-host, instance, snapshot, and volume. To tag a resource after it has been created, see CreateTags."
+  } ],
+  "SecurityGroup" : [ "string" ],
+  "DisableApiTermination" : "If you set this parameter to true, you can't terminate the instance using the Amazon EC2 console, CLI, or API; otherwise, you can. To change this attribute to false after launch, use ModifyInstanceAttribute. Alternatively, if you set InstanceInitiatedShutdownBehavior to terminate, you can terminate the instance by running the shutdown command from the instance. \nDefault: false ",
+  "RamdiskId" : "The ID of the RAM disk.  \nWe recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see  PV-GRUB in the Amazon Elastic Compute Cloud User Guide.",
+  "KeyName" : "The name of the key pair. You can create a key pair using CreateKeyPair or ImportKeyPair.  \nIf you do not specify a key pair, you can't connect to the instance unless you choose an AMI that is configured to allow users another way to log in.",
+  "InstanceMarketOptions" : {
+    "SpotOptions" : {
+      "SpotInstanceType" : "The Spot Instance request type. For RunInstances, persistent Spot Instance requests are only supported when InstanceInterruptionBehavior is set to either hibernate or stop.",
+      "InstanceInterruptionBehavior" : "The behavior when a Spot Instance is interrupted. The default is terminate.",
+      "MaxPrice" : "The maximum hourly price you're willing to pay for the Spot Instances. The default is the On-Demand price.",
+      "BlockDurationMinutes" : "The required duration for the Spot Instances (also known as Spot blocks), in minutes. This value must be a multiple of 60 (60, 120, 180, 240, 300, or 360).",
+      "ValidUntil" : "The end date of the request. For a one-time request, the request remains active until all instances launch, the request is canceled, or this date is reached. If the request is persistent, it remains active until it is canceled or this date and time is reached. The default end date is 7 days from the current date."
+    },
+    "MarketType" : "The market type."
+  },
+  "ClientToken" : "Unique, case-sensitive identifier you provide to ensure the idempotency of the request. For more information, see Ensuring Idempotency. \nConstraints: Maximum 64 ASCII characters",
+  "CreditSpecification" : {
+    "CpuCredits" : "The credit option for CPU usage of a T2 or T3 instance. Valid values are standard and unlimited."
+  },
+  "MinCount" : "The minimum number of instances to launch. If you specify a minimum that is more instances than Amazon EC2 can launch in the target Availability Zone, Amazon EC2 launches no instances. \nConstraints: Between 1 and the maximum number you're allowed for the specified instance type. For more information about the default limits, and how to request an increase, see How many instances can I run in Amazon EC2 in the Amazon EC2 General FAQ."
+}
+```
 
 </details>
 
@@ -3780,11 +7185,74 @@ You must launch a Scheduled Instance during its scheduled time period. You can't
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for RunScheduledInstances.
 
 **Type:** object
+
+```json
+{
+  "InstanceCount" : "The number of instances. \nDefault: 1",
+  "LaunchSpecification" : {
+    "UserData" : "The base64-encoded MIME user data.",
+    "SecurityGroupId" : [ "string" ],
+    "NetworkInterface" : [ {
+      "Group" : [ "string" ],
+      "Description" : "The description.",
+      "PrivateIpAddress" : "The IPv4 address of the network interface within the subnet.",
+      "SecondaryPrivateIpAddressCount" : "The number of secondary private IPv4 addresses.",
+      "DeviceIndex" : "The index of the device for the network interface attachment.",
+      "Ipv6AddressCount" : "The number of IPv6 addresses to assign to the network interface. The IPv6 addresses are automatically selected from the subnet range.",
+      "SubnetId" : "The ID of the subnet.",
+      "AssociatePublicIpAddress" : "Indicates whether to assign a public IPv4 address to instances launched in a VPC. The public IPv4 address can only be assigned to a network interface for eth0, and can only be assigned to a new network interface, not an existing one. You cannot specify more than one network interface in the request. If launching into a default subnet, the default value is true.",
+      "NetworkInterfaceId" : "The ID of the network interface.",
+      "Ipv6Address" : [ {
+        "Ipv6Address" : "Ipv6Address"
+      } ],
+      "PrivateIpAddressConfig" : [ {
+        "PrivateIpAddress" : "The IPv4 address.",
+        "Primary" : "Indicates whether this is a primary IPv4 address. Otherwise, this is a secondary IPv4 address."
+      } ],
+      "DeleteOnTermination" : "Indicates whether to delete the interface when the instance is terminated."
+    } ],
+    "IamInstanceProfile" : {
+      "Arn" : "The Amazon Resource Name (ARN).",
+      "Name" : "The name."
+    },
+    "KernelId" : "The ID of the kernel.",
+    "SubnetId" : "The ID of the subnet in which to launch the instances.",
+    "EbsOptimized" : "Indicates whether the instances are optimized for EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal EBS I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS-optimized instance. \nDefault: false ",
+    "KeyName" : "The name of the key pair.",
+    "RamdiskId" : "The ID of the RAM disk.",
+    "Placement" : {
+      "GroupName" : "The name of the placement group.",
+      "AvailabilityZone" : "The Availability Zone."
+    },
+    "ImageId" : "The ID of the Amazon Machine Image (AMI).",
+    "BlockDeviceMapping" : [ {
+      "Ebs" : {
+        "SnapshotId" : "The ID of the snapshot.",
+        "VolumeType" : "The volume type. gp2 for General Purpose SSD, io1 for Provisioned IOPS SSD, Throughput Optimized HDD for st1, Cold HDD for sc1, or standard for Magnetic. \nDefault: standard ",
+        "Encrypted" : "Indicates whether the volume is encrypted. You can attached encrypted volumes only to instances that support them.",
+        "Iops" : "The number of I/O operations per second (IOPS) that the volume supports. For io1 volumes, this represents the number of IOPS that are provisioned for the volume. For gp2 volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting. For more information about gp2 baseline performance, I/O credits, and bursting, see Amazon EBS Volume Types in the Amazon Elastic Compute Cloud User Guide. \nConstraint: Range is 100-20000 IOPS for io1 volumes and 100-10000 IOPS for gp2 volumes. \nCondition: This parameter is required for requests to create io1volumes; it is not used in requests to create gp2, st1, sc1, or standard volumes.",
+        "VolumeSize" : "The size of the volume, in GiB. \nDefault: If you're creating the volume from a snapshot and don't specify a volume size, the default is the snapshot size.",
+        "DeleteOnTermination" : "Indicates whether the volume is deleted on instance termination."
+      },
+      "NoDevice" : "Suppresses the specified device included in the block device mapping of the AMI.",
+      "VirtualName" : "The virtual device name (ephemeralN). Instance store volumes are numbered starting from 0. An instance type with two available instance store volumes can specify mappings for ephemeral0 and ephemeral1. The number of available instance store volumes depends on the instance type. After you connect to the instance, you must mount the volume. \nConstraints: For M3 instances, you must specify instance store volumes in the block device mapping for the instance. When you launch an M3 instance, we ignore any instance store volumes specified in the block device mapping for the AMI.",
+      "DeviceName" : "The device name (for example, /dev/sdh or xvdh)."
+    } ],
+    "InstanceType" : "The instance type.",
+    "Monitoring" : {
+      "Enabled" : "Indicates whether monitoring is enabled."
+    }
+  },
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.",
+  "ScheduledInstanceId" : "The Scheduled Instance ID.",
+  "ClientToken" : "Unique, case-sensitive identifier that ensures the idempotency of the request. For more information, see Ensuring Idempotency."
+}
+```
 
 </details>
 
@@ -3798,11 +7266,19 @@ For more information, see Stopping Instances in the Amazon Elastic Compute Cloud
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for StartInstances.
 
 **Type:** object
+
+```json
+{
+  "AdditionalInfo" : "Reserved.",
+  "InstanceId" : [ "string" ],
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation."
+}
+```
 
 </details>
 
@@ -3817,11 +7293,19 @@ When you stop an instance, we attempt to shut it down forcibly after a short whi
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for StopInstances.
 
 **Type:** object
+
+```json
+{
+  "Force" : "Forces the instances to stop. The instances do not have an opportunity to flush file system caches or file system metadata. If you use this option, you must perform file system check and repair procedures. This option is not recommended for Windows instances. \nDefault: false ",
+  "InstanceId" : [ "string" ],
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation."
+}
+```
 
 </details>
 
@@ -3836,11 +7320,18 @@ For more information about troubleshooting, see Troubleshooting Terminating Your
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for TerminateInstances.
 
 **Type:** object
+
+```json
+{
+  "InstanceId" : [ "string" ],
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation."
+}
+```
 
 </details>
 
@@ -3850,9 +7341,16 @@ Unassigns one or more IPv6 addresses from a network interface.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "Ipv6Addresses" : [ "string" ],
+  "NetworkInterfaceId" : "The ID of the network interface."
+}
+```
 
 </details>
 
@@ -3862,11 +7360,18 @@ Unassigns one or more secondary private IP addresses from a network interface.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for UnassignPrivateIpAddresses.
 
 **Type:** object
+
+```json
+{
+  "PrivateIpAddress" : [ "string" ],
+  "NetworkInterfaceId" : "The ID of the network interface."
+}
+```
 
 </details>
 
@@ -3876,11 +7381,18 @@ Disables detailed monitoring for a running instance. For more information, see M
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Contains the parameters for UnmonitorInstances.
 
 **Type:** object
+
+```json
+{
+  "InstanceId" : [ "string" ],
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation."
+}
+```
 
 </details>
 
@@ -3891,9 +7403,43 @@ You specify the description as part of the IP permissions structure. You can rem
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "GroupName" : "[Default VPC] The name of the security group. You must specify either the security group ID or the security group name in the request.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.",
+  "IpPermissions" : [ {
+    "ipRanges" : [ {
+      "description" : "A description for the security group rule that references this IPv4 address range. \nConstraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=;{}!$*",
+      "cidrIp" : "The IPv4 CIDR range. You can either specify a CIDR range or a source security group, not both. To specify a single IPv4 address, use the /32 prefix length."
+    } ],
+    "prefixListIds" : [ {
+      "description" : "A description for the security group rule that references this prefix list ID. \nConstraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=;{}!$*",
+      "prefixListId" : "The ID of the prefix."
+    } ],
+    "fromPort" : "The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type number. A value of -1 indicates all ICMP/ICMPv6 types. If you specify all ICMP/ICMPv6 types, you must specify all codes.",
+    "toPort" : "The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code. A value of -1 indicates all ICMP/ICMPv6 codes for the specified ICMP type. If you specify all ICMP/ICMPv6 types, you must specify all codes.",
+    "groups" : [ {
+      "groupName" : "The name of the security group. In a request, use this parameter for a security group in EC2-Classic or a default VPC only. For a security group in a nondefault VPC, use the security group ID.  \nFor a referenced security group in another VPC, this value is not returned if the referenced security group is deleted.",
+      "groupId" : "The ID of the security group.",
+      "vpcId" : "The ID of the VPC for the referenced security group, if applicable.",
+      "description" : "A description for the security group rule that references this user ID group pair. \nConstraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=;{}!$*",
+      "vpcPeeringConnectionId" : "The ID of the VPC peering connection, if applicable.",
+      "peeringStatus" : "The status of a VPC peering connection, if applicable.",
+      "userId" : "The ID of an AWS account. \nFor a referenced security group in another VPC, the account ID of the referenced security group is returned in the response. If the referenced security group is deleted, this value is not returned. \n[EC2-Classic] Required when adding or removing rules that reference a security group in another AWS account."
+    } ],
+    "ipProtocol" : "The IP protocol name (tcp, udp, icmp) or number (see Protocol Numbers).  \n[EC2-VPC only] Use -1 to specify all protocols. When authorizing security group rules, specifying -1 or a protocol number other than tcp, udp, icmp, or 58 (ICMPv6) allows traffic on all ports, regardless of any port range you specify. For tcp, udp, and icmp, you must specify a port range. For 58 (ICMPv6), you can optionally specify a port range; if you don't, traffic for all types and codes is allowed when authorizing rules. ",
+    "ipv6Ranges" : [ {
+      "description" : "A description for the security group rule that references this IPv6 address range. \nConstraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=;{}!$*",
+      "cidrIpv6" : "The IPv6 CIDR range. You can either specify a CIDR range or a source security group, not both. To specify a single IPv6 address, use the /128 prefix length."
+    } ]
+  } ],
+  "GroupId" : "The ID of the security group. You must specify either the security group ID or the security group name in the request. For security groups in a nondefault VPC, you must specify the security group ID."
+}
+```
 
 </details>
 
@@ -3904,9 +7450,43 @@ You specify the description as part of the IP permissions structure. You can rem
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "GroupName" : "[EC2-Classic, default VPC] The name of the security group. You must specify either the security group ID or the security group name in the request.",
+  "DryRun" : "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.",
+  "IpPermissions" : [ {
+    "ipRanges" : [ {
+      "description" : "A description for the security group rule that references this IPv4 address range. \nConstraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=;{}!$*",
+      "cidrIp" : "The IPv4 CIDR range. You can either specify a CIDR range or a source security group, not both. To specify a single IPv4 address, use the /32 prefix length."
+    } ],
+    "prefixListIds" : [ {
+      "description" : "A description for the security group rule that references this prefix list ID. \nConstraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=;{}!$*",
+      "prefixListId" : "The ID of the prefix."
+    } ],
+    "fromPort" : "The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type number. A value of -1 indicates all ICMP/ICMPv6 types. If you specify all ICMP/ICMPv6 types, you must specify all codes.",
+    "toPort" : "The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code. A value of -1 indicates all ICMP/ICMPv6 codes for the specified ICMP type. If you specify all ICMP/ICMPv6 types, you must specify all codes.",
+    "groups" : [ {
+      "groupName" : "The name of the security group. In a request, use this parameter for a security group in EC2-Classic or a default VPC only. For a security group in a nondefault VPC, use the security group ID.  \nFor a referenced security group in another VPC, this value is not returned if the referenced security group is deleted.",
+      "groupId" : "The ID of the security group.",
+      "vpcId" : "The ID of the VPC for the referenced security group, if applicable.",
+      "description" : "A description for the security group rule that references this user ID group pair. \nConstraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=;{}!$*",
+      "vpcPeeringConnectionId" : "The ID of the VPC peering connection, if applicable.",
+      "peeringStatus" : "The status of a VPC peering connection, if applicable.",
+      "userId" : "The ID of an AWS account. \nFor a referenced security group in another VPC, the account ID of the referenced security group is returned in the response. If the referenced security group is deleted, this value is not returned. \n[EC2-Classic] Required when adding or removing rules that reference a security group in another AWS account."
+    } ],
+    "ipProtocol" : "The IP protocol name (tcp, udp, icmp) or number (see Protocol Numbers).  \n[EC2-VPC only] Use -1 to specify all protocols. When authorizing security group rules, specifying -1 or a protocol number other than tcp, udp, icmp, or 58 (ICMPv6) allows traffic on all ports, regardless of any port range you specify. For tcp, udp, and icmp, you must specify a port range. For 58 (ICMPv6), you can optionally specify a port range; if you don't, traffic for all types and codes is allowed when authorizing rules. ",
+    "ipv6Ranges" : [ {
+      "description" : "A description for the security group rule that references this IPv6 address range. \nConstraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=;{}!$*",
+      "cidrIpv6" : "The IPv6 CIDR range. You can either specify a CIDR range or a source security group, not both. To specify a single IPv6 address, use the /128 prefix length."
+    } ]
+  } ],
+  "GroupId" : "The ID of the security group. You must specify either the security group ID or the security group name in the request. For security groups in a nondefault VPC, you must specify the security group ID."
+}
+```
 
 </details>
 

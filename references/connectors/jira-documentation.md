@@ -17,21 +17,25 @@ Adds an actor (user or group) to a project role.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 the project role id
 
 **Type:** integer
 
-#### projectIdOrKey (required)
+### projectIdOrKey (required)
 
 the project id or project key
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{ }
+```
 
 </details>
 
@@ -56,7 +60,7 @@ Add one or more attachments to an issue.
 
 <details><summary>Parameters</summary>
 
-#### issueIdOrKey (required)
+### issueIdOrKey (required)
 
 the issue that you want to add the attachments to
 
@@ -70,17 +74,21 @@ Adds a new comment to an issue.
 
 <details><summary>Parameters</summary>
 
-#### issueIdOrKey (required)
+### issueIdOrKey (required)
 
 a string containing the issue id or key the comment will be added to
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
 
-#### expand
+```json
+{ }
+```
+
+### expand
 
 optional flags: renderedBody (provides body rendered in HTML)
 
@@ -94,21 +102,25 @@ Adds field to the given tab.
 
 <details><summary>Parameters</summary>
 
-#### screenId (required)
+### screenId (required)
 
 id of screen
 
 **Type:** integer
 
-#### tabId (required)
+### tabId (required)
 
 id of tab
 
 **Type:** integer
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{ }
+```
 
 </details>
 
@@ -118,7 +130,7 @@ Adds field or custom field to the default tab
 
 <details><summary>Parameters</summary>
 
-#### fieldId (required)
+### fieldId (required)
 
 id of field / custom field
 
@@ -132,15 +144,19 @@ Adds default actors to the given role. The request data should contain a list of
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 the role id to remove the actors from
 
 **Type:** integer
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{ }
+```
 
 </details>
 
@@ -150,7 +166,7 @@ Store a record in Audit Log
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** string
 
@@ -162,13 +178,17 @@ Adds a share permissions to the given filter. Adding a global permission removes
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 **Type:** integer
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{ }
+```
 
 </details>
 
@@ -178,15 +198,19 @@ Creates tab for given screen
 
 <details><summary>Parameters</summary>
 
-#### screenId (required)
+### screenId (required)
 
 id of screen
 
 **Type:** integer
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{ }
+```
 
 </details>
 
@@ -196,13 +220,13 @@ Add user to given application. Admin permission will be required to perform this
 
 <details><summary>Parameters</summary>
 
-#### applicationKey
+### applicationKey
 
 application key
 
 **Type:** string
 
-#### username
+### username
 
 username
 
@@ -218,11 +242,15 @@ Adds given user to a group.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
 
-#### groupname
+```json
+{ }
+```
+
+### groupname
 
 A name of requested group.
 
@@ -236,7 +264,7 @@ Cast your vote in favour of an issue.
 
 <details><summary>Parameters</summary>
 
-#### issueIdOrKey (required)
+### issueIdOrKey (required)
 
 the issue to view voting information for
 
@@ -250,15 +278,19 @@ Adds a user to an issue's watcher list.
 
 <details><summary>Parameters</summary>
 
-#### issueIdOrKey (required)
+### issueIdOrKey (required)
 
 a String containing an issue key.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{ }
+```
 
 </details>
 
@@ -268,17 +300,17 @@ Adds a new worklog entry to an issue.
 
 <details><summary>Parameters</summary>
 
-#### issueIdOrKey (required)
+### issueIdOrKey (required)
 
 a string containing the issue id or key the worklog will be added to
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** string
 
-#### adjustEstimate
+### adjustEstimate
 
 (optional) allows you to provide specific instructions to update the remaining time estimate of the issue.  Valid values are
                        
@@ -289,13 +321,13 @@ a string containing the issue id or key the worklog will be added to
 
 **Type:** string
 
-#### newEstimate
+### newEstimate
 
 (required when "new" is selected for adjustEstimate) the new value for the remaining estimate field. e.g. "2d"
 
 **Type:** string
 
-#### reduceBy
+### reduceBy
 
 (required when "manual" is selected for adjustEstimate) the amount to reduce the remaining estimate by e.g. "2d"
 
@@ -324,13 +356,13 @@ Assigns an issue to a user.
 
 <details><summary>Parameters</summary>
 
-#### issueIdOrKey (required)
+### issueIdOrKey (required)
 
 a String containing an issue key
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** string
 
@@ -342,17 +374,21 @@ Assigns a permission scheme with a project.
 
 <details><summary>Parameters</summary>
 
-#### projectKeyOrId (required)
+### projectKeyOrId (required)
 
 key or id of the project
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
 
-#### expand
+```json
+{ }
+```
+
+### expand
 
 **Type:** string
 
@@ -364,7 +400,7 @@ key or id of the project
 
 <details><summary>Parameters</summary>
 
-#### issueIdOrKey (required)
+### issueIdOrKey (required)
 
 The parent issue's key or id
 
@@ -384,9 +420,13 @@ Modify caller password.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{ }
+```
 
 </details>
 
@@ -396,17 +436,21 @@ Modify user password.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
 
-#### key
+```json
+{ }
+```
+
+### key
 
 user key
 
 **Type:** string
 
-#### username
+### username
 
 the username
 
@@ -420,11 +464,11 @@ Converts temporary avatar into a real avatar
 
 <details><summary>Parameters</summary>
 
-#### projectIdOrKey (required)
+### projectIdOrKey (required)
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** string
 
@@ -436,11 +480,11 @@ Converts temporary avatar into a real avatar
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** string
 
-#### username
+### username
 
 username
 
@@ -454,13 +498,13 @@ Converts temporary avatar into a real avatar
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 the id of the issue type, which avatar is updated.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** string
 
@@ -472,15 +516,15 @@ the id of the issue type, which avatar is updated.
 
 <details><summary>Parameters</summary>
 
-#### owningObjectId (required)
+### owningObjectId (required)
 
 **Type:** string
 
-#### type (required)
+### type (required)
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** string
 
@@ -492,7 +536,7 @@ Create a component via POST.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** string
 
@@ -504,9 +548,13 @@ Creates a custom field using a definition (object encapsulating custom field dat
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{ }
+```
 
 </details>
 
@@ -516,7 +564,7 @@ Create a draft for the passed scheme. The draft will be a copy of the state of t
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 the id of the parent scheme.
 
@@ -531,11 +579,11 @@ Creates a new filter, and returns newly created filter.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** string
 
-#### expand
+### expand
 
 the parameters to expand
 
@@ -551,9 +599,13 @@ Creates a group by given group parameter
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{ }
+```
 
 </details>
 
@@ -576,9 +628,13 @@ Creates an issue or a sub-task from a JSON representation.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{ }
+```
 
 </details>
 
@@ -588,9 +644,13 @@ Create a new issue link type.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{ }
+```
 
 </details>
 
@@ -601,9 +661,13 @@ Creates an issue type from a JSON representation and adds the issue newly create
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{ }
+```
 
 </details>
 
@@ -618,9 +682,13 @@ Creates issues or sub-tasks from a JSON representation.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{ }
+```
 
 </details>
 
@@ -631,15 +699,19 @@ Creates or updates a remote issue link from a JSON representation. If a globalId
 
 <details><summary>Parameters</summary>
 
-#### issueIdOrKey (required)
+### issueIdOrKey (required)
 
 the issue to create the remote issue link for
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{ }
+```
 
 </details>
 
@@ -650,15 +722,19 @@ Create a remote version link via POST.  The link's global ID will be taken from 
 
 <details><summary>Parameters</summary>
 
-#### versionId (required)
+### versionId (required)
 
 The version for which to delete ALL existing remote version links
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{ }
+```
 
 </details>
 
@@ -668,15 +744,19 @@ Creates a permission grant in a permission scheme.
 
 <details><summary>Parameters</summary>
 
-#### schemeId (required)
+### schemeId (required)
 
 **Type:** integer
 
-#### $body
+### $body
 
 **Type:** object
 
-#### expand
+```json
+{ }
+```
+
+### expand
 
 **Type:** string
 
@@ -689,11 +769,15 @@ Create a new permission scheme.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
 
-#### expand
+```json
+{ }
+```
+
+### expand
 
 **Type:** string
 
@@ -705,9 +789,13 @@ Creates a new project.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{ }
+```
 
 </details>
 
@@ -717,9 +805,13 @@ Create a project category via POST.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{ }
+```
 
 </details>
 
@@ -730,9 +822,13 @@ Creates a new ProjectRole to be available in JIRA.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{ }
+```
 
 </details>
 
@@ -743,29 +839,33 @@ Add a new property to a transition. Trying to add a property that already
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 the ID of the transition within the workflow.
 
 **Type:** integer
 
-#### $body
+### $body
 
 **Type:** object
 
-#### key
+```json
+{ }
+```
+
+### key
 
 the name of the property to add.
 
 **Type:** string
 
-#### workflowMode
+### workflowMode
 
 the type of workflow to use. Can either be "live" or "draft".
 
 **Type:** string
 
-#### workflowName
+### workflowName
 
 the name of the workflow to use.
 
@@ -780,21 +880,25 @@ Create a remote version link via POST.  The link's global ID will be taken from 
 
 <details><summary>Parameters</summary>
 
-#### globalId (required)
+### globalId (required)
 
 The global ID of the remote link
 
 **Type:** string
 
-#### versionId (required)
+### versionId (required)
 
 The version ID of the remote link
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{ }
+```
 
 </details>
 
@@ -806,9 +910,13 @@ Create a new workflow scheme.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{ }
+```
 
 </details>
 
@@ -819,9 +927,13 @@ Create user. By default created user will not be notified with email.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{ }
+```
 
 </details>
 
@@ -831,7 +943,7 @@ Create a version via POST.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** string
 
@@ -850,7 +962,7 @@ Returns the default columns for the given user. Admin permission will be require
 
 <details><summary>Parameters</summary>
 
-#### username
+### username
 
 username
 
@@ -865,7 +977,7 @@ Returns the default columns for the given filter. Currently logged in user will 
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 id of the filter
 
@@ -884,25 +996,25 @@ Deletes actors (users or groups) from a project role.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 the project role id
 
 **Type:** integer
 
-#### projectIdOrKey (required)
+### projectIdOrKey (required)
 
 the project id or project key
 
 **Type:** string
 
-#### group
+### group
 
 the groupname to remove from the project role
 
 **Type:** string
 
-#### user
+### user
 
 the username to remove from the project role
 
@@ -916,13 +1028,13 @@ Deletes avatar
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 database id for avatar
 
 **Type:** integer
 
-#### username
+### username
 
 username
 
@@ -936,17 +1048,17 @@ Deletes avatar
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 database id for avatar
 
 **Type:** integer
 
-#### owningObjectId (required)
+### owningObjectId (required)
 
 **Type:** string
 
-#### type (required)
+### type (required)
 
 Project id or project key
 
@@ -960,13 +1072,13 @@ Deletes avatar
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 database id for avatar
 
 **Type:** integer
 
-#### projectIdOrKey (required)
+### projectIdOrKey (required)
 
 Project id or project key
 
@@ -980,13 +1092,13 @@ Deletes an existing comment .
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 the ID of the comment to request
 
 **Type:** string
 
-#### issueIdOrKey (required)
+### issueIdOrKey (required)
 
 of the issue the comment belongs to
 
@@ -1000,13 +1112,13 @@ Remove the default workflow from the passed workflow scheme.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 the id of the scheme.
 
 **Type:** integer
 
-#### updateDraftIfNeeded
+### updateDraftIfNeeded
 
 when true will create and return a draft when the workflow scheme cannot be edited
                             (e.g. when it is being used by a project).
@@ -1021,7 +1133,7 @@ Delete the passed draft workflow scheme.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 the id of the parent scheme.
 
@@ -1035,7 +1147,7 @@ Remove the default workflow from the passed draft workflow scheme.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 the id of the parent scheme.
 
@@ -1049,13 +1161,13 @@ Remove the specified issue type mapping from the draft scheme.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 the id of the parent scheme.
 
 **Type:** integer
 
-#### issueType (required)
+### issueType (required)
 
 the issue type being set.
 
@@ -1069,13 +1181,13 @@ Delete the passed workflow from the draft workflow scheme.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 the id of the parent scheme.
 
 **Type:** integer
 
-#### workflowName
+### workflowName
 
 the name of the workflow to delete.
 
@@ -1089,7 +1201,7 @@ Delete a filter.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 the id of the filter being looked up
 
@@ -1106,13 +1218,13 @@ Delete an issue.
 
 <details><summary>Parameters</summary>
 
-#### issueIdOrKey (required)
+### issueIdOrKey (required)
 
 the issue id or key to update (i.e. JRA-1330)
 
 **Type:** string
 
-#### deleteSubtasks
+### deleteSubtasks
 
 a String of true or false indicating that any subtasks should also be deleted.  If the
                        issue has no subtasks this parameter is ignored.  If the issue has subtasks and this parameter is missing or false,
@@ -1130,7 +1242,7 @@ Deletes an issue link with the specified id.
 
 <details><summary>Parameters</summary>
 
-#### linkId (required)
+### linkId (required)
 
 the issue link id.
 
@@ -1144,7 +1256,7 @@ Delete the specified issue link type.
 
 <details><summary>Parameters</summary>
 
-#### issueLinkTypeId (required)
+### issueLinkTypeId (required)
 
 **Type:** string
 
@@ -1156,19 +1268,19 @@ Remove the specified issue type mapping from the scheme.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 the id of the scheme.
 
 **Type:** integer
 
-#### issueType (required)
+### issueType (required)
 
 the issue type being set.
 
 **Type:** string
 
-#### updateDraftIfNeeded
+### updateDraftIfNeeded
 
 when true will create and return a draft when the workflow scheme cannot be edited
                             (e.g. when it is being used by a project).
@@ -1183,7 +1295,7 @@ Deletes a permission scheme identified by the given id.
 
 <details><summary>Parameters</summary>
 
-#### schemeId (required)
+### schemeId (required)
 
 **Type:** integer
 
@@ -1195,11 +1307,11 @@ Deletes a permission grant from a permission scheme.
 
 <details><summary>Parameters</summary>
 
-#### permissionId (required)
+### permissionId (required)
 
 **Type:** integer
 
-#### schemeId (required)
+### schemeId (required)
 
 **Type:** integer
 
@@ -1211,7 +1323,7 @@ Deletes a project.
 
 <details><summary>Parameters</summary>
 
-#### projectIdOrKey (required)
+### projectIdOrKey (required)
 
 the project id or project key
 
@@ -1225,13 +1337,13 @@ Delete a project component.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 The component to delete.
 
 **Type:** string
 
-#### moveIssuesTo
+### moveIssuesTo
 
 The new component applied to issues whose 'id' component will be deleted.
                      If this value is null, then the 'id' component is simply removed from the related isues.
@@ -1246,11 +1358,11 @@ Deletes a role. May return 403 in the future
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 **Type:** integer
 
-#### swap
+### swap
 
 if given, removes a role even if it is used in scheme by replacing the role with the given one
 
@@ -1264,19 +1376,19 @@ Removes default actor from the given role.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 the role id to remove the actors from
 
 **Type:** integer
 
-#### group
+### group
 
 if given, removes an actor from given role
 
 **Type:** string
 
-#### user
+### user
 
 if given, removes an actor from given role
 
@@ -1290,15 +1402,19 @@ Delete a project version.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 The version to delete
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{ }
+```
 
 </details>
 
@@ -1308,20 +1424,20 @@ Delete a project version.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 The version to delete
 
 **Type:** string
 
-#### moveAffectedIssuesTo
+### moveAffectedIssuesTo
 
 The version to set affectedVersion to on issues where the deleted version is the affected version,
                              If null then the affectedVersion is removed.
 
 **Type:** string
 
-#### moveFixIssuesTo
+### moveFixIssuesTo
 
 The version to set fixVersion to on issues where the deleted version is the fix version,
                              If null then the fixVersion is removed.
@@ -1337,17 +1453,17 @@ Removes the property from the dashboard item identified by the key or by the id.
 
 <details><summary>Parameters</summary>
 
-#### dashboardId (required)
+### dashboardId (required)
 
 **Type:** string
 
-#### itemId (required)
+### itemId (required)
 
 the dashboard item from which the property will be returned.
 
 **Type:** string
 
-#### propertyKey (required)
+### propertyKey (required)
 
 the key of the property to return.
 
@@ -1362,13 +1478,13 @@ Removes the property from the comment identified by the key or by the id. Ths us
 
 <details><summary>Parameters</summary>
 
-#### commentId (required)
+### commentId (required)
 
 the comment from which the property will be returned.
 
 **Type:** string
 
-#### propertyKey (required)
+### propertyKey (required)
 
 the key of the property to return.
 
@@ -1383,13 +1499,13 @@ Removes the property from the issue identified by the key or by the id. Ths user
 
 <details><summary>Parameters</summary>
 
-#### issueIdOrKey (required)
+### issueIdOrKey (required)
 
 the issue from which the property will be returned.
 
 **Type:** string
 
-#### propertyKey (required)
+### propertyKey (required)
 
 the key of the property to return.
 
@@ -1404,13 +1520,13 @@ Removes the property from the issue type identified by the id. Ths user removing
 
 <details><summary>Parameters</summary>
 
-#### issueTypeId (required)
+### issueTypeId (required)
 
 the issue type from which the property will be returned
 
 **Type:** string
 
-#### propertyKey (required)
+### propertyKey (required)
 
 the key of the property to return
 
@@ -1425,13 +1541,13 @@ Removes the property from the project identified by the key or by the id. Ths us
 
 <details><summary>Parameters</summary>
 
-#### projectIdOrKey (required)
+### projectIdOrKey (required)
 
 the project from which the property will be returned.
 
 **Type:** string
 
-#### propertyKey (required)
+### propertyKey (required)
 
 the key of the property to return.
 
@@ -1446,25 +1562,25 @@ Delete a property from the passed transition on the passed workflow. It is not a
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 the ID of the transition within the workflow.
 
 **Type:** integer
 
-#### key
+### key
 
 the name of the property to add.
 
 **Type:** string
 
-#### workflowMode
+### workflowMode
 
 the type of workflow to use. Can either be "live" or "draft".
 
 **Type:** string
 
-#### workflowName
+### workflowName
 
 the name of the workflow to use.
 
@@ -1479,17 +1595,17 @@ Removes the property from the user identified by the key or by the id. Ths user 
 
 <details><summary>Parameters</summary>
 
-#### propertyKey (required)
+### propertyKey (required)
 
 **Type:** string
 
-#### userKey
+### userKey
 
 key of the user whose property is to be removed
 
 **Type:** string
 
-#### username
+### username
 
 username of the user whose property is to be removed
 
@@ -1503,13 +1619,13 @@ Delete the remote issue link with the given global id on the issue.
 
 <details><summary>Parameters</summary>
 
-#### issueIdOrKey (required)
+### issueIdOrKey (required)
 
 the issue to create the remote issue link for
 
 **Type:** string
 
-#### globalId
+### globalId
 
 the global id of the remote issue link
 
@@ -1523,13 +1639,13 @@ Delete the remote issue link with the given id on the issue.
 
 <details><summary>Parameters</summary>
 
-#### issueIdOrKey (required)
+### issueIdOrKey (required)
 
 the issue to create the remote issue link for
 
 **Type:** string
 
-#### linkId (required)
+### linkId (required)
 
 the id of the remote issue link
 
@@ -1543,13 +1659,13 @@ Delete a specific remote version link with the given version ID and global ID.
 
 <details><summary>Parameters</summary>
 
-#### globalId (required)
+### globalId (required)
 
 The global ID of the remote link
 
 **Type:** string
 
-#### versionId (required)
+### versionId (required)
 
 The version ID of the remote link
 
@@ -1563,7 +1679,7 @@ Delete all remote version links for a given version ID.
 
 <details><summary>Parameters</summary>
 
-#### versionId (required)
+### versionId (required)
 
 The version for which to delete ALL existing remote version links
 
@@ -1577,7 +1693,7 @@ Delete the passed workflow scheme.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 the id of the scheme.
 
@@ -1591,11 +1707,11 @@ Removes a share permissions from the given filter.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 **Type:** integer
 
-#### permission-id (required)
+### permission-id (required)
 
 **Type:** integer
 
@@ -1609,13 +1725,13 @@ Deletes the specified issue type. If the issue type has any associated issues, t
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 the id of the issue type to update.
 
 **Type:** string
 
-#### alternativeIssueTypeId
+### alternativeIssueTypeId
 
 the id of an issue type to which issues associated with the removed issue type will be migrated.
 
@@ -1629,13 +1745,13 @@ Deletes tab to give screen
 
 <details><summary>Parameters</summary>
 
-#### screenId (required)
+### screenId (required)
 
 id of screen
 
 **Type:** integer
 
-#### tabId (required)
+### tabId (required)
 
 id of tab
 
@@ -1649,20 +1765,20 @@ Delete the passed workflow from the workflow scheme.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 the id of the scheme.
 
 **Type:** integer
 
-#### updateDraftIfNeeded
+### updateDraftIfNeeded
 
 flag to indicate if a draft should be created if necessary to delete the workflow
                             from the scheme.
 
 **Type:** boolean
 
-#### workflowName
+### workflowName
 
 the name of the workflow to delete.
 
@@ -1676,19 +1792,19 @@ Deletes an existing worklog entry.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 id of the worklog to be deleted
 
 **Type:** string
 
-#### issueIdOrKey (required)
+### issueIdOrKey (required)
 
 a string containing the issue id or key the worklog belongs to
 
 **Type:** string
 
-#### adjustEstimate
+### adjustEstimate
 
 (optional) allows you to provide specific instructions to update the remaining time estimate of the issue.  Valid values are
                        
@@ -1699,13 +1815,13 @@ a string containing the issue id or key the worklog belongs to
 
 **Type:** string
 
-#### increaseBy
+### increaseBy
 
 (required when "manual" is selected for adjustEstimate) the amount to increase the remaining estimate by e.g. "2d"
 
 **Type:** string
 
-#### newEstimate
+### newEstimate
 
 (required when "new" is selected for adjustEstimate) the new value for the remaining estimate field. e.g. "2d"
 
@@ -1725,15 +1841,19 @@ Perform a transition on an issue.
 
 <details><summary>Parameters</summary>
 
-#### issueIdOrKey (required)
+### issueIdOrKey (required)
 
 the issue whose transitions you want to view
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{ }
+```
 
 </details>
 
@@ -1743,17 +1863,17 @@ Updates an existing filter, and returns its new value.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 the id of the filter being looked up
 
 **Type:** integer
 
-#### $body
+### $body
 
 **Type:** string
 
-#### expand
+### expand
 
 the parameters to expand
 
@@ -1778,17 +1898,21 @@ Edits an issue from a JSON representation.
 
 <details><summary>Parameters</summary>
 
-#### issueIdOrKey (required)
+### issueIdOrKey (required)
 
 the issue id or key to update (i.e. JRA-1330)
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
 
-#### notifyUsers
+```json
+{ }
+```
+
+### notifyUsers
 
 send the email with notification that the issue was updated to users that watch it.
                     Admin or project admin permissions are required to disable the notification.
@@ -1803,7 +1927,7 @@ Tries to expand an attachment. Output is human-readable and subject to change.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 the id of the attachment to expand.
 
@@ -1817,7 +1941,7 @@ Tries to expand an attachment. Output is raw and should be backwards-compatible 
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 the id of the attachment to expand.
 
@@ -1834,23 +1958,23 @@ Returns a list of users that match the search string. This resource cannot be ac
 
 <details><summary>Parameters</summary>
 
-#### actionDescriptorId
+### actionDescriptorId
 
 **Type:** integer
 
-#### issueKey
+### issueKey
 
 the issue key for the issue being edited we need to find assignable users for.
 
 **Type:** string
 
-#### project
+### project
 
 the key of the project we are finding assignable users for
 
 **Type:** string
 
-#### username
+### username
 
 the username
 
@@ -1865,13 +1989,13 @@ Returns a list of users that match the search string and can be assigned issues 
 
 <details><summary>Parameters</summary>
 
-#### projectKeys
+### projectKeys
 
 the keys of the projects we are finding assignable users for, comma-separated
 
 **Type:** string
 
-#### username
+### username
 
 the username
 
@@ -1892,21 +2016,21 @@ Returns groups with substrings matching a given query. This is mainly for use wi
 
 <details><summary>Parameters</summary>
 
-#### exclude
+### exclude
 
 **Type:** string
 
-#### maxResults
+### maxResults
 
 **Type:** integer
 
-#### query
+### query
 
 a String to match groups agains
 
 **Type:** string
 
-#### userName
+### userName
 
 **Type:** string
 
@@ -1918,19 +2042,19 @@ Returns a list of users that match the search string. This resource cannot be ac
 
 <details><summary>Parameters</summary>
 
-#### includeActive
+### includeActive
 
 If true, then active users are included in the results (default true)
 
 **Type:** boolean
 
-#### includeInactive
+### includeInactive
 
 If true, then inactive users are included in the results (default false)
 
 **Type:** boolean
 
-#### username
+### username
 
 A query string used to search username, name or e-mail address
 
@@ -1945,13 +2069,13 @@ Returns a list of users and groups matching query with highlighting. This resour
 
 <details><summary>Parameters</summary>
 
-#### fieldId
+### fieldId
 
 The custom field id, if this request comes from a custom field, such as a user picker. Optional.
 
 **Type:** string
 
-#### issueTypeId
+### issueTypeId
 
 The list of issue type ids to further restrict the search.
                     This parameter can occur multiple times to pass in multiple issue type ids.
@@ -1961,14 +2085,14 @@ The list of issue type ids to further restrict the search.
 
 **Type:** string
 
-#### maxResults
+### maxResults
 
 the maximum number of users to return (defaults to 50). The maximum allowed value is 1000. If
                     you specify a value that is higher than this number, your search results will be truncated.
 
 **Type:** integer
 
-#### projectId
+### projectId
 
 The list of project ids to further restrict the search
                     This parameter can occur multiple times to pass in multiple project ids.
@@ -1977,13 +2101,13 @@ The list of project ids to further restrict the search
 
 **Type:** string
 
-#### query
+### query
 
 A string used to search username, Name or e-mail address
 
 **Type:** string
 
-#### showAvatar
+### showAvatar
 
 **Type:** boolean
 
@@ -1995,24 +2119,24 @@ Returns a list of users matching query with highlighting. This resource cannot b
 
 <details><summary>Parameters</summary>
 
-#### exclude
+### exclude
 
 **Type:** string
 
-#### maxResults
+### maxResults
 
 the maximum number of users to return (defaults to 50). The maximum allowed value is 1000.
                    If you specify a value that is higher than this number, your search results will be truncated.
 
 **Type:** integer
 
-#### query
+### query
 
 A string used to search username, Name or e-mail address
 
 **Type:** string
 
-#### showAvatar
+### showAvatar
 
 **Type:** boolean
 
@@ -2025,13 +2149,13 @@ Returns a list of active users that match the search string and have all specifi
 
 <details><summary>Parameters</summary>
 
-#### issueKey
+### issueKey
 
 the issue key for the issue for which returned users have specified permissions.
 
 **Type:** string
 
-#### permissions
+### permissions
 
 comma separated list of permissions for project or issue returned users must have, see
                     Permissions
@@ -2039,13 +2163,13 @@ comma separated list of permissions for project or issue returned users must hav
 
 **Type:** string
 
-#### projectKey
+### projectKey
 
 the optional project key to search for users with if no issueKey is supplied.
 
 **Type:** string
 
-#### username
+### username
 
 the username filter, list includes all users if unspecified
 
@@ -2062,32 +2186,32 @@ Returns a list of active users that match the search string. This resource canno
 
 <details><summary>Parameters</summary>
 
-#### issueKey
+### issueKey
 
 the issue key for the issue being edited we need to find viewable users for.
 
 **Type:** string
 
-#### maxResults
+### maxResults
 
 the maximum number of users to return (defaults to 50). The maximum allowed value is 1000.
                    If you specify a value that is higher than this number, your search results will be truncated.
 
 **Type:** integer
 
-#### projectKey
+### projectKey
 
 the optional project key to search for users with if no issueKey is supplied.
 
 **Type:** string
 
-#### startAt
+### startAt
 
 the index of the first user to return (0-based)
 
 **Type:** integer
 
-#### username
+### username
 
 the username filter, no users returned if left blank
 
@@ -2101,13 +2225,17 @@ Fully updates a roles. Both name and description must be given.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 **Type:** integer
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{ }
+```
 
 </details>
 
@@ -2117,7 +2245,7 @@ Returns the ApplicationRole with passed key if it exists.
 
 <details><summary>Parameters</summary>
 
-#### key (required)
+### key (required)
 
 the key of the role to update.
 
@@ -2132,7 +2260,7 @@ Returns the project type with the given key, if it is accessible to the logged i
 
 <details><summary>Parameters</summary>
 
-#### projectTypeKey (required)
+### projectTypeKey (required)
 
 **Type:** string
 
@@ -2156,7 +2284,7 @@ Returns all avatars which are visible for the currently logged in user.
 
 <details><summary>Parameters</summary>
 
-#### username
+### username
 
 username
 
@@ -2171,7 +2299,7 @@ Returns all avatars which are visible for the currently logged in user.  The ava
 
 <details><summary>Parameters</summary>
 
-#### projectIdOrKey (required)
+### projectIdOrKey (required)
 
 project id or project key
 
@@ -2185,19 +2313,19 @@ Gets all fields for a given tab
 
 <details><summary>Parameters</summary>
 
-#### screenId (required)
+### screenId (required)
 
 id of screen
 
 **Type:** integer
 
-#### tabId (required)
+### tabId (required)
 
 id of tab
 
 **Type:** integer
 
-#### projectKey
+### projectKey
 
 the key of the project; this parameter is optional
 
@@ -2236,13 +2364,13 @@ Returns all projects which are visible for the currently logged in user. If no u
 
 <details><summary>Parameters</summary>
 
-#### expand
+### expand
 
 the parameters to expand
 
 **Type:** string
 
-#### recent
+### recent
 
 if this parameter is set then only projects recently accessed by the current user (if not logged in then based on HTTP session) will be returned (maximum count limited to the specified number but no more than 20).
 
@@ -2256,7 +2384,7 @@ Get all issue types with valid status values for a project
 
 <details><summary>Parameters</summary>
 
-#### projectIdOrKey (required)
+### projectIdOrKey (required)
 
 Project id or project key
 
@@ -2270,7 +2398,7 @@ Returns all system avatars of the given type.
 
 <details><summary>Parameters</summary>
 
-#### type (required)
+### type (required)
 
 the avatar type
 
@@ -2284,13 +2412,13 @@ Returns a list of all tabs for the given screen
 
 <details><summary>Parameters</summary>
 
-#### screenId (required)
+### screenId (required)
 
 id of screen
 
 **Type:** integer
 
-#### projectKey
+### projectKey
 
 the key of the project; this parameter is optional
 
@@ -2304,7 +2432,7 @@ Returns all workflows.
 
 <details><summary>Parameters</summary>
 
-#### workflowName
+### workflowName
 
 **Type:** string
 
@@ -2318,7 +2446,7 @@ Returns a list of all alternative issue types for the given issue type id. The l
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 **Type:** string
 
@@ -2330,13 +2458,13 @@ Returns an application property.
 
 <details><summary>Parameters</summary>
 
-#### key
+### key
 
 a String containing the property key
 
 **Type:** string
 
-#### keyFilter
+### keyFilter
 
 when fetching a list allows the list to be filtered by the property's start of key
                         e.g. "jira.lf.*" whould fetch only those permissions that are editable and whose keys start with
@@ -2344,7 +2472,7 @@ when fetching a list allows the list to be filtered by the property's start of k
 
 **Type:** string
 
-#### permissionLevel
+### permissionLevel
 
 when fetching a list specifies the permission level of all items in the list
                         see {@link com.atlassian.jira.bc.admin.ApplicationPropertiesService.EditPermissionLevel}
@@ -2359,13 +2487,13 @@ Gets a permission scheme assigned with a project.
 
 <details><summary>Parameters</summary>
 
-#### projectKeyOrId (required)
+### projectKeyOrId (required)
 
 key or id of the project
 
 **Type:** string
 
-#### expand
+### expand
 
 **Type:** string
 
@@ -2377,7 +2505,7 @@ Returns the meta-data for an attachment, including the URI of the actual attache
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 id of the attachment to remove
 
@@ -2409,11 +2537,11 @@ id of the attachment to remove
 
 <details><summary>Parameters</summary>
 
-#### owningObjectId (required)
+### owningObjectId (required)
 
 **Type:** string
 
-#### type (required)
+### type (required)
 
 **Type:** string
 
@@ -2425,13 +2553,13 @@ Returns the requested workflow scheme to the caller.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 the id of the scheme.
 
 **Type:** integer
 
-#### returnDraftIfExists
+### returnDraftIfExists
 
 when true indicates that a scheme's draft, if it exists, should be queried instead of
                             the scheme itself.
@@ -2446,19 +2574,19 @@ Returns a single comment.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 the ID of the comment to request
 
 **Type:** string
 
-#### issueIdOrKey (required)
+### issueIdOrKey (required)
 
 of the issue the comment belongs to
 
 **Type:** string
 
-#### expand
+### expand
 
 optional flags: renderedBody (provides body rendered in HTML)
 
@@ -2473,13 +2601,13 @@ Returns the value of the property with a given key from the comment identified b
 
 <details><summary>Parameters</summary>
 
-#### commentId (required)
+### commentId (required)
 
 the comment from which the property will be returned.
 
 **Type:** string
 
-#### propertyKey (required)
+### propertyKey (required)
 
 the key of the property to return.
 
@@ -2496,19 +2624,19 @@ Returns all comments for an issue.
 
 <details><summary>Parameters</summary>
 
-#### issueIdOrKey (required)
+### issueIdOrKey (required)
 
 a string containing the issue id or key the comment will be added to
 
 **Type:** string
 
-#### expand
+### expand
 
 optional flags: renderedBody (provides body rendered in HTML)
 
 **Type:** string
 
-#### orderBy
+### orderBy
 
 ordering of the results.
 
@@ -2522,7 +2650,7 @@ Returns a project component.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 The component to delete.
 
@@ -2536,7 +2664,7 @@ Returns counts of issues related to this component.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 a String containing the component id
 
@@ -2565,7 +2693,7 @@ Returns the meta data for creating issues. This includes the available projects,
 
 <details><summary>Parameters</summary>
 
-#### issuetypeIds
+### issuetypeIds
 
 combinded with issuetypeNames, lists the issue types with which to filter the results. If null, all issue types are returned.
                        This parameter can be specified multiple times, and/or be a comma-separated list.
@@ -2573,7 +2701,7 @@ combinded with issuetypeNames, lists the issue types with which to filter the re
 
 **Type:** string
 
-#### issuetypeNames
+### issuetypeNames
 
 combinded with issuetypeIds, lists the issue types with which to filter the results. If null, all issue types are returned.
                        This parameter can be specified multiple times, but is NOT interpreted as a comma-separated list.
@@ -2581,7 +2709,7 @@ combinded with issuetypeIds, lists the issue types with which to filter the resu
 
 **Type:** string
 
-#### projectIds
+### projectIds
 
 combined with the projectKeys param, lists the projects with which to filter the results. If absent, all projects are returned.
                        This parameter can be specified multiple times, and/or be a comma-separated list.
@@ -2589,7 +2717,7 @@ combined with the projectKeys param, lists the projects with which to filter the
 
 **Type:** string
 
-#### projectKeys
+### projectKeys
 
 combined with the projectIds param, lists the projects with which to filter the results. If null, all projects are returned.
                        This parameter can be specified multiple times, and/or be a comma-separated list.
@@ -2605,7 +2733,7 @@ Returns a full representation of the Custom Field Option that has the given id.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 a String containing an Custom Field Option id
 
@@ -2619,7 +2747,7 @@ Returns a single dashboard.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 the dashboard id
 
@@ -2634,17 +2762,17 @@ Returns the value of the property with a given key from the dashboard item ident
 
 <details><summary>Parameters</summary>
 
-#### dashboardId (required)
+### dashboardId (required)
 
 **Type:** string
 
-#### itemId (required)
+### itemId (required)
 
 the dashboard item from which the property will be returned.
 
 **Type:** string
 
-#### propertyKey (required)
+### propertyKey (required)
 
 the key of the property to return.
 
@@ -2658,13 +2786,13 @@ Return the default workflow from the passed workflow scheme.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 the id of the scheme.
 
 **Type:** integer
 
-#### returnDraftIfExists
+### returnDraftIfExists
 
 when true indicates that a scheme's draft, if it exists, should be queried instead of
                             the scheme itself.
@@ -2685,7 +2813,7 @@ Returns the requested draft workflow scheme to the caller.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 the id of the parent scheme.
 
@@ -2699,7 +2827,7 @@ Return the default workflow from the passed draft workflow scheme to the caller.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 the id of the parent scheme.
 
@@ -2713,13 +2841,13 @@ Returns the issue type mapping for the passed draft workflow scheme.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 the id of the parent scheme.
 
 **Type:** integer
 
-#### issueType (required)
+### issueType (required)
 
 the issue type being set.
 
@@ -2733,13 +2861,13 @@ Returns the draft workflow mappings or requested mapping to the caller.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 the id of the parent scheme.
 
 **Type:** integer
 
-#### workflowName
+### workflowName
 
 the workflow mapping to return. Null can be passed to return all mappings. Must be a valid workflow name.
 
@@ -2756,7 +2884,7 @@ Returns the meta data for editing an issue.
 
 <details><summary>Parameters</summary>
 
-#### issueIdOrKey (required)
+### issueIdOrKey (required)
 
 the issue whose edit meta data you want to view
 
@@ -2770,13 +2898,13 @@ Returns the favourite filters of the logged-in user.
 
 <details><summary>Parameters</summary>
 
-#### enableSharedUsers
+### enableSharedUsers
 
 enable calculating shared users collection
 
 **Type:** boolean
 
-#### expand
+### expand
 
 the parameters to expand
 
@@ -2790,25 +2918,25 @@ Returns auto complete suggestions for JQL search.
 
 <details><summary>Parameters</summary>
 
-#### fieldName
+### fieldName
 
 the field name for which the suggestions are generated.
 
 **Type:** string
 
-#### fieldValue
+### fieldValue
 
 the portion of the field value that has already been provided by the user.
 
 **Type:** string
 
-#### predicateName
+### predicateName
 
 the predicate for which the suggestions are generated. Suggestions are generated only for: "by", "from" and "to".
 
 **Type:** string
 
-#### predicateValue
+### predicateValue
 
 the portion of the predicate value that has already been provided by the user.
 
@@ -2828,7 +2956,7 @@ Gets available fields for screen. i.e ones that haven't already been added.
 
 <details><summary>Parameters</summary>
 
-#### screenId (required)
+### screenId (required)
 
 id of screen
 
@@ -2842,19 +2970,19 @@ Returns a filter given an id
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 the id of the filter being looked up
 
 **Type:** integer
 
-#### enableSharedUsers
+### enableSharedUsers
 
 enable calculating shared users collection
 
 **Type:** boolean
 
-#### expand
+### expand
 
 the parameters to expand
 
@@ -2873,13 +3001,13 @@ Returns REST representation for the requested group. Allows to get list of activ
 
 <details><summary>Parameters</summary>
 
-#### expand
+### expand
 
 List of fields to expand. Currently only available expand is "users".
 
 **Type:** string
 
-#### groupname
+### groupname
 
 A name of requested group.
 
@@ -2895,7 +3023,7 @@ Returns worklogs id and delete time of worklogs that was deleted since given tim
 
 <details><summary>Parameters</summary>
 
-#### since
+### since
 
 a date time in unix timestamp format since when deleted worklogs will be returned.
 
@@ -2911,7 +3039,7 @@ Returns worklogs id and update time of worklogs that was updated since given tim
 
 <details><summary>Parameters</summary>
 
-#### since
+### since
 
 a date time in unix timestamp format since when updated worklogs will be returned.
 
@@ -2982,23 +3110,23 @@ Returns a full representation of the issue for the given issue key.
 
 <details><summary>Parameters</summary>
 
-#### issueIdOrKey (required)
+### issueIdOrKey (required)
 
 the issue id or key to update (i.e. JRA-1330)
 
 **Type:** string
 
-#### expand
+### expand
 
 **Type:** string
 
-#### fields
+### fields
 
 the list of fields to return for the issue. By default, all fields are returned.
 
 **Type:** string
 
-#### properties
+### properties
 
 the list of properties to return for the issue. By default no properties are returned.
 
@@ -3018,7 +3146,7 @@ Returns an issue link with the specified id.
 
 <details><summary>Parameters</summary>
 
-#### linkId (required)
+### linkId (required)
 
 the issue link id.
 
@@ -3032,7 +3160,7 @@ Returns for a given issue link type id all information about this issue link typ
 
 <details><summary>Parameters</summary>
 
-#### issueLinkTypeId (required)
+### issueLinkTypeId (required)
 
 **Type:** string
 
@@ -3057,37 +3185,37 @@ Returns suggested issues which match the auto-completion query for the user whic
 
 <details><summary>Parameters</summary>
 
-#### currentIssueKey
+### currentIssueKey
 
 the key of the issue in context of which the request is executed. The issue which is in context will not be included in the auto-completion result, even if it matches the query.
 
 **Type:** string
 
-#### currentJQL
+### currentJQL
 
 the JQL in context of which the request is executed. Only issues which match this JQL query will be included in results.
 
 **Type:** string
 
-#### currentProjectId
+### currentProjectId
 
 the id of the project in context of which the request is executed. Suggested issues will be only from this project.
 
 **Type:** string
 
-#### query
+### query
 
 the query.
 
 **Type:** string
 
-#### showSubTaskParent
+### showSubTaskParent
 
 if set to false and request is executed in context of a subtask, the parent issue will not be included in the auto-completion result, even if it matches the query.
 
 **Type:** boolean
 
-#### showSubTasks
+### showSubTasks
 
 if set to false, subtasks will not be included in the list.
 
@@ -3102,13 +3230,13 @@ Returns the value of the property with a given key from the issue identified by 
 
 <details><summary>Parameters</summary>
 
-#### issueIdOrKey (required)
+### issueIdOrKey (required)
 
 the issue from which the property will be returned.
 
 **Type:** string
 
-#### propertyKey (required)
+### propertyKey (required)
 
 the key of the property to return.
 
@@ -3122,7 +3250,7 @@ Returns the issue security scheme along with that are defined.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 **Type:** integer
 
@@ -3134,7 +3262,7 @@ Returns the issue security scheme for project.
 
 <details><summary>Parameters</summary>
 
-#### projectKeyOrId (required)
+### projectKeyOrId (required)
 
 **Type:** string
 
@@ -3152,7 +3280,7 @@ Returns a full representation of the issue type that has the given id.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 the id of the issue type to update.
 
@@ -3166,19 +3294,19 @@ Returns the issue type mapping for the passed workflow scheme.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 the id of the scheme.
 
 **Type:** integer
 
-#### issueType (required)
+### issueType (required)
 
 the issue type being set.
 
 **Type:** string
 
-#### returnDraftIfExists
+### returnDraftIfExists
 
 when true indicates that a scheme's draft, if it exists, should be queried instead of
                             the scheme itself.
@@ -3194,13 +3322,13 @@ Returns the value of the property with a given key from the issue type identifie
 
 <details><summary>Parameters</summary>
 
-#### issueTypeId (required)
+### issueTypeId (required)
 
 the issue type from which the property will be returned
 
 **Type:** string
 
-#### propertyKey (required)
+### propertyKey (required)
 
 the key of the property to return
 
@@ -3214,7 +3342,7 @@ Returns the list of watchers for the issue with the given key.
 
 <details><summary>Parameters</summary>
 
-#### issueIdOrKey (required)
+### issueIdOrKey (required)
 
 a String containing an issue key.
 
@@ -3229,7 +3357,7 @@ Returns all work logs for an issue.
 
 <details><summary>Parameters</summary>
 
-#### issueIdOrKey (required)
+### issueIdOrKey (required)
 
 a string containing the issue id or key the worklog will be added to
 
@@ -3243,7 +3371,7 @@ Returns a full representation of the security level that has the given id.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 a String containing an issue security level id
 
@@ -3264,13 +3392,13 @@ Gets a notification scheme associated with the project.
 
 <details><summary>Parameters</summary>
 
-#### projectKeyOrId (required)
+### projectKeyOrId (required)
 
 key or id of the project
 
 **Type:** string
 
-#### expand
+### expand
 
 **Type:** string
 
@@ -3308,13 +3436,13 @@ Returns a full representation of the notification scheme for the given id. This 
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 an id of the notification scheme to retrieve
 
 **Type:** integer
 
-#### expand
+### expand
 
 **Type:** string
 
@@ -3330,17 +3458,17 @@ Returns a paginated list of notification schemes. In order to access notificatio
 
 <details><summary>Parameters</summary>
 
-#### expand
+### expand
 
 **Type:** string
 
-#### maxResults
+### maxResults
 
 the maximum number of notification schemes to return (max 50).
 
 **Type:** integer
 
-#### startAt
+### startAt
 
 the index of the first notification scheme to return (0 based).
 
@@ -3355,7 +3483,7 @@ Returns the list of requirements for the current password policy. For example, "
 
 <details><summary>Parameters</summary>
 
-#### hasOldPassword
+### hasOldPassword
 
 whether or not the user will be required to enter their current password.  Use
                        {@code false} (the default) if this is a new user or if an administrator is forcibly changing
@@ -3371,11 +3499,11 @@ Returns a permission scheme identified by the given id.
 
 <details><summary>Parameters</summary>
 
-#### schemeId (required)
+### schemeId (required)
 
 **Type:** integer
 
-#### expand
+### expand
 
 **Type:** string
 
@@ -3387,15 +3515,15 @@ Returns a permission grant identified by the given id.
 
 <details><summary>Parameters</summary>
 
-#### permissionId (required)
+### permissionId (required)
 
 **Type:** integer
 
-#### schemeId (required)
+### schemeId (required)
 
 **Type:** integer
 
-#### expand
+### expand
 
 **Type:** string
 
@@ -3407,11 +3535,11 @@ Returns all permission grants of the given permission scheme.
 
 <details><summary>Parameters</summary>
 
-#### schemeId (required)
+### schemeId (required)
 
 **Type:** integer
 
-#### expand
+### expand
 
 **Type:** string
 
@@ -3428,7 +3556,7 @@ Returns a list of all permission schemes.
 
 <details><summary>Parameters</summary>
 
-#### expand
+### expand
 
 **Type:** string
 
@@ -3461,25 +3589,25 @@ Returns all permissions in the system and whether the currently logged in user h
 
 <details><summary>Parameters</summary>
 
-#### issueId
+### issueId
 
 - id of the issue to scope returned permissions for.
 
 **Type:** string
 
-#### issueKey
+### issueKey
 
 - key of the issue to scope returned permissions for.
 
 **Type:** string
 
-#### projectId
+### projectId
 
 - id of project to scope returned permissions for.
 
 **Type:** string
 
-#### projectKey
+### projectKey
 
 - key of project to scope returned permissions for.
 
@@ -3495,7 +3623,7 @@ Returns preference of the currently logged in user. Preference key must be provi
 
 <details><summary>Parameters</summary>
 
-#### key
+### key
 
 - key of the preference to be returned.
 
@@ -3515,7 +3643,7 @@ Returns an issue priority.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 a String containing the priority id
 
@@ -3529,7 +3657,7 @@ Retrieves the progress of a single reindex request.
 
 <details><summary>Parameters</summary>
 
-#### requestId (required)
+### requestId (required)
 
 the reindex request ID.
 
@@ -3544,7 +3672,7 @@ Retrieves the progress of a multiple reindex requests.  Only reindex requests th
 
 <details><summary>Parameters</summary>
 
-#### requestId
+### requestId
 
 the reindex request IDs.
 
@@ -3558,7 +3686,7 @@ Validates a project key.
 
 <details><summary>Parameters</summary>
 
-#### key
+### key
 
 the project key
 
@@ -3575,13 +3703,13 @@ Contains a full representation of a project in JSON format.
 
 <details><summary>Parameters</summary>
 
-#### projectIdOrKey (required)
+### projectIdOrKey (required)
 
 the project id or project key
 
 **Type:** string
 
-#### expand
+### expand
 
 the parameters to expand
 
@@ -3595,7 +3723,7 @@ Contains a representation of a project category in JSON format.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 **Type:** integer
 
@@ -3607,7 +3735,7 @@ Contains a full representation of a the specified project's components.
 
 <details><summary>Parameters</summary>
 
-#### projectIdOrKey (required)
+### projectIdOrKey (required)
 
 the project id or project key
 
@@ -3622,13 +3750,13 @@ Returns the value of the property with a given key from the project identified b
 
 <details><summary>Parameters</summary>
 
-#### projectIdOrKey (required)
+### projectIdOrKey (required)
 
 the project from which the property will be returned.
 
 **Type:** string
 
-#### propertyKey (required)
+### propertyKey (required)
 
 the key of the property to return.
 
@@ -3642,13 +3770,13 @@ Returns the details for a given project role in a project.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 the project role id
 
 **Type:** integer
 
-#### projectIdOrKey (required)
+### projectIdOrKey (required)
 
 the project id or project key
 
@@ -3662,7 +3790,7 @@ Gets default actors for the given role.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 the role id to remove the actors from
 
@@ -3676,7 +3804,7 @@ Returns all roles in the given project Id or key, with links to full details on 
 
 <details><summary>Parameters</summary>
 
-#### projectIdOrKey (required)
+### projectIdOrKey (required)
 
 the project id or project key
 
@@ -3690,7 +3818,7 @@ Get a specific ProjectRole available in JIRA.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 **Type:** integer
 
@@ -3702,7 +3830,7 @@ Returns the project type with the given key.
 
 <details><summary>Parameters</summary>
 
-#### projectTypeKey (required)
+### projectTypeKey (required)
 
 **Type:** string
 
@@ -3714,13 +3842,13 @@ Contains a full representation of a the specified project's versions.
 
 <details><summary>Parameters</summary>
 
-#### projectIdOrKey (required)
+### projectIdOrKey (required)
 
 the project id or project key
 
 **Type:** string
 
-#### expand
+### expand
 
 the parameters to expand
 
@@ -3743,19 +3871,19 @@ Returns all versions for the specified project. Results are paginated.
 
 <details><summary>Parameters</summary>
 
-#### projectIdOrKey (required)
+### projectIdOrKey (required)
 
 the project id or project key
 
 **Type:** string
 
-#### expand
+### expand
 
 the parameters to expand
 
 **Type:** string
 
-#### orderBy
+### orderBy
 
 ordering of the results.
 
@@ -3769,32 +3897,32 @@ Return the property or properties associated with a transition.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 the ID of the transition within the workflow.
 
 **Type:** integer
 
-#### includeReservedKeys
+### includeReservedKeys
 
 some keys under the "jira." prefix are editable, some are not. Set this to true
                             in order to include the non-editable keys in the response.
 
 **Type:** boolean
 
-#### key
+### key
 
 the name of the property key to query. Can be left off the query to return all properties.
 
 **Type:** string
 
-#### workflowMode
+### workflowMode
 
 the type of workflow to use. Can either be "live" or "draft".
 
 **Type:** string
 
-#### workflowName
+### workflowName
 
 the name of the workflow to use.
 
@@ -3808,7 +3936,7 @@ Returns the keys of all properties for the comment identified by the key or by t
 
 <details><summary>Parameters</summary>
 
-#### commentId (required)
+### commentId (required)
 
 the comment from which keys will be returned.
 
@@ -3822,11 +3950,11 @@ Returns the keys of all properties for the dashboard item identified by the id.
 
 <details><summary>Parameters</summary>
 
-#### dashboardId (required)
+### dashboardId (required)
 
 **Type:** string
 
-#### itemId (required)
+### itemId (required)
 
 the dashboard item from which keys will be returned.
 
@@ -3840,7 +3968,7 @@ Returns the keys of all properties for the issue identified by the key or by the
 
 <details><summary>Parameters</summary>
 
-#### issueIdOrKey (required)
+### issueIdOrKey (required)
 
 the issue from which keys will be returned.
 
@@ -3854,7 +3982,7 @@ Returns the keys of all properties for the project identified by the key or by t
 
 <details><summary>Parameters</summary>
 
-#### projectIdOrKey (required)
+### projectIdOrKey (required)
 
 the project from which keys will be returned.
 
@@ -3868,13 +3996,13 @@ Returns the keys of all properties for the user identified by the key or by the 
 
 <details><summary>Parameters</summary>
 
-#### userKey
+### userKey
 
 key of the user whose properties are to be returned
 
 **Type:** string
 
-#### username
+### username
 
 username of the user whose properties are to be returned
 
@@ -3888,7 +4016,7 @@ Returns the keys of all properties for the issue type identified by the id.
 
 <details><summary>Parameters</summary>
 
-#### issueTypeId (required)
+### issueTypeId (required)
 
 the issue type from which the keys will be returned
 
@@ -3902,45 +4030,45 @@ Returns auditing records filtered using provided parameters
 
 <details><summary>Parameters</summary>
 
-#### filter
+### filter
 
 - text query; each record that will be returned must contain the provided text in one of its fields
 
 **Type:** string
 
-#### from
+### from
 
 - timestamp in past; 'from' must be less or equal 'to', otherwise the result set will be empty
                only records that where created in the same moment or after the 'from' timestamp will be provided in response
 
 **Type:** string
 
-#### limit
+### limit
 
 - maximum number of returned results (if is limit is &lt;= 0 or &gt; 1000, it will be set do default value: 1000)
 
 **Type:** integer
 
-#### offset
+### offset
 
 - the number of record from which search starts
 
 **Type:** integer
 
-#### projectIds
+### projectIds
 
 - list of project ids to look for
 
 **Type:** string
 
-#### to
+### to
 
 - timestamp in past; 'from' must be less or equal 'to', otherwise the result set will be empty
                only records that where created in the same moment or earlier than the 'to' timestamp will be provided in response
 
 **Type:** string
 
-#### userIds
+### userIds
 
 - list of user ids to look for
 
@@ -3956,7 +4084,7 @@ Returns information on the system reindexes.  If a reindex is currently taking p
 
 <details><summary>Parameters</summary>
 
-#### taskId
+### taskId
 
 the id of an indexing task you wish to obtain details on.  If omitted, then defaults to the standard behaviour and
                returns information on the active reindex task, or the last task to run if no reindex is taking place. .  If there is no
@@ -3974,7 +4102,7 @@ Returns information on the system reindexes.  If a reindex is currently taking p
 
 <details><summary>Parameters</summary>
 
-#### taskId
+### taskId
 
 the id of an indexing task you wish to obtain details on.  If omitted, then defaults to the standard behaviour and
                returns information on the active reindex task, or the last task to run if no reindex is taking place. .  If there is no
@@ -3990,13 +4118,13 @@ Get the remote issue link with the given id on the issue.
 
 <details><summary>Parameters</summary>
 
-#### issueIdOrKey (required)
+### issueIdOrKey (required)
 
 the issue to create the remote issue link for
 
 **Type:** string
 
-#### linkId (required)
+### linkId (required)
 
 the id of the remote issue link
 
@@ -4010,13 +4138,13 @@ A REST sub-resource representing the remote issue links on the issue.
 
 <details><summary>Parameters</summary>
 
-#### issueIdOrKey (required)
+### issueIdOrKey (required)
 
 the issue to create the remote issue link for
 
 **Type:** string
 
-#### globalId
+### globalId
 
 The id of the remote issue link to be returned.  If null (not provided) all remote links for the
                      issue are returned.
@@ -4033,13 +4161,13 @@ A REST sub-resource representing a remote version link
 
 <details><summary>Parameters</summary>
 
-#### globalId (required)
+### globalId (required)
 
 The global ID of the remote link
 
 **Type:** string
 
-#### versionId (required)
+### versionId (required)
 
 The version ID of the remote link
 
@@ -4053,7 +4181,7 @@ Returns the remote version links for a given global ID.
 
 <details><summary>Parameters</summary>
 
-#### globalId
+### globalId
 
 the global ID of the remote resource that is linked to the versions
 
@@ -4067,7 +4195,7 @@ Returns the remote version links associated with the given version ID.
 
 <details><summary>Parameters</summary>
 
-#### versionId (required)
+### versionId (required)
 
 The version for which to delete ALL existing remote version links
 
@@ -4081,7 +4209,7 @@ Returns a resolution.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 a String containing the resolution id
 
@@ -4101,13 +4229,13 @@ a String containing the resolution id
 
 <details><summary>Parameters</summary>
 
-#### attributeKey (required)
+### attributeKey (required)
 
 permission scheme attribute key
 
 **Type:** string
 
-#### permissionSchemeId (required)
+### permissionSchemeId (required)
 
 permission scheme id
 
@@ -4122,7 +4250,7 @@ Returns all security levels for the project that the current logged in user has 
 
 <details><summary>Parameters</summary>
 
-#### projectKeyOrId (required)
+### projectKeyOrId (required)
 
 - key or id of project to list the security levels for
 
@@ -4136,7 +4264,7 @@ Returns general information about the current JIRA server.
 
 <details><summary>Parameters</summary>
 
-#### doHealthCheck
+### doHealthCheck
 
 **Type:** boolean
 
@@ -4148,11 +4276,11 @@ Returns a single share permission of the given filter.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 **Type:** integer
 
-#### permissionId (required)
+### permissionId (required)
 
 **Type:** integer
 
@@ -4164,7 +4292,7 @@ Returns all share permissions of the given filter.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 **Type:** integer
 
@@ -4176,7 +4304,7 @@ Returns a list of all the sprints for a board
 
 <details><summary>Parameters</summary>
 
-#### boardId (required)
+### boardId (required)
 
 - id of board.
 
@@ -4196,7 +4324,7 @@ Returns a full representation of the Status having the given id or name.
 
 <details><summary>Parameters</summary>
 
-#### idOrName (required)
+### idOrName (required)
 
 a numeric Status id or a status name
 
@@ -4216,7 +4344,7 @@ Returns a full representation of the StatusCategory having the given id or key
 
 <details><summary>Parameters</summary>
 
-#### idOrKey (required)
+### idOrKey (required)
 
 a numeric StatusCategory id or a status category key
 
@@ -4236,7 +4364,7 @@ Returns an issue's subtask list
 
 <details><summary>Parameters</summary>
 
-#### issueIdOrKey (required)
+### issueIdOrKey (required)
 
 The parent issue's key or id
 
@@ -4255,13 +4383,13 @@ Get a list of the transitions possible for this issue by the current user, along
 
 <details><summary>Parameters</summary>
 
-#### issueIdOrKey (required)
+### issueIdOrKey (required)
 
 the issue whose transitions you want to view
 
 **Type:** string
 
-#### transitionId
+### transitionId
 
 **Type:** string
 
@@ -4279,13 +4407,13 @@ Returns a user. This resource cannot be accessed anonymously.
 
 <details><summary>Parameters</summary>
 
-#### key
+### key
 
 user key
 
 **Type:** string
 
-#### username
+### username
 
 the username
 
@@ -4300,17 +4428,17 @@ Returns the value of the property with a given key from the user identified by t
 
 <details><summary>Parameters</summary>
 
-#### propertyKey (required)
+### propertyKey (required)
 
 **Type:** string
 
-#### userKey
+### userKey
 
 key of the user whose property is to be returned
 
 **Type:** string
 
-#### username
+### username
 
 username of the user whose property is to be returned
 
@@ -4325,13 +4453,13 @@ This resource returns a paginated list of users who are members of the specified
 
 <details><summary>Parameters</summary>
 
-#### groupname
+### groupname
 
 a name of the group for which members will be returned.
 
 **Type:** string
 
-#### includeInactiveUsers
+### includeInactiveUsers
 
 inactive users will be included in the response if set to true.
 
@@ -4345,13 +4473,13 @@ Returns a project version.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 The version to delete
 
 **Type:** string
 
-#### expand
+### expand
 
 **Type:** string
 
@@ -4363,7 +4491,7 @@ Returns a bean containing the number of fixed in and affected issues for the giv
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 a String containing the version id
 
@@ -4377,7 +4505,7 @@ Returns the number of unresolved issues for the given version
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 a String containing the version id
 
@@ -4391,7 +4519,7 @@ A REST sub-resource representing the voters on the issue.
 
 <details><summary>Parameters</summary>
 
-#### issueIdOrKey (required)
+### issueIdOrKey (required)
 
 the issue to view voting information for
 
@@ -4405,20 +4533,20 @@ Returns the workflow mappings or requested mapping to the caller for the passed 
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 the id of the scheme.
 
 **Type:** integer
 
-#### returnDraftIfExists
+### returnDraftIfExists
 
 when true indicates that a scheme's draft, if it exists, should be queried instead of
                             the scheme itself.
 
 **Type:** boolean
 
-#### workflowName
+### workflowName
 
 the workflow mapping to return. Null can be passed to return all mappings. Must be a valid workflow name.
 
@@ -4433,13 +4561,13 @@ Returns a specific worklog.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 id of the worklog to be deleted
 
 **Type:** string
 
-#### issueIdOrKey (required)
+### issueIdOrKey (required)
 
 a string containing the issue id or key the worklog belongs to
 
@@ -4454,7 +4582,7 @@ Returns worklogs for given worklog ids. Only worklogs to which the calling user 
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** string
 
@@ -4473,9 +4601,13 @@ Creates an issue link between two issues.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{ }
+```
 
 </details>
 
@@ -4485,7 +4617,7 @@ Returns a list of all dashboards, optionally filtering them.
 
 <details><summary>Parameters</summary>
 
-#### filter
+### filter
 
 an optional filter that is applied to the list of dashboards. Valid values include
                         "favourite" for returning only favourite dashboards, and "my" for returning
@@ -4505,7 +4637,7 @@ Creates a new session for a user in JIRA. Once a session has been successfully c
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** string
 
@@ -4523,13 +4655,13 @@ Merge versions
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 The version that will be merged to version {@code moveIssuesTo} and removed
 
 **Type:** string
 
-#### moveIssuesTo (required)
+### moveIssuesTo (required)
 
 The version to set fixVersion to on issues where the deleted version is the fix version,
                      If null then the fixVersion is removed.
@@ -4544,25 +4676,29 @@ Moves field on the given tab
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 **Type:** string
 
-#### screenId (required)
+### screenId (required)
 
 id of screen
 
 **Type:** integer
 
-#### tabId (required)
+### tabId (required)
 
 id of tab
 
 **Type:** integer
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{ }
+```
 
 </details>
 
@@ -4573,15 +4709,19 @@ Reorders an issue's subtasks by moving the subtask at index "from"
 
 <details><summary>Parameters</summary>
 
-#### issueIdOrKey (required)
+### issueIdOrKey (required)
 
 The parent issue's key or id
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{ }
+```
 
 </details>
 
@@ -4591,19 +4731,19 @@ Moves tab position
 
 <details><summary>Parameters</summary>
 
-#### pos (required)
+### pos (required)
 
 position of tab
 
 **Type:** integer
 
-#### screenId (required)
+### screenId (required)
 
 id of screen
 
 **Type:** integer
 
-#### tabId (required)
+### tabId (required)
 
 id of tab
 
@@ -4623,13 +4763,13 @@ Modify a version's sequence within a project.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 a String containing the version id
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** string
 
@@ -4641,15 +4781,19 @@ Sends a notification (email) to the list or recipients defined in the request.
 
 <details><summary>Parameters</summary>
 
-#### issueIdOrKey (required)
+### issueIdOrKey (required)
 
 a string containing the issue id or key the comment will be added to
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{ }
+```
 
 </details>
 
@@ -4659,13 +4803,17 @@ Partially updates a roles name or description.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 **Type:** integer
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{ }
+```
 
 </details>
 
@@ -4684,9 +4832,13 @@ Returns a list of statements explaining why the password policy would disallow a
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{ }
+```
 
 </details>
 
@@ -4705,9 +4857,13 @@ Returns a list of statements explaining why the password policy would disallow a
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{ }
+```
 
 </details>
 
@@ -4727,17 +4883,21 @@ Updates the ApplicationRole with the passed data. Only the groups and default gr
 
 <details><summary>Parameters</summary>
 
-#### key (required)
+### key (required)
 
 the key of the role to update.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
 
-#### If-Match
+```json
+{ }
+```
+
+### If-Match
 
 the hash of the version to update. Optional Param
 
@@ -4754,11 +4914,15 @@ Updates the ApplicationRoles with the passed data if the version hash is the sam
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
 
-#### If-Match
+```json
+{ }
+```
+
+### If-Match
 
 **Type:** string
 
@@ -4770,25 +4934,25 @@ Kicks off a reindex. Need Admin permissions to perform this reindex.
 
 <details><summary>Parameters</summary>
 
-#### indexChangeHistory
+### indexChangeHistory
 
 Indicates that changeHistory should also be reindexed. Not relevant for foreground reindex, where changeHistory is always reindexed.
 
 **Type:** boolean
 
-#### indexComments
+### indexComments
 
 Indicates that comments should also be reindexed. Not relevant for foreground reindex, where comments are always reindexed.
 
 **Type:** boolean
 
-#### indexWorklogs
+### indexWorklogs
 
 Indicates that changeHistory should also be reindexed. Not relevant for foreground reindex, where changeHistory is always reindexed.
 
 **Type:** boolean
 
-#### type
+### type
 
 Case insensitive String indicating type of reindex. If omitted, then defaults to BACKGROUND_PREFERRED.
 
@@ -4805,25 +4969,25 @@ Reindexes one or more individual issues.  Indexing is performed synchronously - 
 
 <details><summary>Parameters</summary>
 
-#### indexChangeHistory
+### indexChangeHistory
 
 Indicates that changeHistory should also be reindexed.
 
 **Type:** boolean
 
-#### indexComments
+### indexComments
 
 Indicates that comments should also be reindexed.
 
 **Type:** boolean
 
-#### indexWorklogs
+### indexWorklogs
 
 Indicates that changeHistory should also be reindexed.
 
 **Type:** boolean
 
-#### issueId
+### issueId
 
 the IDs or keys of one or more issues to reindex.
 
@@ -4843,7 +5007,7 @@ Remove an attachment from an issue.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 id of the attachment to remove
 
@@ -4857,17 +5021,17 @@ Removes field from given tab
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 **Type:** string
 
-#### screenId (required)
+### screenId (required)
 
 id of screen
 
 **Type:** integer
 
-#### tabId (required)
+### tabId (required)
 
 id of tab
 
@@ -4883,13 +5047,13 @@ Deletes a group by given group parameter.
 
 <details><summary>Parameters</summary>
 
-#### groupname
+### groupname
 
 (mandatory) The name of the group to delete.
 
 **Type:** string
 
-#### swapGroup
+### swapGroup
 
 If you delete a group and content is restricted to that group, the content will be hidden from all users. 
  To prevent this, use this parameter to specify a different group to transfer the restrictions (comments and worklogs only) to.
@@ -4905,7 +5069,7 @@ Removes preference of the currently logged in user. Preference key must be provi
 
 <details><summary>Parameters</summary>
 
-#### key
+### key
 
 - key of the preference to be removed.
 
@@ -4919,7 +5083,7 @@ Delete a project category.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 **Type:** integer
 
@@ -4931,13 +5095,13 @@ Removes user.
 
 <details><summary>Parameters</summary>
 
-#### key
+### key
 
 user key
 
 **Type:** string
 
-#### username
+### username
 
 the username
 
@@ -4951,13 +5115,13 @@ Remove user from given application. Admin permission will be required to perform
 
 <details><summary>Parameters</summary>
 
-#### applicationKey
+### applicationKey
 
 application key
 
 **Type:** string
 
-#### username
+### username
 
 username
 
@@ -4973,13 +5137,13 @@ Removes given user from a group.
 
 <details><summary>Parameters</summary>
 
-#### groupname
+### groupname
 
 A name of requested group.
 
 **Type:** string
 
-#### username
+### username
 
 User to remove from a group
 
@@ -4993,7 +5157,7 @@ Remove your vote from an issue. (i.e. "unvote")
 
 <details><summary>Parameters</summary>
 
-#### issueIdOrKey (required)
+### issueIdOrKey (required)
 
 the issue to view voting information for
 
@@ -5007,13 +5171,13 @@ Removes a user from an issue's watcher list.
 
 <details><summary>Parameters</summary>
 
-#### issueIdOrKey (required)
+### issueIdOrKey (required)
 
 a String containing an issue key.
 
 **Type:** string
 
-#### username
+### username
 
 a String containing the name of the user to remove from the watcher list. Must not be null.
 
@@ -5027,21 +5191,25 @@ Renames tab on given screen
 
 <details><summary>Parameters</summary>
 
-#### screenId (required)
+### screenId (required)
 
 id of screen
 
 **Type:** integer
 
-#### tabId (required)
+### tabId (required)
 
 id of tab
 
 **Type:** integer
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{ }
+```
 
 </details>
 
@@ -5051,7 +5219,7 @@ Resets the columns for the given filter such that the filter no longer has its o
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 id of the filter
 
@@ -5066,7 +5234,7 @@ Reset the default columns for the given user to the system default. Admin permis
 
 <details><summary>Parameters</summary>
 
-#### username
+### username
 
 username
 
@@ -5120,25 +5288,25 @@ Searches for issues using JQL.
 
 <details><summary>Parameters</summary>
 
-#### expand
+### expand
 
 A comma-separated list of the parameters to expand.
 
 **Type:** string
 
-#### fields
+### fields
 
 the list of fields to return for each issue. By default, all navigable fields are returned.
 
 **Type:** string
 
-#### jql
+### jql
 
 a JQL query string
 
 **Type:** string
 
-#### validateQuery
+### validateQuery
 
 whether to validate the JQL query
 
@@ -5152,7 +5320,7 @@ Performs a search using JQL.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** string
 
@@ -5164,19 +5332,19 @@ Updates a project role to include the specified actors (users or groups).
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 the project role id
 
 **Type:** integer
 
-#### projectIdOrKey (required)
+### projectIdOrKey (required)
 
 the project id or project key
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** string
 
@@ -5188,9 +5356,13 @@ Sets the base URL that is configured for this JIRA instance.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{ }
+```
 
 </details>
 
@@ -5204,13 +5376,13 @@ Sets the value of the specified comment's property.
 
 <details><summary>Parameters</summary>
 
-#### commentId (required)
+### commentId (required)
 
 the comment from which the property will be returned.
 
 **Type:** string
 
-#### propertyKey (required)
+### propertyKey (required)
 
 the key of the property to return.
 
@@ -5224,7 +5396,7 @@ Sets the default share scope of the logged-in user. Available values are GLOBAL 
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** string
 
@@ -5239,21 +5411,25 @@ Set the issue type mapping for the passed draft scheme.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 the id of the parent scheme.
 
 **Type:** integer
 
-#### issueType (required)
+### issueType (required)
 
 the issue type being set.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{ }
+```
 
 </details>
 
@@ -5267,13 +5443,13 @@ Sets the value of the specified issue's property.
 
 <details><summary>Parameters</summary>
 
-#### issueIdOrKey (required)
+### issueIdOrKey (required)
 
 the issue from which the property will be returned.
 
 **Type:** string
 
-#### propertyKey (required)
+### propertyKey (required)
 
 the key of the property to return.
 
@@ -5290,21 +5466,25 @@ Set the issue type mapping for the passed scheme.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 the id of the scheme.
 
 **Type:** integer
 
-#### issueType (required)
+### issueType (required)
 
 the issue type being set.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{ }
+```
 
 </details>
 
@@ -5318,13 +5498,13 @@ Sets the value of the specified issue type's property.
 
 <details><summary>Parameters</summary>
 
-#### issueTypeId (required)
+### issueTypeId (required)
 
 the issue type from which the property will be returned
 
 **Type:** string
 
-#### propertyKey (required)
+### propertyKey (required)
 
 the key of the property to return
 
@@ -5340,11 +5520,15 @@ Sets preference of the currently logged in user. Preference key must be provided
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
 
-#### key
+```json
+{ }
+```
+
+### key
 
 - key of the preference to be set.
 
@@ -5362,13 +5546,13 @@ Sets the value of the specified project's property.
 
 <details><summary>Parameters</summary>
 
-#### projectIdOrKey (required)
+### projectIdOrKey (required)
 
 the project from which the property will be returned.
 
 **Type:** string
 
-#### propertyKey (required)
+### propertyKey (required)
 
 the key of the property to return.
 
@@ -5386,17 +5570,17 @@ Sets the value of the specified dashboard item's property.
 
 <details><summary>Parameters</summary>
 
-#### dashboardId (required)
+### dashboardId (required)
 
 **Type:** string
 
-#### itemId (required)
+### itemId (required)
 
 the dashboard item from which the property will be returned.
 
 **Type:** string
 
-#### propertyKey (required)
+### propertyKey (required)
 
 the key of the property to return.
 
@@ -5410,11 +5594,11 @@ Modify an application property via PUT. The "value" field present in the PUT wil
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** string
 
@@ -5433,21 +5617,25 @@ Updates or inserts the attribute for a permission scheme specified by permission
 
 <details><summary>Parameters</summary>
 
-#### key (required)
+### key (required)
 
 permission scheme attribute key
 
 **Type:** string
 
-#### permissionSchemeId (required)
+### permissionSchemeId (required)
 
 permission scheme id
 
 **Type:** integer
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{ }
+```
 
 </details>
 
@@ -5461,17 +5649,17 @@ Sets the value of the specified user's property.
 
 <details><summary>Parameters</summary>
 
-#### propertyKey (required)
+### propertyKey (required)
 
 **Type:** string
 
-#### userKey
+### userKey
 
 key of the user whose property is to be set
 
 **Type:** string
 
-#### username
+### username
 
 username of the user whose property is to be set
 
@@ -5497,19 +5685,19 @@ Creates temporary avatar
 
 <details><summary>Parameters</summary>
 
-#### type (required)
+### type (required)
 
 the avatar type
 
 **Type:** string
 
-#### filename
+### filename
 
 name of file being uploaded
 
 **Type:** string
 
-#### size
+### size
 
 size of file
 
@@ -5523,11 +5711,11 @@ size of file
 
 <details><summary>Parameters</summary>
 
-#### owningObjectId (required)
+### owningObjectId (required)
 
 **Type:** string
 
-#### type (required)
+### type (required)
 
 **Type:** string
 
@@ -5553,7 +5741,7 @@ Creates temporary avatar using multipart. The response is sent back as JSON stor
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 the id of the issue type, which avatar is updated.
 
@@ -5569,7 +5757,7 @@ Creates temporary avatar using multipart. The response is sent back as JSON stor
 
 <details><summary>Parameters</summary>
 
-#### projectIdOrKey (required)
+### projectIdOrKey (required)
 
 Project id or project key
 
@@ -5597,7 +5785,7 @@ Creates temporary avatar using multipart. The response is sent back as JSON stor
 
 <details><summary>Parameters</summary>
 
-#### username
+### username
 
 Username
 
@@ -5618,15 +5806,19 @@ Update the passed workflow scheme.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 the id of the scheme.
 
 **Type:** integer
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{ }
+```
 
 </details>
 
@@ -5636,13 +5828,13 @@ Updates the cropping instructions of the temporary avatar.
 
 <details><summary>Parameters</summary>
 
-#### type (required)
+### type (required)
 
 the avatar type
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** string
 
@@ -5654,23 +5846,27 @@ Updates an existing comment using its JSON representation.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 the ID of the comment to request
 
 **Type:** string
 
-#### issueIdOrKey (required)
+### issueIdOrKey (required)
 
 of the issue the comment belongs to
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
 
-#### expand
+```json
+{ }
+```
+
+### expand
 
 optional flags: renderedBody (provides body rendered in HTML)
 
@@ -5687,13 +5883,13 @@ Modify a component via PUT. Any fields present in the PUT will override existing
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 The component to delete.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** string
 
@@ -5709,15 +5905,19 @@ Set the default workflow for the passed workflow scheme.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 the id of the scheme.
 
 **Type:** integer
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{ }
+```
 
 </details>
 
@@ -5729,15 +5929,19 @@ Update a draft workflow scheme. The draft will created if necessary.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 the id of the parent scheme.
 
 **Type:** integer
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{ }
+```
 
 </details>
 
@@ -5747,15 +5951,19 @@ Set the default workflow for the passed draft workflow scheme.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 the id of the parent scheme.
 
 **Type:** integer
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{ }
+```
 
 </details>
 
@@ -5768,17 +5976,21 @@ Update the draft scheme to include the passed mapping.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 the id of the parent scheme.
 
 **Type:** integer
 
-#### $body
+### $body
 
 **Type:** object
 
-#### workflowName
+```json
+{ }
+```
+
+### workflowName
 
 the name of the workflow mapping to update.
 
@@ -5792,13 +6004,17 @@ Update the specified issue link type.
 
 <details><summary>Parameters</summary>
 
-#### issueLinkTypeId (required)
+### issueLinkTypeId (required)
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{ }
+```
 
 </details>
 
@@ -5808,15 +6024,19 @@ Updates the specified issue type from a JSON representation.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 the id of the issue type to update.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{ }
+```
 
 </details>
 
@@ -5828,9 +6048,13 @@ Modify currently logged user. The "value" fields present will override the exist
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{ }
+```
 
 </details>
 
@@ -5850,15 +6074,19 @@ Updates a permission scheme.
 
 <details><summary>Parameters</summary>
 
-#### schemeId (required)
+### schemeId (required)
 
 **Type:** integer
 
-#### $body
+### $body
 
 **Type:** object
 
-#### expand
+```json
+{ }
+```
+
+### expand
 
 **Type:** string
 
@@ -5874,17 +6102,21 @@ Updates a project.
 
 <details><summary>Parameters</summary>
 
-#### projectIdOrKey (required)
+### projectIdOrKey (required)
 
 the project id or project key
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
 
-#### expand
+```json
+{ }
+```
+
+### expand
 
 the parameters to expand in returned project
 
@@ -5898,11 +6130,11 @@ the parameters to expand in returned project
 
 <details><summary>Parameters</summary>
 
-#### projectIdOrKey (required)
+### projectIdOrKey (required)
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** string
 
@@ -5914,11 +6146,11 @@ the parameters to expand in returned project
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** string
 
-#### username
+### username
 
 **Type:** string
 
@@ -5931,13 +6163,17 @@ Modify a project category via PUT. Any fields present in the PUT will override e
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 **Type:** integer
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{ }
+```
 
 </details>
 
@@ -5947,13 +6183,13 @@ Updates the type of a project.
 
 <details><summary>Parameters</summary>
 
-#### newProjectTypeKey (required)
+### newProjectTypeKey (required)
 
 The key of the new project type
 
 **Type:** string
 
-#### projectIdOrKey (required)
+### projectIdOrKey (required)
 
 identity of the project to update
 
@@ -5968,29 +6204,33 @@ Update/add new property to a transition. Trying to update a property that does
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 the ID of the transition within the workflow.
 
 **Type:** integer
 
-#### $body
+### $body
 
 **Type:** object
 
-#### key
+```json
+{ }
+```
+
+### key
 
 the name of the property to add.
 
 **Type:** string
 
-#### workflowMode
+### workflowMode
 
 the type of workflow to use. Can either be "live" or "draft".
 
 **Type:** string
 
-#### workflowName
+### workflowName
 
 the name of the workflow to use.
 
@@ -6004,21 +6244,25 @@ Updates a remote issue link from a JSON representation. Any fields not provided 
 
 <details><summary>Parameters</summary>
 
-#### issueIdOrKey (required)
+### issueIdOrKey (required)
 
 the issue to create the remote issue link for
 
 **Type:** string
 
-#### linkId (required)
+### linkId (required)
 
 the id of the remote issue link
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{ }
+```
 
 </details>
 
@@ -6029,17 +6273,21 @@ Modify user. The "value" fields present will override the existing value.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
 
-#### key
+```json
+{ }
+```
+
+### key
 
 user key
 
 **Type:** string
 
-#### username
+### username
 
 the username
 
@@ -6054,13 +6302,13 @@ Modify a version via PUT. Any fields present in the PUT will override existing v
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 The version to delete
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** string
 
@@ -6078,17 +6326,21 @@ Update the scheme to include the passed mapping.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 the id of the scheme.
 
 **Type:** integer
 
-#### $body
+### $body
 
 **Type:** object
 
-#### workflowName
+```json
+{ }
+```
+
+### workflowName
 
 the name of the workflow mapping to update.
 
@@ -6109,23 +6361,23 @@ Updates an existing worklog entry.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 id of the worklog to be deleted
 
 **Type:** string
 
-#### issueIdOrKey (required)
+### issueIdOrKey (required)
 
 a string containing the issue id or key the worklog belongs to
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** string
 
-#### adjustEstimate
+### adjustEstimate
 
 (optional) allows you to provide specific instructions to update the remaining time estimate of the issue.  Valid values are
                        
@@ -6135,7 +6387,7 @@ a string containing the issue id or key the worklog belongs to
 
 **Type:** string
 
-#### newEstimate
+### newEstimate
 
 (required when "new" is selected for adjustEstimate) the new value for the remaining estimate field.
 
@@ -6149,9 +6401,13 @@ a string containing the issue id or key the worklog belongs to
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{ }
+```
 
 </details>
 

@@ -11,7 +11,7 @@ The Eleventh Edition of America's best-selling dictionary features more than 225
 
 <details><summary>Parameters</summary>
 
-#### headword (required)
+### headword (required)
 
 **Type:** string
 
@@ -23,7 +23,7 @@ The Eleventh Edition of America's best-selling dictionary features more than 225
 
 <details><summary>Parameters</summary>
 
-#### headword (required)
+### headword (required)
 
 **Type:** STRING
 
@@ -35,7 +35,7 @@ The Eleventh Edition of America's best-selling dictionary features more than 225
 
 <details><summary>Parameters</summary>
 
-#### headword (required)
+### headword (required)
 
 **Type:** STRING
 

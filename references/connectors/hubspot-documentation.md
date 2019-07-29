@@ -11,17 +11,21 @@ Add contact records that have already been created in the system to a contact li
 
 <details><summary>Parameters</summary>
 
-#### list_id (required)
+### list_id (required)
 
 Unique identifier for the list that you're looking for.
 
 **Type:** string
 
-#### $body
+### $body
 
 See format details at https://developers.hubspot.com/docs/methods/lists/add_contact_to_list
 
 **Type:** object
+
+```json
+{ }
+```
 
 </details>
 
@@ -31,17 +35,21 @@ See format details at https://developers.hubspot.com/docs/methods/lists/add_cont
 
 <details><summary>Parameters</summary>
 
-#### application_id (required)
+### application_id (required)
 
 The ID of the OAuth app you're creating the event type for.
 
 **Type:** string
 
-#### $body
+### $body
 
 See format details at https://developers.hubspot.com/docs/methods/timeline/batch-create-or-update-events
 
 **Type:** object
+
+```json
+{ }
+```
 
 </details>
 
@@ -51,13 +59,22 @@ Create a group of contacts or update them if they already exist. Particularly us
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 For formatting, see https://developers.hubspot.com/docs/methods/contacts/batch_create_or_update
 
 **Type:** object
 
-#### auditId
+```json
+{
+  "properties" : [ {
+    "property" : "string",
+    "value" : "string"
+  } ]
+}
+```
+
+### auditId
 
 A string that allows you to represent these change sources however you'd like.
 
@@ -71,11 +88,20 @@ Create a new contact in HubSpot with a simple HTTP POST to the Contacts API. The
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Properties for the contact to be added. While we recommend that all contact records include an email address, it is possible to create contacts without an email address by leaving out the email property.
 
 **Type:** object
+
+```json
+{
+  "properties" : [ {
+    "property" : "string",
+    "value" : "string"
+  } ]
+}
+```
 
 </details>
 
@@ -85,11 +111,15 @@ Create a new list in a given HubSpot account to populate with contacts. Creating
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 See https://developers.hubspot.com/docs/methods/lists/create_list for format
 
 **Type:** object
+
+```json
+{ }
+```
 
 </details>
 
@@ -99,23 +129,27 @@ Create Timeline Event Type for a particular application
 
 <details><summary>Parameters</summary>
 
-#### application_id (required)
+### application_id (required)
 
 The ID of the OAuth app you're creating the event type for.
 
 **Type:** string
 
-#### userId (required)
+### userId (required)
 
 The ID of the user you're creating the event type for.
 
 **Type:** string
 
-#### $body
+### $body
 
 See format details at https://developers.hubspot.com/docs/methods/timeline/create-event-type
 
 **Type:** object
+
+```json
+{ }
+```
 
 </details>
 
@@ -125,15 +159,24 @@ Create a contact if it doesn't exist in an account already, or update it with th
 
 <details><summary>Parameters</summary>
 
-#### contact_email (required)
+### contact_email (required)
 
 **Type:** string
 
-#### $body
+### $body
 
 Properties for the contact to be created or updated. While we recommend that all contact records include an email address, it is possible to create contacts without an email address by leaving out the email property.
 
 **Type:** object
+
+```json
+{
+  "properties" : [ {
+    "property" : "string",
+    "value" : "string"
+  } ]
+}
+```
 
 </details>
 
@@ -143,11 +186,15 @@ This endpoint is used to create an SMTP API Token. An API token provides both a 
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 See format details at https://developers.hubspot.com/docs/methods/email/transactional_email/smtpapi_overview/list/create
 
 **Type:** object
+
+```json
+{ }
+```
 
 </details>
 
@@ -157,23 +204,27 @@ Create a new property for a specified timeline event type.
 
 <details><summary>Parameters</summary>
 
-#### application_id (required)
+### application_id (required)
 
 The ID of the OAuth app you're creating the event type for.
 
 **Type:** string
 
-#### event_type_id (required)
+### event_type_id (required)
 
 The ID of the event type you want to update.
 
 **Type:** string
 
-#### $body
+### $body
 
 See format details at https://developers.hubspot.com/docs/methods/timeline/create-event-type-property
 
 **Type:** object
+
+```json
+{ }
+```
 
 </details>
 
@@ -183,17 +234,21 @@ Create a new event, or update an existing event.
 
 <details><summary>Parameters</summary>
 
-#### application_id (required)
+### application_id (required)
 
 The ID of the OAuth app you're creating the event type for.
 
 **Type:** string
 
-#### $body
+### $body
 
 See format details at https://developers.hubspot.com/docs/methods/timeline/create-or-update-event
 
 **Type:** object
+
+```json
+{ }
+```
 
 </details>
 
@@ -203,7 +258,7 @@ Delete an existing contact from a particular HubSpot portal. If a contact with t
 
 <details><summary>Parameters</summary>
 
-#### contact_id (required)
+### contact_id (required)
 
 You must pass the Contact's ID that you're deleting in the request URL.
 
@@ -217,7 +272,7 @@ Delete a list in a given HubSpot account, identified by its unique ID. Note that
 
 <details><summary>Parameters</summary>
 
-#### list_id (required)
+### list_id (required)
 
 Unique identifier for the list that you're looking for.
 
@@ -231,7 +286,7 @@ Delete an existing Timeline event type.
 
 <details><summary>Parameters</summary>
 
-#### application_id (required)
+### application_id (required)
 
 The ID of the OAuth app you're creating the event type for.
 
@@ -245,37 +300,37 @@ For a given account, return information about a group of contacts by their email
 
 <details><summary>Parameters</summary>
 
-#### email (required)
+### email (required)
 
 The email of the contact that you want to get the data for. You can include this parameter multiple times to request multiple records. Any email address that doesn't belong to an existing contact record will be ignored. Requests should be limited to 100 or fewer emails.
 
 **Type:** string
 
-#### formSubmissionMode
+### formSubmissionMode
 
 One of “all”, “none”, “newest”, “oldest” to specify which form submissions should be fetched. Default is “newest”.
 
 **Type:** string
 
-#### includeDeletes
+### includeDeletes
 
 Boolean "true" or "false" to indicate whether the return of deleted contacts is desired. Default is false.
 
 **Type:** boolean
 
-#### property
+### property
 
 Specify the properties that should be returned for each ID. By default, the endpoint returns all valued properties for a contact.
 
 **Type:** string
 
-#### propertyMode
+### propertyMode
 
 One of “value_only” or “value_and_history” to specify if the current value for a property should be fetched, or the value and all the historical values for that property. Default is “value_only”.
 
 **Type:** string
 
-#### showListMemberships
+### showListMemberships
 
 Boolean "true" or "false" to indicate whether current list memberships should be fetched for the contact. Default is false.
 
@@ -289,37 +344,37 @@ For a given account, return information about a group of contacts by their user 
 
 <details><summary>Parameters</summary>
 
-#### utk (required)
+### utk (required)
 
 Each user token requires it's own query parameter (utk=xxx&amp;utk=yyy). Requests should be limited to 100 or fewer user tokens. Any user tokens that are provided that are not associated with a contact record will be ignored.
 
 **Type:** string
 
-#### formSubmissionMode
+### formSubmissionMode
 
 One of “all”, “none”, “newest”, “oldest” to specify which form submissions should be fetched. Default is “newest”.
 
 **Type:** string
 
-#### includeDeletes
+### includeDeletes
 
 Boolean true or false to indicate whether the return of deleted contacts is desired. Default is false.
 
 **Type:** boolean
 
-#### property
+### property
 
 Specify the properties that should be returned for each ID. By default, the endpoint returns all valued properties for a contact. If this parameter is used, only the specified property or properties will be included.
 
 **Type:** string
 
-#### propertyMode
+### propertyMode
 
 One of “value_only” or “value_and_history” to specify if the current value for a property should be fetched, or the value and all the historical values for that property. Default is “value_only”.
 
 **Type:** string
 
-#### showListMemberships
+### showListMemberships
 
 Boolean "true" or "false" to indicate whether current list memberships should be fetched for the contact. Default is false.
 
@@ -333,37 +388,37 @@ For a given account, return information about a group of contacts by their uniqu
 
 <details><summary>Parameters</summary>
 
-#### vid (required)
+### vid (required)
 
 Each vid requires it's own query parameter (vid=10&amp;vid=11). Requests should be limited to 100 or fewer vids. Any vids that are provided that are invalid will be ignored.
 
 **Type:** string
 
-#### formSubmissionMode
+### formSubmissionMode
 
 One of “all”, “none”, “newest”, “oldest” to specify which form submissions should be fetched. Default is “newest”.
 
 **Type:** string
 
-#### includeDeletes
+### includeDeletes
 
 Boolean true or false to indicate whether the return of deleted contacts is desired. Default is false.
 
 **Type:** boolean
 
-#### property
+### property
 
 Specify the properties that should be returned for each ID. By default, the endpoint returns all valued properties for a contact. If this parameter is used, only the specified property or properties will be included.
 
 **Type:** string
 
-#### propertyMode
+### propertyMode
 
 One of “value_only” or “value_and_history” to specify if the current value for a property should be fetched, or the value and all the historical values for that property. Default is “value_only”.
 
 **Type:** string
 
-#### showListMemberships
+### showListMemberships
 
 Boolean "true" or "false" to indicate whether current list memberships should be fetched for the contact. Default is false.
 
@@ -377,7 +432,7 @@ For a given account, return a set of contact lists that you specify with multipl
 
 <details><summary>Parameters</summary>
 
-#### listId (required)
+### listId (required)
 
 An integer that represents the list IDs that you want returned to your call. As you can see in the example URL below, you can specify as many "listId" parameters as you wish on the URL to return multiple lists at once. Any list IDs that are invalid will be ignored.
 
@@ -391,7 +446,7 @@ For a given campaign, return data associated with the campaign.
 
 <details><summary>Parameters</summary>
 
-#### campaign_id (required)
+### campaign_id (required)
 
 The ID of the campaign you want to update.
 
@@ -405,29 +460,29 @@ For a given account, return information about a single contact by its email addr
 
 <details><summary>Parameters</summary>
 
-#### contact-email (required)
+### contact-email (required)
 
 **Type:** string
 
-#### formSubmissionMode
+### formSubmissionMode
 
 One of “all”, “none”, “newest”, “oldest” to specify which form submissions should be fetched. Default is “all”.
 
 **Type:** string
 
-#### property
+### property
 
 By default, all valued properties will be included. If you include the "property" parameter, then the returned data will only include the property or properties that you request.
 
 **Type:** string
 
-#### propertyMode
+### propertyMode
 
 One of “value_only” or “value_and_history” to specify if the current value for a property should be fetched, or the value and all the historical values for that property. Default is “value_and_history”.
 
 **Type:** string
 
-#### showListMemberships
+### showListMemberships
 
 Boolean "true" or "false" to indicate whether current list memberships should be fetched for the contact. Default is true.
 
@@ -442,31 +497,31 @@ This method will also return you much of the HubSpot lead "intelligence" for eac
 
 <details><summary>Parameters</summary>
 
-#### contact_utk (required)
+### contact_utk (required)
 
 The user token (HubSpot cookie) for the contact that you're searching for.
 
 **Type:** string
 
-#### formSubmissionMode
+### formSubmissionMode
 
 One of “all”, “none”, “newest”, “oldest” to specify which form submissions should be fetched. Default is “all”.
 
 **Type:** string
 
-#### property
+### property
 
 By default, all valued properties will be included. If you include the "property" parameter, then the returned data will only include the property or properties that you request.
 
 **Type:** string
 
-#### propertyMode
+### propertyMode
 
 One of “value_only” or “value_and_history” to specify if the current value for a property should be fetched, or the value and all the historical values for that property. Default is “value_and_history”.
 
 **Type:** string
 
-#### showListMemberships
+### showListMemberships
 
 Boolean "true" or "false" to indicate whether current list memberships should be fetched for the contact. Default is true.
 
@@ -480,29 +535,29 @@ Update an existing contact in HubSpot. This method lets you update the propertie
 
 <details><summary>Parameters</summary>
 
-#### vid (required)
+### vid (required)
 
 **Type:** string
 
-#### formSubmissionMode
+### formSubmissionMode
 
 One of 'all', 'none', 'newest', 'oldest' to specify which form submissions should be fetched. Default is 'all'.
 
 **Type:** string
 
-#### property
+### property
 
 By default, you will get all properties that the contact has values for. If you include the "property" parameter, then the returned data will only include the property or properties that you request. You can include this parameter multiple times to specify multiple properties. The lastmodifieddate and associatedcompanyid will always be included, even if not specified. Keep in mind that only properties that have a value will be included in the response, even if specified in the URL.
 
 **Type:** string
 
-#### propertyMode
+### propertyMode
 
 One of 'value_only' or 'value_and_history' to specify if the current value for a property should be fetched, or the value and all the historical values for that property. Default is 'value_and_history'.
 
 **Type:** string
 
-#### showListMemberships
+### showListMemberships
 
 Boolean 'true' or 'false' to indicate whether current list memberships should be fetched for the contact. Default is true.
 
@@ -516,7 +571,7 @@ For a given portal, return a contact list by its unique ID. This returns only th
 
 <details><summary>Parameters</summary>
 
-#### list_id (required)
+### list_id (required)
 
 Unique identifier for the list that you're looking for.
 
@@ -530,17 +585,21 @@ Returns a JSON object representing the definition for a given contact property.
 
 <details><summary>Parameters</summary>
 
-#### list_id (required)
+### list_id (required)
 
 Unique identifier for the list that you're looking for.
 
 **Type:** string
 
-#### $body
+### $body
 
 See format details at https://developers.hubspot.com/docs/methods/companies/get_contact_property
 
 **Type:** object
+
+```json
+{ }
+```
 
 </details>
 
@@ -550,19 +609,19 @@ Get the data for a specific timeline event. All data that the event has will be 
 
 <details><summary>Parameters</summary>
 
-#### application_id (required)
+### application_id (required)
 
 The ID of the OAuth app you're creating the event type for.
 
 **Type:** string
 
-#### event_id (required)
+### event_id (required)
 
 The ID of the event you want to retrieve.
 
 **Type:** string
 
-#### event_type_id (required)
+### event_type_id (required)
 
 The ID of the event type you want to update.
 
@@ -576,13 +635,13 @@ Query the event log for a specific event and get results for that email event.
 
 <details><summary>Parameters</summary>
 
-#### created (required)
+### created (required)
 
 The creation timestamp (in milliseconds since epoch) of the event to return.
 
 **Type:** string
 
-#### id (required)
+### id (required)
 
 The unique ID of the event to return.
 
@@ -596,19 +655,19 @@ Returns the number of contacts that entered the individual lifecycle stages duri
 
 <details><summary>Parameters</summary>
 
-#### fromTimestamp (required)
+### fromTimestamp (required)
 
 A millisecond timestamp representing the start of the time period that you want the stats for.
 
 **Type:** integer
 
-#### toTimestamp (required)
+### toTimestamp (required)
 
 A millisecond timestamp representing the end of the time period that you want the stats for.
 
 **Type:** integer
 
-#### aggregationProperty
+### aggregationProperty
 
 A second optional property to further breakdown the lifecycle stage buckets. This must be an enumerated property with 20 or fewer options.
 
@@ -622,13 +681,13 @@ For a given portal, return the email subscription information for the given emai
 
 <details><summary>Parameters</summary>
 
-#### email_address (required)
+### email_address (required)
 
 The email address for which you are requesting subscription status.
 
 **Type:** string
 
-#### portalId (required)
+### portalId (required)
 
 The HubSpot Portal ID for the portal that you're making the call for.
 
@@ -642,13 +701,13 @@ Get the custom properties for a specified event type.
 
 <details><summary>Parameters</summary>
 
-#### application_id (required)
+### application_id (required)
 
 The ID of the OAuth app you're creating the event type for.
 
 **Type:** string
 
-#### event_type_id (required)
+### event_type_id (required)
 
 The ID of the event type you want to update.
 
@@ -668,25 +727,25 @@ For a given portal, return all contacts that have been created in the portal. A 
 
 <details><summary>Parameters</summary>
 
-#### formSubmissionMode
+### formSubmissionMode
 
 One of 'all', 'none', 'newest', 'oldest' to specify which form submissions should be fetched. Default is 'newest'.
 
 **Type:** string
 
-#### property
+### property
 
 If you include the 'property' parameter, then you will get the specified property in the response. This parameter may be included multiple times to specify multiple properties.
 
 **Type:** string
 
-#### propertyMode
+### propertyMode
 
 One of 'value_only' or 'value_and_history' to specify if the current value for a property should be fetched, or the value and all the historical values for that property. Default is 'value_only'.
 
 **Type:** string
 
-#### showListMemberships
+### showListMemberships
 
 Boolean 'true' or 'false' to indicate whether current list memberships should be fetched for the contact. Default is false.
 
@@ -724,31 +783,31 @@ For a given portal and a given list, identified by its unique ID, return a list 
 
 <details><summary>Parameters</summary>
 
-#### list_id (required)
+### list_id (required)
 
 Unique identifier for the list that you're looking for.
 
 **Type:** string
 
-#### formSubmissionMode
+### formSubmissionMode
 
 One of “all”, “none”, “newest”, “oldest” to specify which form submissions should be fetched. Default is “newest”.
 
 **Type:** string
 
-#### property
+### property
 
 If you include the "property" parameter, then the properties in the "contact" object in the returned data will only include the property or properties that you request.
 
 **Type:** string
 
-#### propertyMode
+### propertyMode
 
 One of “value_only” or “value_and_history” to specify if the current value for a property should be fetched, or the value and all the historical values for that property. Default is “value_only”.
 
 **Type:** string
 
-#### showListMemberships
+### showListMemberships
 
 Boolean "true" or "false" to indicate whether current list memberships should be fetched for the contact. Default is false.
 
@@ -762,43 +821,43 @@ Query the event log for events matching specified parameters. Note that events w
 
 <details><summary>Parameters</summary>
 
-#### appId
+### appId
 
 Only return events which correspond to the given HubSpot Application ID.
 
 **Type:** string
 
-#### campaignId
+### campaignId
 
 Only return events from the given HubSpot Campaign ID.
 
 **Type:** string
 
-#### endTimestamp
+### endTimestamp
 
 Only return events which occurred at or before the given timestamp (in milliseconds since epoch).
 
 **Type:** string
 
-#### eventType
+### eventType
 
 Only return events of the specified type (case-sensitive). The possible types are described in the Email Events Bible .
 
 **Type:** string
 
-#### excludeFilteredEvents
+### excludeFilteredEvents
 
 Only return events that have not been filtered out due to customer filtering settings. The default value is false.
 
 **Type:** boolean
 
-#### recipient
+### recipient
 
 Only return events related to the given recipient.
 
 **Type:** string
 
-#### startTimestamp
+### startTimestamp
 
 Only return events which occurred at or after the given timestamp (in milliseconds since epoch).
 
@@ -812,13 +871,13 @@ Get Timeline Event Types for a particular application
 
 <details><summary>Parameters</summary>
 
-#### application_id (required)
+### application_id (required)
 
 The ID of the OAuth app you're creating the event type for.
 
 **Type:** string
 
-#### userId (required)
+### userId (required)
 
 The ID of the user you're creating the event type for.
 
@@ -832,31 +891,31 @@ For a given HubID and a given list, return contacts that have been recently adde
 
 <details><summary>Parameters</summary>
 
-#### list_id (required)
+### list_id (required)
 
 Unique identifier for the list that you're looking for.
 
 **Type:** string
 
-#### formSubmissionMode
+### formSubmissionMode
 
 One of “all”, “none”, “newest”, “oldest” to specify which form submissions should be fetched. Default is “newest”.
 
 **Type:** string
 
-#### property
+### property
 
 If you include the "property" parameter, then the properties in the "contact" object in the returned data will only include the property or properties that you request.
 
 **Type:** string
 
-#### propertyMode
+### propertyMode
 
 One of “value_only” or “value_and_history” to specify if the current value for a property should be fetched, or the value and all the historical values for that property. Default is “value_only”.
 
 **Type:** string
 
-#### showListMemberships
+### showListMemberships
 
 Boolean "true" or "false" to indicate whether current list memberships should be fetched for the contact. Default is false.
 
@@ -870,25 +929,25 @@ For a given account, return all contacts that have been recently created. A pagi
 
 <details><summary>Parameters</summary>
 
-#### formSubmissionMode
+### formSubmissionMode
 
 One of “all”, “none”, “newest”, “oldest” to specify which form submissions should be fetched. Default is “newest”.
 
 **Type:** string
 
-#### property
+### property
 
 If you include the "property" parameter, then the properties in the "contact" object in the returned data will only include the property or properties that you request.
 
 **Type:** string
 
-#### propertyMode
+### propertyMode
 
 One of “value_only” or “value_and_history” to specify if the current value for a property should be fetched, or the value and all the historical values for that property. Default is “value_only”.
 
 **Type:** string
 
-#### showListMemberships
+### showListMemberships
 
 Boolean "true" or "false" to indicate whether current list memberships should be fetched for the contact. Default is false.
 
@@ -902,25 +961,25 @@ For a given portal, return all contacts that have been recently updated or creat
 
 <details><summary>Parameters</summary>
 
-#### formSubmissionMode
+### formSubmissionMode
 
 One of “all”, “none”, “newest”, “oldest” to specify which form submissions should be fetched. Default is “newest”.
 
 **Type:** string
 
-#### property
+### property
 
 If you include the "property" parameter, then the properties in the "contact" object in the returned data will only include the property or properties that you request.
 
 **Type:** string
 
-#### propertyMode
+### propertyMode
 
 One of “value_only” or “value_and_history” to specify if the current value for a property should be fetched, or the value and all the historical values for that property. Default is “value_only”.
 
 **Type:** string
 
-#### showListMemberships
+### showListMemberships
 
 Boolean "true" or "false" to indicate whether current list memberships should be fetched for the contact. Default is false.
 
@@ -940,7 +999,7 @@ Returns all email subscription types that have been created in the given Hub ID.
 
 <details><summary>Parameters</summary>
 
-#### portalId (required)
+### portalId (required)
 
 The HubSpot Portal ID for the portal that you're making the call for.
 
@@ -954,25 +1013,25 @@ For a given portal, return a time-ordered list of subscription changes.
 
 <details><summary>Parameters</summary>
 
-#### changeType
+### changeType
 
 Only return timeline changes of the specified type (case-sensitive). The possible types are described in the Email Subscriptions Bible .
 
 **Type:** string
 
-#### endTimestamp
+### endTimestamp
 
 Only return timeline items which occurred at or before the given timestamp (in milliseconds since epoch).
 
 **Type:** string
 
-#### includeSnapshots
+### includeSnapshots
 
 Include the user's full subscription snapshot with each timeline item. This snapshot is equivalent to what this endpoint would have returned at that time.
 
 **Type:** string
 
-#### startTimestamp
+### startTimestamp
 
 Only return timeline items which occurred at or after the given timestamp (in milliseconds since epoch).
 
@@ -986,17 +1045,23 @@ Merge two contact records. The contact ID in the URL will be treated as the prim
 
 <details><summary>Parameters</summary>
 
-#### contact_id (required)
+### contact_id (required)
 
 Unique identifier for a particular contact. In HubSpot's contact system, contact ID's are called "vid".
 
 **Type:** string
 
-#### $body
+### $body
 
 properties for the contact to be updated
 
 **Type:** object
+
+```json
+{
+  "vidToMerge" : "string"
+}
+```
 
 </details>
 
@@ -1006,7 +1071,7 @@ Once you have an SMTP API, the List SMTP API Tokens endpoint can be used to list
 
 <details><summary>Parameters</summary>
 
-#### userName (required)
+### userName (required)
 
 The userName field of the SMTP API Token needing a password reset.
 
@@ -1020,13 +1085,13 @@ For a given account, return contacts and some data associated with those contact
 
 <details><summary>Parameters</summary>
 
-#### q (required)
+### q (required)
 
 The search term for what you're searching for. You can use all of a word or just parts of a word as well. For example, if you we're searching for contacts with "hubspot" in their name or email, searching for "hub" would also return contacts with "hubspot" in their email address.
 
 **Type:** string
 
-#### property
+### property
 
 If you include the "property" parameter, then the properties in the "contact" object in the returned data will only include the property or properties that you request.
 
@@ -1040,11 +1105,15 @@ Send an email designed and maintained in the HubSpot marketing Email Tool.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 See format details at https://developers.hubspot.com/docs/methods/email/transactional_email/single-send-overview
 
 **Type:** object
+
+```json
+{ }
+```
 
 </details>
 
@@ -1054,15 +1123,24 @@ Update an existing contact in HubSpot. This method lets you update the propertie
 
 <details><summary>Parameters</summary>
 
-#### contact-email (required)
+### contact-email (required)
 
 **Type:** string
 
-#### $body
+### $body
 
 properties for the contact to be updated
 
 **Type:** object
+
+```json
+{
+  "properties" : [ {
+    "property" : "string",
+    "value" : "string"
+  } ]
+}
+```
 
 </details>
 
@@ -1072,15 +1150,24 @@ properties for the contact to be updated
 
 <details><summary>Parameters</summary>
 
-#### vid (required)
+### vid (required)
 
 **Type:** string
 
-#### $body
+### $body
 
 properties for the contact to be updated
 
 **Type:** object
+
+```json
+{
+  "properties" : [ {
+    "property" : "string",
+    "value" : "string"
+  } ]
+}
+```
 
 </details>
 
@@ -1090,23 +1177,27 @@ Update an existing event type.
 
 <details><summary>Parameters</summary>
 
-#### application_id (required)
+### application_id (required)
 
 The ID of the OAuth app you're creating the event type for.
 
 **Type:** string
 
-#### event_type_id (required)
+### event_type_id (required)
 
 The ID of the event type you want to update.
 
 **Type:** string
 
-#### $body
+### $body
 
 See format details at https://developers.hubspot.com/docs/methods/timeline/update-event-type
 
 **Type:** object
+
+```json
+{ }
+```
 
 </details>
 
@@ -1116,17 +1207,21 @@ Update a list in a given HubSpot account. Note that like creating a list, users 
 
 <details><summary>Parameters</summary>
 
-#### list_id (required)
+### list_id (required)
 
 Unique identifier for the list that you're looking for.
 
 **Type:** string
 
-#### $body
+### $body
 
 See format details at https://developers.hubspot.com/docs/methods/lists/update_list
 
 **Type:** object
+
+```json
+{ }
+```
 
 </details>
 
@@ -1136,23 +1231,27 @@ For a given email address, update the email type subscription status, or permane
 
 <details><summary>Parameters</summary>
 
-#### email_address (required)
+### email_address (required)
 
 The email address for which you are requesting subscription status.
 
 **Type:** string
 
-#### portalId (required)
+### portalId (required)
 
 The HubSpot Portal ID for the portal that you're making the call for.
 
 **Type:** string
 
-#### $body
+### $body
 
 See format details at https://developers.hubspot.com/docs/methods/email/update_status
 
 **Type:** object
+
+```json
+{ }
+```
 
 </details>
 
@@ -1162,23 +1261,27 @@ Update an existing property for a specified timeline event type. The id passed i
 
 <details><summary>Parameters</summary>
 
-#### application_id (required)
+### application_id (required)
 
 The ID of the OAuth app you're creating the event type for.
 
 **Type:** string
 
-#### event_type_id (required)
+### event_type_id (required)
 
 The ID of the event type you want to update.
 
 **Type:** string
 
-#### $body
+### $body
 
 See format details at https://developers.hubspot.com/docs/methods/timeline/udpate-timeline-event-type-property
 
 **Type:** object
+
+```json
+{ }
+```
 
 </details>
 

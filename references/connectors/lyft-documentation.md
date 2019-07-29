@@ -12,15 +12,21 @@ Cancel a ongoing ride which was requested earlier by providing the ride id.
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 The ID of the ride
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "cancel_confirmation_token" : "Token affirming the user accepts the cancellation fee. Required if a cancellation fee is in effect."
+}
+```
 
 </details>
 
@@ -31,31 +37,31 @@ Estimate the cost of taking a Lyft between two points.
 
 <details><summary>Parameters</summary>
 
-#### start_lat (required)
+### start_lat (required)
 
 Latitude of the starting location
 
 **Type:** number
 
-#### start_lng (required)
+### start_lng (required)
 
 Longitude of the starting location
 
 **Type:** number
 
-#### end_lat
+### end_lat
 
 Latitude of the ending location
 
 **Type:** number
 
-#### end_lng
+### end_lng
 
 Longitude of the ending location
 
 **Type:** number
 
-#### ride_type
+### ride_type
 
 ID of a ride type
 
@@ -72,31 +78,31 @@ The ETA endpoint lets you know how quickly a Lyft driver can come get you
 
 <details><summary>Parameters</summary>
 
-#### lat (required)
+### lat (required)
 
 Latitude of a location
 
 **Type:** number
 
-#### lng (required)
+### lng (required)
 
 Longitude of a location
 
 **Type:** number
 
-#### destination_lat
+### destination_lat
 
 Latitude of destination location
 
 **Type:** number
 
-#### destination_lng
+### destination_lng
 
 Longitude of destination location
 
 **Type:** number
 
-#### ride_type
+### ride_type
 
 ID of a ride type
 
@@ -119,21 +125,21 @@ Get a list of past &amp; current rides for this passenger.
 
 <details><summary>Parameters</summary>
 
-#### start_time (required)
+### start_time (required)
 
 Restrict to rides starting after this point in time. The earliest supported date is 2015-01-01T00:00:00+00:00
 
 
 **Type:** date-time
 
-#### end_time
+### end_time
 
 Restrict to rides starting before this point in time. The earliest supported date is 2015-01-01T00:00:00+00:00
 
 
 **Type:** date-time
 
-#### limit
+### limit
 
 The maximum number of rides to return. The default limit is 10 if not specified. The maximum allowed value is 50, an integer greater that 50 will return at most 50 results.
 
@@ -149,13 +155,13 @@ The drivers endpoint returns a list of nearby drivers' lat and lng at a given lo
 
 <details><summary>Parameters</summary>
 
-#### lat (required)
+### lat (required)
 
 Latitude of a location
 
 **Type:** number
 
-#### lng (required)
+### lng (required)
 
 Longitude of a location
 
@@ -170,7 +176,7 @@ Get the status of a ride along with information about the driver, vehicle and pr
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 The ID of the ride
 
@@ -185,7 +191,7 @@ Get the receipt information of a processed ride by providing the ride id. Receip
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 The ID of the ride
 
@@ -200,19 +206,19 @@ The ride types endpoint returns information about what kinds of Lyft rides you c
 
 <details><summary>Parameters</summary>
 
-#### lat (required)
+### lat (required)
 
 Latitude of a location
 
 **Type:** number
 
-#### lng (required)
+### lng (required)
 
 Longitude of a location
 
 **Type:** number
 
-#### ride_type
+### ride_type
 
 ID of a ride type
 
@@ -229,11 +235,20 @@ Request a Lyft come pick you up at the given location.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 Ride request information
 
 **Type:** object
+
+```json
+{
+  "origin" : { },
+  "cost_token" : "A token that confirms the user has accepted current Prime Time and/or fixed price charges",
+  "destination" : { },
+  "ride_type" : "The ID of the ride type"
+}
+```
 
 </details>
 
@@ -244,17 +259,25 @@ Add or update the ride's destination. Note that the ride must still be active (n
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 The ID of the ride
 
 **Type:** string
 
-#### $body
+### $body
 
 The coordinates and optional address of the destination
 
 **Type:** object
+
+```json
+{
+  "lng" : "The longitude component of a location",
+  "lat" : "The latitude component of a location",
+  "address" : "A human readable address at/near the given location"
+}
+```
 
 </details>
 
@@ -265,17 +288,25 @@ Add the passenger's 1 to 5 star rating of the ride, optional written feedback, a
 
 <details><summary>Parameters</summary>
 
-#### id (required)
+### id (required)
 
 The ID of the ride
 
 **Type:** string
 
-#### $body
+### $body
 
 The rating and optional feedback
 
 **Type:** object
+
+```json
+{
+  "feedback" : "The passenger's written feedback about this ride",
+  "rating" : "The passenger's rating of this ride from 1 to 5",
+  "tip" : { }
+}
+```
 
 </details>
 

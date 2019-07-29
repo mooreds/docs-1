@@ -13,9 +13,15 @@ When you delete a rule, incoming events might continue to match to the deleted r
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "Name" : "The name of the rule."
+}
+```
 
 </details>
 
@@ -25,9 +31,13 @@ Displays the external AWS accounts that are permitted to write events to your ac
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{ }
+```
 
 </details>
 
@@ -38,9 +48,15 @@ DescribeRule does not list the targets of a rule. To see the targets associated 
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "Name" : "The name of the rule."
+}
+```
 
 </details>
 
@@ -51,9 +67,15 @@ When you disable a rule, incoming events might continue to match to the disabled
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "Name" : "The name of the rule."
+}
+```
 
 </details>
 
@@ -64,9 +86,15 @@ When you enable a rule, incoming events might not immediately start matching to 
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "Name" : "The name of the rule."
+}
+```
 
 </details>
 
@@ -76,9 +104,17 @@ Lists the rules for the specified target. You can see which of the rules in Amaz
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "NextToken" : "The token returned by a previous call to retrieve the next set of results.",
+  "TargetArn" : "The Amazon Resource Name (ARN) of the target resource.",
+  "Limit" : "The maximum number of results to return."
+}
+```
 
 </details>
 
@@ -89,9 +125,17 @@ ListRules does not list the targets of a rule. To see the targets associated wit
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "NamePrefix" : "The prefix matching the rule name.",
+  "NextToken" : "The token returned by a previous call to retrieve the next set of results.",
+  "Limit" : "The maximum number of results to return."
+}
+```
 
 </details>
 
@@ -101,9 +145,17 @@ Lists the targets assigned to the specified rule.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "NextToken" : "The token returned by a previous call to retrieve the next set of results.",
+  "Rule" : "The name of the rule.",
+  "Limit" : "The maximum number of results to return."
+}
+```
 
 </details>
 
@@ -113,9 +165,21 @@ Sends custom events to Amazon CloudWatch Events so that they can be matched to r
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "Entries" : [ {
+    "DetailType" : "Free-form string used to decide what fields to expect in the event detail.",
+    "Time" : "The time stamp of the event, per RFC3339. If no time stamp is provided, the time stamp of the PutEvents call is used.",
+    "Resources" : [ "string" ],
+    "Source" : "The source of the event. This field is required.",
+    "Detail" : "A valid JSON string. There is no other schema imposed. The JSON string may contain fields and nested subobjects."
+  } ]
+}
+```
 
 </details>
 
@@ -128,9 +192,17 @@ The permission policy on the default event bus cannot exceed 10 KB in size.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "Action" : "The action that you are enabling the other account to perform. Currently, this must be events:PutEvents.",
+  "StatementId" : "An identifier string for the external account that you are granting permissions to. If you later want to revoke the permission for this external account, specify this StatementId when you run RemovePermission.",
+  "Principal" : "The 12-digit AWS account ID that you are permitting to put events to your default event bus. Specify \"*\" to permit any account to put events to your default event bus. \nIf you specify \"*\", avoid creating rules that may match undesirable events. To create more secure rules, make sure that the event pattern for each rule contains an account field with a specific account ID from which to receive events. Rules with an account field do not match any events sent from other accounts."
+}
+```
 
 </details>
 
@@ -144,9 +216,20 @@ Most services in AWS treat : or / as the same character in Amazon Resource Names
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "ScheduleExpression" : "The scheduling expression. For example, \"cron(0 20 * * ? *)\" or \"rate(5 minutes)\".",
+  "EventPattern" : "The event pattern. For more information, see Events and Event Patterns in the Amazon CloudWatch Events User Guide.",
+  "Description" : "A description of the rule.",
+  "State" : "Indicates whether the rule is enabled or disabled.",
+  "RoleArn" : "The Amazon Resource Name (ARN) of the IAM role associated with the rule.",
+  "Name" : "The name of the rule that you are creating or updating."
+}
+```
 
 </details>
 
@@ -186,9 +269,62 @@ This action can partially fail if too many requests are made at the same time. I
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "Targets" : [ {
+    "InputPath" : "The value of the JSONPath that is used for extracting part of the matched event when passing it to the target. You must use JSON dot notation, not bracket notation. For more information about JSON paths, see JSONPath.",
+    "Input" : "Valid JSON text passed to the target. In this case, nothing from the event itself is passed to the target. For more information, see The JavaScript Object Notation (JSON) Data Interchange Format.",
+    "SqsParameters" : {
+      "MessageGroupId" : "The FIFO message group ID to use as the target."
+    },
+    "EcsParameters" : {
+      "PlatformVersion" : "Specifies the platform version for the task. Specify only the numeric portion of the platform version, such as 1.1.0. \nThis structure is used only if LaunchType is FARGATE. For more information about valid platform versions, see AWS Fargate Platform Versions in the Amazon Elastic Container Service Developer Guide.",
+      "Group" : "Specifies an ECS task group for the task. The maximum length is 255 characters.",
+      "TaskCount" : "The number of tasks to create based on TaskDefinition. The default is 1.",
+      "NetworkConfiguration" : {
+        "awsvpcConfiguration" : {
+          "SecurityGroups" : [ "string" ],
+          "Subnets" : [ "string" ],
+          "AssignPublicIp" : "Specifies whether the task's elastic network interface receives a public IP address. You can specify ENABLED only when LaunchType in EcsParameters is set to FARGATE."
+        }
+      },
+      "LaunchType" : "Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. The FARGATE value is supported only in the Regions where AWS Fargate with Amazon ECS is supported. For more information, see AWS Fargate on Amazon ECS in the Amazon Elastic Container Service Developer Guide.",
+      "TaskDefinitionArn" : "The ARN of the task definition to use if the event target is an Amazon ECS task. "
+    },
+    "RunCommandParameters" : {
+      "RunCommandTargets" : [ {
+        "Values" : [ "string" ],
+        "Key" : "Can be either tag: tag-key or InstanceIds."
+      } ]
+    },
+    "BatchParameters" : {
+      "ArrayProperties" : {
+        "Size" : "The size of the array, if this is an array batch job. Valid values are integers between 2 and 10,000."
+      },
+      "JobName" : "The name to use for this execution of the job, if the target is an AWS Batch job.",
+      "RetryStrategy" : {
+        "Attempts" : "The number of times to attempt to retry, if the job fails. Valid values are 1–10."
+      },
+      "JobDefinition" : "The ARN or name of the job definition to use if the event target is an AWS Batch job. This job definition must already exist."
+    },
+    "Id" : "The ID of the target.",
+    "Arn" : "The Amazon Resource Name (ARN) of the target.",
+    "InputTransformer" : {
+      "InputPathsMap" : "Map of JSON paths to be extracted from the event. You can then insert these in the template in InputTemplate to produce the output you want to be sent to the target. \n InputPathsMap is an array key-value pairs, where each value is a valid JSON path. You can have as many as 10 key-value pairs. You must use JSON dot notation, not bracket notation. \nThe keys cannot start with \"AWS.\" ",
+      "InputTemplate" : "Input template where you specify placeholders that will be filled with the values of the keys from InputPathsMap to customize the data sent to the target. Enclose each InputPathsMaps value in brackets: &lt;value&gt; The InputTemplate must be valid JSON. \nIf InputTemplate is a JSON object (surrounded by curly braces), the following restrictions apply:  \n The placeholder cannot be used as an object key.  \n Object values cannot include quote marks.   \nThe following example shows the syntax for using InputPathsMap and InputTemplate. \n  \"InputTransformer\":  \n {  \n \"InputPathsMap\": {\"instance\": \"$.detail.instance\",\"status\": \"$.detail.status\"},  \n \"InputTemplate\": \"&lt;instance&gt; is in state &lt;status&gt;\"  \n }  \nTo have the InputTemplate include quote marks within a JSON string, escape each quote marks with a slash, as in the following example: \n  \"InputTransformer\":  \n {  \n \"InputPathsMap\": {\"instance\": \"$.detail.instance\",\"status\": \"$.detail.status\"},  \n \"InputTemplate\": \"&lt;instance&gt; is in state \\\"&lt;status&gt;\\\"\"  \n } "
+    },
+    "KinesisParameters" : {
+      "PartitionKeyPath" : "The JSON path to be extracted from the event and used as the partition key. For more information, see Amazon Kinesis Streams Key Concepts in the Amazon Kinesis Streams Developer Guide."
+    },
+    "RoleArn" : "The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. If one rule triggers multiple targets, you can use a different IAM role for each target."
+  } ],
+  "Rule" : "The name of the rule."
+}
+```
 
 </details>
 
@@ -198,9 +334,15 @@ Revokes the permission of another AWS account to be able to put events to your d
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "StatementId" : "The statement ID corresponding to the account that is no longer allowed to put events to the default event bus."
+}
+```
 
 </details>
 
@@ -212,9 +354,16 @@ This action can partially fail if too many requests are made at the same time. I
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "Ids" : [ "string" ],
+  "Rule" : "The name of the rule."
+}
+```
 
 </details>
 
@@ -225,9 +374,16 @@ Most services in AWS treat : or / as the same character in Amazon Resource Names
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "EventPattern" : "The event pattern. For more information, see Events and Event Patterns in the Amazon CloudWatch Events User Guide.",
+  "Event" : "The event, in JSON format, to test against the event pattern."
+}
+```
 
 </details>
 

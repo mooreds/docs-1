@@ -11,13 +11,19 @@ Detects the language of text within a request.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 The request message for language detection.
 
 **Type:** object
 
-#### alt
+```json
+{
+  "q" : [ "string" ]
+}
+```
+
+### alt
 
 Data format for response.
 
@@ -25,43 +31,43 @@ Data format for response.
 
 **Potential values:** json, media, proto
 
-#### callback
+### callback
 
 JSONP
 
 **Type:** string
 
-#### fields
+### fields
 
 Selector specifying which fields to include in a partial response.
 
 **Type:** string
 
-#### pp
+### pp
 
 Pretty-print response.
 
 **Type:** boolean
 
-#### prettyPrint
+### prettyPrint
 
 Returns response with indentations and line breaks.
 
 **Type:** boolean
 
-#### quotaUser
+### quotaUser
 
 Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
 
 **Type:** string
 
-#### uploadType
+### uploadType
 
 Legacy upload protocol for media (e.g. "media", "multipart").
 
 **Type:** string
 
-#### upload_protocol
+### upload_protocol
 
 Upload protocol for media (e.g. "raw", "multipart").
 
@@ -75,7 +81,7 @@ Returns a list of supported languages for translation.
 
 <details><summary>Parameters</summary>
 
-#### alt
+### alt
 
 Data format for response.
 
@@ -83,56 +89,56 @@ Data format for response.
 
 **Potential values:** json, media, proto
 
-#### callback
+### callback
 
 JSONP
 
 **Type:** string
 
-#### fields
+### fields
 
 Selector specifying which fields to include in a partial response.
 
 **Type:** string
 
-#### model
+### model
 
 The model type for which supported languages should be returned.
 
 **Type:** string
 
-#### pp
+### pp
 
 Pretty-print response.
 
 **Type:** boolean
 
-#### prettyPrint
+### prettyPrint
 
 Returns response with indentations and line breaks.
 
 **Type:** boolean
 
-#### quotaUser
+### quotaUser
 
 Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
 
 **Type:** string
 
-#### target
+### target
 
 The language to use to return localized, human readable names of supported
 languages.
 
 **Type:** string
 
-#### uploadType
+### uploadType
 
 Legacy upload protocol for media (e.g. "media", "multipart").
 
 **Type:** string
 
-#### upload_protocol
+### upload_protocol
 
 Upload protocol for media (e.g. "raw", "multipart").
 
@@ -146,13 +152,23 @@ Translates input text, returning translated text.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 The main translation request message for the Cloud Translation API.
 
 **Type:** object
 
-#### alt
+```json
+{
+  "q" : [ "string" ],
+  "format" : "The format of the source text, in either HTML (default) or plain-text. A\nvalue of \"html\" indicates HTML and a value of \"text\" indicates plain-text.",
+  "model" : "The `model` type requested for this translation. Valid values are\nlisted in public documentation.",
+  "source" : "The language of the source text, set to one of the language codes listed in\nLanguage Support. If the source language is not specified, the API will\nattempt to identify the source language automatically and return it within\nthe response.",
+  "target" : "The language to use for translation of the input text, set to one of the\nlanguage codes listed in Language Support."
+}
+```
+
+### alt
 
 Data format for response.
 
@@ -160,43 +176,43 @@ Data format for response.
 
 **Potential values:** json, media, proto
 
-#### callback
+### callback
 
 JSONP
 
 **Type:** string
 
-#### fields
+### fields
 
 Selector specifying which fields to include in a partial response.
 
 **Type:** string
 
-#### pp
+### pp
 
 Pretty-print response.
 
 **Type:** boolean
 
-#### prettyPrint
+### prettyPrint
 
 Returns response with indentations and line breaks.
 
 **Type:** boolean
 
-#### quotaUser
+### quotaUser
 
 Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
 
 **Type:** string
 
-#### uploadType
+### uploadType
 
 Legacy upload protocol for media (e.g. "media", "multipart").
 
 **Type:** string
 
-#### upload_protocol
+### upload_protocol
 
 Upload protocol for media (e.g. "raw", "multipart").
 

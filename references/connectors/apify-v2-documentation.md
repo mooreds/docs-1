@@ -11,13 +11,13 @@ Aborts an actor build and returns an object that contains all the details about 
 
 <details><summary>Parameters</summary>
 
-#### actorId (required)
+### actorId (required)
 
 Actor ID or a tilde-separated owner's username and actor name.
 
 **Type:** string
 
-#### buildId (required)
+### buildId (required)
 
 Build ID.
 
@@ -31,13 +31,13 @@ Aborts the actor's last run and returns an object that contains all the details 
 
 <details><summary>Parameters</summary>
 
-#### actorId (required)
+### actorId (required)
 
 Actor ID or a tilde-separated owner's username and actor name.
 
 **Type:** string
 
-#### status
+### status
 
 Filter for the run status.
 
@@ -51,13 +51,13 @@ Aborts an actor run and returns an object that contains all the details about th
 
 <details><summary>Parameters</summary>
 
-#### actorId (required)
+### actorId (required)
 
 Actor ID or a tilde-separated owner's username and actor name.
 
 **Type:** string
 
-#### runId (required)
+### runId (required)
 
 Run ID.
 
@@ -78,23 +78,27 @@ add the `Content-Encoding: gzip` header.
 
 <details><summary>Parameters</summary>
 
-#### actorId (required)
+### actorId (required)
 
 Actor ID or a tilde-separated owner's username and actor name.
 
 **Type:** string
 
-#### recordKey (required)
+### recordKey (required)
 
 Key of the record.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
 
-#### status
+```json
+{ }
+```
+
+### status
 
 Filter for the run status.
 
@@ -115,21 +119,25 @@ add the `Content-Encoding: gzip` header.
 
 <details><summary>Parameters</summary>
 
-#### recordKey (required)
+### recordKey (required)
 
 Key of the record.
 
 **Type:** string
 
-#### storeId (required)
+### storeId (required)
 
 Key-value store ID or `username~store-name`.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{ }
+```
 
 </details>
 
@@ -146,23 +154,27 @@ add the `Content-Encoding: gzip` header.
 
 <details><summary>Parameters</summary>
 
-#### actorTaskId (required)
+### actorTaskId (required)
 
 Task ID or a tilde-separated owner's username and task's name.
 
 **Type:** string
 
-#### recordKey (required)
+### recordKey (required)
 
 Key of the record.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
 
-#### status
+```json
+{ }
+```
+
+### status
 
 Filter for the run status.
 
@@ -176,23 +188,31 @@ Adds request to the queue. Response contains ID of the request and info if reque
 
 <details><summary>Parameters</summary>
 
-#### queueId (required)
+### queueId (required)
 
 Queue ID or `username~queue-name`.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
 
-#### clientKey
+```json
+{
+  "method" : "Required string",
+  "uniqueKey" : "Required string",
+  "url" : "Required string"
+}
+```
+
+### clientKey
 
 A unique identifier of the client accessing the request queue. It must be a string between 1 and 32 characters long. This identifier is used to determine whether the queue was accessed by multiple clients. If `clientKey` is not provided, the system considers this API call to come from a new client.
 
 **Type:** string
 
-#### forefront
+### forefront
 
 Determines if request should be added to the head of the queue or to the end. Default value is `false` (end of queue).
 
@@ -206,29 +226,37 @@ Adds request to actor's last run's queue. Response contains ID of the request an
 
 <details><summary>Parameters</summary>
 
-#### actorId (required)
+### actorId (required)
 
 Actor ID or a tilde-separated owner's username and actor name.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
 
-#### clientKey
+```json
+{
+  "method" : "Required string",
+  "uniqueKey" : "Required string",
+  "url" : "Required string"
+}
+```
+
+### clientKey
 
 A unique identifier of the client accessing the request queue. It must be a string between 1 and 32 characters long. This identifier is used to determine whether the queue was accessed by multiple clients. If `clientKey` is not provided, the system considers this API call to come from a new client.
 
 **Type:** string
 
-#### forefront
+### forefront
 
 Determines if request should be added to the head of the queue or to the end. Default value is `false` (end of queue).
 
 **Type:** boolean
 
-#### status
+### status
 
 Filter for the run status.
 
@@ -242,29 +270,37 @@ Adds request to task's last run's queue. Response contains ID of the request and
 
 <details><summary>Parameters</summary>
 
-#### actorTaskId (required)
+### actorTaskId (required)
 
 Task ID or a tilde-separated owner's username and task's name.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
 
-#### clientKey
+```json
+{
+  "method" : "Required string",
+  "uniqueKey" : "Required string",
+  "url" : "Required string"
+}
+```
+
+### clientKey
 
 A unique identifier of the client accessing the request queue. It must be a string between 1 and 32 characters long. This identifier is used to determine whether the queue was accessed by multiple clients. If `clientKey` is not provided, the system considers this API call to come from a new client.
 
 **Type:** string
 
-#### forefront
+### forefront
 
 Determines if request should be added to the head of the queue or to the end. Default value is `false` (end of queue).
 
 **Type:** boolean
 
-#### status
+### status
 
 Filter for the run status.
 
@@ -278,37 +314,37 @@ Builds an actor.
 
 <details><summary>Parameters</summary>
 
-#### actorId (required)
+### actorId (required)
 
 Actor ID or a tilde-separated owner's username and actor name.
 
 **Type:** string
 
-#### betaPackages
+### betaPackages
 
 If `true` or `1` then the actor is built with beta versions of Apify NPM packages. By default, the build uses `latest` packages.
 
 **Type:** boolean
 
-#### tag
+### tag
 
 Tag to be applied to the build on success. By default, the tag is taken from actor version's `buildTag` property.
 
 **Type:** string
 
-#### useCache
+### useCache
 
 If `true` or `1`, the system will use a cache to speed up the build process. By default, cache is not used.
 
 **Type:** boolean
 
-#### version
+### version
 
 Actor version number to be built.
 
 **Type:** string
 
-#### waitForFinish
+### waitForFinish
 
 The maximum number of seconds the server waits for the build to finish. By default it is `0`, the maximum value is `300`.
 
@@ -322,9 +358,33 @@ Creates a new actor with settings specified by the actor object passed as JSON i
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "versions" : [ {
+    "sourceCode" : "Required string",
+    "sourceType" : "Required string",
+    "buildTag" : "Required string",
+    "baseDockerImage" : "string",
+    "applyEnvVarsToBuild" : "boolean",
+    "envVars" : [ [ {
+      "isSecret" : "boolean",
+      "name" : "string",
+      "value" : "string",
+      "key" : "string"
+    } ] ],
+    "versionNumber" : "Required string"
+  } ],
+  "restartOnError" : "boolean",
+  "name" : "Required string",
+  "description" : "string",
+  "isPublic" : "Required boolean",
+  "title" : "string"
+}
+```
 
 </details>
 
@@ -334,7 +394,7 @@ Creates dataset of given name and returns its object. If dataset with given name
 
 <details><summary>Parameters</summary>
 
-#### name
+### name
 
 Custom unique name to easily identify the store in the future.
 
@@ -351,7 +411,7 @@ If there is another store with the same name, the endpoint does not create a new
 
 <details><summary>Parameters</summary>
 
-#### name
+### name
 
 Custom unique name to easily identify the store in the future.
 
@@ -365,7 +425,7 @@ Creates queue of given name and returns its object. If a queue with the given na
 
 <details><summary>Parameters</summary>
 
-#### name
+### name
 
 Custom unique name to easily identify the store in the future.
 
@@ -379,9 +439,25 @@ Create a new task with settings specified by the object passed as JSON in the PO
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "input" : {
+    "body" : "string",
+    "contentType" : "Required string"
+  },
+  "actId" : "string",
+  "name" : "string",
+  "options" : {
+    "build" : "string",
+    "memoryMbytes" : "number",
+    "timeoutSecs" : "number"
+  }
+}
+```
 
 </details>
 
@@ -391,15 +467,32 @@ Creates actor version.
 
 <details><summary>Parameters</summary>
 
-#### actorId (required)
+### actorId (required)
 
 Actor ID or a tilde-separated owner's username and actor name.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "sourceCode" : "Required string",
+  "sourceType" : "Required string",
+  "buildTag" : "Required string",
+  "baseDockerImage" : "string",
+  "applyEnvVarsToBuild" : "boolean",
+  "envVars" : [ [ {
+    "isSecret" : "boolean",
+    "name" : "string",
+    "value" : "string",
+    "key" : "string"
+  } ] ],
+  "versionNumber" : "Required string"
+}
+```
 
 </details>
 
@@ -415,9 +508,23 @@ must be unique, so use a UUID or another random string with enough entropy.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "isAdHoc" : "boolean",
+  "condition" : {
+    "actorTaskId" : "string"
+  },
+  "ignoreSslErrors" : "boolean",
+  "idempotencyKey" : "string",
+  "requestUrl" : "Required string",
+  "eventTypes" : [ "string" ],
+  "payloadTemplate" : "string"
+}
+```
 
 </details>
 
@@ -427,7 +534,7 @@ Deletes an actor.
 
 <details><summary>Parameters</summary>
 
-#### actorId (required)
+### actorId (required)
 
 Actor ID or a tilde-separated owner's username and actor name.
 
@@ -441,13 +548,13 @@ Deletes an actor's last run's key-value store.
 
 <details><summary>Parameters</summary>
 
-#### actorId (required)
+### actorId (required)
 
 Actor ID or a tilde-separated owner's username and actor name.
 
 **Type:** string
 
-#### status
+### status
 
 Filter for the run status.
 
@@ -461,7 +568,7 @@ Deletes given dataset.
 
 <details><summary>Parameters</summary>
 
-#### datasetId (required)
+### datasetId (required)
 
 Dataset ID or `username~dataset-name`.
 
@@ -475,13 +582,13 @@ Deletes actor's last run's dataset.
 
 <details><summary>Parameters</summary>
 
-#### actorId (required)
+### actorId (required)
 
 Actor ID or a tilde-separated owner's username and actor name.
 
 **Type:** string
 
-#### status
+### status
 
 Filter for the run status.
 
@@ -495,13 +602,13 @@ Deletes task's last run's dataset.
 
 <details><summary>Parameters</summary>
 
-#### actorTaskId (required)
+### actorTaskId (required)
 
 Task ID or a tilde-separated owner's username and task's name.
 
 **Type:** string
 
-#### status
+### status
 
 Filter for the run status.
 
@@ -515,7 +622,7 @@ Deletes a key-value store.
 
 <details><summary>Parameters</summary>
 
-#### storeId (required)
+### storeId (required)
 
 Key-value store ID or `username~store-name`.
 
@@ -529,13 +636,13 @@ Deletes an actor's last run's key-value store.
 
 <details><summary>Parameters</summary>
 
-#### actorTaskId (required)
+### actorTaskId (required)
 
 Task ID or a tilde-separated owner's username and task's name.
 
 **Type:** string
 
-#### status
+### status
 
 Filter for the run status.
 
@@ -549,19 +656,19 @@ Deletes given request from queue.
 
 <details><summary>Parameters</summary>
 
-#### queueId (required)
+### queueId (required)
 
 Queue ID or `username~queue-name`.
 
 **Type:** string
 
-#### requestId (required)
+### requestId (required)
 
 Request ID.
 
 **Type:** string
 
-#### clientKey
+### clientKey
 
 A unique identifier of the client accessing the request queue. It must be a string between 1 and 32 characters long. This identifier is used to determine whether the queue was accessed by multiple clients. If `clientKey` is not provided, the system considers this API call to come from a new client.
 
@@ -575,25 +682,25 @@ Deletes given request from actor's last run's queue.
 
 <details><summary>Parameters</summary>
 
-#### actorId (required)
+### actorId (required)
 
 Actor ID or a tilde-separated owner's username and actor name.
 
 **Type:** string
 
-#### requestId (required)
+### requestId (required)
 
 Request ID.
 
 **Type:** string
 
-#### clientKey
+### clientKey
 
 A unique identifier of the client accessing the request queue. It must be a string between 1 and 32 characters long. This identifier is used to determine whether the queue was accessed by multiple clients. If `clientKey` is not provided, the system considers this API call to come from a new client.
 
 **Type:** string
 
-#### status
+### status
 
 Filter for the run status.
 
@@ -607,25 +714,25 @@ Deletes given request from task's last run's queue.
 
 <details><summary>Parameters</summary>
 
-#### actorTaskId (required)
+### actorTaskId (required)
 
 Task ID or a tilde-separated owner's username and task's name.
 
 **Type:** string
 
-#### requestId (required)
+### requestId (required)
 
 Request ID.
 
 **Type:** string
 
-#### clientKey
+### clientKey
 
 A unique identifier of the client accessing the request queue. It must be a string between 1 and 32 characters long. This identifier is used to determine whether the queue was accessed by multiple clients. If `clientKey` is not provided, the system considers this API call to come from a new client.
 
 **Type:** string
 
-#### status
+### status
 
 Filter for the run status.
 
@@ -639,7 +746,7 @@ Deletes given queue.
 
 <details><summary>Parameters</summary>
 
-#### queueId (required)
+### queueId (required)
 
 Queue ID or `username~queue-name`.
 
@@ -653,13 +760,13 @@ Deletes actor's last_run's request queue.
 
 <details><summary>Parameters</summary>
 
-#### actorId (required)
+### actorId (required)
 
 Actor ID or a tilde-separated owner's username and actor name.
 
 **Type:** string
 
-#### status
+### status
 
 Filter for the run status.
 
@@ -673,13 +780,13 @@ Deletes task's last_run's request queue.
 
 <details><summary>Parameters</summary>
 
-#### actorTaskId (required)
+### actorTaskId (required)
 
 Task ID or a tilde-separated owner's username and task's name.
 
 **Type:** string
 
-#### status
+### status
 
 Filter for the run status.
 
@@ -693,7 +800,7 @@ Delete the task specified through the `actorTaskId` parameter.
 
 <details><summary>Parameters</summary>
 
-#### actorTaskId (required)
+### actorTaskId (required)
 
 Task ID or a tilde-separated owner's username and task's name.
 
@@ -707,13 +814,13 @@ Deletes a version for an actor.
 
 <details><summary>Parameters</summary>
 
-#### actorId (required)
+### actorId (required)
 
 Actor ID or a tilde-separated owner's username and actor name.
 
 **Type:** string
 
-#### versionNumber (required)
+### versionNumber (required)
 
 Actor major and minor version of the actor.
 
@@ -727,7 +834,7 @@ Deletes an webhook.
 
 <details><summary>Parameters</summary>
 
-#### webhookId (required)
+### webhookId (required)
 
 Webhook ID.
 
@@ -741,7 +848,7 @@ Gets an object that contains all the details about a specific actor.
 
 <details><summary>Parameters</summary>
 
-#### actorId (required)
+### actorId (required)
 
 Actor ID or a tilde-separated owner's username and actor name.
 
@@ -765,23 +872,23 @@ add the `Content-Encoding: gzip` header to your request.
 
 <details><summary>Parameters</summary>
 
-#### Content-Type (required)
+### Content-Type (required)
 
 **Type:** string
 
-#### actorId (required)
+### actorId (required)
 
 Actor ID or a tilde-separated owner's username and actor name.
 
 **Type:** string
 
-#### recordKey (required)
+### recordKey (required)
 
 Key of the record.
 
 **Type:** string
 
-#### status
+### status
 
 Filter for the run status.
 
@@ -795,13 +902,13 @@ Gets an object that contains all the details about an actor's last run's key-val
 
 <details><summary>Parameters</summary>
 
-#### actorId (required)
+### actorId (required)
 
 Actor ID or a tilde-separated owner's username and actor name.
 
 **Type:** string
 
-#### status
+### status
 
 Filter for the run status.
 
@@ -818,19 +925,19 @@ This is useful to avoid periodic polling when waiting for an actor build to fini
 
 <details><summary>Parameters</summary>
 
-#### actorId (required)
+### actorId (required)
 
 Actor ID or a tilde-separated owner's username and actor name.
 
 **Type:** string
 
-#### buildId (required)
+### buildId (required)
 
 Build ID.
 
 **Type:** string
 
-#### waitForFinish
+### waitForFinish
 
 The maximum number of seconds the server waits for the build to finish. By default it is `0`, the maximum value is `300`.
 
@@ -850,7 +957,7 @@ Returns dataset object for given dataset ID.
 
 <details><summary>Parameters</summary>
 
-#### datasetId (required)
+### datasetId (required)
 
 Dataset ID or `username~dataset-name`.
 
@@ -864,13 +971,13 @@ Returns dataset object for the actor's last run.
 
 <details><summary>Parameters</summary>
 
-#### actorId (required)
+### actorId (required)
 
 Actor ID or a tilde-separated owner's username and actor name.
 
 **Type:** string
 
-#### status
+### status
 
 Filter for the run status.
 
@@ -884,13 +991,13 @@ Returns dataset object for the task's last run.
 
 <details><summary>Parameters</summary>
 
-#### actorTaskId (required)
+### actorTaskId (required)
 
 Task ID or a tilde-separated owner's username and task's name.
 
 **Type:** string
 
-#### status
+### status
 
 Filter for the run status.
 
@@ -914,17 +1021,17 @@ add the `Content-Encoding: gzip` header to your request.
 
 <details><summary>Parameters</summary>
 
-#### Content-Type (required)
+### Content-Type (required)
 
 **Type:** string
 
-#### recordKey (required)
+### recordKey (required)
 
 Key of the record.
 
 **Type:** string
 
-#### storeId (required)
+### storeId (required)
 
 Key-value store ID or `username~store-name`.
 
@@ -938,13 +1045,13 @@ Returns given number of first requests from the queue.
 
 <details><summary>Parameters</summary>
 
-#### queueId (required)
+### queueId (required)
 
 Queue ID or `username~queue-name`.
 
 **Type:** string
 
-#### hadMultipleClients
+### hadMultipleClients
 
 Is `true` if the queue was accessed by more than one clients (with unique or empty `clientKey`). This field is used by [Apify SDK](https://sdk.apify.com) to determine whether the local cache is consistent with the remote storage, and thus optimize certain operations.
 
@@ -958,19 +1065,19 @@ Returns given number of first requests from the actor's last run's queue.
 
 <details><summary>Parameters</summary>
 
-#### actorId (required)
+### actorId (required)
 
 Actor ID or a tilde-separated owner's username and actor name.
 
 **Type:** string
 
-#### hadMultipleClients
+### hadMultipleClients
 
 Is `true` if the queue was accessed by more than one clients (with unique or empty `clientKey`). This field is used by [Apify SDK](https://sdk.apify.com) to determine whether the local cache is consistent with the remote storage, and thus optimize certain operations.
 
 **Type:** boolean
 
-#### status
+### status
 
 Filter for the run status.
 
@@ -984,19 +1091,19 @@ Returns given number of first requests from the task's last run's queue.
 
 <details><summary>Parameters</summary>
 
-#### actorTaskId (required)
+### actorTaskId (required)
 
 Task ID or a tilde-separated owner's username and task's name.
 
 **Type:** string
 
-#### hadMultipleClients
+### hadMultipleClients
 
 Is `true` if the queue was accessed by more than one clients (with unique or empty `clientKey`). This field is used by [Apify SDK](https://sdk.apify.com) to determine whether the local cache is consistent with the remote storage, and thus optimize certain operations.
 
 **Type:** boolean
 
-#### status
+### status
 
 Filter for the run status.
 
@@ -1010,43 +1117,47 @@ Returns data stored in the actor's last run's dataset in a desired format. The f
 
 <details><summary>Parameters</summary>
 
-#### actorId (required)
+### actorId (required)
 
 Actor ID or a tilde-separated owner's username and actor name.
 
 **Type:** string
 
-#### attachment
+### attachment
 
 If true or 1 then the response will define the Content-Disposition: attachment header, forcing a web browser to download the file rather than to display it. By default this header is not present.
 
 **Type:** boolean
 
-#### bom
+### bom
 
 All text responses are encoded in UTF-8 encoding. By default, the format=csv files are prefixed with the UTF-8 Byte Order Mark (BOM), while json, jsonl, xml, html and rss files are not. If you want to override this default behavior, specify bom=1 query parameter to include the BOM or bom=0 to skip it.
 
 **Type:** boolean
 
-#### delimiter
+### delimiter
 
 A delimiter character for CSV files, only used if format=csv. The default delimiter is a simple comma (,).
 
 **Type:** string
 
-#### desc
+### desc
 
 If `true` or `1` then the items are sorted by the `createdAt` field in descending order.
 
 **Type:** boolean
 
-#### fields
+### fields
 
 A comma-separated list of fields which should be picked from the items, only these fields will remain in the resulting record objects. Note that the fields in the outputted items are sorted the same way as they are specified in the fields query parameter. You can use this feature to effectively fix the output format.
 
 **Type:** array
 
-#### format
+```json
+[ "string" ]
+```
+
+### format
 
 Format of the results.
 
@@ -1054,37 +1165,41 @@ Format of the results.
 
 **Potential values:** json, jsonl, csv, html, xlsx, xml, rss
 
-#### omit
+### omit
 
 A comma-separated list of fields which should be omitted from the items.
 
 **Type:** array
 
-#### skipHeaderRow
+```json
+[ "string" ]
+```
+
+### skipHeaderRow
 
 If true or 1 then header row in the csv format is skipped.
 
 **Type:** boolean
 
-#### status
+### status
 
 Filter for the run status.
 
 **Type:** string
 
-#### unwind
+### unwind
 
 Name of a field which should be unwound. If the field is an array then every element of the array will become a separate record and merged with parent object. If the unwound field is an object then it is merged with the parent object If the unwound field is missing or its value is neither an array nor an object and therefore cannot be merged with a parent object then the item gets preserved as it is. Note that the unwound items ignore the desc parameter.
 
 **Type:** string
 
-#### xmlRoot
+### xmlRoot
 
 Overrides default root element name of xml output. By default the root element is items.
 
 **Type:** string
 
-#### xmlRow
+### xmlRow
 
 Overrides default element name that wraps each page or page function result object in xml output. By default the element name is item.
 
@@ -1098,43 +1213,47 @@ Returns data stored in the dataset in a desired format. The format of the respon
 
 <details><summary>Parameters</summary>
 
-#### datasetId (required)
+### datasetId (required)
 
 Dataset ID or `username~dataset-name`.
 
 **Type:** string
 
-#### attachment
+### attachment
 
 If true or 1 then the response will define the Content-Disposition: attachment header, forcing a web browser to download the file rather than to display it. By default this header is not present.
 
 **Type:** boolean
 
-#### bom
+### bom
 
 All text responses are encoded in UTF-8 encoding. By default, the format=csv files are prefixed with the UTF-8 Byte Order Mark (BOM), while json, jsonl, xml, html and rss files are not. If you want to override this default behavior, specify bom=1 query parameter to include the BOM or bom=0 to skip it.
 
 **Type:** boolean
 
-#### delimiter
+### delimiter
 
 A delimiter character for CSV files, only used if format=csv. The default delimiter is a simple comma (,).
 
 **Type:** string
 
-#### desc
+### desc
 
 If `true` or `1` then the items are sorted by the `createdAt` field in descending order.
 
 **Type:** boolean
 
-#### fields
+### fields
 
 A comma-separated list of fields which should be picked from the items, only these fields will remain in the resulting record objects. Note that the fields in the outputted items are sorted the same way as they are specified in the fields query parameter. You can use this feature to effectively fix the output format.
 
 **Type:** array
 
-#### format
+```json
+[ "string" ]
+```
+
+### format
 
 Format of the results.
 
@@ -1142,31 +1261,35 @@ Format of the results.
 
 **Potential values:** json, jsonl, csv, html, xlsx, xml, rss
 
-#### omit
+### omit
 
 A comma-separated list of fields which should be omitted from the items.
 
 **Type:** array
 
-#### skipHeaderRow
+```json
+[ "string" ]
+```
+
+### skipHeaderRow
 
 If true or 1 then header row in the csv format is skipped.
 
 **Type:** boolean
 
-#### unwind
+### unwind
 
 Name of a field which should be unwound. If the field is an array then every element of the array will become a separate record and merged with parent object. If the unwound field is an object then it is merged with the parent object If the unwound field is missing or its value is neither an array nor an object and therefore cannot be merged with a parent object then the item gets preserved as it is. Note that the unwound items ignore the desc parameter.
 
 **Type:** string
 
-#### xmlRoot
+### xmlRoot
 
 Overrides default root element name of xml output. By default the root element is items.
 
 **Type:** string
 
-#### xmlRow
+### xmlRow
 
 Overrides default element name that wraps each page or page function result object in xml output. By default the element name is item.
 
@@ -1180,43 +1303,47 @@ Returns data stored in the task's last run's dataset in a desired format. The fo
 
 <details><summary>Parameters</summary>
 
-#### actorTaskId (required)
+### actorTaskId (required)
 
 Task ID or a tilde-separated owner's username and task's name.
 
 **Type:** string
 
-#### attachment
+### attachment
 
 If true or 1 then the response will define the Content-Disposition: attachment header, forcing a web browser to download the file rather than to display it. By default this header is not present.
 
 **Type:** boolean
 
-#### bom
+### bom
 
 All text responses are encoded in UTF-8 encoding. By default, the format=csv files are prefixed with the UTF-8 Byte Order Mark (BOM), while json, jsonl, xml, html and rss files are not. If you want to override this default behavior, specify bom=1 query parameter to include the BOM or bom=0 to skip it.
 
 **Type:** boolean
 
-#### delimiter
+### delimiter
 
 A delimiter character for CSV files, only used if format=csv. The default delimiter is a simple comma (,).
 
 **Type:** string
 
-#### desc
+### desc
 
 If `true` or `1` then the items are sorted by the `createdAt` field in descending order.
 
 **Type:** boolean
 
-#### fields
+### fields
 
 A comma-separated list of fields which should be picked from the items, only these fields will remain in the resulting record objects. Note that the fields in the outputted items are sorted the same way as they are specified in the fields query parameter. You can use this feature to effectively fix the output format.
 
 **Type:** array
 
-#### format
+```json
+[ "string" ]
+```
+
+### format
 
 Format of the results.
 
@@ -1224,37 +1351,41 @@ Format of the results.
 
 **Potential values:** json, jsonl, csv, html, xlsx, xml, rss
 
-#### omit
+### omit
 
 A comma-separated list of fields which should be omitted from the items.
 
 **Type:** array
 
-#### skipHeaderRow
+```json
+[ "string" ]
+```
+
+### skipHeaderRow
 
 If true or 1 then header row in the csv format is skipped.
 
 **Type:** boolean
 
-#### status
+### status
 
 Filter for the run status.
 
 **Type:** string
 
-#### unwind
+### unwind
 
 Name of a field which should be unwound. If the field is an array then every element of the array will become a separate record and merged with parent object. If the unwound field is an object then it is merged with the parent object If the unwound field is missing or its value is neither an array nor an object and therefore cannot be merged with a parent object then the item gets preserved as it is. Note that the unwound items ignore the desc parameter.
 
 **Type:** string
 
-#### xmlRoot
+### xmlRoot
 
 Overrides default root element name of xml output. By default the root element is items.
 
 **Type:** string
 
-#### xmlRow
+### xmlRow
 
 Overrides default element name that wraps each page or page function result object in xml output. By default the element name is item.
 
@@ -1268,7 +1399,7 @@ Gets an object that contains all the details about a specific key-value store.
 
 <details><summary>Parameters</summary>
 
-#### storeId (required)
+### storeId (required)
 
 Key-value store ID or `username~store-name`.
 
@@ -1285,13 +1416,13 @@ This is useful to avoid periodic polling when waiting for actor build to complet
 
 <details><summary>Parameters</summary>
 
-#### actorId (required)
+### actorId (required)
 
 Actor ID or a tilde-separated owner's username and actor name.
 
 **Type:** string
 
-#### status
+### status
 
 Filter for the run status.
 
@@ -1308,13 +1439,13 @@ This is useful to avoid periodic polling when waiting for actor build to complet
 
 <details><summary>Parameters</summary>
 
-#### actorTaskId (required)
+### actorTaskId (required)
 
 Task ID or a tilde-separated owner's username and task's name.
 
 **Type:** string
 
-#### status
+### status
 
 Filter for the run status.
 
@@ -1328,19 +1459,19 @@ Responds with HTTP status 302 to redirect to an URL containing the requested log
 
 <details><summary>Parameters</summary>
 
-#### buildOrRunId (required)
+### buildOrRunId (required)
 
 ID of the actor build or run.
 
 **Type:** string
 
-#### download
+### download
 
 If `true` or `1` then the web browser will download the log file rather than open it in a tab.
 
 **Type:** boolean
 
-#### stream
+### stream
 
 If `true` or `1` then the logs will be streamed as long as the run or build is running.
 
@@ -1354,25 +1485,25 @@ Responds with HTTP status 302 to redirect to an URL containing the actor's last 
 
 <details><summary>Parameters</summary>
 
-#### actorId (required)
+### actorId (required)
 
 Actor ID or a tilde-separated owner's username and actor name.
 
 **Type:** string
 
-#### download
+### download
 
 If `true` or `1` then the web browser will download the log file rather than open it in a tab.
 
 **Type:** boolean
 
-#### status
+### status
 
 Filter for the run status.
 
 **Type:** string
 
-#### stream
+### stream
 
 If `true` or `1` then the logs will be streamed as long as the run or build is running.
 
@@ -1386,25 +1517,25 @@ Responds with HTTP status 302 to redirect to an URL containing the task's last r
 
 <details><summary>Parameters</summary>
 
-#### actorTaskId (required)
+### actorTaskId (required)
 
 Task ID or a tilde-separated owner's username and task's name.
 
 **Type:** string
 
-#### download
+### download
 
 If `true` or `1` then the web browser will download the log file rather than open it in a tab.
 
 **Type:** boolean
 
-#### status
+### status
 
 Filter for the run status.
 
 **Type:** string
 
-#### stream
+### stream
 
 If `true` or `1` then the logs will be streamed as long as the run or build is running.
 
@@ -1418,7 +1549,7 @@ Returns public information about a specific user account, similar to what can be
 
 <details><summary>Parameters</summary>
 
-#### userId (required)
+### userId (required)
 
 User ID or username.
 
@@ -1432,25 +1563,25 @@ Gets a value stored in the actor's last run's key-value store under a specific k
 
 <details><summary>Parameters</summary>
 
-#### actorId (required)
+### actorId (required)
 
 Actor ID or a tilde-separated owner's username and actor name.
 
 **Type:** string
 
-#### recordKey (required)
+### recordKey (required)
 
 Key of the record.
 
 **Type:** string
 
-#### disableRedirect
+### disableRedirect
 
 By default, the API responds with the HTTP 302 status to redirect the client to another URL for faster download of the record. You can set `disableRedirect=1` to prevent this behavior and return the record directly.
 
 **Type:** boolean
 
-#### status
+### status
 
 Filter for the run status.
 
@@ -1464,19 +1595,19 @@ Gets a value stored in the key-value store under a specific key. If the request 
 
 <details><summary>Parameters</summary>
 
-#### recordKey (required)
+### recordKey (required)
 
 Key of the record.
 
 **Type:** string
 
-#### storeId (required)
+### storeId (required)
 
 Key-value store ID or `username~store-name`.
 
 **Type:** string
 
-#### disableRedirect
+### disableRedirect
 
 By default, the API responds with the HTTP 302 status to redirect the client to another URL for faster download of the record. You can set `disableRedirect=1` to prevent this behavior and return the record directly.
 
@@ -1490,25 +1621,25 @@ Gets a value stored in the task's last run's key-value store under a specific ke
 
 <details><summary>Parameters</summary>
 
-#### actorTaskId (required)
+### actorTaskId (required)
 
 Task ID or a tilde-separated owner's username and task's name.
 
 **Type:** string
 
-#### recordKey (required)
+### recordKey (required)
 
 Key of the record.
 
 **Type:** string
 
-#### disableRedirect
+### disableRedirect
 
 By default, the API responds with the HTTP 302 status to redirect the client to another URL for faster download of the record. You can set `disableRedirect=1` to prevent this behavior and return the record directly.
 
 **Type:** boolean
 
-#### status
+### status
 
 Filter for the run status.
 
@@ -1522,13 +1653,13 @@ Returns request from queue.
 
 <details><summary>Parameters</summary>
 
-#### queueId (required)
+### queueId (required)
 
 Queue ID or `username~queue-name`.
 
 **Type:** string
 
-#### requestId (required)
+### requestId (required)
 
 Request ID.
 
@@ -1542,19 +1673,19 @@ Returns request from actor's last run's queue.
 
 <details><summary>Parameters</summary>
 
-#### actorId (required)
+### actorId (required)
 
 Actor ID or a tilde-separated owner's username and actor name.
 
 **Type:** string
 
-#### requestId (required)
+### requestId (required)
 
 Request ID.
 
 **Type:** string
 
-#### status
+### status
 
 Filter for the run status.
 
@@ -1568,19 +1699,19 @@ Returns request from task's last run's queue.
 
 <details><summary>Parameters</summary>
 
-#### actorTaskId (required)
+### actorTaskId (required)
 
 Task ID or a tilde-separated owner's username and task's name.
 
 **Type:** string
 
-#### requestId (required)
+### requestId (required)
 
 Request ID.
 
 **Type:** string
 
-#### status
+### status
 
 Filter for the run status.
 
@@ -1594,7 +1725,7 @@ Returns queue object for given queue ID.
 
 <details><summary>Parameters</summary>
 
-#### queueId (required)
+### queueId (required)
 
 Queue ID or `username~queue-name`.
 
@@ -1608,13 +1739,13 @@ Returns queue object for actor's last run's request queue.
 
 <details><summary>Parameters</summary>
 
-#### actorId (required)
+### actorId (required)
 
 Actor ID or a tilde-separated owner's username and actor name.
 
 **Type:** string
 
-#### status
+### status
 
 Filter for the run status.
 
@@ -1628,13 +1759,13 @@ Returns queue object for task's run's request queue.
 
 <details><summary>Parameters</summary>
 
-#### actorTaskId (required)
+### actorTaskId (required)
 
 Task ID or a tilde-separated owner's username and task's name.
 
 **Type:** string
 
-#### status
+### status
 
 Filter for the run status.
 
@@ -1651,19 +1782,19 @@ This is useful to avoid periodic polling when waiting for actor build to complet
 
 <details><summary>Parameters</summary>
 
-#### actorId (required)
+### actorId (required)
 
 Actor ID or a tilde-separated owner's username and actor name.
 
 **Type:** string
 
-#### runId (required)
+### runId (required)
 
 Run ID.
 
 **Type:** string
 
-#### waitForFinish
+### waitForFinish
 
 The maximum number of seconds the server waits for the build to finish. By default it is `0`, the maximum value is `300`.
 
@@ -1677,7 +1808,7 @@ Get an object that contains all the details about a task.
 
 <details><summary>Parameters</summary>
 
-#### actorTaskId (required)
+### actorTaskId (required)
 
 Task ID or a tilde-separated owner's username and task's name.
 
@@ -1701,23 +1832,23 @@ add the `Content-Encoding: gzip` header to your request.
 
 <details><summary>Parameters</summary>
 
-#### Content-Type (required)
+### Content-Type (required)
 
 **Type:** string
 
-#### actorTaskId (required)
+### actorTaskId (required)
 
 Task ID or a tilde-separated owner's username and task's name.
 
 **Type:** string
 
-#### recordKey (required)
+### recordKey (required)
 
 Key of the record.
 
 **Type:** string
 
-#### status
+### status
 
 Filter for the run status.
 
@@ -1731,13 +1862,13 @@ Gets an object that contains all the details about an task's last run's key-valu
 
 <details><summary>Parameters</summary>
 
-#### actorTaskId (required)
+### actorTaskId (required)
 
 Task ID or a tilde-separated owner's username and task's name.
 
 **Type:** string
 
-#### status
+### status
 
 Filter for the run status.
 
@@ -1751,13 +1882,13 @@ Gets an object that contains all the details about a specific version of an acto
 
 <details><summary>Parameters</summary>
 
-#### actorId (required)
+### actorId (required)
 
 Actor ID or a tilde-separated owner's username and actor name.
 
 **Type:** string
 
-#### versionNumber (required)
+### versionNumber (required)
 
 Actor major and minor version of the actor.
 
@@ -1771,7 +1902,7 @@ Gets webhook object with all details.
 
 <details><summary>Parameters</summary>
 
-#### webhookId (required)
+### webhookId (required)
 
 Webhook ID.
 
@@ -1785,7 +1916,7 @@ Gets webhook dispatch object with all details.
 
 <details><summary>Parameters</summary>
 
-#### dispatchId (required)
+### dispatchId (required)
 
 Webhook dispatch ID.
 
@@ -1799,13 +1930,13 @@ Returns a list of objects describing keys of an actor's last run's key-value sto
 
 <details><summary>Parameters</summary>
 
-#### actorId (required)
+### actorId (required)
 
 Actor ID or a tilde-separated owner's username and actor name.
 
 **Type:** string
 
-#### status
+### status
 
 Filter for the run status.
 
@@ -1825,13 +1956,13 @@ ones are still being created. To sort the records in descending order, use the `
 
 <details><summary>Parameters</summary>
 
-#### desc
+### desc
 
 If `true` or `1` then the items are sorted by the `createdAt` field in descending order.
 
 **Type:** boolean
 
-#### my
+### my
 
 If `true` or `1` then the returned list only contains items owned by the user.
 
@@ -1845,7 +1976,7 @@ Gets the list of webhook dispatches that the user have. The endpoint supports pa
 
 <details><summary>Parameters</summary>
 
-#### desc
+### desc
 
 If `true` or `1` then the items are sorted by the `createdAt` field in descending order.
 
@@ -1867,13 +1998,13 @@ parameter.
 
 <details><summary>Parameters</summary>
 
-#### actorId (required)
+### actorId (required)
 
 Actor ID or a tilde-separated owner's username and actor name.
 
 **Type:** string
 
-#### desc
+### desc
 
 If `true` or `1` then the items are sorted by the `createdAt` field in descending order.
 
@@ -1894,13 +2025,13 @@ array elements.
 
 <details><summary>Parameters</summary>
 
-#### desc
+### desc
 
 If `true` or `1` then the items are sorted by the `createdAt` field in descending order.
 
 **Type:** boolean
 
-#### unnamed
+### unnamed
 
 If `true` then all the items are returned. By default only named items are returned.
 
@@ -1914,7 +2045,7 @@ Gets list of dispatches of a given webhook.
 
 <details><summary>Parameters</summary>
 
-#### webhookId (required)
+### webhookId (required)
 
 Webhook ID.
 
@@ -1937,13 +2068,13 @@ parameter.
 
 <details><summary>Parameters</summary>
 
-#### desc
+### desc
 
 If `true` or `1` then the items are sorted by the `createdAt` field in descending order.
 
 **Type:** boolean
 
-#### unnamed
+### unnamed
 
 If `true` then all the items are returned. By default only named items are returned.
 
@@ -1957,7 +2088,7 @@ Returns a list of objects describing keys of a given key-value store, as well as
 
 <details><summary>Parameters</summary>
 
-#### storeId (required)
+### storeId (required)
 
 Key-value store ID or `username~store-name`.
 
@@ -1978,13 +2109,13 @@ array elements.
 
 <details><summary>Parameters</summary>
 
-#### desc
+### desc
 
 If `true` or `1` then the items are sorted by the `createdAt` field in descending order.
 
 **Type:** boolean
 
-#### unnamed
+### unnamed
 
 If `true` then all the items are returned. By default only named items are returned.
 
@@ -1998,13 +2129,13 @@ Gets the list of runs of a specific actor. The endpoint supports pagination usin
 
 <details><summary>Parameters</summary>
 
-#### actorId (required)
+### actorId (required)
 
 Actor ID or a tilde-separated owner's username and actor name.
 
 **Type:** string
 
-#### desc
+### desc
 
 If `true` or `1` then the items are sorted by the `createdAt` field in descending order.
 
@@ -2018,13 +2149,13 @@ Get a list of runs of a specific task. The endpoint supports pagination using th
 
 <details><summary>Parameters</summary>
 
-#### actorTaskId (required)
+### actorTaskId (required)
 
 Task ID or a tilde-separated owner's username and task's name.
 
 **Type:** string
 
-#### desc
+### desc
 
 If `true` or `1` then the items are sorted by the `createdAt` field in descending order.
 
@@ -2038,13 +2169,13 @@ Returns a list of objects describing keys of a task's last run's key-value store
 
 <details><summary>Parameters</summary>
 
-#### actorTaskId (required)
+### actorTaskId (required)
 
 Task ID or a tilde-separated owner's username and task's name.
 
 **Type:** string
 
-#### status
+### status
 
 Filter for the run status.
 
@@ -2066,7 +2197,7 @@ parameter.
 
 <details><summary>Parameters</summary>
 
-#### desc
+### desc
 
 If `true` or `1` then the items are sorted by the `createdAt` field in descending order.
 
@@ -2080,7 +2211,7 @@ Gets the list of versions of a specific actor. The response is a JSON with the l
 
 <details><summary>Parameters</summary>
 
-#### actorId (required)
+### actorId (required)
 
 Actor ID or a tilde-separated owner's username and actor name.
 
@@ -2094,7 +2225,7 @@ Gets the list of webhooks that the user created. The endpoint supports paginatio
 
 <details><summary>Parameters</summary>
 
-#### desc
+### desc
 
 If `true` or `1` then the items are sorted by the `createdAt` field in descending order.
 
@@ -2114,13 +2245,13 @@ to sort the records in descending order, use the `desc=1` parameter.
 
 <details><summary>Parameters</summary>
 
-#### actorId (required)
+### actorId (required)
 
 Actor ID or a tilde-separated owner's username and actor name.
 
 **Type:** string
 
-#### desc
+### desc
 
 If `true` or `1` then the items are sorted by the `createdAt` field in descending order.
 
@@ -2134,13 +2265,13 @@ Gets the list of webhooks of a specific actor task. The endpoint supports pagina
 
 <details><summary>Parameters</summary>
 
-#### actorTaskId (required)
+### actorTaskId (required)
 
 Task ID or a tilde-separated owner's username and task's name.
 
 **Type:** string
 
-#### desc
+### desc
 
 If `true` or `1` then the items are sorted by the `createdAt` field in descending order.
 
@@ -2161,25 +2292,25 @@ All the default storages are preserved and the new input is stored under the `IN
 
 <details><summary>Parameters</summary>
 
-#### actorId (required)
+### actorId (required)
 
 Actor ID or a tilde-separated owner's username and actor name.
 
 **Type:** string
 
-#### targetActorId (required)
+### targetActorId (required)
 
 ID of a target actor that the run should be transformed into.
 
 **Type:** string
 
-#### build
+### build
 
 Specifies the actor build to run. It can be either a build tag or build number. By default, the run uses the build specified in the default run configuration for the actor (typically `latest`).
 
 **Type:** string
 
-#### status
+### status
 
 Filter for the run status.
 
@@ -2200,25 +2331,25 @@ All the default storages are preserved and the new input is stored under the `IN
 
 <details><summary>Parameters</summary>
 
-#### actorId (required)
+### actorId (required)
 
 Actor ID or a tilde-separated owner's username and actor name.
 
 **Type:** string
 
-#### runId (required)
+### runId (required)
 
 Run ID.
 
 **Type:** string
 
-#### targetActorId (required)
+### targetActorId (required)
 
 ID of a target actor that the run should be transformed into.
 
 **Type:** string
 
-#### build
+### build
 
 Specifies the actor build to run. It can be either a build tag or build number. By default, the run uses the build specified in the default run configuration for the actor (typically `latest`).
 
@@ -2232,17 +2363,21 @@ Saves an item or an array of items into the actor's last run's dataset. The limi
 
 <details><summary>Parameters</summary>
 
-#### actorId (required)
+### actorId (required)
 
 Actor ID or a tilde-separated owner's username and actor name.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
 
-#### status
+```json
+{ }
+```
+
+### status
 
 Filter for the run status.
 
@@ -2256,15 +2391,19 @@ Saves an item or an array of items into dataset. The limit of request payload fo
 
 <details><summary>Parameters</summary>
 
-#### datasetId (required)
+### datasetId (required)
 
 Dataset ID or `username~dataset-name`.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{ }
+```
 
 </details>
 
@@ -2274,17 +2413,21 @@ Saves an item or an array of items into the actor's last run's dataset. The limi
 
 <details><summary>Parameters</summary>
 
-#### actorTaskId (required)
+### actorTaskId (required)
 
 Task ID or a tilde-separated owner's username and task's name.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
 
-#### status
+```json
+{ }
+```
+
+### status
 
 Filter for the run status.
 
@@ -2298,19 +2441,19 @@ Removes a record specified by a key from the actor's last run's key-value store.
 
 <details><summary>Parameters</summary>
 
-#### actorId (required)
+### actorId (required)
 
 Actor ID or a tilde-separated owner's username and actor name.
 
 **Type:** string
 
-#### recordKey (required)
+### recordKey (required)
 
 Key of the record.
 
 **Type:** string
 
-#### status
+### status
 
 Filter for the run status.
 
@@ -2324,13 +2467,13 @@ Removes a record specified by a key from the key-value store.
 
 <details><summary>Parameters</summary>
 
-#### recordKey (required)
+### recordKey (required)
 
 Key of the record.
 
 **Type:** string
 
-#### storeId (required)
+### storeId (required)
 
 Key-value store ID or `username~store-name`.
 
@@ -2344,19 +2487,19 @@ Removes a record specified by a key from the task's last run's key-value store.
 
 <details><summary>Parameters</summary>
 
-#### actorTaskId (required)
+### actorTaskId (required)
 
 Task ID or a tilde-separated owner's username and task's name.
 
 **Type:** string
 
-#### recordKey (required)
+### recordKey (required)
 
 Key of the record.
 
 **Type:** string
 
-#### status
+### status
 
 Filter for the run status.
 
@@ -2375,41 +2518,45 @@ please use one of the [Run actor synchronously](#reference/actors/run-actor-sync
 
 <details><summary>Parameters</summary>
 
-#### actorId (required)
+### actorId (required)
 
 Actor ID or a tilde-separated owner's username and actor name.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
 
-#### build
+```json
+{ }
+```
+
+### build
 
 Specifies the actor build to run. It can be either a build tag or build number. By default, the run uses the build specified in the default run configuration for the actor (typically `latest`).
 
 **Type:** string
 
-#### memory
+### memory
 
 Memory limit for the run, in megabytes. By default, the run uses a memory limit specified in the default run configuration for the actor.
 
 **Type:** integer
 
-#### timeout
+### timeout
 
 Optional timeout for the run, in seconds. By default, the run uses a timeout specified in the default run configuration for the actor.
 
 **Type:** integer
 
-#### waitForFinish
+### waitForFinish
 
 The maximum number of seconds the server waits for the build to finish. By default it is `0`, the maximum value is `300`.
 
 **Type:** integer
 
-#### webhooks
+### webhooks
 
 Specifies optional webhooks associated with the actor run, which can be used to receive a notification e.g. when the actor finished or failed. The value is a Base64-encoded JSON array of objects defining the webhooks.
 
@@ -2432,23 +2579,27 @@ use one of the [Run task synchronously](#/reference/actor-tasks/run-task-synchro
 
 <details><summary>Parameters</summary>
 
-#### actorTaskId (required)
+### actorTaskId (required)
 
 Task ID or a tilde-separated owner's username and task's name.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
 
-#### waitForFinish
+```json
+{ }
+```
+
+### waitForFinish
 
 The maximum number of seconds the server waits for the build to finish. By default it is `0`, the maximum value is `300`.
 
 **Type:** integer
 
-#### webhooks
+### webhooks
 
 Specifies optional webhooks associated with the actor run, which can be used to receive a notification e.g. when the actor finished or failed. The value is a Base64-encoded JSON array of objects defining the webhooks.
 
@@ -2475,41 +2626,45 @@ To run the actor asynchronously, use the [Run actor](#reference/actors/run-colle
 
 <details><summary>Parameters</summary>
 
-#### actorId (required)
+### actorId (required)
 
 Actor ID or a tilde-separated owner's username and actor name.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
 
-#### build
+```json
+{ }
+```
+
+### build
 
 Specifies the actor build to run. It can be either a build tag or build number. By default, the run uses the build specified in the default run configuration for the actor (typically `latest`).
 
 **Type:** string
 
-#### memory
+### memory
 
 Memory limit for the run, in megabytes. By default, the run uses a memory limit specified in the default run configuration for the actor.
 
 **Type:** integer
 
-#### outputRecordKey
+### outputRecordKey
 
 Key of the record from run's default key-value store to be returned in the response. By default, it is `OUTPUT`.
 
 **Type:** string
 
-#### timeout
+### timeout
 
 Optional timeout for the run, in seconds. By default, the run uses a timeout specified in the default run configuration for the actor.
 
 **Type:** integer
 
-#### webhooks
+### webhooks
 
 Specifies optional webhooks associated with the actor run, which can be used to receive a notification e.g. when the actor finished or failed. The value is a Base64-encoded JSON array of objects defining the webhooks.
 
@@ -2531,37 +2686,37 @@ To run the actor asynchronously, use the [Run actor](#reference/actors/run-colle
 
 <details><summary>Parameters</summary>
 
-#### actorId (required)
+### actorId (required)
 
 Actor ID or a tilde-separated owner's username and actor name.
 
 **Type:** string
 
-#### build
+### build
 
 Specifies the actor build to run. It can be either a build tag or build number. By default, the run uses the build specified in the default run configuration for the actor (typically `latest`).
 
 **Type:** string
 
-#### memory
+### memory
 
 Memory limit for the run, in megabytes. By default, the run uses a memory limit specified in the default run configuration for the actor.
 
 **Type:** integer
 
-#### outputRecordKey
+### outputRecordKey
 
 Key of the record from run's default key-value store to be returned in the response. By default, it is `OUTPUT`.
 
 **Type:** string
 
-#### timeout
+### timeout
 
 Optional timeout for the run, in seconds. By default, the run uses a timeout specified in the default run configuration for the actor.
 
 **Type:** integer
 
-#### webhooks
+### webhooks
 
 Specifies optional webhooks associated with the actor run, which can be used to receive a notification e.g. when the actor finished or failed. The value is a Base64-encoded JSON array of objects defining the webhooks.
 
@@ -2582,19 +2737,19 @@ To run the Task asynchronously, use the [Run task asynchronously](#reference/act
 
 <details><summary>Parameters</summary>
 
-#### actorTaskId (required)
+### actorTaskId (required)
 
 Task ID or a tilde-separated owner's username and task's name.
 
 **Type:** string
 
-#### outputRecordKey
+### outputRecordKey
 
 Key of the record from run's default key-value store to be returned in the response. By default, it is `OUTPUT`.
 
 **Type:** string
 
-#### webhooks
+### webhooks
 
 Specifies optional webhooks associated with the actor run, which can be used to receive a notification e.g. when the actor finished or failed. The value is a Base64-encoded JSON array of objects defining the webhooks.
 
@@ -2623,23 +2778,27 @@ To run the task asynchronously, use the [Run task](#/reference/actor-tasks/run-c
 
 <details><summary>Parameters</summary>
 
-#### actorTaskId (required)
+### actorTaskId (required)
 
 Task ID or a tilde-separated owner's username and task's name.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
 
-#### outputRecordKey
+```json
+{ }
+```
+
+### outputRecordKey
 
 Key of the record from run's default key-value store to be returned in the response. By default, it is `OUTPUT`.
 
 **Type:** string
 
-#### webhooks
+### webhooks
 
 Specifies optional webhooks associated with the actor run, which can be used to receive a notification e.g. when the actor finished or failed. The value is a Base64-encoded JSON array of objects defining the webhooks.
 
@@ -2653,15 +2812,39 @@ Updates settings of an actor using values specified by an actor object passed as
 
 <details><summary>Parameters</summary>
 
-#### actorId (required)
+### actorId (required)
 
 Actor ID or a tilde-separated owner's username and actor name.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "versions" : [ {
+    "sourceCode" : "Required string",
+    "sourceType" : "Required string",
+    "buildTag" : "Required string",
+    "baseDockerImage" : "string",
+    "applyEnvVarsToBuild" : "boolean",
+    "envVars" : [ [ {
+      "isSecret" : "boolean",
+      "name" : "string",
+      "value" : "string",
+      "key" : "string"
+    } ] ],
+    "versionNumber" : "Required string"
+  } ],
+  "restartOnError" : "boolean",
+  "name" : "Required string",
+  "description" : "string",
+  "isPublic" : "Required boolean",
+  "title" : "string"
+}
+```
 
 </details>
 
@@ -2671,29 +2854,38 @@ Updates request in queue. Mark request as handled by setting `request.handledAt 
 
 <details><summary>Parameters</summary>
 
-#### queueId (required)
+### queueId (required)
 
 Queue ID or `username~queue-name`.
 
 **Type:** string
 
-#### requestId (required)
+### requestId (required)
 
 Request ID.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
 
-#### clientKey
+```json
+{
+  "method" : "Required string",
+  "uniqueKey" : "Required string",
+  "id" : "Required string",
+  "url" : "Required string"
+}
+```
+
+### clientKey
 
 A unique identifier of the client accessing the request queue. It must be a string between 1 and 32 characters long. This identifier is used to determine whether the queue was accessed by multiple clients. If `clientKey` is not provided, the system considers this API call to come from a new client.
 
 **Type:** string
 
-#### forefront
+### forefront
 
 Determines if request should be added to the head of the queue or to the end. Default value is `false` (end of queue).
 
@@ -2707,35 +2899,44 @@ Updates request in actor's last run's queue. Mark request as handled by setting 
 
 <details><summary>Parameters</summary>
 
-#### actorId (required)
+### actorId (required)
 
 Actor ID or a tilde-separated owner's username and actor name.
 
 **Type:** string
 
-#### requestId (required)
+### requestId (required)
 
 Request ID.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
 
-#### clientKey
+```json
+{
+  "method" : "Required string",
+  "uniqueKey" : "Required string",
+  "id" : "Required string",
+  "url" : "Required string"
+}
+```
+
+### clientKey
 
 A unique identifier of the client accessing the request queue. It must be a string between 1 and 32 characters long. This identifier is used to determine whether the queue was accessed by multiple clients. If `clientKey` is not provided, the system considers this API call to come from a new client.
 
 **Type:** string
 
-#### forefront
+### forefront
 
 Determines if request should be added to the head of the queue or to the end. Default value is `false` (end of queue).
 
 **Type:** boolean
 
-#### status
+### status
 
 Filter for the run status.
 
@@ -2749,35 +2950,44 @@ Updates request in task's last run's queue. Mark request as handled by setting `
 
 <details><summary>Parameters</summary>
 
-#### actorTaskId (required)
+### actorTaskId (required)
 
 Task ID or a tilde-separated owner's username and task's name.
 
 **Type:** string
 
-#### requestId (required)
+### requestId (required)
 
 Request ID.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
 
-#### clientKey
+```json
+{
+  "method" : "Required string",
+  "uniqueKey" : "Required string",
+  "id" : "Required string",
+  "url" : "Required string"
+}
+```
+
+### clientKey
 
 A unique identifier of the client accessing the request queue. It must be a string between 1 and 32 characters long. This identifier is used to determine whether the queue was accessed by multiple clients. If `clientKey` is not provided, the system considers this API call to come from a new client.
 
 **Type:** string
 
-#### forefront
+### forefront
 
 Determines if request should be added to the head of the queue or to the end. Default value is `false` (end of queue).
 
 **Type:** boolean
 
-#### status
+### status
 
 Filter for the run status.
 
@@ -2791,15 +3001,31 @@ Update settings of a task using values specified by an object passed as JSON in 
 
 <details><summary>Parameters</summary>
 
-#### actorTaskId (required)
+### actorTaskId (required)
 
 Task ID or a tilde-separated owner's username and task's name.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "input" : {
+    "body" : "string",
+    "contentType" : "Required string"
+  },
+  "actId" : "string",
+  "name" : "string",
+  "options" : {
+    "build" : "string",
+    "memoryMbytes" : "number",
+    "timeoutSecs" : "number"
+  }
+}
+```
 
 </details>
 
@@ -2809,21 +3035,38 @@ Updates actor version using values specified by an version object passed as JSON
 
 <details><summary>Parameters</summary>
 
-#### actorId (required)
+### actorId (required)
 
 Actor ID or a tilde-separated owner's username and actor name.
 
 **Type:** string
 
-#### versionNumber (required)
+### versionNumber (required)
 
 Actor major and minor version of the actor.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "sourceCode" : "string",
+  "sourceType" : "string",
+  "buildTag" : "string",
+  "baseDockerImage" : "string",
+  "applyEnvVarsToBuild" : "boolean",
+  "envVars" : [ [ {
+    "isSecret" : "boolean",
+    "name" : "string",
+    "value" : "string",
+    "key" : "string"
+  } ] ],
+  "versionNumber" : "string"
+}
+```
 
 </details>
 
@@ -2833,15 +3076,28 @@ Updates a webhook using values specified by a webhook object passed as JSON in t
 
 <details><summary>Parameters</summary>
 
-#### webhookId (required)
+### webhookId (required)
 
 Webhook ID.
 
 **Type:** string
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "isAdHoc" : "boolean",
+  "condition" : {
+    "actorTaskId" : "string"
+  },
+  "ignoreSslErrors" : "boolean",
+  "requestUrl" : "string",
+  "eventTypes" : [ "string" ],
+  "payloadTemplate" : "string"
+}
+```
 
 </details>
 

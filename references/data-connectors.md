@@ -33,6 +33,7 @@ Note: reference material for each data connector can additionally be viewed in t
 
 ## B
 
+* [Bitly](../connectors/bitly-documentation)
 * [Box](../connectors/box-documentation)
 
 ## C
@@ -53,6 +54,7 @@ Note: reference material for each data connector can additionally be viewed in t
 * [GCP BigQuery](../connectors/gcp-bigquery-documentation)
 * [GCP Cloud Natural Language](../connectors/gcp-cloud-natural-language-documentation)
 * [GCP Cloud Vision](../connectors/gcp-cloud-vision-documentation)
+* [GCP Kubernetes Engine](../connectors/gcp-kubernetes-engine-documentation)
 * [Giphy](../connectors/giphy-documentation)
 * [GitHub](../connectors/github-documentation)
 * [Google Analytics](../connectors/google-analytics-documentation)

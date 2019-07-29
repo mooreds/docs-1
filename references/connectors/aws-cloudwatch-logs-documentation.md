@@ -14,9 +14,16 @@ If you attempt to associate a CMK with a log group but the CMK does not exist or
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "logGroupName" : "The name of the log group.",
+  "kmsKeyId" : "The Amazon Resource Name (ARN) of the CMK to use when encrypting log data. For more information, see Amazon Resource Names - AWS Key Management Service (AWS KMS)."
+}
+```
 
 </details>
 
@@ -27,9 +34,15 @@ The task must be in the PENDING or RUNNING state.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "taskId" : "The ID of the export task."
+}
+```
 
 </details>
 
@@ -41,9 +54,21 @@ You can export logs from multiple log groups or multiple time ranges to the same
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "logGroupName" : "The name of the log group.",
+  "destinationPrefix" : "The prefix used as the start of the key for every object exported. If you don't specify a value, the default is exportedlogs.",
+  "logStreamNamePrefix" : "Export only log streams that match the provided prefix. If you don't specify a value, no prefix filter is applied.",
+  "destination" : "The name of S3 bucket for the exported log data. The bucket must be in the same AWS region.",
+  "taskName" : "The name of the export task.",
+  "from" : "The start time of the range for the request, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a time stamp earlier than this time are not exported.",
+  "to" : "The end time of the range for the request, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a time stamp later than this time are not exported."
+}
+```
 
 </details>
 
@@ -60,9 +85,17 @@ If you attempt to associate a CMK with the log group but the CMK does not exist 
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "logGroupName" : "The name of the log group.",
+  "kmsKeyId" : "The Amazon Resource Name (ARN) of the CMK to use when encrypting log data. For more information, see Amazon Resource Names - AWS Key Management Service (AWS KMS).",
+  "tags" : "The key-value pairs to use for the tags."
+}
+```
 
 </details>
 
@@ -77,9 +110,16 @@ You must use the following guidelines when naming a log stream:
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "logGroupName" : "The name of the log group.",
+  "logStreamName" : "The name of the log stream."
+}
+```
 
 </details>
 
@@ -89,9 +129,15 @@ Deletes the specified destination, and eventually disables all the subscription 
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "destinationName" : "The name of the destination."
+}
+```
 
 </details>
 
@@ -101,9 +147,15 @@ Deletes the specified log group and permanently deletes all the archived log eve
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "logGroupName" : "The name of the log group."
+}
+```
 
 </details>
 
@@ -113,9 +165,16 @@ Deletes the specified log stream and permanently deletes all the archived log ev
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "logGroupName" : "The name of the log group.",
+  "logStreamName" : "The name of the log stream."
+}
+```
 
 </details>
 
@@ -125,9 +184,16 @@ Deletes the specified metric filter.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "logGroupName" : "The name of the log group.",
+  "filterName" : "The name of the metric filter."
+}
+```
 
 </details>
 
@@ -137,9 +203,15 @@ Deletes a resource policy from this account. This revokes the access of the iden
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "policyName" : "The name of the policy to be revoked. This parameter is required."
+}
+```
 
 </details>
 
@@ -150,9 +222,15 @@ Log events do not expire if they belong to log groups without a retention policy
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "logGroupName" : "The name of the log group."
+}
+```
 
 </details>
 
@@ -162,9 +240,16 @@ Deletes the specified subscription filter.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "logGroupName" : "The name of the log group.",
+  "filterName" : "The name of the subscription filter."
+}
+```
 
 </details>
 
@@ -174,9 +259,15 @@ Lists all your destinations. The results are ASCII-sorted by destination name.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "DestinationNamePrefix" : "The prefix to match. If you don't specify a value, no prefix filter is applied."
+}
+```
 
 </details>
 
@@ -186,9 +277,18 @@ Lists the specified export tasks. You can list all your export tasks or filter t
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "nextToken" : "The token for the next set of items to return. (You received this token from a previous call.)",
+  "limit" : "The maximum number of items returned. If you don't specify a value, the default is up to 50 items.",
+  "taskId" : "The ID of the export task. Specifying a task ID filters the results to zero or one export tasks.",
+  "statusCode" : "The status code of the export task. Specifying a status code filters the results to zero or more export tasks."
+}
+```
 
 </details>
 
@@ -198,9 +298,15 @@ Lists the specified log groups. You can list all your log groups or filter the r
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "logGroupNamePrefix" : "The prefix to match."
+}
+```
 
 </details>
 
@@ -211,9 +317,18 @@ This operation has a limit of five transactions per second, after which transact
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "logGroupName" : "The name of the log group.",
+  "logStreamNamePrefix" : "The prefix to match. \nIf orderBy is LastEventTime,you cannot specify this parameter.",
+  "orderBy" : "If the value is LogStreamName, the results are ordered by log stream name. If the value is LastEventTime, the results are ordered by the event time. The default value is LogStreamName. \nIf you order the results by event time, you cannot specify the logStreamNamePrefix parameter. \nlastEventTimestamp represents the time of the most recent log event in the log stream in CloudWatch Logs. This number is expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. lastEventTimeStamp updates on an eventual consistency basis. It typically updates in less than an hour from ingestion, but may take longer in some rare situations.",
+  "descending" : "If the value is true, results are returned in descending order. If the value is to false, results are returned in ascending order. The default value is false."
+}
+```
 
 </details>
 
@@ -223,9 +338,18 @@ Lists the specified metric filters. You can list all the metric filters or filte
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "metricName" : "Filters results to include only those with the specified metric name. If you include this parameter in your request, you must also include the metricNamespace parameter.",
+  "logGroupName" : "The name of the log group.",
+  "metricNamespace" : "Filters results to include only those in the specified namespace. If you include this parameter in your request, you must also include the metricName parameter.",
+  "filterNamePrefix" : "The prefix to match."
+}
+```
 
 </details>
 
@@ -235,9 +359,16 @@ Lists the resource policies in this account.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "nextToken" : "string",
+  "limit" : "The maximum number of resource policies to be displayed with one call of this API."
+}
+```
 
 </details>
 
@@ -247,9 +378,16 @@ Lists the subscription filters for the specified log group. You can list all the
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "logGroupName" : "The name of the log group.",
+  "filterNamePrefix" : "The prefix to match. If you don't specify a value, no prefix filter is applied."
+}
+```
 
 </details>
 
@@ -261,9 +399,15 @@ Note that it can take up to 5 minutes for this operation to take effect.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "logGroupName" : "The name of the log group."
+}
+```
 
 </details>
 
@@ -274,9 +418,21 @@ By default, this operation returns as many log events as can fit in 1 MB (up to 
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "filterPattern" : "The filter pattern to use. For more information, see Filter and Pattern Syntax. \nIf not provided, all the events are matched.",
+  "logGroupName" : "The name of the log group to search.",
+  "logStreamNamePrefix" : "Filters the results to include only events from log streams that have names starting with this prefix. \nIf you specify a value for both logStreamNamePrefix and logStreamNames, but the value for logStreamNamePrefix does not match any log stream names specified in logStreamNames, the action returns an InvalidParameterException error.",
+  "logStreamNames" : [ "string" ],
+  "startTime" : "The start of the time range, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a time stamp before this time are not returned.",
+  "interleaved" : "If the value is true, the operation makes a best effort to provide responses that contain events from multiple log streams within the log group, interleaved in a single response. If the value is false, all the matched log events in the first log stream are searched first, then those in the next log stream, and so on. The default is false.",
+  "endTime" : "The end of the time range, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a time stamp later than this time are not returned."
+}
+```
 
 </details>
 
@@ -287,9 +443,21 @@ By default, this operation returns as many log events as can fit in a response s
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "startFromHead" : "If the value is true, the earliest log events are returned first. If the value is false, the latest log events are returned first. The default value is false.",
+  "logGroupName" : "The name of the log group.",
+  "logStreamName" : "The name of the log stream.",
+  "nextToken" : "The token for the next set of items to return. (You received this token from a previous call.)",
+  "limit" : "The maximum number of log events returned. If you don't specify a value, the maximum is as many log events as can fit in a response size of 1 MB, up to 10,000 log events.",
+  "startTime" : "The start of the time range, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a time stamp equal to this time or later than this time are included. Events with a time stamp earlier than this time are not included.",
+  "endTime" : "The end of the time range, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a time stamp equal to or later than this time are not included."
+}
+```
 
 </details>
 
@@ -299,9 +467,15 @@ Lists the tags for the specified log group.
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "logGroupName" : "The name of the log group."
+}
+```
 
 </details>
 
@@ -312,9 +486,17 @@ Through an access policy, a destination controls what is written to its Kinesis 
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "roleArn" : "The ARN of an IAM role that grants CloudWatch Logs permissions to call the Amazon Kinesis PutRecord operation on the destination stream.",
+  "destinationName" : "A name for the destination.",
+  "targetArn" : "The ARN of an Amazon Kinesis stream to which to deliver matching log events."
+}
+```
 
 </details>
 
@@ -324,9 +506,16 @@ Creates or updates an access policy associated with an existing destination. An 
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "destinationName" : "A name for an existing destination.",
+  "accessPolicy" : "An IAM policy document that authorizes cross-account users to deliver their log events to the associated destination."
+}
+```
 
 </details>
 
@@ -345,9 +534,21 @@ If a call to PutLogEvents returns "UnrecognizedClientException" the most likely 
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "logEvents" : [ {
+    "message" : "The raw event message.",
+    "timestamp" : "The time the event occurred, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC."
+  } ],
+  "logGroupName" : "The name of the log group.",
+  "sequenceToken" : "The sequence token obtained from the response of the previous PutLogEvents call. An upload in a newly created log stream does not require a sequence token. You can also get the sequence token using DescribeLogStreams. If you call PutLogEvents twice within a narrow time period using the same value for sequenceToken, both calls may be successful, or one may be rejected.",
+  "logStreamName" : "The name of the log stream."
+}
+```
 
 </details>
 
@@ -358,9 +559,23 @@ The maximum number of metric filters that can be associated with a log group is 
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "filterPattern" : "A filter pattern for extracting metric data out of ingested log events.",
+  "metricTransformations" : [ {
+    "metricName" : "The name of the CloudWatch metric.",
+    "defaultValue" : "(Optional) The value to emit when a filter pattern does not match a log event. This value can be null.",
+    "metricValue" : "The value to publish to the CloudWatch metric when a filter pattern matches a log event.",
+    "metricNamespace" : "The namespace of the CloudWatch metric."
+  } ],
+  "logGroupName" : "The name of the log group.",
+  "filterName" : "A name for the metric filter."
+}
+```
 
 </details>
 
@@ -370,9 +585,16 @@ Creates or updates a resource policy allowing other AWS services to put log even
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "policyDocument" : "Details of the new policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string. \nThe following example creates a resource policy enabling the Route 53 service to put DNS query logs in to the specified log group. Replace \"logArn\" with the ARN of your CloudWatch Logs resource, such as a log group or log stream. \n { \"Version\": \"2012-10-17\", \"Statement\": [ { \"Sid\": \"Route53LogsToCloudWatchLogs\", \"Effect\": \"Allow\", \"Principal\": { \"Service\": [ \"route53.amazonaws.com\" ] }, \"Action\":\"logs:PutLogEvents\", \"Resource\": \"logArn\" } ] }  ",
+  "policyName" : "Name of the new policy. This parameter is required."
+}
+```
 
 </details>
 
@@ -382,9 +604,16 @@ Sets the retention of the specified log group. A retention policy allows you to 
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "retentionInDays" : "Required integer",
+  "logGroupName" : "The name of the log group."
+}
+```
 
 </details>
 
@@ -399,9 +628,20 @@ There can only be one subscription filter associated with a log group. If you ar
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "filterPattern" : "A filter pattern for subscribing to a filtered stream of log events.",
+  "logGroupName" : "The name of the log group.",
+  "destinationArn" : "The ARN of the destination to deliver matching log events to. Currently, the supported destinations are:  \n An Amazon Kinesis stream belonging to the same account as the subscription filter, for same-account delivery.  \n A logical destination (specified using an ARN) belonging to a different account, for cross-account delivery.  \n An Amazon Kinesis Firehose delivery stream belonging to the same account as the subscription filter, for same-account delivery.  \n An AWS Lambda function belonging to the same account as the subscription filter, for same-account delivery. ",
+  "roleArn" : "The ARN of an IAM role that grants CloudWatch Logs permissions to deliver ingested log events to the destination stream. You don't need to provide the ARN when you are working with a logical destination for cross-account delivery.",
+  "filterName" : "A name for the subscription filter. If you are updating an existing filter, you must specify the correct name in filterName. Otherwise, the call fails because you cannot associate a second filter with a log group. To find the name of the filter currently associated with a log group, use DescribeSubscriptionFilters.",
+  "distribution" : "The method used to distribute log data to the destination. By default log data is grouped by log stream, but the grouping can be set to random for a more even distribution. This property is only applicable when the destination is an Amazon Kinesis stream. "
+}
+```
 
 </details>
 
@@ -413,9 +653,16 @@ For more information about tags, see Tag Log Groups in Amazon CloudWatch Logs in
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "logGroupName" : "The name of the log group.",
+  "tags" : "The key-value pairs to use for the tags."
+}
+```
 
 </details>
 
@@ -425,9 +672,16 @@ Tests the filter pattern of a metric filter against a sample of log event messag
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "filterPattern" : "Required string",
+  "logEventMessages" : [ "string" ]
+}
+```
 
 </details>
 
@@ -438,9 +692,16 @@ To list the tags for a log group, use ListTagsLogGroup. To add tags, use UntagLo
 
 <details><summary>Parameters</summary>
 
-#### $body
+### $body
 
 **Type:** object
+
+```json
+{
+  "logGroupName" : "The name of the log group.",
+  "tags" : [ "string" ]
+}
+```
 
 </details>
 

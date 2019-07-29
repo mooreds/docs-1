@@ -11,7 +11,7 @@ Returns a list of accepted names for the TSN. This can return more than one resu
 
 <details><summary>Parameters</summary>
 
-#### tsn
+### tsn
 
 A string containing the ITIS TSN.
 
@@ -25,7 +25,7 @@ Returns a count of the matches found by comparing the search key to the ITIS com
 
 <details><summary>Parameters</summary>
 
-#### srchKey
+### srchKey
 
 A string containing the search key.
 
@@ -39,7 +39,7 @@ Returns the list of comments for the TSN. This can return more than result if mu
 
 <details><summary>Parameters</summary>
 
-#### tsn
+### tsn
 
 A string containing the ITIS TSN.
 
@@ -53,7 +53,7 @@ Returns a list of common names for the TSN.
 
 <details><summary>Parameters</summary>
 
-#### tsn
+### tsn
 
 A string containing the ITIS TSN.
 
@@ -67,7 +67,7 @@ Returns the set of core metadata for the TSN. This contains credibility rating, 
 
 <details><summary>Parameters</summary>
 
-#### tsn
+### tsn
 
 A string containing the ITIS TSN.
 
@@ -81,7 +81,7 @@ Returns the taxon coverage information for the TSN. This information is availabl
 
 <details><summary>Parameters</summary>
 
-#### tsn
+### tsn
 
 A string containing the ITIS TSN.
 
@@ -95,7 +95,7 @@ Returns the credibility rating for the TSN.
 
 <details><summary>Parameters</summary>
 
-#### tsn
+### tsn
 
 A string containing the ITIS TSN.
 
@@ -115,7 +115,7 @@ Returns the taxon currency information for the TSN. This information is availabl
 
 <details><summary>Parameters</summary>
 
-#### tsn
+### tsn
 
 A string containing the ITIS TSN.
 
@@ -129,7 +129,7 @@ Returns the initial time stamp and last update date for the TSN.
 
 <details><summary>Parameters</summary>
 
-#### tsn
+### tsn
 
 A string containing the ITIS TSN.
 
@@ -149,7 +149,7 @@ Returns a list of the expert information for the TSN.
 
 <details><summary>Parameters</summary>
 
-#### tsn
+### tsn
 
 A string containing the ITIS TSN.
 
@@ -163,7 +163,7 @@ Returns the Taxonomic Hierarchy from the kingdom to the requested scientific nam
 
 <details><summary>Parameters</summary>
 
-#### tsn
+### tsn
 
 A string containing the ITIS TSN.
 
@@ -177,7 +177,7 @@ Returns the full ITIS record for the TSN in the LSID, found by comparing the TSN
 
 <details><summary>Parameters</summary>
 
-#### lsid
+### lsid
 
 A string containing the LSID.
 
@@ -191,7 +191,7 @@ Returns the full ITIS record for a TSN found by comparing the search key to the 
 
 <details><summary>Parameters</summary>
 
-#### tsn
+### tsn
 
 A string containing the ITIS TSN.
 
@@ -205,7 +205,7 @@ Returns a list of the geographic divisions for the TSN.
 
 <details><summary>Parameters</summary>
 
-#### tsn
+### tsn
 
 A string containing the ITIS TSN.
 
@@ -225,7 +225,7 @@ Retruns the taxon completeness rating for the TSN.
 
 <details><summary>Parameters</summary>
 
-#### tsn
+### tsn
 
 A string containing the ITIS TSN.
 
@@ -239,7 +239,7 @@ Returns a list of all the valid/accepted scientific names contained within a par
 
 <details><summary>Parameters</summary>
 
-#### tsn
+### tsn
 
 A string containing the ITIS TSN.
 
@@ -253,7 +253,7 @@ Returns the parent of the TSN (i.e. the parent of the current scientific name in
 
 <details><summary>Parameters</summary>
 
-#### tsn
+### tsn
 
 A string containing the ITIS TSN.
 
@@ -267,7 +267,7 @@ Gets a list of ITIS Terms as used by the Resource Catalog Input Tool from a comm
 
 <details><summary>Parameters</summary>
 
-#### srchKey
+### srchKey
 
 A string containing the search key.
 
@@ -281,7 +281,7 @@ Gets a list of ITIS Terms as used by the Resource Catalog Input Tool from a comm
 
 <details><summary>Parameters</summary>
 
-#### srchKey
+### srchKey
 
 A string containing the search key.
 
@@ -295,7 +295,7 @@ Gets a list of ITIS Terms as used by the Resource Catalog Input Tool from a scie
 
 <details><summary>Parameters</summary>
 
-#### srchKey
+### srchKey
 
 A string containing the search key.
 
@@ -315,7 +315,7 @@ Rerurns a list of the jurisdiction and origin values for the TSN.
 
 <details><summary>Parameters</summary>
 
-#### tsn
+### tsn
 
 A string containing the ITIS TSN.
 
@@ -335,7 +335,7 @@ Returns the kingdom name for the TSN.
 
 <details><summary>Parameters</summary>
 
-#### tsn
+### tsn
 
 A string containing the ITIS TSN.
 
@@ -361,7 +361,7 @@ Gets the unique LSID for the TSN, or an empty result if there is no match.
 
 <details><summary>Parameters</summary>
 
-#### tsn
+### tsn
 
 A string containing the ITIS TSN.
 
@@ -375,7 +375,7 @@ Returns a list of the other sources used for the TSN.
 
 <details><summary>Parameters</summary>
 
-#### tsn
+### tsn
 
 A string containing the ITIS TSN.
 
@@ -389,7 +389,7 @@ Returns the parent TSN for the entered TSN.
 
 <details><summary>Parameters</summary>
 
-#### tsn
+### tsn
 
 A string containing the ITIS TSN.
 
@@ -403,7 +403,7 @@ Returns a list of the pulications used for the TSN.
 
 <details><summary>Parameters</summary>
 
-#### tsn
+### tsn
 
 A string containing the ITIS TSN.
 
@@ -423,7 +423,7 @@ Gets the partial ITIS record for the TSN in the LSID, found by comparing the TSN
 
 <details><summary>Parameters</summary>
 
-#### lsid
+### lsid
 
 A string containing the LSID.
 
@@ -437,7 +437,7 @@ Returns the review year for the TSN.
 
 <details><summary>Parameters</summary>
 
-#### tsn
+### tsn
 
 A string containing the ITIS TSN.
 
@@ -451,7 +451,7 @@ Returns the scientific name for the TSN. Also returns the component parts (names
 
 <details><summary>Parameters</summary>
 
-#### tsn
+### tsn
 
 A string containing the ITIS TSN.
 
@@ -465,7 +465,7 @@ Returns a list of the synonyms (if any) for the TSN.
 
 <details><summary>Parameters</summary>
 
-#### tsn
+### tsn
 
 A string containing the ITIS TSN.
 
@@ -479,7 +479,7 @@ Returns the author information for the TSN.
 
 <details><summary>Parameters</summary>
 
-#### tsn
+### tsn
 
 A string containing the ITIS TSN.
 
@@ -493,7 +493,7 @@ Returns the kingdom and rank information for the TSN.
 
 <details><summary>Parameters</summary>
 
-#### tsn
+### tsn
 
 A string containing the ITIS TSN.
 
@@ -507,7 +507,7 @@ Returns the usage information for the TSN.
 
 <details><summary>Parameters</summary>
 
-#### tsn
+### tsn
 
 A string containing the ITIS TSN.
 
@@ -521,7 +521,7 @@ Provide a listing of TSNs with vernaculars entered in the requested language. Cu
 
 <details><summary>Parameters</summary>
 
-#### language
+### language
 
 Vernacular language
 
@@ -535,7 +535,7 @@ Gets the TSN corresponding to the LSID, or an empty result if there is no match.
 
 <details><summary>Parameters</summary>
 
-#### lsid
+### lsid
 
 A string containing the LSID.
 
@@ -549,7 +549,7 @@ Returns the unacceptability reason, if any, for the TSN.
 
 <details><summary>Parameters</summary>
 
-#### tsn
+### tsn
 
 A string containing the ITIS TSN.
 
@@ -569,7 +569,7 @@ Returns matches found by comparing the search key to the ITIS common names.
 
 <details><summary>Parameters</summary>
 
-#### srchKey
+### srchKey
 
 A string containing the search key.
 
@@ -583,7 +583,7 @@ Return matches found by comparing the search key to the beginning of the ITIS co
 
 <details><summary>Parameters</summary>
 
-#### srchKey
+### srchKey
 
 A string containing the search key.
 
@@ -597,7 +597,7 @@ Return matches found by comparing the search key to the end of the ITIS common n
 
 <details><summary>Parameters</summary>
 
-#### srchKey
+### srchKey
 
 A string containing the search key.
 
@@ -611,7 +611,7 @@ Returns matches found by comparing the search key to the ITIS full Scientific Na
 
 <details><summary>Parameters</summary>
 
-#### srchKey
+### srchKey
 
 A string containing the search key.
 
@@ -625,7 +625,7 @@ Returns matches found by comparing the search key to the ITIS common names, scie
 
 <details><summary>Parameters</summary>
 
-#### srchKey
+### srchKey
 
 A string containing the search key.
 
