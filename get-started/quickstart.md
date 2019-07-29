@@ -42,7 +42,7 @@ params => {
     start: today.startOf("day").format(),
     end: today.endOf("day").format()
   };
-};
+}
 ```
 
 - Click the **Run** button to make sure it works.
@@ -88,7 +88,7 @@ SELECT summary FROM google_calendar.get_calendar_events as E
     // The text content gets displayed in the notification
     text: "A message from Transposit!"
   };
-};
+}
 ```
 
 - Click the **Commit code** button to commit the code.
