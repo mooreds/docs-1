@@ -1,12 +1,13 @@
 ---
 id: editor-shortcuts
 title: Editor Shortcuts
+layout: docs.mustache
 tags: doc
 ---
 
-`These may appear suspiciously similiar to sublime key bindings...`
-`Scroll down full length of code inside editor before using browser's Cmd-F/Ctrl-F search`
-`Keybinds may conflict with operating system shortcuts, unbind system's keypresses to use these`
+These may appear suspiciously similiar to sublime key bindings...
+Scroll down full length of code inside editor before using browser's Cmd-F/Ctrl-F search
+Keybinds may conflict with operating system shortcuts, unbind system's keypresses to use these
 
 ## Mac
 
