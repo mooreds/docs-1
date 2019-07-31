@@ -1,6 +1,6 @@
 ---
 id: slack
-title: Building with Slack
+title: Building Slack bots, slash commands, and workflows
 layout: docs.mustache
 tags: doc
 ---
@@ -9,7 +9,7 @@ tags: doc
 
 Slack is a growing hub for collaboration. Beyond just team messaging, Slack lets you build powerful extensions that turn it into an interface to all of the tools and applications that your team uses. Through bots, slash commands, automated workflows, and notifications, make yourself and your team Slack power users.
 
-The Slack App Directory has over 15k listings, but Slack workspaces use over 450k _custom_ integrations every week. One size doesn't fit all. When you want to build a Slack extension that's tailored to your specific needs, Transposit handles the overhead so you get to focus on the tailoring.
+The best Slack apps are the ones perfectly adapted to your needs. The Slack App Directory has over 15k listings, but Slack workspaces use over 450k custom integrations every week. One size doesn't fit all. When you want to build a Slack extension that's tailored to your specific needs, Transposit handles the overhead so you get to focus on the fun. Imagine connecting Slack to AWS, Jira, or CircleCI without worrying about auth!
 
 <div class="center">
   <div class="cf">
