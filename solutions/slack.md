@@ -5,6 +5,8 @@ layout: docs.mustache
 tags: doc
 ---
 
+<img src="/docs/assets/slack-logo.svg" class="fr pl2 pb2" width="100">
+
 Slack is a growing hub for collaboration. Beyond just team messaging, Slack lets you build powerful extensions that turn it into an interface to all of the tools and applications that your team uses. Through bots, slash commands, automated workflows, and notifications, make yourself and your team Slack power users.
 
 The Slack App Directory has over 15k listings, but Slack workspaces use over 450k _custom_ integrations every week. One size doesn't fit all. When you want to build a Slack extension that's tailored to your specific needs, Transposit handles the overhead so you get to focus on the tailoring.
