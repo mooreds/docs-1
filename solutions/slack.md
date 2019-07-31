@@ -1,0 +1,103 @@
+---
+id: slack
+title: Building with Slack
+layout: docs.mustache
+tags: doc
+---
+
+Slack is a growing hub for collaboration. Beyond just team messaging, Slack lets you build powerful extensions that turn it into an interface to all of the tools and applications that your team uses. Through bots, slash commands, automated workflows, and notifications, make yourself and your team Slack power users.
+
+The Slack App Directory has over 15k listings, but Slack workspaces use over 450k _custom_ integrations every week. One size doesn't fit all. When you want to build a Slack extension that's tailored to your specific needs, Transposit handles the overhead so you get to focus on the tailoring.
+
+<div class="center">
+  <div class="cf">
+    <div class="fl w-100 w-50-ns pa2">
+      <div><strong>Slash commands</strong><br><img src="/docs/assets/slack-slashcommand.png"></div>
+    </div>
+    <div class="fl w-100 w-50-ns pa2">
+      <div><strong>Bots</strong><br><img src="/docs/assets/slack-bot.png"></div>
+    </div>
+  </div>
+</div>
+
+<div class="center">
+  <div class="cf">
+    <div class="fl w-100 w-50-ns pa2">
+      <div><strong>Workflows</strong><br><img src="/docs/assets/slack-workflow.png"></div>
+    </div>
+    <div class="fl w-100 w-50-ns pa2">
+      <div><strong>Notifications</strong><br><img src="/docs/assets/slack-notification.png"></div>
+    </div>
+  </div>
+</div>
+
+## Key Features
+
+#### Managed authentication 🔐
+Your Slack integrations need to work with cloud services on behalf of your users. Transposit manages users, their credentials, refreshing tokens, and storing them securely.
+
+#### User customization 🎨
+When you’re building a custom Slack integration you want it to be, well, custom! Transposit gives a simple mechanism to let users customize: specify a Jira query, pick a Google calendar, add a phone number for SMS alerts
+
+#### Access control 👮‍♀️
+Share your applications with individuals, your team, or... everyone! Transposit’s access control gives you the flexibility to share your creations as broadly or narrowly as you like.
+
+#### Broad API support 📱
+Connect and authenticate in seconds to the services you use. Experiment interactively rather than scouring documentation. Check out the growing list of connectors [here](/docs/references/data-connectors/)
+
+#### Up-level your work 🤔
+Transposit’s relational engine puts SQL in front of any API. Write less code in a language designed to manipulate, transform, and compose data.
+
+#### Severless 🚀
+Build your logic and let Transposit host it for you. Build and deploy a bot for your entire team in minutes. Really.
+
+#### Fork and customize examples 🌳
+Try some of our sample apps or some apps built by other developers. Close but not what you need? Fork it, and customize it. You don’t need to start from scratch.
+
+## Sample applications
+
+Here's a few starting points. Try them out, view the code, fork a copy, customize to suit your needs.
+
+  <div class="flex flex-wrap justify-center mv3">
+    <div class="app-card app-card-small ma2 pa3 br2">
+      <img src="https://d33wubrfki0l68.cloudfront.net/1b46fef3e0d7379a9f39c6dcd587eb96ba8d9538/c4325/img/app-icons/icon-app-gitable.svg" alt="App icon" class="app-graphic">
+      <h2 class="f6 f5-ns">Gitable</h2>
+      <p class="f6 lh-copy mt0">
+        A bot that iterates through repos on GitHub and syncs the list of issues and PRs with a table in Airtable.
+      </p>
+      <p class="ma0">
+        <a class="btn f6 br2 ba ph2 pv1 mb2 dib mr1" href="https://console.transposit.com/t/transposit-sample/gitable?readme=true">View code</a>
+      </p>
+    </div>
+    <div class="app-card app-card-small ma2 pa3 br2">
+      <img src="https://d33wubrfki0l68.cloudfront.net/f660f052626045559437510b9e4be0729f04408e/59717/img/app-icons/icon-app-algorithmia.svg" alt="App icon" class="app-graphic">
+      <h2 class="f6 f5-ns">Algorithmia demo</h2>
+      <p class="f6 lh-copy mt0">
+        Sample queries using Algorithmia’s machine learning APIs.
+      </p>
+      <p class="ma0">
+        <a class="btn f6 br2 ba ph2 pv1 mb2 dib mr1" href="https://console.transposit.com/t/transposit-sample/algorithmia_demo?readme=true">View code</a>
+      </p>
+    </div>
+    <div class="app-card app-card-small ma2 pa3 br2">
+      <img src="https://d33wubrfki0l68.cloudfront.net/9efc0faf368fc1ad0da469b065c0a6d91b9fe515/fcec0/img/app-icons/icon-app-rolodex.svg" alt="App icon" class="app-graphic">
+      <h2 class="f6 f5-ns">Airtable applicant tracker</h2>
+      <p class="f6 lh-copy mt0">
+        Layer permissions on top of an Airtable applicant tracking base, allowing interviewers to see only specific information.
+      </p>
+      <p class="ma0">
+        <a class="btn f6 br2 ba ph2 pv1 mb2 dib mr1" href="https://console.transposit.com/t/transposit-sample/applicant_tracker?readme=true">View code</a>
+      </p>
+    </div>
+    <div class="app-card app-card-small ma2 pa3 br2">
+      <img src="https://d33wubrfki0l68.cloudfront.net/0765d0bfe6ef8e048174f662f8b4e22e04b10e6c/b481b/img/app-icons/icon-app-calendar.svg" alt="App icon" class="app-graphic">
+      <h2 class="f6 f5-ns">Slack vacation helper</h2>
+      <p class="f6 lh-copy mt0">
+        Automatically set your Slack status while your Google Calendar says you're away on vacation.
+      </p>
+      <p class="ma0">
+        <a class="btn f6 br2 ba ph2 pv1 mb2 dib mr1" href="https://console.transposit.com/t/transposit-sample/cal_slack_status?readme=true">View code</a>
+        <a class="btn f6 br2 ba ph2 pv1 mb2 dib" href="https://cal-slack-status-p7i9u.transposit.io/" target="_blank">Try it ↗</a>
+      </p>
+    </div>
+  </div>
