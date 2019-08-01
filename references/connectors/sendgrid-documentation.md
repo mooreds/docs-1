@@ -1,7 +1,7 @@
 ---
 id: sendgrid-documentation
-title: Sendgrid (version v3.*.*)
-sidebar_label: Sendgrid
+title: SendGrid (version v3.*.*)
+sidebar_label: SendGrid
 layout: docs.mustache
 ---
 

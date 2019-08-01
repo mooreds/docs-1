@@ -112,7 +112,7 @@ Note: reference material for each data connector can additionally be viewed in t
 ## S
 
 * [Salesforce](../connectors/salesforce-documentation)
-* [Sendgrid](../connectors/sendgrid-documentation)
+* [SendGrid](../connectors/sendgrid-documentation)
 * [Shopify](../connectors/shopify-documentation)
 * [Slack](../connectors/slack-documentation)
 * [Slack Webhook](../connectors/slack-webhook-documentation)

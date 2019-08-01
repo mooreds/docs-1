@@ -1,6 +1,6 @@
 ---
 id: aws-cloudwatch-events-documentation
-title: AWS Cloudwatch Events (version v3.*.*)
+title: AWS Cloudwatch Events (version v1.*.*)
 sidebar_label: AWS Cloudwatch Events
 layout: docs.mustache
 ---
