@@ -1,8 +1,9 @@
 ---
 id: slack
 title: Building Slack bots, slash commands, and workflows
-layout: landing.mustache
+layout: docs.mustache
 tags: doc
+description: "The best Slack apps are the ones perfectly adapted to your needs. Build Slack bots, slash commands, and workflows. Let Transposit handle auth and execution while you focus on the fun."
 ---
 
 <img src="/docs/assets/slack-logo.svg" class="fr pl2 pb2" width="100">
@@ -35,24 +36,23 @@ The best Slack apps are the ones perfectly adapted to your needs. The Slack App 
 
 ## Key Features
 
-<div class="title">Managed authentication 🔐</div>
-<div class="copy">Your Slack integrations need to work with cloud services on behalf of your users. Transposit manages users, their credentials, refreshing tokens, and storing them securely.</div>
+<div class="landing-title">Managed authentication 🔐</div>
+<div class="landing-copy">Your Slack integrations need to work with cloud services on behalf of your users. Transposit manages users, their credentials, refreshing tokens, and storing them securely.</div>
 
+<div class="landing-title">User customization 🎨</div>
+<div class="landing-copy">When you’re building a custom Slack integration you want it to be, well, custom! Transposit gives a simple mechanism to let users customize: specify a Jira query, pick a Google calendar, add a phone number for SMS alerts</div>
 
-<div class="title">User customization 🎨</div>
-<div class="copy">When you’re building a custom Slack integration you want it to be, well, custom! Transposit gives a simple mechanism to let users customize: specify a Jira query, pick a Google calendar, add a phone number for SMS alerts</div>
+<div class="landing-title">Broad API support 📱</div>
+<div class="landing-copy">Connect and authenticate in seconds to the services you use. Experiment interactively rather than scouring documentation. Check out the growing list of connectors <a href="/docs/references/data-connectors/">here</a></div>
 
-<div class="title">Broad API support 📱</div>
-<div class="copy">Connect and authenticate in seconds to the services you use. Experiment interactively rather than scouring documentation. Check out the growing list of connectors <a href="/docs/references/data-connectors/">here</a></div>
+<div class="landing-title">Up-level your work 🤔</div>
+<div class="landing-copy">Transposit’s relational engine puts SQL in front of any API. And lets you mix in JavaScript when you need. Write less code in a language designed to manipulate, transform, and compose data.</div>
 
-<div class="title">Up-level your work 🤔</div>
-<div class="copy">Transposit’s relational engine puts SQL in front of any API. And lets you mix in JavaScript when you need. Write less code in a language designed to manipulate, transform, and compose data.</div>
+<div class="landing-title">Severless 🚀</div>
+<div class="landing-copy">Build your logic and let Transposit host it for you. Build and deploy a bot for your entire team in minutes. Really.</div>
 
-<div class="title">Severless 🚀</div>
-<div class="copy">Build your logic and let Transposit host it for you. Build and deploy a bot for your entire team in minutes. Really.</div>
-
-<div class="title">Fork and customize examples 🌳</div>
-<div class="copy">Try some of our sample apps or some apps built by other developers. Close but not what you need? Fork it, and customize it. You don’t need to start from scratch.</div>
+<div class="landing-title">Fork and customize examples 🌳</div>
+<div class="landing-copy">Try some of our sample apps or some apps built by other developers. Close but not what you need? Fork it, and customize it. You don’t need to start from scratch.</div>
 
 ## Sample applications
 
