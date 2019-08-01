@@ -1,7 +1,7 @@
 ---
 id: slack
 title: Building Slack bots, slash commands, and workflows
-layout: docs.mustache
+layout: landing.mustache
 tags: doc
 ---
 
@@ -35,26 +35,24 @@ The best Slack apps are the ones perfectly adapted to your needs. The Slack App 
 
 ## Key Features
 
-#### Managed authentication 🔐
-Your Slack integrations need to work with cloud services on behalf of your users. Transposit manages users, their credentials, refreshing tokens, and storing them securely.
+<div class="title">Managed authentication 🔐</div>
+<div class="copy">Your Slack integrations need to work with cloud services on behalf of your users. Transposit manages users, their credentials, refreshing tokens, and storing them securely.</div>
 
-#### User customization 🎨
-When you’re building a custom Slack integration you want it to be, well, custom! Transposit gives a simple mechanism to let users customize: specify a Jira query, pick a Google calendar, add a phone number for SMS alerts
 
-#### Access control 👮‍♀️
-Share your applications with individuals, your team, or... everyone! Transposit’s access control gives you the flexibility to share your creations as broadly or narrowly as you like.
+<div class="title">User customization 🎨</div>
+<div class="copy">When you’re building a custom Slack integration you want it to be, well, custom! Transposit gives a simple mechanism to let users customize: specify a Jira query, pick a Google calendar, add a phone number for SMS alerts</div>
 
-#### Broad API support 📱
-Connect and authenticate in seconds to the services you use. Experiment interactively rather than scouring documentation. Check out the growing list of connectors [here](/docs/references/data-connectors/)
+<div class="title">Broad API support 📱</div>
+<div class="copy">Connect and authenticate in seconds to the services you use. Experiment interactively rather than scouring documentation. Check out the growing list of connectors <a href="/docs/references/data-connectors/">here</a></div>
 
-#### Up-level your work 🤔
-Transposit’s relational engine puts SQL in front of any API. Write less code in a language designed to manipulate, transform, and compose data.
+<div class="title">Up-level your work 🤔</div>
+<div class="copy">Transposit’s relational engine puts SQL in front of any API. And lets you mix in JavaScript when you need. Write less code in a language designed to manipulate, transform, and compose data.</div>
 
-#### Severless 🚀
-Build your logic and let Transposit host it for you. Build and deploy a bot for your entire team in minutes. Really.
+<div class="title">Severless 🚀</div>
+<div class="copy">Build your logic and let Transposit host it for you. Build and deploy a bot for your entire team in minutes. Really.</div>
 
-#### Fork and customize examples 🌳
-Try some of our sample apps or some apps built by other developers. Close but not what you need? Fork it, and customize it. You don’t need to start from scratch.
+<div class="title">Fork and customize examples 🌳</div>
+<div class="copy">Try some of our sample apps or some apps built by other developers. Close but not what you need? Fork it, and customize it. You don’t need to start from scratch.</div>
 
 ## Sample applications
 
