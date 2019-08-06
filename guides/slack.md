@@ -66,7 +66,7 @@ Here's a few starting points. Try them out, view the code, fork a copy, customiz
         Get an @ mention if you break the build! Replaces the GitHub username in the build status message sent by CircleCI with the user's Slack ID.
       </p>
       <p class="ma0">
-        <a class="btn f6 br2 ba ph2 pv1 mb2 dib mr1" href="https://console.transposit.com/t/transposit-sample/gitable?readme=true">View code</a>
+        <a class="btn f6 br2 ba ph2 pv1 mb2 dib mr1" href="https://console.transposit.com/t/transposit-sample/circleci_router?readme=true">View code</a>
       </p>
     </div>
     <div class="app-card app-card-small ma2 pa3 br2">
@@ -101,4 +101,3 @@ Here's a few starting points. Try them out, view the code, fork a copy, customiz
       </p>
     </div>
   </div>
-  
