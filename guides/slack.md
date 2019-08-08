@@ -70,13 +70,13 @@ Here's a few starting points. Try them out, view the code, fork a copy, customiz
       </p>
     </div>
     <div class="app-card app-card-small ma2 pa3 br2">
-      <img src="/img/app-icons/icon-app-algorithmia.svg" alt="App icon" class="app-graphic">
-      <h2 class="f6 f5-ns">Algorithmia demo</h2>
+      <img src="/img/app-icons/icon-app-github-transfer.svg" alt="App icon" class="app-graphic">
+      <h2 class="f6 f5-ns">GitHub Transfer</h2>
       <p class="f6 lh-copy mt0">
-        Sample queries using Algorithmia’s machine learning APIs.
+       Transfer files between repos using a Slack slash command.
       </p>
       <p class="ma0">
-        <a class="btn f6 br2 ba ph2 pv1 mb2 dib mr1" href="https://console.transposit.com/t/transposit-sample/algorithmia_demo?readme=true">View code</a>
+        <a class="btn f6 br2 ba ph2 pv1 mb2 dib mr1" href="https://console.transposit.com/t/transposit-sample/github_transfer/code?readme=true">View code</a>
       </p>
     </div>
     <div class="app-card app-card-small ma2 pa3 br2">
