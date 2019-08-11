@@ -80,16 +80,6 @@ Here's a few starting points. Try them out, view the code, fork a copy, customiz
       </p>
     </div>
     <div class="app-card app-card-small ma2 pa3 br2">
-      <img src="/img/app-icons/icon-app-rolodex.svg" alt="App icon" class="app-graphic">
-      <h2 class="f6 f5-ns">Airtable applicant tracker</h2>
-      <p class="f6 lh-copy mt0">
-        Layer permissions on top of an Airtable applicant tracking base, allowing interviewers to see only specific information.
-      </p>
-      <p class="ma0">
-        <a class="btn f6 br2 ba ph2 pv1 mb2 dib mr1" href="https://console.transposit.com/t/transposit-sample/applicant_tracker?readme=true">View code</a>
-      </p>
-    </div>
-    <div class="app-card app-card-small ma2 pa3 br2">
       <img src="/img/app-icons/icon-app-calendar.svg" alt="App icon" class="app-graphic">
       <h2 class="f6 f5-ns">Slack vacation helper</h2>
       <p class="f6 lh-copy mt0">
