@@ -10,7 +10,7 @@ description: "Apify provides a way to turn any website into a custom API. Connec
 
 Apify is the place to find, develop, buy and run cloud programs called actors. These actors allow you to automate any workflow on the web no matter the API support to be used in your applications. Their actors, tasks, and datasets allow you and your team to have the data of the web at your fingertips.
 
-The best Slack apps are the ones perfectly adapted to your needs. The Slack App Directory has over 15k listings, but Slack workspaces use over 450k custom integrations every week. One size doesn't fit all. When you want to build a Slack extension that's tailored to your specific needs, Transposit handles the overhead so you get to focus on the fun. Imagine connecting Slack to AWS, Jira, or CircleCI without worrying about auth!
+The best Apify solutions are ones that are able to relay their information with as little manual input as possible. If the Apify store does not have the solution that works for you, Transposit provides the perfect platform for you to begin developing your own app with any Apify actor you like. Transposit handles the overhead so you get to focus on the fun. Imagine connecting Apify to Slack, Google Drive, or Twilio without worrying about auth!
 
 <div class="center">
   <div class="cf">
