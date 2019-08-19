@@ -31,7 +31,7 @@ When building a Slack app, you will need to communicate between Slack and Transp
 Transposit has a built in function that will automatically parse a Slack webhook into workable JSON, which is useful, as different webhooks they sent were in different formats.
 
 ```js
-let body = JSON.parse(http_event.body);
+let body = http_event.parsed_body;
 ```
 
 Calling `body` as your webhook object over `http_event` will all you to access all of the webhook data with simple commands. You can view the formatted data in Transposit by calling `return body;`.
