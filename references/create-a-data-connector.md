@@ -60,5 +60,7 @@ paths:
 
 Commit your changes and push back to Transposit.
 
-You can now add your data connector `yourname/bare_bones` as a dependency in another application, and invoke the `getFunData` operation.
+## 5. Add the data connector to an existing application
+
+You can now add your data connector `yourname/bare_bones` as a dependency in another Transposit application. Then you can invoke the `getFunData` operation.
 
