@@ -287,6 +287,38 @@ You can check the current version of media type in responses.
 
 </details>
 
+## create_branch_for_repo
+
+Create a branch from another named branch. Default is from master.
+
+<details><summary>Parameters</summary>
+
+### new_branch (required)
+
+Name of new branch to create.
+
+**Type:** STRING
+
+### owner (required)
+
+Name of repository owner.
+
+**Type:** STRING
+
+### repo (required)
+
+Name of repository.
+
+**Type:** STRING
+
+### from_branch
+
+Branch to branch from.
+
+**Type:** STRING
+
+</details>
+
 ## create_comment_for_commit
 
 Create a commit comment.
