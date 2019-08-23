@@ -423,7 +423,7 @@ SELECT [ <json-value>, ... ]
 
 #### Spread operator
 
-The spread operator expands a JSON object into JSON object or JSON array into a JSON array (similar to `<path>.*` in [column selection](/docs/references/sql-operations#column-selection)).
+The spread operator expands a JSON object into a JSON object or a JSON array into a JSON array (similar to `<path>.*` in [column selection](/docs/references/sql-operations#column-selection)).
 
 Spread JSON object use:
 
@@ -696,7 +696,7 @@ FROM connection.operation
 
 _Selecting all values in an object or array:_
 
-To access all the values inside an object or array you can use the spread operator (`...`). Note that the inner type and the outer type must be the same: an object can be spread into a JSON object template and an array can be spread into JSON array template:
+To access all the values inside an object or array you can use the spread operator (`...`). Note that the inner type and the outer type must be the same: an object can be spread into a JSON object template and an array can be spread into a JSON array template:
 
 If the results have the format:
 
@@ -755,9 +755,7 @@ Will generate a JSON array with the all the values under `array`:
 
 ### From clause
 
-The `FROM` clause of a query creates the result set that the other parts of the query will use.
-
-The `FROM` clause is the first part that runs when the query is executed.
+The `FROM` clause of a query creates the result set that the other parts of the query will use. When the query is executed, the `FROM` clause runs first.
 
 The `FROM` clause supports three types of data sources:
 

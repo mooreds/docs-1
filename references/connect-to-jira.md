@@ -9,7 +9,7 @@ You will need to register your Transposit application as an OAuth consumer to co
 
 ## Create a new OAuth consumer in Jira
 
-Follow **Step 1. Configure client application as an OAuth consumer** in [Jira's OAuth documentation](https://developer.atlassian.com/server/jira/platform/oauth/). This process includes a couple tasks:
+Follow **Step 1. Configure Jira** in [Jira's OAuth documentation](https://developer.atlassian.com/server/jira/platform/oauth/). This process includes a couple tasks:
 - Generate an RSA public/private key pair. Skip the steps asking you to edit the sample OAuth client project. Instead, you will store the private key in Transposit and share the public key with Jira.
 - Create an application link. Use _https://www.transposit.com_ as the value for all URL parameters since you only need an one-way (incoming) link. Use _transposit_ as the value of **Consumer key** and **Shared secret**.
 
