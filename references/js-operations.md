@@ -625,6 +625,18 @@ var output = mustache.render("{{title}} spends {{calc}}", view);
 
 * [jsonpath](https://github.com/dchester/jsonpath)
 
+* [js-yaml](https://github.com/nodeca/js-yaml)
+```javascript
+var js_yaml = require("js-yaml");
+
+try {
+  const doc = js_yaml.safeLoad(params.text);
+  console.log(doc);
+} catch (e) {
+  console.log(e);
+}
+```
+
 * [cryptoJS](https://cryptojs.gitbook.io/docs/)
 ```javascript
 var CryptoJS = require("crypto-js");
