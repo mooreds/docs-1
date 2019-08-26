@@ -85,12 +85,16 @@ SELECT <column-expression> AS <column-alias>, <column-expression> AS <column-ali
 
 `<path>` describes the location of a value inside a JSON object or array. `<path>` contains one or more dot-separated keys/field names that describe the lookup chain of fields inside the input JSON object. The last item in `<path>` can be `.*`. Bracket notation with array indexes and string keys is also supported.
 
-`<path>` can be one of the following:
+Examples of valid `<path>`s:
 
 * `<key>`
 * `<key-1>.<key-2>.` ... `<key-N>`
 * `<key>.*`
 * `<key-1>.<key-2>.` ... `<key-N>.*`
+* `<key>[0]`
+* `<key-1>[0].<key-2>`
+* `<key-1>[0].<key-2>.*`
+* `<key-1>[0].<key-2>[1].<key-3>`
 * `[<key>]`
 
 `<key>` is an identifier.
@@ -151,7 +155,7 @@ SELECT col1
 FROM connection.operation
 ```
 
-Will generate a JSON object with a single key:
+Will generate an array with one element: a JSON object with a single key:
 
 ```javascript
 [
