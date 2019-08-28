@@ -28,6 +28,7 @@ api.run("this.helloworld");
 // => [{"Hello": "World"}]
 
 api.run("source.users", { id: params.userId });
+// you'd access id inside the source.users operation as params.id
 // => [{id:1234, ...}]
 
 api.run("connection.many_results", {}, {limit: 10});
