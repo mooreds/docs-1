@@ -645,3 +645,5 @@ var wordArray = CryptoJS.enc.Utf8.parse(params.text);
 var base64 = CryptoJS.enc.Base64.stringify(wordArray);
 return base64;
 ```
+
+If you need a different JavaScript library for your application to work, please reach out to use at support@transposit.com and let us know what you are looking for.

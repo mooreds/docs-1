@@ -28,8 +28,8 @@ In order to help diagnose and debug issues, you can temporarily provide the Tran
 
 ## How is Transposit different from Zapier/IFTTT/Workato/etc.?
 
-* Applications, not workflows
-* No wiki required
+* Applications, not workflows. 
+* No wiki describing N setup steps required to share your application
 * Error-proof, share, and customize your presentation
 
 ## Automatic pagination
@@ -51,3 +51,9 @@ To add a LICENSE to your application:
 * Commit and push the LICENSE back upstream to Transposit
 
 Henceforth, all forks of your application will include your LICENSE file.
+
+## How can I add a required JavaScript library
+
+The libraries that are currently available are [listed here](/docs/references/js-operations/#available-javascript-libraries). 
+
+If you need a different JavaScript library for your application to work, please reach out to use at support@transposit.com and let us know what you are looking for.
