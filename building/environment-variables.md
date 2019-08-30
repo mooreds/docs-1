@@ -11,7 +11,7 @@ Environment variables are stored encrypted-at-rest.
 
 You can define an environment variable schema at **Settings &gt; App Info &gt; Environment variables schema**.
 
-Keys and value can be any valid string.
+Keys and values can be any valid string.
 
 ## Programmatic interface
 
