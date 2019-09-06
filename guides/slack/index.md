@@ -15,10 +15,14 @@ The best Slack apps are the ones perfectly adapted to your needs. The Slack App 
 <div class="center">
   <div class="cf">
     <div class="fl w-100 w-50-ns pa2">
-      <div><strong>Slash commands</strong><br><img src="/docs/assets/slack-slashcommand.png"></div>
+      <div><strong>Slash commands - </strong>
+        <a href="slash-commands">read more</a>
+        <br><img src="/docs/assets/slack-slashcommand.png"></div>
     </div>
     <div class="fl w-100 w-50-ns pa2">
-      <div><strong>Bots</strong><br><img src="/docs/assets/slack-bot.png"></div>
+      <div><strong>Bots - </strong>
+        <a href="chatbots">read more</a>
+        <br><img src="/docs/assets/slack-bot.png"></div>
     </div>
   </div>
 </div>
@@ -26,10 +30,14 @@ The best Slack apps are the ones perfectly adapted to your needs. The Slack App 
 <div class="center">
   <div class="cf">
     <div class="fl w-100 w-50-ns pa2">
-      <div><strong>Workflows</strong><br><img src="/docs/assets/slack-workflow.png"></div>
+      <div><strong>Workflows - </strong>
+        <a href="workflows">read more</a>
+        <br><img src="/docs/assets/slack-workflow.png"></div>
     </div>
     <div class="fl w-100 w-50-ns pa2">
-      <div><strong>Notifications</strong><br><img src="/docs/assets/slack-notification.png"></div>
+      <div><strong>Notifications - </strong>
+        <a href="notifications">read more</a>
+        <br><img src="/docs/assets/slack-notification.png"></div>
     </div>
   </div>
 </div>
@@ -91,3 +99,10 @@ Here's a few starting points. Try them out, view the code, fork a copy, customiz
       </p>
     </div>
   </div>
+
+## Next steps
+
+- [Slash commands](slash-commands): Build custom commands that integrate with your other apps.
+- [Chatbots](chatbots): Build bots that chime in with useful info or can hold up their end of a conversation.
+- [Workflows](workflows): Build workflows, elevating important decisions and automating the rest.
+- [Notifications](notifications): Consolidate notifications in Slack; provide contextual ino and actions.

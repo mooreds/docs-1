@@ -26,15 +26,12 @@ SELECT <* or column selection or JSON template>
 FROM <operation or subquery or join>
 WHERE <predicate>
 EXPAND BY <columns>
-UNION <select statement>
 LIMIT <number>
 ```
 
 The `SELECT` clause is required.
 
 The clauses `WHERE`, `EXPAND BY` and `LIMIT` can be used only if a `FROM` clause is used.
-
-The `UNION` keyword allows a statement to combine multiple SELECT statements together into a single statement.
 
 The clauses must appear in the order specified above.
 
@@ -43,9 +40,8 @@ The clauses must appear in the order specified above.
 1. `FROM`
 2. `WHERE`
 3. `EXPAND BY`
-4. `UNION`
-5. `LIMIT`
-6. `SELECT`
+4. `LIMIT`
+5. `SELECT`
 
 ### Select clause
 
@@ -1225,36 +1221,6 @@ Will create the following result set:
 ```
 
 Notice that because the item with `id: 2` did not have a field at the path `vals`, it does not show up in the result set.
-
-### Union
-
-The `UNION` keyword combines the results of two `SELECT` statements together.
-```sql
-SELECT *
-FROM connection.operation_1
-UNION <union-type>
-SELECT *
-FROM connection.operation_2
-```
-
-`<union-type>` is optional and can be one of:
-* `ALL`
-* `DISTINCT`
-
-If `<union-type>` is not specified, the default is `DISTINCT`.
-
-The statements can include `SELECT`, `FROM`, `WHERE`, and `EXPAND BY` clauses. A `LIMIT` can be applied by surrounding the statement in parentheses.
-
-```sql
-(SELECT * FROM connection.operation_1 LIMIT 10)
-UNION ALL
-SELECT *
-FROM connection.operation_2
-```
-
-`UNION ALL` will return all results from both selections. `UNION DISTINCT` will return only unique results, removing any rows with the same data.
-
-A `SELECT` statement can use multiple `UNION`s to combine three or more statements together. These can have different union types. A `UNION DISTINCT` will remove duplicate elements from the `SELECT` after it and from _all_ `SELECT`s before it.
 
 ### Limit clause
 
