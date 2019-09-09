@@ -85,10 +85,16 @@ Transposit enforces usage limits on your operations. This helps to protect our i
 * Each request is given a quota of 1 GB of memory allocated
 * This is not configurable by the developer
 
-### Cpu time
+### CPU time
 
-* Each request is given a quota of 1 minute of cpu time
+* Each request is given a quota of 1 minute of CPU time
 * This is not configurable by the developer
+
+### Operations
+
+* Each request is given a quota of 1000 operations calls
+* Each call to a SQL or JavaScript operation counts against this limit
+* This is not configurable by the developer, but inlining operations is a workaround.
 
 ### API call limits
 
