@@ -385,6 +385,29 @@ stash.put("objectType", null);
 stash.put("arrayType", null);
 ```
 
+## listKeys
+
+`stash.listKeys()`
+
+Lists the key names of all stashed values.
+
+**Returns** (Array): Returns an array of `String`s corresponding to the key names of stashed values.
+
+**Examples**
+
+```javascript
+// Save values
+stash.put("stringType", "This could be any JSON-serializable string, number, boolean, object, array, etc");
+stash.put("numberType", 12345);
+stash.put("booleanType", true);
+stash.put("objectType", {firstName: "Iggy", lastName: "Transposit"});
+stash.put("arrayType", ["abc", 123, true, ["u", "n", "me"]]);
+
+// List keys
+stash.listKeys();
+// => ["arrayType", "booleanType", "numberType", "objectType", "stringType"]
+```
+
 # User Settings
 
 Transposit operations can programmatically access [user settings](/docs/building/user-config/#user-settings-schema).
