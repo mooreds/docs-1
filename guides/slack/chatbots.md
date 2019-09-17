@@ -6,7 +6,7 @@ tags: doc
 description: "Chatbots use event subscriptions to automate your Slack workspace and act as a bot user"
 ---
 
-Slackbots are a great way to automate your app based on events happening in your workspace. Create your bot easier with Transposit.
+Slackbots are a great way to automate your app based on events happening in your workspace. Additionally, they are another way to interact with users in a more personal way. Create your bot easier with Transposit.
 
 ## Prerequisites
 
@@ -16,14 +16,14 @@ Slackbots are a great way to automate your app based on events happening in your
 ## Create a webhook in Transposit
 
 - Follow the instructions at the [webhooks docs page](/docs/building/webhooks) to create a webhook operation.
-- Add the Dynamic Challenge code to pass the [url_verification event](https://api.slack.com/events/url_verification). This is due to [Dynamic Challenges](/docs/building/webhooks/#dynamic-challenges).
+- If planning on using [event subscriptions](https://api.slack.com/events-api), add code into the `http_event` function to pass the [url_verification event](https://api.slack.com/events/url_verification). This is due to [Dynamic Challenges](/docs/building/webhooks/#dynamic-challenges).
 
 ```js
 if (http_event.parsed_body.challenge) {
   return {
     status_code: 200,
     headers: { "Content-Type": "text/plain" },
-    body: body.challenge
+    body: http_event.parsed_body.challenge
   };
 }
 ```
@@ -32,9 +32,9 @@ if (http_event.parsed_body.challenge) {
 - Navigate to **Deploy > Endpoints** and change the operation _webhook_ from **Not deployed** to **Deployed** if needed.
 - Check the box for **Deploy as webhook** and copy the deployed URL it produces.
 
-## Setting up a Slack slash command to POST to your webhook
+## Setting up a Slack event to POST to your webhook
 
-- In your Slack App configure page, select Event Subscriptions, and paste in the URL you copied from Transposit. If you copied the Dynamic Challenge code correctly, it should
+- In your Slack App configure page, select Event Subscriptions, and paste in the URL you copied from Transposit. If you copied the Dynamic Challenge code correctly, it should automatically verify that the function is valid.
 - Install the Slack app with proper permissions into your workspace.
 
 ## Sample webhooks
@@ -51,7 +51,7 @@ SELECT {
 }
 ```
 
-Your webhook function will be called whenever the slash command you created is invoked in your workspace. Adding helper functions and other API calls before the return statement can add to the ability to customize output.
+Your webhook function will be called whenever the events you decide to follow occur in your workspace. Adding helper functions and other API calls before the return statement can add to the ability to customize output.
 
 ## Selecting events to follow
 
