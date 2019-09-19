@@ -76,24 +76,35 @@ console.log("hello world");
 
 Learn more in the [JavaScript operations reference](/docs/references/js-operations).
 
-## Usage limits for operations
+## Usage limits 
 
-Transposit enforces usage limits on your operations. This helps to protect our infrastructure as well as your API rate limits.
+Transposit enforces usage limits. This helps to protect our infrastructure as well as your API rate limits.
 
-### Memory
+A request may consist of many operations. A request starts when a developer runs an operation in the console, a scheduled task is started or an endpoint is accessed.
 
-* Each request is given a quota of 1 GB of memory allocated
-* This is not configurable by the developer
+### Request limits
 
-### CPU time
+#### Memory
 
-* Each request is given a quota of 1 minute of CPU time
-* This is not configurable by the developer
+* Each request is given a quota of 1 GB of memory allocated.
+* This is not configurable by the developer.
+
+#### CPU time
+
+* Each request is given a quota of 1 minute of CPU time.
+* This is not configurable by the developer.
+
+#### Execution timeout
+
+* Each request is given a quota of 1 minute of execution time.
+* This is configurable by the developer, under **Code > Operations > Properties**. If you configure this timeout, it only applies when this operation is the first operation to run.
+* The maximum value is 5 minutes.
+* If operations are running in parallel (for example, if you use [`runBulk`](/docs/references/js-operations/#run-bulk)), you'll use CPU time more quickly than execution time; if you use [timing events](/docs/references/js-operations/#timing-events) like `setTimeout`, you'll likely use CPU time less quickly than execution time.
 
 ### Operations
 
-* Each request is given a quota of 1000 operations calls
-* Each call to a SQL or JavaScript operation counts against this limit
+* Each request is given a quota of 1000 operations calls.
+* Each call to a SQL or JavaScript operation counts against this limit.
 * This is not configurable by the developer, but inlining operations is a workaround.
 
 ### API call limits
